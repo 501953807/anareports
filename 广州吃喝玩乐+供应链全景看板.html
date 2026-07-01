@@ -236,6 +236,58 @@ section { margin-bottom: 50px; }
   margin-top: 10px;
   opacity: 0.7;
 }
+.channel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.channel-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+}
+.channel-card.cyan::after { background: var(--neon-cyan); }
+.channel-card.purple::after { background: var(--neon-purple); }
+.channel-card.red::after { background: var(--neon-red); }
+.channel-card.green::after { background: var(--neon-green); }
+.channel-card.orange::after { background: var(--neon-orange); }
+.channel-card.gold::after { background: var(--neon-gold); }
+.channel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.channel-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.channel-card .channel-icon { font-size: 18px; }
+.channel-card.cyan h3 { color: var(--neon-cyan); }
+.channel-card.purple h3 { color: var(--neon-purple); }
+.channel-card.red h3 { color: var(--neon-red); }
+.channel-card.green h3 { color: var(--neon-green); }
+.channel-card.orange h3 { color: var(--neon-orange); }
+.channel-card.gold h3 { color: var(--neon-gold); }
+.channel-card p { font-size: 12px; color: var(--text2); line-height: 1.7; margin-bottom: 6px; }
+.channel-card p strong { color: var(--text); }
+.channel-card .street-note {
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.8;
+}
 /* Footer */
 footer {
   text-align: center;
@@ -566,6 +618,183 @@ footer {
         <li><strong>新港西水果市场</strong> — 全国最大水果二级批发市场</li>
       </ul>
       <p style="font-size:12px;color:var(--text2);margin-top:8px;">适合: 跨境电商选品 / 供应链采购 / 批量进货</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 模块三：供应链批发市场篇（品类维度） ===== -->
+<section>
+  <h2 class="section-title">模块三：供应链批发市场全景 — 品类维度（街道级详解）</h2>
+  <p style="color:var(--text2);font-size:13px;margin-bottom:20px;">以下每个批发市场均精确标注到街道/路名级别，说明每栋楼/每条街的功能定位、主营品类、价格区间和目标客户。</p>
+
+  <div class="grid-2">
+
+    <!-- 8.1 服装鞋帽 -->
+    <div class="channel-card cyan">
+      <h3><span class="channel-icon">👗</span> 服装鞋帽</h3>
+      <p><strong>核心区域:</strong> 荔湾区和平路/光复南路(十三行) | 越秀区站前路(白马) | 白云区增槎路(广大/信诚)</p>
+      <p><strong>十三行·新中国大厦</strong>(和平路1号):</p>
+      <div class="street-note">
+        1-3楼: 散客区，快时尚女装，<strong>50-200元/件</strong>，日客流超3万<br>
+        4-6楼: 批发改衣区，中端女装，<strong>100-400元</strong>，配套缝纫/改码服务<br>
+        7楼以上: 高端定制/设计师品牌，<strong>300-1000元/件</strong>，面向买手店/直播间<br>
+        周边-人民南路: 老牌服装批发，中年女装为主，<strong>80-300元</strong><br>
+        周边-教育路: 鞋类配套市场，女鞋/男鞋/童鞋批发，<strong>30-200元</strong><br>
+        地铁: <strong>1号线/6号线黄沙站B出口</strong>步行5分钟
+      </div>
+      <p><strong>UUS</strong>(人民南路28号): 韩国设计师品牌集合，中高端女装，<strong>300-1500元/件</strong>，韩系风格，精品买手店首选。地铁1号线黄沙站。</p>
+      <p><strong>白马服装市场</strong>(站前路33号):</p>
+      <div class="street-note">
+        1-3楼: 中高端女装，<strong>200-800元/件</strong><br>
+        4-5楼: 男装，<strong>150-600元</strong><br>
+        6楼以上: 设计师品牌/原创设计<br>
+        地铁: <strong>2号线越秀公园站C出口</strong>步行8分钟
+      </div>
+      <p><strong>广大/信诚</strong>(增槎路436号):</p>
+      <div class="street-note">
+        广大服装批发市场: <strong>尾货/库存折扣，10-80元/件</strong>，适合下沉市场/拼多多/直播带货<br>
+        信诚服装购物广场: 毗邻广大，同类尾货，环境更好<br>
+        地铁: <strong>8号线同德站</strong>步行15分钟 / 自驾导航"广大服装批发市场"
+      </div>
+      <p><strong>锦荣国际</strong>(增槎路): 中端女装批发，<strong>100-400元/件</strong>，环境较好，配套停车场/仓储。同德围片区。</p>
+      <p><strong>步云天地</strong>(天河路附近): 高端品牌服装批发，国际大牌授权，<strong>500-3000元</strong>，品质保证。</p>
+    </div>
+
+    <!-- 8.2 皮具箱包 -->
+    <div class="channel-card orange">
+      <h3><span class="channel-icon">👜</span> 皮具箱包</h3>
+      <p><strong>核心区域:</strong> 白云区三元里大道 | 白云区环市西路 | 荔湾区瑞康路(配件)</p>
+      <p><strong>三元里片区</strong>(三元里大道/萧岗村周边):</p>
+      <div class="street-note">
+        三元里皮具批发城: <strong>中低端皮具，50-300元/件</strong>，手提包/双肩包/钱包<br>
+        国际皮具交易中心: <strong>中高端，300-1500元</strong>，品牌代工/自有品牌<br>
+        萧岗村周边小巷: <strong>最低端尾货，10-50元</strong>，地摊/拼多多货源<br>
+        地铁: <strong>2号线三元里站A出口</strong>步行10分钟
+      </div>
+      <p><strong>桂花岗片区</strong>(环市西路):</p>
+      <div class="street-note">
+        百荣皮具商城: <strong>中端，100-500元</strong>，批发+零售兼营<br>
+        益佳皮具交易广场: <strong>中高端，200-800元</strong>，质量稳定<br>
+        地铁: <strong>2号线越秀公园站/三元里站</strong>
+      </div>
+      <p><strong>配套-瑞康路</strong>(荔湾区): 箱包配件专营，拉链/五金/面料/皮革，<strong>B端采购</strong>。地铁1号线黄沙站。</p>
+      <p><strong>配套-广园西路</strong>(白云区): 皮具机械/工具/胶水/模具。地铁2号线飞翔公园站。</p>
+    </div>
+
+    <!-- 8.3 珠宝玉石 -->
+    <div class="channel-card purple">
+      <h3><span class="channel-icon">💎</span> 珠宝玉石</h3>
+      <p><strong>核心区域:</strong> 荔湾区华林街 | 荔湾区康王中路</p>
+      <p><strong>华林国际</strong>(华林街16号):</p>
+      <div class="street-note">
+        4楼: <strong>翡翠玉石专区</strong>，几千至几十万元/件，高端收藏级<br>
+        3楼: <strong>K金/钻石/彩宝</strong>，几百至几万元<br>
+        2楼: <strong>银饰/时尚饰品</strong>，10-500元<br>
+        1楼: <strong>玉器摆件/文玩手串</strong>，几百至数十万<br>
+        地下层: <strong>原材料/毛料市场</strong>（每周六早市）<br>
+        地铁: <strong>1号线长寿路站D出口</strong>步行5分钟
+      </div>
+      <p><strong>荔湾广场</strong>(康王中路990号):</p>
+      <div class="street-note">
+        1-3楼: <strong>低端玉器/水晶/玛瑙</strong>，几十至千元/件<br>
+        4楼以上: <strong>散客淘货区</strong>，性价比极高<br>
+        特点: 广州最大的散客玉器市场，砍价文化浓厚<br>
+        地铁: <strong>1号线长寿路站</strong>
+      </div>
+      <p><strong>上下九步行街</strong>: 周大福/六福/周生生等品牌旗舰店/专柜集中地，零售为主。</p>
+    </div>
+
+    <!-- 8.4 茶叶香料中药材 -->
+    <div class="channel-card green">
+      <h3><span class="channel-icon">🍵</span> 茶叶香料中药材</h3>
+      <p><strong>核心区域:</strong> 荔湾区芳村大道/龙溪大道(茶叶) | 荔湾区清平路(中药材) | 荔湾区芳村(香料)</p>
+      <p><strong>芳村茶叶市场群</strong>(芳村大道/龙溪大道沿线):</p>
+      <div class="street-note">
+        海印茶叶批发市场: <strong>普洱茶/红茶/绿茶/乌龙茶全品类</strong>，50-5000元/斤<br>
+        芳村普洱茶城: <strong>高端普洱茶收藏</strong>，陈年普洱/名山古树，几千至数十万/饼<br>
+        怡盛茶园: <strong>白茶/乌龙茶/花草茶/茶具</strong>，中端为主<br>
+        龙溪大道沿线: <strong>茶叶包装/茶具/茶盘/茶席配件</strong><br>
+        特点: <strong>华南最大茶叶集散地</strong>，年交易额超50亿元<br>
+        地铁: <strong>1号线西朗站/广佛线龙溪站</strong>
+      </div>
+      <p><strong>清平中药材市场</strong>(清平路):</p>
+      <div class="street-note">
+        清平药店街: <strong>传统中药材</strong>（人参/鹿茸/枸杞/当归等），几百至数千元/斤<br>
+        清平保健品市场: <strong>西洋参/燕窝/冬虫夏草/藏红花</strong>，高端滋补品<br>
+        清平路周边小巷: <strong>中药材饮片/药膳配方/养生茶</strong><br>
+        特点: <strong>全国四大中药材市场之一</strong>，可现场鉴定<br>
+        地铁: <strong>6号线文化公园站</strong>步行10分钟
+      </div>
+      <p><strong>芳村香料市场</strong>: 香精香料/食品添加剂，餐饮/食品加工采购首选。广佛线龙溪站。</p>
+    </div>
+
+    <!-- 8.5 电子产品/数码 -->
+    <div class="channel-card red">
+      <h3><span class="channel-icon">📱</span> 电子产品/数码</h3>
+      <p><strong>核心区域:</strong> 天河区岗顶/天河路 | 荔湾区黄沙大道</p>
+      <p><strong>岗顶电脑城群</strong>(中山一路/体育南路):</p>
+      <div class="street-note">
+        太平洋电脑城: <strong>A座电脑整机/配件，B座数码产品/手机</strong>，500-10000元<br>
+        百脑汇: <strong>笔记本/DIY组装/电脑维修</strong>，1000-8000元<br>
+        欧丽数码: <strong>手机配件/数码周边/耳机/充电宝</strong>，10-500元<br>
+        科韵路: <strong>软件开发/互联网企业聚集</strong>（腾讯/网易/微信广州总部）<br>
+        地铁: <strong>3号线岗顶站</strong>
+      </div>
+      <p><strong>黄沙机电市场</strong>(黄沙大道): 工业设备/电子元器件/仪器仪表，<strong>B端采购为主</strong>。地铁1号线黄沙站。</p>
+    </div>
+
+    <!-- 8.6 食品/酒水/干货 -->
+    <div class="channel-card gold">
+      <h3><span class="channel-icon">🛒</span> 食品/酒水/干货</h3>
+      <p><strong>核心区域:</strong> 越秀区一德路/泰康路 | 白云区增槎路 | 越秀区致压路</p>
+      <p><strong>一德路片区</strong>(一德路/泰康路/乐民路):</p>
+      <div class="street-note">
+        一德路国际玩具城: <strong>全国最大玩具批发</strong>，占北方市场70%份额，10-500元/件<br>
+        泰康食品城: <strong>饼干/糖果/坚果</strong>（徐福记/达利园总代理），5-100元/件<br>
+        一德路海味干货街(乐民路): <strong>鲍鱼/海参/花胶/香菇/木耳</strong>，几百至数万元/斤<br>
+        一德路咸水果副食: <strong>进口零食/饮料/调味品</strong>，东南亚/日韩/欧洲全线<br>
+        泰康路副食街: <strong>粮油/米面/调味品</strong>，餐饮批量采购<br>
+        地铁: <strong>6号线一德路站</strong>
+      </div>
+      <p><strong>江南果菜批发市场</strong>(增槎路888号):</p>
+      <div class="street-note">
+        国内果菜区: <strong>苹果/柑橘/香蕉/西瓜等大宗</strong>，按吨批发<br>
+        进口果蔬区: <strong>车厘子/榴莲/牛油果/山竹</strong>（东南亚/澳洲/南美），高端水果<br>
+        特点: <strong>全国最大进口果菜集散中心</strong>，凌晨4点开始批发<br>
+        地铁: <strong>8号线同德站</strong> / 自驾导航
+      </div>
+      <p><strong>南方食品交易市场</strong>(致压路/兴发广场周边): 粮油/调味品/南北干货，<strong>餐饮采购首选</strong>。地铁2号线越秀公园站。</p>
+    </div>
+
+    <!-- 8.7 化妆品 -->
+    <div class="channel-card cyan">
+      <h3><span class="channel-icon">💄</span> 化妆品</h3>
+      <p><strong>核心区域:</strong> 白云区程界西/广园西路 | 白云区同和</p>
+      <p><strong>广州美博城</strong>(程界西街2号):</p>
+      <div class="street-note">
+        1-2楼: <strong>成品化妆品/护肤品/彩妆批发</strong>，10-500元<br>
+        3-4楼: <strong>OEM/ODM代工服务对接</strong>，品牌定制<br>
+        5楼: <strong>原料/包材/香料</strong>，B端采购<br>
+        周边配套: <strong>永泰化妆塑料包装城</strong>（包材）、<strong>兴发塑胶五金城</strong>（机械）<br>
+        特点: <strong>全国最大化妆品全产业链集散地</strong>，辐射全球<br>
+        地铁: <strong>2号线江夏站B出口</strong>步行10分钟
+      </div>
+      <p><strong>佰美国际</strong>(白云区同和): 中高端化妆品/面膜/护肤品OEM/ODM，<strong>品牌孵化首选</strong>。地铁3号线同和站。</p>
+    </div>
+
+    <!-- 8.8 文具/办公/礼品 -->
+    <div class="channel-card purple">
+      <h3><span class="channel-icon">🖊️</span> 文具/办公/礼品</h3>
+      <p><strong>核心区域:</strong> 越秀区致压路/广园西路 | 越秀区一德路</p>
+      <p><strong>兴发广场</strong>(致压路):</p>
+      <div class="street-note">
+        文具办公用品: <strong>笔类/纸张/文件夹/办公设备</strong>，5-500元<br>
+        工艺礼品: <strong>节日装饰/摆件/纪念品/圣诞用品</strong><br>
+        特点: <strong>白云区文具批发核心</strong>，辐射华南<br>
+        地铁: <strong>2号线越秀公园站</strong>
+      </div>
+      <p><strong>一德路玩具文具片区</strong>: 玩具/文具/节日用品/工艺品，与食品干货同街区。地铁6号线一德路站。</p>
     </div>
 
   </div>
