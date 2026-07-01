@@ -81,6 +81,18 @@ body {
   color: var(--text2);
   animation: pulse 3s ease-in-out infinite;
 }
+.highlight-bar {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 20px;
+  border: 1px solid var(--neon-red);
+  border-radius: 6px;
+  color: var(--neon-red);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--glow-red);
+  animation: pulse 2s infinite;
+}
 .highlight-bar i { color: var(--neon-red); margin-right: 8px; }
 /* Metrics */
 .metrics-row {
@@ -275,7 +287,291 @@ footer {
   </div>
 </div>
 
-<!-- 模块二-六占位：由后续任务添加 -->
+<!-- ===== 模块二：吃喝玩乐 ===== -->
+
+<section>
+  <h2 class="section-title">模块二 · 吃喝玩乐</h2>
+
+  <!-- ===== 2.1 美食地图 ===== -->
+  <h3 class="section-subtitle">2.1 美食地图</h3>
+  <div class="grid-3">
+
+    <!-- 广式早茶 -->
+    <div class="card" style="border-left:3px solid var(--neon-red);box-shadow:var(--glow-red);">
+      <h3 style="color:var(--neon-red);"><i class="fa-solid fa-mug-hot"></i> 广式早茶</h3>
+      <ul>
+        <li><strong>核心品种</strong>: 虾饺 / 烧卖 / 叉烧包 / 肠粉 / 凤爪 / 蛋挞 / 流沙包 / 糯米鸡 / 红米肠 / 萝卜糕</li>
+        <li><strong>点都德</strong> — 100+门店，全市密铺</li>
+        <li><strong>陶陶居</strong> — 百年老字号，上下九旗舰店</li>
+        <li><strong>广州酒家</strong> — 文昌南路总店，传统正宗</li>
+        <li><strong>莲香楼</strong> — 太平南路，月饼/早茶双绝</li>
+        <li><strong>泮溪酒家</strong> — 荔枝湾园林酒家，环境一流</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--neon-gold);">人均 ¥50-120</p>
+    </div>
+
+    <!-- 烧腊 -->
+    <div class="card" style="border-left:3px solid var(--neon-orange);box-shadow:0 0 20px rgba(245,158,11,0.3);">
+      <h3 style="color:var(--neon-orange);"><i class="fa-solid fa-drumstick-bite"></i> 烧腊</h3>
+      <ul>
+        <li><strong>核心品种</strong>: 深井烧鹅 / 豉油鸡 / 蜜汁叉烧 / 白切鸡 / 腊肠 / 烧肉</li>
+        <li><strong>炳胜公馆</strong> — 黑叉烧名动全城，珠江新城店需排队</li>
+        <li><strong>万丰酒楼</strong> — 烧鹅一绝，越秀老店</li>
+        <li><strong>惠福东路美食街</strong> — 烧腊店铺最密集的一条街</li>
+        <li><strong>宝业路烧腊带</strong> — 社区口碑店聚集</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--neon-gold);">人均 ¥30-80</p>
+    </div>
+
+    <!-- 糖水/甜品 -->
+    <div class="card" style="border-left:3px solid var(--neon-gold);box-shadow:0 0 20px rgba(234,179,8,0.3);">
+      <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-ice-cream"></i> 糖水 / 甜品</h3>
+      <ul>
+        <li><strong>核心品种</strong>: 姜撞奶 / 双皮奶 / 杨枝甘露 / 绿豆沙 / 芝麻糊 / 红豆沙 / 豆腐花</li>
+        <li><strong>南信牛奶甜品专家</strong> — 中山八，双皮奶公认第一</li>
+        <li><strong>百花甜品</strong> — 上下九，芋泥一绝</li>
+        <li><strong>玫瑰甜品</strong> — 文明路，老西关手工糖水</li>
+        <li><strong>芳记小食</strong> — 宝业路，炸牛奶/双皮奶</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--neon-gold);">人均 ¥15-40</p>
+    </div>
+
+    <!-- 大排档/宵夜 -->
+    <div class="card" style="border-left:3px solid var(--neon-green);box-shadow:0 0 20px rgba(16,185,129,0.3);">
+      <h3 style="color:var(--neon-green);"><i class="fa-solid fa-fire-burner"></i> 大排档 / 宵夜</h3>
+      <ul>
+        <li><strong>核心品种</strong>: 炒田螺 / 椒盐濑尿虾 / 干炒牛河 / 蒜蓉烤生蚝 / 煲仔饭 / 猪杂粥</li>
+        <li><strong>宝业路大排档</strong> — 越秀区，部分营业至凌晨</li>
+        <li><strong>体育西路宵夜街</strong> — 天河区白领聚集</li>
+        <li><strong>滨江路</strong> — 海珠江景烧烤，日落配夜景</li>
+        <li><strong>东晓南路</strong> — 地道老广宵夜一条街</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--neon-gold);">人均 ¥50-150</p>
+    </div>
+
+    <!-- 街头小吃 -->
+    <div class="card" style="border-left:3px solid var(--neon-cyan);box-shadow:var(--glow-cyan);">
+      <h3 style="color:var(--neon-cyan);"><i class="fa-solid fa-utensils"></i> 街头小吃</h3>
+      <ul>
+        <li><strong>核心品种</strong>: 陈添记鱼皮 / 伍湛记及第粥 / 泮塘马蹄糕 / 伦教糕 / 鸡仔饼</li>
+        <li><strong>陈添记</strong> — 宝华路，手撕鱼皮百年传承</li>
+        <li><strong>伍湛记</strong> — 光复北路，及第粥/咸煎饼</li>
+        <li><strong>东方宾馆鸡球饭店</strong> — 流心鸡球一绝</li>
+        <li><strong>达扬原味炖品</strong> — 现点现炖，老广最爱</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--neon-gold);">人均 ¥20-60</p>
+    </div>
+
+    <!-- 老字号/特色 -->
+    <div class="card" style="border-left:3px solid var(--neon-purple);box-shadow:var(--glow-purple);">
+      <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-landmark"></i> 老字号 / 特色</h3>
+      <ul>
+        <li><strong>太平馆</strong> — 长堤大马路，1860年创办，中国第一家西餐酒楼</li>
+        <li><strong>顺记冰室</strong> — 宝华路，椰子雪糕畅销60余年</li>
+        <li><strong>洪圣爷粥城</strong> — 越秀区，海鲜粥现点现煮</li>
+        <li><strong>莲香楼</strong> — 月饼/莲子制品，百年非遗</li>
+        <li><strong>泮溪酒家</strong> — 岭南园林酒家，环境+美食兼具</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--neon-gold);">人均 ¥30-100</p>
+    </div>
+
+  </div>
+
+  <!-- 美食街区速查汇总 -->
+  <div class="card" style="border-left:3px solid var(--neon-red);margin-top:20px;box-shadow:var(--glow-red);">
+    <h3 style="color:var(--neon-red);"><i class="fa-solid fa-map-location-dot"></i> 美食街区速查</h3>
+    <div class="grid-3" style="margin-top:12px;">
+      <div>
+        <p><strong style="color:var(--neon-red);">北京路 / 文明路</strong></p>
+        <p>老字号集中地：伍湛记及第粥 / 银记肠粉 / 达扬原味炖品 / 玫瑰甜品</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--neon-orange);">上下九 / 宝华路</strong></p>
+        <p>骑楼老街：陈添记鱼皮 / 顺记冰室 / 莲香楼 / 陶陶居总店</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--neon-gold);">惠福东路</strong></p>
+        <p>早茶 / 烧腊 / 小吃一条街，炳胜分店所在</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--neon-green);">宝业路</strong></p>
+        <p>大排档 / 宵夜 / 陈添记鱼皮 / 芳记小食 / 玫瑰甜品总店</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--neon-cyan);">体育西路 / 天河路</strong></p>
+        <p>白领宵夜 / 炳胜公馆 / 高端餐饮 / IGC天汇广场</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--neon-purple);">永庆坊 / 恩宁路</strong></p>
+        <p>文创 + 美食融合街区，骑楼翻新，李小龙祖居旁</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <!-- ===== 2.2 必游景点 ===== -->
+  <h3 class="section-subtitle">2.2 必游景点</h3>
+  <div class="grid-3">
+
+    <!-- 历史文化 -->
+    <div class="card" style="border-left:3px solid var(--neon-gold);box-shadow:0 0 20px rgba(234,179,8,0.3);">
+      <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-landmark-dome"></i> 历史文化</h3>
+      <ul>
+        <li><strong>陈家祠</strong> — 岭南建筑巅峰之作，地铁1号线陈家祠站A出口</li>
+        <li><strong>南越王博物院</strong> — 西汉南越王赵眜陵墓，解放北路</li>
+        <li><strong>光孝寺</strong> — "未有南华先光孝"，六祖慧能剃度处</li>
+        <li><strong>六榕寺</strong> — 苏轼题名"六榕"，花塔1000余年</li>
+        <li><strong>石室圣心大教堂</strong> — 全花岗岩哥特式，东南亚唯一</li>
+        <li><strong>黄埔军校旧址</strong> — 长洲岛，近代史发源地</li>
+      </ul>
+    </div>
+
+    <!-- 现代地标 -->
+    <div class="card" style="border-left:3px solid var(--neon-cyan);box-shadow:var(--glow-cyan);">
+      <h3 style="color:var(--neon-cyan);"><i class="fa-solid fa-city"></i> 现代地标</h3>
+      <ul>
+        <li><strong>广州塔（小蛮腰）</strong> — 600米，珠江南岸，可俯瞰全城</li>
+        <li><strong>珠江新城</strong> — 花城广场 / 省博物馆 / 广州图书馆 / 大剧院</li>
+        <li><strong>海心沙</strong> — 2010亚运会开幕式场馆，灯光秀最佳观景点</li>
+        <li><strong>周大福金融中心（东塔）</strong> — 530米，华南第一高楼</li>
+        <li><strong>西塔（广州国际金融中心）</strong> — 440米，珠江新城西翼</li>
+      </ul>
+    </div>
+
+    <!-- 自然山水 -->
+    <div class="card" style="border-left:3px solid var(--neon-green);box-shadow:0 0 20px rgba(16,185,129,0.3);">
+      <h3 style="color:var(--neon-green);"><i class="fa-solid fa-tree"></i> 自然山水</h3>
+      <ul>
+        <li><strong>白云山</strong> — "羊城第一秀"，摩星岭海拔382米，索道上下</li>
+        <li><strong>越秀公园</strong> — 五羊雕塑 / 镇海楼 / 明代古城墙</li>
+        <li><strong>海珠湿地公园</strong> — 城市中轴线上最大生态绿洲</li>
+        <li><strong>华南植物园</strong> — 中科院下属，国家重点植物园</li>
+        <li><strong>荔湾湖公园</strong> — 西关风情，荔枝湾涌重现</li>
+      </ul>
+    </div>
+
+    <!-- 主题乐园 -->
+    <div class="card" style="border-left:3px solid var(--neon-red);box-shadow:var(--glow-red);">
+      <h3 style="color:var(--neon-red);"><i class="fa-solid fa-ticket"></i> 主题乐园</h3>
+      <ul>
+        <li><strong>长隆野生动物世界</strong> — 全国最好，自驾小火车穿越</li>
+        <li><strong>长隆欢乐世界</strong> — 垂直跌落过山车 / 十环过山车</li>
+        <li><strong>长隆水上乐园</strong> — 吉尼斯认证全球最大水上乐园</li>
+        <li><strong>长隆国际大马戏</strong> — 全球最大马戏表演，必看</li>
+      </ul>
+      <p style="margin-top:8px;"><strong style="color:var(--neon-gold);">地址</strong>: 番禺区迎宾路</p>
+      <p><strong style="color:var(--neon-gold);">交通</strong>: 地铁3号线 / 7号线汉溪长隆站</p>
+    </div>
+
+    <!-- 文化街区 -->
+    <div class="card" style="border-left:3px solid var(--neon-purple);box-shadow:var(--glow-purple);grid-column:span 2;">
+      <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-chess-rook"></i> 文化街区 + 夜生活</h3>
+      <div class="grid-2" style="margin-top:8px;">
+        <div>
+          <p><strong style="color:var(--neon-gold);">永庆坊</strong> — 李小龙祖居 / 粤剧博物馆 / 恩宁路骑楼改造典范</p>
+          <p><strong style="color:var(--neon-cyan);">东山口</strong> — 红砖洋楼 / 文艺小店 / 广州最有味道的小众打卡地</p>
+          <p><strong style="color:var(--neon-green);">沙面</strong> — 欧式建筑群 / 曾经的英法租界 / 婚纱摄影圣地</p>
+        </div>
+        <div>
+          <p><strong style="color:var(--neon-red);">珠江夜游</strong> — 天字码头 / 大沙头码头，两岸灯光秀绝美</p>
+          <p><strong style="color:var(--neon-orange);">琶醍啤酒创意区</strong> — 珠江边酒吧街，日落配夜景</p>
+          <p><strong style="color:var(--neon-purple);">北京路 / 宝华路</strong> — 24小时书店方所 / 购书中心 / 千年古道</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <!-- ===== 2.3 夜生活补充 ===== -->
+  <h3 class="section-subtitle">2.3 夜生活精选</h3>
+  <div class="grid-3">
+    <div class="card" style="border-left:3px solid var(--neon-purple);">
+      <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-moon"></i> 夜间经济</h3>
+      <ul>
+        <li><strong>珠江夜游</strong> — 天字码头 / 大沙头码头出发，两岸灯光秀，票价¥80-200</li>
+        <li><strong>琶醍啤酒创意区</strong> — 珠江边酒吧街，日落+江景，人均¥80-200</li>
+        <li><strong>体育西路</strong> — 天河夜生活中心，酒吧 / KTV / 夜店聚集</li>
+        <li><strong>环市东路</strong> — 花园酒店 / 白云宾馆老牌酒吧街，粤语经典</li>
+        <li><strong>北京路 / 宝华路</strong> — 24小时书店方所 / 购书中心，深夜也能逛</li>
+        <li><strong>江南西夜市</strong> — 海珠区年轻人夜市，小吃+潮玩</li>
+      </ul>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--neon-red);">
+      <h3 style="color:var(--neon-red);"><i class="fa-solid fa-champagne-glasses"></i>  nightlife 指南</h3>
+      <ul>
+        <li><strong>Best Bar</strong>: 饕餮鬼牌 (Tiki Bar), TIT造厂创意园</li>
+        <li><strong>Live House</strong>: 太空间 / 音乐公园 / UUC Music Club</li>
+        <li><strong>Club</strong>: SPACE (琶醍) / SUMMIT (珠江城)</li>
+        <li><strong>深夜食堂</strong>: 宝业路 / 体育西路小巷大排档</li>
+        <li><strong>24H书店</strong>: 方所 (太古汇) / 购书中心 (北京路)</li>
+      </ul>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--neon-gold);">
+      <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-star"></i> 夜景推荐</h3>
+      <ul>
+        <li><strong>广州塔</strong> — 登塔看全城夜景，¥150起</li>
+        <li><strong>海心桥</strong> — 连接珠江两岸，免费</li>
+        <li><strong>花城广场</strong> — 最佳珠江新城灯光秀视角</li>
+        <li><strong>白云山摩星岭</strong> — 俯瞰全城夜景，免费</li>
+        <li><strong>猎德大桥</strong> — 开车过桥看两岸灯光</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <!-- ===== 2.4 购物天堂 ===== -->
+  <h3 class="section-subtitle">2.4 购物天堂</h3>
+  <div class="grid-3">
+
+    <!-- 高端商圈 -->
+    <div class="card" style="border-left:3px solid var(--neon-gold);box-shadow:0 0 20px rgba(234,179,8,0.3);">
+      <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-gem"></i> 高端商圈</h3>
+      <ul>
+        <li><strong>太古汇</strong> — 天河路，全一线奢侈品牌 (Chanel / LV / Hermes)</li>
+        <li><strong>天环广场</strong> — 体育西路，Apple旗舰店 / 潮流品牌</li>
+        <li><strong>IGC天汇广场</strong> — 天河路中高端 + 精品餐饮</li>
+        <li><strong>广百百货</strong> — 北京路老字号百货，节假日大促力度大</li>
+        <li><strong>新大新公司</strong> — 北京路，百年百货，1912年建</li>
+      </ul>
+      <p style="font-size:12px;color:var(--text2);margin-top:8px;">交通: 地铁1号线 / 2号线 / 6号线 北京路站 / APM线 体育中心站</p>
+    </div>
+
+    <!-- 大众消费 -->
+    <div class="card" style="border-left:3px solid var(--neon-cyan);box-shadow:var(--glow-cyan);">
+      <h3 style="color:var(--neon-cyan);"><i class="fa-solid fa-bag-shopping"></i> 大众消费</h3>
+      <ul>
+        <li><strong>正佳广场</strong> — 天河路6层超大综合体，海洋馆 + 剧院 + 超市</li>
+        <li><strong>北京路步行街</strong> — 老字号 + 特产 + 小吃 + 千年古道遗址</li>
+        <li><strong>上下九步行街</strong> — 骑楼建筑 + 广式小吃 + 老字号</li>
+        <li><strong>江南西</strong> — 海珠区年轻人潮流小店，夜市文化发达</li>
+        <li><strong>东山口</strong> — 文艺小众 + 设计师品牌 + 独立咖啡馆</li>
+      </ul>
+      <p style="font-size:12px;color:var(--text2);margin-top:8px;">特点: 性价比高，本地人最常逛的消费场景</p>
+    </div>
+
+    <!-- 批发市场购物 -->
+    <div class="card" style="border-left:3px solid var(--neon-purple);box-shadow:var(--glow-purple);">
+      <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-boxes-stacked"></i> 批发市场</h3>
+      <ul>
+        <li><strong>十三行新中国大厦</strong> — 女装批发，同时也接待散客，1-3楼零售</li>
+        <li><strong>白马服装市场</strong> — 站前路，中高端女装，全国辐射</li>
+        <li><strong>华林国际</strong> — 华林街，玉器珠宝集散地</li>
+        <li><strong>一德路</strong> — 玩具 / 海味干货 / 进口食品批发</li>
+        <li><strong>新港西水果市场</strong> — 全国最大水果二级批发市场</li>
+      </ul>
+      <p style="font-size:12px;color:var(--text2);margin-top:8px;">适合: 跨境电商选品 / 供应链采购 / 批量进货</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 模块三-六占位：由后续任务添加 -->
 
 <footer>
   <p><strong>数据来源：</strong>广州市统计局 · 广州海关 · 商务部 · 广州市文化广电旅游局 · 各批发市场管委会 · 各电商平台公开资料</p>
