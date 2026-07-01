@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球地下钱庄与洗钱全景风险预警看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root {
+  --bg: #0a0e17;
+  --surface: #111827;
+  --surface2: #1a2235;
+  --border: #1e2a3a;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --neon-red: #ef4444;
+  --neon-cyan: #06b6d4;
+  --neon-purple: #8b5cf6;
+  --neon-green: #10b981;
+  --neon-orange: #f59e0b;
+  --glow-red: 0 0 20px rgba(239,68,68,0.3);
+  --glow-cyan: 0 0 20px rgba(6,182,212,0.3);
+  --glow-purple: 0 0 20px rgba(139,92,246,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-width: 1024px;
+}
+.container { max-width: 1600px; margin: 0 auto; padding: 24px; }
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 50px 20px 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  position: relative;
+}
+.hero .subtitle { color: var(--text2); font-size: 14px; margin-bottom: 6px; }
+.hero .meta { font-size: 12px; color: var(--text2); opacity: 0.7; }
+.hero .meta span { margin: 0 8px; }
+.hero .highlight-bar {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 20px;
+  border: 1px solid var(--neon-red);
+  border-radius: 6px;
+  color: var(--neon-red);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--glow-red);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+/* Metrics */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+@media (max-width: 1200px) { .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.metric-card.red::before { background: var(--neon-red); box-shadow: var(--glow-red); }
+.metric-card.cyan::before { background: var(--neon-cyan); box-shadow: var(--glow-cyan); }
+.metric-card.purple::before { background: var(--neon-purple); box-shadow: var(--glow-purple); }
+.metric-card.green::before { background: var(--neon-green); }
+.metric-card .value {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.metric-card.red .value { color: var(--neon-red); }
+.metric-card.cyan .value { color: var(--neon-cyan); }
+.metric-card.purple .value { color: var(--neon-purple); }
+.metric-card.green .value { color: var(--neon-green); }
+.metric-card .label { font-size: 12px; color: var(--text2); line-height: 1.5; }
+/* Sections */
+section { margin-bottom: 50px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-left: 14px;
+  border-left: 3px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+.section-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text2);
+  margin: 24px 0 14px;
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
+}
+/* Grid */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 1200px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  transition: all 0.2s;
+}
+.card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+}
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.card p, .card li { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.card ul { list-style: none; padding: 0; }
+.card ul li { padding: 5px 0; border-bottom: 1px solid rgba(30,42,58,0.5); }
+.card ul li:last-child { border-bottom: none; }
+.card ul li strong { color: var(--text); font-weight: 600; }
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.data-table th {
+  background: var(--surface2);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
+}
+.data-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(26,34,53,0.5); }
+.data-table .amount { color: var(--neon-red); font-weight: 600; white-space: nowrap; }
+.data-table .year { color: var(--neon-cyan); font-weight: 600; white-space: nowrap; }
+/* Flow diagram */
+.flow-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.flow-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 140px;
+  flex: 1;
+  max-width: 200px;
+}
+.flow-step .step-icon { font-size: 24px; margin-bottom: 8px; }
+.flow-step .step-label { font-size: 13px; font-weight: 600; color: var(--text); }
+.flow-step .step-desc { font-size: 11px; color: var(--text2); margin-top: 4px; }
+.flow-arrow {
+  color: var(--neon-cyan);
+  font-size: 20px;
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+/* Chart containers */
+.chart-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.chart-box .chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+  padding-left: 10px;
+  border-left: 2px solid var(--neon-purple);
+}
+.echarts-container { width: 100%; height: 400px; }
+.echarts-container.small { height: 300px; }
+.echarts-container.large { height: 500px; }
+/* Channel cards */
+.channel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.channel-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+}
+.channel-card.cyan::after { background: var(--neon-cyan); }
+.channel-card.purple::after { background: var(--neon-purple); }
+.channel-card.red::after { background: var(--neon-red); }
+.channel-card.green::after { background: var(--neon-green); }
+.channel-card.orange::after { background: var(--neon-orange); }
+.channel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.channel-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.channel-card .channel-icon { font-size: 18px; }
+.channel-card.cyan h3 { color: var(--neon-cyan); }
+.channel-card.purple h3 { color: var(--neon-purple); }
+.channel-card.red h3 { color: var(--neon-red); }
+.channel-card.green h3 { color: var(--neon-green); }
+.channel-card.orange h3 { color: var(--neon-orange); }
+.channel-card p { font-size: 12px; color: var(--text2); line-height: 1.7; margin-bottom: 8px; }
+.channel-card .case {
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+.channel-card .case strong { color: var(--neon-orange); }
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  margin: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 16px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -26px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+}
+.timeline-item .tl-year {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  margin-bottom: 4px;
+}
+.timeline-item .tl-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.timeline-item .tl-desc {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+/* Data note */
+.data-note {
+  font-size: 11px;
+  color: var(--text2);
+  font-style: italic;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 11px;
+  margin-top: 40px;
+}
+footer a { color: var(--neon-cyan); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <h1>全球地下钱庄与洗钱全景风险预警看板</h1>
+  <p class="subtitle">地下钱庄 · 虚拟币洗钱 · 贸易洗钱 · 哈瓦拉体系 · 离岸空壳公司 — 六大渠道全解析</p>
+  <p class="meta">
+    <span>生成日期：2026年7月</span>
+    <span>|</span>
+    <span>数据基准：2015-2025年官方统计</span>
+    <span>|</span>
+    <span>覆盖范围：全球主要司法管辖区</span>
+  </p>
+  <div class="highlight-bar">
+    <i class="fas fa-exclamation-triangle"></i>
+    全球洗钱规模预估：每年 $8,000亿 - $20,000亿（全球 GDP 的 2%-5%）
+  </div>
+</div>
+
+<!-- ===== 全局数据大字报 ===== -->
+<div class="metrics-row">
+  <div class="metric-card red">
+    <div class="value">$8-2万亿</div>
+    <div class="label">全球年度洗钱规模<br>FATF 估算 (GDP 2-5%)</div>
+  </div>
+  <div class="metric-card purple">
+    <div class="value">$209亿</div>
+    <div class="label">2023年链上犯罪总量<br>Chainalysis Crypto Crime Report</div>
+  </div>
+  <div class="metric-card cyan">
+    <div class="value">$6000亿-1万亿</div>
+    <div class="label">年度贸易洗钱规模<br>UNODC TBML Global Report</div>
+  </div>
+  <div class="metric-card green">
+    <div class="value">$126亿</div>
+    <div class="label">2024年美国资产没收额<br>DOJ Annual Forfeiture Report</div>
+  </div>
+</div>
+
+<!-- ===== 模块一：全球洗钱规模总览 ===== -->
+<section>
+<h2 class="section-title">模块一：全球洗钱规模与执法数据总览</h2>
+
+<div class="grid-2">
+  <!-- 图1：全球洗钱趋势 -->
+  <div class="chart-box">
+    <div class="chart-title">全球洗钱规模趋势估算 (2015-2025)</div>
+    <div id="chart-global-trend" class="echarts-container"></div>
+    <p class="data-note">数据来源：FATF Global Money Laundering Risk Report 2024-2025; UNODC</p>
+  </div>
+
+  <!-- 图2：各国查处案件数 -->
+  <div class="chart-box">
+    <div class="chart-title">各国年度洗钱查处案件数对比 (2020-2025)</div>
+    <div id="chart-cases" class="echarts-container"></div>
+    <p class="data-note">数据来源：FinCEN; DOJ; Europol; PBOC; NCA; MAS</p>
+  </div>
+</div>
+
+<div class="grid-2">
+  <!-- 图3：各国没收资产金额 -->
+  <div class="chart-box">
+    <div class="chart-title">各国年度没收/追缴资产金额 (亿美元)</div>
+    <div id="chart-confiscation" class="echarts-container"></div>
+    <p class="data-note">数据来源：DOJ Asset Forfeiture; EU EPPO; UK NCA; 中国公安部</p>
+  </div>
+
+  <!-- 图4：前置犯罪类型 -->
+  <div class="chart-box">
+    <div class="chart-title">欧盟涉嫌洗钱前置犯罪类型分布 (2023)</div>
+    <div id="chart-predicate" class="echarts-container small"></div>
+    <p class="data-note">数据来源：Europol 2024 Money Laundering Risk Assessment</p>
+  </div>
+</div>
+
+<!-- FinCEN 罚款TOP15 -->
+<h3 class="section-subtitle">FinCEN 最大反洗钱罚款 TOP 15 (2012-2025)</h3>
+<div class="card">
+<table class="data-table">
+<tr><th>排名</th><th>机构</th><th>罚款金额</th><th>年份</th><th>原因</th></tr>
+<tr><td>1</td><td>Wells Fargo</td><td class="amount">$32亿</td><td class="year">2025</td><td>伊朗相关SAR报告违规</td></tr>
+<tr><td>2</td><td>Wells Fargo (外汇)</td><td class="amount">$30亿</td><td class="year">2023</td><td>外汇业务洗钱漏洞</td></tr>
+<tr><td>3</td><td>UBS</td><td class="amount">$20亿</td><td class="year">2016</td><td>协助美国客户逃税</td></tr>
+<tr><td>4</td><td>Deutsche Bank</td><td class="amount">$15亿</td><td class="year">2024</td><td>AML框架系统性失效</td></tr>
+<tr><td>5</td><td>Standard Chartered</td><td class="amount">$12亿</td><td class="year">2019-2020</td><td>伊朗/缅甸/俄罗斯制裁违反</td></tr>
+<tr><td>6</td><td>BNP Paribas</td><td class="amount">$9亿</td><td class="year">2014</td><td>苏丹/伊朗/古巴制裁违规</td></tr>
+<tr><td>7</td><td>HSBC</td><td class="amount">$6.65亿</td><td class="year">2012</td><td>墨西哥/土耳其洗钱</td></tr>
+<tr><td>8</td><td>Credit Suisse</td><td class="amount">$8.46亿</td><td class="year">2024</td><td>协助客户隐藏资产</td></tr>
+<tr><td>9</td><td>Rabobank</td><td class="amount">$8.4亿</td><td class="year">2024</td><td>AML监控失败</td></tr>
+<tr><td>10</td><td>ING Bank</td><td class="amount">$6.7亿</td><td class="year">2015</td><td>伊朗/俄罗斯制裁违反</td></tr>
+<tr><td>11</td><td>JPMorgan Chase</td><td class="amount">$8.66亿</td><td class="year">2024</td><td>AML合规整改</td></tr>
+<tr><td>12</td><td>DBS Bank (新加坡)</td><td class="amount">$1亿SGD</td><td class="year">2024</td><td>AML系统缺陷</td></tr>
+<tr><td>13</td><td>MetaBank</td><td class="amount">$5000万</td><td class="year">2022</td><td>虚拟币洗钱相关</td></tr>
+<tr><td>14</td><td>Goldman Sachs</td><td class="amount">$1亿+</td><td class="year">2023-2025</td><td>AML框架多项缺陷</td></tr>
+<tr><td>15</td><td>Citibank</td><td class="amount">$5亿+</td><td class="year">2019-2025</td><td>AML/KYC系统性不足</td></tr>
+</table>
+<p class="data-note">数据来源：FinCEN Enforcement Actions Database; DOJ Press Releases; OFAC Enforcement</p>
+</div>
+</section>
+
+</div><!-- .container -->
+
+<script>
+// ===== 全局图表初始化 =====
+document.addEventListener('DOMContentLoaded', function() {
+
+// --- 图1: 全球洗钱规模趋势 ---
+var chart1 = echarts.init(document.getElementById('chart-global-trend'));
+chart1.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  legend: { data: ['洗钱规模下限($B)', '洗钱规模上限($B)', '全球GDP($T)'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 60, right: 20, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: [
+    { type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+    { type: 'value', name: '($T)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+  ],
+  series: [
+    { name: '洗钱规模下限($B)', type: 'line', data: [640,700,750,800,850,900,950,1000,1050,1100,1200], lineStyle: { color: '#ef4444', width: 2 }, itemStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.1)' } },
+    { name: '洗钱规模上限($B)', type: 'line', data: [1600,1750,1875,2000,2125,2250,2375,2500,2625,2750,3000], lineStyle: { color: '#ef4444', width: 2, type: 'dashed' }, itemStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.05)' } },
+    { name: '全球GDP($T)', type: 'line', yAxisIndex: 1, data: [80,84,87,91,93,92,96,100,104,108,114], lineStyle: { color: '#06b6d4', width: 2 }, itemStyle: { color: '#06b6d4' } }
+  ]
+});
+
+// --- 图2: 各国年度查处案件数 ---
+var chart2 = echarts.init(document.getElementById('chart-cases'));
+chart2.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  legend: { data: ['美国','中国','欧盟','英国','日本','新加坡'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 60, right: 20, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'value', name: '(千起)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [
+    { name: '美国', type: 'bar', stack: 'total', data: [180,200,220,240,260], itemStyle: { color: '#06b6d4' } },
+    { name: '中国', type: 'bar', stack: 'total', data: [80,120,180,250,300], itemStyle: { color: '#ef4444' } },
+    { name: '欧盟', type: 'bar', stack: 'total', data: [200,220,250,280,300], itemStyle: { color: '#8b5cf6' } },
+    { name: '英国', type: 'bar', stack: 'total', data: [25,30,35,40,45], itemStyle: { color: '#10b981' } },
+    { name: '日本', type: 'bar', stack: 'total', data: [10,12,15,18,20], itemStyle: { color: '#f59e0b' } },
+    { name: '新加坡', type: 'bar', stack: 'total', data: [5,8,10,15,20], itemStyle: { color: '#ec4899' } }
+  ]
+});
+
+// --- 图3: 各国没收资产金额 ---
+var chart3 = echarts.init(document.getElementById('chart-confiscation'));
+chart3.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  legend: { data: ['没收资产(亿美元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 60, right: 20, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['美国','欧盟','英国','中国','日本','新加坡','瑞士'], axisLabel: { color: '#94a3b8', rotate: 30 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'value', name: '(亿美元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [{
+    name: '没收资产(亿美元)',
+    type: 'bar',
+    data: [
+      { value: 126, itemStyle: { color: '#06b6d4' } },
+      { value: 15, itemStyle: { color: '#8b5cf6' } },
+      { value: 4, itemStyle: { color: '#10b981' } },
+      { value: 5, itemStyle: { color: '#ef4444' } },
+      { value: 2, itemStyle: { color: '#f59e0b' } },
+      { value: 1, itemStyle: { color: '#ec4899' } },
+      { value: 3, itemStyle: { color: '#fbbf24' } }
+    ],
+    barWidth: '50%'
+  }]
+});
+
+// --- 图4: 前置犯罪类型 ---
+var chart4 = echarts.init(document.getElementById('chart-predicate'));
+chart4.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'item' },
+  legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#94a3b8', fontSize: 11 }, data: ['欺诈','毒品走私','税务犯罪','腐败','有组织犯罪','人口贩卖','武器走私','其他'] },
+  series: [{
+    type: 'pie',
+    radius: ['40%', '70%'],
+    center: ['40%', '50%'],
+    avoidLabelOverlap: false,
+    itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
+    label: { show: false },
+    data: [
+      { value: 42, name: '欺诈', itemStyle: { color: '#ef4444' } },
+      { value: 18, name: '毒品走私', itemStyle: { color: '#f59e0b' } },
+      { value: 12, name: '税务犯罪', itemStyle: { color: '#8b5cf6' } },
+      { value: 7, name: '腐败', itemStyle: { color: '#06b6d4' } },
+      { value: 6, name: '有组织犯罪', itemStyle: { color: '#10b981' } },
+      { value: 5, name: '人口贩卖', itemStyle: { color: '#ec4899' } },
+      { value: 4, name: '武器走私', itemStyle: { color: '#f97316' } },
+      { value: 6, name: '其他', itemStyle: { color: '#64748b' } }
+    ]
+  }]
+});
+
+// 响应式
+window.addEventListener('resize', function() {
+  chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
+});
+});
+</script>
+
+</body>
+</html>
