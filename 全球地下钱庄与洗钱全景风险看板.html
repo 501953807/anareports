@@ -455,6 +455,95 @@ footer a { color: var(--neon-cyan); text-decoration: none; }
 </div>
 </section>
 
+<!-- ===== 模块二：洗钱渠道全景 ===== -->
+<section>
+<h2 class="section-title">模块二：洗钱渠道全景 — 三大阶段与六大通道</h2>
+
+<h3 class="section-subtitle">洗钱三阶段流程</h3>
+<div class="flow-steps">
+  <div class="flow-step" style="border-color: var(--neon-red);">
+    <div class="step-icon" style="color: var(--neon-red);"><i class="fas fa-hand-holding-usd"></i></div>
+    <div class="step-label">放置 Phase 1</div>
+    <div class="step-desc">将非法现金注入金融体系<br>存款/购买筹码/购买资产</div>
+  </div>
+  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+  <div class="flow-step" style="border-color: var(--neon-purple);">
+    <div class="step-icon" style="color: var(--neon-purple);"><i class="fas fa-exchange-alt"></i></div>
+    <div class="step-label">分层 Phase 2</div>
+    <div class="step-desc">多层交易切断资金链路<br>转账/兑换/贸易虚报/虚拟币混币</div>
+  </div>
+  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+  <div class="flow-step" style="border-color: var(--neon-green);">
+    <div class="step-icon" style="color: var(--neon-green);"><i class="fas fa-building"></i></div>
+    <div class="step-label">融合 Phase 3</div>
+    <div class="step-desc">以合法形式回流使用<br>房地产/企业投资/艺术品/加密DeFi</div>
+  </div>
+</div>
+
+<h3 class="section-subtitle">六大主要洗钱渠道</h3>
+<div class="grid-3">
+  <!-- 渠道1: 地下钱庄对敲 -->
+  <div class="channel-card cyan">
+    <h3><i class="channel-icon fas fa-university"></i> 地下钱庄对敲模式</h3>
+    <p><strong>机制：</strong>境内收人民币 -> 境外付外币，资金不跨境，通过境内外账户对敲完成兑换。无需真实贸易背景。</p>
+    <p><strong>典型步骤：</strong></p>
+    <p>1. 客户将人民币打入境内钱庄账户<br>2. 钱庄通知境外关联账户<br>3. 境外以加密货币/外币打款给客户<br>4. 资金链路在账面上完全分离</p>
+    <p><strong>涉及金额：</strong>中国地下钱庄年交易规模预估超 5 万亿人民币</p>
+    <div class="case"><strong>案例：</strong>2024年广东"4·15"案，打掉跨境地下钱庄网络，涉案金额超 300 亿元人民币，主犯被判无期</div>
+  </div>
+
+  <!-- 渠道2: 哈瓦拉体系 -->
+  <div class="channel-card orange">
+    <h3><i class="channel-icon fas fa-globe-asia"></i> 哈瓦拉(Hawala)体系</h3>
+    <p><strong>机制：</strong>基于信任网络的跨境汇款系统，无实际资金跨境流动。汇款人在A国付款给本地Hawala商，收款人在B国从本地关联商处收到等额款项。</p>
+    <p><strong>典型步骤：</strong></p>
+    <p>1. 汇款人向本地Hawala代理付款<br>2. 代理通过WhatsApp/电话通知海外代理<br>3. 海外代理将等额款项支付给收款人<br>4. 双方通过后续交易平衡差额</p>
+    <p><strong>涉及金额：</strong>全球Hawala市场规模约 $1 万亿/年，仅印度 corridor 就达 $600-900亿/年</p>
+    <div class="case"><strong>案例：</strong>2024年阿联酋查获Hawala网络，涉及跨境资金转移超 $2亿，关联恐怖融资</div>
+  </div>
+
+  <!-- 渠道3: 虚拟币混币 -->
+  <div class="channel-card purple">
+    <h3><i class="channel-icon fab fa-bitcoin"></i> 虚拟币混币/跨链</h3>
+    <p><strong>机制：</strong>利用区块链的伪匿名性，通过混币器(Tornado Cash)、跨链桥、DEX分散交易，切断链上追踪链路。</p>
+    <p><strong>典型步骤：</strong></p>
+    <p>1. 将非法所得转换为稳定币(USDT/USDC)<br>2. 通过混币器(Tornado Cash)多次拆分合并<br>3. 跨链桥转移到不同链<br>4. 通过DEX兑换为干净代币<br>5. 存入正规CEX提现到银行账户</p>
+    <p><strong>涉及金额：</strong>2023年链上洗钱 $145亿，2022年峰值 $855亿</p>
+    <div class="case"><strong>案例：</strong>Tornado Cash 创建者 Pertsev 2024年被判86个月；OFAC 2022年制裁Tornado Cash；Blend 2025年被FinCEN罚款$1.8亿</div>
+  </div>
+
+  <!-- 渠道4: 贸易洗钱 -->
+  <div class="channel-card red">
+    <h3><i class="channel-icon fas fa-ship"></i> 贸易洗钱 TBML</h3>
+    <p><strong>机制：</strong>通过进出口贸易发票造假，利用货物真实跨境流动掩盖非法资金转移。是最古老也最难发现的洗钱方式。</p>
+    <p><strong>典型步骤：</strong></p>
+    <p>1. 高报进口价格（资金出境）或低报出口价格（资金入境）<br>2. 利用虚假发票/提单/重复报关<br>3. 通过自由港(迪拜/新加坡/苏黎世)存储货物制造假象<br>4. 以"贸易回款"名义将资金合法化</p>
+    <p><strong>涉及金额：</strong>全球 TBML 规模 $6000亿-$1万亿/年，占全球洗钱 18%</p>
+    <div class="case"><strong>案例：</strong>朝鲜"人民经济团"通过船舶转运石油/煤炭，年洗钱规模估计 $10-27亿；2024年欧盟查获TBML网络涉及 €12亿</div>
+  </div>
+
+  <!-- 渠道5: 离岸空壳公司 -->
+  <div class="channel-card green">
+    <h3><i class="channel-icon fas fa-file-contract"></i> 离岸空壳公司</h3>
+    <p><strong>机制：</strong>在BVI/开曼/塞舌尔/巴拿马等离岸地注册空壳公司，利用受益所有人信息不透明，层层嵌套掩盖实际控制人。</p>
+    <p><strong>典型步骤：</strong></p>
+    <p>1. 在离岸地设立SPV(特殊目的公司)<br>2. 通过多层持股结构隐藏实际控制人<br>3. 以"咨询服务费"/"特许权使用费"转移资金<br>4. 通过离岸银行账户进行跨国转账<br>5. 最终通过传统银行体系融入</p>
+    <p><strong>涉及金额：</strong>巴拿马文件揭露 $2 万亿隐匿资金；潘多拉文件揭露 €2.6万亿</p>
+    <div class="case"><strong>案例：</strong>1MDB丑闻 — 马来西亚主权基金 $45亿被挪用，通过离岸公司网络流入好莱坞电影/奢侈品</div>
+  </div>
+
+  <!-- 渠道6: 现金密集型 -->
+  <div class="channel-card red">
+    <h3><i class="channel-icon fas fa-coins"></i> 现金密集型/结构化存款</h3>
+    <p><strong>机制：</strong>通过现金密集型企业(赌场/餐馆/当铺)将非法现金混入合法收入，或通过"蚂蚁搬家"(Structuring)规避申报阈值。</p>
+    <p><strong>典型步骤：</strong></p>
+    <p>1. 将大额现金拆分为低于申报阈值的小额(如<$10,000)<br>2. 通过多个代理人/账户分散存入<br>3. 利用现金密集型企业伪造营业收入<br>4. 购买赌场筹码后以"赢钱"名义提现<br>5. 通过离岸公司或虚拟币进一步清洗</p>
+    <p><strong>涉及金额：</strong>全球现金洗钱规模难以精确估算，FBI 2023年没收现金超 $4亿</p>
+    <div class="case"><strong>案例：</strong>菲律宾Jugeteng赌博年现金流 P54-100亿，通过地下钱庄和对敲转移至中国大陆；2024年马尼拉查获跨境赌资网络</div>
+  </div>
+</div>
+</section>
+
 </div><!-- .container -->
 
 <script>
