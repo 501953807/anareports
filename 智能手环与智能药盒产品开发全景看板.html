@@ -114,6 +114,36 @@ footer { text-align: center; padding: 30px 0 20px; border-top: 1px solid var(--b
 
 /* 架构层级标签 */
 .layer-tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container { padding: 16px; }
+  section { margin-bottom: 24px; }
+  .hero h1 { font-size: 22px; }
+  .hero .subtitle { font-size: 12px; }
+  .metric-card .value { font-size: 20px; }
+  .section-title { font-size: 16px; }
+  .section-subtitle { font-size: 13px; }
+  .echarts-container { height: 280px !important; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .data-table { font-size: 11px; }
+  .data-table th, .data-table td { padding: 5px 6px; }
+  .layer-tag { font-size: 9px; }
+  footer { font-size: 10px; padding: 16px 0; }
+}
+@media (max-width: 480px) {
+  .container { padding: 10px; }
+  .hero h1 { font-size: 18px; }
+  .metric-card .value { font-size: 16px; }
+  .metric-card .label { font-size: 10px; }
+  .section-title { font-size: 14px; }
+  .echarts-container { height: 220px !important; }
+  .data-table { font-size: 10px; }
+  .data-table th, .data-table td { padding: 4px 5px; }
+  .card { padding: 12px; }
+  .layer-tag { font-size: 8px; }
+  footer { font-size: 9px; }
+}
 </style>
 </head>
 <body>

@@ -1,0 +1,4 @@
+Task: 2.1
+Status: DONE
+Changes: Added Module 2 (洗钱渠道全景) to `全球地下钱庄与洗钱全景风险看板.html` after Module 1 closing `</section>` (line 456). Module 2 contains: (1) 洗钱三阶段流程图 with Placement/Phase 1 (红色边框), Layering/Phase 2 (紫色边框), Integration/Phase 3 (绿色边框) flow diagram, and (2) 六大洗钱渠道 cards in a 3-column grid: 地下钱庄对敲模式(cyan), 哈瓦拉体系(orange), 虚拟币混币/跨链(purple), 贸易洗钱TBML(red), 离岸空壳公司(green), 现金密集型/结构化存款(red). Each channel card includes mechanism description, typical steps, involved amounts, and a real-world case. All CSS classes (flow-steps, flow-step, channel-card, grid-3) were already defined in Task 1.1 — no new CSS added.
+Concerns: None for Task 2.1 scope. The plan document shows that Modules 3, 4, and 5 with their HTML and JS are subsequent tasks (Task 2.1 Step 2-3 in the plan add Module 3 crypto charts, Modules 4-5). Those have NOT been implemented yet — only Module 2 was added as specified.
