@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnaReports — 全景看板合集</title>
+<style>
+:root {
+  --bg: #0a0e17;
+  --surface: #111827;
+  --border: #1e2a3a;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --cyan: #06b6d4;
+  --purple: #8b5cf6;
+  --red: #ef4444;
+  --green: #10b981;
+  --orange: #f59e0b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero p { color: var(--text2); font-size: 16px; }
+.hero .badge {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.dash-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.dash-card.cyan::before { background: var(--cyan); box-shadow: 0 0 12px rgba(6,182,212,0.4); }
+.dash-card.purple::before { background: var(--purple); box-shadow: 0 0 12px rgba(139,92,246,0.4); }
+.dash-card.red::before { background: var(--red); box-shadow: 0 0 12px rgba(239,68,68,0.4); }
+.dash-card.green::before { background: var(--green); box-shadow: 0 0 12px rgba(16,185,129,0.4); }
+.dash-card.orange::before { background: var(--orange); box-shadow: 0 0 12px rgba(245,158,11,0.4); }
+
+.dash-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 4px 24px rgba(6,182,212,0.15);
+}
+.dash-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dash-card .card-icon {
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(6,182,212,0.1);
+  flex-shrink: 0;
+}
+.dash-card.cyan .card-icon { background: rgba(6,182,212,0.15); }
+.dash-card.purple .card-icon { background: rgba(139,92,246,0.15); }
+.dash-card.red .card-icon { background: rgba(239,68,68,0.15); }
+.dash-card.green .card-icon { background: rgba(16,185,129,0.15); }
+.dash-card.orange .card-icon { background: rgba(245,158,11,0.15); }
+
+.dash-card .card-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+}
+.dash-card .card-desc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  flex: 1;
+}
+.dash-card .card-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.dash-card.cyan .card-tag { background: rgba(6,182,212,0.15); color: var(--cyan); }
+.dash-card.purple .card-tag { background: rgba(139,92,246,0.15); color: var(--purple); }
+.dash-card.red .card-tag { background: rgba(239,68,68,0.15); color: var(--red); }
+.dash-card.green .card-tag { background: rgba(16,185,129,0.15); color: var(--green); }
+.dash-card.orange .card-tag { background: rgba(245,158,11,0.15); color: var(--orange); }
+
+.dash-card .card-arrow {
+  text-align: right;
+  font-size: 18px;
+  color: var(--text2);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.dash-card:hover .card-arrow {
+  opacity: 1;
+  color: var(--cyan);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 12px;
+}
+footer a { color: var(--cyan); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>AnaReports 全景看板合集</h1>
+  <p>7 份深度行业全景分析报告 · 赛博朋克深色主题 · ECharts 数据可视化</p>
+  <div class="badge"><i class="fas fa-calendar"></i> 2026年7月更新</div>
+</div>
+
+<div class="dashboard-grid">
+
+  <a class="dash-card cyan" href="广州吃喝玩乐+供应链全景看板.html">
+    <div class="card-header">
+      <div class="card-icon">🍜</div>
+      <div class="card-title">广州吃喝玩乐 + 供应链全景看板</div>
+    </div>
+    <div class="card-desc">
+      千年商都美食地图、供应链批发市场（街道级详解）、跨境电商基地、Leaflet交互地图、ECharts可视化。覆盖美食/景点/购物/供应链全维度。
+    </div>
+    <div><span class="card-tag">美食</span><span class="card-tag">供应链</span><span class="card-tag">跨境电商</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+  <a class="dash-card red" href="全球地下钱庄与洗钱全景风险看板.html">
+    <div class="card-header">
+      <div class="card-icon">🏦</div>
+      <div class="card-title">全球地下钱庄与洗钱全景风险看板</div>
+    </div>
+    <div class="card-desc">
+      地下钱庄对敲、哈瓦拉体系、虚拟币混币、贸易洗钱、离岸空壳公司、现金密集型 — 六大渠道全解析，含链上犯罪、东南亚杀猪盘资金链路。
+    </div>
+    <div><span class="card-tag">反洗钱</span><span class="card-tag">地下钱庄</span><span class="card-tag">虚拟币</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+  <a class="dash-card green" href="中国医药产业全球竞争力与中药发展全景看板.html">
+    <div class="card-header">
+      <div class="card-icon">💊</div>
+      <div class="card-title">中国医药产业全球竞争力与中药发展全景看板</div>
+    </div>
+    <div class="card-desc">
+      全球医药产业格局、中国医药竞争力分析、中药现代化发展路径、创新药研发管线、医药出海战略全景解读。
+    </div>
+    <div><span class="card-tag">医药产业</span><span class="card-tag">中药</span><span class="card-tag">全球化</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+  <a class="dash-card purple" href="中国新能源汽车与电动摩托车全产业链全景看板.html">
+    <div class="card-header">
+      <div class="card-icon">🚗</div>
+      <div class="card-title">中国新能源汽车与电动摩托车全产业链全景看板</div>
+    </div>
+    <div class="card-desc">
+      新能源整车产业链、电池/电机/电控核心技术、电动摩托车出海、全球市场竞争格局、智能化发展趋势。
+    </div>
+    <div><span class="card-tag">新能源车</span><span class="card-tag">电动摩托</span><span class="card-tag">全产业链</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+  <a class="dash-card orange" href="中日经济周期对比与个人投资出路看板.html">
+    <div class="card-header">
+      <div class="card-icon">📊</div>
+      <div class="card-title">中日经济周期对比与个人投资出路看板</div>
+    </div>
+    <div class="card-desc">
+      中国经济周期演进、日本失去的三十年经验教训、资产价格对比分析、个人投资出路与资产配置策略建议。
+    </div>
+    <div><span class="card-tag">经济周期</span><span class="card-tag">中日对比</span><span class="card-tag">投资</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+  <a class="dash-card cyan" href="全球创作者经济AI时代个人变现与版权保护看板.html">
+    <div class="card-header">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">全球创作者经济AI时代个人变现与版权保护看板</div>
+    </div>
+    <div class="card-desc">
+      全球创作者经济规模、AI赋能内容创作、个人变现模式全景、版权保护机制、平台生态与政策趋势。
+    </div>
+    <div><span class="card-tag">创作者经济</span><span class="card-tag">AI</span><span class="card-tag">版权</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+  <a class="dash-card purple" href="智能手环与智能药盒产品开发全景看板.html">
+    <div class="card-header">
+      <div class="card-icon">⌚</div>
+      <div class="card-title">智能手环与智能药盒产品开发全景看板</div>
+    </div>
+    <div class="card-desc">
+      智能手环产品规划、智能药盒技术方案、健康监测功能设计、产品开发流程、市场竞争分析与商业化策略。
+    </div>
+    <div><span class="card-tag">智能硬件</span><span class="card-tag">产品开发</span><span class="card-tag">健康</span></div>
+    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+
+</div>
+
+<footer>
+  <p>AnaReports · 全景看板合集 &nbsp;|&nbsp; 数据可视化 + 深度行业分析 &nbsp;|&nbsp; 2026</p>
+  <p style="margin-top:8px;"><a href="https://github.com/501953807/anareports" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a></p>
+</footer>
+
+</div>
+</body>
+</html>
