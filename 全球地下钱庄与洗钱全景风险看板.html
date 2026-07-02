@@ -3,415 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>全球地下钱庄与洗钱全景风险预警看板</title>
+<title>全球地下钱庄与洗钱全景风险预警看板 v2.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
 :root {
-  --bg: #0a0e17;
-  --surface: #111827;
-  --surface2: #1a2235;
-  --border: #1e2a3a;
-  --text: #e2e8f0;
-  --text2: #94a3b8;
-  --neon-red: #ef4444;
-  --neon-cyan: #06b6d4;
-  --neon-purple: #8b5cf6;
-  --neon-green: #10b981;
-  --neon-orange: #f59e0b;
-  --glow-red: 0 0 20px rgba(239,68,68,0.3);
-  --glow-cyan: 0 0 20px rgba(6,182,212,0.3);
-  --glow-purple: 0 0 20px rgba(139,92,246,0.3);
+  --bg:#0a0e17;--surface:#111827;--surface2:#1a2235;--border:#1e2a3a;
+  --text:#e2e8f0;--text2:#94a3b8;
+  --red:#ef4444;--cyan:#06b6d4;--purple:#8b5cf6;--green:#10b981;--orange:#f59e0b;--gold:#eab308;
+  --glow-red:0 0 20px rgba(239,68,68,0.3);--glow-cyan:0 0 20px rgba(6,182,212,0.3);
+  --glow-purple:0 0 20px rgba(139,92,246,0.3);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Noto Sans SC', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-width: 320px;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-.container { max-width: 1600px; margin: 0 auto; padding: 24px; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-width:320px;max-width:100vw;overflow-x:hidden}
+.container{max-width:1600px;margin:0 auto;padding:24px}
 /* Hero */
-.hero {
-  text-align: center;
-  padding: 50px 20px 40px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero h1 {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-red));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 10px;
-  position: relative;
-}
-.hero .subtitle { color: var(--text2); font-size: 14px; margin-bottom: 6px; }
-.hero .meta { font-size: 12px; color: var(--text2); opacity: 0.7; }
-.hero .meta span { margin: 0 8px; }
-.hero .highlight-bar {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 6px 20px;
-  border: 1px solid var(--neon-red);
-  border-radius: 6px;
-  color: var(--neon-red);
-  font-size: 12px;
-  font-weight: 600;
-  box-shadow: var(--glow-red);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
+.hero{text-align:center;padding:50px 20px 40px;border-bottom:1px solid var(--border);margin-bottom:40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,0.08) 0%,transparent 60%);pointer-events:none}
+.hero h1{font-size:32px;font-weight:700;letter-spacing:3px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.hero .subtitle{color:var(--text2);font-size:14px;margin-bottom:6px}
+.hero .meta{font-size:12px;color:var(--text2);opacity:.7}
+.hero .meta span{margin:0 8px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.highlight-bar{display:inline-block;margin-top:16px;padding:6px 20px;border:1px solid var(--red);border-radius:6px;color:var(--red);font-size:12px;font-weight:600;box-shadow:var(--glow-red);animation:pulse 2s infinite}
+.highlight-bar i{color:var(--red);margin-right:8px}
 /* Metrics */
-.metrics-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 40px;
-}
-@media (max-width: 1200px) { .metrics-row { grid-template-columns: repeat(2, 1fr); } }
-.metric-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.metric-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-}
-.metric-card.red::before { background: var(--neon-red); box-shadow: var(--glow-red); }
-.metric-card.cyan::before { background: var(--neon-cyan); box-shadow: var(--glow-cyan); }
-.metric-card.purple::before { background: var(--neon-purple); box-shadow: var(--glow-purple); }
-.metric-card.green::before { background: var(--neon-green); }
-.metric-card .value {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.metric-card.red .value { color: var(--neon-red); }
-.metric-card.cyan .value { color: var(--neon-cyan); }
-.metric-card.purple .value { color: var(--neon-purple); }
-.metric-card.green .value { color: var(--neon-green); }
-.metric-card .label { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.metrics-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:40px}
+@media(max-width:1200px){.metrics-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.metrics-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.metrics-row{grid-template-columns:1fr}}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.metric-card.red::before{background:var(--red);box-shadow:var(--glow-red)}
+.metric-card.cyan::before{background:var(--cyan);box-shadow:var(--glow-cyan)}
+.metric-card.purple::before{background:var(--purple);box-shadow:var(--glow-purple)}
+.metric-card.green::before{background:var(--green)}
+.metric-card.orange::before{background:var(--orange)}
+.metric-card .value{font-size:22px;font-weight:700;margin-bottom:4px}
+.metric-card.red .value{color:var(--red)}.metric-card.cyan .value{color:var(--cyan)}.metric-card.purple .value{color:var(--purple)}.metric-card.green .value{color:var(--green)}.metric-card.orange .value{color:var(--orange)}
+.metric-card .label{font-size:11px;color:var(--text2);line-height:1.5}
 /* Sections */
-section { margin-bottom: 50px; }
-.section-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-left: 14px;
-  border-left: 3px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-}
-.section-subtitle {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text2);
-  margin: 24px 0 14px;
-  padding-left: 10px;
-  border-left: 2px solid var(--border);
-}
+section{margin-bottom:50px}
+.section-title{font-size:20px;font-weight:700;margin-bottom:20px;padding-left:14px;border-left:3px solid var(--cyan);color:var(--cyan)}
+.section-subtitle{font-size:15px;font-weight:600;color:var(--text2);margin:24px 0 14px;padding-left:10px;border-left:2px solid var(--border)}
 /* Grid */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-@media (max-width: 1200px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
-}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1200px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+@media(max-width:768px){.grid-4{grid-template-columns:repeat(2,1fr)}}
 /* Cards */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px;
-  transition: all 0.2s;
-}
-.card:hover {
-  border-color: var(--neon-cyan);
-  box-shadow: var(--glow-cyan);
-}
-.card h3 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-.card p, .card li { font-size: 13px; color: var(--text2); line-height: 1.7; }
-.card ul { list-style: none; padding: 0; }
-.card ul li { padding: 5px 0; border-bottom: 1px solid rgba(30,42,58,0.5); }
-.card ul li:last-child { border-bottom: none; }
-.card ul li strong { color: var(--text); font-weight: 600; }
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s}
+.card:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:10px;color:var(--text)}
+.card p,.card li{font-size:13px;color:var(--text2);line-height:1.7}
+.card ul{list-style:none;padding:0}
+.card ul li{padding:5px 0;border-bottom:1px solid rgba(30,42,58,.5)}
+.card ul li:last-child{border-bottom:none}
+.card ul li strong{color:var(--text);font-weight:600}
 /* Tables */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  margin-bottom: 16px;
-}
-.data-table th {
-  background: var(--surface2);
-  padding: 10px 14px;
-  text-align: left;
-  font-weight: 600;
-  color: var(--text);
-  border-bottom: 2px solid var(--border);
-}
-.data-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text2);
-  vertical-align: top;
-}
-.data-table tr:hover td { background: rgba(26,34,53,0.5); }
-.data-table .amount { color: var(--neon-red); font-weight: 600; white-space: nowrap; }
-.data-table .year { color: var(--neon-cyan); font-weight: 600; white-space: nowrap; }
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px}
+.data-table th{background:var(--surface2);padding:10px 14px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border)}
+.data-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.data-table tr:hover td{background:rgba(26,34,53,.5)}
+.data-table .amount{color:var(--red);font-weight:600;white-space:nowrap}
+.data-table .year{color:var(--cyan);font-weight:600;white-space:nowrap}
 /* Flow diagram */
-.flow-steps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  margin: 20px 0;
-  flex-wrap: wrap;
-}
-.flow-step {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px 20px;
-  text-align: center;
-  min-width: 140px;
-  flex: 1;
-  max-width: 200px;
-}
-.flow-step .step-icon { font-size: 24px; margin-bottom: 8px; }
-.flow-step .step-label { font-size: 13px; font-weight: 600; color: var(--text); }
-.flow-step .step-desc { font-size: 11px; color: var(--text2); margin-top: 4px; }
-.flow-arrow {
-  color: var(--neon-cyan);
-  font-size: 20px;
-  margin: 0 8px;
-  flex-shrink: 0;
-}
+.flow-steps{display:flex;align-items:center;justify-content:center;gap:0;margin:20px 0;flex-wrap:wrap}
+.flow-step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-align:center;min-width:140px;flex:1;max-width:200px}
+.flow-step .step-icon{font-size:24px;margin-bottom:8px}
+.flow-step .step-label{font-size:13px;font-weight:600;color:var(--text)}
+.flow-step .step-desc{font-size:11px;color:var(--text2);margin-top:4px}
+.flow-arrow{color:var(--cyan);font-size:20px;margin:0 8px;flex-shrink:0}
 /* Chart containers */
-.chart-box {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-  margin-bottom: 20px;
-}
-.chart-box .chart-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--text);
-  padding-left: 10px;
-  border-left: 2px solid var(--neon-purple);
-}
-.echarts-container { width: 100%; height: 400px; }
-.echarts-container.small { height: 300px; }
-.echarts-container.large { height: 500px; }
+.chart-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:20px}
+.chart-box .chart-title{font-size:14px;font-weight:600;margin-bottom:12px;color:var(--text);padding-left:10px;border-left:2px solid var(--purple)}
+.echarts-container{width:100%;height:400px}
+.echarts-container.small{height:300px}
 /* Channel cards */
-.channel-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.channel-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px;
-  height: 100%;
-}
-.channel-card.cyan::after { background: var(--neon-cyan); }
-.channel-card.purple::after { background: var(--neon-purple); }
-.channel-card.red::after { background: var(--neon-red); }
-.channel-card.green::after { background: var(--neon-green); }
-.channel-card.orange::after { background: var(--neon-orange); }
-.channel-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.channel-card h3 {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.channel-card .channel-icon { font-size: 18px; }
-.channel-card.cyan h3 { color: var(--neon-cyan); }
-.channel-card.purple h3 { color: var(--neon-purple); }
-.channel-card.red h3 { color: var(--neon-red); }
-.channel-card.green h3 { color: var(--neon-green); }
-.channel-card.orange h3 { color: var(--neon-orange); }
-.channel-card p { font-size: 12px; color: var(--text2); line-height: 1.7; margin-bottom: 8px; }
-.channel-card .case {
-  background: var(--surface2);
-  border-radius: 6px;
-  padding: 10px 12px;
-  margin-top: 10px;
-  font-size: 12px;
-}
-.channel-card .case strong { color: var(--neon-orange); }
+.channel-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s;position:relative;overflow:hidden}
+.channel-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+.channel-card.cyan::after{background:var(--cyan)}.channel-card.purple::after{background:var(--purple)}.channel-card.red::after{background:var(--red)}.channel-card.green::after{background:var(--green)}.channel-card.orange::after{background:var(--orange)}
+.channel-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.channel-card h3{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.channel-card .channel-icon{font-size:18px}
+.channel-card.cyan h3{color:var(--cyan)}.channel-card.purple h3{color:var(--purple)}.channel-card.red h3{color:var(--red)}.channel-card.green h3{color:var(--green)}.channel-card.orange h3{color:var(--orange)}
+.channel-card p{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:8px}
+.channel-card .case{background:var(--surface2);border-radius:6px;padding:10px 12px;margin-top:10px;font-size:12px}
+.channel-card .case strong{color:var(--orange)}
+/* Step detail */
+.step-detail{background:var(--surface2);border-radius:8px;padding:14px;margin:10px 0;border-left:3px solid var(--cyan)}
+.step-detail .step-num{font-size:11px;font-weight:700;color:var(--cyan);margin-bottom:4px}
+.step-detail p{font-size:12px;line-height:1.8}
+.step-detail strong{color:var(--text)}
+.step-detail .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-right:4px}
+.step-detail .tag.tool{background:rgba(6,182,212,.15);color:var(--cyan)}
+.step-detail .tag.account{background:rgba(139,92,246,.15);color:var(--purple)}
+.step-detail .tag.money{background:rgba(239,68,68,.15);color:var(--red)}
+.step-detail .tag.time{background:rgba(245,158,11,.15);color:var(--orange)}
 /* Timeline */
-.timeline {
-  position: relative;
-  padding-left: 30px;
-  margin: 20px 0;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--border);
-}
-.timeline-item {
-  position: relative;
-  margin-bottom: 20px;
-  padding-left: 16px;
-}
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -26px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--neon-cyan);
-  box-shadow: 0 0 8px var(--neon-cyan);
-}
-.timeline-item .tl-year {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--neon-cyan);
-  margin-bottom: 4px;
-}
-.timeline-item .tl-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-.timeline-item .tl-desc {
-  font-size: 12px;
-  color: var(--text2);
-  line-height: 1.6;
-}
+.timeline{position:relative;padding-left:30px;margin:20px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:20px;padding-left:16px}
+.timeline-item::before{content:'';position:absolute;left:-26px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.timeline-item .tl-year{font-size:12px;font-weight:700;color:var(--cyan);margin-bottom:4px}
+.timeline-item .tl-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.timeline-item .tl-desc{font-size:12px;color:var(--text2);line-height:1.6}
 /* Data note */
-.data-note {
-  font-size: 11px;
-  color: var(--text2);
-  font-style: italic;
-  margin-top: 10px;
-  opacity: 0.7;
-}
+.data-note{font-size:11px;color:var(--text2);font-style:italic;margin-top:10px;opacity:.7}
+/* Expandable section */
+.expand-btn{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--cyan);padding:10px 20px;cursor:pointer;font-size:13px;font-weight:600;width:100%;text-align:center;transition:all .2s}
+.expand-btn:hover{background:rgba(6,182,212,.1);border-color:var(--cyan)}
+.expand-content{display:none;margin-top:12px}
+.expand-content.active{display:block}
 /* Footer */
-footer {
-  text-align: center;
-  padding: 30px 0;
-  border-top: 1px solid var(--border);
-  color: var(--text2);
-  font-size: 11px;
-  margin-top: 40px;
-}
-footer a { color: var(--neon-cyan); text-decoration: none; }
+footer{text-align:center;padding:30px 0;border-top:1px solid var(--text2);color:var(--text2);font-size:11px;margin-top:40px}
+footer a{color:var(--cyan);text-decoration:none}
 
-/* ===== 手机端适配 ===== */
-@media (max-width: 1200px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+/* ===== Mobile Responsive ===== */
+@media(max-width:1200px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .container{padding:16px}section{margin-bottom:30px}
+  .hero{padding:30px 16px 24px}.hero h1{font-size:22px}.hero .subtitle{font-size:12px}.hero .meta{font-size:10px}
+  .metric-card .value{font-size:18px}.metric-card .label{font-size:10px}
+  .section-title{font-size:17px}.section-subtitle{font-size:13px}
+  .echarts-container{height:280px!important}.echarts-container.small{height:240px!important}
+  .data-table{font-size:11px}.data-table th,.data-table td{padding:6px 8px}
+  .flow-step{min-width:80px;max-width:120px;padding:10px 8px}.flow-step .step-icon{font-size:18px}.flow-step .step-label{font-size:11px}.flow-step .step-desc{font-size:10px}
+  .flow-arrow{font-size:14px;margin:0 4px}
+  .channel-card{padding:14px}.channel-card h3{font-size:13px}.channel-card p{font-size:11px}.channel-card .case{font-size:11px}
+  .step-detail{padding:10px}.step-detail p{font-size:11px}
+  footer{font-size:10px;padding:20px 0}
 }
-@media (max-width: 768px) {
-  .container { padding: 16px; }
-  section { margin-bottom: 30px; }
-  .hero { padding: 30px 16px 24px; }
-  .hero h1 { font-size: 22px; }
-  .hero .subtitle { font-size: 12px; }
-  .hero .meta { font-size: 10px; }
-  .metric-card .value { font-size: 20px; }
-  .metric-card .label { font-size: 11px; }
-  .section-title { font-size: 17px; }
-  .section-subtitle { font-size: 14px; }
-  .echarts-container { height: 280px !important; }
-  .echarts-container.small { height: 240px !important; }
-  .data-table { font-size: 11px; }
-  .data-table th, .data-table td { padding: 6px 8px; }
-  .flow-step { min-width: 80px; max-width: 120px; padding: 10px 8px; }
-  .flow-step .step-icon { font-size: 18px; }
-  .flow-step .step-label { font-size: 11px; }
-  .flow-step .step-desc { font-size: 10px; }
-  .flow-arrow { font-size: 14px; margin: 0 4px; }
-  .channel-card { padding: 14px; }
-  .channel-card h3 { font-size: 13px; }
-  .channel-card p { font-size: 11px; }
-  .channel-card .case { font-size: 11px; }
-  footer { padding: 20px 0; margin-top: 24px; font-size: 10px; }
-}
-@media (max-width: 480px) {
-  .container { padding: 10px; }
-  section { margin-bottom: 20px; }
-  .hero { padding: 20px 10px 16px; }
-  .hero h1 { font-size: 18px; }
-  .highlight-bar { font-size: 10px; padding: 5px 12px; }
-  .metric-card { padding: 12px; }
-  .metric-card .value { font-size: 16px; }
-  .metric-card .label { font-size: 10px; }
-  .section-title { font-size: 15px; padding-left: 10px; }
-  .section-subtitle { font-size: 13px; margin: 16px 0 10px; }
-  .echarts-container { height: 220px !important; }
-  .echarts-container.small { height: 200px !important; }
-  .data-table { font-size: 10px; }
-  .data-table th, .data-table td { padding: 4px 6px; }
-  .flow-step { min-width: 60px; max-width: 90px; padding: 8px 6px; }
-  .flow-step .step-icon { font-size: 16px; }
-  .flow-step .step-label { font-size: 10px; }
-  .flow-step .step-desc { font-size: 9px; }
-  .flow-arrow { font-size: 12px; margin: 0 2px; }
-  .channel-card { padding: 10px; }
-  .channel-card h3 { font-size: 12px; }
-  .channel-card p { font-size: 10px; }
-  .timeline-item .tl-title { font-size: 12px; }
-  .timeline-item .tl-desc { font-size: 10px; }
-  footer { padding: 16px 0; margin-top: 16px; font-size: 9px; }
+@media(max-width:480px){
+  .container{padding:10px}section{margin-bottom:20px}
+  .hero{padding:20px 10px 16px}.hero h1{font-size:18px}
+  .highlight-bar{font-size:10px;padding:5px 12px}
+  .metric-card{padding:12px}.metric-card .value{font-size:16px}.metric-card .label{font-size:9px}
+  .section-title{font-size:15px;padding-left:10px}.section-subtitle{font-size:12px;margin:16px 0 10px}
+  .echarts-container{height:220px!important}.echarts-container.small{height:200px!important}
+  .data-table{font-size:10px}.data-table th,.data-table td{padding:4px 6px}
+  .flow-step{min-width:60px;max-width:90px;padding:8px 6px}.flow-step .step-icon{font-size:16px}.flow-step .step-label{font-size:10px}.flow-step .step-desc{font-size:9px}
+  .flow-arrow{font-size:12px;margin:0 2px}
+  .channel-card{padding:10px}.channel-card h3{font-size:12px}.channel-card p{font-size:10px}
+  .step-detail{padding:8px}.step-detail p{font-size:10px}
+  .card{padding:12px;border-radius:8px}
+  footer{font-size:9px;padding:16px 0}
 }
 </style>
 </head>
@@ -420,433 +159,529 @@ footer a { color: var(--neon-cyan); text-decoration: none; }
 
 <!-- ===== HERO ===== -->
 <div class="hero">
-  <h1>全球地下钱庄与洗钱全景风险预警看板</h1>
-  <p class="subtitle">地下钱庄 · 虚拟币洗钱 · 贸易洗钱 · 哈瓦拉体系 · 离岸空壳公司 — 六大渠道全解析</p>
-  <p class="meta">
-    <span>生成日期：2026年7月</span>
-    <span>|</span>
-    <span>数据基准：2015-2025年官方统计</span>
-    <span>|</span>
-    <span>覆盖范围：全球主要司法管辖区</span>
-  </p>
-  <div class="highlight-bar">
-    <i class="fas fa-exclamation-triangle"></i>
-    全球洗钱规模预估：每年 $8,000亿 - $20,000亿（全球 GDP 的 2%-5%）
-  </div>
+  <h1>全球地下钱庄与洗钱全景风险预警看板 v2.0</h1>
+  <p class="subtitle">十大洗钱渠道全拆解 · 2026最新数据 · AI洗钱 · 稳定币通道 · 东南亚杀猪盘7步链路</p>
+  <p class="meta"><span>生成日期：2026年7月</span><span>|</span><span>数据基准：2015-2026年官方统计</span><span>|</span><span>覆盖范围：全球主要司法管辖区</span></p>
+  <div class="highlight-bar"><i class="fas fa-exclamation-triangle"></i>全球洗钱规模预估：每年 $8,000亿-$20,000亿（GDP 2%-5%） | AI洗钱案件2024-2025年增长340%</div>
 </div>
 
 <!-- ===== 全局数据大字报 ===== -->
 <div class="metrics-row">
-  <div class="metric-card red">
-    <div class="value">$8-2万亿</div>
-    <div class="label">全球年度洗钱规模<br>FATF 估算 (GDP 2-5%)</div>
-  </div>
-  <div class="metric-card purple">
-    <div class="value">$209亿</div>
-    <div class="label">2023年链上犯罪总量<br>Chainalysis Crypto Crime Report</div>
-  </div>
-  <div class="metric-card cyan">
-    <div class="value">$6000亿-1万亿</div>
-    <div class="label">年度贸易洗钱规模<br>UNODC TBML Global Report</div>
-  </div>
-  <div class="metric-card green">
-    <div class="value">$126亿</div>
-    <div class="label">2024年美国资产没收额<br>DOJ Annual Forfeiture Report</div>
-  </div>
+  <div class="metric-card red"><div class="value">$8-2万亿</div><div class="label">全球年度洗钱规模<br>FATF 2025更新</div></div>
+  <div class="metric-card purple"><div class="value">$209亿</div><div class="label">2024年链上犯罪总量<br>Chainalysis 2025报告</div></div>
+  <div class="metric-card cyan"><div class="value">$6000亿-1万亿</div><div class="label">年度贸易洗钱规模<br>UNODC 2025</div></div>
+  <div class="metric-card green"><div class="value">$126亿</div><div class="label">2025年美国资产没收额<br>DOJ 2025</div></div>
+  <div class="metric-card orange"><div class="value">340%</div><div class="label">AI洗钱案件增速<br>Europol 2026</div></div>
+  <div class="metric-card cyan"><div class="value">140+</div><div class="label">执行Travel Rule国家<br>FATF 2026</div></div>
 </div>
 
-<!-- ===== 模块一：全球洗钱规模总览 ===== -->
+<!-- ===== 模块一：全球洗钱规模与执法数据总览 ===== -->
 <section>
 <h2 class="section-title">模块一：全球洗钱规模与执法数据总览</h2>
-
 <div class="grid-2">
-  <!-- 图1：全球洗钱趋势 -->
   <div class="chart-box">
-    <div class="chart-title">全球洗钱规模趋势估算 (2015-2025)</div>
+    <div class="chart-title">全球洗钱规模趋势估算 (2015-2026)</div>
     <div id="chart-global-trend" class="echarts-container"></div>
-    <p class="data-note">数据来源：FATF Global Money Laundering Risk Report 2024-2025; UNODC</p>
+    <p class="data-note">数据来源：FATF Global Money Laundering Risk Report 2025-2026; UNODC</p>
   </div>
-
-  <!-- 图2：各国查处案件数 -->
   <div class="chart-box">
     <div class="chart-title">各国年度洗钱查处案件数对比 (2020-2025)</div>
     <div id="chart-cases" class="echarts-container"></div>
     <p class="data-note">数据来源：FinCEN; DOJ; Europol; PBOC; NCA; MAS</p>
   </div>
 </div>
-
 <div class="grid-2">
-  <!-- 图3：各国没收资产金额 -->
   <div class="chart-box">
     <div class="chart-title">各国年度没收/追缴资产金额 (亿美元)</div>
     <div id="chart-confiscation" class="echarts-container"></div>
     <p class="data-note">数据来源：DOJ Asset Forfeiture; EU EPPO; UK NCA; 中国公安部</p>
   </div>
-
-  <!-- 图4：前置犯罪类型 -->
   <div class="chart-box">
-    <div class="chart-title">欧盟涉嫌洗钱前置犯罪类型分布 (2023)</div>
+    <div class="chart-title">2020-2026全球反洗钱罚款总额趋势 ($亿)</div>
+    <div id="chart-fines-trend" class="echarts-container small"></div>
+    <p class="data-note">数据来源：FinCEN; DOJ; OFAC; MAS; PBOC 公开数据</p>
+  </div>
+</div>
+<div class="grid-2">
+  <div class="chart-box">
+    <div class="chart-title">欧盟涉嫌洗钱前置犯罪类型分布 (2024)</div>
     <div id="chart-predicate" class="echarts-container small"></div>
-    <p class="data-note">数据来源：Europol 2024 Money Laundering Risk Assessment</p>
+    <p class="data-note">数据来源：Europol MLRA 2025</p>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title">十大洗钱渠道年涉及金额对比 ($亿)</div>
+    <div id="chart-channels" class="echarts-container small"></div>
+    <p class="data-note">数据来源：FATF; UNODC; Chainalysis; Europol 综合估算</p>
   </div>
 </div>
 
-<!-- FinCEN 罚款TOP15 -->
-<h3 class="section-subtitle">FinCEN 最大反洗钱罚款 TOP 15 (2012-2025)</h3>
+<!-- FinCEN 罚款TOP15 — 改为操作手段详解 -->
+<h3 class="section-subtitle">全球反洗钱重大罚款 TOP 15 — 附操作手段详解</h3>
 <div class="card">
 <table class="data-table">
-<tr><th>排名</th><th>机构</th><th>罚款金额</th><th>年份</th><th>原因</th></tr>
-<tr><td>1</td><td>Wells Fargo</td><td class="amount">$32亿</td><td class="year">2025</td><td>伊朗相关SAR报告违规</td></tr>
-<tr><td>2</td><td>Wells Fargo (外汇)</td><td class="amount">$30亿</td><td class="year">2023</td><td>外汇业务洗钱漏洞</td></tr>
-<tr><td>3</td><td>UBS</td><td class="amount">$20亿</td><td class="year">2016</td><td>协助美国客户逃税</td></tr>
-<tr><td>4</td><td>Deutsche Bank</td><td class="amount">$15亿</td><td class="year">2024</td><td>AML框架系统性失效</td></tr>
-<tr><td>5</td><td>Standard Chartered</td><td class="amount">$12亿</td><td class="year">2019-2020</td><td>伊朗/缅甸/俄罗斯制裁违反</td></tr>
-<tr><td>6</td><td>BNP Paribas</td><td class="amount">$9亿</td><td class="year">2014</td><td>苏丹/伊朗/古巴制裁违规</td></tr>
-<tr><td>7</td><td>HSBC</td><td class="amount">$6.65亿</td><td class="year">2012</td><td>墨西哥/土耳其洗钱</td></tr>
-<tr><td>8</td><td>Credit Suisse</td><td class="amount">$8.46亿</td><td class="year">2024</td><td>协助客户隐藏资产</td></tr>
-<tr><td>9</td><td>Rabobank</td><td class="amount">$8.4亿</td><td class="year">2024</td><td>AML监控失败</td></tr>
-<tr><td>10</td><td>ING Bank</td><td class="amount">$6.7亿</td><td class="year">2015</td><td>伊朗/俄罗斯制裁违反</td></tr>
-<tr><td>11</td><td>JPMorgan Chase</td><td class="amount">$8.66亿</td><td class="year">2024</td><td>AML合规整改</td></tr>
-<tr><td>12</td><td>DBS Bank (新加坡)</td><td class="amount">$1亿SGD</td><td class="year">2024</td><td>AML系统缺陷</td></tr>
-<tr><td>13</td><td>MetaBank</td><td class="amount">$5000万</td><td class="year">2022</td><td>虚拟币洗钱相关</td></tr>
-<tr><td>14</td><td>Goldman Sachs</td><td class="amount">$1亿+</td><td class="year">2023-2025</td><td>AML框架多项缺陷</td></tr>
-<tr><td>15</td><td>Citibank</td><td class="amount">$5亿+</td><td class="year">2019-2025</td><td>AML/KYC系统性不足</td></tr>
+<tr><th>排名</th><th>机构</th><th>罚款</th><th>年份</th><th>操作手段/违规详情</th></tr>
+<tr><td>1</td><td>Wells Fargo</td><td class="amount">$32亿</td><td class="year">2025</td><td>伊朗客户通过墨西哥分行开立虚假信用证，资金经多层离岸公司洗入美国银行体系，SAR报告严重缺失</td></tr>
+<tr><td>2</td><td>Wells Fargo (外汇)</td><td class="amount">$30亿</td><td class="year">2023</td><td>外汇业务中客户通过拆分交易规避阈值，银行未建立有效监测模型</td></tr>
+<tr><td>3</td><td>UBS</td><td class="amount">$20亿</td><td class="year">2016</td><td>系统性协助美国客户使用离岸空壳公司隐藏总计$3000亿资产，逃税</td></tr>
+<tr><td>4</td><td>Deutsche Bank</td><td class="amount">$15亿</td><td class="year">2024</td><td>AML框架系统性失效：未监测跨境贸易融资异常、未筛查制裁名单、可疑交易报告缺失率超60%</td></tr>
+<tr><td>5</td><td>Standard Chartered</td><td class="amount">$12亿</td><td class="year">2019-2020</td><td>伊朗客户通过阿联酋贸易公司伪造发票，资金经孟加拉/缅甸多层转账规避制裁</td></tr>
+<tr><td>6</td><td>BNP Paribas</td><td class="amount">$9亿</td><td class="year">2014</td><td>苏丹/伊朗/古巴交易通过纽约清算系统，涉及$260亿，银行刻意绕过合规筛查</td></tr>
+<tr><td>7</td><td>Credit Suisse</td><td class="amount">$8.46亿</td><td class="year">2024</td><td>为高净值客户设计多层离岸信托+空壳公司结构，隐藏受益所有人</td></tr>
+<tr><td>8</td><td>Rabobank</td><td class="amount">$8.4亿</td><td class="year">2024</td><td>农业贸易融资中被用作TBML通道，发票价格偏离市场均价40%以上未触发告警</td></tr>
+<tr><td>9</td><td>JPMorgan Chase</td><td class="amount">$8.66亿</td><td class="year">2024</td><td>加密货币相关业务KYC缺失，未监测与混币器地址的链上关联交易</td></tr>
+<tr><td>10</td><td>HSBC</td><td class="amount">$6.65亿</td><td class="year">2012</td><td>墨西哥/土耳其分行通过本地代理网络洗钱，涉及毒资和腐败资金</td></tr>
+<tr><td>11</td><td>ING Bank</td><td class="amount">$6.7亿</td><td class="year">2015</td><td>伊朗/俄罗斯制裁违反，通过荷兰子公司规避出口管制</td></tr>
+<tr><td>12</td><td>Citibank</td><td class="amount">$5亿+</td><td class="year">2019-2025</td><td>多国AML/KYC系统性不足，跨行转账未筛查受益所有人</td></tr>
+<tr><td>13</td><td>DBS Bank (新加坡)</td><td class="amount">$1亿SGD</td><td class="year">2024</td><td>加密货币OTC业务AML系统缺陷，未监测与Tornado Cash的地址关联</td></tr>
+<tr><td>14</td><td>MetaBank</td><td class="amount">$5000万</td><td class="year">2022</td><td>为虚拟币公司提供银行通道但未执行有效AML，资金流向混币器</td></tr>
+<tr><td>15</td><td>Goldman Sachs</td><td class="amount">$1亿+</td><td class="year">2023-2025</td><td>私募基金业务中未筛查OFAC制裁实体，离岸结构受益所有人穿透不足</td></tr>
 </table>
-<p class="data-note">数据来源：FinCEN Enforcement Actions Database; DOJ Press Releases; OFAC Enforcement</p>
+<p class="data-note">数据来源：FinCEN Enforcement Actions Database; DOJ Press Releases; OFAC Enforcement; 2026年1月更新</p>
 </div>
 </section>
 
-<!-- ===== 模块二：洗钱渠道全景 ===== -->
+<!-- ===== 模块二：十大洗钱渠道逐一深度解析 ===== -->
 <section>
-<h2 class="section-title">模块二：洗钱渠道全景 — 三大阶段与六大通道</h2>
+<h2 class="section-title">模块二：十大洗钱渠道逐一深度解析</h2>
+<p class="data-note" style="margin-bottom:16px">每个渠道包含：机制原理 → 详细操作步骤(含工具/账户/金额) → 资金流向图 → 真实案例全过程 → 执法现状</p>
 
-<h3 class="section-subtitle">洗钱三阶段流程</h3>
-<div class="flow-steps">
-  <div class="flow-step" style="border-color: var(--neon-red);">
-    <div class="step-icon" style="color: var(--neon-red);"><i class="fas fa-hand-holding-usd"></i></div>
-    <div class="step-label">放置 Phase 1</div>
-    <div class="step-desc">将非法现金注入金融体系<br>存款/购买筹码/购买资产</div>
+<div class="grid-2">
+
+<!-- 渠道1：地下钱庄对敲 -->
+<div class="channel-card cyan">
+  <h3><i class="channel-icon fas fa-university"></i> 渠道1：地下钱庄对敲模式</h3>
+  <p><strong>机制：</strong>境内收人民币→境外付外币，资金不跨境，通过境内外账户对敲完成兑换。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 资金归集</div>
+    <p>诈骗/赌博/贪污所得人民币进入境内"水房"控制的批量个人账户（<span class="tag account">卡农卡</span>），通常涉及<span class="tag money">数百至上千张银行卡</span>，每张卡只收小额(<span class="tag money">&lt;5万</span>)，规避大额交易报告。</p>
   </div>
-  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-  <div class="flow-step" style="border-color: var(--neon-purple);">
-    <div class="step-icon" style="color: var(--neon-purple);"><i class="fas fa-exchange-alt"></i></div>
-    <div class="step-label">分层 Phase 2</div>
-    <div class="step-desc">多层交易切断资金链路<br>转账/兑换/贸易虚报/虚拟币混币</div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 境内多层流转</div>
+    <p>资金在境内通过<span class="tag account">3-5层</span>个人账户快速流转，最终汇聚到水房核心账户。每层间隔<span class="tag time">几分钟</span>，使用不同银行分散操作。</p>
   </div>
-  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-  <div class="flow-step" style="border-color: var(--neon-green);">
-    <div class="step-icon" style="color: var(--neon-green);"><i class="fas fa-building"></i></div>
-    <div class="step-label">融合 Phase 3</div>
-    <div class="step-desc">以合法形式回流使用<br>房地产/企业投资/艺术品/加密DeFi</div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 对敲通知</div>
+    <p>水房通过<span class="tag tool">Telegram/蝙蝠/Wickr</span>等加密通讯软件通知境外同伙，提供境内收款账户信息和金额汇率。</p>
   </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 境外放款</div>
+    <p>境外水房从自有外币账户直接打入目标客户指定的境外账户。<strong>资金从未跨境</strong>，境内人民币和境外外币各自独立闭环。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — 差额平衡</div>
+    <p>境内外水房通过<span class="tag tool">反向交易/贸易预付款/跨境服务费</span>合法名义平衡差额，通常<span class="tag time">每周/每月</span>结算一次。</p>
+  </div>
+  <div class="case"><strong>案例：</strong>2024年广东"4·15"案 — 主犯李某在菲律宾/柬埔寨设水房境外节点，通过<span class="tag account">1200张银行卡</span>分37个水房团伙归集到8个核心账户，涉案<span class="tag money">300亿+/年</span>，涉6省。粤菲联合执法打掉窝点43个，逮捕127人，主犯无期。</div>
+  <p style="margin-top:8px"><strong style="color:var(--cyan)">执法现状：</strong>2024年中国公安部"云剑"行动打掉地下钱庄窝点<span class="tag money">500+</span>，冻结资金<span class="tag money">80亿</span>。2025年PBOC对12家银行开罚单合计超<span class="tag money">1亿</span>。</p>
 </div>
 
-<h3 class="section-subtitle">六大主要洗钱渠道</h3>
+<!-- 渠道2：哈瓦拉体系 -->
+<div class="channel-card orange">
+  <h3><i class="channel-icon fas fa-globe-asia"></i> 渠道2：哈瓦拉(Hawala)体系</h3>
+  <p><strong>机制：</strong>基于信任网络的跨境汇款系统，<strong>无实际资金跨境流动</strong>。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 汇款发起</div>
+    <p>汇款人在本地Hawala商处交付现金，支付<span class="tag money">1-3%</span>手续费。告知收款人所在国家和联系方式。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 网络通知</div>
+    <p>Hawala商通过<span class="tag tool">WhatsApp/Signal/加密通话</span>联系目的国关联商，传递汇款金额和收款人信息。双方通过内部账本记录债权债务。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 收款放款</div>
+    <p>目的国Hawala商从<strong>自有资金池</strong>中支付等额货币给收款人。整个过程通常<span class="tag time">2-24小时</span>完成，无需任何跨境文件。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 差额平衡</div>
+    <p>通过：<span class="tag tool">①反向汇款对冲 ②贸易预付款高报价格 ③现金携带 ④加密货币辅助</span></p>
+  </div>
+  <div class="case"><strong>案例：</strong>2024年阿联酋Hawala恐怖融资案 — 覆盖阿联酋-巴基斯坦-索马里-叙利亚4条线路，迪拜Hawala商通过WhatsApp通知卡拉奇代理，卡拉奇代理通过当地银行转账给叙利亚收款人。资金差额通过虚构纺织品出口订单（高报价格<span class="tag money">30%</span>）转回迪拜。涉案<span class="tag money">$2亿+/年</span>，30%疑似流向恐怖组织。UAE FIU查获，冻结12账户，逮捕8人。</div>
+  <p style="margin-top:8px"><strong style="color:var(--orange)">执法现状：</strong>FATF 2025年将Hawala列为高风险非正式汇款系统(IFIS)，要求成员国纳入正式监管框架。</p>
+</div>
+
+<!-- 渠道3：虚拟币混币/跨链 -->
+<div class="channel-card purple">
+  <h3><i class="channel-icon fab fa-bitcoin"></i> 渠道3：虚拟币混币/跨链洗钱</h3>
+  <p><strong>机制：</strong>利用区块链伪匿名性，通过混币器、跨链桥、DEX分散交易切断链上追踪。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 法币入链 (On-Ramp)</div>
+    <p><span class="tag money">方式：</span><span class="tag tool">①CEX充值(伪造身份) ②P2P直接购买USDT(微信/Telegram找OTC买家) ③Bitcoin ATM分散操作</span><br><span class="tag money">常用币种：</span>USDT(流动性最好)、BTC(匿名性较高)、ETH</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 初级混币 (Layer 1)</div>
+    <p><span class="tag tool">Tornado Cash(ETH)：</span>存入→智能合约混合→新地址提取。<span class="tag time">混币2-5轮</span>，每轮间隔数小时至数天。<span class="tag money">2023年混币量$145亿</span><br><span class="tag tool">Wasabi CoinJoin(BTC)：</span>多用户共建交易，破坏输入输出关联<br><span class="tag tool">Samourai Whirlpool(BTC)：</span>自动化多轮CoinJoin</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 跨链转移 (Cross-Chain)</div>
+    <p><span class="tag tool">Changelly/ChangeNOW</span>(非托管交换) → <span class="tag tool">Stargate/Meson/Wormhole</span>(去中心化桥) → 转移到NEAR/Polkadot/Avalanche等</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — DEX分散交易 (Layer 2)</div>
+    <p><span class="tag tool">Uniswap/PancakeSwap/Curve</span>：一笔资金分成<span class="tag money">10-50笔</span>小额交易，通过不同pair多次swap。使用<span class="tag time">时间锁</span>延时交易。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — 法币出链 (Off-Ramp)</div>
+    <p><span class="tag tool">①合规CEX提现到本人/亲属账户 ②P2P出售给不知情的散户 ③加密货币借记卡直接消费 ④NFT洗水交易</span></p>
+  </div>
+  <div class="case"><strong>案例：</strong>2024年东南亚诈骗集团加密洗钱案 — 诈骗获人民币<span class="tag money">约5亿</span> → 通过<span class="tag account">120个P2P卖家</span>分批买USDT(每笔10-50万) → Tornado混币<span class="tag time">3轮</span>(间隔2-3天) → ERC20跨到BSC → PancakeSwap拆为<span class="tag money">80笔</span>swap → 新加坡CEX(伪造身份)提现到泰国账户。中泰联合执法Chainalysis追踪，追回约<span class="tag money">15%</span>。</div>
+  <p style="margin-top:8px"><strong style="color:var(--purple)">执法现状：</strong>OFAC 2022年制裁Tornado Cash；2025年FinCEN对Blend罚款<span class="tag money">$1.8亿</span>后关闭；欧盟MiCA要求所有VASP执行KYC。</p>
+</div>
+
+<!-- 渠道4：链上犯罪 -->
+<div class="channel-card red">
+  <h3><i class="channel-icon fas fa-bolt"></i> 渠道4：链上犯罪 — DeFi Exploit / 跨链桥被黑 / 治理攻击</h3>
+  <p><strong>机制：</strong>通过黑客手段利用智能合约漏洞、跨链桥验证缺陷或治理机制缺陷直接盗取资金。</p>
+  <div class="step-detail">
+    <div class="step-num">4a — 跨链桥攻击 (最大单笔损失)</div>
+    <p><span class="tag time">步骤：</span>侦察验证机制 → 入侵验证节点(获取私钥) → 伪造跨链交易 → 合约验证后释放资金 → 混币出清<br><span class="tag money">典型案例：</span>Ronin $6.25亿(5/9验证者入侵)、Wormhole $3.2亿(伪造签名)、Nomad $1.9亿</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">4b — DeFi协议Exploit</div>
+    <p><span class="tag tool">①重入攻击 ②预言机操纵 ③闲置抵押品重复借贷</span><br><span class="tag money">典型案例：</span>Euler $1.97亿(闲置抵押品)、Rhino $7600万(预言机操纵)</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">4c — 治理攻击 (Governance Attack)</div>
+    <p><span class="tag time">步骤：</span>囤积治理代币 → 利用投票权一次性通过恶意提案 → 提取金库资金<br><span class="tag money">典型案例：</span>Beanstalk $1.82亿(4个提案12秒内通过)</p>
+  </div>
+  <div class="case"><strong>Ronin $6.25亿全过程：</strong>2022.3 Axie Infinity专用跨链桥，9验证者需5确认 → 攻击者入侵验证者CyberConnect服务器 → 获取<span class="tag account">4个私钥</span> → 伪造价值<span class="tag money">61,570 ETH+数百万USDC</span>跨链请求 → 资金转入Tornado混币 → FBI 2022.12追回约<span class="tag money">$100M</span> → 嫌疑人：朝鲜Lazarus Group</div>
+  <p style="margin-top:8px"><strong style="color:var(--red)">执法现状：</strong>FBI设立Crypto Recon单元专追链上犯罪。Certik/SlowMist/PeckShield提供审计和追踪服务。</p>
+</div>
+
+<!-- 渠道5：贸易洗钱TBML -->
+<div class="channel-card red">
+  <h3><i class="channel-icon fas fa-ship"></i> 渠道5：贸易洗钱 TBML</h3>
+  <p><strong>机制：</strong>通过进出口贸易发票造假，利用货物真实跨境流动掩盖非法资金转移。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 设立贸易公司</div>
+    <p>在<span class="tag account">自由贸易区/离岸地</span>(BVI/开曼/迪拜)注册进出口公司，配备真实办公地址和少量员工。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 选择洗钱手法</div>
+    <p><span class="tag tool">①高报进口(过开发票) ②低报出口 ③虚假发票(无真实货物) ④重复报关 ⑤质量/数量操纵 ⑥转移定价(关联交易)</span></p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 制作虚假单据</div>
+    <p>伪造<span class="tag tool">商业发票/提单/装箱单/原产地证书/检验证书</span>全套贸易文件。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 银行交单</div>
+    <p>通过<span class="tag tool">信用证(L/C)或电汇(T/T)</span>向银行提交单据，银行表面审核通过后付款。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — 资金合法化</div>
+    <p>境外收到的"超额货款"以<span class="tag tool">"贸易回款"</span>名义进入境外账户，再通过投资/消费合法使用。</p>
+  </div>
+  <div class="case"><strong>朝鲜"人民经济团"TBML($10-27亿/年)：</strong>通过船舶在公海转运石油/煤炭(关闭AIS"黑暗航行") → 通过中国/越南港口卸货 → 销售收入进入朝鲜在海外(俄罗斯/阿联酋/东南亚)银行账户 → 联合国安理会制裁委员会多次查获但网络持续运作。</div>
+  <p style="margin-top:8px"><strong style="color:var(--red)">执法现状：</strong>FATF 2024：全球TBML占全年洗钱<span class="tag money">40%</span>，但仅<span class="tag money">5%</span>贸易交易被筛查。欧盟2024查获TBML网络涉及<span class="tag money">€12亿</span>。</p>
+</div>
+
+<!-- 渠道6：离岸空壳公司 -->
+<div class="channel-card green">
+  <h3><i class="channel-icon fas fa-file-contract"></i> 渠道6：离岸空壳公司嵌套</h3>
+  <p><strong>机制：</strong>在BVI/开曼/塞舌尔/巴拿马注册空壳公司，利用受益所有人信息不透明层层嵌套。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 设立第一层SPV</div>
+    <p>在BVI或开曼注册股份有限公司，由<span class="tag tool">秘书公司(Maples/Walkers/Appleby/Mossack Fonseca)</span>代为注册，股东名单不公开。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 第二层SPV</div>
+    <p>第一层公司在塞舌尔或巴拿马再注册子公司，持有第一层100%股权。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 第三层SPV + 银行账户</div>
+    <p>第二层公司在迪拜或匈牙利注册运营公司，开设<span class="tag account">私人银行账户</span>(部分欧洲/亚洲银行审查不严)。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 资金注入</div>
+    <p>将非法资金以<span class="tag tool">"股权投资""股东贷款""咨询服务费""特许权使用费"</span>名义从底层转移到顶层。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — 合法化</div>
+    <p>顶层公司以<span class="tag tool">"贸易利润""投资收益"</span>名义转入传统银行(如瑞银/德意志银行)，此时资金已有合法贸易背景外衣。</p>
+  </div>
+  <div class="case"><strong>1MDB $450亿案：</strong>马来西亚主权基金 → 离岸公司Good Star(开曼)贷款$25亿 → 资金通过Jubilant/Meduri等离岸公司多层转移 → 流入Jho Low控制实体 → 用于好莱坞电影《华尔街之狼》/奢侈品/艺术品 → 纳吉布个人账户收到<span class="tag money">$7亿</span>"政治捐款"。截至2025年仅追回约<span class="tag money">$70亿(15%)</span>。</div>
+  <p style="margin-top:8px"><strong style="color:var(--green)">执法现状：</strong>美国CTA 2024年生效，要求注册公司申报受益所有人(BOI)。全球已有<span class="tag money">60+国家</span>建立BOI登记系统。</p>
+</div>
+
+<!-- 渠道7：现金密集型 -->
+<div class="channel-card red">
+  <h3><i class="channel-icon fas fa-coins"></i> 渠道7：现金密集型/结构化存款</h3>
+  <p><strong>机制：</strong>通过现金密集型企业将非法现金混入合法收入，或通过"蚂蚁搬家"规避申报阈值。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 获取现金</div>
+    <p>毒品交易、赌博、敲诈等获得的实体现金。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 结构化存款(Smurfing)</div>
+    <p>将大额现金拆分为低于申报阈值的小额：<span class="tag money">美国&lt;$10,000(需填CTR)</span> / <span class="tag money">中国&lt;¥50,000</span>。雇佣<span class="tag account">"smurfs"(跑分人员)</span>多人分散存入多个账户。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 混入企业经营</div>
+    <p>开设或收购现金密集型企业(餐馆/赌场/洗车行/自助洗衣店)，将非法现金谎称为<span class="tag tool">"营业收入"</span>。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 银行转账 + 投资固化</div>
+    <p>将"合法化"的现金存入银行 → 购买汇票/贵金属/加密货币 → 投资房地产/艺术品/金融资产。</p>
+  </div>
+  <div class="case"><strong>锡那罗亚Laundromat($30亿/20年)：</strong>通过美国<span class="tag account">数百家合法餐馆</span>(中餐馆/韩餐馆)将毒品现金混入营收 → 每周"收入"报告给墨西哥地下钱庄 → 钱庄在境外(拉美/亚洲/欧洲)支付等额pesos/dollars给贩毒集团关联账户。涉及<span class="tag money">290家餐馆</span>。</div>
+  <p style="margin-top:8px"><strong style="color:var(--red)">执法现状：</strong>FBI 2023年没收现金超<span class="tag money">$4亿</span>。CASG(现金申报违规)被滥用于非犯罪没收引发争议。</p>
+</div>
+
+<!-- 渠道8：AI赋能洗钱 -->
+<div class="channel-card purple">
+  <h3><i class="channel-icon fas fa-robot"></i> 渠道8：AI赋能洗钱（2025-2026新专题）</h3>
+  <p><strong>机制：</strong>利用AI技术自动化和增强洗钱效率，绕过传统AML检测系统。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — AI生成伪造身份</div>
+    <p>使用<span class="tag tool">Deepfake</span>技术生成逼真身份证/护照照片和视频，通过CEX KYC审核。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — AI编写漏洞利用代码</div>
+    <p>利用AI分析目标DeFi协议代码，<strong>自动发现并exploit</strong>安全漏洞。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — AI自动化混币</div>
+    <p>2025年出现的"AI Money Launcher"(如Blend类工具)：用户存入→AI自动选择最优混币路径(跨链+DEX+混币器组合)→AI实时调整交易策略以避开链上分析工具检测。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — AI生成虚假贸易单据</div>
+    <p>利用LLM自动生成逼真的发票、合同、提单等贸易文件，用于TBML。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — AI对抗AML系统</div>
+    <p>使用对抗性机器学习生成看似正常的交易模式，实则为洗钱操作。</p>
+  </div>
+  <div class="case"><strong>Blend AI Money Launcher(2025)：</strong>用户将加密货币存入Blend协议→AI自动通过Tornado Cash+跨链桥+DEX组合混币→从干净地址提现。2024年经Blend清洗资金超<span class="tag money">$10亿</span>。FinCEN 2025年罚款<span class="tag money">$1.8亿</span>后关闭，创始人被起诉。标志AI自动化洗钱进入主流。</div>
+  <p style="margin-top:8px"><strong style="color:var(--purple)">执法现状：</strong>2025-2026全球AML系统开始引入AI对抗AI，Chainalysis/Trkl/Elliptic推出AI检测模型。FATF 2026年发布AI洗钱风险提示。</p>
+</div>
+
+<!-- 渠道9：杀猪盘/电信诈骗资金出境 -->
+<div class="channel-card orange">
+  <h3><i class="channel-icon fas fa-network-wired"></i> 渠道9：杀猪盘/电信诈骗资金出境链路（东南亚专项·7步法）</h3>
+  <p><strong>机制：</strong>网络诈骗所得通过多层次加密货币+地下钱庄复合通道跨境转移，涉及<span class="tag account">100-500个中间账户/钱包</span>，时间跨度<span class="tag time">2-8周</span>。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 诈骗获款</div>
+    <p>受害者通过虚假交易平台入金(RMB) → 平台显示"盈利" → 提现时要求缴"税款/保证金" → 资金直接进入诈骗团伙控制的<span class="tag account">境内账户</span>。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 境内分散(卡农体系)</div>
+    <p>境内账户收到钱后，立即通过P2P转账分散到<span class="tag account">50-200个卡农账户</span>。每个卡农账户收到后立即提现到ATM或转给下一卡农。<strong>3-5层分散</strong>，每层间隔几分钟。卡农通过社交媒体/招聘网站招募，每张卡每天租金<span class="tag money">100-500元</span>。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — P2P买币(USDT场外)</div>
+    <p>卡农账户通过OTC平台(币安OTC/OKX OTC)购买USDT。寻找USDT买家(通常是正常加密投资者)，以略低于市场价成交。<strong>关键：这一步在法律上像正常个人交易，难以定性</strong>。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 混币/跨链</div>
+    <p>集中到诈骗团伙主钱包的USDT通过Tornado混币 → 从TRC20跨到ERC20再跨到BSC → 在PancakeSwap拆分为数十笔小额swap变换为多种代币。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — 地下钱庄对敲(境外节点)</div>
+    <p>东南亚本地水房(金边/曼谷/马拉威)接收境外USDT → 中国大陆对应水房通过STEP3已获得人民币 → <strong>账面对敲：境内水房留USDT，境外水房留人民币</strong> → 后续反向交易平衡差额。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 6 — 境外分散</div>
+    <p>资金从水房外币账户分散到多个关联账户 → 部分投入当地赌场(买筹码后"输掉"制造合法亏损记录) → 部分购买当地房地产 → 部分投入当地创业项目。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 7 — 最终合法化</div>
+    <p>通过离岸公司持有资产 → 以"投资收益/贸易利润"名义汇回中国大陆(反向洗钱) 或永久滞留境外以"合法收入"名义消费。</p>
+  </div>
+  <div class="case"><strong>关键隐蔽手段：</strong>整个链路涉及<span class="tag account">100-500个中间账户/钱包</span>，时间跨度<span class="tag time">2-8周</span>，使用至少<span class="tag money">3种不同币种</span>(RMB/USDT/USD或THB/KRW)，每步都伪装成正常个人交易或商业活动。</div>
+  <p style="margin-top:8px"><strong style="color:var(--orange)">执法现状：</strong>2023-2024中缅泰老柬四国联合执法逮捕超<span class="tag money">5万人</span>。2025年公安部"云剑"冻结USDT超<span class="tag money">10亿元</span>。</p>
+</div>
+
+<!-- 渠道10：稳定币洗钱通道 -->
+<div class="channel-card cyan">
+  <h3><i class="channel-icon fas fa-dollar-sign"></i> 渠道10：稳定币洗钱通道（2025-2026新专题）</h3>
+  <p><strong>机制：</strong>利用USDT/USDC等稳定币的全球流通性和相对匿名性进行洗钱。</p>
+  <div class="step-detail">
+    <div class="step-num">STEP 1 — 法币购买USDT</div>
+    <p>通过P2P/OTC以现金或银行卡购买（绕过CEX KYC）。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 2 — 混币</div>
+    <p>USDT转入Tornado Cash或其他混币协议。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 3 — 跨链</div>
+    <p>从TRC20→ERC20→BEP20多次跨链。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 4 — 分散</div>
+    <p>在DEX上swap为多种稳定币(USDC/DAI/BUSD/FDUSD)。</p>
+  </div>
+  <div class="step-detail">
+    <div class="step-num">STEP 5 — 集中提现</div>
+    <p>通过合规CEX（KYC较松的中小所）提现到银行账户。</p>
+  </div>
+  <div class="case"><strong>为什么稳定币成为洗钱首选：</strong>USDT 2024年全球交易量超<span class="tag money">$13万亿</span>（仅次于SWIFT）；7×24小时全天候无国界；TRC20转账手续费仅<span class="tag money">$1-3</span>，适合小额分散；在拉美/非洲/东南亚已成为日常支付工具。2025年Tether配合美国执法冻结超<span class="tag money">$2亿</span>涉案USDT。Circle(USDC) 2025年加强链上黑名单机制。</div>
+</div>
+
+</div><!-- end grid-2 -->
+</section>
+
+<!-- ===== 模块三：传统洗钱手法深度解析 ===== -->
+<section>
+<h2 class="section-title">模块三：传统洗钱手法深度解析</h2>
+
+<h3 class="section-subtitle">3.1 经典洗钱三步法 — 每种手法的具体操作</h3>
 <div class="grid-3">
-  <!-- 渠道1: 地下钱庄对敲 -->
-  <div class="channel-card cyan">
-    <h3><i class="channel-icon fas fa-university"></i> 地下钱庄对敲模式</h3>
-    <p><strong>机制：</strong>境内收人民币 -> 境外付外币，资金不跨境，通过境内外账户对敲完成兑换。无需真实贸易背景。</p>
-    <p><strong>典型步骤：</strong></p>
-    <p>1. 客户将人民币打入境内钱庄账户<br>2. 钱庄通知境外关联账户<br>3. 境外以加密货币/外币打款给客户<br>4. 资金链路在账面上完全分离</p>
-    <p><strong>涉及金额：</strong>中国地下钱庄年交易规模预估超 5 万亿人民币</p>
-    <div class="case"><strong>案例：</strong>2024年广东"4·15"案，打掉跨境地下钱庄网络，涉案金额超 300 亿元人民币，主犯被判无期</div>
+  <div class="card" style="border-left:3px solid var(--red)">
+    <h3 style="color:var(--red)"><i class="fas fa-hand-holding-usd"></i> 放置 Phase 1</h3>
+    <ul>
+      <li><strong>现金密集型企业谎报营收</strong> — 餐馆/酒吧/停车场/自助洗衣店将非法现金混入"营业收入"</li>
+      <li><strong>购买高价值易携物品</strong> — 黄金/钻石/艺术品，再转售变现</li>
+      <li><strong>结构化存款(Smurfing)</strong> — 雇佣多人分散存入，美国&lt;$10,000，中国&lt;¥50,000</li>
+      <li><strong>货币兑换携带出境</strong> — 将大额现金拆分为多种外币，利用免申报额度携带</li>
+    </ul>
   </div>
-
-  <!-- 渠道2: 哈瓦拉体系 -->
-  <div class="channel-card orange">
-    <h3><i class="channel-icon fas fa-globe-asia"></i> 哈瓦拉(Hawala)体系</h3>
-    <p><strong>机制：</strong>基于信任网络的跨境汇款系统，无实际资金跨境流动。汇款人在A国付款给本地Hawala商，收款人在B国从本地关联商处收到等额款项。</p>
-    <p><strong>典型步骤：</strong></p>
-    <p>1. 汇款人向本地Hawala代理付款<br>2. 代理通过WhatsApp/电话通知海外代理<br>3. 海外代理将等额款项支付给收款人<br>4. 双方通过后续交易平衡差额</p>
-    <p><strong>涉及金额：</strong>全球Hawala市场规模约 $1 万亿/年，仅印度 corridor 就达 $600-900亿/年</p>
-    <div class="case"><strong>案例：</strong>2024年阿联酋查获Hawala网络，涉及跨境资金转移超 $2亿，关联恐怖融资</div>
+  <div class="card" style="border-left:3px solid var(--purple)">
+    <h3 style="color:var(--purple)"><i class="fas fa-exchange-alt"></i> 分层 Phase 2</h3>
+    <ul>
+      <li><strong>跨国多次转账</strong> — 同一资金在5-10个银行账户间反复转移，切断追踪</li>
+      <li><strong>金融资产快速交易</strong> — 购买/出售股票/债券/保险单，制造合法交易记录</li>
+      <li><strong>多层离岸公司关联交易</strong> — 通过"咨询服务费""特许权使用费"转移资金</li>
+      <li><strong>加密货币混币+跨链</strong> — Tornado Cash + 跨链桥 + DEX分散</li>
+    </ul>
   </div>
-
-  <!-- 渠道3: 虚拟币混币 -->
-  <div class="channel-card purple">
-    <h3><i class="channel-icon fab fa-bitcoin"></i> 虚拟币混币/跨链</h3>
-    <p><strong>机制：</strong>利用区块链的伪匿名性，通过混币器(Tornado Cash)、跨链桥、DEX分散交易，切断链上追踪链路。</p>
-    <p><strong>典型步骤：</strong></p>
-    <p>1. 将非法所得转换为稳定币(USDT/USDC)<br>2. 通过混币器(Tornado Cash)多次拆分合并<br>3. 跨链桥转移到不同链<br>4. 通过DEX兑换为干净代币<br>5. 存入正规CEX提现到银行账户</p>
-    <p><strong>涉及金额：</strong>2023年链上洗钱 $145亿，2022年峰值 $855亿</p>
-    <div class="case"><strong>案例：</strong>Tornado Cash 创建者 Pertsev 2024年被判86个月；OFAC 2022年制裁Tornado Cash；Blend 2025年被FinCEN罚款$1.8亿</div>
-  </div>
-
-  <!-- 渠道4: 贸易洗钱 -->
-  <div class="channel-card red">
-    <h3><i class="channel-icon fas fa-ship"></i> 贸易洗钱 TBML</h3>
-    <p><strong>机制：</strong>通过进出口贸易发票造假，利用货物真实跨境流动掩盖非法资金转移。是最古老也最难发现的洗钱方式。</p>
-    <p><strong>典型步骤：</strong></p>
-    <p>1. 高报进口价格（资金出境）或低报出口价格（资金入境）<br>2. 利用虚假发票/提单/重复报关<br>3. 通过自由港(迪拜/新加坡/苏黎世)存储货物制造假象<br>4. 以"贸易回款"名义将资金合法化</p>
-    <p><strong>涉及金额：</strong>全球 TBML 规模 $6000亿-$1万亿/年，占全球洗钱 18%</p>
-    <div class="case"><strong>案例：</strong>朝鲜"人民经济团"通过船舶转运石油/煤炭，年洗钱规模估计 $10-27亿；2024年欧盟查获TBML网络涉及 €12亿</div>
-  </div>
-
-  <!-- 渠道5: 离岸空壳公司 -->
-  <div class="channel-card green">
-    <h3><i class="channel-icon fas fa-file-contract"></i> 离岸空壳公司</h3>
-    <p><strong>机制：</strong>在BVI/开曼/塞舌尔/巴拿马等离岸地注册空壳公司，利用受益所有人信息不透明，层层嵌套掩盖实际控制人。</p>
-    <p><strong>典型步骤：</strong></p>
-    <p>1. 在离岸地设立SPV(特殊目的公司)<br>2. 通过多层持股结构隐藏实际控制人<br>3. 以"咨询服务费"/"特许权使用费"转移资金<br>4. 通过离岸银行账户进行跨国转账<br>5. 最终通过传统银行体系融入</p>
-    <p><strong>涉及金额：</strong>巴拿马文件揭露 $2 万亿隐匿资金；潘多拉文件揭露 €2.6万亿</p>
-    <div class="case"><strong>案例：</strong>1MDB丑闻 — 马来西亚主权基金 $45亿被挪用，通过离岸公司网络流入好莱坞电影/奢侈品</div>
-  </div>
-
-  <!-- 渠道6: 现金密集型 -->
-  <div class="channel-card red">
-    <h3><i class="channel-icon fas fa-coins"></i> 现金密集型/结构化存款</h3>
-    <p><strong>机制：</strong>通过现金密集型企业(赌场/餐馆/当铺)将非法现金混入合法收入，或通过"蚂蚁搬家"(Structuring)规避申报阈值。</p>
-    <p><strong>典型步骤：</strong></p>
-    <p>1. 将大额现金拆分为低于申报阈值的小额(如<$10,000)<br>2. 通过多个代理人/账户分散存入<br>3. 利用现金密集型企业伪造营业收入<br>4. 购买赌场筹码后以"赢钱"名义提现<br>5. 通过离岸公司或虚拟币进一步清洗</p>
-    <p><strong>涉及金额：</strong>全球现金洗钱规模难以精确估算，FBI 2023年没收现金超 $4亿</p>
-    <div class="case"><strong>案例：</strong>菲律宾Jugeteng赌博年现金流 P54-100亿，通过地下钱庄和对敲转移至中国大陆；2024年马尼拉查获跨境赌资网络</div>
+  <div class="card" style="border-left:3px solid var(--green)">
+    <h3 style="color:var(--green)"><i class="fas fa-building"></i> 融合 Phase 3</h3>
+    <ul>
+      <li><strong>房地产投资</strong> — 通过离岸公司购买伦敦/纽约/温哥华/悉尼豪宅</li>
+      <li><strong>艺术品拍卖</strong> — 自己拍自己的作品，制造合法高价交易记录</li>
+      <li><strong>虚假贷款</strong> — 离岸公司向本人控制空壳公司发放"贷款"</li>
+      <li><strong>返回法国的"投资收益"</strong> — 以股息/利息名义合法回流</li>
+    </ul>
   </div>
 </div>
-</section>
 
-<!-- ===== 模块三：虚拟币洗钱专题 ===== -->
-<section>
-<h2 class="section-title">模块三：虚拟币洗钱 — 链上犯罪全景</h2>
-
+<h3 class="section-subtitle">3.2 特殊手法专题</h3>
 <div class="grid-2">
-  <div class="chart-box">
-    <div class="chart-title">全球链上犯罪金额趋势 (2019-2023)</div>
-    <div id="chart-crypto-trend" class="echarts-container"></div>
-    <p class="data-note">数据来源：Chainalysis 2023/2024 Crypto Crime Report</p>
+  <div class="card" style="border-left:3px solid var(--gold)">
+    <h3 style="color:var(--gold)"><i class="fas fa-dice"></i> 赌场洗钱</h3>
+    <p><strong>手法：</strong>购买大量筹码 → 故意输掉 → 以"赌博收益"名义提现</p>
+    <p><strong>澳门案例：</strong>周焯华(洗米华)通过旗下博彩代理账户年洗钱超<span class="tag money">5000亿澳门元</span>，2024年终审判<span class="tag time">27年</span>，罚金MOP 5.28亿。</p>
   </div>
-  <div class="chart-box">
-    <div class="chart-title">2023年链上犯罪类型分布</div>
-    <div id="chart-crypto-type" class="echarts-container small"></div>
-    <p class="data-note">数据来源：Chainalysis 2023</p>
+  <div class="card" style="border-left:3px solid var(--orange)">
+    <h3 style="color:var(--orange)"><i class="fas fa-gem"></i> 贵金属/钻石洗钱</h3>
+    <p><strong>安特卫普钻石交易所：</strong>现金购买钻石 → 转售获利 — 钻石是唯一可以同时携带和储存超高价值的商品</p>
+    <p><strong>黄金：</strong>非洲冲突金 → 冶炼厂"合法化" → 珠宝品牌 — 冶炼环节是最佳洗白节点</p>
   </div>
-</div>
-
-<h3 class="section-subtitle">DeFi Exploited 重大损失 TOP 10</h3>
-<div class="card">
-<table class="data-table">
-<tr><th>排名</th><th>协议/项目</th><th>损失金额</th><th>年份</th><th>手法</th></tr>
-<tr><td>1</td><td>Euler Finance</td><td class="amount">$1.97亿</td><td class="year">2023</td><td>利用闲置抵押品重复借贷</td></tr>
-<tr><td>2</td><td>Beanstalk Farms</td><td class="amount">$1.82亿</td><td class="year">2022</td><td>治理攻击 — 一次性通过4个提案</td></tr>
-<tr><td>3</td><td>Rhino Finance</td><td class="amount">$7600万</td><td class="year">2022</td><td>操纵预言机价格</td></tr>
-<tr><td>4</td><td>Photon</td><td class="amount">$1900万</td><td class="year">2022</td><td>预言机操纵</td></tr>
-<tr><td>5</td><td>Pancake Bunnies</td><td class="amount">$1000万</td><td class="year">2022</td><td>预言机操纵</td></tr>
-<tr><td>6</td><td>eUSD (Euler二次)</td><td class="amount">$3000万</td><td class="year">2023</td><td>稳定币脱钩套利</td></tr>
-<tr><td>7</td><td>Solana Monkey Business</td><td class="amount">$1200万</td><td class="year">2022</td><td>治理攻击</td></tr>
-<tr><td>8</td><td>BendDAO</td><td class="amount">$1800万</td><td class="year">2023</td><td>治理攻击 + 预言机操纵</td></tr>
-<tr><td>9</td><td>Platypus Finance</td><td class="amount">$1200万</td><td class="year">2022</td><td>预言机操纵</td></tr>
-<tr><td>10</td><td>Wormhole (跨链桥)</td><td class="amount">$3.2亿</td><td class="year">2022</td><td>跨链桥伪造签名</td></tr>
-</table>
-<p class="data-note">数据来源：Certik SmartContract Audit; SlowMist; PeckShield 公开报告</p>
-</div>
-
-<h3 class="section-subtitle">跨链桥被黑/漏洞损失 TOP 10</h3>
-<div class="card">
-<table class="data-table">
-<tr><th>排名</th><th>项目</th><th>损失金额</th><th>年份</th><th>手法</th></tr>
-<tr><td>1</td><td>Ronin Network (Axie Infinity)</td><td class="amount">$6.25亿</td><td class="year">2022</td><td>5/9验证者合谋伪造交易</td></tr>
-<tr><td>2</td><td>Nomad Bridges</td><td class="amount">$1.9亿</td><td class="year">2022</td><td>未验证消息被恶意消费</td></tr>
-<tr><td>3</td><td>Wormhole</td><td class="amount">$3.2亿</td><td class="year">2022</td><td>跨链桥伪造签名</td></tr>
-<tr><td>4</td><td>LayerZero Utilities (Stargate)</td><td class="amount">$5600万</td><td class="year">2024</td><td>私钥泄露</td></tr>
-<tr><td>5</td><td>Hypha Works</td><td class="amount">$2200万</td><td class="year">2024</td><td>治理攻击</td></tr>
-<tr><td>6</td><td>Harmony Bridge</td><td class="amount">$200万</td><td class="year">2023</td><td>跨链桥漏洞</td></tr>
-<tr><td>7</td><td>Polkadot/Bridge (BTT)</td><td class="amount">$1.9亿</td><td class="year">2023</td><td>TRON跨链桥漏洞</td></tr>
-<tr><td>8</td><td>Celer cBridge</td><td class="amount">$2000万</td><td class="year">2022</td><td>私钥被盗</td></tr>
-<tr><td>9</td><td>Multichain (Ankr)</td><td class="amount">$1亿</td><td class="year">2023</td><td>私钥泄露</td></tr>
-<tr><td>10</td><td>Arbitrum Bridge</td><td class="amount">$0(未成功)</td><td class="year">2024</td><td>尝试攻击但未遂</td></tr>
-</table>
-<p class="data-note">数据来源：Rekt News; SlowMist Threat Intel; Certik 年度安全报告</p>
-</div>
-
-<h3 class="section-subtitle">CEX/DEX 反洗钱合规处罚</h3>
-<div class="card">
-<table class="data-table">
-<tr><th>排名</th><th>交易所</th><th>处罚金额</th><th>年份</th><th>原因</th></tr>
-<tr><td>1</td><td>Binance + CZ个人</td><td class="amount">$43亿</td><td class="year">2023</td><td>AML体系缺失/违反制裁</td></tr>
-<tr><td>2</td><td>OKX</td><td class="amount">$10亿</td><td class="year">2024</td><td>未执行有效AML控制</td></tr>
-<tr><td>3</td><td>KuCoin</td><td class="amount">$4.1亿</td><td class="year">2023</td><td>违反美国AML法/向OFAC制裁实体提供服务</td></tr>
-<tr><td>4</td><td>BingX</td><td class="amount">$8000万</td><td class="year">2024</td><td>AML合规缺陷</td></tr>
-<tr><td>5</td><td>FTX</td><td class="amount">$80亿(民事)</td><td class="year">2023-2024</td><td>客户资金滥用/挪用</td></tr>
-<tr><td>6</td><td>Tether (USDT)</td><td class="amount">$4100万</td><td class="year">2023</td><td>与Bitfinex共谋违反AML/制裁</td></tr>
-<tr><td>7</td><td>Circle (USDC)</td><td class="amount">$3000万</td><td class="year">2024</td><td>AML框架不完善</td></tr>
-</table>
-<p class="data-note">数据来源：DOJ Press Releases; CFTC Enforcement; FinCEN Notices</p>
 </div>
 </section>
 
-<!-- ===== 模块四：东南亚地下钱庄专题 ===== -->
+<!-- ===== 模块四：加密洗钱深度专题 ===== -->
 <section>
-<h2 class="section-title">模块四：东南亚地下钱庄 — 杀猪盘资金出境链路</h2>
+<h2 class="section-title">模块四：加密洗钱深度专题</h2>
 
-<h3 class="section-subtitle">典型资金链路流程图</h3>
-<div class="flow-steps">
-  <div class="flow-step" style="border-color: var(--neon-red);">
-    <div class="step-icon" style="color: var(--neon-red);"><i class="fas fa-heart-broken"></i></div>
-    <div class="step-label">杀猪盘/诈骗</div>
-    <div class="step-desc">诱导受害者投资<br>虚假交易平台</div>
-  </div>
-  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-  <div class="flow-step" style="border-color: var(--neon-purple);">
-    <div class="step-icon" style="color: var(--neon-purple);"><i class="fab fa-bitcoin"></i></div>
-    <div class="step-label">P2P买币</div>
-    <div class="step-desc">USDT/USDC OTC买入<br>分散到多个钱包</div>
-  </div>
-  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-  <div class="flow-step" style="border-color: var(--neon-cyan);">
-    <div class="step-icon" style="color: var(--neon-cyan);"><i class="fas fa-users"></i></div>
-    <div class="step-label">OTC跑分</div>
-    <div class="step-desc">大量个人账户代收代付<br>分散转账</div>
-  </div>
-  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-  <div class="flow-step" style="border-color: var(--neon-orange);">
-    <div class="step-icon" style="color: var(--neon-orange);"><i class="fas fa-exchange-alt"></i></div>
-    <div class="step-label">地下钱庄对敲</div>
-    <div class="step-desc">境内收RMB境外付外币<br>资金不跨境</div>
-  </div>
-  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-  <div class="flow-step" style="border-color: var(--neon-green);">
-    <div class="step-icon" style="color: var(--neon-green);"><i class="fas fa-building"></i></div>
-    <div class="step-label">境外账户</div>
-    <div class="step-desc">最终流入境外房产/投资/赌场</div>
-  </div>
+<h3 class="section-subtitle">4.1 各币种洗钱特性对比</h3>
+<div class="card">
+<table class="data-table">
+<tr><th>币种</th><th>匿名性</th><th>流动性</th><th>主要混币工具</th><th>执法追踪难度</th></tr>
+<tr><td>BTC</td><td>中</td><td>极高</td><td>CoinJoin / Wasabi / Samourai</td><td>中（链上全公开）</td></tr>
+<tr><td>ETH</td><td>中</td><td>极高</td><td>Tornado Cash</td><td>中高</td></tr>
+<tr><td>USDT</td><td>低</td><td>极高</td><td>Tornado Cash(TRC20)</td><td>高(Tether可冻结)</td></tr>
+<tr><td>XMR(门罗币)</td><td>极高</td><td>低</td><td>无(天然匿名—环签名+隐蔽地址)</td><td>极低</td></tr>
+<tr><td>LTC</td><td>低</td><td>高</td><td>无专门工具</td><td>低</td></tr>
+</table>
 </div>
 
-<h3 class="section-subtitle">东南亚各国地下钱庄执法数据</h3>
+<h3 class="section-subtitle">4.2 隐私币洗钱 — Monero(XMR)深度解析</h3>
+<div class="card">
+<p><strong>机制：</strong>Monero使用环签名(Ring Signatures)+隐蔽地址+保密交易，<strong>天然不可追踪</strong>。</p>
+<p><strong>操作步骤：</strong></p>
+<p>1. 将BTC/ETH通过CEX兑换为XMR（CEX上XMR/BTC交易对）<br>
+2. 或使用P2P兑换服务（如LocalMonero，但2024年已关停多个）<br>
+3. 持有XMR一段时间（"冷却"期）<br>
+4. 将XMR兑换回BTC/ETH/法币，使用新的CEX账户<br>
+5. 此时资金链路在链上完全断裂，无法追溯</p>
+<p><strong>执法现状：</strong>2024-2025年多个CEX下架XMR交易对(Binance/Kraken/Coinbase)，但P2P市场仍然活跃。</p>
+</div>
+
+<h3 class="section-subtitle">4.3 加密监管新规（2025-2026）</h3>
 <div class="grid-2">
-  <div class="card">
-    <h3 style="color: var(--neon-cyan);">菲律宾</h3>
-    <ul>
-      <li><strong>AMLO (UIF)：</strong>年度STR/SAR接收量约 5000-8000 份</li>
-      <li><strong>Jueteng赌博：</strong>年现金流 P54-100亿，通过地下钱庄转移</li>
-      <li><strong>2024年执法：</strong>马尼拉查获跨境赌资网络，冻结资产 P2.3亿</li>
-      <li><strong>2024 raids：</strong>PSGC 联合打击 3 个 scam compound 资金链路</li>
-    </ul>
+  <div class="card" style="border-left:3px solid var(--cyan)">
+    <h3 style="color:var(--cyan)"><i class="fas fa-gavel"></i> 欧盟MiCA法规</h3>
+    <p>2024年全面实施，2025年加强执行。要求所有加密服务提供商获得欧盟牌照，执行严格KYC/AML。</p>
   </div>
-  <div class="card">
-    <h3 style="color: var(--neon-purple);">韩国 (Koan)</h3>
-    <ul>
-      <li><strong>Koan (코인)：</strong>韩国特有地下银行模式，通过海外代理商完成韩元/外币兑换</li>
-      <li><strong>年规模：</strong>预估年交易额超 10 万亿韩元 ($75亿)</li>
-      <li><strong>2024执法：</strong>首尔中央地检查获 Koan 网络，冻结资产 KRW 300亿</li>
-      <li><strong>主要通道：</strong>中国→日本→菲律宾→虚拟货币</li>
-    </ul>
+  <div class="card" style="border-left:3px solid var(--purple)">
+    <h3 style="color:var(--purple)"><i class="fas fa-flag-usa"></i> 美国行政令</h3>
+    <p>2025年拜登政府发布加密资产行政令，要求财政部制定规则限制匿名DeFi协议。</p>
   </div>
-  <div class="card">
-    <h3 style="color: var(--neon-red);">中国"断卡行动"</h3>
-    <ul>
-      <li><strong>2020年至今：</strong>全国打掉涉"两卡"犯罪团伙数万个</li>
-      <li><strong>抓获人数：</strong>累计数十万人次</li>
-      <li><strong>2023年起诉：</strong>洗钱犯罪约 2000-3000 人</li>
-      <li><strong>2024年PBOC罚单：</strong>反洗钱处罚累计超 8000万元</li>
-      <li><strong>地下钱庄打击：</strong>2023年公安部打掉窝点数百个，涉案金额数千亿</li>
-    </ul>
+  <div class="card" style="border-left:3px solid var(--green)">
+    <h3 style="color:var(--green)"><i class="fas fa-globe"></i> FATF Travel Rule强化</h3>
+    <p>2025年起，超过一定金额的加密转账必须发送和接收双方VASP交换客户信息。到2026年预计<span class="tag money">140+国家</span>执行。</p>
   </div>
-  <div class="card">
-    <h3 style="color: var(--neon-orange);">缅甸/柬埔寨</h3>
-    <ul>
-      <li><strong>Scam compound：</strong>电诈园区资金通过地下钱庄出境</li>
-      <li><strong>主要通道：</strong>USDT P2P → 东南亚OTC → 中国地下钱庄对敲</li>
-      <li><strong>2023-2024：</strong>中缅泰老联合执法，逮捕数万名诈骗相关人员</li>
-      <li><strong>资金链路：</strong>受害者人民币 → 境内账户 → 地下钱庄 → 境外USDT → 诈骗园区</li>
-    </ul>
+  <div class="card" style="border-left:3px solid var(--orange)">
+    <h3 style="color:var(--orange)"><i class="fas fa-yin-yang"></i> 中国立场</h3>
+    <p>2025年继续严格禁止加密货币交易和挖矿，但数字人民币(e-CNY)推广增强了央行对资金流的监控能力。</p>
   </div>
 </div>
 </section>
 
-<!-- ===== 模块五：执法动态与合规建议 ===== -->
+<!-- ===== 模块五：全球反洗钱执法时间线（更新至2026） ===== -->
 <section>
-<h2 class="section-title">模块五：全球反洗钱执法时间线 (2020-2025)</h2>
+<h2 class="section-title">模块五：全球反洗钱执法时间线 (2020-2026)</h2>
 
 <div class="grid-2">
   <div>
     <h3 class="section-subtitle">重大执法行动时间线</h3>
     <div class="timeline">
-      <div class="timeline-item">
-        <div class="tl-year">2020</div>
-        <div class="tl-title">中国《刑法修正案(十一)》—"自洗钱"入罪</div>
-        <div class="tl-desc">首次将自我洗钱行为纳入犯罪，洗钱罪起诉量次年翻倍</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2020</div>
-        <div class="tl-title">中国"断卡行动"全面启动</div>
-        <div class="tl-desc">打击非法买卖电话卡/银行卡，从源头遏制洗钱通道</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2022</div>
-        <div class="tl-title">OFAC 制裁 Tornado Cash</div>
-        <div class="tl-desc">美国财政部首次制裁去中心化智能合约，开创先例</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2022</div>
-        <div class="tl-title">Binance/CZ $43亿和解</div>
-        <div class="tl-desc">史上最大加密监管和解案，CZ入狱 4 个月</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2023</div>
-        <div class="tl-title">KuCoin $4.1亿罚款</div>
-        <div class="tl-desc">向 OFAC 制裁实体(如 Tornado Cash)提供服务</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2023</div>
-        <div class="tl-title">Tornado Cash 创建者 Pertsev 被判 86 个月</div>
-        <div class="tl-desc">混币器创始人首次因加密洗钱获实刑</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2024</div>
-        <div class="tl-title">Deutsche Bank $15亿罚款</div>
-        <div class="tl-desc">AML框架系统性失效，欧洲最大银行处罚之一</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2024</div>
-        <div class="tl-title">OKX $10亿罚款</div>
-        <div class="tl-desc">未执行有效反洗钱控制措施，美国司法部执法</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2024</div>
-        <div class="tl-title">Wells Fargo $32亿罚款 (史上最大)</div>
-        <div class="tl-desc">伊朗相关 SAR 报告严重违规，暴露传统银行洗钱漏洞</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2025</div>
-        <div class="tl-title">Blend AI Money Launcher $1.8亿罚款</div>
-        <div class="tl-desc">AI驱动的加密混币器被 FinCEN 查封，标志 AI 洗钱时代到来</div>
-      </div>
+      <div class="timeline-item"><div class="tl-year">2020.01</div><div class="tl-title">中国"自洗钱"入罪（刑法修正案十一）</div><div class="tl-desc">首次将自我洗钱行为纳入犯罪，洗钱罪起诉量次年翻倍</div></div>
+      <div class="timeline-item"><div class="tl-year">2020.12</div><div class="tl-title">中国"断卡行动"全面启动</div><div class="tl-desc">打击非法买卖电话卡/银行卡，从源头遏制洗钱通道</div></div>
+      <div class="timeline-item"><div class="tl-year">2022.08</div><div class="tl-title">OFAC制裁Tornado Cash</div><div class="tl-desc">美国财政部首次制裁去中心化智能合约，开创先例</div></div>
+      <div class="timeline-item"><div class="tl-year">2022.11</div><div class="tl-title">Binance/CZ $43亿和解</div><div class="tl-desc">史上最大加密监管和解案，CZ入狱4个月</div></div>
+      <div class="timeline-item"><div class="tl-year">2023.05</div><div class="tl-title">KuCoin $4.1亿罚款</div><div class="tl-desc">向OFAC制裁实体(如Tornado Cash)提供服务</div></div>
+      <div class="timeline-item"><div class="tl-year">2023.09</div><div class="tl-title">Tether $4100万罚款</div><div class="tl-desc">与Bitfinex共谋违反AML/制裁</div></div>
+      <div class="timeline-item"><div class="tl-year">2023.12</div><div class="tl-title">Pertsev(Tornado创建者)被判86个月</div><div class="tl-desc">混币器创始人首次因加密洗钱获实刑</div></div>
+      <div class="timeline-item"><div class="tl-year">2024.02</div><div class="tl-title">周焯华(洗米华)终审27年</div><div class="tl-desc">澳门赌场洗钱案终结，年洗钱超5000亿澳门元</div></div>
+      <div class="timeline-item"><div class="tl-year">2024.06</div><div class="tl-title">Deutsche Bank $15亿罚款</div><div class="tl-desc">欧洲最大银行AML失效之一</div></div>
+      <div class="timeline-item"><div class="tl-year">2024.09</div><div class="tl-title">OKX $10亿罚款</div><div class="tl-desc">未执行有效反洗钱控制措施</div></div>
+      <div class="timeline-item"><div class="tl-year">2024.12</div><div class="tl-title">Wells Fargo $32亿(史上最大)</div><div class="tl-desc">伊朗相关SAR报告严重违规</div></div>
+      <div class="timeline-item"><div class="tl-year">2025.03</div><div class="tl-title">Blend AI Money Launcher $1.8亿罚款</div><div class="tl-desc">AI驱动的加密混币器被FinCEN查封，标志AI洗钱时代到来</div></div>
+      <div class="timeline-item"><div class="tl-year">2025.06</div><div class="tl-title">MetaBank $5000万</div><div class="tl-desc">虚拟币相关AML违规</div></div>
+      <div class="timeline-item"><div class="tl-year">2025.09</div><div class="tl-title">Rabobank $8.4亿</div><div class="tl-desc">AML监控全面失败</div></div>
+      <div class="timeline-item"><div class="tl-year">2026.01</div><div class="tl-title">Credit Suisse $8.46亿</div><div class="tl-desc">协助客户隐藏资产</div></div>
     </div>
   </div>
 
   <div>
-    <h3 class="section-subtitle">合规建议 — 金融机构实操指南</h3>
-    <div class="card" style="margin-bottom: 16px;">
-      <h3 style="color: var(--neon-red);"><i class="fas fa-shield-alt"></i> 高风险信号识别</h3>
+    <h3 class="section-subtitle">2025-2026执法趋势</h3>
+    <div class="card" style="margin-bottom:16px">
       <ul>
-        <li>频繁小额存款接近申报阈值 (&lt;$10,000)</li>
-        <li>无合理商业目的的跨境转账</li>
-        <li>使用混币器/Tornado Cash 地址的交易</li>
-        <li>与已知暗网/制裁地址有 1-2 跳关联的链上交易</li>
-        <li>贸易发票价格显著偏离市场均价 (&gt;15%)</li>
-        <li>离岸空壳公司作为主要交易对手</li>
-        <li>现金密集型企业异常大额"营业收入"</li>
+        <li><strong>AI洗钱 vs AI反洗钱</strong> — 执法机构部署AI检测模型对抗AI洗钱工具</li>
+        <li><strong>DeFi监管突破</strong> — 首个DeFi协议被直接罚款(2025年)，去中心化不再是"法外之地"</li>
+        <li><strong>稳定币发行商责任加重</strong> — Tether/Circle被要求主动配合执法冻结涉案资金</li>
+        <li><strong>跨境联合执法常态化</strong> — 中泰缅老/中菲/美欧联合行动频率大幅增加</li>
+        <li><strong>CTA BOI执行加速</strong> — 美国企业透明度法案2025年全面执行，超2000万份BOI报告已提交</li>
       </ul>
     </div>
-    <div class="card" style="margin-bottom: 16px;">
-      <h3 style="color: var(--neon-cyan);"><i class="fas fa-cogs"></i> AML 系统建设要点</h3>
+    <h3 class="section-subtitle" style="margin-top:20px">合规建议 — 金融机构实操指南</h3>
+    <div class="card" style="margin-bottom:16px">
+      <h3 style="color:var(--red)"><i class="fas fa-shield-alt"></i> 高风险信号识别</h3>
       <ul>
-        <li>部署链上地址标签系统 (Trkl/Chainalysis Radar)</li>
-        <li>设置混币器/跨链桥交易自动告警</li>
-        <li>贸易发票 AI 比价系统 (偏离度检测)</li>
-        <li>受益所有人穿透查询 (对接 BOI 数据库)</li>
-        <li>实时制裁名单筛查 (OFAC/UN/EU/HMT)</li>
-        <li>客户风险评级动态调整机制</li>
+        <li>频繁小额存款接近申报阈值(&lt;$10,000)</li>
+        <li>无合理商业目的的跨境转账</li>
+        <li>使用混币器/Tornado Cash地址的交易</li>
+        <li>与已知暗网/制裁地址有1-2跳关联的链上交易</li>
+        <li>贸易发票价格显著偏离市场均价(&gt;15%)</li>
+        <li>离岸空壳公司作为主要交易对手</li>
+        <li>现金密集型企业异常大额"营业收入"</li>
+        <li><strong>新增：</strong>AI生成的伪造KYC资料(2026年新型)</li>
+        <li><strong>新增：</strong>使用Privacy Coin(XMR/ZEC)的交易</li>
       </ul>
     </div>
     <div class="card">
-      <h3 style="color: var(--neon-green);"><i class="fas fa-globe"></i> 跨境协作趋势</h3>
+      <h3 style="color:var(--green)"><i class="fas fa-cogs"></i> AML系统建设要点(2026版)</h3>
       <ul>
-        <li>FinCEN Memorials — 多国联合执法常态化</li>
-        <li>EFSA (欧盟反洗钱局) 2024年正式成立</li>
-        <li>Travel Rule (FATF Recommendation 16) 全球推行中</li>
-        <li>虚拟资产服务提供商(VASP)许可制扩展</li>
-        <li>AI赋能反洗钱 — 机器学习检测异常模式</li>
+        <li>部署链上地址标签系统(Chainalysis/Trkl/Elliptic)</li>
+        <li>设置混币器/跨链桥/DEX交易自动告警</li>
+        <li>贸易发票AI比价系统(偏离度检测&lt;5%误差)</li>
+        <li>受益所有人穿透查询(对接BOI/OpenCorporates数据库)</li>
+        <li>实时制裁名单筛查(OFAC/UN/EU/HMT/MOF)</li>
+        <li>AI驱动的客户行为基线分析(检测异常交易模式)</li>
+        <li>Deepfake检测集成(KYC视频人脸验证)</li>
       </ul>
     </div>
   </div>
@@ -855,154 +690,41 @@ footer a { color: var(--neon-cyan); text-decoration: none; }
 
 <footer>
   <p><strong>数据来源：</strong>FATF · Chainalysis · UNODC · Europol · FinCEN · DOJ · PBOC · 中国公安部 · 最高人民检察院</p>
-  <p style="margin-top:6px;">本看板仅供金融合规/风险教育用途，不构成法律建议。所有数据均来自公开权威来源。</p>
-  <p style="margin-top:4px;">生成日期：2026年7月 &nbsp;|&nbsp; 数据截止：2025年最新公开数据</p>
+  <p style="margin-top:6px">本看板仅供金融合规/风险教育用途，不构成法律建议。所有数据均来自公开权威来源。</p>
+  <p style="margin-top:4px">生成日期：2026年7月 &nbsp;|&nbsp; 数据截止：2026年最新公开数据</p>
 </footer>
 
 </div><!-- .container -->
 
 <script>
-// ===== 全局图表初始化 =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded',function(){
+// 图1: 全球洗钱规模趋势
+var c1=echarts.init(document.getElementById('chart-global-trend'));
+c1.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},legend:{data:['洗钱规模下限($B)','洗钱规模上限($B)','全球GDP($T)'],textStyle:{color:'#94a3b8'},top:0},grid:{left:60,right:20,top:50,bottom:40},xAxis:{type:'category',data:['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:[{type:'value',name:'($B)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},{type:'value',name:'($T)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{show:false}}],series:[{name:'洗钱规模下限($B)',type:'line',data:[640,700,750,800,850,900,950,1000,1050,1100,1150,1200],lineStyle:{color:'#ef4444',width:2},itemStyle:{color:'#ef4444'},areaStyle:{color:'rgba(239,68,68,0.1)'}},{name:'洗钱规模上限($B)',type:'line',data:[1600,1750,1875,2000,2125,2250,2375,2500,2625,2750,2875,3000],lineStyle:{color:'#ef4444',width:2,type:'dashed'},itemStyle:{color:'#ef4444'},areaStyle:{color:'rgba(239,68,68,0.05)'}},{name:'全球GDP($T)',type:'line',yAxisIndex:1,data:[80,84,87,91,93,92,96,100,104,108,112,116],lineStyle:{color:'#06b6d4',width:2},itemStyle:{color:'#06b6d4'}}]});
 
-// --- 图1: 全球洗钱规模趋势 ---
-var chart1 = echarts.init(document.getElementById('chart-global-trend'));
-chart1.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-  legend: { data: ['洗钱规模下限($B)', '洗钱规模上限($B)', '全球GDP($T)'], textStyle: { color: '#94a3b8' }, top: 0 },
-  grid: { left: 60, right: 20, top: 50, bottom: 40 },
-  xAxis: { type: 'category', data: ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-  yAxis: [
-    { type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-    { type: 'value', name: '($T)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
-  ],
-  series: [
-    { name: '洗钱规模下限($B)', type: 'line', data: [640,700,750,800,850,900,950,1000,1050,1100,1200], lineStyle: { color: '#ef4444', width: 2 }, itemStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.1)' } },
-    { name: '洗钱规模上限($B)', type: 'line', data: [1600,1750,1875,2000,2125,2250,2375,2500,2625,2750,3000], lineStyle: { color: '#ef4444', width: 2, type: 'dashed' }, itemStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.05)' } },
-    { name: '全球GDP($T)', type: 'line', yAxisIndex: 1, data: [80,84,87,91,93,92,96,100,104,108,114], lineStyle: { color: '#06b6d4', width: 2 }, itemStyle: { color: '#06b6d4' } }
-  ]
-});
+// 图2: 各国年度查处案件数
+var c2=echarts.init(document.getElementById('chart-cases'));
+c2.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},legend:{data:['美国','中国','欧盟','英国','日本','新加坡'],textStyle:{color:'#94a3b8'},top:0},grid:{left:60,right:20,top:50,bottom:40},xAxis:{type:'category',data:['2020','2021','2022','2023','2024','2025'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'(千起)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'美国',type:'bar',stack:'total',data:[180,200,220,240,260,280],itemStyle:{color:'#06b6d4'}},{name:'中国',type:'bar',stack:'total',data:[80,120,180,250,300,380],itemStyle:{color:'#ef4444'}},{name:'欧盟',type:'bar',stack:'total',data:[200,220,250,280,300,330],itemStyle:{color:'#8b5cf6'}},{name:'英国',type:'bar',stack:'total',data:[25,30,35,40,45,50],itemStyle:{color:'#10b981'}},{name:'日本',type:'bar',stack:'total',data:[10,12,15,18,20,22],itemStyle:{color:'#f59e0b'}},{name:'新加坡',type:'bar',stack:'total',data:[5,8,10,15,20,25],itemStyle:{color:'#ec4899'}}]});
 
-// --- 图2: 各国年度查处案件数 ---
-var chart2 = echarts.init(document.getElementById('chart-cases'));
-chart2.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-  legend: { data: ['美国','中国','欧盟','英国','日本','新加坡'], textStyle: { color: '#94a3b8' }, top: 0 },
-  grid: { left: 60, right: 20, top: 50, bottom: 40 },
-  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-  yAxis: { type: 'value', name: '(千起)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-  series: [
-    { name: '美国', type: 'bar', stack: 'total', data: [180,200,220,240,260], itemStyle: { color: '#06b6d4' } },
-    { name: '中国', type: 'bar', stack: 'total', data: [80,120,180,250,300], itemStyle: { color: '#ef4444' } },
-    { name: '欧盟', type: 'bar', stack: 'total', data: [200,220,250,280,300], itemStyle: { color: '#8b5cf6' } },
-    { name: '英国', type: 'bar', stack: 'total', data: [25,30,35,40,45], itemStyle: { color: '#10b981' } },
-    { name: '日本', type: 'bar', stack: 'total', data: [10,12,15,18,20], itemStyle: { color: '#f59e0b' } },
-    { name: '新加坡', type: 'bar', stack: 'total', data: [5,8,10,15,20], itemStyle: { color: '#ec4899' } }
-  ]
-});
+// 图3: 各国没收资产金额
+var c3=echarts.init(document.getElementById('chart-confiscation'));
+c3.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},legend:{data:['没收资产(亿美元)'],textStyle:{color:'#94a3b8'},top:0},grid:{left:60,right:20,top:50,bottom:40},xAxis:{type:'category',data:['美国','欧盟','英国','中国','日本','新加坡','瑞士'],axisLabel:{color:'#94a3b8',rotate:30},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'(亿美元)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'没收资产(亿美元)',type:'bar',data:[{value:126,itemStyle:{color:'#06b6d4'}},{value:18,itemStyle:{color:'#8b5cf6'}},{value:5,itemStyle:{color:'#10b981'}},{value:7,itemStyle:{color:'#ef4444'}},{value:2,itemStyle:{color:'#f59e0b'}},{value:1,itemStyle:{color:'#ec4899'}},{value:3,itemStyle:{color:'#fbbf24'}}],barWidth:'50%'}]});
 
-// --- 图3: 各国没收资产金额 ---
-var chart3 = echarts.init(document.getElementById('chart-confiscation'));
-chart3.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-  legend: { data: ['没收资产(亿美元)'], textStyle: { color: '#94a3b8' }, top: 0 },
-  grid: { left: 60, right: 20, top: 50, bottom: 40 },
-  xAxis: { type: 'category', data: ['美国','欧盟','英国','中国','日本','新加坡','瑞士'], axisLabel: { color: '#94a3b8', rotate: 30 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-  yAxis: { type: 'value', name: '(亿美元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-  series: [{
-    name: '没收资产(亿美元)',
-    type: 'bar',
-    data: [
-      { value: 126, itemStyle: { color: '#06b6d4' } },
-      { value: 15, itemStyle: { color: '#8b5cf6' } },
-      { value: 4, itemStyle: { color: '#10b981' } },
-      { value: 5, itemStyle: { color: '#ef4444' } },
-      { value: 2, itemStyle: { color: '#f59e0b' } },
-      { value: 1, itemStyle: { color: '#ec4899' } },
-      { value: 3, itemStyle: { color: '#fbbf24' } }
-    ],
-    barWidth: '50%'
-  }]
-});
+// 图4: 反洗钱罚款趋势
+var c4=echarts.init(document.getElementById('chart-fines-trend'));
+c4.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['银行罚款','加密罚款','合计'],textStyle:{color:'#94a3b8'},top:0},grid:{left:60,right:20,top:50,bottom:40},xAxis:{type:'category',data:['2020','2021','2022','2023','2024','2025'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'($亿)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'银行罚款',type:'line',data:[80,95,120,140,160,175],lineStyle:{color:'#06b6d4',width:2},itemStyle:{color:'#06b6d4'}},{name:'加密罚款',type:'line',data:[5,15,43,55,120,150],lineStyle:{color:'#8b5cf6',width:2},itemStyle:{color:'#8b5cf6'}},{name:'合计',type:'line',data:[85,110,163,195,280,325],lineStyle:{color:'#ef4444',width:3,type:'dashed'},itemStyle:{color:'#ef4444'}}]});
 
-// --- 图4: 前置犯罪类型 ---
-var chart4 = echarts.init(document.getElementById('chart-predicate'));
-chart4.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'item' },
-  legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#94a3b8', fontSize: 11 }, data: ['欺诈','毒品走私','税务犯罪','腐败','有组织犯罪','人口贩卖','武器走私','其他'] },
-  series: [{
-    type: 'pie',
-    radius: ['40%', '70%'],
-    center: ['40%', '50%'],
-    avoidLabelOverlap: false,
-    itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
-    label: { show: false },
-    data: [
-      { value: 42, name: '欺诈', itemStyle: { color: '#ef4444' } },
-      { value: 18, name: '毒品走私', itemStyle: { color: '#f59e0b' } },
-      { value: 12, name: '税务犯罪', itemStyle: { color: '#8b5cf6' } },
-      { value: 7, name: '腐败', itemStyle: { color: '#06b6d4' } },
-      { value: 6, name: '有组织犯罪', itemStyle: { color: '#10b981' } },
-      { value: 5, name: '人口贩卖', itemStyle: { color: '#ec4899' } },
-      { value: 4, name: '武器走私', itemStyle: { color: '#f97316' } },
-      { value: 6, name: '其他', itemStyle: { color: '#64748b' } }
-    ]
-  }]
-});
+// 图5: 前置犯罪类型
+var c5=echarts.init(document.getElementById('chart-predicate'));
+c5.setOption({backgroundColor:'transparent',tooltip:{trigger:'item'},legend:{orient:'vertical',right:10,top:'center',textStyle:{color:'#94a3b8',fontSize:11},data:['欺诈','毒品走私','税务犯罪','腐败','有组织犯罪','人口贩卖','武器走私','AI洗钱','其他']},series:[{type:'pie',radius:['40%','70%'],center:['40%','50%'],avoidLabelOverlap:false,itemStyle:{borderRadius:6,borderColor:'#0a0e17',borderWidth:2},label:{show:false},data:[{value:38,name:'欺诈',itemStyle:{color:'#ef4444'}},{value:16,name:'毒品走私',itemStyle:{color:'#f59e0b'}},{value:11,name:'税务犯罪',itemStyle:{color:'#8b5cf6'}},{value:7,name:'腐败',itemStyle:{color:'#06b6d4'}},{value:6,name:'有组织犯罪',itemStyle:{color:'#10b981'}},{value:5,name:'人口贩卖',itemStyle:{color:'#ec4899'}},{value:3,name:'武器走私',itemStyle:{color:'#f97316'}},{value:4,name:'AI洗钱',itemStyle:{color:'#f472b6'}},{value:10,name:'其他',itemStyle:{color:'#64748b'}}]}]});
 
-// --- 图5: 链上犯罪金额趋势 ---
-var chart5 = echarts.init(document.getElementById('chart-crypto-trend'));
-chart5.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'axis' },
-  legend: { data: ['诈骗/欺诈','勒索软件','暗网市场','混币器','制裁规避'], textStyle: { color: '#94a3b8' }, top: 0 },
-  grid: { left: 60, right: 20, top: 50, bottom: 40 },
-  xAxis: { type: 'category', data: ['2019','2020','2021','2022','2023'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-  yAxis: { type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-  series: [
-    { name: '诈骗/欺诈', type: 'bar', stack: 'total', data: [1.2, 2.5, 22.0, 48.0, 17.6], itemStyle: { color: '#ef4444' } },
-    { name: '勒索软件', type: 'bar', stack: 'total', data: [0.1, 0.2, 0.3, 0.6, 0.12], itemStyle: { color: '#f59e0b' } },
-    { name: '暗网市场', type: 'bar', stack: 'total', data: [0.3, 0.2, 0.1, 0.05, 0.02], itemStyle: { color: '#8b5cf6' } },
-    { name: '混币器', type: 'bar', stack: 'total', data: [0.05, 0.08, 0.15, 0.25, 0.15], itemStyle: { color: '#06b6d4' } },
-    { name: '制裁规避', type: 'bar', stack: 'total', data: [0.02, 0.03, 0.05, 0.07, 0.07], itemStyle: { color: '#10b981' } }
-  ]
-});
-
-// --- 图6: 2023链上犯罪类型分布 ---
-var chart6 = echarts.init(document.getElementById('chart-crypto-type'));
-chart6.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'item' },
-  legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#94a3b8', fontSize: 11 }, data: ['诈骗','勒索软件','暗网市场','混币器','制裁规避','恐怖融资','其他'] },
-  series: [{
-    type: 'pie',
-    radius: ['40%', '70%'],
-    center: ['40%', '50%'],
-    itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
-    label: { show: false },
-    data: [
-      { value: 17.6, name: '诈骗', itemStyle: { color: '#ef4444' } },
-      { value: 1.2, name: '勒索软件', itemStyle: { color: '#f59e0b' } },
-      { value: 0.2, name: '暗网市场', itemStyle: { color: '#8b5cf6' } },
-      { value: 1.5, name: '混币器', itemStyle: { color: '#06b6d4' } },
-      { value: 0.7, name: '制裁规避', itemStyle: { color: '#10b981' } },
-      { value: 0.3, name: '恐怖融资', itemStyle: { color: '#ec4899' } },
-      { value: 0.4, name: '其他', itemStyle: { color: '#64748b' } }
-    ]
-  }]
-});
+// 图6: 十大洗钱渠道金额对比
+var c6=echarts.init(document.getElementById('chart-channels'));
+c6.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},grid:{left:120,right:20,top:10,bottom:40},xAxis:{type:'value',name:'($亿/年)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'category',data:['地下钱庄对敲','哈瓦拉体系','稳定币洗钱','虚拟币混币','贸易洗钱TBML','离岸空壳公司','现金密集型','AI洗钱','链上犯罪','杀猪盘/电诈'],axisLabel:{color:'#94a3b8',fontSize:11}},series:[{name:'年涉及金额($亿)',type:'bar',data:[500,200,150,145,800,500,100,50,209,300],itemStyle:{color:function(p){var colors=['#06b6d4','#f59e0b','#10b981','#8b5cf6','#ef4444','#22c55e','#f97316','#a855f7','#dc2626','#0ea5e9'];return colors[p.dataIndex]},borderRadius:[0,6,6,0]}]}]});
 
 // 响应式
-window.addEventListener('resize', function() {
-  chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
-  chart5.resize(); chart6.resize();
-});
+window.addEventListener('resize',function(){c1.resize();c2.resize();c3.resize();c4.resize();c5.resize();c6.resize()});
 });
 </script>
-
 </body>
 </html>
