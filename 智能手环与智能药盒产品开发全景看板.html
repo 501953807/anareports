@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智能手环与智能药盒产品开发全景看板 v2.0</title>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #232733; --border: #2e3345;
+  --text: #e4e6ed; --text2: #9498a8; --accent: #c45a6c; --accent2: #d4787e;
+  --green: #5cb88a; --green2: #4a9e72; --yellow: #d4a843; --red: #c45a5a;
+  --blue: #5a8ec4; --purple: #8a5ac4; --gold: #d4a843; --cyan: #5ac4b8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1500px; margin: 0 auto; padding: 24px; }
+
+/* === 书式分页 === */
+.book-part { margin-bottom: 60px; page-break-after: always; border-bottom: 2px dashed var(--border); padding-bottom: 40px; }
+.book-part:last-child { border-bottom: none; }
+.part-label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.part-title { font-size: 26px; font-weight: 700; color: var(--accent2); margin-bottom: 4px; }
+.part-desc { font-size: 13px; color: var(--text2); margin-bottom: 24px; }
+
+/* 目录 */
+.toc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.toc-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+.toc-num { font-size: 22px; font-weight: 700; color: var(--accent); min-width: 32px; text-align: center; }
+.toc-info strong { font-size: 13px; display: block; }
+.toc-info span { font-size: 11px; color: var(--text2); }
+
+/* 顶部KPI */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: 1fr 1fr; } }
+
+.metric { background: var(--surface2); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.metric .val { font-size: 26px; font-weight: 700; }
+.metric .label { font-size: 11px; color: var(--text2); margin-top: 4px; line-height: 1.4; }
+.metric.blue .val { color: var(--blue); }
+.metric.cyan .val { color: var(--cyan); }
+.metric.green .val { color: var(--green); }
+.metric.gold .val { color: var(--gold); }
+.metric.red .val { color: var(--red); }
+.metric.purple .val { color: var(--purple); }
+
+/* 卡片 */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.card p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+/* 标签 */
+.tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+.tag-red { background: rgba(196,90,90,0.15); color: var(--red); border: 1px solid rgba(196,90,90,0.3); }
+.tag-green { background: rgba(92,184,138,0.15); color: var(--green); border: 1px solid rgba(92,184,138,0.3); }
+.tag-yellow { background: rgba(212,168,67,0.15); color: var(--yellow); border: 1px solid rgba(212,168,67,0.3); }
+.tag-blue { background: rgba(90,142,196,0.15); color: var(--blue); border: 1px solid rgba(90,142,196,0.3); }
+.tag-purple { background: rgba(138,90,196,0.15); color: var(--purple); border: 1px solid rgba(138,90,196,0.3); }
+.tag-cyan { background: rgba(90,196,184,0.15); color: var(--cyan); border: 1px solid rgba(90,196,184,0.3); }
+.tag-gold { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+.tag-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+
+/* 表格 */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table th { background: var(--surface2); padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--border); font-size: 12px; }
+.comp-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; font-size: 12px; }
+.comp-table tr:hover td { background: rgba(35,39,51,0.5); }
+.comp-table ul { list-style: none; padding: 0; }
+.comp-table ul li { padding: 3px 0; font-size: 12px; }
+.rise { color: var(--green); }
+.decline { color: var(--red); }
+
+/* 特殊盒子 */
+.forecast-box { background: rgba(92,184,138,0.05); border: 1px solid rgba(92,184,138,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.forecast-box h4 { font-size: 14px; color: var(--green); margin-bottom: 8px; }
+.risk-box { background: rgba(196,90,90,0.05); border: 1px solid rgba(196,90,90,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.risk-box h4 { font-size: 14px; color: var(--red); margin-bottom: 8px; }
+.deep-dive { background: rgba(90,142,196,0.05); border: 1px solid rgba(90,142,196,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.deep-dive h4 { font-size: 14px; color: var(--blue); margin-bottom: 8px; }
+.source-note { font-size: 10px; color: var(--text2); opacity: 0.7; margin-top: 4px; }
+
+/* 列表 */
+.card ul { list-style: none; padding: 0; }
+.card ul li { font-size: 13px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid rgba(46,51,69,0.5); }
+.card ul li:last-child { border-bottom: none; }
+.card ul li strong { color: var(--text); font-weight: 600; }
+
+/* 时间线 */
+.timeline-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 4px; }
+.timeline-dot.green { background: var(--green); }
+.timeline-dot.blue { background: var(--blue); }
+.timeline-dot.purple { background: var(--purple); }
+.timeline-dot.gold { background: var(--gold); }
+.timeline-content { flex: 1; }
+.timeline-content strong { color: var(--text); font-size: 13px; }
+
+/* SVG容器 */
+.svg-container { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 16px 0; overflow-x: auto; }
+.svg-container svg { width: 100%; height: auto; }
+
+/* 数据标注 */
+.data-badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 3px; background: var(--surface2); color: var(--text2); margin-left: 4px; }
+
+/* 页脚 */
+footer { text-align: center; padding: 30px 0 20px; border-top: 1px solid var(--border); margin-top: 40px; color: var(--text2); font-size: 13px; }
+
+/* 章节标题 */
+.section-header { margin-bottom: 20px; }
+.section-header h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.section-header p { font-size: 13px; color: var(--text2); }
+
+/* 架构层级标签 */
+.layer-tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ==================== 封面 ==================== -->
+<div class="book-part">
+<header style="padding: 60px 0 40px; text-align: center;">
+  <div style="font-size: 12px; letter-spacing: 4px; color: var(--text2); margin-bottom: 12px;">PRODUCT DEVELOPMENT DASHBOARD</div>
+  <h1 style="font-size: 32px; font-weight: 700; color: var(--accent2); letter-spacing: 2px; margin-bottom: 12px;">智能手环(防走失+健康监测)与智能药盒</h1>
+  <p style="font-size: 16px; color: var(--text2); margin-bottom: 8px;">产品开发全景看板 v2.0</p>
+  <p style="font-size: 13px; color: var(--text2);">ODM起步快速上市 · 硬件低价获客 + APP订阅增值服务盈利 · 面向60岁+老年人群体</p>
+  <div style="margin-top: 24px; display: flex; justify-content: center; gap: 24px; font-size: 12px; color: var(--text2);">
+    <span>生成日期：2026年6月30日</span>
+    <span>|</span>
+    <span>数据基准：2024-2026年权威行业数据</span>
+    <span>|</span>
+    <span>方案定位：方案A快速跟进型</span>
+  </div>
+</header>
+
+<!-- 目录 -->
+<h3 style="font-size: 16px; margin-bottom: 16px; color: var(--text);">📑 目录</h3>
+<div class="toc-grid">
+  <div class="toc-item"><div class="toc-num">壹</div><div class="toc-info"><strong>市场环境概览</strong><span>市场规模·增长趋势·竞争格局</span></div></div>
+  <div class="toc-item"><div class="toc-num">贰</div><div class="toc-info"><strong>用户画像与应用场景</strong><span>目标人群·慢病用药·商业模式</span></div></div>
+  <div class="toc-item"><div class="toc-num">叁</div><div class="toc-info"><strong>系统架构与业务链</strong><span>四层架构·数据流向·交互闭环</span></div></div>
+  <div class="toc-item"><div class="toc-num">肆</div><div class="toc-info"><strong>竞品全景分析</strong><span>手环矩阵·药盒矩阵·差异化机会</span></div></div>
+  <div class="toc-item"><div class="toc-num">伍</div><div class="toc-info"><strong>供应链与BOM成本</strong><span>ODM厂商·模块化BOM·元器件溯源</span></div></div>
+  <div class="toc-item"><div class="toc-num">陆</div><div class="toc-info"><strong>APP与软件开发</strong><span>功能规划·团队配置·技术栈</span></div></div>
+  <div class="toc-item"><div class="toc-num">柒</div><div class="toc-info"><strong>政策法规与合规红线</strong><span>强制认证·数据合规·医疗器械</span></div></div>
+  <div class="toc-item"><div class="toc-num">捌</div><div class="toc-info"><strong>商业模式与投资回报</strong><span>定价策略·订阅模型·ROI测算</span></div></div>
+  <div class="toc-item"><div class="toc-num">玖</div><div class="toc-info"><strong>实施路线图</strong><span>开发流程·里程碑·并行策略</span></div></div>
+  <div class="toc-item"><div class="toc-num">拾</div><div class="toc-info"><strong>风险评估与战略建议</strong><span>风险矩阵·四阶段演进</span></div></div>
+</div>
+</div>
+
+<!-- ==================== 第一章：市场环境 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 01</div>
+  <h2 class="part-title">市场环境概览</h2>
+  <p>全球智能穿戴爆发 × 中国老龄化加速 × 智能药盒空白 — 三重红利交汇窗口期</p>
+</div>
+
+<!-- TOP KPI -->
+<div class="grid-4">
+  <div class="metric blue"><div class="val">2.97亿</div><div class="label">中国60岁以上人口(2024年末)<br>占总人口21.1%<br><span class="source-note">国家统计局</span></div></div>
+  <div class="metric cyan"><div class="val">~1,500万</div><div class="label">中国认知障碍患者<br>约60%有走失风险→<br>刚需防走失人群~900万<br><span class="source-note">World Alzheimers Report 2024</span></div></div>
+  <div class="metric green"><div class="val">1,550亿$</div><div class="label">全球智能穿戴市场规模(2024)<br>CAGR 9-11%<br>健康方向CAGR 13.8%<br><span class="source-note">Grand View Research / FBI</span></div></div>
+  <div class="metric gold"><div class="val">60-100万</div><div class="label">方案A总投入(ODM+APP MVP)<br>6-8个月上市<br><span class="source-note">本看板估算</span></div></div>
+</div>
+
+<!-- 手环市场 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">📱 智能手环(老年防走失方向) — 市场数据</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>指标</th><th>全球市场</th><th>中国市场</th><th>预测(2030)</th><th>数据来源</th></tr>
+  <tr>
+    <td><strong>市场规模</strong></td>
+    <td>1,550亿美元(2024)<br>健康穿戴185.6亿美元</td>
+    <td>~1620亿元人民币(2024)<br>手环占智能穿戴最大份额</td>
+    <td>全球~3,170亿美元<br>健康穿戴~713亿美元</td>
+    <td><span class="data-badge">GVR 2025</span><span class="data-badge">IDC Q4 2024</span></td>
+  </tr>
+  <tr>
+    <td><strong>CAGR</strong></td>
+    <td>9-11%(整体)<br>13.8%(健康方向)</td>
+    <td>8.5%(2023-2028)</td>
+    <td>健康方向CAGR 13-15%</td>
+    <td><span class="data-badge">GVR</span><span class="data-badge">MarketsandMarkets</span></td>
+  </tr>
+  <tr>
+    <td><strong>出货量</strong></td>
+    <td>4.838亿台(2024, +10.3% YoY)<br>智能手表1.105亿台(+14.5%)</td>
+    <td>2,340万台(Q3 2024, +15.2%)<br>手环占40%份额</td>
+    <td>--</td>
+    <td><span class="data-badge">IDC Tracker</span></td>
+  </tr>
+  <tr>
+    <td><strong>核心驱动</strong></td>
+    <td>亚太区占全球42%(最大市场)<br>健康监测需求爆发</td>
+    <td>2.97亿60岁+人口<br>1,500万认知障碍患者</td>
+    <td>政策推动适老化改造<br>居家养老趋势</td>
+    <td><span class="data-badge">Statista</span></td>
+  </tr>
+</table>
+<div class="source-note" style="margin-top: 8px;">注：IDC 2024 Q4 Tracker — 全球可穿戴设备出货量1.279亿台(Q4单季, +13.5% YoY)。中国Q3 2024市场：华为28.5%、小米18.3%、荣耀12.7%、苹果11.4%、OPPO 9.2%。</div>
+</div>
+
+<!-- 防走失细分 -->
+<div class="deep-dive">
+  <h4>🔍 防走失细分市场分析</h4>
+  <p style="font-size: 13px; color: var(--text2); line-height: 1.8;">
+    <strong style="color: var(--text);">推算逻辑：</strong><br>
+    全国60岁以上人口约2.97亿(2024年末，国家统计局) → 其中认知障碍(阿尔茨海默病等)患者约1,500万(World Alzheimer Report 2024) → 约60%痴呆患者有游走/走失行为倾向 → <strong style="color: var(--green);">刚需防走失人群约900万人</strong><br>
+    叠加非痴呆但独居/空巢的高龄老人(按65岁以上独居人口估算)，总潜在需求人群约<strong style="color: var(--green);">1,500万-2,500万人</strong><br>
+    按客单价200-500元估算，防走失手环细分市场规模约<strong style="color: var(--green);">30-125亿元</strong>，年增长率预估<strong style="color: var(--green);">20-30%</strong>
+  </p>
+  <p style="font-size: 11px; color: var(--text2); margin-top: 6px; opacity: 0.7;">⚠️ 注意：目前尚无专门针对"老年GPS防走失手表"的独立第三方权威报告，以上为基于用户基数的推算值。</p>
+</div>
+
+<!-- 药盒市场 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">💊 智能药盒 — 市场数据</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>指标</th><th>全球市场</th><th>中国市场</th><th>预测(2030-2033)</th><th>数据来源</th></tr>
+  <tr>
+    <td><strong>市场规模</strong></td>
+    <td>14.5亿美元(2023, 硬件类)<br>27亿美元(2023, 含软件系统)</td>
+    <td>~9,470万美元(2024, IoT药盒)<br>智研咨询宽口径~15亿元</td>
+    <td>全球29.6亿美元(2032)<br>中国15-20亿元(2025E)</td>
+    <td><span class="data-badge">GVR</span><span class="data-badge">IMARC</span><span class="data-badge">智研咨询</span></td>
+  </tr>
+  <tr>
+    <td><strong>CAGR</strong></td>
+    <td>8.9%(硬件类, GVR)<br>23.7%(含软件, GVR)</td>
+    <td>IMARC: 7.39%<br>智研咨询: 15.8%</td>
+    <td>中国25-35%/年(宽口径)</td>
+    <td><span class="data-badge">GVR 2024</span><span class="data-badge">IMARC</span></td>
+  </tr>
+  <tr>
+    <td><strong>价格带</strong></td>
+    <td>$49-399(硬件)+$10-30/月订阅</td>
+    <td>50-500元(硬件为主)<br>尚无成熟订阅模式</td>
+    <td>高端自动分药机500-1,500元</td>
+    <td><span class="data-badge">电商数据</span></td>
+  </tr>
+  <tr>
+    <td><strong>核心驱动</strong></td>
+    <td>慢病用药人群扩大/居家养老</td>
+    <td>老龄化+慢病管理+互联网+医疗</td>
+    <td>政策支持家庭智慧养老</td>
+    <td><span class="data-badge">工信部</span></td>
+  </tr>
+</table>
+<div class="deep-dive" style="margin-top: 12px;">
+  <h4>📊 中国市场特殊性分析</h4>
+  <p style="font-size: 12px; color: var(--text2);">
+    <strong style="color: var(--text);">口径差异说明：</strong>智研咨询"15-20亿元"宽口径包含了普通定时分格药盒(无联网功能)，而IMARC"9,470万美元"严格聚焦IoT智能药盒(带蓝牙/WiFi/App连接)。两者差异反映了中国市场的早期阶段特征——大部分产品仍是被动分格盒，真正智能化的产品占比很低。<br><br>
+    <strong style="color: var(--text);">市场空白：</strong>国际标杆Hero(FDA认证自动分药+$10-30/月订阅)在中国尚无同级别竞品。国内鱼跃/欧姆龙/小米的药盒产品均停留在"定时语音提醒+APP推送"阶段，无自动分药功能。
+  </p>
+</div>
+</div>
+
+<!-- 慢病用药场景 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">🏥 慢病用药 — 刚需场景</h3>
+<div class="grid-3">
+  <div class="card">
+    <h3>高血压</h3>
+    <ul>
+      <li><strong style="color: var(--text);">患者人数：</strong>约2.7亿(中国)</li>
+      <li><strong style="color: var(--text);">日均用药：</strong>1-3种</li>
+      <li><strong style="color: var(--text);">漏服率：</strong>老年人依从性仅40-60%</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>糖尿病</h3>
+    <ul>
+      <li><strong style="color: var(--text);">患者人数：</strong>约1.4亿(中国)</li>
+      <li><strong style="color: var(--text);">日均用药：</strong>2-4种(联合用药)</li>
+      <li><strong style="color: var(--text);">风险：</strong>漏服→血糖波动→住院</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>心脑血管</h3>
+    <ul>
+      <li><strong style="color: var(--text);">患者人数：</strong>约1.1亿(中国)</li>
+      <li><strong style="color: var(--text);">日均用药：</strong>3-6种</li>
+      <li><strong style="color: var(--text);">价值：</strong>智能药盒降低漏服→减少住院→节省医保</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 竞争格局 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">🏆 竞争格局 — 手环赛道TOP5(中国Q3 2024)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>品牌</th><th>市场份额</th><th>价格带</th><th>优势</th><th>劣势(老年场景)</th></tr>
+  <tr><td class="rise">华为</td><td>28.5%</td><td>199-4,000元</td><td>健康监测技术行业领先</td><td>高端为主，适老化不足</td></tr>
+  <tr><td>小米</td><td>18.3%</td><td>149-349元</td><td>生态链完善/性价比</td><td>无SOS/无电子围栏</td></tr>
+  <tr><td>荣耀</td><td>12.7%</td><td>199-599元</td><td>渠道下沉好</td><td>健康监测深度不足</td></tr>
+  <tr><td>苹果</td><td>11.4%</td><td>3,000+元</td><td>跌倒检测行业标杆</td><td>续航18h/价格高/操作复杂</td></tr>
+  <tr><td>OPPO</td><td>9.2%</td><td>149-999元</td><td>设计年轻化</td><td>无老年防走失功能</td></tr>
+</table>
+<p style="font-size: 11px; color: var(--text2); margin-top: 6px;">来源：IDC China Q3 2024 Wearable Tracker。以上为广义可穿戴设备份额，非专用老人防走失手表。</p>
+</div>
+</div>
+
+<!-- ==================== 第二章：用户与场景 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 02</div>
+  <h2 class="part-title">用户画像与应用场景</h2>
+  <p>谁在买？谁在用？谁在付钱？三个角色的需求错位是产品设计的核心矛盾</p>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>👴 使用者 — 60-85岁老人</h3>
+    <div class="tag-row"><span class="tag tag-red">生理衰退</span><span class="tag tag-yellow">认知下降</span></div>
+    <ul>
+      <li><strong style="color: var(--text);">核心诉求：</strong>安全(防走失)、方便(按时吃药)、不被打扰</li>
+      <li><strong style="color: var(--text);">视力：</strong>老花眼，最小字体需≥14pt，对比度需高</li>
+      <li><strong style="color: var(--text);">听力：</strong>高频听力衰减，语音提醒需中低频、音量≥65dB</li>
+      <li><strong style="color: var(--text);">操作能力：</strong>触屏精度下降，需要大按钮+实体按键(SOS)</li>
+      <li><strong style="color: var(--text);">心理特征：</strong>抗拒"被管理"，需要产品"无形关怀"而非"监控感"</li>
+      <li><strong style="color: var(--text);">续航容忍度：</strong>至少5天，充电本身是障碍(忘记/手抖)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>👨‍👩‍👧 购买者 — 40-55岁子女</h3>
+    <div class="tag-row"><span class="tag tag-blue">孝心消费</span><span class="tag tag-green">价格敏感</span></div>
+    <ul>
+      <li><strong style="color: var(--text);">核心诉求：</strong>实时知道父母在哪、有没有按时吃药</li>
+      <li><strong style="color: var(--text);">决策因素：</strong>可靠性 > 易用性 > 价格 > 品牌</li>
+      <li><strong style="color: var(--text);">价格区间：</strong>手环200-500元可接受，药盒100-300元</li>
+      <li><strong style="color: var(--text);">付费意愿：</strong>愿意为"安心"支付订阅费(19-39元/月)</li>
+      <li><strong style="color: var(--text);">使用场景：</strong>工作日上班，通过APP远程监控；紧急情况下第一时间收到告警</li>
+      <li><strong style="color: var(--text);">痛点：</strong>多父母照顾压力(上有老下有小)、异地无法陪伴</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 应用场景 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">🎬 典型用户故事</h3>
+<div class="grid-3">
+  <div class="card">
+    <h3>场景A：独居老人走失</h3>
+    <p style="font-size: 12px; color: var(--text2); line-height: 1.8;">
+      张奶奶78岁，轻度认知障碍，独自在家。某天下午出门散步迷路，手机没电无法联系子女。<br><br>
+      <strong style="color: var(--green);">手环介入：</strong>GPS+北斗+基站三重定位 → 电子围栏触发告警 → 子女APP收到实时位置和轨迹 → 30分钟内找到。<br><br>
+      <strong style="color: var(--text);">关键价值：</strong>黄金救援时间
+    </p>
+  </div>
+  <div class="card">
+    <h3>场景B：漏服降压药</h3>
+    <p style="font-size: 12px; color: var(--text2); line-height: 1.8;">
+      李爷爷72岁，高血压+糖尿病，每天服药4种。某天早上忘记吃降压药，下午头晕入院。<br><br>
+      <strong style="color: var(--green);">药盒介入：</strong>定时语音提醒→未取药→震动加强→通知子女APP→子女电话提醒。<br><br>
+      <strong style="color: var(--text);">关键价值：</strong>用药依从性从40%提升到90%+
+    </p>
+  </div>
+  <div class="card">
+    <h3>场景C：跌倒+紧急呼叫</h3>
+    <p style="font-size: 12px; color: var(--text2); line-height: 1.8;">
+      王爷爷80岁，浴室滑倒，意识清醒但无法起身。手环检测到异常加速度→自动触发SOS→拨打预设联系人+发送位置。<br><br>
+      <strong style="color: var(--green);">双保险：</strong>自动跌倒检测 + 手动SOS按键(实体防水按钮)。<br><br>
+      <strong style="color: var(--text);">关键价值：</strong>救命
+    </p>
+  </div>
+</div>
+
+<!-- 商业模式 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">💰 商业模式 — 硬件获客 + 订阅盈利</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>环节</th><th>逻辑</th><th>数据支撑</th></tr>
+  <tr>
+    <td><strong>硬件获客</strong></td>
+    <td>手环299-499元(成本~100元) / 药盒99-299元(成本~30-60元)<br>硬件毛利率60-70%，但硬件是一次性收入</td>
+    <td>IDC数据：中国手环均价150-200元，我们定位溢价区间299-499元靠的是"服务包"</td>
+  </tr>
+  <tr>
+    <td><strong>订阅增值</strong></td>
+    <td>基础版免费(定位+SOS+电子围栏)<br>高级版19元/月(+健康周报+用药分析)<br>尊享版39元/月(+视频通话+医生咨询)</td>
+    <td>假设获客10,000用户 → 付费转化率15% → ARPU 29元/月 → 月收入4.35万</td>
+  </tr>
+  <tr>
+    <td><strong>LTV计算</strong></td>
+    <td>续费率30% × 平均使用24月 × 29元/月 = ~174元/用户</td>
+    <td>174元订阅LTV > 200元硬件毛利 → 长期看订阅价值超过硬件</td>
+  </tr>
+  <tr>
+    <td><strong>延伸收入</strong></td>
+    <td>药品电商导流 / 保险合作(健康数据驱动精准定价) / B2B养老机构批量采购</td>
+    <td>保险合作：手环数据→健康评分→保费优惠→双向获客</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<!-- ==================== 第三章：系统架构 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 03</div>
+  <h2 class="part-title">系统架构与业务链</h2>
+  <p>四层架构 · 数据流向 · 交互闭环 — 从手环传感器到药盒提醒的一体化系统</p>
+</div>
+
+<!-- 整体架构图 -->
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">3.1 整体系统架构图</h3>
+<div class="svg-container">
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="700" fill="#0f1117" rx="8"/>
+
+  <!-- 第一层：感知层 -->
+  <rect x="20" y="20" width="1160" height="160" rx="10" fill="#1a1d27" stroke="#2e3345" stroke-width="1"/>
+  <text x="40" y="48" class="layer-tag" fill="#5a8ec4">感知层 — 数据采集</text>
+  <text x="40" y="66" font-size="10" fill="#9498a8">老人佩戴/使用，一切数据的源头</text>
+
+  <!-- 手环 -->
+  <rect x="40" y="80" width="260" height="85" rx="8" fill="rgba(90,142,196,0.1)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="55" y="102" font-size="13" font-weight="bold" fill="#e4e6ed">📱 智能手环</text>
+  <text x="55" y="120" font-size="10" fill="#9498a8">GPS/北斗定位模块</text>
+  <text x="55" y="134" font-size="10" fill="#9498a8">PPG心率/SpO2传感器</text>
+  <text x="55" y="148" font-size="10" fill="#9498a8">IMU加速度计/陀螺仪</text>
+
+  <!-- 药盒 -->
+  <rect x="330" y="80" width="260" height="85" rx="8" fill="rgba(92,184,138,0.1)" stroke="#5cb88a" stroke-width="1.5"/>
+  <text x="345" y="102" font-size="13" font-weight="bold" fill="#e4e6ed">💊 智能药盒</text>
+  <text x="345" y="120" font-size="10" fill="#9498a8">步进电机分药机构</text>
+  <text x="345" y="134" font-size="10" fill="#9498a8">红外/光电药片检测</text>
+  <text x="345" y="148" font-size="10" fill="#9498a8">语音TTS + LED指示</text>
+
+  <!-- 家属手机 -->
+  <rect x="620" y="80" width="260" height="85" rx="8" fill="rgba(138,90,196,0.1)" stroke="#8a5ac4" stroke-width="1.5"/>
+  <text x="635" y="102" font-size="13" font-weight="bold" fill="#e4e6ed">📲 家属手机(APP)</text>
+  <text x="635" y="120" font-size="10" fill="#9498a8">实时位置地图查看</text>
+  <text x="635" y="134" font-size="10" fill="#9498a8">用药提醒/服药记录</text>
+  <text x="635" y="148" font-size="10" fill="#9498a8">SOS告警接收</text>
+
+  <!-- 社区/医院 -->
+  <rect x="910" y="80" width="250" height="85" rx="8" fill="rgba(212,168,67,0.1)" stroke="#d4a843" stroke-width="1.5"/>
+  <text x="925" y="102" font-size="13" font-weight="bold" fill="#e4e6ed">🏥 社区/医院</text>
+  <text x="925" y="120" font-size="10" fill="#9498a8">健康数据共享</text>
+  <text x="925" y="134" font-size="10" fill="#9498a8">在线问诊/处方推送</text>
+  <text x="925" y="148" font-size="10" fill="#9498a8">紧急救援联动</text>
+
+  <!-- 第二层：传输层 -->
+  <rect x="20" y="200" width="1160" height="100" rx="10" fill="#1a1d27" stroke="#2e3345" stroke-width="1"/>
+  <text x="40" y="226" class="layer-tag" fill="#5ac4b8">传输层 — 数据通道</text>
+
+  <!-- Cat1 -->
+  <rect x="40" y="240" width="190" height="45" rx="6" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="55" y="258" font-size="11" font-weight="bold" fill="#5ac4b8">Cat1 / NB-IoT</text>
+  <text x="55" y="273" font-size="9" fill="#9498a8">手环→云端 (持续在线)</text>
+
+  <!-- BLE -->
+  <rect x="250" y="240" width="190" height="45" rx="6" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="265" y="258" font-size="11" font-weight="bold" fill="#5ac4b8">BLE 5.0</text>
+  <text x="265" y="273" font-size="9" fill="#9498a8">手环↔药盒 (局域网)</text>
+
+  <!-- WiFi -->
+  <rect x="460" y="240" width="190" height="45" rx="6" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="475" y="258" font-size="11" font-weight="bold" fill="#5ac4b8">WiFi 802.11b/g/n</text>
+  <text x="475" y="273" font-size="9" fill="#9498a8">药盒→云端 (家庭网络)</text>
+
+  <!-- 4G/5G -->
+  <rect x="670" y="240" width="190" height="45" rx="6" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="685" y="258" font-size="11" font-weight="bold" fill="#5ac4b8">4G/5G (移动网络)</text>
+  <text x="685" y="273" font-size="9" fill="#9498a8">家属APP↔云端</text>
+
+  <!-- 微信 -->
+  <rect x="880" y="240" width="280" height="45" rx="6" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="895" y="258" font-size="11" font-weight="bold" fill="#5ac4b8">微信小程序 / 微信订阅消息</text>
+  <text x="895" y="273" font-size="9" fill="#9498a8">最贴近中国老人的触达渠道</text>
+
+  <!-- 箭头 -->
+  <line x1="600" y1="185" x2="600" y2="200" stroke="#5a8ec4" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="596,198 600,208 604,198" fill="#5a8ec4"/>
+
+  <!-- 第三层：平台层 -->
+  <rect x="20" y="320" width="1160" height="160" rx="10" fill="#1a1d27" stroke="#2e3345" stroke-width="1"/>
+  <text x="40" y="346" class="layer-tag" fill="#d4787e">平台层 — 云端服务</text>
+
+  <!-- 设备管理 -->
+  <rect x="40" y="360" width="160" height="100" rx="8" fill="rgba(196,90,90,0.08)" stroke="#c45a6c" stroke-width="1"/>
+  <text x="55" y="380" font-size="11" font-weight="bold" fill="#e4e6ed">🔧 设备管理</text>
+  <text x="55" y="398" font-size="9" fill="#9498a8">• 设备注册/绑定</text>
+  <text x="55" y="414" font-size="9" fill="#9498a8">• OTA固件升级</text>
+  <text x="55" y="430" font-size="9" fill="#9498a8">• 心跳/在线状态</text>
+
+  <!-- 消息队列 -->
+  <rect x="220" y="360" width="160" height="100" rx="8" fill="rgba(196,90,90,0.08)" stroke="#c45a6c" stroke-width="1"/>
+  <text x="235" y="380" font-size="11" font-weight="bold" fill="#e4e6ed">📨 消息队列</text>
+  <text x="235" y="398" font-size="9" fill="#9498a8">• RabbitMQ/Kafka</text>
+  <text x="235" y="414" font-size="9" fill="#9498a8">• 设备消息路由</text>
+  <text x="235" y="430" font-size="9" fill="#9498a8">• 告警优先级</text>
+
+  <!-- 数据存储 -->
+  <rect x="400" y="360" width="160" height="100" rx="8" fill="rgba(196,90,90,0.08)" stroke="#c45a6c" stroke-width="1"/>
+  <text x="415" y="380" font-size="11" font-weight="bold" fill="#e4e6ed">💾 数据存储</text>
+  <text x="415" y="398" font-size="9" fill="#9498a8">• MySQL(用户数据)</text>
+  <text x="415" y="414" font-size="9" fill="#9498a8">• Redis(缓存)</text>
+  <text x="415" y="430" font-size="9" fill="#9498a8">• MongoDB(时序数据)</text>
+
+  <!-- AI引擎 -->
+  <rect x="580" y="360" width="160" height="100" rx="8" fill="rgba(196,90,90,0.08)" stroke="#c45a6c" stroke-width="1"/>
+  <text x="595" y="380" font-size="11" font-weight="bold" fill="#e4e6ed">🤖 AI引擎</text>
+  <text x="595" y="398" font-size="9" fill="#9498a8">• 跌倒风险评分</text>
+  <text x="595" y="414" font-size="9" fill="#9498a8">• 用药习惯学习</text>
+  <text x="595" y="430" font-size="9" fill="#9498a8">• 异常模式识别</text>
+
+  <!-- 推送服务 -->
+  <rect x="760" y="360" width="160" height="100" rx="8" fill="rgba(196,90,90,0.08)" stroke="#c45a6c" stroke-width="1"/>
+  <text x="775" y="380" font-size="11" font-weight="bold" fill="#e4e6ed">📢 推送服务</text>
+  <text x="775" y="398" font-size="9" fill="#9498a8">• APNs(iOS)</text>
+  <text x="775" y="414" font-size="9" fill="#9498a8">• 厂商通道(Android)</text>
+  <text x="775" y="430" font-size="9" fill="#9498a8">• 微信/短信兜底</text>
+
+  <!-- API -->
+  <rect x="940" y="360" width="220" height="100" rx="8" fill="rgba(196,90,90,0.08)" stroke="#c45a6c" stroke-width="1"/>
+  <text x="955" y="380" font-size="11" font-weight="bold" fill="#e4e6ed">🌐 RESTful API</text>
+  <text x="955" y="398" font-size="9" fill="#9498a8">• 设备数据查询</text>
+  <text x="955" y="414" font-size="9" fill="#9498a8">• 告警事件订阅</text>
+  <text x="955" y="430" font-size="9" fill="#9498a8">• 健康报表生成</text>
+
+  <!-- 箭头 -->
+  <line x1="600" y1="300" x2="600" y2="320" stroke="#d4787e" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="596,318 600,328 604,318" fill="#d4787e"/>
+
+  <!-- 第四层：应用层 -->
+  <rect x="20" y="500" width="1160" height="180" rx="10" fill="#1a1d27" stroke="#2e3345" stroke-width="1"/>
+  <text x="40" y="526" class="layer-tag" fill="#5cb88a">应用层 — 用户交互</text>
+
+  <!-- 老人端 -->
+  <rect x="40" y="540" width="340" height="125" rx="8" fill="rgba(92,184,138,0.08)" stroke="#5cb88a" stroke-width="1"/>
+  <text x="55" y="562" font-size="12" font-weight="bold" fill="#5cb88a">👴 老人端交互</text>
+  <text x="55" y="582" font-size="10" fill="#9498a8">• 语音提醒："爷爷，该吃降压药了"</text>
+  <text x="55" y="598" font-size="10" fill="#9498a8">• LED灯闪烁(绿色=已服/红色=未服)</text>
+  <text x="55" y="614" font-size="10" fill="#9498a8">• 药盒自动出药(旋转盘+推片)</text>
+  <text x="55" y="630" font-size="10" fill="#9498a8">• 手环SOS一键呼叫</text>
+  <text x="55" y="646" font-size="10" fill="#9498a8">• 手环震动+语音反馈</text>
+
+  <!-- 家属端 -->
+  <rect x="410" y="540" width="340" height="125" rx="8" fill="rgba(90,142,196,0.08)" stroke="#5a8ec4" stroke-width="1"/>
+  <text x="425" y="562" font-size="12" font-weight="bold" fill="#5a8ec4">📲 家属端(APP/小程序)</text>
+  <text x="425" y="582" font-size="10" fill="#9498a8">• 实时位置地图 + 电子围栏告警</text>
+  <text x="425" y="598" font-size="10" fill="#9498a8">• 心率/血氧/步数健康趋势图</text>
+  <text x="425" y="614" font-size="10" fill="#9498a8">• 用药记录：按时/漏服/过量</text>
+  <text x="425" y="630" font-size="10" fill="#9498a8">• 远程配置：提醒时间/药品种类</text>
+  <text x="425" y="646" font-size="10" fill="#9498a8">• 多账号共享(兄弟姐妹共同关注)</text>
+
+  <!-- 运营端 -->
+  <rect x="780" y="540" width="380" height="125" rx="8" fill="rgba(212,168,67,0.08)" stroke="#d4a843" stroke-width="1"/>
+  <text x="795" y="562" font-size="12" font-weight="bold" fill="#d4a843">🏢 运营端(Web管理后台)</text>
+  <text x="795" y="582" font-size="10" fill="#9498a8">• 设备在线率/告警统计/用户活跃度</text>
+  <text x="795" y="598" font-size="10" fill="#9498a8">• 订阅管理：续费/降级/退款</text>
+  <text x="795" y="614" font-size="10" fill="#9498a8">• 内容管理：健康资讯/用药指南</text>
+  <text x="795" y="630" font-size="10" fill="#9498a8">• B2B客户管理：养老机构/社区医院</text>
+  <text x="795" y="646" font-size="10" fill="#9498a8">• 数据导出：政府补贴申报/科研合作</text>
+
+  <!-- 层间箭头 -->
+  <line x1="600" y1="480" x2="600" y2="500" stroke="#5cb88a" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="596,498 600,508 604,498" fill="#5cb88a"/>
+</svg>
+</div>
+
+<!-- 业务链示意 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">3.2 业务链闭环 — 从数据采集到行动执行</h3>
+<div class="card">
+<div class="timeline-step"><div class="timeline-dot" style="background: var(--blue);"></div><div class="timeline-content"><strong>Step 1：老人佩戴手环、使用药盒</strong><br><span style="font-size:12px;color:var(--text2)">手环持续采集：GPS位置(每30s) + 心率(每5min) + 加速度(100Hz采样)</span></div></div>
+<div class="timeline-step"><div class="timeline-dot" style="background: var(--blue);"></div><div class="timeline-content"><strong>Step 2：数据通过Cat1/BLE传输</strong><br><span style="font-size:12px;color:var(--text2)">位置+心率→Cat1蜂窝网络→云端；手环↔药盒→BLE 5.0局域网(功耗<1mA)</span></div></div>
+<div class="timeline-step"><div class="timeline-dot" style="background: var(--red);"></div><div class="timeline-content"><strong>Step 3：云端AI实时分析</strong><br><span style="font-size:12px;color:var(--text2)">跌倒检测模型(M4端侧推理<30ms) → 异常事件→标记P0级别→进入消息队列优先路由</span></div></div>
+<div class="timeline-step"><div class="timeline-dot" style="background: var(--green);"></div><div class="timeline-content"><strong>Step 4：多维推送告警</strong><br><span style="font-size:12px;color:var(--text2)">APP推送(APNs/厂商通道) → 微信订阅消息 → SMS短信兜底 → 电话语音(紧急事件)</span></div></div>
+<div class="timeline-step"><div class="timeline-dot" style="background: var(--purple);"></div><div class="timeline-content"><strong>Step 5：家属响应 + 药盒联动</strong><br><span style="font-size:12px;color:var(--text2)">家属接到告警→APP确认→电话老人→若未接听自动呼叫社区/120；药盒根据手环健康数据调整用药提醒策略</span></div></div>
+<div class="timeline-step"><div class="timeline-dot" style="background: var(--gold);"></div><div class="timeline-content"><strong>Step 6：数据沉淀 + 模型迭代</strong><br><span style="font-size:12px;color:var(--text2)">所有事件→MongoDB时序存储→AI模型每周更新→跌倒检测准确率持续提升→用药习惯推荐越来越精准</span></div></div>
+</div>
+
+<!-- 关键数据流 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">3.3 关键技术参数</h3>
+<div class="grid-3">
+  <div class="card">
+    <h3>定位精度</h3>
+    <ul>
+      <li><strong style="color: var(--text);">GPS+北斗+GLONASS：</strong>室外<3米</li>
+      <li><strong style="color: var(--text);">基站辅助(WiFi)：</strong>室内10-50米</li>
+      <li><strong style="color: var(--text);">更新频率：</strong>正常30s/次，告警时1s/次</li>
+      <li><strong style="color: var(--text);">电子围栏：</strong>多边形/圆形，支持动态围栏</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>健康监测</h3>
+    <ul>
+      <li><strong style="color: var(--text);">心率：</strong>±2bpm精度，异常阈值自定义</li>
+      <li><strong style="color: var(--text);">跌倒检测：</strong>F1>0.92，假阳性<1次/天</li>
+      <li><strong style="color: var(--text);">血氧：</strong>±2%精度(消费级)</li>
+      <li><strong style="color: var(--text);">步数：</strong>能量窗口法，误差<5%</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>药盒性能</h3>
+    <ul>
+      <li><strong style="color: var(--text);">分药精度：</strong>单次误差<1片</li>
+      <li><strong style="color: var(--text);">可靠性：</strong>>10,000次循环无故障</li>
+      <li><strong style="color: var(--text);">语音音量：</strong>>60dB(适老化)</li>
+      <li><strong style="color: var(--text);">续航：</strong>2500mAh，WiFi待机7-15天</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ==================== 第四章：竞品全景分析 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 04</div>
+  <h2 class="part-title">竞品全景分析</h2>
+  <p>手环赛道：巨头林立但无人专攻老年防走失 · 药盒赛道：一片蓝海待开拓</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">4.1 智能手环 — 竞品矩阵(面向老年人群)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>产品</th><th>价格</th><th>定位</th><th>核心功能</th><th>优点</th><th>缺点(老年场景)</th></tr>
+  <tr>
+    <td class="rise"><strong>小寻T5s Pro</strong></td>
+    <td>299元</td>
+    <td>老人GPS手表</td>
+    <td>多重定位+SOS+视频通话+电子围栏</td>
+    <td>小米生态链/定位精准/7天续航</td>
+    <td>需SIM卡月费/APP适老化不足</td>
+  </tr>
+  <tr>
+    <td>360老人手表SE 1C</td>
+    <td>159元</td>
+    <td>老人GPS手表</td>
+    <td>GPS+北斗+LBS+SOS+电子围栏</td>
+    <td>性价比极高</td>
+    <td>定位精度一般/无健康监测</td>
+  </tr>
+  <tr>
+    <td>爱国者A10</td>
+    <td>199元</td>
+    <td>老人GPS手表</td>
+    <td>4G全网通+多重定位+SOS</td>
+    <td>4G通信稳定/续航3-5天</td>
+    <td>品牌智能穿戴弱势/无健康数据</td>
+  </tr>
+  <tr>
+    <td>乐生W25</td>
+    <td>199-399元</td>
+    <td>定位+健康手环</td>
+    <td>GPS+心率+SOS+电子围栏</td>
+    <td>医疗背景/兼具健康监测</td>
+    <td>品控参差不齐/售后弱</td>
+  </tr>
+  <tr>
+    <td>小米手环9 Pro</td>
+    <td>349元</td>
+    <td>通用手环</td>
+    <td>四卫星定位/血氧/心率/睡眠</td>
+    <td>1.64寸AMOLED/14天续航</td>
+    <td>无SOS/无电子围栏/不适合防走失</td>
+  </tr>
+  <tr>
+    <td>华为WATCH FIT 4</td>
+    <td>1,399元起</td>
+    <td>专业手表</td>
+    <td>TruSeen 6.0/血氧/心率预警/14天</td>
+    <td>健康监测行业领先</td>
+    <td>价格太高/无防走失功能</td>
+  </tr>
+  <tr>
+    <td>Apple Watch SE</td>
+    <td>1,999元起</td>
+    <td>专业手表</td>
+    <td>跌倒检测/车祸检测/心率/血氧/ECG</td>
+    <td>跌倒检测行业标杆</td>
+    <td>续航18h/价格高/操作复杂</td>
+  </tr>
+</table>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">4.2 智能药盒 — 竞品矩阵</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>产品</th><th>价格</th><th>类型</th><th>核心功能</th><th>优点</th><th>缺点</th></tr>
+  <tr>
+    <td class="rise"><strong>米家智能药盒</strong></td>
+    <td>59-129元</td>
+    <td>基础IoT</td>
+    <td>语音提醒+APP推送+分装格</td>
+    <td>米家生态/价格低</td>
+    <td>无自动出药/无库存管理</td>
+  </tr>
+  <tr>
+    <td>鱼跃智能药盒</td>
+    <td>89-199元</td>
+    <td>基础IoT</td>
+    <td>定时语音提醒+APP通知</td>
+    <td>医疗器械品牌信任</td>
+    <td>IoT功能偏基础/无自动分药</td>
+  </tr>
+  <tr>
+    <td>欧姆龙智能药盒</td>
+    <td>129-299元</td>
+    <td>基础IoT</td>
+    <td>用药提醒+分时段收纳</td>
+    <td>品牌知名度高</td>
+    <td>智能化程度有限/无APP联动</td>
+  </tr>
+  <tr>
+    <td>白牌IoT药盒</td>
+    <td>50-150元</td>
+    <td>基础IoT</td>
+    <td>语音+APP推送+蓝牙</td>
+    <td>价格极具竞争力</td>
+    <td>品控差/无数据安全/无售后</td>
+  </tr>
+  <tr>
+    <td>智康保/美康</td>
+    <td>200-500元</td>
+    <td>高级IoT</td>
+    <td>自动分药+云同步+家属监控</td>
+    <td>功能全面</td>
+    <td>价格偏高/用户认知低/销量少</td>
+  </tr>
+  <tr>
+    <td class="rise"><strong>Hero(美国)</strong></td>
+    <td>$299+$10-30/月</td>
+    <td>自动分药</td>
+    <td>FDA认证+自动出药+远程监控+订阅</td>
+    <td>行业标杆+订阅模式成熟</td>
+    <td>未进入中国市场/无中文</td>
+  </tr>
+  <tr>
+    <td>Medisafe(美国)</td>
+    <td>$49-99</td>
+    <td>App-only</td>
+    <td>用药提醒App+1000万+用户</td>
+    <td>全球最畅销药盒App</td>
+    <td>无硬件/中国用户极少</td>
+  </tr>
+</table>
+</div>
+
+<!-- 核心洞察 -->
+<div class="deep-dive" style="margin-top: 20px;">
+  <h4>🎯 竞品核心洞察 — 我们的差异化机会</h4>
+  <ul style="font-size: 13px; color: var(--text2); line-height: 2;">
+    <li><strong style="color: var(--text);">价格带分层清晰：</strong>专用老人定位手表159-399元 / 通用智能手环149-349元 / 专业手表999-4,000元</li>
+    <li><strong style="color: var(--text);">护城河在软件不在硬件：</strong>电子围栏、多级定位、SOS一键呼叫、家属APP联动才是核心竞争力，硬件同质化严重</li>
+    <li><strong style="color: var(--text);">自动分药智能药盒是中国市场空白：</strong>Hero类产品(FDA认证+自动出药+订阅制)在国内尚无同级别竞品，这是最大的差异化机会</li>
+    <li><strong style="color: var(--text);">微信生态是关键：</strong>支持微信提醒+云同步数据的产品更受中国用户欢迎，而竞品大多仅支持独立APP</li>
+    <li><strong style="color: var(--text);">手环+药盒捆绑是蓝海：</strong>目前没有任何竞品同时提供"手环+药盒+APP服务"的生态化方案</li>
+  </ul>
+</div>
+</div>
+
+<!-- ==================== 第五章：供应链与BOM成本 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 05</div>
+  <h2 class="part-title">供应链与BOM成本</h2>
+  <p>ODM厂商选型 · 模块化BOM拆解 · 元器件溯源 — 每个零件的功能、价格、交期一目了然</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">5.1 ODM/方案商选型</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>厂商</th><th>地点</th><th>专长</th><th>典型MOQ</th><th>开发周期</th><th>预估费用</th></tr>
+  <tr><td>华勤技术</td><td>上海/深圳</td><td>智能手表/手环ODM龙头</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td></tr>
+  <tr><td>龙旗科技</td><td>上海/深圳</td><td>智能穿戴ODM</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td></tr>
+  <tr><td>天珑移动</td><td>深圳</td><td>海外智能穿戴ODM</td><td>3,000-5,000台</td><td>3-6个月</td><td>30-80万</td></tr>
+  <tr><td class="rise"><strong>润科技术</strong></td><td>深圳</td><td>智能手环/手表方案</td><td>1,000-3,000台</td><td>2-4个月</td><td>10-30万</td></tr>
+  <tr><td class="rise"><strong>杰理科技</strong></td><td>深圳</td><td>低价位方案商</td><td>500-1,000台</td><td>1-3个月</td><td>5-15万</td></tr>
+</table>
+<div class="deep-dive" style="margin-top: 12px;">
+  <h4>💡 推荐合作模式</h4>
+  <p style="font-size: 12px; color: var(--text2); line-height: 1.8;">
+    <strong style="color: var(--text);">公模ODM（快速验证）：</strong>选润科/杰理现有方案贴牌，MOQ仅1,000-3,000台，开模费0，总投入10-30万(含软件适配)。适合快速验证市场。<br>
+    <strong style="color: var(--text);">半定制ODM（正式量产）：</strong>改外观+深度软件定制，MOQ 3,000-5,000台，开模费3-8万，总投入30-80万。
+  </p>
+</div>
+</div>
+
+<!-- 手环BOM — 按功能模块归类 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">5.2 智能手环BOM — 模块化归类(中等配置)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>模块</th><th>物料</th><th>功能描述</th><th>规格/型号</th><th>成本(元)</th><th>供应商</th><th>批量折扣</th></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">通信模块</td><td>Cat1模组</td><td>蜂窝网络连接，持续在线</td><td>广和通L610-CM</td><td>28-38</td><td>广和通(国产)</td><td>10K:-20%</td></tr>
+  <tr><td>BLE SoC</td><td>蓝牙5.0局域网通信</td><td>nRF52810</td><td>15-20</td><td>Nordic(挪威)</td><td>10K:-15%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">定位模块</td><td>GPS/北斗模组</td><td>六星定位，室外精度<3m</td><td>u-blox NEO-M9N</td><td>65-90</td><td>u-blox(瑞士)</td><td>10K:-15%</td></tr>
+  <tr><td>国产替代GPS</td><td>三星定位，降低成本</td><td>和芯星通UGN-7345</td><td>25-40</td><td>和芯星通(国产)</td><td>10K:-25%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">健康监测</td><td>PPG/SpO2传感器</td><td>心率+血氧+呼吸率</td><td>汇顶GT3x</td><td>40-60</td><td>汇顶(国产)</td><td>10K:-20%</td></tr>
+  <tr><td>IMU(加速度+陀螺仪)</td><td>跌倒检测+步数统计</td><td>ICM-42670-P</td><td>25-35</td><td>InvenSense(TDK)</td><td>10K:-15%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">交互模块</td><td>显示屏</td><td>老人适老化大屏显示</td><td>1.14寸IPS ST7789</td><td>8-15</td><td>天马/深天马</td><td>10K:-10%</td></tr>
+  <tr><td>音频(喇叭+麦克风)</td><td>SOS通话+语音提醒</td><td>0.9寸喇叭+INMP441</td><td>5-8</td><td>国产</td><td>10K:-15%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">主控+存储</td><td>主控MCU</td><td>数据处理+AI推理</td><td>GD32E230C8T3</td><td>7-12</td><td>兆易创新(国产)</td><td>10K:-20%</td></tr>
+  <tr><td>Flash</td><td>固件+数据缓存</td><td>W25Q64(8MB)</td><td>2-3</td><td>华邦(台湾)</td><td>10K:-10%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">电源系统</td><td>锂电池</td><td>设备供电，续航5-7天</td><td>350mAh LiPo 352740</td><td>5-10</td><td>德赛/欣旺达</td><td>10K:-15%</td></tr>
+  <tr><td>充电管理</td><td>充电+电量计+升压+Type-C</td><td>IP5306</td><td>2-4</td><td>智融科技(国产)</td><td>10K:-20%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">结构件</td><td>外壳+表带</td><td>亲肤硅胶+PC+ABS</td><td>适老化设计</td><td>8-15</td><td>国内模具厂</td><td>10K:-10%</td></tr>
+  <tr><td>PCB+其他</td><td>4层FR-4板+阻容晶振</td><td>10×15cm</td><td>10-16</td><td>深南电路</td><td>10K:-15%</td></tr>
+  <tr><td colspan="3" style="font-weight:bold; color:var(--text);">组装测试(SMT+烧录+全检)</td><td>--</td><td>8-12</td><td>ODM厂</td><td>--</td></tr>
+  <tr class="rise"><td colspan="4" style="font-weight:bold; color:var(--text);">合计BOM(国产GPS方案)</td><td style="font-size:14px;"><strong>~188-268元</strong></td><td colspan="2">10K批量下浮15-20% → ~150-215元</td></tr>
+</table>
+<p style="margin-top: 10px; font-size: 12px; color: var(--text2);">
+  <strong style="color: var(--green);">建议方案：</strong>MVP阶段用国产GPS(和芯星通)控制成本 → BOM ~188-230元；旗舰版换u-blox M9N → BOM ~230-290元。
+</p>
+</div>
+
+<!-- 药盒BOM -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">5.3 智能药盒BOM — 模块化归类(自动分药版)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>模块</th><th>物料</th><th>功能描述</th><th>规格/型号</th><th>成本(元)</th><th>供应商</th><th>批量折扣</th></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">主控+通信</td><td>WiFi+BLESOC</td><td>双模通信，家庭联网</td><td>ESP32-C3</td><td>30-45</td><td>乐鑫(国产)</td><td>10K:-15%</td></tr>
+  <tr><td>Flash</td><td>固件+用药规则库</td><td>W25Q32(4MB)</td><td>2-3</td><td>华邦</td><td>10K:-10%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">分药机构</td><td>步进电机+驱动</td><td>自动旋转出药</td><td>28BYJ-48+ULN2003</td><td>5-9</td><td>国产</td><td>10K:-20%</td></tr>
+  <tr><td>旋转药仓+导轨</td><td>4×7=28格分药</td><td>PETG透明注塑</td><td>8-15</td><td>国内塑胶厂</td><td>10K:-10%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">检测传感器</td><td>光电+到位检测</td><td>药片检测+仓位确认</td><td>红外对管+微动开关</td><td>3-5</td><td>国产</td><td>10K:-15%</td></tr>
+  <tr><td>空仓检测</td><td>剩余药量预警</td><td>红外反射ITRB2800E</td><td>3-5</td><td>国产</td><td>10K:-15%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">交互模块</td><td>语音TTS+喇叭</td><td>中文语音提醒</td><td>SYN5300+0.9寸喇叭</td><td>12-22</td><td>国产</td><td>10K:-15%</td></tr>
+  <tr><td>OLED显示</td><td>用药状态/时间显示</td><td>0.96寸SSD1306 I2C</td><td>8-15</td><td>国产</td><td>10K:-10%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">结构件</td><td>外壳(食品级)</td><td>阻燃ABS+PETG药仓</td><td>V0级阻燃</td><td>10-20</td><td>国内模具厂</td><td>10K:-10%</td></tr>
+  <tr><td>PCB</td><td>2层FR-4</td><td>12×10cm</td><td>3-5</td><td>深南电路</td><td>10K:-15%</td></tr>
+  <tr><td rowspan="2" style="font-weight:bold; color:var(--text);">电源系统</td><td>锂电池</td><td>设备供电，续航7-15天</td><td>2500mAh 18650</td><td>8-15</td><td>德赛/比亚迪</td><td>10K:-15%</td></tr>
+  <tr><td>充电管理</td><td>Type-C充电+升压</td><td>IP5306</td><td>2-4</td><td>智融科技</td><td>10K:-20%</td></tr>
+  <tr><td colspan="4" style="font-weight:bold; color:var(--text);">组装测试+包装</td><td>10-15</td><td>ODM厂</td><td>--</td></tr>
+  <tr class="rise"><td colspan="4" style="font-weight:bold; color:var(--text);">合计BOM(自动分药版)</td><td style="font-size:14px;"><strong>~102-171元</strong></td><td colspan="2">10K批量下浮15-20% → ~82-137元</td></tr>
+</table>
+<p style="margin-top: 10px; font-size: 12px; color: var(--text2);">
+  <strong style="color: var(--green);">简版(仅提醒型无自动分药)：</strong>BOM约30-50元，去掉分药机构和检测传感器，仅保留语音提醒+APP联动。
+</p>
+</div>
+
+<!-- 成本对比 -->
+<div class="deep-dive" style="margin-top: 20px;">
+  <h4>📊 手环vs药盒 — 成本与定价全景</h4>
+  <table class="comp-table">
+    <tr><th>产品</th><th>BOM成本</th><th>零售价</th><th>渠道价</th><th>单台毛利</th><th>毛利率</th></tr>
+    <tr><td>智能手环(中档)</td><td>~188-230元</td><td>299-499元</td><td>180-250元</td><td>~70-150元</td><td>30-45%</td></tr>
+    <tr><td>智能药盒(自动分药)</td><td>~102-171元</td><td>299-499元</td><td>180-300元</td><td>~80-200元</td><td>30-50%</td></tr>
+    <tr><td>智能药盒(提醒型)</td><td>~30-50元</td><td>99-199元</td><td>60-120元</td><td>~40-80元</td><td>40-55%</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ==================== 第六章：APP与软件开发 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 06</div>
+  <h2 class="part-title">APP与软件开发</h2>
+  <p>功能规划 · 团队配置 · 技术栈 · 开发环境</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">6.1 APP功能模块规划</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>模块</th><th>功能描述</th><th>优先级</th><th>开发周期</th><th>技术要点</th></tr>
+  <tr><td>设备配对</td><td>BLE配对手环 + WiFi配药盒</td><td class="rise">P0 必须</td><td>2-3周</td><td>蓝牙BLE GATT协议 / WiFi SmartConfig</td></tr>
+  <tr><td>实时定位地图</td><td>高德/百度地图API集成，实时轨迹回放</td><td class="rise">P0 必须</td><td>3-4周</td><td>地图SDK + 坐标GCJ-02转换 + 轨迹插值</td></tr>
+  <tr><td>电子围栏</td><td>多边形围栏设置、出入告警推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>地理围栏API + 多边形点包含算法</td></tr>
+  <tr><td>心率/血氧监测</td><td>PPG数据可视化、异常阈值预警</td><td class="rise">P0 必须</td><td>2-3周</td><td>时序数据图表 + 阈值规则引擎</td></tr>
+  <tr><td>跌倒检测告警</td><td>IMU数据触发SOS推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>端侧AI模型推理 + 告警优先级路由</td></tr>
+  <tr><td>SOS紧急呼救</td><td>一键拨号给预设联系人</td><td class="rise">P0 必须</td><td>1-2周</td><td>Telephony API + 通讯录权限</td></tr>
+  <tr><td>用药提醒/药盒联动</td><td>定时提醒、服药记录、家属通知</td><td class="rise">P1 重要</td><td>2-3周</td><td>本地通知 + 云端调度 + 药盒BLE指令</td></tr>
+  <tr><td>家属多人共享</td><td>多账号绑定同一老人设备</td><td class="rise">P1 重要</td><td>2-3周</td><td>设备-用户多对多关系 + 权限管理</td></tr>
+  <tr><td>健康周报/月报</td><td>数据聚合生成可视化报告</td><td class="tag-yellow">P2 增值</td><td>2-3周</td><td>数据聚合 + PDF/图片生成</td></tr>
+  <tr><td>后台管理Web端</td><td>运营人员管理后台</td><td class="tag-yellow">P2 增值</td><td>3-4周</td><td>Vue/React + ECharts + RBAC权限</td></tr>
+</table>
+</div>
+
+<!-- 开发团队 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">6.2 开发团队配置与成本</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>角色</th><th>人数</th><th>月薪(元)</th><th>职责</th></tr>
+  <tr><td>产品经理</td><td>1</td><td>15,000-25,000</td><td>需求定义、原型设计、项目管理</td></tr>
+  <tr><td>iOS开发</td><td>1</td><td>20,000-30,000</td><td>Swift + CoreBluetooth + HealthKit</td></tr>
+  <tr><td>Android开发</td><td>1</td><td>20,000-30,000</td><td>Kotlin + BLE协议对接 + Telephony</td></tr>
+  <tr><td>后端开发</td><td>1-2</td><td>20,000-35,000</td><td>Go/Java + MQTT + 地图API + AI接口</td></tr>
+  <tr><td>UI/UX设计师</td><td>1</td><td>15,000-25,000</td><td>适老化界面 + 交互设计</td></tr>
+  <tr><td>测试工程师</td><td>1</td><td>12,000-18,000</td><td>功能测试 + 硬件联调 + 兼容性</td></tr>
+  <tr class="rise"><td><strong>合计</strong></td><td><strong>6-7人</strong></td><td><strong>10-14万/月</strong></td><td>含社保公积金约上浮30%</td></tr>
+</table>
+<div class="deep-dive" style="margin-top: 12px;">
+  <h4>💰 APP开发成本总览</h4>
+  <p style="font-size: 12px; color: var(--text2); line-height: 1.8;">
+    <strong style="color: var(--green);">MVP版本(3-4个月)：</strong>40-70万元 — 核心功能：设备配对+定位+SOS+心率+用药提醒<br>
+    <strong style="color: var(--green);">标准版(5-7个月)：</strong>70-120万元 — 在MVP基础上增加：家属共享+健康周报+Web后台<br>
+    <strong style="color: var(--green);">完整版(8-12个月)：</strong>120-200万元 — 全量功能+AI引擎+微信小程序版<br>
+    <strong style="color: var(--green);">微信小程序版(1-2个月)：</strong>10-20万元 — 仅提醒/查看功能，作为轻量入口
+  </p>
+</div>
+</div>
+
+<!-- 技术栈 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">6.3 技术栈与开发环境</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>☁️ 后端技术栈</h3>
+    <ul>
+      <li><strong style="color: var(--text);">语言框架：</strong>Go(Gin) 或 Java(Spring Boot)</li>
+      <li><strong style="color: var(--text);">数据库：</strong>MySQL(用户数据) + Redis(缓存) + MongoDB(健康时序数据)</li>
+      <li><strong style="color: var(--text);">消息队列：</strong>RabbitMQ(设备消息路由) / Kafka(大数据量场景)</li>
+      <li><strong style="color: var(--text);">设备协议：</strong>MQTT over TLS(设备→云端) + WebSocket(云端→APP)</li>
+      <li><strong style="color: var(--text);">部署：</strong>阿里云/腾讯云 ECS + Docker + K8s</li>
+      <li><strong style="color: var(--text);">CI/CD：</strong>GitHub Actions / GitLab CI → 自动化构建+部署</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🗺️ 地图与推送服务</h3>
+    <ul>
+      <li><strong style="color: var(--text);">地图：</strong>高德地图API(轨迹绘制/电子围栏) / 百度地图API(备选)</li>
+      <li><strong style="color: var(--text);">坐标转换：</strong>GPS(WGS84) → GCJ-02(国测局坐标)</li>
+      <li><strong style="color: var(--text);">iOS推送：</strong>APNs(Apple Push Notification)</li>
+      <li><strong style="color: var(--text);">Android推送：</strong>厂商通道(华为/小米/OPPO/vivo) + 个推</li>
+      <li><strong style="color: var(--text);">微信推送：</strong>模板消息/订阅消息(最贴近中国用户)</li>
+      <li><strong style="color: var(--text);">短信兜底：</strong>阿里云SMS / 腾讯云SMS(SOS/跌倒检测紧急告警)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 开发环境 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">6.4 开发环境与所需设备</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>🖥️ 硬件开发环境</h3>
+    <ul>
+      <li><strong style="color: var(--text);">MCU开发：</strong>VS Code + PlatformIO / Keil MDK (ARM)</li>
+      <li><strong style="color: var(--text);">ESP32开发：</strong>Arduino IDE / ESP-IDF (官方)</li>
+      <li><strong style="color: var(--text);">调试工具：</strong>J-Link/ST-Link仿真器、逻辑分析仪(Saleae)</li>
+      <li><strong style="color: var(--text);">射频测试：</strong>频谱分析仪(外包给认证实验室)</li>
+      <li><strong style="color: var(--text);">原型验证：</strong>3D打印机(结构验证)、示波器(电源测试)</li>
+      <li><strong style="color: var(--text);">环境要求：</strong>防静电工作台、恒温焊台、热风枪</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>📱 软件开发环境</h3>
+    <ul>
+      <li><strong style="color: var(--text);">iOS开发：</strong>Xcode 15+ / Swift 5.9+ / macOS Sonoma+</li>
+      <li><strong style="color: var(--text);">Android开发：</strong>Android Studio / Kotlin / JDK 17+</li>
+      <li><strong style="color: var(--text);">后端开发：</strong>VS Code / GoLand / IntelliJ IDEA</li>
+      <li><strong style="color: var(--text);">前端(Web)：</strong>VS Code / Vue 3 + Element Plus 或 React + Ant Design</li>
+      <li><strong style="color: var(--text);">数据库：</strong>MySQL 8.0 / Redis 7.x / MongoDB 7.x</li>
+      <li><strong style="color: var(--text);">云服务：</strong>阿里云控制台 / AWS CLI / kubectl</li>
+      <li><strong style="color: var(--text);">AI训练：</strong>PyTorch 2.x / Google Colab(免费GPU) / 阿里云PAI</li>
+      <li><strong style="color: var(--text);">版本管理：</strong>Git + GitHub / GitLab</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ==================== 第七章：政策法规与合规红线 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 07</div>
+  <h2 class="part-title">政策法规与合规红线</h2>
+  <p>强制认证 · 数据合规 · 医疗器械 · 广告红线 — 每条红线背后的法律后果</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">7.1 产品认证(强制 vs 可选)</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>🔴 SRRC无线电核准证(强制)</h3>
+    <table class="comp-table">
+      <tr><th>维度</th><th>详情</th></tr>
+      <tr><td>依据</td><td>《无线电管理条例》(国务院/中央军委令第672号)</td></tr>
+      <tr><td>适用范围</td><td>所有发射无线电波设备：WiFi/Cat1/BLE/NB-IoT</td></tr>
+      <tr><td>测试项目</td><td>辐射发射/杂散发射/占用带宽/发射功率(≤20dBm @2.4GHz)</td></tr>
+      <tr><td>周期</td><td>1.5-3个月</td></tr>
+      <tr><td>费用</td><td>2-5万元</td></tr>
+      <tr><td class="decline">不做的后果</td><td>没收设备+罚款(3-10倍)+停产停业</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>🔴 CTA电信设备进网许可(强制)</h3>
+    <table class="comp-table">
+      <tr><th>维度</th><th>详情</th></tr>
+      <tr><td>依据</td><td>《电信条例》第五十七条 / 《电信设备进网管理办法》</td></tr>
+      <tr><td>适用范围</td><td>接入公用电信网的设备(Cat1/NB-IoT)</td></tr>
+      <tr><td>测试</td><td>YD/T 2362-2012：射频/协议一致性/EMC/人机工程</td></tr>
+      <tr><td>周期</td><td>1-2个月</td></tr>
+      <tr><td>费用</td><td>1-3万元</td></tr>
+      <tr><td class="decline">不做的后果</td><td>没收违法所得+罚款5-10万元</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>🔴 CCC强制性认证</h3>
+    <table class="comp-table">
+      <tr><th>维度</th><th>详情</th></tr>
+      <tr><td>依据</td><td>CNCA-C09-01 / GB 4943.1-2022(音视频/信息技术设备安全)</td></tr>
+      <tr><td>测试</td><td>电击防护/防火/机械危险/过热/绝缘耐压</td></tr>
+      <tr><td>周期</td><td>2-3个月</td></tr>
+      <tr><td>费用</td><td>2-4万元</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>🟡 蓝牙SIG认证(推荐)</h3>
+    <table class="comp-table">
+      <tr><th>维度</th><th>详情</th></tr>
+      <tr><td>依据</td><td>Bluetooth Spec v5.0/v5.3</td></tr>
+      <tr><td>流程</td><td>成为SIG成员(Basic会员$2,500/年) → CTCI测试 → 获取BDID</td></tr>
+      <tr><td>周期</td><td>1-2个月</td></tr>
+      <tr><td>费用</td><td>$2,500/年(会费)+测试费$5,000-10,000</td></tr>
+    </table>
+  </div>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">7.2 数据合规 — 个人信息保护法(PIPL)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>维度</th><th>具体要求</th><th>合规动作</th></tr>
+  <tr><td><strong>健康数据分类</strong></td><td>健康生理数据、生物识别数据、精确地理位置 = <strong style="color:var(--red);">敏感个人信息</strong>(PIPL第28-32条)</td><td>单独同意 + 专项隐私政策</td></tr>
+  <tr><td><strong>知情同意</strong></td><td>需取得个人<strong>单独同意</strong>(不得捆绑授权)；隐私政策需显著提示</td><td>首次启动弹窗 + 逐项授权</td></tr>
+  <tr><td><strong>境内存储</strong></td><td>PIPL第40条：海量个人数据<strong>必须在境内存储</strong></td><td>服务器部署在阿里云/腾讯云国内节点</td></tr>
+  <tr><td><strong>跨境传输</strong></td><td>出境须通过安全评估/认证/标准合同三项之一；需<strong>单独同意</strong></td><td>暂不涉及(国内销售为主)</td></tr>
+  <tr><td><strong>泄露报告</strong></td><td>立即补救 + <strong>72小时内</strong>通知监管和个人</td><td>建立安全事件应急预案</td></tr>
+  <tr><td><strong>数据最小化</strong></td><td>只收集最小范围数据，不得过度收集</td><td>不上传原始PPG波形数据</td></tr>
+  <tr><td><strong>删除权</strong></td><td>用户有权请求删除其个人信息(注销/撤回同意后)</td><td>APP内提供"一键注销+数据清除"入口</td></tr>
+  <tr><td><strong>加密要求</strong></td><td>传输加密 + 静态加密</td><td>TLS1.2+传输 / AES-256静态 / 密钥托管KMS</td></tr>
+</table>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">7.3 广告合规红线</h3>
+<div class="risk-box">
+  <h4>⚠️ 医疗诊断红线 — 不可触碰</h4>
+  <table class="comp-table">
+    <tr><th>维度</th><th>要求</th></tr>
+    <tr><td><strong>《广告法》第十七条</strong></td><td>未取得医疗器械注册证的产品，<strong style="color:var(--red);">禁止涉及疾病治疗功能</strong>。不可宣称"医疗诊断""治疗高血压""监测心脏病"</td></tr>
+    <tr><td><strong>可说的话术</strong></td><td>"运动监测""日常健康数据记录""生活方式参考"(强调"参考"而非"诊断")</td></tr>
+    <tr><td><strong>禁止词汇</strong></td><td>"治愈""疗效""治疗""预防""医疗级""医用"</td></tr>
+    <tr><td><strong>虚假宣传</strong></td><td>"准确率99.9%"需提供第三方检测报告证明</td></tr>
+    <tr><td><strong>处罚</strong></td><td>《广告法》第58条：停止发布+罚款(广告费用3-5倍或20-100万元)</td></tr>
+  </table>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">7.4 医疗器械合规 — 核心判断标准</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>功能宣称</th><th>是否医疗器械</th><th>要求</th><th>周期/费用</th></tr>
+  <tr><td>仅计步+心率(生活方式)</td><td><span class="rise">否</span></td><td>无需医疗器械资质；不可用"医疗级"话术</td><td>--</td></tr>
+  <tr><td>心率监测+异常预警</td><td><span style="color:var(--yellow);">灰色地带</span></td><td>若宣称"监测心律失常/房颤"则触发医疗器械监管</td><td>需界定</td></tr>
+  <tr><td>血压监测</td><td><span class="decline">是 — 二类</span></td><td>需二类医疗器械注册证(分类目录09-02)</td><td>10-18月 / 30-80万</td></tr>
+  <tr><td>SpO2血氧监测</td><td><span class="decline">是 — 二类</span></td><td>需二类医疗器械注册证(6821)</td><td>10-18月 / 30-80万</td></tr>
+  <tr><td>ECG心电监测</td><td><span class="decline">是 — 二类</span></td><td>需二类医疗器械注册证(03-02)</td><td>10-18月 / 30-80万</td></tr>
+  <tr><td>血糖监测</td><td><span class="decline">是 — 三类</span></td><td>需三类医疗器械注册证(15-02)</td><td>2-3年 / 100-300万</td></tr>
+</table>
+<p style="font-size: 12px; color: var(--text2); margin-top: 8px;">
+  <strong style="color: var(--text);">核心判断标准：</strong>《医疗器械监督管理条例》(国务院令第739号)第一百零三条。<br>
+  <strong style="color: var(--text);">MVP策略：</strong>手环和药盒<strong>不宣称医疗诊断功能</strong>，定位为"生活方式健康设备"，规避医疗器械注册。后续若需升级，再启动二类注册流程。
+</p>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">7.5 电池安全 + 环保合规</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>UN38.3 + GB 31241-2025</h3>
+    <ul>
+      <li><strong style="color: var(--text);">UN38.3：</strong>联合国危险品运输测试(高度模拟/温度/振动/冲击/短路/过充电/强制放电)。空运/海运必需。</li>
+      <li><strong style="color: var(--text);">GB 31241-2025(新版!)：</strong>便携式锂离子电池安全要求<strong>2025年修订版已发布</strong>，替代2014版。新增快充安全测试/更严格温度循环/针刺试验改进版。</li>
+      <li><strong style="color: var(--text);">阻燃要求：</strong>外壳材料需通过UL94 V-0级阻燃。</li>
+      <li><strong style="color: var(--text);">成本/周期：</strong>UN38.3测试约1-2万元/电池型号，2-4周。</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>中国RoHS 2.0</h3>
+    <ul>
+      <li><strong style="color: var(--text);">限制物质：</strong>铅/汞/镉/六价铬/PBDE等6种有害物质。</li>
+      <li><strong style="color: var(--text);">标识要求：</strong>标注有害物质含量标识(环保使用期限+物质名称)。</li>
+      <li><strong style="color: var(--text);">供应商要求：</strong>核心供应商提供RoHS 2.0合规声明(SOE)和第三方检测报告。</li>
+      <li><strong style="color: var(--text);">废弃回收：</strong>《废弃电器电子产品回收处理管理条例》：回收义务+处理基金约13元/台。</li>
+    </ul>
+  </div>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">7.6 药盒儿童安全 + 药品储存</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>维度</th><th>要求</th></tr>
+  <tr><td>儿童安全包装</td><td>美国16 CFR 1500.15：80%以上5岁以下儿童5分钟内无法打开，90%成人1分钟内可打开</td></tr>
+  <tr><td>推荐方案</td><td>按压式安全锁扣 + 物理密码锁(4位数字拨盘)</td></tr>
+  <tr><td>警示标签</td><td>"请置于儿童无法触及之处"+ 儿童安全锁使用说明</td></tr>
+  <tr><td>药品储存</td><td>避光设计(UV阻隔) + 干燥剂仓 + IP54以上防潮密封</td></tr>
+</table>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">7.7 地方补贴政策(可直接利用)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>地区</th><th>政策</th><th>补贴内容</th></tr>
+  <tr><td>北京</td><td>适老化改造补贴</td><td>为60岁以上老人配备智能手环/药盒，可申请每台100-300元补贴</td></tr>
+  <tr><td>上海</td><td>智慧养老示范项目</td><td>入选示范项目可获得50-200万资金支持</td></tr>
+  <tr><td>广东</td><td>智能家居产业扶持</td><td>智能硬件研发补贴最高100万，量产补贴按销售额3-5%</td></tr>
+  <tr><td>浙江</td><td>数字经济一号工程</td><td>智慧养老产品纳入政府采购目录</td></tr>
+  <tr><td>全国</td><td>高新技术企业认定</td><td>企业所得税减免15%，研发费用加计扣除75-100%</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ==================== 第八章：商业模式与投资回报 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 08</div>
+  <h2 class="part-title">商业模式与投资回报</h2>
+  <p>定价策略 · 订阅模型 · ROI测算 · 投资回收期</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">8.1 总投资预算</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>项目</th><th>明细</th><th>预算(万元)</th></tr>
+  <tr><td>手环ODM方案费</td><td>润科/杰理方案授权+软件适配</td><td>10-30</td></tr>
+  <tr><td>药盒ODM方案费</td><td>方案选型+结构设计+开模</td><td>10-20</td></tr>
+  <tr><td>APP MVP开发</td><td>6-7人团队×4个月</td><td>30-50</td></tr>
+  <tr><td>云服务基础设施(首年)</td><td>阿里云/腾讯云 ECS+RDS+CDN</td><td>5-10</td></tr>
+  <tr><td>认证测试</td><td>SRRC+CTA+CCC+蓝牙SIG</td><td>5-10</td></tr>
+  <tr><td>首批备货</td><td>手环BOM 100×3,000 + 药盒BOM 80×2,000</td><td>46</td></tr>
+  <tr><td>包装/物流/仓储</td><td>彩盒+说明书+充电器+快递</td><td>5-8</td></tr>
+  <tr><td>流动资金</td><td>应急+营销启动</td><td>10-20</td></tr>
+  <tr class="rise"><td><strong>合计</strong></td><td></td><td><strong>121-194万</strong></td></tr>
+</table>
+<p style="margin-top: 10px; font-size: 12px; color: var(--text2);">注：若选择公模ODM(不开新模)可将硬件开发费用降至最低，总投入可控制在 <strong style="color:var(--green)">80-120万</strong></p>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">8.2 订阅增值服务收入模型</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>版本</th><th>价格</th><th>包含功能</th></tr>
+  <tr><td><strong>基础版(免费)</strong></td><td>0元/月</td><td>实时定位+电子围栏+SOS+基础健康数据+用药提醒</td></tr>
+  <tr><td><strong>高级版</strong></td><td>19元/月</td><td>基础版 + 健康周报+用药记录分析+跌倒检测增强+历史轨迹30天</td></tr>
+  <tr><td><strong>尊享版</strong></td><td>39元/月</td><td>高级版 + 视频通话+医生咨询+健康档案+保险权益+历史轨迹永久</td></tr>
+</table>
+<div class="deep-dive" style="margin-top: 12px;">
+  <h4>📈 收入测算</h4>
+  <p style="font-size: 12px; color: var(--text2); line-height: 1.8;">
+    <strong style="color: var(--text);">假设：</strong>获客10,000用户 → 付费转化率15% → ARPU 29元/月 → 月收入4.35万 → 年收入52万<br>
+    <strong style="color: var(--text);">LTV：</strong>续费率30% × 平均使用24月 × 29元/月 = ~174元/用户<br>
+    <strong style="color: var(--text);">10,000用户 × 15% × 174元 = ~26.1万元/年订阅收入(保守)</strong><br>
+    <strong style="color: var(--text);">50,000用户时：</strong>年收入 ~130万元；100,000用户时：年收入 ~260万元
+  </p>
+</div>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">8.3 投资回报测算</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>指标</th><th>Year 1(上市年)</th><th>Year 2</th><th>Year 3</th></tr>
+  <tr><td>手环销量(台)</td><td>5,000</td><td>20,000</td><td>50,000</td></tr>
+  <tr><td>药盒销量(台)</td><td>3,000</td><td>15,000</td><td>40,000</td></tr>
+  <tr><td>硬件收入(万元)</td><td>~250</td><td>~800</td><td>~1,800</td></tr>
+  <tr><td>订阅收入(万元/年)</td><td>~30</td><td>~150</td><td>~400</td></tr>
+  <tr><td>总收入(万元)</td><td>~280</td><td>~950</td><td>~2,200</td></tr>
+  <tr><td>总成本(万元)</td><td>~200</td><td>~550</td><td>~1,100</td></tr>
+  <tr class="rise"><td><strong>净利润(万元)</strong></td><td><strong>~80</strong></td><td><strong>~400</strong></td><td><strong>~1,100</strong></td></tr>
+  <tr><td>投资回收期</td><td colspan="3"><strong class="rise">约12-18个月(取决于销量爬坡速度)</strong></td></tr>
+</table>
+</div>
+</div>
+
+<!-- ==================== 第九章：实施路线图 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 09</div>
+  <h2 class="part-title">实施路线图</h2>
+  <p>手环/药盒/APP并行推进 · 8个月上市</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">9.1 智能手环 — ODM开发全流程</h3>
+<div class="card">
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 1：需求评审(2周)</strong><br><span style="font-size:12px;color:var(--text2)">确定功能清单、定位精度要求(5-10米)、续航目标(5-7天)、防水等级(IP67)、SIM卡方案(Cat1/NB-IoT)</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 2：ODM方案选型(2-3周)</strong><br><span style="font-size:12px;color:var(--text2)">选润科/杰理现有方案，评估主控(GD32E230)、定位模组(u-blox M9或国产)、传感器(汇顶GT3x)、屏幕(1.14寸TFT)</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 3：ID/MD设计(3-4周)</strong><br><span style="font-size:12px;color:var(--text2)">适老化设计：大字体/大图标/实体SOS按键/硅胶表带/防拆卸表扣</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 4：开模+手板验证(3-4周)</strong><br><span style="font-size:12px;color:var(--text2)">3D打印手板→结构验证→防水测试→跌落测试(1米)</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 5：EVT试产(2-3周)</strong><br><span style="font-size:12px;color:var(--text2)">工程验证测试：功能测试、射频测试、电池续航验证</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 6：DVT设计验证(2-3周)</strong><br><span style="font-size:12px;color:var(--text2)">设计验证测试：高低温测试(-10°C~50°C)、盐雾测试、老化测试</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot green"></div><div class="timeline-content"><strong>Phase 7：PVT小批量(2周)+MP量产 → 总计16-24周(4-6个月)</strong></div></div>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">9.2 智能药盒 — ODM开发全流程</h3>
+<div class="card">
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 1：需求评审(2周)</strong><br><span style="font-size:12px;color:var(--text2)">确定药盒容量(几日/几餐)、自动分药机构方案、联网方式(WiFi+BLE)、续航目标(7-15天)</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 2：ODM方案选型(2-3周)</strong><br><span style="font-size:12px;color:var(--text2)">选乐鑫ESP32-C3主控+步进电机分药机构方案，评估传感器方案(红外+光电)</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 3：结构设计(3-4周)</strong><br><span style="font-size:12px;color:var(--text2)">食品级塑料药仓设计、防儿童开启安全锁、语音播报喇叭位置、LED指示灯</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>Phase 4：开模+手板(3-4周)</strong><br><span style="font-size:12px;color:var(--text2)">3D打印验证分药机构可靠性(目标>10,000次循环无故障)</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot green"></div><div class="timeline-content"><strong>Phase 5：EVT/DVT/PVT(4-6周) → 总计16-22周(4-5.5个月)</strong></div></div>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">9.3 整体实施路线图(并行推进)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>阶段</th><th>时间</th><th>手环</th><th>药盒</th><th>APP</th><th>里程碑</th></tr>
+  <tr><td class="rise">M1-M2</td><td>第1-2月</td><td>需求评审+ODM选型</td><td>需求评审+ODM选型</td><td>产品原型+UI设计</td><td>完成PRD文档和设计稿</td></tr>
+  <tr><td class="rise">M3-M4</td><td>第3-4月</td><td>ID设计+开模+EVT</td><td>结构设计+开模+EVT</td><td>APP MVP开发(定位+SOS+心率)</td><td>手环/药盒手板验证通过</td></tr>
+  <tr><td class="rise">M5-M6</td><td>第5-6月</td><td>DVT+PVT+小批量</td><td>DVT+PVT+小批量</td><td>APP标准版开发(用药提醒+家属共享)</td><td>硬件送测+APP内测</td></tr>
+  <tr><td class="rise">M7-M8</td><td>第7-8月</td><td>量产+上市</td><td>量产+上市</td><td>APP正式上线+微信小程序</td><td>双产品同步上市</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ==================== 第十章：风险评估与战略建议 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 10</div>
+  <h2 class="part-title">风险评估与战略建议</h2>
+  <p>风险矩阵 · 四阶段演进路径 · 综合研判</p>
+</div>
+
+<h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text);">10.1 核心风险识别</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>风险类型</th><th>描述</th><th>严重程度</th><th>缓解措施</th></tr>
+  <tr>
+    <td><strong>市场竞争</strong></td>
+    <td>小米/华为/360已占老人定位手表市场，新品牌获客成本高</td>
+    <td class="decline">高</td>
+    <td>差异化：手环+药盒捆绑套餐+微信生态+订阅服务</td>
+  </tr>
+  <tr>
+    <td><strong>技术风险</strong></td>
+    <td>自动分药机构可靠性(卡药/错药)是最大技术挑战</td>
+    <td class="decline">高</td>
+    <td>ODM方案先选成熟分药机构，量产前做10,000次循环测试</td>
+  </tr>
+  <tr>
+    <td><strong>合规风险</strong></td>
+    <td>健康数据隐私保护趋严，PIPL/GDPR合规成本</td>
+    <td>中高</td>
+    <td>数据本地化存储+端到端加密，不碰医疗诊断宣称</td>
+  </tr>
+  <tr>
+    <td><strong>续费率风险</strong></td>
+    <td>订阅服务续费率低于预期(目标30%)</td>
+    <td>中</td>
+    <td>增加医生咨询/保险权益等增值服务提升粘性</td>
+  </tr>
+  <tr>
+    <td><strong>供应链风险</strong></td>
+    <td>芯片短缺/涨价(尤其定位模组和BLE芯片)</td>
+    <td>中</td>
+    <td>双供应商策略，关键物料储备3个月以上</td>
+  </tr>
+</table>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">10.2 四阶段战略演进</h3>
+<div class="card">
+  <div class="timeline-step"><div class="timeline-dot green"></div><div class="timeline-content"><strong>Stage 1(0-8个月)：快速上市验证</strong><br><span style="font-size:12px;color:var(--text2)">手环公模ODM + 药盒半定制ODM + APP MVP，双产品同步上市，目标获客5,000用户。总投入80-120万。</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot blue"></div><div class="timeline-content"><strong>Stage 2(8-18个月)：产品迭代+订阅变现</strong><br><span style="font-size:12px;color:var(--text2)">手环升级为半定制(更好的健康监测)，药盒推出自动分药版，APP标准版上线，目标付费转化15%。</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot purple"></div><div class="timeline-content"><strong>Stage 3(18-36个月)：自研转型+生态扩展</strong><br><span style="font-size:12px;color:var(--text2)">手环转为自研(申请二类医疗器械认证)，接入更多健康服务(在线问诊/药品配送)，目标用户5万+。</span></div></div>
+  <div class="timeline-step"><div class="timeline-dot gold"></div><div class="timeline-content"><strong>Stage 4(36个月+)：平台化+B2B2C</strong><br><span style="font-size:12px;color:var(--text2)">开放API接入养老机构/保险公司/社区医院，从C端消费级产品升级为智慧养老解决方案平台。</span></div></div>
+</div>
+
+<!-- 综合研判 -->
+<div class="forecast-box" style="margin-top: 24px;">
+  <h4>🔮 综合研判 — 核心结论</h4>
+  <ul style="font-size: 13px; color: var(--text2); line-height: 2;">
+    <li><strong>市场窗口期：</strong>中国60岁以上人口2.97亿且以每年1,000万+速度增长，老年防走失+健康管理+用药提醒是刚性需求，市场处于爆发前夜</li>
+    <li><strong>竞争格局有利：</strong>手环赛道有小米/360/华为但都在打价格战，缺乏"手环+药盒+APP服务"的生态化竞争者。药盒赛道更是空白——Hero级别自动分药产品国内尚无竞品</li>
+    <li><strong>ODM起步是理性选择：</strong>硬件自研周期12-18个月+投入200-400万，ODM公模8-12周+投入10-30万，先用最小成本验证商业模式，再用订阅收入反哺研发</li>
+    <li><strong>真正的护城河在APP和数据：</strong>硬件利润是一次性的，但用户的健康数据+用药习惯+定位轨迹是持续产生价值的。订阅服务(19-39元/月)的LTV远超硬件售价</li>
+    <li><strong>政策顺风：</strong>智慧养老已纳入国家"十四五"规划，多地有补贴政策，政府采购目录正在扩容。B2B2C(对接养老机构/社区医院)是增量市场</li>
+  </ul>
+</div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+  <p>智能手环与智能药盒产品开发全景看板 v2.0 — 完整版(10章)</p>
+  <p style="margin-top:4px; font-size: 11px;">数据来源：IDC Q4 2024 Tracker / Grand View Research 2025 / World Alzheimer Report 2024 / 中国国家统计局 2024 / IMARC Group 2024 / 智研咨询 2025</p>
+  <p style="margin-top:4px; font-size: 11px;">⚠️ 免责声明：以上内容仅为商业分析参考，不构成任何投资或创业建议。所有市场预判均存在不确定性边界，决策需谨慎。</p>
+</footer>
+
+</div>
+</body>
+</html>

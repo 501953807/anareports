@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国新能源汽车与电动摩托车全产业链全景看板</title>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #232733; --border: #2e3345;
+  --text: #e4e6ed; --text2: #9498a8; --accent: #c45a6c; --accent2: #d4787e;
+  --green: #5cb88a; --green2: #4a9e72; --yellow: #d4a843; --red: #c45a5a;
+  --blue: #5a8ec4; --purple: #8a5ac4; --gold: #d4a843; --cyan: #5ac4b8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1500px; margin: 0 auto; padding: 24px; }
+header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+header h1 { font-size: 28px; font-weight: 700; color: var(--accent2); letter-spacing: 2px; }
+header p { color: var(--text2); margin-top: 8px; font-size: 14px; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+.tag-red { background: rgba(196,90,90,0.15); color: var(--red); border: 1px solid rgba(196,90,90,0.3); }
+.tag-green { background: rgba(92,184,138,0.15); color: var(--green); border: 1px solid rgba(92,184,138,0.3); }
+.tag-yellow { background: rgba(212,168,67,0.15); color: var(--yellow); border: 1px solid rgba(212,168,67,0.3); }
+.tag-blue { background: rgba(90,142,196,0.15); color: var(--blue); border: 1px solid rgba(90,142,196,0.3); }
+.tag-purple { background: rgba(138,90,196,0.15); color: var(--purple); border: 1px solid rgba(138,90,196,0.3); }
+.tag-gold { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+.tag-cyan { background: rgba(90,196,184,0.15); color: var(--cyan); border: 1px solid rgba(90,196,184,0.3); }
+section { margin-bottom: 48px; }
+.section-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--accent); }
+.section-subtitle { font-size: 15px; font-weight: 600; color: var(--text2); margin: 24px 0 14px; padding-left: 10px; border-left: 2px solid var(--border); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.card .tag-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.card p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.card ul { list-style: none; padding: 0; }
+.card ul li { font-size: 13px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid rgba(46,51,69,0.5); }
+.card ul li:last-child { border-bottom: none; }
+.card ul li strong { color: var(--text); font-weight: 600; }
+.metric { background: var(--surface2); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.metric .val { font-size: 26px; font-weight: 700; color: var(--accent2); }
+.metric .label { font-size: 11px; color: var(--text2); margin-top: 4px; }
+.metric.green .val { color: var(--green); }
+.metric.red .val { color: var(--red); }
+.metric.yellow .val { color: var(--yellow); }
+.metric.blue .val { color: var(--blue); }
+.metric.gold .val { color: var(--gold); }
+.metric.cyan .val { color: var(--cyan); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table th { background: var(--surface2); padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--border); }
+.comp-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+.comp-table tr:hover td { background: rgba(35,39,51,0.5); }
+.decline { color: var(--red); }
+.rise { color: var(--green); }
+.school-tag { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 4px; }
+.school-ky { background: rgba(90,142,196,0.2); color: var(--blue); }
+.school-behavior { background: rgba(138,90,196,0.2); color: var(--purple); }
+.school-evolution { background: rgba(92,184,138,0.2); color: var(--green); }
+.school-marx { background: rgba(196,90,90,0.2); color: var(--red); }
+.school-institution { background: rgba(212,168,67,0.2); color: var(--yellow); }
+.deep-dive { background: rgba(90,142,196,0.05); border: 1px solid rgba(90,142,196,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.deep-dive h4 { font-size: 14px; color: var(--blue); margin-bottom: 8px; }
+.forecast-box { background: rgba(92,184,138,0.05); border: 1px solid rgba(92,184,138,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.forecast-box h4 { font-size: 14px; color: var(--green); margin-bottom: 8px; }
+.risk-box { background: rgba(196,90,90,0.05); border: 1px solid rgba(196,90,90,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.risk-box h4 { font-size: 14px; color: var(--red); margin-bottom: 8px; }
+.data-note { font-size: 11px; color: var(--text2); font-style: italic; margin-top: 6px; }
+footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); color: var(--text2); font-size: 11px; margin-top: 40px; }
+footer a { color: var(--accent); text-decoration: none; }
+@media print { body { background: white; color: black; } .card { border: 1px solid #ddd; } }
+
+/* 供应链树状 */
+.supply-tree { padding: 0; }
+.supply-level { margin-bottom: 12px; }
+.supply-level-label { font-size: 12px; font-weight: 700; color: var(--text2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.supply-level-label.upstream { color: var(--green); }
+.supply-level-label.midstream { color: var(--blue); }
+.supply-level-label.downstream { color: var(--yellow); }
+.supply-level-label.service { color: var(--purple); }
+.supply-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.supply-chip { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; font-size: 12px; color: var(--text); cursor: default; transition: border-color 0.2s; }
+.supply-chip:hover { border-color: var(--accent); }
+.supply-chip .sub { display: block; font-size: 10px; color: var(--text2); margin-top: 2px; }
+.supply-chip.green { border-color: rgba(92,184,138,0.4); }
+.supply-chip.blue { border-color: rgba(90,142,196,0.4); }
+.supply-chip.yellow { border-color: rgba(212,168,67,0.4); }
+.supply-chip.purple { border-color: rgba(138,90,196,0.4); }
+
+/* 零部件分类 */
+.parts-category { margin-bottom: 14px; }
+.parts-category h4 { font-size: 13px; color: var(--cyan); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.parts-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.part-tag { background: var(--surface2); border-radius: 4px; padding: 3px 8px; font-size: 11px; color: var(--text2); }
+.part-tag.highlight { background: rgba(90,196,184,0.15); color: var(--cyan); border: 1px solid rgba(90,196,184,0.3); }
+
+/* 地域分布 */
+.region-card { background: var(--surface2); border-radius: 8px; padding: 12px; border-left: 3px solid var(--green); }
+.region-card .region-name { font-size: 14px; font-weight: 700; color: var(--text); }
+.region-card .region-detail { font-size: 12px; color: var(--text2); margin-top: 4px; line-height: 1.6; }
+.region-card .region-tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
+.region-card .region-tag { font-size: 10px; padding: 1px 6px; border-radius: 3px; background: rgba(92,184,138,0.15); color: var(--green); }
+
+/* 市场条 */
+.market-bar { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+.market-bar .bar-label { font-size: 12px; color: var(--text2); width: 100px; text-align: right; flex-shrink: 0; }
+.market-bar .bar-track { flex: 1; height: 20px; background: var(--surface2); border-radius: 4px; overflow: hidden; position: relative; }
+.market-bar .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; color: white; font-weight: 600; }
+.market-bar .bar-value { font-size: 12px; color: var(--text); width: 80px; flex-shrink: 0; }
+
+/* 对比列 */
+.compare-col { flex: 1; min-width: 0; }
+.compare-col h4 { font-size: 13px; margin-bottom: 8px; text-align: center; }
+.compare-col.auto h4 { color: var(--blue); }
+.compare-col.moto h4 { color: var(--green); }
+
+/* 海外地图标签 */
+.export-region { display: inline-block; background: var(--surface2); border-radius: 6px; padding: 8px 12px; margin: 4px; font-size: 12px; border-left: 2px solid var(--green); }
+.export-region .er-name { font-weight: 700; color: var(--text); }
+.export-region .er-data { color: var(--text2); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>中国新能源汽车与电动摩托车全产业链全景看板</h1>
+  <p>全产业链上下游 · 零部件全品类 · 地域集群地图 · 易损件分析 · 全球市场地图 · 多学派研判</p>
+  <p style="margin-top:6px;">生成日期：2026年6月30日 &nbsp;|&nbsp; 数据基准：2024-2025年官方年报及行业研报（经网络核验） &nbsp;|&nbsp; 分析框架：五维联动 + 多流派交叉对冲验证</p>
+</header>
+
+<!-- ==================== 第一部分：市场规模总览 ==================== -->
+<section>
+<h2 class="section-title">第一部分：市场规模总览 — 双轮驱动的新能源出行产业</h2>
+
+<div class="grid-4" style="margin-bottom:20px;">
+  <div class="metric blue"><div class="val">1,555.8万</div><div class="label">2025年新能源汽车产量<br>同比+35.4%（中汽协CAAM）</div></div>
+  <div class="metric cyan"><div class="val">52.3%</div><div class="label">2025年新能源新车渗透率<br>过半数新车为新能源（中汽协）</div></div>
+  <div class="metric green"><div class="val">2,000万+</div><div class="label">2024年雅迪全球总销量<br>营收310亿(+12.2%)/净利21.6亿，连续8年全球第一</div></div>
+  <div class="metric gold"><div class="val">~800万</div><div class="label">2024年爱玛两轮车销量<br>营收189.5亿(+12.3%)/净利14.2亿</div></div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>🚗 新能源汽车 — 里程碑式跨越</h3>
+    <div class="tag-row"><span class="tag tag-blue">全球第一</span><span class="tag tag-green">渗透率过半</span></div>
+    <table class="comp-table">
+      <tr><th>指标</th><th>2023年</th><th>2024年</th><th>2025年</th><th>同比变化</th></tr>
+      <tr><td>产量</td><td>958.7万辆</td><td>1,288.9万辆</td><td>1,555.8万辆</td><td class="rise">+35.4%</td></tr>
+      <tr><td>销量</td><td>949.5万辆</td><td>1,286.6万辆</td><td>1,572.9万辆</td><td class="rise">+34.8%</td></tr>
+      <tr><td>渗透率</td><td>41.4%</td><td>48.9%</td><td>52.3%</td><td class="rise">+3.4pp</td></tr>
+      <tr><td>出口量</td><td>~90万辆</td><td>120万+</td><td>180万+</td><td class="rise">+50%+</td></tr>
+      <tr><td>市场规模</td><td>~4,000亿</td><td>~4,849亿</td><td>~6,200亿</td><td class="rise">+28%CAGR</td></tr>
+    </table>
+    <p class="data-note" style="margin-top:10px;">数据来源：中国汽车工业协会(CAAM)、公安部、海关总署。2025年新能源汽车连续第11年位居全球第一。其中纯电动汽车产销量1,080.1/1,098.9万辆；插电式混动475.7/474万辆。2025年出口180万+辆，同比+50%+。</p>
+  </div>
+  <div class="card">
+    <h3>🛵 电动两轮车 — 雅迪爱玛台铃三足鼎立</h3>
+    <div class="tag-row"><span class="tag tag-green">消费升级</span><span class="tag tag-yellow">以旧换新政策驱动</span></div>
+    <table class="comp-table">
+      <tr><th>品牌</th><th>2023年销量</th><th>2024年销量</th><th>2024年营收</th><th>净利润</th><th>毛利率</th><th>核心基地</th></tr>
+      <tr><td class="rise">雅迪</td><td>~1,500万+辆</td><td>2,000万+辆</td><td>310.17亿元</td><td>21.62亿元</td><td>20.5%</td><td>无锡/杭州/合肥/成都/西安/越南</td></tr>
+      <tr><td>爱玛</td><td>~550万+辆</td><td>~800万+辆</td><td>189.5亿元</td><td>14.2亿元</td><td>~28.5%</td><td>天津/无锡/重庆/平湖</td></tr>
+      <tr><td>台铃</td><td>~300万+辆</td><td>~330万+辆</td><td>~115亿元</td><td>~8亿元</td><td>~22.5%</td><td>东莞/无锡</td></tr>
+      <tr><td>小牛</td><td>~50万+辆</td><td>~55万+辆</td><td>~22亿元</td><td>~1.5亿元</td><td>~19%</td><td>南京</td></tr>
+      <tr><td>九号公司</td><td>~80万+辆</td><td>~95万+辆</td><td>~38亿元</td><td>~5亿元</td><td>~26%</td><td>北京/嘉兴</td></tr>
+    </table>
+    <p class="data-note" style="margin-top:10px;">数据来源：雅迪控股2024年报(2025年3月13日发布，营收310.17亿/净利21.62亿/销量2000万+)、爱玛科技2025年报(2025年4月发布，营收189.5亿/净利14.2亿)。雅迪+爱玛合计占两轮车市场近60%。2025年雅迪全球累计销量突破2,000万辆，连续8年全球销量第一。行业锂电化率提升至45%+。</p>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第二部分：新能源汽车全产业链（SVG拓扑图） ==================== -->
+<section>
+<h2 class="section-title">第二部分：新能源汽车全产业链上下游拓扑图谱</h2>
+
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px;">下图展示产业链各环节的<strong>物料/价值流向</strong>（箭头方向），连线粗细表示供应链价值量大小。点击各层级标题可折叠/展开。</p>
+
+<div class="card" style="overflow-x:auto;">
+<svg id="nevSupplyChain" viewBox="0 0 1400 720" width="1400" height="720" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+<defs>
+  <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5cb88a"/></marker>
+  <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5a8ec4"/></marker>
+  <marker id="arrowYellow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d4a843"/></marker>
+  <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8a5ac4"/></marker>
+  <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5ac4b8"/></marker>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#1a1d27;stop-opacity:1"/>
+    <stop offset="100%" style="stop-color:#232733;stop-opacity:1"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<!-- Background -->
+<rect width="1400" height="720" rx="12" fill="url(#bgGrad)" stroke="#2e3345" stroke-width="1"/>
+
+<!-- ===== 列标题 ===== -->
+<text x="130" y="28" text-anchor="middle" fill="#5cb88a" font-size="13" font-weight="700">上游·原材料</text>
+<text x="430" y="28" text-anchor="middle" fill="#5cb88a" font-size="11" font-weight="400">矿产→材料加工</text>
+<text x="700" y="28" text-anchor="middle" fill="#5a8ec4" font-size="13" font-weight="700">中游·制造</text>
+<text x="1000" y="28" text-anchor="middle" fill="#d4a843" font-size="13" font-weight="700">中游·整车</text>
+<text x="1270" y="28" text-anchor="middle" fill="#8a5ac4" font-size="13" font-weight="700">下游·服务</text>
+
+<!-- ===== 上游节点 ===== -->
+<g class="upstream-nodes">
+  <!-- 锂矿 -->
+  <rect x="30" y="52" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="72" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">锂矿</text>
+  <text x="80" y="88" text-anchor="middle" fill="#9498a8" font-size="9">天齐/赣锋</text>
+
+  <!-- 钴镍 -->
+  <rect x="30" y="110" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="130" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">钴镍矿</text>
+  <text x="80" y="146" text-anchor="middle" fill="#9498a8" font-size="9">华友/寒锐</text>
+
+  <!-- 石墨/碳 -->
+  <rect x="30" y="168" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="188" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">石墨/碳</text>
+  <text x="80" y="204" text-anchor="middle" fill="#9498a8" font-size="9">贝特瑞/杉杉</text>
+
+  <!-- 磷/铁 -->
+  <rect x="30" y="226" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="246" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">磷/铁</text>
+  <text x="80" y="262" text-anchor="middle" fill="#9498a8" font-size="9">磷酸铁锂正极</text>
+
+  <!-- 稀土 -->
+  <rect x="30" y="284" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="304" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">稀土</text>
+  <text x="80" y="320" text-anchor="middle" fill="#9498a8" font-size="9">北方稀土</text>
+
+  <!-- 铜铝 -->
+  <rect x="30" y="342" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="362" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">铜/铝</text>
+  <text x="80" y="378" text-anchor="middle" fill="#9498a8" font-size="9">导线/壳体/结构</text>
+
+  <!-- 电解液 -->
+  <rect x="30" y="400" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="420" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">电解液原料</text>
+  <text x="80" y="436" text-anchor="middle" fill="#9498a8" font-size="9">六氟磷酸锂</text>
+
+  <!-- 正极材料 -->
+  <rect x="30" y="458" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="478" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">正极材料</text>
+  <text x="80" y="494" text-anchor="middle" fill="#9498a8" font-size="9">容百/当升</text>
+
+  <!-- 负极材料 -->
+  <rect x="30" y="516" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="536" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">负极材料</text>
+  <text x="80" y="552" text-anchor="middle" fill="#9498a8" font-size="9">贝特瑞/璞泰来</text>
+
+  <!-- 隔膜 -->
+  <rect x="30" y="574" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="594" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">隔膜</text>
+  <text x="80" y="610" text-anchor="middle" fill="#9498a8" font-size="9">恩捷/星源</text>
+
+  <!-- 电解液 -->
+  <rect x="30" y="632" width="100" height="48" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="80" y="652" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">电解液</text>
+  <text x="80" y="668" text-anchor="middle" fill="#9498a8" font-size="9">天赐/新宙邦</text>
+</g>
+
+<!-- ===== 中游材料→电池包 ===== -->
+<g class="material-to-pack">
+  <rect x="240" y="160" width="140" height="56" rx="10" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="310" y="182" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">电池芯材</text>
+  <text x="310" y="198" text-anchor="middle" fill="#5cb88a" font-size="10">正极+负极+隔膜+电解液</text>
+
+  <rect x="240" y="230" width="140" height="48" rx="10" fill="rgba(90,142,196,0.12)" stroke="#5a8ec4" stroke-width="1.2"/>
+  <text x="310" y="250" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">功率半导体</text>
+  <text x="310" y="266" text-anchor="middle" fill="#9498a8" font-size="9">IGBT/SiC(斯达/士兰微)</text>
+
+  <rect x="240" y="290" width="140" height="48" rx="10" fill="rgba(90,142,196,0.12)" stroke="#5a8ec4" stroke-width="1.2"/>
+  <text x="310" y="310" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">热管理组件</text>
+  <text x="310" y="326" text-anchor="middle" fill="#9498a8" font-size="9">三花/银轮/松芝</text>
+
+  <rect x="240" y="350" width="140" height="48" rx="10" fill="rgba(90,142,196,0.12)" stroke="#5a8ec4" stroke-width="1.2"/>
+  <text x="310" y="370" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">精密结构件</text>
+  <text x="310" y="386" text-anchor="middle" fill="#9498a8" font-size="9">壳体/盖板/连接 busbar</text>
+
+  <rect x="240" y="410" width="140" height="48" rx="10" fill="rgba(90,142,196,0.12)" stroke="#5a8ec4" stroke-width="1.2"/>
+  <text x="310" y="430" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">智驾传感器</text>
+  <text x="310" y="446" text-anchor="middle" fill="#9498a8" font-size="9">激光雷达/毫米波/摄像头</text>
+
+  <rect x="240" y="470" width="140" height="48" rx="10" fill="rgba(90,142,196,0.12)" stroke="#5a8ec4" stroke-width="1.2"/>
+  <text x="310" y="490" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">智能芯片</text>
+  <text x="310" y="506" text-anchor="middle" fill="#9498a8" font-size="9">Orin/8155/征程/Huawei MDC</text>
+
+  <rect x="240" y="530" width="140" height="48" rx="10" fill="rgba(90,142,196,0.12)" stroke="#5a8ec4" stroke-width="1.2"/>
+  <text x="310" y="550" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">底盘/制动/转向</text>
+  <text x="310" y="566" text-anchor="middle" fill="#9498a8" font-size="9">EPS/IPB/空气悬架</text>
+</g>
+
+<!-- ===== 三电系统 ===== -->
+<g class="three-electric">
+  <rect x="440" y="100" width="160" height="64" rx="12" fill="rgba(90,142,196,0.18)" stroke="#5a8ec4" stroke-width="1.8" filter="url(#glow)"/>
+  <text x="520" y="124" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">动力电池 Pack</text>
+  <text x="520" y="142" text-anchor="middle" fill="#5a8ec4" font-size="10">宁德时代50.2%(中国)/全球36-38% / 比亚迪17% / LG13%</text>
+
+  <rect x="440" y="176" width="160" height="56" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="520" y="198" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">驱动电机</text>
+  <text x="520" y="214" text-anchor="middle" fill="#9498a8" font-size="9">永磁同步/异步(汇川/精进/比亚迪)</text>
+
+  <rect x="440" y="244" width="160" height="56" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="520" y="266" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">电机控制器</text>
+  <text x="520" y="282" text-anchor="middle" fill="#9498a8" font-size="9">MCU+Inverter+减速器(合一)</text>
+
+  <rect x="440" y="312" width="160" height="56" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="520" y="334" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">BMS + 热管理</text>
+  <text x="520" y="350" text-anchor="middle" fill="#9498a8" font-size="9">电池管理+热泵八合一模块</text>
+
+  <rect x="440" y="380" width="160" height="56" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="520" y="402" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">高压电气系统</text>
+  <text x="520" y="418" text-anchor="middle" fill="#9498a8" font-size="9">PDU+OBC+DC-DC+充电口</text>
+
+  <rect x="440" y="448" width="160" height="56" rx="10" fill="rgba(138,90,196,0.15)" stroke="#8a5ac4" stroke-width="1.5"/>
+  <text x="520" y="470" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">智能驾驶域控</text>
+  <text x="520" y="486" text-anchor="middle" fill="#9498a8" font-size="9">华为ADS/小鹏XNGP/蔚来NOP+</text>
+
+  <rect x="440" y="516" width="160" height="56" rx="10" fill="rgba(138,90,196,0.15)" stroke="#8a5ac4" stroke-width="1.5"/>
+  <text x="520" y="538" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">智能座舱</text>
+  <text x="520" y="554" text-anchor="middle" fill="#9498a8" font-size="9">鸿蒙座舱/高通8155/德赛西威</text>
+
+  <rect x="440" y="584" width="160" height="56" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="520" y="606" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">车身/底盘总成</text>
+  <text x="520" y="622" text-anchor="middle" fill="#9498a8" font-size="9">白车身/冲压/压铸/线束</text>
+</g>
+
+<!-- ===== 整车企业 ===== -->
+<g class="oems">
+  <rect x="660" y="52" width="180" height="52" rx="10" fill="rgba(212,168,67,0.15)" stroke="#d4a843" stroke-width="1.5"/>
+  <text x="750" y="72" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">比亚迪</text>
+  <text x="750" y="88" text-anchor="middle" fill="#d4a843" font-size="9">2025销量402万辆/营收万亿+/净利460亿</text>
+
+  <rect x="660" y="110" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="130" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">特斯拉中国</text>
+  <text x="750" y="146" text-anchor="middle" fill="#9498a8" font-size="9">上海工厂~110万辆/年</text>
+
+  <rect x="660" y="168" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="188" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">吉利系</text>
+  <text x="750" y="204" text-anchor="middle" fill="#9498a8" font-size="9">极氪90万+几何+领克+银河~100万辆</text>
+
+  <rect x="660" y="226" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="246" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">长安系</text>
+  <text x="750" y="262" text-anchor="middle" fill="#9498a8" font-size="9">深蓝+阿维塔+启源~70万辆</text>
+
+  <rect x="660" y="284" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="304" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">理想汽车</text>
+  <text x="750" y="320" text-anchor="middle" fill="#9498a8" font-size="9">58.4万辆/营收2,000亿+</text>
+
+  <rect x="660" y="342" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="362" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">小米汽车</text>
+  <text x="750" y="378" text-anchor="middle" fill="#9498a8" font-size="9">SU7/Y 31.2万辆</text>
+
+  <rect x="660" y="400" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="420" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">蔚来</text>
+  <text x="750" y="436" text-anchor="middle" fill="#9498a8" font-size="9">27.6万辆/换电站6,000+</text>
+
+  <rect x="660" y="458" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="478" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">小鹏</text>
+  <text x="750" y="494" text-anchor="middle" fill="#9498a8" font-size="9">27.3万辆/智驾付费500万+</text>
+
+  <rect x="660" y="516" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="536" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">赛力斯(问界)</text>
+  <text x="750" y="552" text-anchor="middle" fill="#9498a8" font-size="9">~40万辆/M9+M7双旗舰</text>
+
+  <rect x="660" y="574" width="180" height="52" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="750" y="594" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="700">奇瑞/上汽/广汽</text>
+  <text x="750" y="610" text-anchor="middle" fill="#9498a8" font-size="9">奇瑞~60万+出口王 / MG海外50万 / 埃安~40万</text>
+</g>
+
+<!-- ===== 下游服务 ===== -->
+<g class="services">
+  <rect x="900" y="100" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="122" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">充电桩网络</text>
+  <text x="985" y="140" text-anchor="middle" fill="#9498a8" font-size="9">特来电50万+/星星充电40万+/国家电网25万+ / 总保有量1,000万+</text>
+
+  <rect x="900" y="170" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="192" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">换电站</text>
+  <text x="985" y="208" text-anchor="middle" fill="#9498a8" font-size="9">全国超8,000座 / 蔚来5,000+</text>
+
+  <rect x="900" y="240" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="262" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">储能系统</text>
+  <text x="985" y="278" text-anchor="middle" fill="#9498a8" font-size="9">宁德时代/比亚迪/阳光电源</text>
+
+  <rect x="900" y="310" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="332" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">V2G车网互动</text>
+  <text x="985" y="348" text-anchor="middle" fill="#9498a8" font-size="9">国家电网/南方电网试点</text>
+
+  <rect x="900" y="380" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="402" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">电池回收/梯次利用</text>
+  <text x="985" y="418" text-anchor="middle" fill="#9498a8" font-size="9">格林美/邦普循环/华友</text>
+
+  <rect x="900" y="450" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="472" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">整车售后服务</text>
+  <text x="985" y="488" text-anchor="middle" fill="#9498a8" font-size="9">4S店/直营/OTA远程诊断</text>
+
+  <rect x="900" y="520" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="542" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">金融/保险/租赁</text>
+  <text x="985" y="558" text-anchor="middle" fill="#9498a8" font-size="9">车企金融/电池租赁/BaaS</text>
+
+  <rect x="900" y="590" width="170" height="56" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="985" y="612" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">数据/软件服务</text>
+  <text x="985" y="628" text-anchor="middle" fill="#9498a8" font-size="9">OTA订阅/FSD付费/数据增值</text>
+</g>
+
+<!-- ===== 连线 (粗=价值量大) ===== -->
+<g class="connections" fill="none" stroke-width="2.5" opacity="0.6">
+  <!-- 上游→中游材料 -->
+  <line x1="130" y1="76" x2="240" y2="188" stroke="#5cb88a" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="134" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="192" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="250" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="308" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="366" x2="240" y2="188" stroke="#5cb88a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="424" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="482" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="540" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="598" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="656" x2="240" y2="188" stroke="#5cb88a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- 上游→功率半导体 -->
+  <line x1="130" y1="308" x2="240" y2="254" stroke="#5cb88a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="366" x2="240" y2="254" stroke="#5cb88a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- 上游→热管理 -->
+  <line x1="130" y1="366" x2="240" y2="314" stroke="#5cb88a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- 上游→精密结构件 -->
+  <line x1="130" y1="366" x2="240" y2="374" stroke="#5cb88a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <line x1="130" y1="424" x2="240" y2="374" stroke="#5cb88a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- 中游材料→三电 -->
+  <line x1="380" y1="188" x2="440" y2="132" stroke="#5a8ec4" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <line x1="380" y1="254" x2="440" y2="310" stroke="#5a8ec4" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <line x1="380" y1="314" x2="440" y2="340" stroke="#5a8ec4" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <line x1="380" y1="374" x2="440" y2="132" stroke="#5a8ec4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="380" y1="434" x2="440" y2="476" stroke="#8a5ac4" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <line x1="380" y1="494" x2="440" y2="544" stroke="#8a5ac4" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <line x1="380" y1="554" x2="440" y2="612" stroke="#5a8ec4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- 三电→整车 -->
+  <line x1="600" y1="132" x2="660" y2="78" stroke="#d4a843" stroke-width="5" marker-end="url(#arrowYellow)"/>
+  <line x1="600" y1="204" x2="660" y2="136" stroke="#d4a843" stroke-width="3" marker-end="url(#arrowYellow)"/>
+  <line x1="600" y1="272" x2="660" y2="200" stroke="#d4a843" stroke-width="3" marker-end="url(#arrowYellow)"/>
+  <line x1="600" y1="340" x2="660" y2="252" stroke="#d4a843" stroke-width="2" marker-end="url(#arrowYellow)"/>
+  <line x1="600" y1="408" x2="660" y2="316" stroke="#d4a843" stroke-width="2" marker-end="url(#arrowYellow)"/>
+  <line x1="600" y1="476" x2="660" y2="484" stroke="#8a5ac4" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <line x1="600" y1="544" x2="660" y2="542" stroke="#8a5ac4" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <line x1="600" y1="612" x2="660" y2="600" stroke="#d4a843" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+  <!-- 整车→服务 -->
+  <line x1="840" y1="78" x2="900" y2="128" stroke="#5ac4b8" stroke-width="4" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="136" x2="900" y2="198" stroke="#5ac4b8" stroke-width="3" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="200" x2="900" y2="268" stroke="#5ac4b8" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="252" x2="900" y2="338" stroke="#5ac4b8" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="316" x2="900" y2="408" stroke="#5ac4b8" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="484" x2="900" y2="478" stroke="#5ac4b8" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="542" x2="900" y2="548" stroke="#5ac4b8" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <line x1="840" y1="600" x2="900" y2="618" stroke="#5ac4b8" stroke-width="2" marker-end="url(#arrowCyan)"/>
+</g>
+
+<!-- ===== 图例 ===== -->
+<g transform="translate(1080, 670)">
+  <rect x="0" y="0" width="310" height="44" rx="6" fill="rgba(26,29,39,0.9)" stroke="#2e3345" stroke-width="1"/>
+  <line x1="10" y1="18" x2="40" y2="18" stroke="#5cb88a" stroke-width="3" opacity="0.7"/>
+  <text x="48" y="22" fill="#9498a8" font-size="10">原材料</text>
+  <line x1="100" y1="18" x2="130" y2="18" stroke="#5a8ec4" stroke-width="3" opacity="0.7"/>
+  <text x="138" y="22" fill="#9498a8" font-size="10">核心零部件</text>
+  <line x1="215" y1="18" x2="245" y2="18" stroke="#d4a843" stroke-width="3" opacity="0.7"/>
+  <text x="253" y="22" fill="#9498a8" font-size="10">整车</text>
+</g>
+
+<!-- ===== 价值量标注 ===== -->
+<g transform="translate(10, 700)">
+  <text x="0" y="14" fill="#9498a8" font-size="10">连线粗细 = 供应链价值量大小 | 2025年产业链总规模~6.2万亿元</text>
+</g>
+</svg>
+</div>
+
+<!-- 价值量分布 -->
+<div style="margin-top:20px;">
+<h4 style="font-size:14px;font-weight:600;margin-bottom:12px;">📊 各环节在全球产业链中的价值占比</h4>
+<div class="market-bar"><span class="bar-label">动力电池系统</span><div class="bar-track"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#5a8ec4,#5ac4b8);">30%</div></div><span class="bar-value" style="color:var(--blue);">最大价值环节</span></div>
+<div class="market-bar"><span class="bar-label">整车制造</span><div class="bar-track"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#d4a843,#e4c863);">25%</div></div><span class="bar-value" style="color:var(--yellow);">OEM</span></div>
+<div class="market-bar"><span class="bar-label">原材料/矿产</span><div class="bar-track"><div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#5cb88a,#7cd4a4);">15%</div></div><span class="bar-value" style="color:var(--green);">锂/钴/镍/稀土</span></div>
+<div class="market-bar"><span class="bar-label">后市场服务</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:linear-gradient(90deg,#5ac4b8,#7ae4d4);">12%</div></div><span class="bar-value" style="color:var(--cyan);">充电/换电/回收</span></div>
+<div class="market-bar"><span class="bar-label">电机/电控</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:linear-gradient(90deg,#5a8ec4,#8ab4e4);">10%</div></div><span class="bar-value" style="color:var(--blue);">电机+控制器</span></div>
+<div class="market-bar"><span class="bar-label">智能系统</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#8a5ac4,#b48ae4);">8%</div></div><span class="bar-value" style="color:var(--purple);">智驾+座舱</span></div>
+</div>
+</section>
+
+<!-- ==================== 第三部分：零部件全品类清单（最细化） ==================== -->
+<section>
+<h2 class="section-title">第三部分：零部件全品类清单 — 最细化单品级拆解</h2>
+
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px;">以下清单按<strong>可单独售卖</strong>的标准件/非标件维度拆解，涵盖新能源汽车和电动两轮车两大类。标注<span style="color:var(--cyan);">◆标准件</span>和<span style="color:var(--yellow);">◆非标件</span>属性。</p>
+
+<div class="grid-2" style="margin-bottom:20px;">
+  <div class="card">
+    <h3>⚡ 新能源汽车 — 电池系统（单品级拆解）</h3>
+    <div class="parts-category">
+      <h4>🔋 电芯级</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">磷酸铁锂电芯(LFP Cell)</span>
+        <span class="part-tag">刀片电芯(比亚迪)</span>
+        <span class="part-tag">CTP大圆柱电芯</span>
+        <span class="part-tag">三元NCM电芯</span>
+        <span class="part-tag">半固态电芯</span>
+        <span class="part-tag">280Ah储能电芯</span>
+        <span class="part-tag">100Ah软包电芯</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>📦 模组/Pack级</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">电池模组(Module)</span>
+        <span class="part-tag">CTP集成模组(无模组)</span>
+        <span class="part-tag">CTC电池底盘一体化</span>
+        <span class="part-tag">电池包外壳(aluminum enclosure)</span>
+        <span class="part-tag">电池顶盖/侧盖</span>
+        <span class="part-tag">模组夹具/端板/侧板</span>
+        <span class="part-tag">Busbar(铜排连接件)</span>
+        <span class="part-tag">电池包下壳体(structural bottom)</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🧠 BMS级</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">BMS主控单元(BCM)</span>
+        <span class="part-tag">BMS从控单元(SCMU)</span>
+        <span class="part-tag">电芯采集模块(CBM)</span>
+        <span class="part-tag">电压采集板</span>
+        <span class="part-tag">温度采集NTC热敏电阻</span>
+        <span class="part-tag">绝缘检测仪(IMD)</span>
+        <span class="part-tag">BMS芯片(英飞凌/TI/纳芯微)</span>
+        <span class="part-tag">高压继电器/接触器</span>
+        <span class="part-tag">预充模块</span>
+        <span class="part-tag">电池SOC/SOH估算算法模块</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🔌 高压配电级</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">高压配电盒(PDU)</span>
+        <span class="part-tag">主正/主负继电器</span>
+        <span class="part-tag">充电继电器</span>
+        <span class="part-tag">预充电阻</span>
+        <span class="part-tag">高压互锁回路(HVIL)</span>
+        <span class="part-tag">采样线束(低压信号)</span>
+        <span class="part-tag">高压线束(橙色)</span>
+        <span class="part-tag">CCS集成放电母线板</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>⚙️ 新能源汽车 — 电驱系统（单品级拆解）</h3>
+    <div class="parts-category">
+      <h4>🔄 驱动电机</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">永磁同步电机总成</span>
+        <span class="part-tag">定子绕组(stator winding)</span>
+        <span class="part-tag">转子总成(rotor assembly)</span>
+        <span class="part-tag">钕铁硼永磁体(NdFeB magnet)</span>
+        <span class="part-tag">旋转变压器(resolver)</span>
+        <span class="part-tag">电机壳(压铸铝)</span>
+        <span class="part-tag">后端盖/前端盖</span>
+        <span class="part-tag">电机轴承(SKF/NSK/人本)</span>
+        <span class="part-tag">油冷喷嘴/冷却夹套</span>
+        <span class="part-tag">空冷散热翅片</span>
+        <span class="part-tag">异步感应电机(特斯拉式)</span>
+        <span class="part-tag">轮毂电机(分布式)</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🎛️ 电机控制器</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">MCU电机控制器总成</span>
+        <span class="part-tag">SiC功率模块(英飞凌/安世)</span>
+        <span class="part-tag">IGBT模块(斯达/士兰微)</span>
+        <span class="part-tag">三相桥臂驱动板</span>
+        <span class="part-tag">门极驱动板(Gate Driver)</span>
+        <span class="part-tag">直流母线电容</span>
+        <span class="part-tag">电流传感器(Hall效应)</span>
+        <span class="part-tag">三相输出端子(U/V/W)</span>
+        <span class="part-tag">控制器散热基板</span>
+        <span class="part-tag">EMC滤波电感/电容</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>⚙️ 减速器/传动</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">单速减速器总成</span>
+        <span class="part-tag">减速齿轮组(减速比9.2:1)</span>
+        <span class="part-tag">差速器总成</span>
+        <span class="part-tag">半轴(axle shaft)</span>
+        <span class="part-tag">输出轴承座</span>
+        <span class="part-tag">油封(旋转密封)</span>
+        <span class="part-tag">减速器壳体</span>
+        <span class="part-tag">换挡执行机构</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🔌 充电系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">车载充电器(OBC)</span>
+        <span class="part-tag">DC-DC转换器</span>
+        <span class="part-tag">AC充电口(Type2/GB/T)</span>
+        <span class="part-tag">DC快充口(CCS2/GB/T)</span>
+        <span class="part-tag">充电锁止机构</span>
+        <span class="part-tag">充电连接指示灯</span>
+        <span class="part-tag">充电温度传感器</span>
+        <span class="part-tag">无线充电发射端/接收端</span>
+        <span class="part-tag">换电锁止机构/定位销</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-bottom:20px;">
+  <div class="card">
+    <h3>🌡️ 新能源汽车 — 热管理/底盘/车身</h3>
+    <div class="parts-category">
+      <h4>❄️ 热管理系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">热泵压缩机(8合1)</span>
+        <span class="part-tag">PTC加热器(水冷/风冷)</span>
+        <span class="part-tag">电池液冷板冷板</span>
+        <span class="part-tag">电机冷却器</span>
+        <span class="part-tag">电机控制器冷却器</span>
+        <span class="part-tag">座舱蒸发器</span>
+        <span class="part-tag">座舱冷凝器</span>
+        <span class="part-tag">电子膨胀阀(EXV)</span>
+        <span class="part-tag">电子水泵(48V/200V)</span>
+        <span class="part-tag">多通阀/水流分配阀</span>
+        <span class="part-tag">储液罐/膨胀水箱</span>
+        <span class="part-tag">冷却管路(硅胶/PVC)</span>
+        <span class="part-tag">冷却液(乙二醇基/去离子水)</span>
+        <span class="part-tag">八合一热管理集成模块</span>
+        <span class="part-tag">电池直冷直喷板</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🛞 底盘系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">空气悬架总成</span>
+        <span class="part-tag">空气弹簧(双层气囊)</span>
+        <span class="part-tag">减震器筒</span>
+        <span class="part-tag">螺旋弹簧</span>
+        <span class="part-tag">控制臂(上/下)</span>
+        <span class="part-tag">转向拉杆/球头</span>
+        <span class="part-tag">稳定杆/连杆</span>
+        <span class="part-tag">副车架(铝/钢)</span>
+        <span class="part-tag">电动助力转向机(EPS)</span>
+        <span class="part-tag">线控制动单元(IPB/iBooster)</span>
+        <span class="part-tag">制动卡钳(前/后)</span>
+        <span class="part-tag">制动盘(通风/实心)</span>
+        <span class="part-tag">制动片(前/后)</span>
+        <span class="part-tag">转向节(knuckle)</span>
+        <span class="part-tag">轮毂轴承单元</span>
+        <span class="part-tag">轮胎(低滚阻EV专用)</span>
+        <span class="part-tag">车轮(锻造/铸造铝合金)</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🚗 车身/智驾/电子</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">一体压铸后底板(大型压铸件)</span>
+        <span class="part-tag">白车身(Body-in-White)</span>
+        <span class="part-tag">车门总成(含饰板/升降器/音响)</span>
+        <span class="part-tag">前盖/后盖</span>
+        <span class="part-tag">全景天幕玻璃(双层夹胶)</span>
+        <span class="part-tag">LED大灯总成</span>
+        <span class="part-tag">激光雷达总成(128线/96线)</span>
+        <span class="part-tag">毫米波雷达(77GHz)</span>
+        <span class="part-tag">环视摄像头(前/后/左/右)</span>
+        <span class="part-tag">超声波传感器(12/16颗)</span>
+        <span class="part-tag">HUD抬头显示</span>
+        <span class="part-tag">中控大屏总成</span>
+        <span class="part-tag">仪表屏</span>
+        <span class="part-tag">后排娱乐屏</span>
+        <span class="part-tag">座椅加热/通风模块</span>
+        <span class="part-tag">12V低压蓄电池</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>🛵 电动两轮车 — 核心零部件（单品级拆解）</h3>
+    <div class="parts-category">
+      <h4>🔋 电池系统（两轮车专用）</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">铅酸电池组(48V12Ah/20Ah/32Ah)</span>
+        <span class="part-tag">铅酸电池组(60V20Ah/32Ah)</span>
+        <span class="part-tag">铅酸电池组(72V20Ah/32Ah)</span>
+        <span class="part-tag">锂电池包(48V12Ah-60Ah)</span>
+        <span class="part-tag">锂电池包(60V/72V)</span>
+        <span class="part-tag">18650三元电芯</span>
+        <span class="part-tag">21700三元电芯</span>
+        <span class="part-tag">磷酸铁锂电芯(两轮车用)</span>
+        <span class="part-tag">软包锂电芯</span>
+        <span class="part-tag">锂电池BMS保护板</span>
+        <span class="part-tag">电池充电器(铅酸专用)</span>
+        <span class="part-tag">电池充电器(锂电智能)</span>
+        <span class="part-tag">换电柜电池模组</span>
+        <span class="part-tag">电池仓/电池盒</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>⚙️ 电机系统（两轮车专用）</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">轮毂电机(350W/500W/800W)</span>
+        <span class="part-tag">轮毂电机(1000W/1200W)</span>
+        <span class="part-tag">轮毂电机(1500W/2000W)</span>
+        <span class="part-tag">轮毂电机(3000W+高性能)</span>
+        <span class="part-tag">无刷直流电机BLDC</span>
+        <span class="part-tag">中置电机(踏板电摩用)</span>
+        <span class="part-tag">电机霍尔传感器</span>
+        <span class="part-tag">电机相线/霍尔线</span>
+        <span class="part-tag">永磁转子</span>
+        <span class="part-tag">定子绕组</span>
+        <span class="part-tag">电机轴承</span>
+        <span class="part-tag">电机防水密封圈</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🎛️ 控制器/Electronics</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">电机控制器(600W-2000W)</span>
+        <span class="part-tag">电机控制器(3000W-5000W)</span>
+        <span class="part-tag">电机控制器(5000W+高性能)</span>
+        <span class="part-tag">智能控制器(蓝牙/NFC)</span>
+        <span class="part-tag">相位器/加速器</span>
+        <span class="part-tag">转把(节流阀)</span>
+        <span class="part-tag">刹车断电开关</span>
+        <span class="part-tag">P档按键</span>
+        <span class="part-tag">LCD仪表总成</span>
+        <span class="part-tag">TFT彩屏仪表</span>
+        <span class="part-tag">GPS定位模块</span>
+        <span class="part-tag">NFC刷卡模块</span>
+        <span class="part-tag">APP智能模块(4G)</span>
+        <span class="part-tag">遥控钥匙</span>
+        <span class="part-tag">USB充电口/Type-C</span>
+        <span class="part-tag">转向灯/日间行车灯</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🛞 行走系统（两轮车）</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">前减震器(液压/气动)</span>
+        <span class="part-tag">后减震器(液压/弹簧)</span>
+        <span class="part-tag">后减震预载调节器</span>
+        <span class="part-tag">鼓刹总成(160mm/200mm)</span>
+        <span class="part-tag">碟刹盘(220mm/260mm)</span>
+        <span class="part-tag">碟刹卡钳</span>
+        <span class="part-tag">刹车片(前/后)</span>
+        <span class="part-tag">刹车拉线/油管</span>
+        <span class="part-tag">轮胎(3.00-10/2.75-12/90/90-12)</span>
+        <span class="part-tag">真空胎</span>
+        <span class="part-tag">气门嘴</span>
+        <span class="part-tag">轮毂(钢圈/铝合金)</span>
+        <span class="part-tag">辐条/花鼓</span>
+        <span class="part-tag">脚踏板</span>
+        <span class="part-tag">自行车脚踏(可折叠)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>🛵 电动两轮车 — 车身/结构件（单品级拆解）</h3>
+    <div class="parts-category">
+      <h4>🔩 车架/结构件</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">钢管车架(主车架)</span>
+        <span class="part-tag">铝合金车架</span>
+        <span class="part-tag">碳钢车架</span>
+        <span class="part-tag">后摇臂</span>
+        <span class="part-tag">后平叉</span>
+        <span class="part-tag">前叉(正立式/倒立式)</span>
+        <span class="part-tag">方向柱/转向轴承</span>
+        <span class="part-tag">边撑/中撑</span>
+        <span class="part-tag">后货架</span>
+        <span class="part-tag">尾箱/储物箱</span>
+        <span class="part-tag">脚踏板(车身)</span>
+        <span class="part-tag">挡泥板(前/后)</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🎨 塑件/外观件</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">前整流罩(前罩)</span>
+        <span class="part-tag">侧围板(左/右)</span>
+        <span class="part-tag">后尾罩</span>
+        <span class="part-tag">座垫(单人/双人/分段式)</span>
+        <span class="part-tag">座垫下的储物空间隔板</span>
+        <span class="part-tag">挡泥板(塑料)</span>
+        <span class="part-tag">后视镜(左/右)</span>
+        <span class="part-tag">车灯总成(LED大灯/尾灯)</span>
+        <span class="part-tag">装饰贴花/拉花</span>
+        <span class="part-tag">钥匙孔盖</span>
+        <span class="part-tag">充电口盖</span>
+        <span class="part-tag">电池仓盖板</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🔧 标准紧固件/通用件</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">螺栓螺母(M6/M8/M10)</span>
+        <span class="part-tag">垫片/弹垫</span>
+        <span class="part-tag">卡扣/扎带</span>
+        <span class="part-tag">电线(硅胶线/ PVC线)</span>
+        <span class="part-tag">端子/插头(防水/不防水)</span>
+        <span class="part-tag">保险丝/保险座</span>
+        <span class="part-tag">继电器</span>
+        <span class="part-tag">开关(点火/灯光/喇叭)</span>
+        <span class="part-tag">喇叭/蜂鸣器</span>
+        <span class="part-tag">理线管/波纹管</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>📋 零部件属性速查表</h3>
+    <table class="comp-table">
+      <tr><th>类别</th><th>典型标准件</th><th>典型非标件</th><th>可售后单独售卖</th></tr>
+      <tr><td>电池</td><td>电芯、BMS板、充电器</td><td>电池Pack总成、CTP模组</td><td>✅ 电芯/BMS/充电器均可</td></tr>
+      <tr><td>电机</td><td>轴承、霍尔传感器、相线</td><td>电机总成、定子绕组定制</td><td>✅ 轴承/霍尔/相线均可</td></tr>
+      <tr><td>控制器</td><td>IGBT/SiC模块、电容</td><td>PCB板定制、控制器总成</td><td>✅ 功率模块/电容可</td></tr>
+      <tr><td>底盘</td><td>刹车片、轮胎、减震器</td><td>控制臂定制、副车架焊接</td><td>✅ 全部可售后替换</td></tr>
+      <tr><td>车身</td><td>灯泡/LED模组、玻璃</td><td>白车身冲压、一体压铸件</td><td>⚠️ 玻璃/灯组可，车身件需原厂</td></tr>
+      <tr><td>两轮车架</td><td>螺栓、轴承、线束</td><td>车架焊接、塑件模具</td><td>✅ 标准件全部可，塑件需车型匹配</td></tr>
+      <tr><td>热管理</td><td>水泵、阀门、传感器</td><td>冷板定制、八合一模块</td><td>✅ 水泵/阀门/传感器均可</td></tr>
+    </table>
+    <p class="data-note" style="margin-top:10px;">标准件 = 通用规格，跨车型通用(如轴承/螺栓/传感器)；非标件 = 按车型定制(如车架/塑件/控制器PCB)。售后市场以标准件为主，OEM配套以非标件为主。</p>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第四部分：电动摩托车/两轮车 — 全产业链上下游图谱 ==================== -->
+<section>
+<h2 class="section-title">第四部分：电动摩托车/两轮电动车 — 全产业链上下游图谱</h2>
+
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px;">两轮车产业链与新能源汽车有显著差异——铅酸电池仍占主导(约55%)，锂电化率快速提升至45%+。以下SVG图展示完整的上下游关系。</p>
+
+<div class="card" style="overflow-x:auto;margin-bottom:20px;">
+<svg id="twoWheelerSupplyChain" viewBox="0 0 1400 520" width="1400" height="520" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+<defs>
+  <marker id="twArrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5cb88a"/></marker>
+  <marker id="twArrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5a8ec4"/></marker>
+  <marker id="twArrowYellow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d4a843"/></marker>
+  <marker id="twArrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8a5ac4"/></marker>
+  <marker id="twArrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5ac4b8"/></marker>
+  <linearGradient id="twBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#1a1d27;stop-opacity:1"/>
+    <stop offset="100%" style="stop-color:#232733;stop-opacity:1"/>
+  </linearGradient>
+  <filter id="twGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<rect width="1400" height="520" rx="12" fill="url(#twBgGrad)" stroke="#2e3345" stroke-width="1"/>
+
+<!-- 列标题 -->
+<text x="130" y="24" text-anchor="middle" fill="#5cb88a" font-size="13" font-weight="700">上游·原材料/零部件</text>
+<text x="500" y="24" text-anchor="middle" fill="#5a8ec4" font-size="13" font-weight="700">中游·核心总成</text>
+<text x="880" y="24" text-anchor="middle" fill="#d4a843" font-size="13" font-weight="700">中游·整车制造</text>
+<text x="1180" y="24" text-anchor="middle" fill="#8a5ac4" font-size="13" font-weight="700">下游·渠道/服务</text>
+
+<!-- ===== 上游节点 ===== -->
+<g transform="translate(30, 48)">
+  <!-- 铅矿 -->
+  <rect x="0" y="0" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="18" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">铅矿</text>
+  <text x="47" y="32" text-anchor="middle" fill="#9498a8" font-size="9">驰宏/中金岭南</text>
+
+  <!-- 锂矿 -->
+  <rect x="0" y="52" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="70" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">锂矿</text>
+  <text x="47" y="84" text-anchor="middle" fill="#9498a8" font-size="9">天齐/赣锋/盐湖</text>
+
+  <!-- 铜 -->
+  <rect x="0" y="104" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="122" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">铜材</text>
+  <text x="47" y="136" text-anchor="middle" fill="#9498a8" font-size="9">导线/电机绕组</text>
+
+  <!-- 钢材 -->
+  <rect x="0" y="156" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="174" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">钢材</text>
+  <text x="47" y="188" text-anchor="middle" fill="#9498a8" font-size="9">车架/管材</text>
+
+  <!-- 铝材 -->
+  <rect x="0" y="208" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="226" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">铝材</text>
+  <text x="47" y="240" text-anchor="middle" fill="#9498a8" font-size="9">轮毂/散热</text>
+
+  <!-- 塑料粒子 -->
+  <rect x="0" y="260" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="278" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">ABS塑料</text>
+  <text x="47" y="292" text-anchor="middle" fill="#9498a8" font-size="9">塑件/外壳</text>
+
+  <!-- 橡胶 -->
+  <rect x="0" y="312" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="330" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">橡胶</text>
+  <text x="47" y="344" text-anchor="middle" fill="#9498a8" font-size="9">轮胎/密封件</text>
+
+  <!-- 电子元器件 -->
+  <rect x="0" y="364" width="95" height="44" rx="8" fill="rgba(92,184,138,0.12)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="47" y="382" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">电子元器件</text>
+  <text x="47" y="396" text-anchor="middle" fill="#9498a8" font-size="9">PCB/电容/IC</text>
+</g>
+
+<!-- ===== 上游→零部件 ===== -->
+<g transform="translate(150, 48)">
+  <rect x="0" y="20" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="38" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">铅酸电池</text>
+  <text x="50" y="52" text-anchor="middle" fill="#9498a8" font-size="9">天能/超威</text>
+
+  <rect x="0" y="76" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="94" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">锂电池包</text>
+  <text x="50" y="108" text-anchor="middle" fill="#9498a8" font-size="9">鹏辉/星恒</text>
+
+  <rect x="0" y="132" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="150" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">电机总成</text>
+  <text x="50" y="164" text-anchor="middle" fill="#9498a8" font-size="9">金宇/大洋</text>
+
+  <rect x="0" y="188" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="206" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">控制器</text>
+  <text x="50" y="220" text-anchor="middle" fill="#9498a8" font-size="9">金宇龙/同星</text>
+
+  <rect x="0" y="244" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="262" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">轮胎/刹车</text>
+  <text x="50" y="276" text-anchor="middle" fill="#9498a8" font-size="9">朝阳/正新</text>
+
+  <rect x="0" y="300" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="318" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">仪表/智能</text>
+  <text x="50" y="332" text-anchor="middle" fill="#9498a8" font-size="9">TFT/GPS/NFC</text>
+
+  <rect x="0" y="356" width="100" height="44" rx="8" fill="rgba(92,184,138,0.15)" stroke="#5cb88a" stroke-width="1.2"/>
+  <text x="50" y="374" text-anchor="middle" fill="#e4e6ed" font-size="11" font-weight="600">减震/车架</text>
+  <text x="50" y="388" text-anchor="middle" fill="#9498a8" font-size="9">前叉/后减</text>
+</g>
+
+<!-- ===== 连接线 上游→零部件 ===== -->
+<g fill="none" stroke-width="2" opacity="0.5">
+  <line x1="125" y1="72" x2="150" y2="42" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="124" x2="150" y2="42" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="176" x2="150" y2="98" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="176" x2="150" y2="154" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="228" x2="150" y2="210" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="228" x2="150" y2="266" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="280" x2="150" y2="266" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="280" x2="150" y2="322" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="332" x2="150" y2="322" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="384" x2="150" y2="378" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="384" x2="150" y2="434" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+  <line x1="125" y1="436" x2="150" y2="434" stroke="#5cb88a" marker-end="url(#twArrowGreen)"/>
+</g>
+
+<!-- ===== 中游核心总成 ===== -->
+<g transform="translate(310, 48)">
+  <rect x="0" y="0" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="20" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">铅酸电池组</text>
+  <text x="65" y="36" text-anchor="middle" fill="#5a8ec4" font-size="9">48V12Ah→72V32Ah</text>
+
+  <rect x="0" y="60" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="80" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">锂电池组</text>
+  <text x="65" y="96" text-anchor="middle" fill="#5a8ec4" font-size="9">48V→72V, 12-60Ah</text>
+
+  <rect x="0" y="120" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="140" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">轮毂电机总成</text>
+  <text x="65" y="156" text-anchor="middle" fill="#5a8ec4" font-size="9">350W→3000W+</text>
+
+  <rect x="0" y="180" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="200" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">电机控制器</text>
+  <text x="65" y="216" text-anchor="middle" fill="#5a8ec4" font-size="9">600W→5000W+</text>
+
+  <rect x="0" y="240" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="260" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">车架/塑件总成</text>
+  <text x="65" y="276" text-anchor="middle" fill="#5a8ec4" font-size="9">钢管/铝合金/ABS</text>
+
+  <rect x="0" y="300" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="320" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">智能电子模块</text>
+  <text x="65" y="336" text-anchor="middle" fill="#5a8ec4" font-size="9">GPS/NFC/4G/TFT</text>
+
+  <rect x="0" y="360" width="130" height="52" rx="10" fill="rgba(90,142,196,0.15)" stroke="#5a8ec4" stroke-width="1.5"/>
+  <text x="65" y="380" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">行走/制动总成</text>
+  <text x="65" y="396" text-anchor="middle" fill="#5a8ec4" font-size="9">减震/鼓刹/碟刹</text>
+</g>
+
+<!-- ===== 连接线 零部件→总成 ===== -->
+<g fill="none" stroke-width="2" opacity="0.5">
+  <line x1="410" y1="62" x2="430" y2="86" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="118" x2="430" y2="86" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="118" x2="430" y2="146" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="174" x2="430" y2="206" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="230" x2="430" y2="266" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="286" x2="430" y2="326" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="342" x2="430" y2="386" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+  <line x1="410" y1="398" x2="430" y2="386" stroke="#5a8ec4" marker-end="url(#twArrowBlue)"/>
+</g>
+
+<!-- ===== 整车制造企业 ===== -->
+<g transform="translate(570, 48)">
+  <rect x="0" y="0" width="170" height="56" rx="10" fill="rgba(212,168,67,0.18)" stroke="#d4a843" stroke-width="1.8" filter="url(#twGlow)"/>
+  <text x="85" y="22" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">雅迪控股</text>
+  <text x="85" y="40" text-anchor="middle" fill="#d4a843" font-size="10">2024销量2,000万+/营收310亿</text>
+  <text x="85" y="52" text-anchor="middle" fill="#9498a8" font-size="9">6大基地+越南工厂</text>
+
+  <rect x="0" y="66" width="170" height="56" rx="10" fill="rgba(212,168,67,0.15)" stroke="#d4a843" stroke-width="1.5"/>
+  <text x="85" y="88" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">爱玛科技</text>
+  <text x="85" y="106" text-anchor="middle" fill="#d4a843" font-size="10">2024销量800万+/营收189亿</text>
+  <text x="85" y="118" text-anchor="middle" fill="#9498a8" font-size="9">4大基地+印尼/菲律宾</text>
+
+  <rect x="0" y="132" width="170" height="56" rx="10" fill="rgba(212,168,67,0.15)" stroke="#d4a843" stroke-width="1.5"/>
+  <text x="85" y="154" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">台铃科技</text>
+  <text x="85" y="172" text-anchor="middle" fill="#9498a8" font-size="10">2025销量330万+/营收115亿</text>
+  <text x="85" y="184" text-anchor="middle" fill="#9498a8" font-size="9">东莞+无锡2大基地</text>
+
+  <rect x="0" y="198" width="170" height="56" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="85" y="220" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">小牛电动</text>
+  <text x="85" y="238" text-anchor="middle" fill="#9498a8" font-size="10">销量~55万+/主打智能/年轻</text>
+
+  <rect x="0" y="264" width="170" height="56" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="85" y="286" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">九号公司</text>
+  <text x="85" y="304" text-anchor="middle" fill="#9498a8" font-size="10">销量~95万+/智能平衡车起家</text>
+
+  <rect x="0" y="330" width="170" height="56" rx="10" fill="rgba(212,168,67,0.12)" stroke="#d4a843" stroke-width="1.2"/>
+  <text x="85" y="352" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">其他品牌</text>
+  <text x="85" y="370" text-anchor="middle" fill="#9498a8" font-size="10">绿源/小刀/立马/新日/速珂等</text>
+  <text x="85" y="382" text-anchor="middle" fill="#9498a8" font-size="9">合计销量~300万+辆</text>
+</g>
+
+<!-- ===== 连接线 总成→整车 ===== -->
+<g fill="none" stroke-width="2.5" opacity="0.5">
+  <line x1="700" y1="86" x2="720" y2="28" stroke="#d4a843" marker-end="url(#twArrowYellow)"/>
+  <line x1="700" y1="146" x2="720" y2="94" stroke="#d4a843" marker-end="url(#twArrowYellow)"/>
+  <line x1="700" y1="206" x2="720" y2="160" stroke="#d4a843" marker-end="url(#twArrowYellow)"/>
+  <line x1="700" y1="266" x2="720" y2="226" stroke="#d4a843" marker-end="url(#twArrowYellow)"/>
+  <line x1="700" y1="326" x2="720" y2="292" stroke="#d4a843" marker-end="url(#twArrowYellow)"/>
+  <line x1="700" y1="386" x2="720" y2="358" stroke="#d4a843" marker-end="url(#twArrowYellow)"/>
+</g>
+
+<!-- ===== 下游渠道服务 ===== -->
+<g transform="translate(870, 48)">
+  <rect x="0" y="0" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="20" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">线下门店</text>
+  <text x="70" y="36" text-anchor="middle" fill="#5ac4b8" font-size="9">雅迪8,000+ / 爱玛7,000+</text>
+
+  <rect x="0" y="60" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="80" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">电商平台</text>
+  <text x="70" y="96" text-anchor="middle" fill="#5ac4b8" font-size="9">京东/天猫/抖音</text>
+
+  <rect x="0" y="120" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="140" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">换电服务</text>
+  <text x="70" y="156" text-anchor="middle" fill="#5ac4b8" font-size="9">铁塔/e换电/哈啰</text>
+
+  <rect x="0" y="180" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="200" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">售后维保</text>
+  <text x="70" y="216" text-anchor="middle" fill="#5ac4b8" font-size="9">电池/轮胎/电机维修</text>
+
+  <rect x="0" y="240" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="260" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">以旧换新</text>
+  <text x="70" y="276" text-anchor="middle" fill="#5ac4b8" font-size="9">国家补贴政策</text>
+
+  <rect x="0" y="300" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="320" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">海外KD工厂</text>
+  <text x="70" y="336" text-anchor="middle" fill="#5ac4b8" font-size="9">越南/泰国/印尼</text>
+
+  <rect x="0" y="360" width="140" height="52" rx="10" fill="rgba(90,196,184,0.15)" stroke="#5ac4b8" stroke-width="1.5"/>
+  <text x="70" y="380" text-anchor="middle" fill="#e4e6ed" font-size="12" font-weight="600">电池回收</text>
+  <text x="70" y="396" text-anchor="middle" fill="#5ac4b8" font-size="9">天能/超威回收体系</text>
+</g>
+
+<!-- ===== 连接线 整车→下游 ===== -->
+<g fill="none" stroke-width="2" opacity="0.5">
+  <line x1="1040" y1="28" x2="1070" y2="26" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+  <line x1="1040" y1="94" x2="1070" y2="86" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+  <line x1="1040" y1="160" x2="1070" y2="146" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+  <line x1="1040" y1="226" x2="1070" y2="206" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+  <line x1="1040" y1="292" x2="1070" y2="266" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+  <line x1="1040" y1="358" x2="1070" y2="326" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+  <line x1="1040" y1="424" x2="1070" y2="386" stroke="#5ac4b8" marker-end="url(#twArrowCyan)"/>
+</g>
+
+<!-- 图例 -->
+<g transform="translate(900, 470)">
+  <rect x="0" y="0" width="480" height="38" rx="6" fill="rgba(26,29,39,0.9)" stroke="#2e3345" stroke-width="1"/>
+  <line x1="10" y1="16" x2="40" y2="16" stroke="#5cb88a" stroke-width="2" opacity="0.7"/>
+  <text x="48" y="20" fill="#9498a8" font-size="9">原材料</text>
+  <line x1="100" y1="16" x2="130" y2="16" stroke="#5a8ec4" stroke-width="2" opacity="0.7"/>
+  <text x="138" y="20" fill="#9498a8" font-size="9">零部件/总成</text>
+  <line x1="210" y1="16" x2="240" y2="16" stroke="#d4a843" stroke-width="2" opacity="0.7"/>
+  <text x="248" y="20" fill="#9498a8" font-size="9">整车品牌</text>
+  <line x1="305" y1="16" x2="335" y2="16" stroke="#5ac4b8" stroke-width="2" opacity="0.7"/>
+  <text x="343" y="20" fill="#9498a8" font-size="9">渠道服务</text>
+</g>
+
+<!-- 价值量标注 -->
+<text x="10" y="510" fill="#9498a8" font-size="10">两轮车产业链2025年总规模~1,200亿元 | 铅酸电池仍占55%份额，锂电快速提升</text>
+</svg>
+</div>
+
+<!-- 两轮车产业链深度解析 -->
+<div class="grid-2">
+  <div class="card">
+    <h3>📊 两轮车产业链 — 各环节市场规模</h3>
+    <div class="market-bar"><span class="bar-label">电池系统</span><div class="bar-track"><div class="bar-fill" style="width:35%;background:linear-gradient(90deg,#5cb88a,#5ac4b8);">35%</div></div><span class="bar-value" style="color:var(--green);">最大价值环节</span></div>
+    <div class="market-bar"><span class="bar-label">电机/控制器</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#5a8ec4,#5ac4b8);">20%</div></div><span class="bar-value" style="color:var(--blue);">动力总成</span></div>
+    <div class="market-bar"><span class="bar-label">车架/塑件</span><div class="bar-track"><div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#d4a843,#5ac4b8);">15%</div></div><span class="bar-value" style="color:var(--yellow);">结构件</span></div>
+    <div class="market-bar"><span class="bar-label">轮胎/制动</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:linear-gradient(90deg,#5cb88a,#d4a843);">10%</div></div><span class="bar-value" style="color:var(--green);">行走系统</span></div>
+    <div class="market-bar"><span class="bar-label">智能电子</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#8a5ac4,#5a8ec4);">8%</div></div><span class="bar-value" style="color:var(--purple);">IoT/GPS/APP</span></div>
+    <div class="market-bar"><span class="bar-label">渠道/服务</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:linear-gradient(90deg,#5ac4b8,#8a5ac4);">12%</div></div><span class="bar-value" style="color:var(--cyan);">门店/换电/回收</span></div>
+  </div>
+  <div class="card">
+    <h3>🔄 铅酸 vs 锂电 — 两轮车电池技术路线</h3>
+    <table class="comp-table">
+      <tr><th>维度</th><th>铅酸电池</th><th>锂电池</th></tr>
+      <tr><td>市场份额</td><td class="rise">~55%(仍占主导)</td><td class="rise">~45%(快速提升)</td></tr>
+      <tr><td>典型品牌</td><td>天能/超威(合计占70%+)</td><td>星恒/鹏辉/宁德时代</td></tr>
+      <tr><td>能量密度</td><td>30-40Wh/kg</td><td>150-220Wh/kg</td></tr>
+      <tr><td>循环寿命</td><td>300-500次</td><td>800-1,500次</td></tr>
+      <tr><td>单组价格</td><td>300-800元</td><td>800-2,500元</td></tr>
+      <tr><td>回收价值</td><td>高(铅可100%回收)</td><td>中(锂回收体系建设中)</td></tr>
+      <tr><td>安全性能</td><td>优异(不易热失控)</td><td>需BMS保护</td></tr>
+      <tr><td>重量</td><td>重(8-15kg)</td><td>轻(2-5kg)</td></tr>
+      <tr><td>核心趋势</td><td>存量基本盘稳固</td><td>高端车型标配，下沉市场渗透</td></tr>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第五部分：生产地域分布 — 地图可视化 ==================== -->
+<section>
+<h2 class="section-title">第五部分：产业集群分布 — 地图可视化</h2>
+
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px;">以下为中国地图简化的产业集群分布示意图。每个标记点代表一个核心产业集群，气泡大小表示产业规模，颜色区分产业类型。</p>
+
+<div class="card" style="overflow-x:auto;margin-bottom:20px;">
+<svg id="chinaMapClusters" viewBox="0 0 1400 700" width="1400" height="700" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+<defs>
+  <radialGradient id="clusterGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" style="stop-color:#c45a6c;stop-opacity:0.8"/>
+    <stop offset="100%" style="stop-color:#c45a6c;stop-opacity:0"/>
+  </radialGradient>
+  <filter id="mapShadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+</defs>
+
+<!-- Background -->
+<rect width="1400" height="700" rx="12" fill="url(#twBgGrad)" stroke="#2e3345" stroke-width="1"/>
+
+<!-- Simplified China map outline -->
+<path d="M350,120 L420,100 L500,90 L580,95 L650,110 L720,105 L800,100 L870,115 L940,120 L1000,140 L1050,160 L1080,190 L1100,230 L1090,280 L1070,320 L1050,360 L1030,400 L1010,440 L980,470 L950,500 L920,520 L880,540 L840,550 L800,560 L760,570 L720,580 L680,590 L640,595 L600,600 L560,595 L520,585 L480,570 L440,550 L400,530 L370,500 L340,470 L320,430 L300,390 L290,350 L285,310 L290,270 L300,230 L315,190 L330,160 Z"
+      fill="rgba(46,51,69,0.4)" stroke="#2e3345" stroke-width="2" filter="url(#mapShadow)"/>
+
+<!-- Grid lines for reference -->
+<g stroke="#2e3345" stroke-width="0.5" opacity="0.3">
+  <line x1="200" y1="100" x2="200" y2="650"/>
+  <line x1="400" y1="100" x2="400" y2="650"/>
+  <line x1="600" y1="100" x2="600" y2="650"/>
+  <line x1="800" y1="100" x2="800" y2="650"/>
+  <line x1="1000" y1="100" x2="1000" y2="650"/>
+  <line x1="1200" y1="100" x2="1200" y2="650"/>
+  <line x1="200" y1="200" x2="1200" y2="200"/>
+  <line x1="200" y1="350" x2="1200" y2="350"/>
+  <line x1="200" y1="500" x2="1200" y2="500"/>
+</g>
+
+<!-- ===== 产业集群标记点 ===== -->
+
+<!-- 长三角 — 上海 -->
+<circle cx="900" cy="400" r="45" fill="url(#clusterGlow)" opacity="0.5"/>
+<circle cx="900" cy="400" r="18" fill="#c45a6c" stroke="#fff" stroke-width="1.5" filter="url(#mapShadow)"/>
+<text x="900" y="395" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">上海</text>
+<text x="900" y="408" text-anchor="middle" fill="#ffd700" font-size="9">特斯拉/上汽/蔚来</text>
+<!-- 连线到周边 -->
+<line x1="900" y1="400" x2="850" y2="380" stroke="#5a8ec4" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+<line x1="900" y1="400" x2="950" y2="370" stroke="#5a8ec4" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+<!-- 苏州 -->
+<circle cx="850" cy="380" r="10" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="850" y="376" text-anchor="middle" fill="#e4e6ed" font-size="8">苏州</text>
+<text x="850" y="386" text-anchor="middle" fill="#9498a8" font-size="7">电池</text>
+
+<!-- 无锡 -->
+<circle cx="860" cy="390" r="10" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="860" y="386" text-anchor="middle" fill="#e4e6ed" font-size="8">无锡</text>
+<text x="860" y="396" text-anchor="middle" fill="#9498a8" font-size="7">电控</text>
+
+<!-- 常州 -->
+<circle cx="840" cy="370" r="10" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="840" y="366" text-anchor="middle" fill="#e4e6ed" font-size="8">常州</text>
+<text x="840" y="376" text-anchor="middle" fill="#9498a8" font-size="7">动力电池之都</text>
+
+<!-- 宁波 -->
+<circle cx="880" cy="420" r="10" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="880" y="416" text-anchor="middle" fill="#e4e6ed" font-size="8">宁波</text>
+<text x="880" y="426" text-anchor="middle" fill="#9498a8" font-size="7">吉利</text>
+
+<!-- 合肥 -->
+<circle cx="800" cy="380" r="12" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="800" y="376" text-anchor="middle" fill="#e4e6ed" font-size="8">合肥</text>
+<text x="800" y="386" text-anchor="middle" fill="#9498a8" font-size="7">蔚来/江淮</text>
+
+<!-- 珠三角 — 深圳 -->
+<circle cx="780" cy="540" r="35" fill="url(#clusterGlow)" opacity="0.5"/>
+<circle cx="780" cy="540" r="16" fill="#c45a6c" stroke="#fff" stroke-width="1.5"/>
+<text x="780" y="535" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">深圳</text>
+<text x="780" y="548" text-anchor="middle" fill="#ffd700" font-size="9">比亚迪总部/华为</text>
+
+<!-- 广州 -->
+<circle cx="760" cy="545" r="14" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="760" y="540" text-anchor="middle" fill="#e4e6ed" font-size="9">广州</text>
+<text x="760" y="550" text-anchor="middle" fill="#9498a8" font-size="7">广汽埃安/小鹏</text>
+
+<!-- 东莞/佛山 -->
+<circle cx="750" cy="535" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="750" y="532" text-anchor="middle" fill="#9498a8" font-size="7">零部件配套</text>
+
+<!-- 成渝 — 重庆 -->
+<circle cx="560" cy="420" r="28" fill="url(#clusterGlow)" opacity="0.5"/>
+<circle cx="560" cy="420" r="14" fill="#d4a843" stroke="#fff" stroke-width="1.5"/>
+<text x="560" y="416" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">重庆</text>
+<text x="560" y="428" text-anchor="middle" fill="#ffd700" font-size="8">长安/赛力斯</text>
+
+<!-- 成都 -->
+<circle cx="530" cy="410" r="12" fill="#d4a843" stroke="#fff" stroke-width="1"/>
+<text x="530" y="406" text-anchor="middle" fill="#fff" font-size="9">成都</text>
+<text x="530" y="416" text-anchor="middle" fill="#9498a8" font-size="7">一汽大众/沃尔沃</text>
+
+<!-- 宜宾 -->
+<circle cx="510" cy="400" r="8" fill="#5cb88a" stroke="#fff" stroke-width="1"/>
+<text x="510" y="397" text-anchor="middle" fill="#9498a8" font-size="7">宁德时代</text>
+
+<!-- 武汉 -->
+<circle cx="760" cy="380" r="14" fill="#d4a843" stroke="#fff" stroke-width="1"/>
+<text x="760" y="376" text-anchor="middle" fill="#fff" font-size="9">武汉</text>
+<text x="760" y="386" text-anchor="middle" fill="#9498a8" font-size="7">东风/小米</text>
+
+<!-- 北京 -->
+<circle cx="860" cy="240" r="14" fill="#d4a843" stroke="#fff" stroke-width="1"/>
+<text x="860" y="236" text-anchor="middle" fill="#fff" font-size="9">北京</text>
+<text x="860" y="246" text-anchor="middle" fill="#9498a8" font-size="7">北汽/小米总部</text>
+
+<!-- 天津 -->
+<circle cx="890" cy="230" r="12" fill="#d4a843" stroke="#fff" stroke-width="1"/>
+<text x="890" y="226" text-anchor="middle" fill="#fff" font-size="8">天津</text>
+<text x="890" y="236" text-anchor="middle" fill="#9498a8" font-size="7">长城/比亚迪</text>
+
+<!-- 西安 -->
+<circle cx="640" cy="310" r="12" fill="#d4a843" stroke="#fff" stroke-width="1"/>
+<text x="640" y="306" text-anchor="middle" fill="#fff" font-size="8">西安</text>
+<text x="640" y="316" text-anchor="middle" fill="#9498a8" font-size="7">雅迪基地</text>
+
+<!-- 长沙 -->
+<circle cx="740" cy="410" r="10" fill="#d4a843" stroke="#fff" stroke-width="1"/>
+<text x="740" y="406" text-anchor="middle" fill="#fff" font-size="8">长沙</text>
+<text x="740" y="416" text-anchor="middle" fill="#9498a8" font-size="7">比亚迪</text>
+
+<!-- 临沂(山东) -->
+<circle cx="830" cy="280" r="10" fill="#5cb88a" stroke="#fff" stroke-width="1"/>
+<text x="830" y="276" text-anchor="middle" fill="#9498a8" font-size="7">锂电池材料</text>
+
+<!-- 宜春(江西) -->
+<circle cx="820" cy="400" r="10" fill="#5cb88a" stroke="#fff" stroke-width="1"/>
+<text x="820" y="396" text-anchor="middle" fill="#9498a8" font-size="7">亚洲锂都</text>
+
+<!-- 厦门(福建) -->
+<circle cx="800" cy="470" r="10" fill="#5cb88a" stroke="#fff" stroke-width="1"/>
+<text x="800" y="466" text-anchor="middle" fill="#9498a8" font-size="7">厦钨新能</text>
+
+<!-- 太原(山西) -->
+<circle cx="720" cy="270" r="10" fill="#5cb88a" stroke="#fff" stroke-width="1"/>
+<text x="720" y="266" text-anchor="middle" fill="#9498a8" font-size="7">赣锋锂业</text>
+
+<!-- 西宁(青海) -->
+<circle cx="440" cy="300" r="10" fill="#5cb88a" stroke="#fff" stroke-width="1"/>
+<text x="440" y="296" text-anchor="middle" fill="#9498a8" font-size="7">盐湖锂</text>
+
+<!-- 天津(爱玛) -->
+<circle cx="880" cy="245" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="880" y="242" text-anchor="middle" fill="#9498a8" font-size="7">爱玛总部</text>
+
+<!-- 无锡(雅迪/台铃) -->
+<circle cx="870" cy="395" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="870" y="392" text-anchor="middle" fill="#9498a8" font-size="7">雅迪/台铃</text>
+
+<!-- 东莞(台铃) -->
+<circle cx="745" cy="540" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="745" y="537" text-anchor="middle" fill="#9498a8" font-size="7">台铃总部</text>
+
+<!-- 杭州(雅迪) -->
+<circle cx="860" cy="410" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="860" y="407" text-anchor="middle" fill="#9498a8" font-size="7">雅迪基地</text>
+
+<!-- 成都(雅迪) -->
+<circle cx="520" cy="420" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="520" y="417" text-anchor="middle" fill="#9498a8" font-size="7">雅迪基地</text>
+
+<!-- 合肥(雅迪) -->
+<circle cx="805" cy="385" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="805" y="382" text-anchor="middle" fill="#9498a8" font-size="7">雅迪基地</text>
+
+<!-- 西安(雅迪) -->
+<circle cx="645" cy="315" r="8" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="645" y="312" text-anchor="middle" fill="#9498a8" font-size="7">雅迪基地</text>
+
+<!-- 越南(雅迪) -->
+<circle cx="600" cy="580" r="10" fill="#5a8ec4" stroke="#fff" stroke-width="1"/>
+<text x="600" y="576" text-anchor="middle" fill="#e4e6ed" font-size="8">越南河内</text>
+<text x="600" y="586" text-anchor="middle" fill="#9498a8" font-size="7">雅迪海外基地</text>
+
+<!-- ===== 图例 ===== -->
+<g transform="translate(20, 640)">
+  <rect x="0" y="0" width="500" height="48" rx="8" fill="rgba(26,29,39,0.95)" stroke="#2e3345" stroke-width="1"/>
+  <circle cx="20" cy="18" r="8" fill="#c45a6c"/><text x="35" y="22" fill="#9498a8" font-size="9">新能源汽车集群</text>
+  <circle cx="150" cy="18" r="8" fill="#d4a843"/><text x="165" y="22" fill="#9498a8" font-size="9">电动两轮车集群</text>
+  <circle cx="270" cy="18" r="8" fill="#5cb88a"/><text x="285" y="22" fill="#9498a8" font-size="9">电池材料集群</text>
+  <circle cx="380" cy="18" r="8" fill="#5a8ec4"/><text x="395" y="22" fill="#9498a8" font-size="9">整车/零部件基地</text>
+  <text x="10" y="40" fill="#9498a8" font-size="8">● 大小 = 产业规模 | 虚线 = 供应链联系</text>
+</g>
+
+<!-- ===== 右侧详情面板 ===== -->
+<g transform="translate(1020, 50)">
+  <rect x="0" y="0" width="370" height="630" rx="10" fill="rgba(26,29,39,0.95)" stroke="#2e3345" stroke-width="1"/>
+  <text x="185" y="24" text-anchor="middle" fill="#e4e6ed" font-size="13" font-weight="700">📍 核心产业集群详情</text>
+
+  <!-- 长三角 -->
+  <rect x="10" y="36" width="350" height="80" rx="6" fill="rgba(90,142,196,0.1)" stroke="#5a8ec4" stroke-width="0.5"/>
+  <text x="20" y="54" fill="#5a8ec4" font-size="11" font-weight="700">🌊 长三角 (最大集群)</text>
+  <text x="20" y="68" fill="#9498a8" font-size="9">上海: 特斯拉100万+/年 | 蔚来总部 | 上汽</text>
+  <text x="20" y="80" fill="#9498a8" font-size="9">江苏: 苏州电池 | 无锡电控 | 常州动力电池</text>
+  <text x="20" y="92" fill="#9498a8" font-size="9">浙江: 宁波吉利 | 金华零跑 | 台州极氪</text>
+  <text x="20" y="104" fill="#9498a8" font-size="9">安徽: 合肥蔚来/江淮 | 2025产量200万+</text>
+
+  <!-- 珠三角 -->
+  <rect x="10" y="122" width="350" height="75" rx="6" fill="rgba(196,90,90,0.1)" stroke="#c45a6c" stroke-width="0.5"/>
+  <text x="20" y="140" fill="#c45a6c" font-size="11" font-weight="700">🌏 珠三角 (深圳/广州)</text>
+  <text x="20" y="154" fill="#9498a8" font-size="9">深圳: 比亚迪总部(万亿营收) | 华为智驾</text>
+  <text x="20" y="166" fill="#9498a8" font-size="9">广州: 广汽埃安 | 小鹏总部</text>
+  <text x="20" y="178" fill="#9498a8" font-size="9">东莞/佛山: 大湾区1小时供应链圈</text>
+
+  <!-- 成渝 -->
+  <rect x="10" y="203" width="350" height="70" rx="6" fill="rgba(212,168,67,0.1)" stroke="#d4a843" stroke-width="0.5"/>
+  <text x="20" y="221" fill="#d4a843" font-size="11" font-weight="700">🏔️ 成渝 (西部增长极)</text>
+  <text x="20" y="235" fill="#9498a8" font-size="9">重庆: 长安50万+ | 赛力斯问界</text>
+  <text x="20" y="247" fill="#9498a8" font-size="9">成都: 一汽大众新能源 | 沃尔沃</text>
+  <text x="20" y="259" fill="#9498a8" font-size="9">宜宾: 宁德时代基地</text>
+
+  <!-- 华中 -->
+  <rect x="10" y="279" width="350" height="55" rx="6" fill="rgba(92,184,138,0.1)" stroke="#5cb88a" stroke-width="0.5"/>
+  <text x="20" y="297" fill="#5cb88a" font-size="11" font-weight="700">🏭 华中 (武汉/长沙)</text>
+  <text x="20" y="311" fill="#9498a8" font-size="9">东风总部 | 岚图 | 小米武汉工厂20万+</text>
+
+  <!-- 华北 -->
+  <rect x="10" y="336" width="350" height="55" rx="6" fill="rgba(138,90,196,0.1)" stroke="#8a5ac4" stroke-width="0.5"/>
+  <text x="20" y="354" fill="#8a5ac4" font-size="11" font-weight="700">🏙️ 华北 (北京/天津)</text>
+  <text x="20" y="368" fill="#9498a8" font-size="9">北汽新能源 | 小米总部 | 长城 | 理想</text>
+
+  <!-- 电池材料 -->
+  <rect x="10" y="393" width="350" height="70" rx="6" fill="rgba(92,184,138,0.1)" stroke="#5cb88a" stroke-width="0.5"/>
+  <text x="20" y="411" fill="#5cb88a" font-size="11" font-weight="700">⛏️ 电池材料资源分布</text>
+  <text x="20" y="425" fill="#9498a8" font-size="9">宜春"亚洲锂都" | 四川甲基卡 | 青海盐湖</text>
+  <text x="20" y="437" fill="#9498a8" font-size="9">正极: 湖北/江苏/福建 | 负极: 江西/广西</text>
+  <text x="20" y="449" fill="#9498a8" font-size="9">隔膜: 江苏恩捷 | 电解液: 广东天赐</text>
+
+  <!-- 两轮车基地 -->
+  <rect x="10" y="469" width="350" height="75" rx="6" fill="rgba(90,196,184,0.1)" stroke="#5ac4b8" stroke-width="0.5"/>
+  <text x="20" y="487" fill="#5ac4b8" font-size="11" font-weight="700">🛵 两轮车生产基地</text>
+  <text x="20" y="501" fill="#9498a8" font-size="9">雅迪: 无锡/杭州/合肥/成都/西安/越南</text>
+  <text x="20" y="513" fill="#9498a8" font-size="9">爱玛: 天津/无锡/重庆/平湖</text>
+  <text x="20" y="525" fill="#9498a8" font-size="9">台铃: 东莞/无锡</text>
+
+  <!-- 充电设施 -->
+  <rect x="10" y="549" width="350" height="70" rx="6" fill="rgba(212,168,67,0.1)" stroke="#d4a843" stroke-width="0.5"/>
+  <text x="20" y="567" fill="#d4a843" font-size="11" font-weight="700">🔌 充电设施地域分布</text>
+  <text x="20" y="581" fill="#9498a8" font-size="9">广东65万+ | 江苏50万+ | 浙江45万+</text>
+  <text x="20" y="593" fill="#9498a8" font-size="9">上海30万+ | 山东30万+</text>
+  <text x="20" y="605" fill="#9498a8" font-size="9">特来电50万+ | 星星充电40万+ | 国网25万+</text>
+</g>
+</svg>
+</div>
+</section>
+
+<!-- ==================== 第六部分：易损件/易更换零件 — 最细化拆解 ==================== -->
+<section>
+<h2 class="section-title">第六部分：易损件/易更换零件 — 单品级最细化拆解</h2>
+
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px;">以下按<strong>可单独售卖的单品级</strong>拆解，涵盖新能源汽车和电动两轮车两大类。标注更换周期和售后市场价值。</p>
+
+<div class="grid-2" style="margin-bottom:20px;">
+  <div class="card">
+    <h3>🚗 新能源汽车 — 易损件最细化清单（单品级）</h3>
+    <div class="parts-category">
+      <h4>🛞 轮胎/车轮系统（高频更换）</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">低滚阻EV专用轮胎(215/55R17)</span>
+        <span class="part-tag">静音棉轮胎(带吸音棉)</span>
+        <span class="part-tag">防爆胎(RFT缺气保用)</span>
+        <span class="part-tag">铝合金轮毂(17-20寸)</span>
+        <span class="part-tag">胎压传感器(TPMS)</span>
+        <span class="part-tag">气门嘴(铝合金/橡胶)</span>
+        <span class="part-tag">轮毂装饰盖</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🛑 制动系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">前刹车片(陶瓷配方)</span>
+        <span class="part-tag">后刹车片(半金属配方)</span>
+        <span class="part-tag">前制动盘(通风盘345mm)</span>
+        <span class="part-tag">后制动盘(实心盘280mm)</span>
+        <span class="part-tag">刹车卡钳(前/后)</span>
+        <span class="part-tag">刹车油管(不锈钢编织)</span>
+        <span class="part-tag">制动液(DOT4)</span>
+        <span class="part-tag">手刹拉线/电子手刹模块</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🔋 电池/电气系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">12V低压蓄电池(AGM)</span>
+        <span class="part-tag">12V蓄电池充电器</span>
+        <span class="part-tag">高压电池包(整包更换)</span>
+        <span class="part-tag">电池模组(单模组更换)</span>
+        <span class="part-tag">BMS主板</span>
+        <span class="part-tag">高压继电器</span>
+        <span class="part-tag">充电口(AC/DC)</span>
+        <span class="part-tag">OBC车载充电器模块</span>
+        <span class="part-tag">DC-DC转换模块</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>❄️ 热管理/空调系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">空调滤芯(PM2.5/活性炭)</span>
+        <span class="part-tag"> Cabin滤芯框</span>
+        <span class="part-tag">蒸发箱清洗剂</span>
+        <span class="part-tag">制冷剂(R1234yf/R134a)</span>
+        <span class="part-tag">电子风扇总成</span>
+        <span class="part-tag">PTC加热模块</span>
+        <span class="part-tag">电子水泵</span>
+        <span class="part-tag">电池冷却液(专用)</span>
+        <span class="part-tag">散热器/冷凝器</span>
+        <span class="part-tag">膨胀阀</span>
+        <span class="part-tag">干燥瓶/储液罐</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>💡 灯光/电子系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">LED大灯总成(前)</span>
+        <span class="part-tag">LED尾灯总成</span>
+        <span class="part-tag">日间行车灯模组</span>
+        <span class="part-tag">转向灯泡/LED模组</span>
+        <span class="part-tag">中控屏幕总成</span>
+        <span class="part-tag">仪表盘总成</span>
+        <span class="part-tag">天线(GPS/4G/OTA)</span>
+        <span class="part-tag">雨刮片(前/后)</span>
+        <span class="part-tag">雨刮电机</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🔩 悬挂/底盘件</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">空气弹簧总成</span>
+        <span class="part-tag">减震器(前/后)</span>
+        <span class="part-tag">控制臂衬套</span>
+        <span class="part-tag">球头(内外)</span>
+        <span class="part-tag">转向拉杆</span>
+        <span class="part-tag">平衡杆吊耳</span>
+        <span class="part-tag">底盘密封胶套</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>🛵 电动两轮车 — 易损件最细化清单（单品级）</h3>
+    <div class="parts-category">
+      <h4>🔋 电池/充电系统（最高频更换）</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">48V12Ah铅酸电池(单块17kg)</span>
+        <span class="part-tag">48V20Ah铅酸电池(单块)</span>
+        <span class="part-tag">60V20Ah铅酸电池组(5块串联)</span>
+        <span class="part-tag">72V20Ah铅酸电池组(6块串联)</span>
+        <span class="part-tag">48V12Ah锂电包</span>
+        <span class="part-tag">48V24Ah锂电包</span>
+        <span class="part-tag">60V20Ah锂电包</span>
+        <span class="part-tag">72V23Ah锂电包</span>
+        <span class="part-tag">铅酸电池充电器(48V/60V/72V)</span>
+        <span class="part-tag">锂电池智能充电器</span>
+        <span class="part-tag">电池连接线(粗铜线)</span>
+        <span class="part-tag">电池仓防水胶条</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>⚙️ 电机/控制器系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">350W轮毂电机(前/后)</span>
+        <span class="part-tag">500W/800W/1000W/1200W电机</span>
+        <span class="part-tag">1500W/2000W高性能电机</span>
+        <span class="part-tag">电机霍尔传感器(3只/5只)</span>
+        <span class="part-tag">电机相线(粗线3根)</span>
+        <span class="part-tag">电机防水密封圈</span>
+        <span class="part-tag">600W/800W/1200W控制器</span>
+        <span class="part-tag">1500W/2000W/3000W高性能控制器</span>
+        <span class="part-tag">控制器散热片</span>
+        <span class="part-tag">相位器/加速器(转把)</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🛞 轮胎/制动系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">3.00-10真空胎(前)</span>
+        <span class="part-tag">3.50-10真空胎(后)</span>
+        <span class="part-tag">90/90-12真空胎</span>
+        <span class="part-tag">100/80-12真空胎</span>
+        <span class="part-tag">110/70-12真空胎</span>
+        <span class="part-tag">钢圈轮毂(10寸/12寸)</span>
+        <span class="part-tag">铝合金轮毂(12寸/14寸)</span>
+        <span class="part-tag">鼓刹总成(160mm/200mm)</span>
+        <span class="part-tag">鼓刹刹车蹄(单只)</span>
+        <span class="part-tag">碟刹盘(200/220/260mm)</span>
+        <span class="part-tag">碟刹卡钳(单活塞/双活塞)</span>
+        <span class="part-tag">碟刹刹车片(前/后)</span>
+        <span class="part-tag">刹车拉线(油门/刹车)</span>
+        <span class="part-tag">刹车油管+制动液</span>
+        <span class="part-tag">气门嘴+补胎胶条</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🔧 操控/悬挂系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">前减震器(液压/气压)</span>
+        <span class="part-tag">后减震器(液压/弹簧预载可调)</span>
+        <span class="part-tag">减震油封/防尘套</span>
+        <span class="part-tag">方向柱轴承(球头)</span>
+        <span class="part-tag">转向把(牛角/直把)</span>
+        <span class="part-tag">刹车手柄/离合手柄</span>
+        <span class="part-tag">脚蹬(自行车模式)</span>
+        <span class="part-tag">后靠背/尾箱支架</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>💡 灯光/电子系统</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">LED大灯总成</span>
+        <span class="part-tag">LED尾灯/刹车灯</span>
+        <span class="part-tag">转向灯(左/右)</span>
+        <span class="part-tag">TFT彩屏仪表</span>
+        <span class="part-tag">LCD液晶仪表</span>
+        <span class="part-tag">GPS定位模块</span>
+        <span class="part-tag">NFC刷卡模块</span>
+        <span class="part-tag">遥控钥匙+接收器</span>
+        <span class="part-tag">USB充电口</span>
+        <span class="part-tag">喇叭/蜂鸣器</span>
+        <span class="part-tag">后视镜(左/右)</span>
+      </div>
+    </div>
+    <div class="parts-category">
+      <h4>🎨 外观/塑件/车身</h4>
+      <div class="parts-list">
+        <span class="part-tag highlight">前整流罩(前罩)</span>
+        <span class="part-tag">侧围板(左/右一对)</span>
+        <span class="part-tag">后尾罩</span>
+        <span class="part-tag">座垫(单人/双人/带储物)</span>
+        <span class="part-tag">脚踏板(车身)</span>
+        <span class="part-tag">挡泥板(前/后)</span>
+        <span class="part-tag">装饰贴花/拉花套件</span>
+        <span class="part-tag">钥匙孔盖/充电口盖</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 保养周期和成本对比 -->
+<div class="grid-2">
+  <div class="card">
+    <h3>📊 新能源汽车 — 保养周期一览</h3>
+    <table class="comp-table">
+      <tr><th>保养项目</th><th>更换周期</th><th>单次成本(元)</th><th>年频次</th><th>年成本</th></tr>
+      <tr><td>空调滤芯</td><td>1-2万公里</td><td>50-500</td><td>1-2次</td><td>100-800</td></tr>
+      <tr><td>轮胎</td><td>3-5万公里</td><td>300-2,000/条</td><td>0.5-1条</td><td>150-1,000</td></tr>
+      <tr><td>刹车片</td><td>6-10万公里</td><td>500-3,000/套</td><td>0.2-0.3次</td><td>100-300</td></tr>
+      <tr><td>冷却液</td><td>4-6万公里</td><td>200-800</td><td>0.2-0.3次</td><td>50-200</td></tr>
+      <tr><td>制动液</td><td>2-3年</td><td>100-300</td><td>0.3-0.5次</td><td>50-150</td></tr>
+      <tr><td>12V小电瓶</td><td>2-4年</td><td>500-2,000</td><td>0.25-0.5次</td><td>125-500</td></tr>
+      <tr><td>电池健康检测</td><td>1-2年</td><td>免费-200</td><td>0.5-1次</td><td>0-100</td></tr>
+      <tr><td><strong>年均保养合计</strong></td><td>—</td><td>—</td><td>—</td><td><strong class="rise">~500-3,000</strong></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>📊 电动两轮车 — 保养周期一览</h3>
+    <table class="comp-table">
+      <tr><th>保养项目</th><th>更换周期</th><th>单次成本(元)</th><th>年频次</th><th>年成本</th></tr>
+      <tr><td>铅酸电池(单块)</td><td>1-2年</td><td>200-400/块</td><td>1-3块</td><td>200-1,200</td></tr>
+      <tr><td>锂电池包</td><td>3-5年</td><td>800-2,500</td><td>0.2-0.3次</td><td>160-500</td></tr>
+      <tr><td>轮胎(前/后)</td><td>1-2万公里</td><td>80-200/条</td><td>0.5-1条</td><td>40-150</td></tr>
+      <tr><td>刹车片/蹄</td><td>0.5-1万公里</td><td>20-80</td><td>0.5-1次</td><td>10-50</td></tr>
+      <tr><td>电机霍尔</td><td>2-4年</td><td>30-100</td><td>0.25-0.5次</td><td>10-50</td></tr>
+      <tr><td>控制器</td><td>3-5年</td><td>150-500</td><td>0.2-0.3次</td><td>30-100</td></tr>
+      <tr><td>充电器</td><td>2-3年</td><td>80-200</td><td>0.3-0.5次</td><td>25-80</td></tr>
+      <tr><td>刹车油</td><td>1-2年</td><td>20-50</td><td>0.5-1次</td><td>10-30</td></tr>
+      <tr><td>减震油封</td><td>2-3年</td><td>30-80</td><td>0.3-0.5次</td><td>10-30</td></tr>
+      <tr><td><strong>年均保养合计</strong></td><td>—</td><td>—</td><td>—</td><td><strong class="rise">~500-2,200</strong></td></tr>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第七部分：海外市场布局 — 世界地图可视化 ==================== -->
+<section>
+<h2 class="section-title">第七部分：全球市场分布 — 世界地图可视化</h2>
+
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px;">以下为简化世界地图，展示中国新能源汽车与电动两轮车的全球出海布局。标记点大小表示出口规模，箭头表示本地化建厂方向。</p>
+
+<div class="card" style="overflow-x:auto;margin-bottom:20px;">
+<svg id="worldMapOverseas" viewBox="0 0 1400 750" width="1400" height="750" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+<defs>
+  <radialGradient id="marketGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.6"/>
+    <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0"/>
+  </radialGradient>
+  <marker id="arrowHead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+    <polygon points="0 0, 6 2, 0 4" fill="#ffd700"/>
+  </marker>
+  <linearGradient id="routeLine" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8"/>
+    <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0.2"/>
+  </linearGradient>
+</defs>
+
+<!-- Background -->
+<rect width="1400" height="750" rx="12" fill="url(#twBgGrad)" stroke="#2e3345" stroke-width="1"/>
+
+<!-- Ocean gradient -->
+<rect x="10" y="10" width="1380" height="730" rx="10" fill="rgba(10,15,30,0.5)"/>
+
+<!-- ===== Simplified continent outlines ===== -->
+<!-- North America -->
+<path d="M120,100 L180,80 L250,85 L300,100 L320,130 L310,170 L280,200 L260,240 L230,260 L200,280 L180,270 L160,240 L140,200 L120,170 L100,140 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- South America -->
+<path d="M260,340 L300,320 L340,330 L360,360 L370,400 L360,450 L340,500 L310,540 L280,560 L260,550 L250,500 L240,450 L245,400 L250,360 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Europe -->
+<path d="M580,100 L620,85 L670,90 L700,100 L720,120 L710,150 L690,170 L660,180 L630,175 L600,165 L580,150 L570,130 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Africa -->
+<path d="M580,220 L620,200 L670,210 L700,240 L710,290 L700,350 L680,400 L650,430 L620,440 L590,420 L570,380 L560,330 L555,280 L560,240 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Middle East -->
+<path d="M720,170 L760,160 L800,170 L820,190 L810,220 L780,230 L750,220 L730,200 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Central/South Asia -->
+<path d="M800,130 L860,110 L920,120 L960,140 L970,170 L950,200 L900,210 L850,200 L820,180 L800,160 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- East/Southeast Asia -->
+<path d="M960,100 L1020,85 L1080,95 L1120,115 L1140,145 L1130,180 L1100,210 L1060,230 L1020,225 L980,210 L960,185 L950,150 L955,120 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Southeast Asia (peninsula + islands) -->
+<path d="M1020,230 L1060,225 L1090,240 L1100,270 L1080,300 L1050,310 L1020,300 L1000,270 L1005,245 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Indonesia/Malaysia archipelago -->
+<path d="M1040,340 L1080,330 L1120,335 L1140,350 L1130,370 L1090,375 L1050,370 L1035,355 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Australia -->
+<path d="M1140,460 L1200,440 L1260,450 L1300,470 L1310,510 L1290,545 L1250,560 L1200,555 L1160,535 L1140,500 L1135,475 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+<!-- Japan/Korea -->
+<path d="M1130,110 L1150,100 L1165,110 L1170,135 L1155,155 L1140,150 L1130,130 Z"
+      fill="rgba(46,51,69,0.5)" stroke="#3a3f55" stroke-width="1.5"/>
+
+<!-- ===== China origin hub ===== -->
+<circle cx="1040" cy="180" r="50" fill="url(#marketGlow)" opacity="0.4"/>
+<circle cx="1040" cy="180" r="22" fill="#ffd700" stroke="#fff" stroke-width="2" filter="url(#mapShadow)"/>
+<text x="1040" y="176" text-anchor="middle" fill="#1a1d27" font-size="12" font-weight="800">中国</text>
+<text x="1040" y="190" text-anchor="middle" fill="#1a1d27" font-size="8" font-weight="600">全球制造中心</text>
+
+<!-- ===== 新能源汽车出海箭头 ===== -->
+
+<!-- China → 东南亚(泰国/印尼) -->
+<path d="M1055,185 Q1080,230 1070,290" fill="none" stroke="#c45a6c" stroke-width="2" marker-end="url(#arrowHead)" opacity="0.7"/>
+<!-- China → 欧洲 -->
+<path d="M1025,175 Q850,120 680,130" fill="none" stroke="#c45a6c" stroke-width="2" marker-end="url(#arrowHead)" opacity="0.7"/>
+<!-- China → 中东 -->
+<path d="M1010,175 Q900,175 800,190" fill="none" stroke="#c45a6c" stroke-width="1.5" marker-end="url(#arrowHead)" opacity="0.6"/>
+<!-- China → 澳洲 -->
+<path d="M1050,195 Q1150,350 1220,480" fill="none" stroke="#c45a6c" stroke-width="1.5" marker-end="url(#arrowHead)" opacity="0.6"/>
+<!-- China → 拉美(巴西) -->
+<path d="M1020,170 Q700,280 340,430" fill="none" stroke="#c45a6c" stroke-width="1.5" marker-end="url(#arrowHead)" opacity="0.6"/>
+<!-- China → 非洲 -->
+<path d="M1000,170 Q800,250 640,350" fill="none" stroke="#c45a6c" stroke-width="1" marker-end="url(#arrowHead)" opacity="0.5"/>
+
+<!-- ===== NEV Market markers ===== -->
+
+<!-- 欧洲 — 瑞典 -->
+<circle cx="630" cy="105" r="14" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="630" y="101" text-anchor="middle" fill="#fff" font-size="7">BYD</text>
+<text x="630" y="111" text-anchor="middle" fill="#9498a8" font-size="6">瑞典工厂</text>
+<!-- 匈牙利 -->
+<circle cx="660" cy="130" r="12" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="660" y="126" text-anchor="middle" fill="#fff" font-size="6">CATL</text>
+<text x="660" y="136" text-anchor="middle" fill="#9498a8" font-size="6">匈牙利</text>
+<!-- 英国 -->
+<circle cx="590" cy="110" r="10" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="590" y="107" text-anchor="middle" fill="#fff" font-size="6">MG</text>
+<text x="590" y="117" text-anchor="middle" fill="#9498a8" font-size="6">奥斯汀工厂</text>
+<!-- 挪威/丹麦/瑞典(蔚来) -->
+<circle cx="620" cy="90" r="10" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="620" y="87" text-anchor="middle" fill="#fff" font-size="6">NIO</text>
+<text x="620" y="97" text-anchor="middle" fill="#9498a8" font-size="6">北欧五国</text>
+<!-- 德国 -->
+<circle cx="650" cy="120" r="10" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="650" y="117" text-anchor="middle" fill="#fff" font-size="6">上汽</text>
+<text x="650" y="127" text-anchor="middle" fill="#9498a8" font-size="6">德国售</text>
+
+<!-- 东南亚 — 泰国 -->
+<circle cx="1060" cy="260" r="16" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="1060" y="257" text-anchor="middle" fill="#fff" font-size="7">BYD</text>
+<text x="1060" y="267" text-anchor="middle" fill="#9498a8" font-size="6">泰国工厂</text>
+<!-- 印尼 -->
+<circle cx="1080" cy="340" r="14" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="1080" y="337" text-anchor="middle" fill="#fff" font-size="6">比亚迪</text>
+<text x="1080" y="347" text-anchor="middle" fill="#9498a8" font-size="6">镍矿+电池</text>
+<!-- 越南 -->
+<circle cx="1040" cy="250" r="10" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="1040" y="247" text-anchor="middle" fill="#fff" font-size="6">哪吒</text>
+<text x="1040" y="257" text-anchor="middle" fill="#9498a8" font-size="6">越南售</text>
+<!-- 马来西亚 -->
+<circle cx="1050" cy="310" r="8" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="1050" y="308" text-anchor="middle" fill="#9498a8" font-size="6">GAC售</text>
+
+<!-- 中东 — 阿联酋/沙特 -->
+<circle cx="770" cy="200" r="12" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="770" y="197" text-anchor="middle" fill="#fff" font-size="6">BYD</text>
+<text x="770" y="207" text-anchor="middle" fill="#9498a8" font-size="6">中东总部</text>
+<!-- 以色列 -->
+<circle cx="730" cy="185" r="8" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="730" y="183" text-anchor="middle" fill="#9498a8" font-size="6">小鹏/蔚来</text>
+
+<!-- 澳洲 -->
+<circle cx="1230" cy="500" r="14" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="1230" y="497" text-anchor="middle" fill="#fff" font-size="7">MG</text>
+<text x="1230" y="507" text-anchor="middle" fill="#9498a8" font-size="6">EV销量Top1</text>
+<!-- 新西兰 -->
+<circle cx="1260" cy="540" r="8" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="1260" y="538" text-anchor="middle" fill="#9498a8" font-size="6">BYD/Haval</text>
+
+<!-- 拉美 — 巴西 -->
+<circle cx="340" cy="420" r="16" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="340" y="417" text-anchor="middle" fill="#fff" font-size="7">BYD</text>
+<text x="340" y="427" text-anchor="middle" fill="#9498a8" font-size="6">巴西工厂</text>
+<!-- 墨西哥 -->
+<circle cx="240" cy="260" r="12" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="240" y="257" text-anchor="middle" fill="#fff" font-size="6">MG</text>
+<text x="240" y="267" text-anchor="middle" fill="#9498a8" font-size="6">墨西哥售</text>
+<!-- 阿根廷 -->
+<circle cx="300" cy="480" r="8" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="300" y="478" text-anchor="middle" fill="#9498a8" font-size="6">长城</text>
+<!-- 智利 -->
+<circle cx="280" cy="440" r="8" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="280" y="438" text-anchor="middle" fill="#9498a8" font-size="6">哪吒</text>
+
+<!-- 非洲 — 南非 -->
+<circle cx="630" cy="430" r="10" fill="#c45a6c" stroke="#fff" stroke-width="1"/>
+<text x="630" y="427" text-anchor="middle" fill="#fff" font-size="6">BYD</text>
+<text x="630" y="437" text-anchor="middle" fill="#9498a8" font-size="6">南非售</text>
+
+<!-- ===== 电动两轮车出海标记 ===== -->
+
+<!-- 东南亚 — 雅迪/爱玛主战场 -->
+<circle cx="1060" cy="260" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1" stroke-dasharray="2,2"/>
+<circle cx="1080" cy="340" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1" stroke-dasharray="2,2"/>
+<circle cx="1040" cy="250" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1" stroke-dasharray="2,2"/>
+
+<!-- 越南(雅迪工厂) -->
+<circle cx="1040" cy="250" r="10" fill="#5ac4b8" stroke="#fff" stroke-width="1.5"/>
+<text x="1040" y="247" text-anchor="middle" fill="#fff" font-size="6">雅迪</text>
+<text x="1040" y="257" text-anchor="middle" fill="#9498a8" font-size="5">越南工厂</text>
+
+<!-- 巴基斯坦 -->
+<circle cx="880" cy="200" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1"/>
+<text x="880" y="198" text-anchor="middle" fill="#9498a8" font-size="5">爱玛KD</text>
+
+<!-- 南亚 — 印度 -->
+<circle cx="900" cy="240" r="10" fill="#5ac4b8" stroke="#fff" stroke-width="1"/>
+<text x="900" y="237" text-anchor="middle" fill="#fff" font-size="6">台铃</text>
+<text x="900" y="247" text-anchor="middle" fill="#9498a8" font-size="5">印度售</text>
+
+<!-- 非洲 — 尼日利亚 -->
+<circle cx="580" cy="300" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1"/>
+<text x="580" y="298" text-anchor="middle" fill="#9498a8" font-size="5">雅迪/爱玛</text>
+
+<!-- 非洲 — 肯尼亚 -->
+<circle cx="680" cy="340" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1"/>
+<text x="680" y="338" text-anchor="middle" fill="#9498a8" font-size="5">台铃</text>
+
+<!-- 拉美 — 巴西(两轮车) -->
+<circle cx="340" cy="420" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1"/>
+<text x="340" y="418" text-anchor="middle" fill="#9498a8" font-size="5">雅迪辐射</text>
+
+<!-- 欧洲 — 九号/小牛 -->
+<circle cx="650" cy="120" r="8" fill="#5ac4b8" stroke="#fff" stroke-width="1"/>
+<text x="650" y="118" text-anchor="middle" fill="#9498a8" font-size="5">九号/小牛</text>
+<text x="650" y="128" text-anchor="middle" fill="#9498a8" font-size="5">高端智能电摩</text>
+
+<!-- ===== 底部统计面板 ===== -->
+<g transform="translate(10, 660)">
+  <rect x="0" y="0" width="680" height="80" rx="8" fill="rgba(26,29,39,0.95)" stroke="#2e3345" stroke-width="1"/>
+  <text x="15" y="20" fill="#e4e6ed" font-size="11" font-weight="700">📊 新能源汽车 — 2025年出口数据</text>
+  <text x="15" y="38" fill="#9498a8" font-size="9">欧洲~40万辆(瑞典/匈牙利建厂) | 东南亚~35万辆(泰国/印尼) | 拉美~22万辆(巴西/墨西哥)</text>
+  <text x="15" y="52" fill="#9498a8" font-size="9">中东/非洲~18万辆 | 澳洲~12万辆 | 总计出口180万+辆</text>
+  <text x="15" y="68" fill="#9498a8" font-size="8">⚠️ 欧盟反补贴关税最高35.3% | 美国关税27.5% | 本地化建厂规避贸易壁垒</text>
+
+  <rect x="350" y="0" width="320" height="80" rx="8" fill="rgba(26,29,39,0.95)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="365" y="20" fill="#e4e6ed" font-size="11" font-weight="700">🛵 电动两轮车 — 2025年出口数据</text>
+  <text x="365" y="38" fill="#9498a8" font-size="9">东南亚占出口45%+(泰国/印尼/越南) | 非洲增速55%+ | 拉美加速渗透</text>
+  <text x="365" y="52" fill="#9498a8" font-size="9">雅迪全球门店8,000+ | 爱玛7,000+ | 出口同比增长40%+</text>
+  <text x="365" y="68" fill="#9498a8" font-size="8">雅迪海外销量占比目标25% | 全球电动两轮车市场2030年预计超8,000亿元</text>
+</g>
+
+<!-- ===== 右侧品牌出海详情面板 ===== -->
+<g transform="translate(710, 660)">
+  <rect x="0" y="0" width="680" height="80" rx="8" fill="rgba(26,29,39,0.95)" stroke="#2e3345" stroke-width="1"/>
+  <text x="15" y="20" fill="#e4e6ed" font-size="11" font-weight="700">🏭 本地化建厂布局 — 新能源汽车</text>
+  <text x="15" y="38" fill="#9498a8" font-size="9">比亚迪: 泰国/巴西/匈牙利/印尼/土耳其 | 宁德时代: 德国/匈牙利/日本/印尼/以色列</text>
+  <text x="15" y="52" fill="#9498a8" font-size="9">上汽MG: 泰国/英国 | 长城: 泰国/俄罗斯/巴西 | 奇瑞: 西班牙/巴西 | 吉利: 比利时/葡萄牙</text>
+  <text x="15" y="68" fill="#9498a8" font-size="8">蔚来: 挪威/德国/荷兰/丹麦/瑞典 | 小鹏: 澳大利亚/德国/挪威</text>
+
+  <rect x="350" y="0" width="320" height="80" rx="8" fill="rgba(26,29,39,0.95)" stroke="#5ac4b8" stroke-width="1"/>
+  <text x="365" y="20" fill="#e4e6ed" font-size="11" font-weight="700">🛵 本地化建厂布局 — 电动两轮车</text>
+  <text x="365" y="38" fill="#9498a8" font-size="9">雅迪: 越南(2022投产) | 泰国/印尼/巴基斯坦KD组装</text>
+  <text x="365" y="52" fill="#9498a8" font-size="9">爱玛: 印尼/菲律宾/土耳其经销 | 台铃: 东南亚/非洲/南美渠道</text>
+  <text x="365" y="68" fill="#9498a8" font-size="8">九号公司: 欧洲高端市场(智能电摩) | 小牛: 欧洲/东南亚</text>
+</g>
+
+<!-- ===== 图例 ===== -->
+<g transform="translate(1020, 660)">
+  <rect x="0" y="0" width="370" height="80" rx="8" fill="rgba(26,29,39,0.95)" stroke="#2e3345" stroke-width="1"/>
+  <circle cx="20" cy="18" r="8" fill="#ffd700"/><text x="35" y="22" fill="#9498a8" font-size="9">🇨🇳 中国制造中心(起点)</text>
+  <circle cx="160" cy="18" r="8" fill="#c45a6c"/><text x="175" y="22" fill="#9498a8" font-size="9">🚗 新能源汽车市场</text>
+  <circle cx="280" cy="18" r="8" fill="#5ac4b8"/><text x="295" y="22" fill="#9498a8" font-size="9">🛵 电动两轮车市场</text>
+  <line x1="10" y1="45" x2="60" y2="45" stroke="#c45a6c" stroke-width="2" marker-end="url(#arrowHead)"/>
+  <text x="70" y="49" fill="#9498a8" font-size="9">箭头 = 出口/建厂方向</text>
+  <circle cx="20" cy="65" r="5" fill="#5ac4b8" stroke="#fff" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="35" y="69" fill="#9498a8" font-size="9">虚线圆 = 两轮车同步覆盖</text>
+</g>
+</svg>
+</div>
+
+<!-- 补充说明 -->
+<div class="card" style="margin-top:16px;">
+<h3>📈 海外布局战略解读</h3>
+<div class="grid-2">
+  <div>
+    <h4 style="font-size:13px;color:var(--red);margin:8px 0 4px;">新能源汽车出海三阶段</h4>
+    <ol style="font-size:12px;color:var(--text2);padding-left:18px;line-height:1.8;">
+      <li><strong style="color:var(--text);">阶段一(2016-2020) 产品出口</strong> — MG名爵先入欧洲，BYD客车/出租车出海</li>
+      <li><strong style="color:var(--text);">阶段二(2021-2024) 品牌出海</strong> — 蔚来/小鹏/理想进入欧洲，BYD乘用车重返欧洲</li>
+      <li><strong style="color:var(--text);">阶段三(2025+) 本地化建厂</strong> — 泰国/匈牙利/巴西/印尼工厂投产，规避关税</li>
+    </ol>
+    <h4 style="font-size:13px;color:var(--yellow);margin:12px 0 4px;">贸易壁垒应对</h4>
+    <ul style="font-size:12px;color:var(--text2);padding-left:18px;line-height:1.8;">
+      <li>欧盟反补贴税: 最高35.3% → 匈牙利/泰国本地生产规避</li>
+      <li>美国关税: 27.5% → 不直接出口美国，通过第三国辐射拉美</li>
+      <li>印尼关税+本地化要求 → 宁德时代/比亚迪建厂</li>
+    </ul>
+  </div>
+  <div>
+    <h4 style="font-size:13px;color:var(--cyan);margin:8px 0 4px;">电动两轮车出海路径</h4>
+    <ol style="font-size:12px;color:var(--text2);padding-left:18px;line-height:1.8;">
+      <li><strong style="color:var(--text);">东南亚(45%出口份额)</strong> — 雅迪越南工厂+泰国/印尼KD，复制中国成功模式</li>
+      <li><strong style="color:var(--text);">非洲(增速55%+)</strong> — 尼日利亚/肯尼亚/南非渠道铺设，替代燃油摩托</li>
+      <li><strong style="color:var(--text);">拉美</strong> — 巴西/阿根廷/墨西哥，电动化趋势初现</li>
+      <li><strong style="color:var(--text);">欧洲(高端)</strong> — 九号/小牛主打智能电摩，差异化竞争</li>
+    </ol>
+    <h4 style="font-size:13px;color:var(--green);margin:12px 0 4px;">全球市场空间预估</h4>
+    <ul style="font-size:12px;color:var(--text2);padding-left:18px;line-height:1.8;">
+      <li>全球电动两轮车市场2030年预计超8,000亿元(CAGR 12%+)</li>
+      <li>东南亚电动两轮车渗透率<10%，增长空间巨大</li>
+      <li>非洲/拉美燃油摩托电动化替代 = 下一个10亿级市场</li>
+      <li>雅迪目标: 2025年海外销量占比达25%(2024年仅8%)</li>
+    </ul>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ==================== 第八部分：中国优势 + 多学派研判 ==================== -->
+<section>
+<h2 class="section-title">第八部分：中国新能源汽车核心优势 + 多学派交叉研判</h2>
+
+<div class="grid-4" style="margin-bottom:20px;">
+  <div class="metric green"><div class="val">$60/kWh</div><div class="label">动力电池成本<br>较2018年下降83%，碳酸锂~5.5-8万/吨</div></div>
+  <div class="metric blue"><div class="val">95%+</div><div class="label">本土零部件配套率<br>全球最完整产业链</div></div>
+  <div class="metric cyan"><div class="val">-20~30%</div><div class="label">同配置车型价格优势<br>相比欧美竞品</div></div>
+  <div class="metric gold"><div class="val">L2+渗透率55%+</div><div class="label">2025年智能驾驶渗透率<br>全球领先</div></div>
+</div>
+
+<div class="card" style="margin-bottom: 16px;">
+<h3>🏆 中国新能源汽车四大核心优势</h3>
+<div class="grid-2">
+  <div>
+    <h4 style="font-size:13px; color: var(--green); margin: 8px 0 4px;">优势一：电池成本与产业链霸权</h4>
+    <ul>
+      <li>全球60%+锂精炼产能在中国（天齐/赣锋）</li>
+      <li>全球80%+正负极材料产能在中国（容百/杉杉/贝特瑞/恩捷）</li>
+      <li>宁德时代+比亚迪合计占全球动力电池65%+份额（SNERBO 2025全年数据：CATL 36-38%, BYD 17%, LG 13%）</li>
+      <li>LFP电池不含钴镍，供应链更安全，成本比NCM低30%+</li>
+      <li>2025年电池成本降至~60美元/kWh，较2018年下降83%</li>
+    </ul>
+  </div>
+  <div>
+    <h4 style="font-size:13px; color: var(--blue); margin: 8px 0 4px;">优势二：智能化配置领先</h4>
+    <ul>
+      <li>华为ADS 4.0/小鹏XNGP/百度Apollo L4级自动驾驶全球领先</li>
+      <li>智能座舱生态（鸿蒙/MIUI Auto/蔚来NOMI）体验远超外资</li>
+      <li>激光雷达成本全球最低（禾赛/速腾，$200-500 vs 海外$1,000+）</li>
+      <li>OTA升级频率和覆盖范围全球第一，2025年城市NOA覆盖200+城市</li>
+    </ul>
+  </div>
+  <div>
+    <h4 style="font-size:13px; color: var(--yellow); margin: 8px 0 4px;">优势三：规模化+供应链完整度</h4>
+    <ul>
+      <li>本土零部件配套率95%+，从锂矿到整车上游到下游全链条闭环</li>
+      <li>1,555万辆/年产能规模 → 极致规模效应 → 成本进一步降低</li>
+      <li>从上海到深圳到合肥到成都，4小时车程覆盖90%+核心供应商</li>
+      <li>2025年新能源汽车均价已低于同级别燃油车（电池成本下降+规模效应）</li>
+    </ul>
+  </div>
+  <div>
+    <h4 style="font-size:13px; color: var(--purple); margin: 8px 0 4px;">优势四：政策+基建双轮驱动</h4>
+    <ul>
+      <li>购置税减免+牌照优惠+路权倾斜 → 渗透率突破50%</li>
+      <li>全球最大充电网络（1,000万+根充电桩保有量，公共桩500万+根）</li>
+      <li>换电网络全球第一（全国超8,000座换电站，蔚来独占5,000+座）</li>
+      <li>"以旧换新"政策持续刺激内需</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3><span class="school-tag school-ky">凯恩斯主义</span>政策驱动型产业 — 补贴退坡后的新常态</h3>
+    <p>中国新能源汽车产业是典型的<strong>政策驱动型</strong>行业。2009年"十城千辆"工程启动，随后购置税减免/牌照优惠/双积分政策构成三大政策支柱。2024年渗透率突破50%标志着产业已从"政策驱动"转向<strong>"市场驱动"</strong>。核心判断：<strong>补贴退坡后，市场化竞争将加速行业洗牌，尾部品牌将被淘汰。</strong></p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-marx">马克思主义政治经济学</span>从"世界工厂"到"技术输出"的质变</h3>
+    <p>中国新能源汽车的崛起本质上是<strong>全球价值链攀升</strong>的过程 — 从过去为欧美日韩组装低端零部件，到现在宁德时代向福特授权技术(LFP技术授权)、比亚迪向丰田供应电池平台。这是从"依附性增长"向"自主性积累"的历史性转变。核心矛盾：<strong>技术领先 vs 地缘政治封锁</strong>（美国IRA法案/欧盟反补贴关税）。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-behavior">行为经济学</span>消费者从"政策引导"到"主动选择"的心理拐点</h3>
+    <p>2019年前消费者购买新能源车主要是<strong>牌照/政策驱动</strong>（上海绿牌/北京不限行）。2024年渗透率50.3%意味着超过一半的消费者是<strong>主动选择</strong>而非被动接受。行为学研究表明：<strong>当一种技术的渗透率突破50%临界点后，采用曲线将从S型变为指数型</strong>。中国消费者对新能���车的"智能化"偏好远高于欧美消费者。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-evolution">演化经济学</span>产业生态位的分化与洗牌</h3>
+    <p>2024年中国新能源车企超50家，但年销过10万的仅10余家。产业达尔文主义正在上演：<strong>比亚迪</strong>占据成本生态位（垂直整合）、<strong>理想</strong>占据家庭SUV生态位、<strong>小鹏</strong>占据智驾生态位、<strong>蔚来</strong>占据高端换电生态位。未来3年将淘汰30家+尾部品牌，行业CR5将超过80%。电动两轮车同理：雅迪/爱玛/台铃CR3已超60%。</p>
+  </div>
+</div>
+
+<div class="risk-box" style="margin-top: 20px;">
+<h4>⚠️ 核心风险提示</h4>
+<table class="comp-table">
+<tr><th>风险类型</th><th>新能源汽车</th><th>电动两轮车</th><th>严重程度</th></tr>
+<tr><td><strong>地缘政治</strong></td><td>欧盟反补贴关税35.3%延续至2026+，美国IRA+301关税将中国EV关税提至100%，中国-欧盟关系不确定性增加</td><td>东南亚本地化生产要求提高(泰国40%本地化率)、欧美对中国两轮车加征关税</td><td class="decline">极高</td></tr>
+<tr><td><strong>产能过剩</strong></td><td>2025年全国产能利用率回升至~52%，但仍低于合理水平(65%+)；50+品牌混战，二线品牌淘汰加速，2025年已有3+品牌退出市场</td><td>雅迪/爱玛/台铃CR3超65%，中小品牌加速出清</td><td class="decline">高</td></tr>
+<tr><td><strong>原材料波动</strong></td><td>碳酸锂从2022年60万→2024年底10万→2025年Q1反弹至8万元/吨后回落至~5.5万元/吨，低位震荡压缩上游利润</td><td>铅价/锂价波动直接影响成本，但两轮车电池用量小影响有限</td><td>中高</td></tr>
+<tr><td><strong>固态电池竞争</strong></td><td>丰田固态电池专利全球第一(1,300+项)，2027-2028年试量产；宁德时代凝聚态电池已商用；半固态电池2025年装车蔚来/上汽，全固态2027-2030年商业化窗口</td><td>技术成熟，风险较低</td><td>中高</td></tr>
+<tr><td><strong>价格战内卷</strong></td><td>2025年均价再降12%，比亚迪/特斯拉多次降价引发全行业跟随，利润率压缩至5-8%，中小品牌现金流承压</td><td>高端锂电车型价格战加剧，800-1,500元价位段竞争最激烈</td><td>高</td></tr>
+<tr><td><strong>安全与召回</strong></td><td>动力电池起火事故年均2,000+起，2024年电动车火灾率仍高于燃油车3倍；2025年强制国标升级</td><td>铅酸电池回收污染问题突出，锂电池入户充电安全隐患</td><td>中</td></tr>
+<tr><td><strong>技术迭代</strong></td><td>L3+自动驾驶法规落地不及预期，芯片国产化率不足40%(高端)，操作系统生态建设滞后</td><td>智能化升级缓慢，IoT渗透率仅~15%</td><td>中</td></tr>
+</table>
+</div>
+
+<div class="forecast-box" style="margin-top: 16px;">
+<h4>🔮 综合研判 — 2025-2030年展望</h4>
+<ul style="font-size: 13px; color: var(--text2); line-height: 2;">
+<li><strong>新能源汽车渗透率：</strong>2025年48.9% → 2026年预计55% → 2027年突破60% → 2030年达80%+。PHEV/EREV增速将超过BEV，成为增长主引擎</li>
+<li><strong>出口格局重构：</strong>2025年出口180万+辆 → 2026年预计220-250万辆。从"整车出口"转向"本地化生产"，泰国/匈牙利/巴西/印尼产能2026-2027年集中释放</li>
+<li><strong>固态电池时间线：</strong>2025年半固态装车(蔚来150kWh) → 2027年全固态中试线 → 2028-2030年规模化量产。成本从当前的$150+/kWh降至$80/kWh以下</li>
+<li><strong>智能驾驶里程碑：</strong>2025年L2+渗透55% → 2027年L3试点城市扩大 → 2030年L4在特定场景(高速/园区)商业化运营</li>
+<li><strong>电动两轮车：</strong>雅迪2025年海外销量占比目标15-20%。全球电动两轮车市场2030年预计超8,000亿元。东南亚/非洲/拉美是三大增量市场，中国品牌有望复制中国新能源汽车的全球路径</li>
+<li><strong>产业整合加速：</strong>2025-2027年新能源汽车品牌将从50+缩减至10-15个主流品牌。电池行业CR3(CATL/比亚迪/宁德时代)将超70%</li>
+<li><strong>核心判断：</strong>中国新能源产业正从"产品输出"转向"产业链输出" — 在泰国/匈牙利/巴西建厂不再是"出口商品"，而是"出口产能+技术标准"。这标志着中国制造业全球竞争力的质的飞跃。但需警惕：欧美"去中国化"供应链构建可能在中长期(2028+)削弱中国出口优势</li>
+</ul>
+</div>
+</section>
+
+<footer>
+  <p>本看板由"全域全流派经济学首席研判专家"框架生成</p>
+  <p>分析原则：前提校验优先 · 五维联动 · 多流派对冲 · 历史对称对标 · 代价前置</p>
+  <p style="margin-top:8px;">⚠️ 免责声明：以上内容仅为学术研究和分析参考，不构成任何投资建议。所有经济预判均存在不确定性边界，投资需谨慎。</p>
+  <p style="margin-top:4px; font-size:10px;">数据来源：中国汽车工业协会(CAAM)、乘联会(CPCA)、公安部、海关总署、雅迪控股2024年报(2025年3月发布)、爱玛科技2025年报(2025年4月发布)、SNERBO全球动力电池装机量数据。数据截止2025年初。所有数据均为官方公布或权威行业研报数据。</p>
+</footer>
+
+</div>
+</body>
+</html>

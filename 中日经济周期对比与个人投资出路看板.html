@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中日经济周期深度对比与个人投资出路看板 v2.0</title>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #232733; --border: #2e3345;
+  --text: #e4e6ed; --text2: #9498a8; --accent: #c45a6c; --accent2: #d4787e;
+  --green: #5cb88a; --green2: #4a9e72; --yellow: #d4a843; --red: #c45a5a;
+  --blue: #5a8ec4; --purple: #8a5ac4;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1500px; margin: 0 auto; padding: 24px; }
+header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+header h1 { font-size: 28px; font-weight: 700; color: var(--accent2); letter-spacing: 2px; }
+header p { color: var(--text2); margin-top: 8px; font-size: 14px; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+.tag-red { background: rgba(196,90,90,0.15); color: var(--red); border: 1px solid rgba(196,90,90,0.3); }
+.tag-green { background: rgba(92,184,138,0.15); color: var(--green); border: 1px solid rgba(92,184,138,0.3); }
+.tag-yellow { background: rgba(212,168,67,0.15); color: var(--yellow); border: 1px solid rgba(212,168,67,0.3); }
+.tag-blue { background: rgba(90,142,196,0.15); color: var(--blue); border: 1px solid rgba(90,142,196,0.3); }
+.tag-purple { background: rgba(138,90,196,0.15); color: var(--purple); border: 1px solid rgba(138,90,196,0.3); }
+section { margin-bottom: 48px; }
+.section-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--accent); }
+.section-subtitle { font-size: 15px; font-weight: 600; color: var(--text2); margin: 24px 0 14px; padding-left: 10px; border-left: 2px solid var(--border); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.card .tag-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.card p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.card ul { list-style: none; padding: 0; }
+.card ul li { font-size: 13px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid rgba(46,51,69,0.5); }
+.card ul li:last-child { border-bottom: none; }
+.card ul li strong { color: var(--text); font-weight: 600; }
+.metric { background: var(--surface2); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.metric .val { font-size: 26px; font-weight: 700; color: var(--accent2); }
+.metric .label { font-size: 11px; color: var(--text2); margin-top: 4px; }
+.metric.green .val { color: var(--green); }
+.metric.red .val { color: var(--red); }
+.metric.yellow .val { color: var(--yellow); }
+.metric.blue .val { color: var(--blue); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table th { background: var(--surface2); padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--border); }
+.comp-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+.comp-table tr:hover td { background: rgba(35,39,51,0.5); }
+.decline { color: var(--red); }
+.rise { color: var(--green); }
+.ticker-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0; }
+.ticker { background: var(--surface2); border-radius: 6px; padding: 6px 12px; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+.ticker .name { font-weight: 600; color: var(--text); }
+.ticker .yield { color: var(--green); font-weight: 600; }
+.rec-card { background: linear-gradient(135deg, rgba(196,90,90,0.08), rgba(92,184,138,0.08)); border: 1px solid var(--accent); border-radius: 12px; padding: 24px; }
+.rec-card h3 { font-size: 18px; color: var(--accent2); margin-bottom: 12px; }
+.rec-card .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.rec-card .rec-item { background: var(--surface); border-radius: 8px; padding: 14px; }
+.rec-card .rec-item h4 { font-size: 13px; color: var(--green); margin-bottom: 6px; }
+.rec-card .rec-item p { font-size: 12px; color: var(--text2); }
+.school-tag { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 4px; }
+.school-ky { background: rgba(90,142,196,0.2); color: var(--blue); }
+.school-behavior { background: rgba(138,90,196,0.2); color: var(--purple); }
+.school-evolution { background: rgba(92,184,138,0.2); color: var(--green); }
+.school-marx { background: rgba(196,90,90,0.2); color: var(--red); }
+.school-institution { background: rgba(212,168,67,0.2); color: var(--yellow); }
+.deep-dive { background: rgba(90,142,196,0.05); border: 1px solid rgba(90,142,196,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.deep-dive h4 { font-size: 14px; color: var(--blue); margin-bottom: 8px; }
+.forecast-box { background: rgba(92,184,138,0.05); border: 1px solid rgba(92,184,138,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.forecast-box h4 { font-size: 14px; color: var(--green); margin-bottom: 8px; }
+.risk-box { background: rgba(196,90,90,0.05); border: 1px solid rgba(196,90,90,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.risk-box h4 { font-size: 14px; color: var(--red); margin-bottom: 8px; }
+.data-note { font-size: 11px; color: var(--text2); font-style: italic; margin-top: 6px; }
+footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); color: var(--text2); font-size: 11px; margin-top: 40px; }
+footer a { color: var(--accent); text-decoration: none; }
+@media print { body { background: white; color: black; } .card { border: 1px solid #ddd; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>中日经济周期深度对比与个人投资出路看板 v2.0</h1>
+  <p>基于日本"失去的三十年"完整数据链与产业轮动规律，研判中国经济形势与个人深耕方向</p>
+  <p style="margin-top:6px;">生成日期：2026年6月25日 &nbsp;|&nbsp; 数据基准：2024年官方统计 &nbsp;|&nbsp; 分析框架：多学派交叉对冲验证 + 历史对称对标</p>
+  <p style="margin-top:4px; font-size:12px; color: var(--yellow);">v2.0 更新：新增日本工资停滞数据链、M1-M2裂口分析、跨境电商GMV拆解、技能缺口量化、行业CAGR预测、四国横向比较</p>
+</header>
+
+<!-- ==================== 第一部分：中国现状深度诊断 ==================== -->
+<section>
+<h2 class="section-title">第一部分：中国经济现状深度诊断 — 数据链拆解</h2>
+
+<div class="grid-4" style="margin-bottom:20px;">
+  <div class="metric red"><div class="val">14.08亿</div><div class="label">总人口（2024年末）<br>同比减少208万</div></div>
+  <div class="metric red"><div class="val">902万</div><div class="label">年出生人口（2024）<br>较2016年峰值1786万降50%</div></div>
+  <div class="metric yellow"><div class="val">15.4%</div><div class="label">65岁以上占比（2.17亿）<br>2010年仅8.9%</div></div>
+  <div class="metric blue"><div class="val">5.0%</div><div class="label">2024年GDP实际增速<br>名义增速约4.6%</div></div>
+</div>
+
+<h3 class="section-subtitle">1.1 宏观经济核心指标深度拆解</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>📉 货币与信用：流动性陷阱迹象</h3>
+    <div class="tag-row"><span class="tag tag-red">信用收缩</span><span class="tag tag-red">M1-M2裂口</span><span class="tag tag-yellow">预防性储蓄</span></div>
+    <ul>
+      <li><strong>M2余额：</strong>300.63万亿元（2024年末），同比+8.7%。M2/GDP比率约245%，全球最高</li>
+      <li><strong>M1增速：</strong>2024年多次出现负增长，M1-M2裂口创历史最高。M1代表企业活期存款，负增长说明企业经营活动极度萎缩</li>
+      <li><strong>住户存款：</strong>2024年末余额156.7万亿元，全年新增17.49万亿。储蓄率持续31-32%，远超全球平均约20%</li>
+      <li><strong>社会融资：</strong>2024年新增社融约32万亿，但结构恶化——政府债券占比过高，居民和企业中长期贷款持续疲软</li>
+      <li><strong>CPI：</strong>2024年全年仅+0.2%，核心CPI（剔除食品和能源）约0.6%，低于美联储2%目标的一半</li>
+      <li><strong>PPI：</strong>2024年全年同比负增长约-1.8%，工业品持续通缩，企业利润被压缩</li>
+    </ul>
+    <p class="data-note">数据来源：中国人民银行、国家统计局、Wind</p>
+  </div>
+  <div class="card">
+    <h3>📊 房地产：泡沫破裂的完整数据链</h3>
+    <div class="tag-row"><span class="tag tag-red">深度调整</span><span class="tag tag-red">去杠杆</span></div>
+    <ul>
+      <li><strong>销售面积：</strong>2024年11.09亿㎡，同比-12.9%；1-11月累计-14.9%</li>
+      <li><strong>销售金额：</strong>11.13万亿，同比-17.1%。金额降幅大于面积，说明均价也在跌</li>
+      <li><strong>开发投资：</strong>2024年1-11月累计9.87万亿，同比-10.4%</li>
+      <li><strong>房企债务：</strong>恒大负债~3000亿美元（2024.11香港申请破产保护）；碧桂园~540亿美元（2024年初违约触发交叉违约）</li>
+      <li><strong>土地成交：</strong>2024年全国土地出让金约2.2万亿，较2021年峰值5.8万亿降62%</li>
+      <li><strong>影响：</strong>房地产及相关产业链占GDP比重从高峰期的29%持续收缩</li>
+    </ul>
+    <p class="data-note">数据来源：国家统计局、海关总署、各公司公告</p>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-top:16px;">
+  <div class="card">
+    <h3>💰 财政与地方债：约束条件下的政策空间</h3>
+    <div class="tag-row"><span class="tag tag-yellow">空间收窄</span><span class="tag tag-blue">中央有余力</span></div>
+    <ul>
+      <li><strong>地方政府法定债务：</strong>2024年末余额35.5万亿元（一般债务15.5万亿+专项债务20万亿）</li>
+      <li><strong>隐性债务估计：</strong>城投平台有息债务约100万亿（市场估算，财政部未正式确认）</li>
+      <li><strong>土地财政终结：</strong>土地出让金从2021年5.8万亿降至2024年约2.2万亿，减幅62%</li>
+      <li><strong>中央财政空间：</strong>中央政府杠杆率约20-25%，远低于美国(120%+)和日本(230%+)，有加杠杆空间</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>👥 收入与就业：结构性矛盾</h3>
+    <div class="tag-row"><span class="tag tag-yellow">城乡分化</span><span class="tag tag-red">青年失业</span></div>
+    <ul>
+      <li><strong>人均可支配收入：</strong>41,589元，实际+5.3%。城镇57,099元(+4.0%)，农村21,691元(+7.1%)</li>
+      <li><strong>城乡收入比：</strong>2.63:1，近年略有扩大而非缩小</li>
+      <li><strong>基尼系数：</strong>2024年约0.462（统计局暂停发布后估算值），仍高于0.4警戒线</li>
+      <li><strong>城镇调查失业率：</strong>2024年平均约5.2%。16-24岁青年失业率曾一度突破20%（2023年6月），2023年底起暂停发布单独数据</li>
+      <li><strong>技能人才缺口：</strong>高技能人才超6000万（占30%+），结构性缺口约2000万</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="section-subtitle" style="margin-top:24px;">1.2 投资结构：新旧动能转换中的数据</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>🏗️ 固定资产投资：制造业和高技术领涨</h3>
+    <ul>
+      <li><strong>全国固投（不含农户）：</strong>51.44万亿，+3.2%。其中民间投资25.75万亿，-0.1%</li>
+      <li><strong>制造业投资：</strong>+9.2%，比全部固投高约6个百分点</li>
+      <li><strong>高技术制造业投资：</strong>+10.4%，占全部固投比重8.7%（+0.5pp）</li>
+      <li><strong>信息传输/软件业投资：</strong>+16.5%，增速最快</li>
+      <li><strong>关键信号：</strong>民间投资首次负增长，说明私人部门信心不足；但制造业和高技术投资持续高增，政策引导效果明显</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🌍 外贸：结构优化中的隐忧</h3>
+    <ul>
+      <li><strong>进出口总值：</strong>43.85万亿，同比+5.0%。机电产品出口26.3万亿(58.9%)</li>
+      <li><strong>新能源汽车：</strong>2024年出口约120万辆，"新三样"(EV/电池/光伏)持续高增</li>
+      <li><strong>服务贸易：</strong>知识密集型服务贸易占比提升，但货物贸易顺差仍是主力</li>
+      <li><strong>隐忧：</strong>欧美关税壁垒加剧（美国对华关税145%+，欧盟对中国EV加征临时关税）</li>
+      <li><strong>消费结构：</strong>2024年服务性消费支出占比42.8%(+11.4%)，教育文化娱乐+12.0%，医疗保健+7.9%</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第二部分：日本经济危机全景 ==================== -->
+<section>
+<h2 class="section-title">第二部分：日本经济危机全景 — 从泡沫到失去的三十年（1990-2024）</h2>
+
+<h3 class="section-subtitle">2.1 泡沫形成与破裂的时间线</h3>
+<div class="deep-dive">
+<h4>泡沫形成期（1986-1990）：过度宽松的代价</h4>
+<ul style="font-size:13px; color: var(--text2); line-height: 2;">
+<li><strong>广场协议（1985.9）：</strong>美元大幅贬值，日元一年内升值50%（1美元=250日元→120日元）。出口企业利润骤降</li>
+<li><strong>超低利率：</strong>日本央行贴现率从5%降至2.5%（1986-1987），流动性泛滥</li>
+<li><strong>资产价格失控：</strong>日经指数从1985年~13000点飙升至1989年底38915点（3年涨2倍）；东京商业用地价格1985-1990年涨2.5倍</li>
+<li><strong>名言：</strong>"东京皇居地块价值可以卖掉整个加州"</li>
+<li><strong>GDP增速：</strong>1980年代年均~4%，1990年代骤降至<1%，2010-2020年仅0.7%</li>
+</ul>
+</div>
+
+<div class="deep-dive">
+<h4>泡沫破裂期（1990-1995）：政策失误放大伤害</h4>
+<ul style="font-size:13px; color: var(--text2); line-height: 2;">
+<li><strong>1990.1：</strong>央行突然加息至6%，股市当日暴跌15%，开启十年熊市</li>
+<li><strong>1991：</strong>房地产开始下跌。东京地价1991-2005年累计跌幅>60%。商业地产建设萎缩~40%</li>
+<li><strong>1995：</strong>北海道拓殖银行和日本长期银行相继破产——日本战后首次银行倒闭</li>
+<li><strong>1997：</strong>桥本龙太郎政府提高消费税3%→5%，导致经济二次探底（GDP从+1.9%骤降至-1.8%）</li>
+<li><strong>1998：</strong>不良贷款峰值54万亿日元（~GDP 10%）。山一证券破产</li>
+<li><strong>工资停滞：</strong>平均年薪从1995年约418万日元停滞至2000年代中期约396万日元，实际工资20年零增长</li>
+</ul>
+</div>
+
+<div class="deep-dive">
+<h4>政策试错与缓慢修复（1995-2012）</h4>
+<ul style="font-size:13px; color: var(--text2); line-height: 2;">
+<li><strong>银行处理迟缓：</strong>1998-2003年才真正大规模核销不良贷款。小泉-竹中改革期间处理约22万亿日元不良债权</li>
+<li><strong>量化宽松（2001）：</strong>日本是全球首个实施QQE的主要经济体，早于美联储7年</li>
+<li><strong>2008雷曼冲击：</strong>日本GDP在2009年萎缩-5.5%，但复苏快于预期</li>
+<li><strong>2012年安倍上台：</strong>日经约8000点，较峰值跌近80%。"安倍经济学"三支箭启动</li>
+</ul>
+</div>
+
+<h3 class="section-subtitle">2.2 日本工资停滞的完整数据链</h3>
+<div class="card" style="margin-bottom:16px;">
+<h3>📊 日本劳动者薪资：20年零增长的残酷现实</h3>
+<table class="comp-table">
+<tr><th>年份</th><th>平均年薪（日元）</th><th>同比变化</th><th>实际购买力变化</th><th>关键事件</th></tr>
+<tr><td>1995</td><td>4,180,000</td><td>-</td><td>基准</td><td>泡沫破裂后第5年</td></tr>
+<tr><td>2000</td><td>3,960,000</td><td>-5.3%</td><td>↓12%</td><td>IT泡沫破裂，派遣法修订</td></tr>
+<tr><td>2005</td><td>3,880,000</td><td>-2.0%</td><td>↓14%</td><td>银行不良债权处理中期</td></tr>
+<tr><td>2010</td><td>4,170,000</td><td>+7.5%</td><td>↓8%</td><td>雷曼冲击后复苏（名义涨实际跌）</td></tr>
+<tr><td>2015</td><td>4,190,000</td><td>+0.5%</td><td>↓5%</td><td>安倍经济学初期</td></tr>
+<tr><td>2020</td><td>4,170,000</td><td>-0.5%</td><td>↓10%</td><td>新冠疫情冲击</td></tr>
+<tr><td>2024</td><td>4,410,000</td><td>+5.6%（春斗涨幅）</td><td>持平</td><td>30年来首次实质工资转正</td></tr>
+</table>
+<p class="data-note" style="margin-top:10px;">数据来源：日本厚生劳动省《工资结构基本统计调查》、OECD、IMF。直到2024年在通胀压力+劳动力短缺双重作用下，春斗薪资涨幅才达到5.6%（30年最高）。</p>
+</div>
+
+<h3 class="section-subtitle">2.3 日本人口结构的不可逆变化</h3>
+<div class="card" style="margin-bottom:16px;">
+<h3>👴 日本老龄化时间轴：从加速到超级老龄</h3>
+<table class="comp-table">
+<tr><th>年份</th><th>65岁以上占比</th><th>65岁以上人口</th><th>劳动年龄人口(15-64)</th><th>抚养比</th><th>关键节点</th></tr>
+<tr><td>1990</td><td>12.1%</td><td>~1500万</td><td>~8500万</td><td>~18%</td><td>泡沫顶点</td></tr>
+<tr><td>2000</td><td>17.4%</td><td>~2180万</td><td>~8700万（峰值）</td><td>~24%</td><td>劳动人口见顶</td></tr>
+<tr><td>2010</td><td>23.0%</td><td>~2900万</td><td>~8100万</td><td>~34%</td><td>进入"超高龄社会"</td></tr>
+<tr><td>2020</td><td>28.7%</td><td>~3620万</td><td>~7400万</td><td>~45%</td><td>每3.5人养1个老人</td></tr>
+<tr><td>2024</td><td>29.4%</td><td>~3730万</td><td>~7100万</td><td>~48%</td><td>史上最高</td></tr>
+</table>
+<p class="data-note" style="margin-top:10px;">数据来源：日本总务省统计局、厚生劳动省。2024年日本出生人数约70万，死亡人数约157万，自然减少87万。预计2050年65岁以上占比将达35%+。</p>
+</div>
+
+<h3 class="section-subtitle">2.4 日本衰退行业 vs 崛起行业 — 完整数据链</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3><span class="tag tag-red" style="margin-right:6px;">衰退</span>房地产与建筑业</h3>
+    <ul>
+      <li>东京住宅地价1991-2005年累计跌幅 <strong class="decline">~65%</strong>（从~¥800万/㎡跌至~¥280万/㎡）</li>
+      <li>全国土地价格1991-2005年跌幅 <strong class="decline">~55%</strong>（商用土地跌幅更大）</li>
+      <li>商业地产建设1990-1995年萎缩 <strong class="decline">~40%</strong>（从12万亿→7万亿日元）</li>
+      <li>房地产GDP贡献率从3.2%降至2.1%（1990-2005）</li>
+      <li>大型开发商破产潮：日东房产(1993)、长谷工承包(2001)</li>
+      <li><strong>恢复时间：</strong>全国商业地价到2007年才回到1990年水平的60%，2024年仍未回到峰值</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-red" style="margin-right:6px;">衰退</span>金融业/银行业</h3>
+    <ul>
+      <li>1998年不良贷款峰值 <strong class="decline">54万亿日元</strong>（~GDP 10%）</li>
+      <li>北海道拓殖银行(1997)、日本长期银行(1997)、日本信金中央金库(1998)相继破产</li>
+      <li>三大都市银行被迫合并：三菱UFJ、瑞穗、三井住友</li>
+      <li>银行业累计损失估计 <strong class="decline">~1100万亿日元</strong>（1990-2005）</li>
+      <li>净息差从1990年~3.0%压缩至2000年代~1.0%</li>
+      <li><strong>恢复时间：</strong>ROE回到5%+是在2005年以后</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-top:16px;">
+  <div class="card">
+    <h3><span class="tag tag-red" style="margin-right:6px;">衰退</span>传统批发零售（百货店）</h3>
+    <ul>
+      <li>百货店销售额1990-2010年萎缩 <strong class="decline">~25%</strong>（从31万亿→23万亿日元）</li>
+      <li>伊势丹、高岛屋、大丸大规模关店</li>
+      <li><strong>原因：</strong>消费者从"品牌崇拜"转向"性价比优先"，便利店和折扣店分流</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-red" style="margin-right:6px;">衰退</span>日本国内汽车（内需萎缩）</h3>
+    <ul>
+      <li>国内新车销售从1990年500万+辆降至2000年 <strong class="decline">~300万辆</strong>（-40%）</li>
+      <li>丰田/本田/日产海外销量占比从1990年~30%升至2020年~80%</li>
+      <li><strong>关键转折：</strong>不是行业消亡，而是从"内需驱动"转向"外需驱动"</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="section-subtitle" style="margin-top:28px;">2.5 崛起行业 — 完整数据链</h3>
+<div class="grid-3">
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">崛起</span>平价零售（折扣经济）</h3>
+    <div class="tag-row"><span class="tag tag-green">反周期</span><span class="tag tag-blue">效率革命</span></div>
+    <ul>
+      <li><strong>优衣库（迅销集团）：</strong>1984年第一家店→2024财年营收3.01万亿日元（~1450亿人民币），CAGR 25%+。全球门店7800+家。2020年代全球营收占比超50%</li>
+      <li><strong>大创(Daiso)：</strong>1991年上市时200家店→2024年全球7500+家。全球GMV超1万亿日元。"100日元店"模式在经济停滞期爆发</li>
+      <li><strong>Nitori：</strong>2024财年营收1.72万亿日元，门店3000+家。日本最大家居零售</li>
+      <li><strong>唐吉诃德：</strong>2005年转型折扣后爆发，2024年营收约1.6万亿日元</li>
+      <li><strong>核心逻辑：</strong>工资停滞→消费降级→极致性价比品牌胜出</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">崛起</span>医药与药妆</h3>
+    <div class="tag-row"><span class="tag tag-green">刚需</span><span class="tag tag-yellow">人口驱动</span></div>
+    <ul>
+      <li>OTC市场规模：1990年~1.5万亿日元→2024年~3.2万亿日元（CAGR ~2.5%）</li>
+      <li>药妆店：松本清从1家店→2024年1500+家（含海外）</li>
+      <li>65岁以上占比：12.1%(1990)→29.4%(2024)，翻倍还多</li>
+      <li>医药产业出口：2024年约2.2万亿日元，较2010年增长3倍+</li>
+      <li><strong>核心逻辑：</strong>老龄化是确定性最强的需求，不受经济周期影响</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">崛起</span>便利商店</h3>
+    <div class="tag-row"><span class="tag tag-green">网络效应</span><span class="tag tag-blue">单身社会</span></div>
+    <ul>
+      <li>门店数：1990年~5000家→2024年~58000家（14倍增长）</li>
+      <li>三大巨头：7-Eleven(~22000家)、FamilyMart(~9000家)、Lawson(~6000家)，合计超70%</li>
+      <li>便利店销售额：1990年~6万亿日元→2024年~20万亿日元（CAGR ~4%）</li>
+      <li>单身家庭：1990年21%→2024年38%</li>
+      <li>密度：日本每2300人1家店，远超美国8700人1家</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">崛起</span>动漫与内容产业</h3>
+    <div class="tag-row"><span class="tag tag-purple">Cool Japan</span><span class="tag tag-green">全球化</span></div>
+    <ul>
+      <li>动画产业：2024年约2.0万亿日元（~970亿人民币），较2015年增长~80%</li>
+      <li>国内市场~1.1万亿，海外市场~0.9万亿（海外占比45%，首次接近一半）</li>
+      <li>游戏产业：2024年约2.2万亿日元，海外占比超80%</li>
+      <li>"Cool Japan"战略：2012年设立基金，2024年预算约440亿日元</li>
+      <li><strong>核心逻辑：</strong>经济停滞期人们更需要精神慰藉（"治愈系"文化兴起）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">崛起</span>工业机器人与精密机械</h3>
+    <div class="tag-row"><span class="tag tag-blue">B2B上游</span><span class="tag tag-green">劳动力短缺</span></div>
+    <ul>
+      <li>机器人密度：1990年~100台/万人→2020年~640台（6.4倍），全球第一</li>
+      <li>Fanuc：1990年代营收~1000亿日元→2024财年~1.1万亿日元（10倍+），全球份额~30%</li>
+      <li>安川电机：同期营收增长~8倍，全球焊接机器人份额第一</li>
+      <li>东京电子：半导体设备全球份额~25-30%，2024财年~2.7万亿日元</li>
+      <li><strong>核心逻辑：</strong>劳动力绝对数量减少→自动化替代加速</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">崛起</span>入境旅游（2012后）</h3>
+    <div class="tag-row"><span class="tag tag-yellow">安倍战略</span><span class="tag tag-blue">日元贬值</span></div>
+    <ul>
+      <li>访日游客：2012年~600万→2019年3188万（CAGR 28%+），2024年恢复至~2500万</li>
+      <li>入境消费：2019年峰值约5.0万亿日元（~3000亿人民币）</li>
+      <li>日元贬值：2012年1美元≈78日元→2024年1美元≈150日元（贬值50%）</li>
+      <li><strong>注意：</strong>这是政策驱动的反弹型增长，但说明贬值国家的"外部套利"逻辑成立</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第三部分：中日深度对标 ==================== -->
+<section>
+<h2 class="section-title">第三部分：中日深度对标 — 哪些相似，哪些不同</h2>
+
+<h3 class="section-subtitle">3.1 关键宏观经济对标表</h3>
+<div class="card" style="margin-bottom:16px;">
+<table class="comp-table">
+<tr><th>维度</th><th>日本1990（泡沫顶点）</th><th>中国2024</th><th>相似度</th><th>关键差异</th></tr>
+<tr><td>人均GDP（名义）</td><td>≈2.5万美元（PPP~4万）</td><td>≈1.25万美元</td><td><span class="decline">中</span></td><td>中国"未富先老"，人均仅为日本峰值1/3-1/4</td></tr>
+<tr><td>65岁以上占比</td><td>12.1%</td><td>15.4%</td><td><span class="rise">高</span></td><td>中国老龄化速度更快（12年从10%→15%，日本用了22年）</td></tr>
+<tr><td>劳动年龄人口</td><td>~8500万（1990）</td><td>~8.7亿（2024）</td><td><span class="rise">高</span></td><td>中国劳动人口2014年峰值10.05亿，10年减少~1.35亿</td></tr>
+<tr><td>房地产占GDP</td><td>≈20%</td><td>≈25-30%</td><td><span class="rise">高</span></td><td>中国依赖度更高，出清代价更大</td></tr>
+<tr><td>M2/GDP比率</td><td>≈140%</td><td>≈245%</td><td><span class="decline">差异大</span></td><td>中国货币化程度更高，但资金空转更严重</td></tr>
+<tr><td>资本账户</td><td>完全开放</td><td><span class="rise">严格管控</span></td><td><span class="decline">根本不同</span></td><td>中国不会发生日本式资本外逃，但缺乏市场出清效率</td></tr>
+<tr><td>银行体系</td><td>私有为主</td><td><span class="rise">国有主导</span></td><td><span class="decline">根本不同</span></td><td>中国可控去杠杆，避免"僵尸银行"困局</td></tr>
+<tr><td>全球供应链地位</td><td>技术顶端</td><td><span class="rise">制造中心</span></td><td><span class="decline">差异大</span></td><td>中国有全产业链韧性，但也面临"中等技术陷阱"</td></tr>
+<tr><td>中央财政空间</td><td>政府债务/GDP ~130%</td><td><span class="rise">中央政府杠杆率~25%</span></td><td><span class="rise">优势</span></td><td>中国中央政府有加杠杆空间，但地方债务约束大</td></tr>
+<tr><td>汇率</td><td>日元大幅升值</td><td><span class="rise">人民币稳中微贬</span></td><td><span class="decline">相反</span></td><td>日本出口受升值打击，中国出口仍有竞争力</td></tr>
+</table>
+</div>
+
+<h3 class="section-subtitle">3.2 中国崛起行业 — 对标日本赢家 + 叠加中国特色</h3>
+<div class="grid-3">
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">强推荐</span>平价零售/折扣经济</h3>
+    <div class="tag-row"><span class="tag tag-green">反周期</span><span class="tag tag-yellow">确定性高</span></div>
+    <ul>
+      <li><strong>拼多多：</strong>2024年营收8687亿元(+49%)。用户数超9亿。TEMU全球扩张</li>
+      <li><strong>名创优品：</strong>2024年营收210亿元(+27.3%)，全球门店6000+（海外2500+）</li>
+      <li><strong>蜜雪冰城：</strong>2024年营收~309亿元，门店4.5万家。单杯均价6-8元</li>
+      <li><strong>零食很忙/赵一鸣：</strong>量贩零食连锁整合期，行业CR5从2020年<5%升至2024年~15%</li>
+      <li><strong>对标：</strong>与日本1990-2010年路径高度相似。工资停滞预期→消费降级→极致性价比</li>
+      <li><strong>风险：</strong>头部效应明显，中小玩家生存困难</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">强推荐</span>银发经济（最强确定性赛道）</h3>
+    <div class="tag-row"><span class="tag tag-green">刚需</span><span class="tag tag-yellow">人口确定性</span></div>
+    <ul>
+      <li><strong>人口拐点：</strong>2024年60岁以上2.80亿(19.8%)，65岁以上2.17亿(15.4%)。预计2035年60岁以上突破4亿(30%+)</li>
+      <li><strong>市场规模：</strong>2024年约7万亿元。国务院2024.1正式定调"银发经济"</li>
+      <li><strong>子赛道1-养老护理：</strong>护理人员缺口500万+。一线城市月薪8000-15000</li>
+      <li><strong>子赛道2-康复器械：</strong>家用医疗设备市场年增速15-20%。可穿戴设备2024年增长23%</li>
+      <li><strong>子赛道3-慢病管理：</strong>中国慢病患者超3亿。数字化慢病管理平台市场空间千亿级</li>
+      <li><strong>对标日本：</strong>日本医药/护理市场从1990年~3万亿日元→2024年~20万亿日元（6-7倍增长）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">推荐</span>宠物经济</h3>
+    <div class="tag-row"><span class="tag tag-purple">情绪消费</span><span class="tag tag-green">抗周期</span></div>
+    <ul>
+      <li><strong>市场规模：</strong>2024年~3002亿元(+6.5%)。食品~35%、医疗~28%、用品~20%、服务~17%</li>
+      <li><strong>宠物医疗：</strong>2024年~450-480亿元。全国宠物医院/诊所3万家+，服务收入+15%+</li>
+      <li><strong>驱动：</strong>单身人口~2.4亿+不婚率上升+少子化(生育率~1.0)→情感寄托</li>
+      <li><strong>子赛道：</strong>宠物殡葬(蓝海)、专科医疗、宠物保险(渗透率<5%)</li>
+      <li><strong>对标日本：</strong>日本宠物市场2024年约2万亿日元，与动漫市场规模相当</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">推荐</span>出海/跨境电商</h3>
+    <div class="tag-row"><span class="tag tag-blue">增量市场</span><span class="tag tag-yellow">政策扶持</span></div>
+    <ul>
+      <li><strong>总体：</strong>2024年跨境电商进出口总额2.63万亿(+9.8%)，出口1.89万亿(+12.5%)</li>
+      <li><strong>Temu：</strong>2024年全球GMV~450-500亿美元。2025年目标600-700亿</li>
+      <li><strong>SHEIN：</strong>2024年全球GMV~350-400亿美元。加速全托管/半托管转型</li>
+      <li><strong>TikTok Shop：</strong>2024年全球GMV~100-150亿美元。东南亚占40%</li>
+      <li><strong>对标日本汽车：</strong>日本国内汽车市场1990年萎缩40%，但海外销量占比从30%升至80%。中国新能源车同样走这条路</li>
+      <li><strong>风险：</strong>欧美de minimis免税政策收紧、地缘政治(TikTok美国禁令)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">推荐</span>技能型服务业</h3>
+    <div class="tag-row"><span class="tag tag-green">供需失衡</span><span class="tag tag-yellow">收入可观</span></div>
+    <ul>
+      <li><strong>技能人才总量：</strong>超2亿，高技能人才超6000万(30%+)，结构性缺口约2000万</li>
+      <li><strong>装修/装饰：</strong>2023年市场规模~4万亿。熟练电工/水工/木工日薪300-800元，月入1-2万</li>
+      <li><strong>家政服务：</strong>2023年营业额1.17万亿。金牌月嫂月薪1-3万</li>
+      <li><strong>养老护理员：</strong>一线城市月薪8000-15000，持证+经验者可达2万+</li>
+      <li><strong>对标日本：</strong>日本熟练技工(大工/左官/电气工事士)薪资在停滞期持续增长，因为供给收缩→议价能力提升</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="tag tag-green" style="margin-right:6px;">推荐</span>心理健康/疗愈</h3>
+    <div class="tag-row"><span class="tag tag-purple">精神内耗</span><span class="tag tag-yellow">需求旺盛</span></div>
+    <ul>
+      <li><strong>社会背景：</strong>"内卷""躺平""精神内耗"成为普遍社会现象。青年焦虑抑郁检出率约10-15%</li>
+      <li><strong>市场规模：</strong>中国心理健康服务市场约500-800亿元，年复合增长率15-20%。但人均投入仅50-80元/年，远低于美国(~150美元/年)</li>
+      <li><strong>子赛道：</strong>心理咨询、冥想/正念App、情绪管理课程、职场EAP服务</li>
+      <li><strong>对标日本：</strong>日本1990年代"宽裕世代"出现大量心理困扰。2000年代后心理咨询/禅修/森林疗法兴起</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第四部分：未来3-5年预测 ==================== -->
+<section>
+<h2 class="section-title">第四部分：未来3-5年中国方向预测 — 数据支撑的情景分析</h2>
+
+<div class="forecast-box">
+<h4>情景A：基准情景（概率50%）— "日本化"温和路径</h4>
+<ul style="font-size:13px; color: var(--text2); line-height: 2;">
+<li><strong>GDP增速：</strong>2026-2028年约4.0-4.5%，2029-2030年降至3.5-4.0%。名义增速约4-5%</li>
+<li><strong>CPI/PPI：</strong>温和通胀(CPI 1-2%)，PPI周期性波动。通缩风险降低但非消失</li>
+<li><strong>房地产：</strong>2025-2026年继续筑底，2027年后一线/强二线企稳，三四线仍需3-5年出清</li>
+<li><strong>政策：</strong>中央财政加杠杆（特别国债+赤字率提升至3.5-4%），地方债务置换持续推进</li>
+<li><strong>人口：</strong>年出生人口降至800万以下，65岁以上占比突破18%。劳动人口每年减少约800-1000万</li>
+</ul>
+</div>
+
+<div class="forecast-box">
+<h4>情景B：乐观情景（概率25%）— "中国式修复"路径</h4>
+<ul style="font-size:13px; color: var(--text2); line-height: 2;">
+<li><strong>前提条件：</strong>中央财政强力刺激居民端（发现金/消费券）+ 科技突破（AI/半导体/新能源）+ 地缘缓和</li>
+<li><strong>GDP增速：</strong>2026-2028年约5.0-5.5%，2029-2030年约4.5-5.0%</li>
+<li><strong>关键变量：</strong>全要素生产率(TFP)回升、消费升级而非降级、人民币国际化进展</li>
+<li><strong>对标案例：</strong>更接近韩国1997后的修复路径（危机→改革→科技崛起）</li>
+</ul>
+</div>
+
+<div class="risk-box">
+<h4>情景C：悲观情景（概率25%）— "日本化"深化路径</h4>
+<ul style="font-size:13px; color: var(--text2); line-height: 2;">
+<li><strong>触发条件：</strong>地缘冲突升级（台海/南海）+ 欧美全面脱钩 + 内部政策失误</li>
+<li><strong>GDP增速：</strong>2026-2028年约3.0-3.5%，2029-2030年可能降至2.5-3.0%</li>
+<li><strong>风险点：</strong>地方债务危机显性化、银行不良率飙升、资本管制强化</li>
+<li><strong>对标案例：</strong>更接近日本1997-2003年的"二次探底"</li>
+</ul>
+</div>
+
+<h3 class="section-subtitle">4.1 确定性最高的三大方向</h3>
+<div class="grid-3">
+  <div class="card">
+    <h3>🥇 银发经济 — 人口确定性最强</h3>
+    <div class="tag-row"><span class="tag tag-green">不可逆</span><span class="tag tag-yellow">政策鼓励</span></div>
+    <ul>
+      <li><strong>数据支撑：</strong>65岁以上占比从15.4%(2024)→预计2030年约19-20%→2035年25%+</li>
+      <li><strong>市场规模预测：</strong>2024年7万亿→2030年预计15-20万亿(CAGR 12-15%)→2035年30万亿+</li>
+      <li><strong>对标日本：</strong>日本医药/护理从1990年~3万亿日元→2024年~20万亿日元（6-7倍增长）</li>
+      <li><strong>具体赛道优先级：</strong>社区上门养老 > 康复器械 > 慢病管理 > 老年文娱 > 适老化改造</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🥈 出海/全球化 — 市场确定性最强</h3>
+    <div class="tag-row"><span class="tag tag-blue">增量</span><span class="tag tag-yellow">政策驱动</span></div>
+    <ul>
+      <li><strong>数据支撑：</strong>2024年出口43.85万亿(+5%)，机电产品26.3万亿(58.9%)，"新三样"持续高增</li>
+      <li><strong>市场空间：</strong>东南亚人口6.5亿(GDP增速5%+)、中东主权基金超2万亿美元、拉美中产崛起</li>
+      <li><strong>对标日本：</strong>日本1980年代面对美国贸易摩擦，通过"全球本地化"(Glocalization)破局</li>
+      <li><strong>具体方向：</strong>东南亚本地化 > 中东基建/科技 > 拉美电商 > 非洲制造业转移</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🥉 效率革命型消费 — 行为确定性最强</h3>
+    <div class="tag-row"><span class="tag tag-green">反周期</span><span class="tag tag-yellow">行为学支撑</span></div>
+    <ul>
+      <li><strong>数据支撑：</strong>拼多多2024年+49%、名创优品+27%、蜜雪冰城309亿——在GDP增速5%环境下实现30-50%增长</li>
+      <li><strong>行为学逻辑：</strong>房价上涨预期崩塌→"锚定效应"反转→从"品牌崇拜"转向"性价比优先"。日本经验证实不可逆</li>
+      <li><strong>对标日本：</strong>优衣库在大阪经济停滞期逆势扩张，2000年代全球开店</li>
+      <li><strong>具体方向：</strong>折扣零售供应链 > 二手交易平台 > 临期食品 > 性价比品牌运营</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="section-subtitle" style="margin-top:24px;">4.2 需要警惕的领域</h3>
+<div class="grid-2">
+  <div class="risk-box">
+    <h4>🔴 房地产及上下游 — 底部未明</h4>
+    <ul style="font-size:13px; color: var(--text2); line-height: 1.8;">
+      <li>销售面积/金额仍在下滑，房企债务重组进行中</li>
+      <li>土地财政终结，地方政府收入承压→基建投资放缓</li>
+      <li><strong>对标日本：</strong>商业地产见底用了约15年（1991-2005），且中间有反复</li>
+      <li><strong>判断：</strong>一线/强二线核心区2027-2028年可能企稳，但三四线仍需更长时间</li>
+    </ul>
+  </div>
+  <div class="risk-box">
+    <h4>🔴 传统银行/城商行 — 分化加剧</h4>
+    <ul style="font-size:13px; color: var(--text2); line-height: 1.8;">
+      <li>房贷不良率上升，LPR持续下行压缩息差（从2019年~2.5%降至2024年~1.5%）</li>
+      <li>地方城投债务风险传导至城商行/农商行</li>
+      <li><strong>分化：</strong>国有大行因高股息+政策托底相对安全；中小银行风险仍存</li>
+      <li><strong>对标日本：</strong>银行业不良处理花了5-7年（1998-2005），ROE恢复到5%+又花了5年</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="section-subtitle">4.3 科技自立自强 — 政策驱动型赛道的数据透视</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>🔬 半导体自主化</h3>
+    <ul>
+      <li><strong>大基金三期：</strong>注册资本3440亿人民币，超前两期总和（一期1387亿+二期2048亿）</li>
+      <li><strong>国产替代率：</strong>2024年中国大陆晶圆代工产能全球占比约18%，但先进制程(≤14nm)仍依赖台积电/三星</li>
+      <li><strong>设备国产化：</strong>刻蚀机(中微)全球份额~15%，薄膜沉积(北方华创)~10%，但光刻机(上海微电子)仍落后2-3代</li>
+      <li><strong>风险：</strong>估值偏高、地缘政治扰动大、人才短缺（半导体工程师缺口约30万+）</li>
+      <li><strong>判断：</strong>设备/材料/EDA是最佳切入点，整车芯片次之，先进制程短期难以突破</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🚗 新能源/电动车产业链</h3>
+    <ul>
+      <li><strong>销量：</strong>2024年销量1286.6万辆(+35.5%)，渗透率40.7%，连续3年超30%</li>
+      <li><strong>比亚迪：</strong>2024年销量302.4万辆(+20%+)，全球NEV销量第一</li>
+      <li><strong>宁德时代：</strong>全球动力电池份额~37%，连续7年全球第一</li>
+      <li><strong>风险：</strong>欧美关税壁垒加剧（美国对华关税145%+，欧盟临时关税最高~17%）</li>
+      <li><strong>判断：</strong>上游材料(锂电材料/稀土)优于整车；出海建厂（东南亚/东欧/墨西哥）是必选项</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第五部分：多学派交叉解读 ==================== -->
+<section>
+<h2 class="section-title">第五部分：多学派交叉解读 — 为什么这些结论可靠</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3><span class="school-tag school-ky">凯恩斯主义</span>有效需求不足的结构性困境</h3>
+    <p>当前中国经济的核心问题是居民和企业部门同时在做"资产负债表修复"——还债而非借贷消费/投资。M1负增长+M1-M2裂口创纪录是典型信号。凯恩斯主义主张财政扩张对冲，但地方政府债务已约束传统基建空间。唯一可行的是中央财政直接转移支付给居民（发现金/消费券），但这涉及政治经济学难题——中国财政体系以生产性投资为主，直接转移支付缺乏制度基础。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-marx">马克思主义政治经济学</span>虚拟资本膨胀的必然修正</h3>
+    <p>房地产和金融业的泡沫是"虚拟资本"脱离实体经济的典型表现。泡沫破裂本质上是利润率下降规律的自我修正——资本从低效的地产部门向高效的技术部门重新配置。这个过程痛苦但必要。日本经验表明需要10-15年才能完成（1990-2005）。中国的特点是国有银行主导，可以避免日本式的"无序出清"，但代价是"僵尸企业"延长痛苦期。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-behavior">行为经济学</span>锚定效应反转 — 不可逆的消费心理转变</h3>
+    <p>2020年前的房价上涨形成了"房价只涨不跌"的心理锚点。一旦锚点崩塌，消费者行为发生根本性反转——从"提前买房"变为"租房也行"。这种心理转变是不可逆的（日本1990年代后证实）。拼多多的爆发正是利用了这一行为转变。关键洞察：<strong>消费降级不是暂时的，而是结构性永久性转变。</strong></p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-evolution">演化经济学</span>产业达尔文主义 — 生态位选择</h3>
+    <p>房地产、传统百货等"旧物种"因不适应新的生态环境而衰退，而银发经济、宠物经济、内容产业等新物种凭借差异化竞争优势占据生态位。这不是简单的"产业升级"，而是整个经济生态系统的重构。对个人而言：<strong>选择"生态位"而非"风口"</strong>。风口会被热钱挤破，生态位需要时间培育但壁垒更深。</p>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第六部分：个人出路终极推荐 ==================== -->
+<section>
+<h2 class="section-title">第六部分：个人深耕行业终极推荐 — 多维度评分矩阵</h2>
+
+<div class="rec-card">
+  <h3>🎯 综合首选：银发经济（养老产业）</h3>
+  <p>从<strong>前提校验</strong>角度：需求由人口结构决定，具有不可逆性和确定性。从<strong>五维联动</strong>角度：政治（十四五规划）→政策（补贴+医保覆盖）→货币（个人养老金账户）→行为（老龄化加速）→社会（照护缺口）全部指向同一方向。从<strong>历史对称对标</strong>看：日本医药/药妆/养老护理在泡沫破裂后15年内增长3-5倍。从<strong>代价前置</strong>看：启动门槛灵活（5-30万均可），政策风险极低（国家鼓励），但竞争正在加剧，越早进入越好。</p>
+
+  <div class="rec-grid">
+    <div class="rec-item">
+      <h4>🥇 首选：社区上门养老服务</h4>
+      <p>投入5-10万，获取护理/养老相关资质，整合社区资源提供助浴/助洁/助餐/陪诊服务。一线城市单次收费100-300元，二三线50-150元。回报周期12-18个月。可叠加政府购买服务补贴。关键壁垒是社区信任和复购率。对标日本：2012年介护保险制度完善后，居家养老服务市场规模从2012年~3万亿日元→2024年~8万亿日元。</p>
+    </div>
+    <div class="rec-item">
+      <h4>🥈 次选：适老化改造</h4>
+      <p>政府补贴覆盖率40%+，重点推进家居智能化与安全化升级。可做"适老化改造设计师+施工"一体化服务。启动资金10-20万，单个项目利润3000-10000元。对标日本：2000年代日本推动"无障碍/通用设计"，相关市场规模从2000年~500亿日元→2024年~5000亿日元（10倍）。</p>
+    </div>
+    <div class="rec-item">
+      <h4>🥉 第三选：老年智能用品/健康监测</h4>
+      <p>可穿戴设备销量2024年增长23%。防走失手环+智能药盒一体化方案是空白点。可做代理/分销/内容种草。也可做"智能设备租赁+上门安装"服务。启动资金3-5万。注意医疗器械注册合规要求。</p>
+    </div>
+    <div class="rec-item">
+      <h4>💡 备选：养老护理培训</h4>
+      <p>护理人员缺口极大。考取培训资质后开展养老护理员/家政培训。一线城市培训费3000-8000元/人，就业率90%+。启动资金10-15万（场地+师资+资质）。与国家职业资格认证挂钩，政策确定性强。</p>
+    </div>
+  </div>
+</div>
+
+<h3 class="section-subtitle">各行业综合评分对比矩阵</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>📊 个人创业/就业维度评分</h3>
+    <table class="comp-table">
+      <tr><th>行业</th><th>确定性</th><th>启动资金</th><th>竞争度</th><th>个人适配</th><th>5年CAGR预测</th></tr>
+      <tr><td class="rise">银发经济</td><td>⭐⭐⭐⭐⭐</td><td>5-30万</td><td>中等</td><td>⭐⭐⭐⭐⭐</td><td>12-15%</td></tr>
+      <tr><td class="rise">宠物经济</td><td>⭐⭐⭐⭐</td><td>5-15万</td><td>中高</td><td>⭐⭐⭐⭐</td><td>8-10%</td></tr>
+      <tr><td class="rise">折扣零售</td><td>⭐⭐⭐⭐</td><td>10-50万</td><td>高</td><td>⭐⭐⭐</td><td>10-12%</td></tr>
+      <tr><td class="rise">出海电商</td><td>⭐⭐⭐</td><td>3-20万</td><td>极高</td><td>⭐⭐⭐⭐</td><td>15-20%</td></tr>
+      <tr><td class="rise">技能蓝领</td><td>⭐⭐⭐⭐⭐</td><td>1-5万</td><td>低</td><td>⭐⭐⭐⭐</td><td>8-12%（薪资）</td></tr>
+      <tr><td>心理健康</td><td>⭐⭐⭐</td><td>1-3万</td><td>低</td><td>⭐⭐⭐</td><td>15-20%</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>💰 股市投资策略排序</h3>
+    <table class="comp-table">
+      <tr><th>策略</th><th>风险等级</th><th>预期年化</th><th>推荐度</th><th>核心逻辑</th></tr>
+      <tr><td>红利ETF定投</td><td>低</td><td>6-10%（股息+小幅增长）</td><td>⭐⭐⭐⭐⭐</td><td>低利率环境下股息率仍有吸引力，SOE利润增长19%(2024)</td></tr>
+      <tr><td>港股互联网龙头</td><td>中</td><td>15-25%（估值修复+增长）</td><td>⭐⭐⭐⭐</td><td>美联储降息周期→港股流动性改善，PE处于历史低位</td></tr>
+      <tr><td>银发经济主题基金</td><td>中</td><td>10-20%</td><td>⭐⭐⭐⭐</td><td>人口确定性+政策催化</td></tr>
+      <tr><td>半导体设备/材料</td><td>高</td><td>波动大，择时关键</td><td>⭐⭐⭐</td><td>国产替代+大基金三期，但估值偏高+地缘风险</td></tr>
+      <tr><td>新能源整车</td><td>高</td><td>关税风险大</td><td>⭐⭐</td><td>渗透率40.7%但欧美关税壁垒加剧</td></tr>
+    </table>
+    <p style="margin-top:10px;"><span class="tag tag-yellow">提醒：</span>所有投资预判必须标注不确定性边界。预期基于历史数据和当前政策环境，不构成投资建议。</p>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第七部分：跨时空共性规律 ==================== -->
+<section>
+<h2 class="section-title">第七部分：跨时空共性规律 — 泡沫破裂后的行业轮动铁律</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>资产泡沫破裂后的行业轮动规律（四国比较）</h3>
+    <table class="comp-table">
+      <tr><th>维度</th><th>衰退行业特征</th><th>崛起行业特征</th></tr>
+      <tr><td>资产属性</td><td class="decline">重资产、高杠杆</td><td class="rise">轻资产、现金流稳定</td></tr>
+      <tr><td>消费定位</td><td class="decline">高端/炫耀性消费</td><td class="rise">性价比/情感慰藉</td></tr>
+      <tr><td>技术依赖</td><td class="decline">传统制造/建筑</td><td class="rise">自动化/数字化/内容</td></tr>
+      <tr><td>市场方向</td><td class="decline">依赖国内地产繁荣</td><td class="rise">全球化出口或内需刚需</td></tr>
+      <tr><td>制度依赖</td><td class="decline">依赖宽松信贷</td><td class="rise">适应紧缩环境</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>历史对称对标：四国经验</h3>
+    <table class="comp-table">
+      <tr><th>国家/时期</th><th>触发事件</th><th>崛起行业</th><th>关键数据</th></tr>
+      <tr><td><strong>日本(1990)</strong></td><td>地产+股市双泡沫破裂</td><td>优衣库/药妆/动漫/机器人</td><td>优衣库营收从0→3万亿日元(30年)</td></tr>
+      <tr><td><strong>中国(2024)</strong></td><td>房地产去杠杆</td><td>银发经济/折扣零售/出海</td><td>拼多多营收0→8687亿(10年)</td></tr>
+      <tr><td><strong>美国(2008)</strong></td><td>次贷危机</td><td>Amazon/Netflix/共享经济</td><td>Amazon营收从170亿→5140亿(15年)</td></tr>
+      <tr><td><strong>韩国(1997)</strong></td><td>亚洲金融危机</td><td>K-pop/半导体/美妆</td><td>三星半导体全球份额从10%→30%(20年)</td></tr>
+    </table>
+    <p style="margin-top:10px;"><strong>结论：</strong>无论哪个国家、哪个时代，资产泡沫破裂后的规律高度一致——<span class="rise">平价零售、内容娱乐、自动化替代、刚需服务</span>四个赛道普遍逆势走强。</p>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>本看板由"全域全流派经济学首席研判专家"框架生成 v2.0</p>
+  <p>分析原则：前提校验优先 · 五维联动 · 多流派对冲 · 历史对称对标 · 代价前置</p>
+  <p style="margin-top:8px;">⚠️ 免责声明：以上内容仅为学术研究和分析参考，不构成任何投资建议。所有经济预判均存在不确定性边界，投资需谨慎。</p>
+  <p style="margin-top:4px; font-size:10px;">数据来源：国家统计局、中国人民银行、日本厚生劳动省、日本总务省统计局、IMF、OECD、World Bank、中国海关总署、各公司年报、阿里研究院、艾瑞咨询、前瞻产业研究院。数据截止2024年末/2025年初。</p>
+  <p style="margin-top:4px; font-size:10px;">Sources: Nikkei Asia · IMF Blog on Japan's Wage Stagnation · Reuters · Statista · World Bank Data · OECD · 中国政府网 · 财政部 · 新华网</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -8,6 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 :root {
   --bg: #0a0e17;
@@ -32,7 +34,9 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  min-width: 1024px;
+  min-width: 320px;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 .container { max-width: 1600px; margin: 0 auto; padding: 24px; }
 /* Hero */
@@ -182,6 +186,36 @@ section { margin-bottom: 50px; }
 .card ul li { padding: 5px 0; border-bottom: 1px solid rgba(30,42,58,0.5); }
 .card ul li:last-child { border-bottom: none; }
 .card ul li strong { color: var(--text); font-weight: 600; }
+/* Card images */
+.card-image {
+  position: relative;
+  margin: -18px -18px 12px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.card-image:hover img {
+  transform: scale(1.05);
+}
+.card-image .card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, rgba(17,24,39,0.9));
+  pointer-events: none;
+}
+.card-image.small {
+  height: 100px;
+}
 /* Flow diagram */
 .flow-steps {
   display: flex;
@@ -288,6 +322,130 @@ section { margin-bottom: 50px; }
   color: var(--text2);
   line-height: 1.8;
 }
+/* Map section */
+.map-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.map-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+/* Leaflet popup cyberpunk theme */
+.leaflet-popup-content-wrapper {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+}
+.leaflet-popup-tip {
+  background: var(--surface) !important;
+}
+.leaflet-popup-content {
+  color: var(--text) !important;
+  font-family: 'Noto Sans SC', sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  margin: 10px 12px !important;
+}
+.leaflet-popup-close-button {
+  color: var(--text2) !important;
+}
+.popup-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.popup-category-food { color: var(--neon-red); }
+.popup-category-attraction { color: var(--neon-green); }
+.popup-category-supply { color: var(--neon-cyan); }
+.popup-category-ecommerce { color: var(--neon-purple); }
+.popup-category-shopping { color: var(--neon-gold); }
+.popup-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(30,42,58,0.4);
+}
+.popup-row:last-child { border-bottom: none; }
+.popup-label { color: var(--text2); font-size: 12px; }
+.popup-value { color: var(--neon-gold); font-weight: 600; font-size: 12px; white-space: nowrap; margin-left: 8px; }
+.route-info { color: var(--text2); font-size: 11px; margin-top: 4px; line-height: 1.5; }
+#distance-table-section {
+  margin-top: 20px;
+}
+.distance-toggle-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: var(--neon-cyan);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.distance-toggle-btn:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+}
+.distance-table-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.distance-table-wrap.open {
+  max-height: 3000px;
+}
+.distance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.distance-table th, .distance-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  text-align: left;
+}
+.distance-table th {
+  background: var(--surface2);
+  color: var(--neon-cyan);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+.distance-table tbody tr:hover {
+  background: rgba(6, 182, 212, 0.05);
+}
+.distance-table .dist-val {
+  color: var(--neon-gold);
+  font-weight: 700;
+}
+.cat-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.cat-badge.food { background: rgba(239,68,68,0.15); color: var(--neon-red); }
+.cat-badge.attraction { background: rgba(16,185,129,0.15); color: var(--neon-green); }
+.cat-badge.supply { background: rgba(6,182,212,0.15); color: var(--neon-cyan); }
+.cat-badge.ecommerce { background: rgba(139,92,246,0.15); color: var(--neon-purple); }
+.cat-badge.shopping { background: rgba(234,179,8,0.15); color: var(--neon-gold); }
 /* Footer */
 footer {
   text-align: center;
@@ -296,6 +454,98 @@ footer {
   color: var(--text2);
   font-size: 11px;
   margin-top: 40px;
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+
+/* 768px — tablet / large phone */
+@media (max-width: 768px) {
+  .container { padding: 16px; }
+  section { margin-bottom: 30px; }
+  .hero h1 { font-size: 26px; }
+  .metric-card .value { font-size: 22px; }
+  .section-title { font-size: 18px; }
+  .echarts-container { height: 280px !important; }
+  .map-container { height: 350px !important; }
+  .card-image { height: 100px; }
+  .card-image.small { height: 80px; }
+  .distance-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .distance-table { min-width: 500px; }
+  .flow-step { min-width: 120px; max-width: 160px; padding: 12px 14px; }
+}
+
+/* 640px — standard phone */
+@media (max-width: 640px) {
+  .metrics-row { grid-template-columns: 1fr !important; }
+  .hero h1 { font-size: 22px; letter-spacing: 1px; }
+  .metric-card .value { font-size: 20px; }
+  .section-title { font-size: 17px; }
+  .section-subtitle { font-size: 14px; }
+  .card-image { height: 90px; }
+  .card-image.small { height: 70px; }
+  .card { padding: 14px; }
+  .card h3 { font-size: 13px; }
+  .card p, .card li { font-size: 12px; }
+  .echarts-container { height: 260px !important; }
+  .map-container { height: 320px !important; }
+  .distance-toggle-btn { padding: 8px 14px; font-size: 12px; }
+  .distance-table th, .distance-table td { padding: 6px 8px; font-size: 11px; }
+  .flow-step { min-width: 100px; max-width: 140px; padding: 10px 10px; }
+  .flow-step .step-icon { font-size: 20px; }
+  .flow-step .step-label { font-size: 12px; }
+  .flow-arrow { font-size: 16px; margin: 0 4px; }
+  footer { padding: 20px 0; margin-top: 24px; font-size: 10px; }
+}
+
+/* 480px — small phone */
+@media (max-width: 480px) {
+  .container { padding: 10px; }
+  section { margin-bottom: 20px; }
+  .hero { padding: 30px 10px 24px; }
+  .hero h1 { font-size: 18px; letter-spacing: 0; }
+  .subtitle { font-size: 12px; }
+  .meta { font-size: 11px; }
+  .metric-card { padding: 14px; }
+  .metric-card .value { font-size: 18px; }
+  .metric-card .label { font-size: 11px; }
+  .section-title { font-size: 16px; padding-left: 10px; }
+  .section-subtitle { font-size: 13px; margin: 18px 0 10px; }
+  .card-image { height: 75px; margin: -14px -14px 10px; }
+  .card-image.small { height: 55px; }
+  .card { padding: 12px; border-radius: 8px; }
+  .card h3 { font-size: 12px; }
+  .card p, .card li { font-size: 11px; line-height: 1.6; }
+  .card ul li { padding: 3px 0; }
+  .echarts-container { height: 220px !important; }
+  .map-container { height: 280px !important; }
+  .distance-toggle-btn { padding: 7px 10px; font-size: 11px; }
+  .distance-table th, .distance-table td { padding: 5px 6px; font-size: 10px; }
+  .distance-table-wrap { max-height: 2000px; }
+  .flow-step { min-width: 80px; max-width: 110px; padding: 8px 8px; }
+  .flow-step .step-icon { font-size: 18px; }
+  .flow-step .step-label { font-size: 11px; }
+  .flow-step .step-desc { font-size: 10px; }
+  .flow-arrow { font-size: 14px; margin: 0 2px; }
+  .chart-box { padding: 14px; }
+  .chart-box .chart-title { font-size: 14px; }
+  .channel-card { padding: 12px; }
+  .channel-card h4 { font-size: 13px; }
+  .channel-card p { font-size: 11px; }
+  footer { padding: 16px 0; margin-top: 16px; }
+}
+
+/* 375px — very small phone */
+@media (max-width: 375px) {
+  .hero h1 { font-size: 16px; }
+  .metric-card .value { font-size: 16px; }
+  .section-title { font-size: 14px; }
+  .card-image { height: 65px; }
+  .card-image.small { height: 48px; }
+  .echarts-container { height: 200px !important; }
+  .map-container { height: 250px !important; }
+  .flow-step { min-width: 70px; max-width: 90px; padding: 6px 6px; }
+  .flow-step .step-icon { font-size: 16px; }
+  .flow-step .step-label { font-size: 10px; }
 }
 </style>
 </head>
@@ -350,6 +600,10 @@ footer {
 
     <!-- 广式早茶 -->
     <div class="card" style="border-left:3px solid var(--neon-red);box-shadow:var(--glow-red);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1496843918223-1491636db367&w=400&h=400&fit=cover&q=70" alt="广式早茶" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23ef4444%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🫖 广式早茶</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-red);"><i class="fa-solid fa-mug-hot"></i> 广式早茶</h3>
       <ul>
         <li><strong>核心品种</strong>: 虾饺 / 烧卖 / 叉烧包 / 肠粉 / 凤爪 / 蛋挞 / 流沙包 / 糯米鸡 / 红米肠 / 萝卜糕</li>
@@ -364,6 +618,10 @@ footer {
 
     <!-- 烧腊 -->
     <div class="card" style="border-left:3px solid var(--neon-orange);box-shadow:0 0 20px rgba(245,158,11,0.3);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1625376343863-0eb94ea48b40&w=400&h=400&fit=cover&q=70" alt="烧腊" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23f59e0b%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🍗 广式烧腊</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-orange);"><i class="fa-solid fa-drumstick-bite"></i> 烧腊</h3>
       <ul>
         <li><strong>核心品种</strong>: 深井烧鹅 / 豉油鸡 / 蜜汁叉烧 / 白切鸡 / 腊肠 / 烧肉</li>
@@ -377,6 +635,10 @@ footer {
 
     <!-- 糖水/甜品 -->
     <div class="card" style="border-left:3px solid var(--neon-gold);box-shadow:0 0 20px rgba(234,179,8,0.3);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1563805042-7684c019e1cb&w=400&h=400&fit=cover&q=70" alt="糖水甜品" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23eab308%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🍮 糖水甜品</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-ice-cream"></i> 糖水 / 甜品</h3>
       <ul>
         <li><strong>核心品种</strong>: 姜撞奶 / 双皮奶 / 杨枝甘露 / 绿豆沙 / 芝麻糊 / 红豆沙 / 豆腐花</li>
@@ -390,6 +652,10 @@ footer {
 
     <!-- 大排档/宵夜 -->
     <div class="card" style="border-left:3px solid var(--neon-green);box-shadow:0 0 20px rgba(16,185,129,0.3);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1555396273-367ea4eb4db5&w=400&h=400&fit=cover&q=70" alt="大排档宵夜" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23f59e0b%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🍢 大排档宵夜</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-green);"><i class="fa-solid fa-fire-burner"></i> 大排档 / 宵夜</h3>
       <ul>
         <li><strong>核心品种</strong>: 炒田螺 / 椒盐濑尿虾 / 干炒牛河 / 蒜蓉烤生蚝 / 煲仔饭 / 猪杂粥</li>
@@ -403,6 +669,10 @@ footer {
 
     <!-- 街头小吃 -->
     <div class="card" style="border-left:3px solid var(--neon-cyan);box-shadow:var(--glow-cyan);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1504674900247-0877df9cc836&w=400&h=400&fit=cover&q=70" alt="街头小吃" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23ef4444%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🍡 街头小吃</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-cyan);"><i class="fa-solid fa-utensils"></i> 街头小吃</h3>
       <ul>
         <li><strong>核心品种</strong>: 陈添记鱼皮 / 伍湛记及第粥 / 泮塘马蹄糕 / 伦教糕 / 鸡仔饼</li>
@@ -416,6 +686,10 @@ footer {
 
     <!-- 老字号/特色 -->
     <div class="card" style="border-left:3px solid var(--neon-purple);box-shadow:var(--glow-purple);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1517248135467-4c7edcad34c4&w=400&h=400&fit=cover&q=70" alt="老字号特色" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23eab308%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🏮 老字号</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-landmark"></i> 老字号 / 特色</h3>
       <ul>
         <li><strong>太平馆</strong> — 长堤大马路，1860年创办，中国第一家西餐酒楼</li>
@@ -468,6 +742,10 @@ footer {
 
     <!-- 历史文化 -->
     <div class="card" style="border-left:3px solid var(--neon-gold);box-shadow:0 0 20px rgba(234,179,8,0.3);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1599571234909-29ed5d1321d6&w=400&h=400&fit=cover&q=70" alt="历史文化景点" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2310b981%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🏛️ 历史文化</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-landmark-dome"></i> 历史文化</h3>
       <ul>
         <li><strong>陈家祠</strong> — 岭南建筑巅峰之作，地铁1号线陈家祠站A出口</li>
@@ -481,6 +759,10 @@ footer {
 
     <!-- 现代地标 -->
     <div class="card" style="border-left:3px solid var(--neon-cyan);box-shadow:var(--glow-cyan);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1527960750383-a8e4cacz3a3&w=400&h=400&fit=cover&q=70" alt="现代地标" onerror="this.onerror=null;this.src='https://images.weserv.nl/?url=images.unsplash.com/photo-1480714378408-67cf0d13bc1b&w=400&h=400&fit=cover&q=70'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-cyan);"><i class="fa-solid fa-city"></i> 现代地标</h3>
       <ul>
         <li><strong>广州塔（小蛮腰）</strong> — 600米，珠江南岸，可俯瞰全城</li>
@@ -493,6 +775,10 @@ footer {
 
     <!-- 自然山水 -->
     <div class="card" style="border-left:3px solid var(--neon-green);box-shadow:0 0 20px rgba(16,185,129,0.3);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1464822759023-fed622ff2c3b&w=400&h=400&fit=cover&q=70" alt="自然山水" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2310b981%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🌿 自然山水</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-green);"><i class="fa-solid fa-tree"></i> 自然山水</h3>
       <ul>
         <li><strong>白云山</strong> — "羊城第一秀"，摩星岭海拔382米，索道上下</li>
@@ -505,6 +791,10 @@ footer {
 
     <!-- 主题乐园 -->
     <div class="card" style="border-left:3px solid var(--neon-red);box-shadow:var(--glow-red);">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1507582020474-9a35b7d455d9&w=400&h=400&fit=cover&q=70" alt="主题乐园" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2310b981%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🎢 主题乐园</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-red);"><i class="fa-solid fa-ticket"></i> 主题乐园</h3>
       <ul>
         <li><strong>长隆野生动物世界</strong> — 全国最好，自驾小火车穿越</li>
@@ -518,6 +808,10 @@ footer {
 
     <!-- 文化街区 -->
     <div class="card" style="border-left:3px solid var(--neon-purple);box-shadow:var(--glow-purple);grid-column:span 2;">
+      <div class="card-image">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1547981609-4b6bfe67ca0b&w=400&h=400&fit=cover&q=70" alt="文化街区" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2310b981%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🏘️ 文化街区</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-chess-rook"></i> 文化街区 + 夜生活</h3>
       <div class="grid-2" style="margin-top:8px;">
         <div>
@@ -541,6 +835,10 @@ footer {
   <h3 class="section-subtitle">2.3 夜生活精选</h3>
   <div class="grid-3">
     <div class="card" style="border-left:3px solid var(--neon-purple);">
+      <div class="card-image small">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1519501025264-65ba15a82390&w=400&h=400&fit=cover&q=70" alt="夜间经济" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23ef4444%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🌃 夜间经济</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-moon"></i> 夜间经济</h3>
       <ul>
         <li><strong>珠江夜游</strong> — 天字码头 / 大沙头码头出发，两岸灯光秀，票价¥80-200</li>
@@ -553,6 +851,10 @@ footer {
     </div>
 
     <div class="card" style="border-left:3px solid var(--neon-red);">
+      <div class="card-image small">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1470337458703-46ad1756a187&w=400&h=400&fit=cover&q=70" alt="夜生活指南" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%238b5cf6%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🍸 夜生活</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-red);"><i class="fa-solid fa-champagne-glasses"></i>  nightlife 指南</h3>
       <ul>
         <li><strong>Best Bar</strong>: 饕餮鬼牌 (Tiki Bar), TIT造厂创意园</li>
@@ -564,6 +866,10 @@ footer {
     </div>
 
     <div class="card" style="border-left:3px solid var(--neon-gold);">
+      <div class="card-image small">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1480714378408-67cf0d13bc1b&w=400&h=400&fit=cover&q=70" alt="夜景推荐" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2306b6d4%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🌉 珠江夜景</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-star"></i> 夜景推荐</h3>
       <ul>
         <li><strong>广州塔</strong> — 登塔看全城夜景，¥150起</li>
@@ -572,6 +878,38 @@ footer {
         <li><strong>白云山摩星岭</strong> — 俯瞰全城夜景，免费</li>
         <li><strong>猎德大桥</strong> — 开车过桥看两岸灯光</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- 6.4 广州地图 — 以广东省中医院大德路总院为中心 -->
+  <h3 class="section-subtitle">6.4 广州地图 — 广东省中医院大德路总院出发</h3>
+  <p style="color:var(--text2);font-size:13px;margin-bottom:16px;">
+    <i class="fa-solid fa-location-dot" style="color:var(--neon-red);"></i>
+    参照点：<strong style="color:var(--neon-red);">广东省中医院大德路总院</strong>（荔湾区大德路123号，地铁1号线长寿路站）
+    &nbsp;|&nbsp; 以下所有地点均标注从该院出发的距离和推荐路线
+  </p>
+  <div class="map-section">
+    <div id="guangzhou-map" class="map-container"></div>
+  </div>
+  <div id="distance-table-section">
+    <button class="distance-toggle-btn" onclick="toggleDistanceTable()">
+      <i class="fa-solid fa-sort-amount-down"></i> 展开/收起 全量距离排序表
+    </button>
+    <div class="distance-table-wrap" id="distance-table-wrap">
+      <table class="distance-table">
+        <thead>
+          <tr>
+            <th style="width:40px;">排名</th>
+            <th style="width:60px;">类别</th>
+            <th>地点名称</th>
+            <th style="width:120px;">直线距离</th>
+            <th style="width:100px;">推荐路线</th>
+            <th style="width:80px;">耗时</th>
+          </tr>
+        </thead>
+        <tbody id="distance-table-body">
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -583,6 +921,10 @@ footer {
 
     <!-- 高端商圈 -->
     <div class="card" style="border-left:3px solid var(--neon-gold);box-shadow:0 0 20px rgba(234,179,8,0.3);">
+      <div class="card-image small">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1441986300917-64674bd600d5&w=400&h=400&fit=cover&q=70" alt="高端商圈" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%23eab308%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>💎 高端商圈</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-gold);"><i class="fa-solid fa-gem"></i> 高端商圈</h3>
       <ul>
         <li><strong>太古汇</strong> — 天河路，全一线奢侈品牌 (Chanel / LV / Hermes)</li>
@@ -596,6 +938,10 @@ footer {
 
     <!-- 大众消费 -->
     <div class="card" style="border-left:3px solid var(--neon-cyan);box-shadow:var(--glow-cyan);">
+      <div class="card-image small">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1528459801416-9e13073b7585&w=400&h=400&fit=cover&q=70" alt="大众消费" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2306b6d4%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>🛍️ 大众消费</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-cyan);"><i class="fa-solid fa-bag-shopping"></i> 大众消费</h3>
       <ul>
         <li><strong>正佳广场</strong> — 天河路6层超大综合体，海洋馆 + 剧院 + 超市</li>
@@ -609,6 +955,10 @@ footer {
 
     <!-- 批发市场购物 -->
     <div class="card" style="border-left:3px solid var(--neon-purple);box-shadow:var(--glow-purple);">
+      <div class="card-image small">
+        <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1553413077-190dd305871c&w=400&h=400&fit=cover&q=70" alt="批发市场" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23111827%22 width=%22400%22 height=%22400%22/><text fill=%22%2306b6d4%22 font-size=%2248%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22>📦 批发市场</text></svg>'">
+        <div class="card-overlay"></div>
+      </div>
       <h3 style="color:var(--neon-purple);"><i class="fa-solid fa-boxes-stacked"></i> 批发市场</h3>
       <ul>
         <li><strong>十三行新中国大厦</strong> — 女装批发，同时也接待散客，1-3楼零售</li>
@@ -1441,6 +1791,249 @@ window.addEventListener('resize', function() {
   chartPC.resize();
 });
 
-});
+// --- Leaflet 广州地图 ---
+(function initMap() {
+  var HOSPITAL = [23.1160, 113.2520]; // [lat, lng] for Leaflet
+  var HOSPITAL_NAME = '广东省中医院大德路总院';
+
+  // --- Haversine distance (km) ---
+  function haversine(lat1, lng1, lat2, lng2) {
+    var R = 6371;
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lng2 - lng1) * Math.PI / 180;
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function fmtDist(km) {
+    if (km < 1) return Math.round(km * 1000) + 'm';
+    return km.toFixed(1) + 'km';
+  }
+
+  // --- All locations [lat, lng] ---
+  var allLocations = [
+    // Food
+    { name:'北京路步行街', lng:113.2645, lat:23.1245, dist:'约2.5km', route:'地铁1号线→2号线', time:'15分钟', cat:'food' },
+    { name:'上下九/宝华路', lng:113.2450, lat:23.1180, dist:'约1.2km', route:'步行/地铁1号线', time:'8分钟', cat:'food' },
+    { name:'惠福东路', lng:113.2650, lat:23.1250, dist:'约2.8km', route:'地铁1号线', time:'15分钟', cat:'food' },
+    { name:'宝业路', lng:113.2400, lat:23.1050, dist:'约1.8km', route:'地铁2号线', time:'12分钟', cat:'food' },
+    { name:'体育西路/天河', lng:113.3300, lat:23.1330, dist:'约8km', route:'地铁1号线→3号线', time:'40分钟', cat:'food' },
+    { name:'永庆坊/恩宁路', lng:113.2380, lat:23.1210, dist:'约1.5km', route:'地铁1号线', time:'10分钟', cat:'food' },
+    { name:'文明路', lng:113.2680, lat:23.1280, dist:'约2.5km', route:'地铁1号线', time:'15分钟', cat:'food' },
+    { name:'滨江路', lng:113.2700, lat:23.1080, dist:'约3km', route:'地铁2号线→步行', time:'20分钟', cat:'food' },
+    { name:'东晓南路', lng:113.2600, lat:23.0850, dist:'约4km', route:'地铁2号线', time:'25分钟', cat:'food' },
+    // Attractions
+    { name:'陈家祠', lng:113.2400, lat:23.1280, dist:'约2km', route:'地铁1号线陈家祠站', time:'12分钟', cat:'attraction' },
+    { name:'南越王墓', lng:113.2550, lat:23.1350, dist:'约2.5km', route:'地铁2号线', time:'15分钟', cat:'attraction' },
+    { name:'光孝寺', lng:113.2420, lat:23.1280, dist:'约2km', route:'地铁1号线', time:'12分钟', cat:'attraction' },
+    { name:'石室圣心大教堂', lng:113.2650, lat:23.1280, dist:'约2.5km', route:'地铁6号线', time:'15分钟', cat:'attraction' },
+    { name:'广州塔', lng:113.3250, lat:23.1060, dist:'约7km', route:'地铁3号线/APM', time:'35分钟', cat:'attraction' },
+    { name:'珠江新城', lng:113.3200, lat:23.1280, dist:'约6.5km', route:'地铁1号线→3号线', time:'35分钟', cat:'attraction' },
+    { name:'白云山', lng:113.2900, lat:23.1850, dist:'约9km', route:'地铁2号线→公交', time:'50分钟', cat:'attraction' },
+    { name:'越秀公园', lng:113.2580, lat:23.1380, dist:'约3km', route:'地铁2号线', time:'18分钟', cat:'attraction' },
+    { name:'海珠湿地公园', lng:113.3300, lat:23.0950, dist:'约9km', route:'地铁8号线', time:'45分钟', cat:'attraction' },
+    { name:'华南植物园', lng:113.3450, lat:23.1800, dist:'约12km', route:'地铁3号线北延', time:'60分钟', cat:'attraction' },
+    { name:'长隆度假区', lng:113.3250, lat:23.0020, dist:'约14km', route:'地铁3号线/7号线', time:'60分钟', cat:'attraction' },
+    { name:'东山口', lng:113.2900, lat:23.1350, dist:'约4.5km', route:'地铁1号线→6号线', time:'25分钟', cat:'attraction' },
+    { name:'沙面', lng:113.2450, lat:23.1080, dist:'约1km', route:'步行/地铁1号线', time:'6分钟', cat:'attraction' },
+    // Supply chain
+    { name:'十三行新中国大厦', lng:113.2580, lat:23.1180, dist:'约1km', route:'步行/地铁1号线', time:'8分钟', cat:'supply' },
+    { name:'华林国际珠宝', lng:113.2580, lat:23.1220, dist:'约1km', route:'地铁1号线长寿路站', time:'8分钟', cat:'supply' },
+    { name:'荔湾广场', lng:113.2650, lat:23.1200, dist:'约0.8km', route:'步行', time:'10分钟', cat:'supply' },
+    { name:'芳村茶叶市场', lng:113.2250, lat:23.0950, dist:'约3.5km', route:'地铁1号线→广佛线', time:'25分钟', cat:'supply' },
+    { name:'清平中药材市场', lng:113.2550, lat:23.1150, dist:'约0.8km', route:'步行', time:'10分钟', cat:'supply' },
+    { name:'一德路食品/玩具', lng:113.2700, lat:23.1180, dist:'约1.8km', route:'地铁6号线', time:'12分钟', cat:'supply' },
+    { name:'白马服装市场', lng:113.2580, lat:23.1400, dist:'约3km', route:'地铁2号线', time:'18分钟', cat:'supply' },
+    { name:'三元里皮具', lng:113.2500, lat:23.1480, dist:'约4km', route:'地铁2号线', time:'25分钟', cat:'supply' },
+    { name:'美博城化妆品', lng:113.2350, lat:23.1450, dist:'约3.5km', route:'地铁2号线', time:'22分钟', cat:'supply' },
+    { name:'江南果菜批发', lng:113.2100, lat:23.1600, dist:'约6km', route:'地铁8号线', time:'35分钟', cat:'supply' },
+    { name:'岗顶电脑城', lng:113.3400, lat:23.1330, dist:'约9km', route:'地铁3号线', time:'45分钟', cat:'supply' },
+    { name:'广大/信诚服装尾货', lng:113.2200, lat:23.1550, dist:'约5km', route:'地铁8号线', time:'30分钟', cat:'supply' },
+    // E-commerce
+    { name:'客村/大石直播基地', lng:113.3150, lat:23.0950, dist:'约7km', route:'地铁8号线', time:'35分钟', cat:'ecommerce' },
+    { name:'琶洲电商总部', lng:113.3600, lat:23.1000, dist:'约11km', route:'地铁8号线→4号线', time:'50分钟', cat:'ecommerce' },
+    { name:'南浦跨境电商园', lng:113.2750, lat:23.0050, dist:'约12km', route:'地铁3号线', time:'55分钟', cat:'ecommerce' },
+    { name:'大石服装产业带', lng:113.3100, lat:23.0200, dist:'约11km', route:'地铁3号线', time:'50分钟', cat:'ecommerce' },
+    { name:'白云湖数字贸易区', lng:113.2250, lat:23.1700, dist:'约6.5km', route:'地铁8号线', time:'35分钟', cat:'ecommerce' },
+    { name:'南沙自贸区', lng:113.5200, lat:22.8500, dist:'约35km', route:'地铁18号线', time:'80分钟', cat:'ecommerce' },
+    // Shopping
+    { name:'太古汇', lng:113.3230, lat:23.1360, dist:'约7.5km', route:'地铁3号线', time:'40分钟', cat:'shopping' },
+    { name:'天环广场', lng:113.3250, lat:23.1310, dist:'约7km', route:'地铁3号线', time:'38分钟', cat:'shopping' },
+    { name:'正佳广场', lng:113.3230, lat:23.1310, dist:'约7km', route:'地铁1号线→3号线', time:'38分钟', cat:'shopping' },
+    { name:'珠江新城商圈', lng:113.3200, lat:23.1280, dist:'约6.5km', route:'地铁1号线→3号线', time:'35分钟', cat:'shopping' },
+    { name:'江南西商圈', lng:113.2650, lat:23.0950, dist:'约3km', route:'地铁2号线', time:'18分钟', cat:'shopping' },
+  ];
+
+  // Calculate actual distances
+  allLocations.forEach(function(l) {
+    l._km = haversine(HOSPITAL[0], HOSPITAL[1], l.lat, l.lng);
+  });
+  allLocations.sort(function(a, b) { return a._km - b._km; });
+
+  // --- Color config ---
+  var catColors = {
+    food: '#ef4444',
+    attraction: '#10b981',
+    supply: '#06b6d4',
+    ecommerce: '#8b5cf6',
+    shopping: '#eab308'
+  };
+  var catLabels = {
+    food: '美食',
+    attraction: '景点',
+    supply: '供应链',
+    ecommerce: '电商',
+    shopping: '商圈'
+  };
+  var catBadge = {
+    food: '<span class="cat-badge food">美食</span>',
+    attraction: '<span class="cat-badge attraction">景点</span>',
+    supply: '<span class="cat-badge supply">供应链</span>',
+    ecommerce: '<span class="cat-badge ecommerce">电商</span>',
+    shopping: '<span class="cat-badge shopping">商圈</span>'
+  };
+
+  // --- Init Leaflet map ---
+  try {
+    var map = L.map('guangzhou-map', {
+      center: HOSPITAL,
+      zoom: 12,
+      zoomControl: true
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    // --- Hospital marker (red circle with label) ---
+    var hospitalIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#ef4444;border:2px solid #fff;border-radius:50%;width:20px;height:20px;box-shadow:0 0 12px rgba(239,68,68,0.7);"></div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    });
+    var hospitalMarker = L.marker(HOSPITAL, { icon: hospitalIcon }).addTo(map);
+
+    var hospitalInfo = '<div class="popup-title" style="color:var(--neon-red);"><i class="fa-solid fa-hospital"></i> ' + HOSPITAL_NAME + '</div>' +
+      '<div class="popup-row"><span class="popup-label">地址</span><span class="popup-value">荔湾区大德路123号</span></div>' +
+      '<div class="popup-row"><span class="popup-label">地铁</span><span class="popup-value">1号线长寿路站</span></div>' +
+      '<div class="route-info" style="color:var(--neon-red);">← 所有地点的距离以此为参照</div>';
+    hospitalMarker.bindPopup(hospitalInfo);
+
+    // --- Category markers ---
+    var catCentroids = { food:[0,0,0], attraction:[0,0,0], supply:[0,0,0], ecommerce:[0,0,0], shopping:[0,0,0] };
+
+    allLocations.forEach(function(l) {
+      var latlng = [l.lat, l.lng];
+      var color = catColors[l.cat] || '#ef4444';
+
+      var markerHtml = '<div style="background:' + color + ';border:2px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);width:22px;height:22px;box-shadow:0 2px 8px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;"><div style="width:8px;height:8px;background:#fff;border-radius:50%;transform:rotate(45deg);"></div></div>';
+      var customIcon = L.divIcon({
+        className: '',
+        html: markerHtml,
+        iconSize: [26, 26],
+        iconAnchor: [13, 13]
+      });
+
+      var marker = L.marker(latlng, { icon: customIcon }).addTo(map);
+
+      var popupContent = '<div class="popup-title">' + (catBadge[l.cat] || '') + ' ' + l.name + '</div>' +
+        '<div class="popup-row"><span class="popup-label">距医院</span><span class="popup-value">' + l.dist + '</span></div>' +
+        '<div class="popup-row"><span class="popup-label">直线距离</span><span class="popup-value">' + fmtDist(l._km) + '</span></div>' +
+        '<div class="popup-row"><span class="popup-label">推荐路线</span><span class="popup-value">' + l.route + '</span></div>' +
+        '<div class="popup-row"><span class="popup-label">预估耗时</span><span class="popup-value">' + l.time + '</span></div>';
+
+      marker.bindPopup(popupContent);
+
+      // Accumulate centroid
+      catCentroids[l.cat][0] += l.lng;
+      catCentroids[l.cat][1] += l.lat;
+      catCentroids[l.cat][2] += 1;
+    });
+
+    // --- Zone lines from hospital to each category centroid ---
+    Object.keys(catCentroids).forEach(function(cat) {
+      var c = catCentroids[cat];
+      if (c[2] > 0) {
+        var clng = c[0] / c[2];
+        var clat = c[1] / c[2];
+        var centroid = [clat, clng];
+        // Polyline
+        L.polyline([HOSPITAL, centroid], {
+          color: catColors[cat],
+          weight: 2,
+          opacity: 0.3,
+          dashArray: '8, 8'
+        }).addTo(map);
+        // Label
+        var labelIcon = L.divIcon({
+          className: '',
+          html: '<div style="background:rgba(17,24,39,0.9);border:1px solid ' + catColors[cat] +
+            ';border-radius:4px;padding:2px 8px;color:' + catColors[cat] +
+            ';font-size:11px;white-space:nowrap;font-weight:600;">' + catLabels[cat] + ' (' + c[2] + '个)</div>',
+          iconSize: [100, 20],
+          iconAnchor: [50, 10]
+        });
+        L.marker(centroid, { icon: labelIcon }).addTo(map);
+      }
+    });
+
+    // --- Legend control ---
+    var legendControl = L.control({ position: 'bottomright' });
+    legendControl.onAdd = function() {
+      var div = document.createElement('div');
+      div.className = 'leaflet-control-legend';
+      div.style.cssText = 'background:rgba(17,24,39,0.95);border:1px solid #1e2a3a;border-radius:8px;padding:12px 16px;font-size:12px;color:#e2e8f0;line-height:2;font-family:Noto Sans SC,sans-serif;';
+      div.innerHTML = '<strong style="color:#06b6d4;margin-bottom:4px;display:block;"><i class="fa-solid fa-map"></i> 图例</strong>' +
+        '<div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:6px;vertical-align:middle;"></span>美食街区 (9)</div>' +
+        '<div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#10b981;margin-right:6px;vertical-align:middle;"></span>景点 (14)</div>' +
+        '<div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#06b6d4;margin-right:6px;vertical-align:middle;"></span>供应链 (12)</div>' +
+        '<div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#8b5cf6;margin-right:6px;vertical-align:middle;"></span>电商基地 (6)</div>' +
+        '<div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#eab308;margin-right:6px;vertical-align:middle;"></span>商圈 (5)</div>' +
+        '<div><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#ef4444;margin-right:6px;vertical-align:middle;box-shadow:0 0 8px rgba(239,68,68,0.5);"></span>广东省中医院（参照点）</div>';
+      return div;
+    };
+    legendControl.addTo(map);
+
+  } catch(e) {
+    var mapDiv = document.getElementById('guangzhou-map');
+    if (mapDiv) {
+      mapDiv.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;color:var(--text2);font-size:14px;">' +
+        '<i class="fa-solid fa-triangle-exclamation" style="color:var(--neon-orange);font-size:32px;margin-bottom:12px;"></i>' +
+        '<p style="margin-bottom:8px;">地图加载失败</p>' +
+        '<p style="font-size:12px;">请检查网络连接</p>' +
+        '<p style="font-size:11px;margin-top:8px;color:var(--text2);opacity:0.6;">Leaflet + OpenStreetMap 需要联网加载瓦片</p>' +
+        '</div>';
+    }
+  }
+
+  // --- Populate distance table (outside try-catch so it runs even if map fails) ---
+  var tbody = document.getElementById('distance-table-body');
+  if (tbody) {
+    allLocations.forEach(function(l, idx) {
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td style="color:var(--text2);">' + (idx + 1) + '</td>' +
+        '<td>' + (catBadge[l.cat] || '') + '</td>' +
+        '<td>' + l.name + '</td>' +
+        '<td class="dist-val">' + l.dist + ' (' + fmtDist(l._km) + ')</td>' +
+        '<td>' + l.route + '</td>' +
+        '<td style="color:var(--neon-cyan);font-weight:600;">' + l.time + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+})();
+
+// Expose globally so onclick="toggleDistanceTable()" works
+window.toggleDistanceTable = function() {
+  var wrap = document.getElementById('distance-table-wrap');
+  if (wrap) wrap.classList.toggle('open');
+};
+
+}); // end DOMContentLoaded
 </script>
 </html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国医药产业全球竞争力与中药发展全景看板</title>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #232733; --border: #2e3345;
+  --text: #e4e6ed; --text2: #9498a8; --accent: #c45a6c; --accent2: #d4787e;
+  --green: #5cb88a; --green2: #4a9e72; --yellow: #d4a843; --red: #c45a5a;
+  --blue: #5a8ec4; --purple: #8a5ac4; --gold: #d4a843;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1500px; margin: 0 auto; padding: 24px; }
+header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+header h1 { font-size: 28px; font-weight: 700; color: var(--accent2); letter-spacing: 2px; }
+header p { color: var(--text2); margin-top: 8px; font-size: 14px; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+.tag-red { background: rgba(196,90,90,0.15); color: var(--red); border: 1px solid rgba(196,90,90,0.3); }
+.tag-green { background: rgba(92,184,138,0.15); color: var(--green); border: 1px solid rgba(92,184,138,0.3); }
+.tag-yellow { background: rgba(212,168,67,0.15); color: var(--yellow); border: 1px solid rgba(212,168,67,0.3); }
+.tag-blue { background: rgba(90,142,196,0.15); color: var(--blue); border: 1px solid rgba(90,142,196,0.3); }
+.tag-purple { background: rgba(138,90,196,0.15); color: var(--purple); border: 1px solid rgba(138,90,196,0.3); }
+.tag-gold { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+section { margin-bottom: 48px; }
+.section-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--accent); }
+.section-subtitle { font-size: 15px; font-weight: 600; color: var(--text2); margin: 24px 0 14px; padding-left: 10px; border-left: 2px solid var(--border); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.card .tag-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.card p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.card ul { list-style: none; padding: 0; }
+.card ul li { font-size: 13px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid rgba(46,51,69,0.5); }
+.card ul li:last-child { border-bottom: none; }
+.card ul li strong { color: var(--text); font-weight: 600; }
+.metric { background: var(--surface2); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.metric .val { font-size: 26px; font-weight: 700; color: var(--accent2); }
+.metric .label { font-size: 11px; color: var(--text2); margin-top: 4px; }
+.metric.green .val { color: var(--green); }
+.metric.red .val { color: var(--red); }
+.metric.yellow .val { color: var(--yellow); }
+.metric.blue .val { color: var(--blue); }
+.metric.gold .val { color: var(--gold); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table th { background: var(--surface2); padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--border); }
+.comp-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+.comp-table tr:hover td { background: rgba(35,39,51,0.5); }
+.decline { color: var(--red); }
+.rise { color: var(--green); }
+.ticker-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0; }
+.ticker { background: var(--surface2); border-radius: 6px; padding: 6px 12px; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+.ticker .name { font-weight: 600; color: var(--text); }
+.ticker .yield { color: var(--green); font-weight: 600; }
+.rec-card { background: linear-gradient(135deg, rgba(196,90,90,0.08), rgba(92,184,138,0.08)); border: 1px solid var(--accent); border-radius: 12px; padding: 24px; }
+.rec-card h3 { font-size: 18px; color: var(--accent2); margin-bottom: 12px; }
+.rec-card .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.rec-card .rec-item { background: var(--surface); border-radius: 8px; padding: 14px; }
+.rec-card .rec-item h4 { font-size: 13px; color: var(--green); margin-bottom: 6px; }
+.rec-card .rec-item p { font-size: 12px; color: var(--text2); }
+.school-tag { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 4px; }
+.school-ky { background: rgba(90,142,196,0.2); color: var(--blue); }
+.school-behavior { background: rgba(138,90,196,0.2); color: var(--purple); }
+.school-evolution { background: rgba(92,184,138,0.2); color: var(--green); }
+.school-marx { background: rgba(196,90,90,0.2); color: var(--red); }
+.school-institution { background: rgba(212,168,67,0.2); color: var(--yellow); }
+.deep-dive { background: rgba(90,142,196,0.05); border: 1px solid rgba(90,142,196,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.deep-dive h4 { font-size: 14px; color: var(--blue); margin-bottom: 8px; }
+.forecast-box { background: rgba(92,184,138,0.05); border: 1px solid rgba(92,184,138,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.forecast-box h4 { font-size: 14px; color: var(--green); margin-bottom: 8px; }
+.risk-box { background: rgba(196,90,90,0.05); border: 1px solid rgba(196,90,90,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.risk-box h4 { font-size: 14px; color: var(--red); margin-bottom: 8px; }
+.data-note { font-size: 11px; color: var(--text2); font-style: italic; margin-top: 6px; }
+footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); color: var(--text2); font-size: 11px; margin-top: 40px; }
+footer a { color: var(--accent); text-decoration: none; }
+@media print { body { background: white; color: black; } .card { border: 1px solid #ddd; } }
+
+/* 特殊组件样式 */
+.quadrant { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; min-height: 320px; }
+.quadrant-cell { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; }
+.quadrant-cell h4 { font-size: 13px; margin-bottom: 8px; }
+.quadrant-label { font-size: 11px; color: var(--text2); text-align: center; padding: 4px 0; }
+.quadrant-x-axis { text-align: center; font-size: 12px; color: var(--text2); margin-top: 6px; }
+.quadrant-y-axis { position: absolute; left: -24px; top: 50%; transform: rotate(-90deg) translateX(-50%); font-size: 12px; color: var(--text2); white-space: nowrap; }
+.quadrant-wrapper { position: relative; }
+.company-badge { display: inline-block; background: var(--surface2); border-radius: 4px; padding: 3px 8px; font-size: 11px; margin: 2px; color: var(--text); }
+.policy-timeline { position: relative; padding-left: 24px; }
+.policy-timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.policy-item { position: relative; padding: 8px 0 8px 16px; }
+.policy-item::before { content: ''; position: absolute; left: -20px; top: 14px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); }
+.policy-item .year { font-size: 12px; color: var(--yellow); font-weight: 600; }
+.policy-item .desc { font-size: 13px; color: var(--text2); margin-top: 2px; }
+.distribution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 1024px) { .distribution-grid { grid-template-columns: repeat(2, 1fr); } }
+.dist-card { background: var(--surface2); border-radius: 8px; padding: 12px; border-left: 3px solid var(--green); }
+.dist-card .province { font-size: 14px; font-weight: 700; color: var(--text); }
+.dist-card .herbs { font-size: 12px; color: var(--text2); margin-top: 4px; }
+.dist-card .area { font-size: 11px; color: var(--green); margin-top: 2px; }
+.market-bar { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+.market-bar .bar-label { font-size: 12px; color: var(--text2); width: 100px; text-align: right; flex-shrink: 0; }
+.market-bar .bar-track { flex: 1; height: 20px; background: var(--surface2); border-radius: 4px; overflow: hidden; position: relative; }
+.market-bar .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; color: white; font-weight: 600; }
+.market-bar .bar-value { font-size: 12px; color: var(--text); width: 80px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>中国医药产业全球竞争力与中药发展全景看板</h1>
+  <p>全球定位 · 企业竞争力矩阵 · 中药政策突破 · 产业分布全景 · 多学派交叉研判</p>
+  <p style="margin-top:6px;">生成日期：2026年6月29日 &nbsp;|&nbsp; 数据基准：2025年官方统计及行业研报（含2024年修正数据） &nbsp;|&nbsp; 分析框架：五维联动 + 多流派交叉对冲验证</p>
+</header>
+
+<!-- ==================== 第一部分：全球定位 ==================== -->
+<section>
+<h2 class="section-title">第一部分：中国医药全球定位 — 数据链全景</h2>
+
+<div class="grid-4" style="margin-bottom:20px;">
+  <div class="metric blue"><div class="val">8.5万亿</div><div class="label">2024年中国药品终端市场总规模<br>含医院(58%)+零售药店(42%)<br>（注：此前$2,800亿仅指零售药店口径1.87万亿，已修正）</div></div>
+  <div class="metric green"><div class="val">1.69万亿</div><div class="label">2024年规模以上医药制造业营收<br>同比+3.2%，利润1,742亿(-4.5%)</div></div>
+  <div class="metric green"><div class="val">~8,724家</div><div class="label">API制造工厂<br>占全球份额44.4%（第一大供应国）</div></div>
+  <div class="metric gold"><div class="val">1.32万亿</div><div class="label">2024年中药市场规模<br>同比+8%，预计2025年突破1.5万亿</div></div>
+  <div class="metric yellow"><div class="val">$200亿+</div><div class="label">2024年创新药License-out总额<br>中国Biotech全球化新标志</div></div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>🌍 全球医药市场格局：中美双寡头（数据修正版）</h3>
+    <div class="tag-row"><span class="tag tag-blue">双极格局</span><span class="tag tag-green">中国增速领先</span><span class="tag tag-red">数据口径说明</span></div>
+    <table class="comp-table">
+      <tr><th>国家</th><th>市场规模(人民币)</th><th>全球占比</th><th>年增速</th><th>核心特征</th></tr>
+      <tr><td class="rise">🇺🇸 美国</td><td>~19.4万亿</td><td>~45%</td><td>6-7%</td><td>创新药绝对主导，全球研发投入~60%</td></tr>
+      <tr><td class="rise">🇨🇳 中国</td><td>~8.5万亿（终端市场）<br>注：非此前误标$2,800亿</td><td>~23%</td><td>5-8%</td><td>全球第二大市场，原料药霸权+创新药追赶</td></tr>
+      <tr><td>🇩🇪 德国</td><td>~5,600亿</td><td>~3.5%</td><td>3-4%</td><td>欧洲最大市场，拜耳/勃林格殷富总部</td></tr>
+      <tr><td>🇯🇵 日本</td><td>~5.0万亿日元(~2,400亿RMB)</td><td>~3%</td><td>2-3%</td><td>老龄化驱动内需，武田/第一三共全球化</td></tr>
+      <tr><td>🇬🇧 英国</td><td>~4,000亿</td><td>~2.5%</td><td>2-3%</td><td>NHS体系+阿斯利康/葛兰素史克</td></tr>
+    </table>
+    <p class="data-note" style="margin-top:10px;"><strong>数据口径说明：</strong>此前"$2,800亿"为统计口径混淆所致。中国药品终端市场总规模（含公立医院5.25万亿+零售药店2.81万亿）约8.5万亿元。其中化学药占48%、中成药占23%、生物药占18%（2024年）。全球排名第二的地位不变。</p>
+  </div>
+  <div class="card">
+    <h3>📊 中国医药在全球产业链的位置图谱</h3>
+    <div class="tag-row"><span class="tag tag-green">上游霸权</span><span class="tag tag-yellow">中游追赶</span><span class="tag tag-red">下游突破</span></div>
+    <h4 style="font-size:13px; color: var(--green); margin: 10px 0 6px;">🟢 上游 — 原料药(API)：全球绝对霸权</h4>
+    <ul>
+      <li>全球<strong>70-80%</strong>抗生素原料药产自中国（维生素C占全球60%+、青霉素V钾占50%+）</li>
+      <li>API制造工厂8,724家，占全球44.4%。2024年API市场价值约<strong>1,560亿美元</strong></li>
+      <li><strong>核心竞争力：</strong>完整化工产业链+成本优势+规模化产能</li>
+    </ul>
+    <h4 style="font-size:13px; color: var(--yellow); margin: 10px 0 6px;">🟡 中游 — 仿制药：国内自给→全球竞争</h4>
+    <ul>
+      <li>中国是全球最大的<strong>仿制药生产国</strong>，2024年仿制药占国内药品市场约65%</li>
+      <li>通过FDA认证的仿制药企业超100家，一致性评价覆盖化学药198个品种</li>
+      <li><strong>华海药业、普洛药业</strong>等在美国仿制药市场占据重要份额</li>
+    </ul>
+    <h4 style="font-size:13px; color: var(--red); margin: 10px 0 6px;">🔴 下游 — 创新药：从0到1突破期</h4>
+    <ul>
+      <li>2024年中国<strong>创新药市场规模突破8,000亿元</strong>（终端市场口径含医院+零售），占终端市场总规模约9.4%</li>
+      <li>生物药（含抗体药物/疫苗/细胞治疗）2024年市场规模约<strong>1.53万亿元</strong>，占终端市场18%，预计2025年提升至22%</li>
+      <li>R&D强度（研发费用/营收）：恒瑞~20%、百济~100%（亏损期）、行业平均~8-10%</li>
+      <li>2024年中国创新药License-out总额超<strong>$200亿</strong>，创历史新高</li>
+      <li><strong>2025年展望：</strong>创新药销售收入占医药工业总产值比例预计提升至15%+，2026年有望接近万亿大关</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-top:16px;">
+  <div class="card">
+    <h3>🏭 医药制造业运行数据（2024年国家统计局）</h3>
+    <div class="tag-row"><span class="tag tag-yellow">量增利减</span><span class="tag tag-red">利润承压</span></div>
+    <ul>
+      <li><strong>营业收入：</strong>16,875.6亿元，同比+3.2%。规模以上药企3,200+家</li>
+      <li><strong>利润总额：</strong>1,742.3亿元，同比-4.5%。集采压价+原材料成本双重挤压</li>
+      <li><strong>行业特征：</strong>"量增利减"——营收增长但利润下滑，反映仿制药集采压缩利润空间的结构性矛盾</li>
+      <li><strong>K型分化：</strong>创新药企利润逆势增长约12-15%，仿制药企业利润下降约8-12%</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>📊 药品终端市场结构（2024年）</h3>
+    <div class="tag-row"><span class="tag tag-blue">医院主导</span><span class="tag tag-green">零售崛起</span></div>
+    <ul>
+      <li><strong>终端总规模：</strong>~8.5万亿元（含公立医院5.25万亿+零售药店2.81万亿）</li>
+      <li><strong>化学药：</strong>~4.08万亿，占48%（仍为主导但占比逐年下降）</li>
+      <li><strong>中成药：</strong>~1.87万亿，占23%（受中药政策扶持稳中有升）</li>
+      <li><strong>生物药：</strong>~1.53万亿，占18%（增速最快，预计2025年达22%）</li>
+      <li><strong>渠道变化：</strong>处方外流趋势明显，零售药店占比从2022年35%提升至2024年40%+</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第二部分：企业竞争力矩阵 ==================== -->
+<section>
+<h2 class="section-title">第二部分：中国医药企业全球竞争力矩阵 — 四梯队分层</h2>
+
+<div class="quadrant-wrapper">
+<div class="quadrant">
+  <div class="quadrant-cell" style="border-top: 3px solid var(--green);">
+    <h4 style="color: var(--green); font-size: 13px;">🏆 第一梯队：全球竞争力企业</h4>
+    <p style="font-size: 11px; color: var(--text2); margin-bottom: 8px;">全球化收入来源 + 原创管线 + 国际商业化能力</p>
+    <div style="flex:1;">
+      <div style="margin-bottom:8px;"><span class="company-badge">百济神州</span> 泽布替尼2024年全球销售~110亿RMB（+40%），2025年预计突破150亿，全球BTK抑制剂市占率第一</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">恒瑞医药</span> 国内创新药龙头，2024年营收~330亿(+15%)，R&D~65亿，2025年创新药占比超50%</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">传奇生物</span> CAR-T疗法Carvykti 2024年全球销售~22亿美金，2025年预计突破30亿美金</div>
+      <div><span class="company-badge">信达生物</span> PD-1+生物类似药双引擎，2024年营收~130亿(+30%)，2025年GLP-1产品商业化放量</div>
+    </div>
+  </div>
+  <div class="quadrant-cell" style="border-top: 3px solid var(--blue);">
+    <h4 style="color: var(--blue); font-size: 13px;">🌏 第二梯队：区域龙头/细分冠军</h4>
+    <p style="font-size: 11px; color: var(--text2); margin-bottom: 8px;">国内领先 + 特定领域全球竞争力</p>
+    <div style="flex:1;">
+      <div style="margin-bottom:8px;"><span class="company-badge">药明康德</span> 全球CRO/CDMO TOP3（~6%全球份额），2025年营收~350亿，新加坡/德国基地产能释放中，欧洲/新兴市场替代美国订单</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">药明生物</span> 全球生物药CDMO TOP2，2025年订单触底回升迹象显现</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">君实生物</span> PD-1特瑞普利单抗获FDA批准（2024年），2025年肿瘤管线拓展加速</div>
+      <div><span class="company-badge">科伦博泰</span> ADC平台实力突出，默沙东累计授权合作超$200亿，2025年多款ADC进入临床后期</div>
+    </div>
+  </div>
+  <div class="quadrant-cell" style="border-top: 3px solid var(--yellow);">
+    <h4 style="color: var(--yellow); font-size: 13px;">🏭 第三梯队：原料药/仿制药霸主</h4>
+    <p style="font-size: 11px; color: var(--text2); margin-bottom: 8px;">规模成本优势 + 全球供应链关键节点</p>
+    <div style="flex:1;">
+      <div style="margin-bottom:8px;"><span class="company-badge">华海药业</span> 美国仿制药API龙头，2024年海外收入占比超50%，2025年高端复杂制剂管线加速落地</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">普洛药业</span> 全球重要抗生素/维生素供应商，CDMO转型中，2024年CDMO收入占比提升至35%</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">国药控股</span> 中国最大医药流通企业，2024年营收超3,500亿，2025年数字化转型加速</div>
+      <div><span class="company-badge">石药集团</span> 传统药企转型创新，2024年创新药收入占比超45%，2025年纳米制剂平台持续输出</div>
+    </div>
+  </div>
+  <div class="quadrant-cell" style="border-top: 3px solid var(--purple);">
+    <h4 style="color: var(--purple); font-size: 13px;">🚀 第四梯队：新兴Biotech</h4>
+    <p style="font-size: 11px; color: var(--text2); margin-bottom: 8px;">高成长高风险 + License-out/融资驱动</p>
+    <div style="flex:1;">
+      <div style="margin-bottom:8px;"><span class="company-badge">康诺亚</span> IL-4Rα抑制剂（dupilumab生物类似药）潜力巨大，2024年License-out给赛诺菲</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">荣昌生物</span> ADC药物泰它西普+自身免疫疾病双轮驱动</div>
+      <div style="margin-bottom:8px;"><span class="company-badge">再鼎医药</span> 引进+自主研发并重，肿瘤/神经/自身免疫管线丰富</div>
+      <div><span class="company-badge">诺诚健华</span> BTK抑制剂奥布替尼已上市，二代BTK在研</div>
+    </div>
+  </div>
+</div>
+<div class="quadrant-x-axis">← 全球化程度低 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全球化程度高 →</div>
+</div>
+
+<div class="deep-dive" style="margin-top: 20px;">
+<h4>📈 2024年中国创新药License-out Top交易排行</h4>
+<table class="comp-table">
+<tr><th>排名</th><th>中国Biotech</th><th>合作对象</th><th>标的药物</th><th>交易总额</th><th>领域</th></tr>
+<tr><td>1</td><td>科伦博泰</td><td>默沙东(MSD)</td><td>ADC多项管线</td><td>超$200亿</td><td>肿瘤(ADC)</td></tr>
+<tr><td>2</td><td>康诺亚</td><td>赛诺菲(Sanofi)</td><td>IL-4Rα抑制剂</td><td>~$100亿</td><td>自身免疫</td></tr>
+<tr><td>3</td><td>百济神州</td><td>自身全球化</td><td>泽布替尼(BTKi)</td><td>全球销售~100亿RMB</td><td>血液肿瘤</td></tr>
+<tr><td>4</td><td>荣昌生物</td><td>Seagen(PFE)</td><td>RC48(ADC)</td><td>$26亿首付+$18亿后续</td><td>肿瘤(ADC)</td></tr>
+<tr><td>5</td><td>信达生物</td><td>Boehringer Ingelheim</td><td>IBI305(GLP-1R/GLP/GIP)</td><td>$100亿+</td><td>代谢(减肥药)</td></tr>
+</table>
+<p class="data-note" style="margin-top:10px;">数据来源：各公司公告、FierceBiotech、PharmaBoardroom。2024年中国创新药出海License-out总额创历史新高，标志着从"仿制跟随"向"原始创新"转型的关键拐点。</p>
+</div>
+</section>
+
+<!-- ==================== 第三部分：中药政策与突破 ==================== -->
+<section>
+<h2 class="section-title">第三部分：中药产业 — 国家政策与历史性突破</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>📜 中药政策时间线 — 从扶持到战略升级</h3>
+    <div class="policy-timeline">
+      <div class="policy-item">
+        <div class="year">2017年</div>
+        <div class="desc">《中医药法》正式实施 — 中医药首次以法律形式确立地位</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2021年</div>
+        <div class="desc">《"十四五"中医药发展规划》— 明确2025年中医药产业总产值翻番目标</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2021年</div>
+        <div class="desc">《中医药振兴发展重大工程实施方案》— 中央财政专项资金支持</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2023年</div>
+        <div class="desc">国家医保局推动中成药医保目录动态调整，中药占比维持在45%+</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2024年</div>
+        <div class="desc">工信部《中医药健康产业高质量发展行动计划》— 推动中药标准化/现代化/国际化</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2024年</div>
+        <div class="desc">中药配方颗粒国家标准全面实施 — 结束地方标准时代，统一质量门槛</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2024年</div>
+        <div class="desc">全国中医馆基层覆盖率超90% — 中医药服务网络基本建成</div>
+      </div>
+      <div class="policy-item">
+        <div class="year">2025年(预期)</div>
+        <div class="desc">中药新药审批进一步加速，循证医学证据要求提高 — 从"经验医学"向"证据医学"转型</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>🎯 关键突破 — 三个历史性跨越</h3>
+    <div class="tag-row"><span class="tag tag-green">历史性</span><span class="tag tag-gold">战略级</span></div>
+    <h4 style="font-size:13px; color: var(--green); margin: 10px 0 6px;">突破一：中药新药审批加速</h4>
+    <ul>
+      <li>2024年国家药监局(NMPA)批准中药新药<strong>60+个</strong>，创历史新高</li>
+      <li>经典名方简化注册通道打通，平均审批时间从36个月缩短至<strong>18-24个月</strong></li>
+      <li>中药改良型新药（新剂型/新适应症）获批数量同比增长<strong>35%+</strong></li>
+    </ul>
+    <h4 style="font-size:13px; color: var(--green); margin: 10px 0 6px;">突破二：WHO ICD-11传统医学章节纳入</h4>
+    <ul>
+      <li>2019年WHO将传统医学章节纳入ICD-11，<strong>中医辨证体系首次获得国际诊断标准地位</strong></li>
+      <li>中国主导制定了ISO/TC215中医药国际标准<strong>100+项</strong>，覆盖中药材/饮片/提取物</li>
+      <li>中药标准开始反向影响欧美草药监管框架</li>
+    </ul>
+    <h4 style="font-size:13px; color: var(--green); margin: 10px 0 6px;">突破三：中药配方颗粒国家标准统一</h4>
+    <ul>
+      <li>2024年<strong>6种常用中药配方颗粒</strong>国家标准先行试点，2024年底扩展至<strong>110种</strong></li>
+      <li>结束长达20年的地方标准时代，行业集中度大幅提升（红日药业/康仁堂、一方制药/天江药业、洁云制药三足鼎立）</li>
+      <li>配方颗粒市场规模2024年约<strong>250-300亿元</strong>，CAGR超<strong>20%</strong>，是中药增速最快的子赛道</li>
+    </ul>
+  </div>
+</div>
+
+<div class="deep-dive" style="margin-top: 16px;">
+<h4>🌐 中药国际化路线图</h4>
+<table class="comp-table">
+<tr><th>维度</th><th>现状</th><th>目标(2025-2030)</th><th>核心障碍</th></tr>
+<tr><td>国际标准</td><td>ISO/TC215已发布100+项中医药国际标准</td><td>主导ISO/TC标准数量翻倍，推动更多中药进入Pharmacopoeia</td><td>欧美对"中药机理不清"的固有偏见</td></tr>
+<tr><td>临床试验</td><td>少数中药开展FDA II期临床（如复方丹参滴丸）</td><td>至少1-2个中药完成FDA III期临床并获得批准</td><td>中药复方成分复杂，FDA要求明确单一靶点</td></tr>
+<tr><td>海外注册</td><td>片仔癀/同仁堂在海外已有品牌认知</td><td>5-10个中药品种获得EMA/FDA注册</td><td>文化差异+语言壁垒+当地法规限制</td></tr>
+<tr><td>教育传播</td><td>全球40+国家开设中医机构，海外中医从业者约50万人</td><td>中医药院校/培训中心覆盖100+国家</td><td>各国对"传统医学"的法律定位不一</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ==================== 第四部分：中药市场规模与未来方向 ==================== -->
+<section>
+<h2 class="section-title">第四部分：中药市场规模与未来发展方向</h2>
+
+<div class="grid-4" style="margin-bottom:20px;">
+  <div class="metric gold"><div class="val">1.32万亿</div><div class="label">2024年中药市场规模<br>同比+8%</div></div>
+  <div class="metric green"><div class="val">1.45-1.5万亿</div><div class="label">2025年预计规模<br>CAGR 8-10%</div></div>
+  <div class="metric blue"><div class="val">250-300亿</div><div class="label">2024年配方颗粒市场<br>CAGR >20%</div></div>
+  <div class="metric yellow"><div class="val">~60个+</div><div class="label">2024年批准中药新药数量<br>创历史新高</div></div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>📊 中药四大子赛道前景透视</h3>
+    <div class="tag-row"><span class="tag tag-green">政策驱动</span><span class="tag tag-blue">消费升级</span></div>
+    <div class="market-bar">
+      <div class="bar-label">中药创新药</div>
+      <div class="bar-track"><div class="bar-fill" style="width:90%; background: linear-gradient(90deg, var(--green), var(--blue));">CAGR ~25%</div></div>
+      <div class="bar-value rise">最高增长</div>
+    </div>
+    <p style="font-size:12px; color: var(--text2); margin: 6px 0;">政策审批加速+医保覆盖扩大+循证医学证据积累。代表企业：以岭药业（连花清瘟）、天士力（复方丹参）、康缘药业。</p>
+    <div class="market-bar">
+      <div class="bar-label">配方颗粒</div>
+      <div class="bar-track"><div class="bar-fill" style="width:75%; background: linear-gradient(90deg, var(--blue), var(--purple));">CAGR >20%</div></div>
+      <div class="bar-value rise">高速增长</div>
+    </div>
+    <p style="font-size:12px; color: var(--text2); margin: 6px 0;">国标统一→行业洗牌→集中度提升。代表企业：红日药业、一方制药(天江)、洁云制药。</p>
+    <div class="market-bar">
+      <div class="bar-label">中药大健康</div>
+      <div class="bar-track"><div class="bar-fill" style="width:60%; background: linear-gradient(90deg, var(--gold), var(--yellow));">CAGR ~15%</div></div>
+      <div class="bar-value rise">快速增长</div>
+    </div>
+    <p style="font-size:12px; color: var(--text2); margin: 6px 0;">药食同源+养生消费品。代表企业：片仔癀(化妆品)、东阿阿胶(滋补品)、同仁堂(健康产品)。</p>
+    <div class="market-bar">
+      <div class="bar-label">中药饮片</div>
+      <div class="bar-track"><div class="bar-fill" style="width:45%; background: linear-gradient(90deg, var(--text2), var(--text2));">CAGR ~8%</div></div>
+      <div class="bar-value">稳健增长</div>
+    </div>
+    <p style="font-size:12px; color: var(--text2); margin: 6px 0;">传统中药处方形态，受集采影响较大。代表企业：华润三九、江中药业。</p>
+  </div>
+  <div class="card">
+    <h3>🔮 中药未来发展方向判断</h3>
+    <div class="tag-row"><span class="tag tag-gold">三大趋势</span></div>
+    <h4 style="font-size:13px; color: var(--green); margin: 10px 0 6px;">方向一：标准化 — 从"经验传承"到"数据说话"</h4>
+    <ul>
+      <li>中药材GAP基地重建 — 从源头保证质量一致性</li>
+      <li>指纹图谱+DNA条形码鉴定 — 建立中药材"数字身份证"</li>
+      <li>配方颗粒国家标准全覆盖 — 统一质量评价体系</li>
+      <li>中药配方颗粒2024年国标从6种扩展到110种，2025年预计覆盖<strong>200+品种</strong></li>
+    </ul>
+    <h4 style="font-size:13px; color: var(--blue); margin: 10px 0 6px;">方向二：现代化 — AI+循证医学赋能</h4>
+    <ul>
+      <li>AI辅助中药新药筛选 — 利用大数据解析经典名方的分子机制</li>
+      <li>循证医学证据积累 — 至少3-5个中药品种完成FDA级别III期临床</li>
+      <li>中药复方"多靶点"理论与现代系统生物学契合 — 在慢病/自身免疫领域可能有独特优势</li>
+      <li>代表进展：青蒿素(屠呦呦2015诺奖)→ 黄连素(代谢综合征)→ 三氧化二砷(白血病)</li>
+    </ul>
+    <h4 style="font-size:13px; color: var(--purple); margin: 10px 0 6px;">方向三：国际化 — 从"华人圈"走向"主流医学"</h4>
+    <ul>
+      <li>短期（3-5年）：东南亚/一带一路国家接受度最高 — 新加坡、马来西亚、泰国已有成熟监管框架</li>
+      <li>中期（5-10年）：欧盟传统草药注册(THMPD) pathway — 至少2-3个品种获准进入欧洲市场</li>
+      <li>长期（10年+）：FDA突破性疗法途径 — 单味药/简化方剂率先突破，复方最难</li>
+      <li><strong>核心判断：</strong>中药国际化不会是"全盘接受"，而是"局部突破" — 在特定适应症领域建立不可替代性</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第五部分：中药材地理分布 ==================== -->
+<section>
+<h2 class="section-title">第五部分：中药材全国地理分布 — 道地药材图鉴</h2>
+
+<div class="card" style="margin-bottom: 20px;">
+<h3>🗺️ 中国道地药材核心产区分布</h3>
+<p style="font-size: 12px; color: var(--text2); margin-bottom: 14px;">中国中药材种植面积约<strong>600万公顷</strong>（约9,000万亩），覆盖全国31个省区市。云南、四川、甘肃、吉林四大产区占全国种植面积40%以上。</p>
+<div class="distribution-grid">
+  <div class="dist-card">
+    <div class="province">🌿 云南 — 滇药</div>
+    <div class="herbs">三七 · 天麻 · 重楼 · 茯苓 · 石斛 · 云木香</div>
+    <div class="area">种植面积615万亩（全国第一）· 产量75万吨</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 甘肃 — 甘药</div>
+    <div class="herbs">当归 · 黄芪 · 党参 · 大黄 · 甘草 · 红花</div>
+    <div class="area">黄芪/当归产量全国第一 · 陇西为全国最大中药材集散地</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 四川 — 川药</div>
+    <div class="herbs">黄连 · 附子 · 川芎 · 贝母 · 麦冬 · 厚朴</div>
+    <div class="area">种植面积600万亩 · 川贝母/附子产量全国前列</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 吉林 — 吉药</div>
+    <div class="herbs">人参 · 五味子 · 细辛 · 黄柏 · 朝鲜当归</div>
+    <div class="area">人参产业规模全国第一 · 抚松"中国人参之乡"</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 贵州 — 黔药</div>
+    <div class="herbs">天麻 · 杜仲 · 吴茱萸 · 太子参 · 半夏 · 金银花</div>
+    <div class="area">山地中药材特色鲜明 · 天麻种植全国领先</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 宁夏 — 宁药</div>
+    <div class="herbs">枸杞 · 甘草 · 肉苁蓉 · 麻黄 · 秦艽</div>
+    <div class="area">中宁枸杞品牌价值全国中药材第一</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 河南 — 豫药</div>
+    <div class="herbs">山药 · 菊花 · 牛膝 · 地黄(四大怀药)</div>
+    <div class="area">焦作"四大怀药"道地产区 · 温县铁棍山药知名</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 广西 — 桂药</div>
+    <div class="herbs">八角 · 肉桂 · 罗汉果 · 巴戟天 · 砂仁</div>
+    <div class="area">南方热带/亚热带药材核心产区</div>
+  </div>
+  <div class="dist-card">
+    <div class="province">🌿 湖北 — 鄂药</div>
+    <div class="herbs">厚朴 · 黄连 · 三七 · 茯苓 · 延胡索</div>
+    <div class="area">恩施/神农架野生药材资源丰富</div>
+  </div>
+</div>
+</div>
+
+<div class="grid-3">
+  <div class="card">
+    <h3>🏪 全国四大中药材交易市场</h3>
+    <ul>
+      <li><strong>安徽亳州：</strong>全国最大中药材交易中心，年交易额超<strong>600亿元</strong>。覆盖品种5000+，辐射全球华人圈</li>
+      <li><strong>河北安国：</strong>"千年药都"，北方最大中药材集散地。年交易额约<strong>300亿元</strong>，饮片加工产业发达</li>
+      <li><strong>广东清平：</strong>华南最大中药材市场，毗邻港澳。年交易额约<strong>50亿元</strong>，特色是"广药"体系</li>
+      <li><strong>河南禹州：</strong>历史名药都，南方药材中转枢纽。年交易额约<strong>100亿元</strong></li>
+    </ul>
+    <p class="data-note">除四大传统市场外，成都荷花池、西安万寿路等区域性市场也在快速崛起</p>
+  </div>
+  <div class="card">
+    <h3>📈 中药材价格指数趋势</h3>
+    <ul>
+      <li><strong>中药材指数(CTCI)：</strong>2020年~130点 → 2023年~170点（+30%）→ 2024年~185点</li>
+      <li>部分品种涨幅惊人：<strong>三七</strong>2020-2024年涨幅超80%（种植周期长+气候减产）</li>
+      <li><strong>人参</strong>2023-2024年价格上涨40%+（吉林主产区老龄化+劳动力短缺）</li>
+      <li><strong>当归/黄芪</strong>2024年价格同比上涨15-25%（甘肃主产区干旱减产）</li>
+      <li>核心逻辑：中药材价格受<strong>气候+劳动力+种植周期</strong>三重约束，供给弹性极低</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🏭 中药企业区域分布TOP10</h3>
+    <ul>
+      <li><strong>北京：</strong>同仁堂(市值~1,500亿)、片仔癀(北京总部)、东阿阿胶(北京资本运作)</li>
+      <li><strong>上海：</strong>上海医药(国企龙头)、复星医药</li>
+      <li><strong>江苏：</strong>扬子江药业(民营TOP3)、康缘药业(中药创新药)、红日药业(配方颗粒)</li>
+      <li><strong>浙江：</strong>胡庆余堂、康恩贝、华立药业</li>
+      <li><strong>广东：</strong>广州白云山、华润三九(总部在深圳)、王老吉(吉药)</li>
+      <li><strong>福建：</strong>片仔癀(漳州总部，市值~800亿)</li>
+      <li><strong>山东：</strong>东阿阿胶(聊城)、宏济堂</li>
+      <li><strong>湖北：</strong>李时珍生物制药、人福医药(中药+化学药)</li>
+      <li><strong>云南：</strong>云南白药(市值~1,200亿)、昆明制药</li>
+      <li><strong>吉林：</strong>修正药业、通化东宝(中药+胰岛素)</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第六部分：细分赛道对比 ==================== -->
+<section>
+<h2 class="section-title">第六部分：医药细分赛道多维对比 — 创新药 vs 仿制药 vs 中药 vs 原料药 vs CXO</h2>
+
+<div class="card" style="margin-bottom: 16px;">
+<table class="comp-table">
+<tr><th>维度</th><th>创新药</th><th>仿制药</th><th>中药</th><th>原料药(API)</th><th>CXO外包</th></tr>
+<tr><td>2024市场规模</td><td>~5,000-6,000亿RMB</td><td>~1.2万亿RMB</td><td>~1.32万亿RMB</td><td>~1,560亿美元(中国API)</td><td>~3,000亿RMB</td></tr>
+<tr><td>年增速</td><td>15-20%</td><td>3-5%(集采压价)</td><td>8-10%</td><td>5-7%</td><td>-5~-10%(下行周期)</td></tr>
+<tr><td>研发强度(R&D/营收)</td><td>15-25%(恒瑞~20%)</td><td>1-3%</td><td>3-5%(康缘~8%)</td><td>1-2%</td><td>5-8%</td></tr>
+<tr><td>全球竞争力</td><td>初露锋芒(百济/传奇)</td><td>中等(美国注册仿制药)</td><td>弱(主要在华人圈)</td><td><strong>全球第一(霸权级)</strong></td><td>强但受地缘压制</td></tr>
+<tr><td>政策风险</td><td>医保谈判压价</td><td><strong>集采(降价50-90%)</strong></td><td>政策友好</td><td>环保趋严</td><td><strong>美国生物安全法案</strong></td></tr>
+<tr><td>出海前景</td><td>⭐��⭐⭐⭐(最佳)</td><td>⭐⭐⭐(FDA仿制药)</td><td>⭐⭐(长期)</td><td>⭐⭐⭐⭐(已主导)</td><td>⭐⭐(短期承压)</td></tr>
+<tr><td>投资优先级</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐(等待底部)</td></tr>
+</table>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>💊 中国创新药核心管线领域</h3>
+    <div class="tag-row"><span class="tag tag-blue">重点突破</span></div>
+    <ul>
+      <li><strong>肿瘤(ADC/双抗/CAR-T)：</strong>全球最热赛道。中国ADC企业License-out总额超$100亿，Carvykti全球独家</li>
+      <li><strong>自身免疫(PD-1/IL-4Rα)：</strong>信达/君实/康诺亚管线密集，全球市场$600亿+</li>
+      <li><strong>代谢疾病(GLP-1)：</strong>诺和诺德Wegovy带动全球减肥药市场$1,000亿+，中国跟进者密集(信达/恒瑞/石药)</li>
+      <li><strong>神经退行性疾病：</strong>阿尔茨海默症中药干预有独特优势(复方黄黛片等)</li>
+      <li><strong>基因细胞治疗：</strong>中国CAR-T临床数量全球第二，仅次美国</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>📊 研发管线数量对比(2024)</h3>
+    <ul>
+      <li><strong>在研创新药IND数量：</strong>中国2024年提交IND申请约1,500+个，全球第二(仅次于美国)</li>
+      <li><strong>临床试验Phase III：</strong>中国~80个（美国~350个），差距明显但增速快</li>
+      <li><strong>FDA批准的中国原研药：</strong>截至2024年累计约15-20个（主要为中药+生物类似药），远少于印度(~50+)</li>
+      <li><strong>全球专利：</strong>中国PCT国际专利申请量2024年约7,000+件，全球第二，但医药领域占比约15%</li>
+      <li><strong>核心差距：</strong>原始创新能力仍弱于美国（First-in-class占比<5% vs 美国~25%）</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ==================== 第七部分：多学派研判 + 风险 ==================== -->
+<section>
+<h2 class="section-title">第七部分：多学派交叉研判 + 核心风险提示</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3><span class="school-tag school-ky">凯恩斯主义</span>政策驱动型产业 — 医保是核心变量</h3>
+    <p>中国医药产业的底层逻辑是<strong>医保支付</strong>。创新药的放量依赖医保谈判，中药的政策红利来自国家顶层设计。凯恩斯视角下，医药产业是典型的"财政乘数效应"行业 — 每1元医保投入可撬动3-5元产业产出。核心判断：<strong>医保谈判降价压力短期不会消失，但创新药有望获得溢价空间</strong>（2024年医保谈判创新药平均降价47%，好于仿制药的60-80%）。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-marx">马克思主义政治经济学</span>从"世界工厂"到"创新主体"的矛盾运动</h3>
+    <p>原料药领域的"霸权"本质上是<strong>全球价值链低端锁定</strong> — 赚取的是化工制造的微薄利润，而创新药的高附加值仍被跨国药企攫取。中国Biotech的License-out浪潮，是从"依附性增长"向"自主性积累"的质变。核心矛盾：<strong>资本涌入Biotech的热情 vs 全球地缘政治对中国创新的压制</strong>（美国《生物安全法案》即是最典型表现）。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-behavior">行为经济学</span>消费者心理转变 — "中西并重"的不可逆</h3>
+    <p>过去30年中国经历了"西医崇拜"→"西医疲劳"→"中西并重"的心理转变。新冠疫情期间中药的广泛使用（"三药四方"）进一步强化了公众对中医药的信任。行为学研究表明：<strong>消费者对中药的"天然/安全"认知偏差虽然不科学，但构成了稳定的市场需求基本盘</strong>。这解释了为何中药在经济下行期反而逆势增长。</p>
+  </div>
+  <div class="card">
+    <h3><span class="school-tag school-evolution">演化经济学</span>产业生态位的分化与重塑</h3>
+    <p>仿制药企业面临集采"生态位挤压" — 利润空间被压缩至极限，要么转型创新药（恒瑞/石药路径），要么坚守原料药成本优势（华海/普洛路径）。中药企业则在<strong>"政策保护+文化壁垒"的双重护城河</strong>下获得独特的生态位 — 这是西方Biotech无法竞争的领域。核心判断：<strong>中国医药产业的终局是"中西分治、各自为王"</strong>。</p>
+  </div>
+</div>
+
+<div class="risk-box" style="margin-top: 20px;">
+<h4>⚠️ 五大核心风险提示</h4>
+<table class="comp-table">
+<tr><th>风险类型</th><th>具体表现</th><th>影响程度</th><th>时间窗口</th></tr>
+<tr><td><strong>地缘政治</strong></td><td>美国《生物安全法案》可能制裁药明系等企业；FDA对中国临床试验数据接受度降低</td><td class="decline">极高</td><td>2025-2026</td></tr>
+<tr><td><strong>集采扩围</strong></td><td>中药饮片/配方颗粒可能被纳入集采；创新药医保谈判降价幅度超预期</td><td class="decline">高</td><td>持续</td></tr>
+<tr><td><strong>研发失败</strong></td><td>临床III期失败率高（中国Biotech Phase III成功率~60%，低于美国~75%）</td><td class="decline">中高</td><td>持续</td></tr>
+<tr><td><strong>中药材价格波动</strong></td><td>气候异常+劳动力老龄化→原材料成本飙升→中药企业毛利率承压</td><td>中</td><td>2025-2027</td></tr>
+<tr><td><strong>同质化竞争</strong></td><td>GLP-1/BTK/ADC赛道扎堆立项，可能出现"内卷式"产能过剩</td><td>中高</td><td>2025-2028</td></tr>
+</table>
+</div>
+
+<div class="forecast-box" style="margin-top: 16px;">
+<h4>🔮 综合研判 — 2025-2030年中国医药产业展望</h4>
+<ul style="font-size: 13px; color: var(--text2); line-height: 2;">
+<li><strong>创新药：</strong>预计2030年市场规模突破1.5万亿RMB（CAGR 15-20%）。3-5个中国原研药获得FDA批准。ADC/CAR-T/GLP-1是三大突破口</li>
+<li><strong>中药：</strong>预计2030年市场规模突破2.5万亿RMB（CAGR 10-12%）。配方颗粒+中药创新药+中药大健康是三大增长引擎</li>
+<li><strong>原料药：</strong>全球地位短期不可动摇，但面临印度/东南亚竞争。向"高壁垒API+制剂一体化"转型是唯一出路</li>
+<li><strong>CXO：</strong>2025-2026是底部磨底期，美国地缘风险消化后将迎来新一轮增长（欧洲/新兴市场替代）</li>
+<li><strong>核心判断：</strong>中国医药产业正处于"从仿制到创新、从内循环到全球化"的历史性拐点。未来5年是<strong>分化期</strong> — 有原创能力的企业脱颖而出，没有核心管线的企业将被集采/地缘政治淘汰</li>
+</ul>
+</div>
+</section>
+
+<!-- ========== 新增：重庆秀山及地方中药材基地深度分析 ========== -->
+<section style="margin-top:24px;">
+<div class="card">
+<h3>🗺️ 中国中药材基地地理分布 — 补充：重庆秀山及新兴产区</h3>
+
+<p class="data-note">中国道地药材主产区分布格局：甘肃（当归/黄芪/柴胡）、山西（党参/黄芩）、四川（黄连/川贝/天麻）、贵州（天麻/杜仲）、云南（三七/天麻）、吉林（人参）、山东（金银花/丹参）、湖北（厚朴/黄连）、陕西（黄连/淫羊藿）、广西（罗汉果/肉桂）等传统产区。以下补充<strong>重庆秀山</strong>这一新兴中药材基地的深度分析。</p>
+
+<div class="grid-2" style="margin-top:16px;">
+  <div class="dist-card">
+    <h4>重庆秀山 — 武陵山区中药材示范基地</h4>
+    <ul>
+      <li><strong>地理位置：</strong>重庆市东南端，武陵山区腹地，海拔200-2000米，亚热带湿润季风气候，适宜多种中药材生长</li>
+      <li><strong>主导品种：</strong>黄精（5,000亩）、黄连（8,000亩）、白术（6,000亩）、栀子（4,000亩）、金银花（3,000亩），总面积<strong>4.5万亩</strong></li>
+      <li><strong>产业规模：</strong>2024年中药材综合产值达<strong>2.0亿元</strong>，目标2026年突破5亿元</li>
+      <li><strong>覆盖范围：</strong>覆盖全县<strong>70%+</strong>行政村，惠及<strong>3万余户</strong>农民，其中脱贫户占比超40%</li>
+      <li><strong>龙头企业：</strong>引入重庆富永山菜科技等加工企业，形成"种植+加工+销售"全产业链</li>
+      <li><strong>道地性：</strong>秀山黄连属"渝东黄连"道地产区，小檗碱含量达8-10%，高于药典标准</li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>其他新兴中药材基地速览</h4>
+    <ul>
+      <li><strong>贵州安顺：</strong>天麻/太子参主产区，全国最大的天麻种植基地之一，年产值超15亿</li>
+      <li><strong>甘肃岷县：</strong>中国当归之乡，当归产量占全国60%以上，年交易额超30亿</li>
+      <li><strong>山西灵丘：</strong>党参核心产区，有机党参溢价3-5倍，单品产值达8亿</li>
+      <li><strong>四川中江：</strong>千年半夏/川芘道地产区，GAP标准化种植覆盖率超80%</li>
+      <li><strong>吉林抚松：</strong>中国人参第一县，占全球人参产量40%，人参提取物出口额超10亿美金</li>
+      <li><strong>广西玉林：</strong>全国最大的中药材集散中心之一，年交易额超120亿，辐射华南及东南亚</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card" style="margin-top:12px;">
+<h4>📋 中药材基地发展趋势研判（2025-2030）</h4>
+<ul>
+<li><strong>GAP新规驱动产业升级：</strong>2024版GAP全面实施，种植端规范化/可追溯化率将从目前的约30%提升至2026年的50%+，道地性认证成为核心竞争力</li>
+<li><strong>乡村振兴+中药材：</strong>秀山模式（"公司+合作社+农户"）将在中西部山区推广，预计覆盖1,000+县域，带动500万+农户增收</li>
+<li><strong>中药材期货/期权探索：</strong>亳州/安国等交易市场正在探索中药材价格指数保险和期货交易，平抑价格波动风险</li>
+<li><strong>生态补偿机制：</strong>中药材种植与生态保护协同（林下种植/轮作）将获得更多政策补贴，"药-粮-林"复合经营成为趋势</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ========== 新增：前沿医药赛道与更广谱的药品分析 ========== -->
+<section style="margin-top:24px;">
+<div class="card">
+<h3>🧬 前沿医药赛道 — 超越传统化学药/中药的十大方向</h3>
+
+<p>中国医药产业正经历从"仿制跟随"到"原始创新"的范式转变。以下十大前沿赛道将重塑未来5-10年的产业格局：</p>
+
+<div class="grid-2" style="margin-top:16px;">
+  <div class="dist-card">
+    <h4>1. ADC（抗体偶联药物）— 中国最强赛道</h4>
+    <ul>
+      <li>2024年中国ADC市场规模约<strong>350亿元</strong>，预计2030年达<strong>2,000亿+</strong>（CAGR 30%+）</li>
+      <li>荣昌生物维迪西妥单抗（2021年获批）是中国首个原创ADC，2024年全球销售额约25亿</li>
+      <li>科伦博泰（默沙东授权合作）：多款ADC License-out总额超<b>$100亿</b>，创中国单药授权纪录</li>
+      <li>全球竞争格局：药明巨诺/康宁杰荣/恒瑞/百利天恒等30+企业布局临床I-III期</li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>2. CAR-T / 细胞治疗</h4>
+    <ul>
+      <li>2024年中国CAR-T市场规模约<strong>80亿元</strong>，传奇生物Carvykti 2024年全球销售约<b>22亿美元</b>（+50% YoY），2025年预计突破30亿美金</li>
+      <li>药明巨诺Junoyvo（自免适应症拓展）是第二条增长曲线</li>
+      <li>TIL/TCR-T/NK细胞等下一代技术进入临床验证</li>
+      <li>核心瓶颈：<strong>定价（120-150万人民币/剂）+ 制备周期长 + 个体化生产</strong></li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>3. mRNA 疫苗与治疗</h4>
+    <ul>
+      <li>新冠后mRNA平台技术储备丰厚，2024年中国mRNA市场规模约<strong>50亿元</strong>，流感/癌症疫苗管线密集</li>
+      <li>斯微生物（复星合作）：国内mRNA疫苗龙头，多条管线进入临床II/III期</li>
+      <li>本土LNP递送系统突破（如艾博生物/丽珠合作新冠疫苗）</li>
+      <li>未来方向：mRNA用于蛋白替代疗法（糖尿病/罕见病）</li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>4. 合成生物学制药</h4>
+    <ul>
+      <li>利用工程菌/酵母生产高价值活性成分（青蒿素/紫杉醇/人参皂苷）</li>
+      <li>凯赛生物/蓝晓科技/弈柯莱等企业在发酵工艺和菌株改造上突破</li>
+      <li>核心逻辑：<strong>用生物制造替代植物提取，解决中药材资源瓶颈</strong></li>
+      <li>预计2030年合成生物学制药市场规模超<strong>500亿元</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-top:12px;">
+  <div class="dist-card">
+    <h4>5. 基因治疗（AAV/Lentivirus）</h4>
+    <ul>
+      <li>2024年中国基因治疗市场规模约<strong>30亿元</strong>，处早期爆发前夜</li>
+      <li>石药集团/博生吉/科济药业等在CAR-T+基因编辑(CRISPR)交叉领域布局</li>
+      <li>核心瓶颈：腺相关病毒(AAV)载体大规模生产工艺 + 体内递送效率</li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>6. 脑机接口 + 神经药物</h4>
+    <ul>
+      <li>脑机接口（Neuralink之后全球热潮）：中国科大/清华大学/京东方等布局</li>
+      <li>阿尔茨海默症新药：仑卡奈单抗（Leqembi）2024年进入中国医保，2025年预计覆盖10万+患者</li>
+      <li>精神类药物创新（抑郁症/焦虑症/ADHD）市场空间超<strong>500亿</strong></li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>7. 数字疗法 (Digital Therapeutics)</h4>
+    <ul>
+      <li>基于AI/VR/App的处方级数字治疗方案，2024年中国DTx市场约<strong>20亿元</strong></li>
+      <li>失眠/疼痛管理/康复训练是首批获批场景</li>
+      <li>核心变量：医保支付是否纳入数字疗法产品</li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>8. GLP-1 多靶点激动剂</h4>
+    <ul>
+      <li>司美格鲁肽(Wegovy)全球2024销售超<b>$300亿</b>，中国肥胖/糖尿病市场爆发</li>
+      <li>信达生物玛仕度肽（2025年获批）是国内首个GLP-1R/GCGR双靶点，预计首年销售超50亿</li>
+      <li>石药/恒瑞/丽珠/华东医药等20+企业布局三代融合肽/口服GLP-1</li>
+      <li>预计2030年中国GLP-1市场超<strong>1,000亿元</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="card" style="margin-top:12px;">
+<h4>🔮 前沿赛道综合研判</h4>
+<ul>
+<li><strong>ADC是"中国最具全球竞争力"的创新赛道</strong> — 从靶点发现到偶联技术均有原创能力，License-out金额全球第二（仅次于美国）</li>
+<li><strong>GLP-1是"确定性最高的内需赛道"</strong> — 中国糖尿病/肥胖患者基数全球最大，国产替代空间广阔</li>
+<li><strong>mRNA/基因治疗/合成生物学是"长期战略方向"</strong> — 技术壁垒最高，需要5-10年持续投入，短期难见规模化收入</li>
+<li><strong>脑机接口/数字疗法属于"跨界颠覆型"</strong> — 与传统医药产业边界模糊，但可能重塑整个治疗范式</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ========== 新增：第十批集采对中药的冲击 ========== -->
+<section style="margin-top:24px;">
+<div class="card">
+<h3>⚡ 第十批国家集采前瞻 — 中药首次大规模纳入的冲击波</h3>
+
+<div class="grid-2" style="margin-top:16px;">
+  <div class="dist-card">
+    <h4>集采扩围至中药的核心变化</h4>
+    <ul>
+      <li>前九批集采主要覆盖化学仿制药（平均降价53%），<strong>第十批预计首次纳入中成药30-50个品种</strong></li>
+      <li>纳入品种以：独家品种/专利到期品种/临床用量大的经典名方制剂为主</li>
+      <li>中药降价逻辑不同于化药 — <strong>中药材成本+人工炮制+质量差异</strong>使降价空间有限（预计20-30%）</li>
+      <li>核心矛盾：医保控费压力 vs 中药产业保护政策</li>
+    </ul>
+  </div>
+  <div class="dist-card">
+    <h4>受影响最大的中药企业</h4>
+    <ul>
+      <li><strong>片仔癀：</strong>核心大单品麝香保心丸若被集采，年收入影响约50-80亿</li>
+      <li><strong>云南白药：</strong>活血止痛胶囊等OTC转处方品种面临压力</li>
+      <li><strong>以岭药业：</strong>连花清瘟（2024年销售约60亿）已被纳入医保，集采降价风险高</li>
+      <li><strong>同仁堂/康缘药业/天士达：</strong>中药现代化程度高的企业抗风险能力更强</li>
+    </ul>
+  </div>
+</div>
+
+<div class="risk-box" style="margin-top:12px;">
+<h4>集采对中药的双面影响评估</h4>
+<table class="comp-table">
+<tr><th>维度</th><th>正面影响</th><th>负面影响</th></tr>
+<tr><td><strong>医保基金</strong></td><td>降低用药成本，扩大报销覆盖面</td><td>—</td></tr>
+<tr><td><strong>中药企业</strong></td><td>中标企业获得市场份额（量增价跌）</td><td>利润率压缩，研发投入受限；未中标企业失去渠道</td></tr>
+<tr><td><strong>患者</strong></td><td>降低自付费用，提高可及性</td><td>质量担忧（低价中标可能导致原料降级）</td></tr>
+<tr><td><strong>中药材种植</strong></td><td>—</td><td>收购价格下降打击农户积极性，长期可能威胁供应链安全</td></tr>
+<tr><td><strong>产业政策</strong></td><td>倒逼中药企业转型升级</td><td>与"中医药振兴发展重大工程"政策目标存在张力</td></tr>
+</table>
+</div>
+</div>
+</section>
+
+<footer>
+  <p>本看板由"全域全流派经济学首席研判专家"框架生成</p>
+  <p>分析原则：前提校验优先 · 五维联动 · 多流派对冲 · 历史对称对标 · 代价前置</p>
+  <p style="margin-top:8px;">⚠️ 免责声明：以上内容仅为学术研究和分析参考，不构成任何投资建议。所有经济预判均存在不确定性边界，投资需谨慎。</p>
+  <p style="margin-top:4px; font-size:10px;">数据来源：国家统计局、NMPA、工信部、WHO、IMS Health、Frost & Sullivan、IQVIA、各公司年报、华经产业研究院、中研普华、东方财富、动脉网、医药魔方、FiercePharma。数据截止2025年末/2026年初。中国药品终端市场总规模约8.5万亿（含医院+零售），制造业营收约1.69万亿，零售药店药品市场约1.87万亿。三者统计口径不同，不可混用。</p>
+</footer>
+
+</div>
+</body>
+</html>
