@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球创作者经济全景看板 — 封面</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .cover-hero { text-align: center; padding: 60px 20px 40px; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+    .cover-hero h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
+    .cover-hero .subtitle { color: var(--text2); font-size: 14px; margin-bottom: 20px; }
+    .cover-hero .stats { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 20px 0; }
+    .cover-hero .stat { text-align: center; }
+    .cover-hero .stat .val { font-size: 20px; font-weight: 700; color: var(--cyan); }
+    .cover-hero .stat .lbl { font-size: 11px; color: var(--text2); }
+    .toc-section { margin: 20px 0; }
+    .toc-section h3 { font-size: 15px; font-weight: 700; color: var(--purple); margin: 20px 0 12px; padding-left: 10px; border-left: 3px solid var(--purple); }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+    .toc-item { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+    .toc-item:hover { border-color: var(--cyan); background: var(--surface2); }
+    .toc-item .num { font-size: 12px; font-weight: 700; color: var(--cyan); min-width: 24px; }
+    .toc-item .title { font-size: 13px; font-weight: 600; }
+    .toc-item .desc { font-size: 11px; color: var(--text2); }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AnaReports</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">全球创作者经济全景看板</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一部分：行当解析</li>
+      <li><a href="01-social-media.html">1.1 自媒体博主</a></li>
+      <li><a href="02-indie-games.html">1.2 独立游戏开发者</a></li>
+      <li><a href="03-web-novel.html">1.3 网文/电子书作者</a></li>
+      <li><a href="04-podcast.html">1.4 播客主播</a></li>
+      <li><a href="05-online-course.html">1.5 在线课程讲师</a></li>
+      <li><a href="06-freelancer.html">1.6 自由职业者</a></li>
+      <li><a href="07-photographer.html">1.7 摄影师/插画师</a></li>
+      <li><a href="08-musician.html">1.8 音乐人/独立歌手</a></li>
+      <li><a href="09-ecommerce.html">1.9 电商带货/联盟营销</a></li>
+      <li><a href="10-live-streaming.html">1.10 直播打赏/订阅制</a></li>
+      <li class="toc-chapter">第二部分：平台图谱</li>
+      <li><a href="11-platforms-video.html">2.1 视频类平台</a></li>
+      <li><a href="12-platforms-text.html">2.2 图文类平台</a></li>
+      <li><a href="13-platforms-audio.html">2.3 音频类平台</a></li>
+      <li><a href="14-platforms-live.html">2.4 直播类平台</a></li>
+      <li><a href="15-platforms-ecommerce.html">2.5 电商/技能类平台</a></li>
+      <li class="toc-chapter">第三部分：变现手段</li>
+      <li><a href="16-monetization-ads.html">3.1 广告分成</a></li>
+      <li><a href="17-monetization-brand.html">3.2 品牌赞助</a></li>
+      <li><a href="18-monetization-subscribe.html">3.3 付费订阅</a></li>
+      <li><a href="19-monetization-tip.html">3.4 打赏礼物</a></li>
+      <li><a href="20-monetization-ecommerce.html">3.5 电商带货</a></li>
+      <li><a href="21-monetization-affiliate.html">3.6 联盟营销</a></li>
+      <li><a href="22-monetization-knowledge.html">3.7 知识付费</a></li>
+      <li><a href="23-monetization-ip.html">3.8 IP授权/周边</a></li>
+      <li class="toc-chapter">第四部分：数据分析</li>
+      <li><a href="24-income-analysis.html">4.1 收入分布与金字塔</a></li>
+      <li><a href="25-rpm-comparison.html">4.2 各平台RPM对比</a></li>
+      <li><a href="26-sector-growth.html">4.3 赛道增长趋势</a></li>
+      <li class="toc-chapter">第五部分：实战指南</li>
+      <li><a href="27-roadmap.html">5.1 新手起步路线图</a></li>
+      <li><a href="28-multi-platform.html">5.2 多平台分发策略</a></li>
+      <li><a href="29-risks.html">5.3 避坑指南</a></li>
+      <li><a href="30-future.html">5.4 未来趋势展望</a></li>
+      <li><a href="31-case-studies.html">5.5 典型案例研究</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="cover-hero">
+      <h1>全球创作者经济全景看板</h1>
+      <p class="subtitle">十大赚钱行当 &times; 八大变现手段 &times; 20+主流平台图谱 &bull; 2026最新数据</p>
+      <div class="stats">
+        <div class="stat"><div class="val">31</div><div class="lbl">章节页数</div></div>
+        <div class="stat"><div class="val">10</div><div class="lbl">赚钱行当</div></div>
+        <div class="stat"><div class="val">8</div><div class="lbl">变现手段</div></div>
+        <div class="stat"><div class="val">20+</div><div class="lbl">主流平台</div></div>
+        <div class="stat"><div class="val">$2500亿+</div><div class="lbl">全球市场规模</div></div>
+        <div class="stat"><div class="val">10亿+</div><div class="lbl">全球创作者</div></div>
+      </div>
+    </div>
+
+    <div class="toc-section">
+      <h3><i class="fas fa-briefcase"></i> 第一部分：十大赚钱行当深度解析</h3>
+      <div class="toc-grid">
+        <a href="01-social-media.html" class="toc-item"><span class="num">01</span><div><div class="title">自媒体博主</div><div class="desc">图文/短视频/直播创作者</div></div></a>
+        <a href="02-indie-games.html" class="toc-item"><span class="num">02</span><div><div class="title">独立游戏开发者</div><div class="desc">单人/小团队游戏创作</div></div></a>
+        <a href="03-web-novel.html" class="toc-item"><span class="num">03</span><div><div class="title">网文/电子书作者</div><div class="desc">连载小说与知识出版</div></div></a>
+        <a href="04-podcast.html" class="toc-item"><span class="num">04</span><div><div class="title">播客主播</div><div class="desc">音频内容与访谈节目</div></div></a>
+        <a href="05-online-course.html" class="toc-item"><span class="num">05</span><div><div class="title">在线课程讲师</div><div class="desc">知识传授与技能培训</div></div></a>
+        <a href="06-freelancer.html" class="toc-item"><span class="num">06</span><div><div class="title">自由职业设计师/开发者</div><div class="desc">专业技能接单变现</div></div></a>
+        <a href="07-photographer.html" class="toc-item"><span class="num">07</span><div><div class="title">摄影师/插画师/数字艺术家</div><div class="desc">视觉创作与素材销售</div></div></a>
+        <a href="08-musician.html" class="toc-item"><span class="num">08</span><div><div class="title">音乐人/独立歌手</div><div class="desc">音乐创作与演出变现</div></div></a>
+        <a href="09-ecommerce.html" class="toc-item"><span class="num">09</span><div><div class="title">电商带货/联盟营销</div><div class="desc">商品销售与佣金推广</div></div></a>
+        <a href="10-live-streaming.html" class="toc-item"><span class="num">10</span><div><div class="title">直播打赏/订阅制创作者</div><div class="desc">实时互动与粉丝经济</div></div></a>
+      </div>
+    </div>
+
+    <div class="toc-section">
+      <h3><i class="fas fa-server"></i> 第二部分：全球主流平台全景图谱</h3>
+      <div class="toc-grid">
+        <a href="11-platforms-video.html" class="toc-item"><span class="num">11</span><div><div class="title">视频类平台</div><div class="desc">YouTube / TikTok / B站 / 抖音</div></div></a>
+        <a href="12-platforms-text.html" class="toc-item"><span class="num">12</span><div><div class="title">图文类平台</div><div class="desc">公众号 / 小红书 / Medium / Substack</div></div></a>
+        <a href="13-platforms-audio.html" class="toc-item"><span class="num">13</span><div><div class="title">音频类平台</div><div class="desc">Spotify / 喜马拉雅 / 小宇宙</div></div></a>
+        <a href="14-platforms-live.html" class="toc-item"><span class="num">14</span><div><div class="title">直播类平台</div><div class="desc">Twitch / 斗鱼 / 虎牙</div></div></a>
+        <a href="15-platforms-ecommerce.html" class="toc-item"><span class="num">15</span><div><div class="title">电商/技能类平台</div><div class="desc">Amazon / Upwork / Fiverr / Etsy</div></div></a>
+      </div>
+    </div>
+
+    <div class="toc-section">
+      <h3><i class="fas fa-coins"></i> 第三部分：八大变现手段深度拆解</h3>
+      <div class="toc-grid">
+        <a href="16-monetization-ads.html" class="toc-item"><span class="num">16</span><div><div class="title">广告分成</div><div class="desc">RPM/CPC/CPM 原理与收益</div></div></a>
+        <a href="17-monetization-brand.html" class="toc-item"><span class="num">17</span><div><div class="title">品牌赞助/商单</div><div class="desc">报价逻辑与合作模式</div></div></a>
+        <a href="18-monetization-subscribe.html" class="toc-item"><span class="num">18</span><div><div class="title">付费订阅</div><div class="desc">Patreon/Substack/Ko-fi</div></div></a>
+        <a href="19-monetization-tip.html" class="toc-item"><span class="num">19</span><div><div class="title">打赏/礼物</div><div class="desc">直播打赏与虚拟礼物</div></div></a>
+        <a href="20-monetization-ecommerce.html" class="toc-item"><span class="num">20</span><div><div class="title">电商带货</div><div class="desc">直播带货与自营品牌</div></div></a>
+        <a href="21-monetization-affiliate.html" class="toc-item"><span class="num">21</span><div><div class="title">联盟营销</div><div class="desc">Affiliate/CPS/CPA</div></div></a>
+        <a href="22-monetization-knowledge.html" class="toc-item"><span class="num">22</span><div><div class="title">知识付费</div><div class="desc">课程/咨询/社群/培训</div></div></a>
+        <a href="23-monetization-ip.html" class="toc-item"><span class="num">23</span><div><div class="title">IP授权/周边衍生品</div><div class="desc">IP变现与跨界合作</div></div></a>
+      </div>
+    </div>
+
+    <div class="toc-section">
+      <h3><i class="fas fa-chart-bar"></i> 第四部分：收入分布与数据分析</h3>
+      <div class="toc-grid">
+        <a href="24-income-analysis.html" class="toc-item"><span class="num">24</span><div><div class="title">收入金字塔与分布</div><div class="desc">1%-9%-90% 收入分层</div></div></a>
+        <a href="25-rpm-comparison.html" class="toc-item"><span class="num">25</span><div><div class="title">各平台RPM对比</div><div class="desc">千次收益数据横评</div></div></a>
+        <a href="26-sector-growth.html" class="toc-item"><span class="num">26</span><div><div class="title">赛道增长趋势</div><div class="desc">2020-2026 市场规模演变</div></div></a>
+      </div>
+    </div>
+
+    <div class="toc-section">
+      <h3><i class="fas fa-route"></i> 第五部分：实战指南</h3>
+      <div class="toc-grid">
+        <a href="27-roadmap.html" class="toc-item"><span class="num">27</span><div><div class="title">新手起步路线图</div><div class="desc">从0到月收入100万+的四阶段</div></div></a>
+        <a href="28-multi-platform.html" class="toc-item"><span class="num">28</span><div><div class="title">多平台分发策略</div><div class="desc">主平台+副平台+私域</div></div></a>
+        <a href="29-risks.html" class="toc-item"><span class="num">29</span><div><div class="title">避坑指南</div><div class="desc">版权/平台/税务/健康风险</div></div></a>
+        <a href="30-future.html" class="toc-item"><span class="num">30</span><div><div class="title">未来趋势展望</div><div class="desc">AI影响与行业演进</div></div></a>
+        <a href="31-case-studies.html" class="toc-item"><span class="num">31</span><div><div class="title">典型案例研究</div><div class="desc">MrBeast/李子柒/李佳琦等</div></div></a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <span class="nav-home" style="font-size:12px; color:var(--text2);">
+      <i class="fas fa-home"></i> <a href="../index.html" style="color:var(--cyan); text-decoration:none;">返回总入口</a>
+    </span>
+    <span class="page-info">第一章 / 共31章</span>
+    <a class="nav-next" href="01-social-media.html">自媒体博主 <i class="fas fa-chevron-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+</body>
+</html>
