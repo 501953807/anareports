@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十一章：制裁规避 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十一章：制裁规避与OFAC合规</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+    <li><a href="55-sanctions-evasion.html">6.6 制裁规避与OFAC合规</a></li>
+    <li><a href="56-smart-contract-audit.html">6.7 智能合约审计与DeFi安全</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">制裁规避与OFAC合规 — 当洗钱遇上地缘政治</h1>
+    <div class="data-note" style="margin-bottom:20px">制裁合规是反洗钱的最前沿。OFAC(美国财政部海外资产控制办公室)的制裁名单覆盖全球金融体系。被制裁国家/实体必须借助地下钱庄、加密货币、贸易洗钱等手段绕过制裁，这本身就是最高级别的洗钱行为。</div>
+
+    <h2 class="section-subtitle">6.6.1 OFAC制裁框架 — 全球金融体系的"核武器"</h2>
+    <table class="data-table">
+      <thead><tr><th>制裁类型</th><th>覆盖范围</th><th>执法机构</th><th>违规后果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>全面制裁</strong></td><td>针对国家(古巴/伊朗/朝鲜/叙利亚/克里米亚)</td><td>OFAC</td><td>所有与美国相关的交易被禁止，资产冻结</td></tr>
+        <tr><td><strong>针对性制裁</strong></td><td>针对个人/实体(SDN名单)</td><td>OFAC</td><td>列入SDN名单=被切断美元体系，全球银行不敢与之交易</td></tr>
+        <tr><td><strong>行业制裁</strong></td><td>针对特定行业(俄罗斯能源/军工)</td><td>OFAC+商务部BIS</td><td>禁止特定商品/技术交易</td></tr>
+        <tr><td><strong>二级制裁</strong></td><td>惩罚"与非制裁对象交易"的第三方</td><td>OFAC/国会法案</td><td>伊朗/朝鲜二级制裁——与这些人交易的你也会被制裁</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.6.2 SDN名单 — 全球金融社会的"黑名单"</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>数据</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SDN名单条目数</strong></td><td>约13,000+(2025年)，涵盖个人、实体、船舶、飞机</td></tr>
+        <tr><td><strong>冻结资产规模</strong></td><td>$3000亿+（主要为俄罗斯央行资产）</td></tr>
+        <tr><td><strong>最著名被制裁者</strong></td><td>普京(2022)、金正恩(2010+)、卡扎菲(已故)、罗恩·阿布拉莫维奇、Al-Qaeda、ISIS、塔利班</td></tr>
+        <tr><td><strong>中国关联</strong></td><td>中芯国际/华为(实体清单)+多个中国银行被制裁(2024中信银行警告)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.6.3 制裁规避手法 — 被制裁者如何绕开OFAC</h2>
+    <table class="data-table">
+      <thead><tr><th>手法</th><th>操作方式</th><th>典型案例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>船对船转运</strong>(Ship-to-Ship)</td><td>在两艘船海上交接货物，关闭AIS(船舶自动识别系统)，更换船名/旗帜/涂装</td><td>2023年美国海军拦截朝鲜油轮"Chong Chon Gang"级船只，船上装有朝鲜武器运往俄罗斯</td></tr>
+        <tr><td><strong>影子船队</strong>(Shadow Fleet)</td><td>老旧油轮组成的非保险/非认证船队，专门运输俄罗斯/伊朗/委内瑞拉石油</td><td>2024年估计影子船队规模超800艘，承运俄罗斯出口石油的2/3</td></tr>
+        <tr><td><strong>加密货币混币</strong></td><td>通过混币器(Tornado Cash)和跨链桥转移资金</td><td>朝鲜Lazarus组织2022年从Ronin黑客窃$6.25亿，部分通过混币清洗</td></tr>
+        <tr><td><strong>地下钱庄对敲</strong></td><td>不跨境转账，在境内完成人民币↔外币兑换</td><td>朝鲜通过中国/越南/泰国地下钱庄赚取外汇(估计年收入$20-30亿)</td></tr>
+        <tr><td><strong>虚假发票/贸易洗钱</strong></td><td>夸大进口价格或将制裁商品伪装为普通商品</td><td>伊朗通过阿联酋转口贸易获取受限零部件</td></tr>
+        <tr><td><strong>空壳公司/名义董事</strong></td><td>通过BVI/塞舌尔公司持有受制裁船舶或进行受制裁交易</td><td>俄罗斯寡流资产经常通过多层离岸公司隐藏</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.6.4 中国反制裁法律体系</h2>
+    <table class="data-table">
+      <thead><tr><th>法律</th><th>生效时间</th><th>核心内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>《反外国制裁法》</strong></td><td>2021年8月</td><td>反击外国制裁的法律依据，可对等反制外国制裁主体</td></tr>
+        <tr><td><strong>《不可靠实体清单规定》</strong></td><td>2020年9月</td><td>将外国企业列入不可靠实体清单，限制其在中国境内活动</td></tr>
+        <tr><td><strong>《出口管制法》</strong></td><td>2020年12月</td><td>对两用物项/军品/核材料出口管制，对接国际义务</td></tr>
+        <tr><td><strong>《阻断外国法律与措施不当域外适用办法》</strong></td><td>2021年1月</td><td>中国企业在面对外国不当域外管辖时可申请豁免遵守</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-sanctions"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="54-crypto-regulation-country.html"><i class="fas fa-arrow-left"></i> 加密监管对比</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">28 / 30</span>
+    <a class="nav-next" href="56-smart-contract-audit.html">智能合约审计 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-sanctions'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['被制裁实体数量', '冻结资产($亿)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '俄罗斯', max: 100 },
+          { name: '伊朗', max: 100 },
+          { name: '朝鲜', max: 100 },
+          { name: '委内瑞拉', max: 100 },
+          { name: '叙利亚', max: 100 },
+          { name: '古巴', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(239,68,68,0.02)', 'rgba(239,68,68,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [100, 60, 50, 40, 30, 20], name: '被制裁实体数量(归一化)', itemStyle: { color: '#ef4444' } },
+          { value: [100, 50, 30, 60, 20, 40], name: '冻结资产规模(归一化)', itemStyle: { color: '#f59e0b' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

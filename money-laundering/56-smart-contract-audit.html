@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十二章：智能合约审计 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十二章：智能合约审计与DeFi安全</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+    <li><a href="55-sanctions-evasion.html">6.6 制裁规避与OFAC合规</a></li>
+    <li><a href="56-smart-contract-audit.html">6.7 智能合约审计与DeFi安全</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">智能合约审计与DeFi安全 — 代码即法律？</h1>
+    <div class="data-note" style="margin-bottom:20px">DeFi(去中心化金融)每年处理的加密资产价值超过$3万亿。然而智能合约漏洞导致的损失在2022年达到$38亿峰值。黑客攻击+ exploits已成为洗钱的重要上游资金来源——被盗资产需要通过混币器、跨链桥、隐私币层层清洗后才能变现。审计是防线，也是洗钱者试图突破的关卡。</div>
+
+    <h2 class="section-subtitle">6.7.1 智能合约漏洞类型 TOP5</h2>
+    <table class="data-table">
+      <thead><tr><th>漏洞类型</th><th>2024年占比</th><th>平均损失</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><strong>重入攻击</strong>(Reentrancy)</td><td>~15%</td><td>$5000万+</td><td>递归调用外部合约提取资金。经典案例：The DAO(2016)$6000万→$5亿</td></tr>
+        <tr><td><strong>整数溢出/下溢</strong>(Integer Overflow)</td><td>~10%</td><td>$100万-$5000万</td><td>2020年后Solidity 0.8内置检查，但仍存在于旧合约</td></tr>
+        <tr><td><strong>访问控制漏洞</strong>(Access Control)</td><td>~25%</td><td>$1000万-$1亿</td><td>管理员权限未正确保护，任何人可调用特权函数。2024年最大类别</td></tr>
+        <tr><td><strong>预言机操纵</strong>(Oracle Manipulation)</td><td>~20%</td><td>$500万-$5000万</td><td>操纵价格预言机获取超额贷款或清算。示例：Harvest Finance(2020)</td></tr>
+        <tr><td><strong>逻辑错误/业务规则</strong>(Business Logic)</td><td>~30%</td><td>$1000万-$3亿</td><td>最难以检测——代码"正确执行"但业务逻辑有缺陷。示例：Poly Network(2021)$6亿</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.7.2 2022-2025年最大DeFi黑客事件</h2>
+    <table class="data-table">
+      <thead><tr><th>事件</th><th>年份</th><th>损失</th><th>手法</th><th>追回?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ronin Bridge</strong>(Axie Infinity)</td><td>2022</td><td>$6.25亿</td><td>Lazarus组织(朝鲜)攻破侧链节点签名密钥</td><td>部分追回($1亿 FBI冻结)</td></tr>
+        <tr><td><strong>Terra/Luna</strong></td><td>2022</td><td>$600亿(生态)</td><td>算法稳定币死亡螺旋，非技术攻击但造成巨额资金蒸发</td><td>无</td></tr>
+        <tr><td><strong>poly Network</strong></td><td>2021</td><td>$6.1亿</td><td>智能合约根密钥被篡改</td><td>黑客主动归还(声明"为了正义")</td></tr>
+        <tr><td><strong>Voyager Digital</strong></td><td>2022</td><td>$1.3亿</td><td>热钱包私钥泄露</td><td>部分追回</td></tr>
+        <tr><td><strong>Binance VMart/Multichain</strong></td><td>2023</td><td>$5.7亿</td><td>私钥泄露+跨链桥合约漏洞</td><td>部分</td></tr>
+        <tr><td><strong>Wormhole</strong>(Wrapped Bitcoin)</td><td>2022</td><td>$3.2亿</td><td>Solana侧合约重入攻击</td><td>完整追回(ConsenSys Diligence协助)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.7.3 主流审计公司与审计流程</h2>
+    <table class="data-table">
+      <thead><tr><th>审计公司</th><th>成立年份</th><th>审计过的项目数</th><th>平均审计费用</th><th>重大事故</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ConsenSys Diligence</strong></td><td>2018</td><td>1000+</td><td>$3万-$15万/项目</td><td>极少(行业标杆)</td></tr>
+        <tr><td><strong>Trail of Bits</strong></td><td>2015</td><td>500+</td><td>$5万-$20万/项目</td><td>极少(军事级安全团队)</td></tr>
+        <tr><td><strong>CERTIK</strong></td><td>2019</td><td>2000+</td><td>$2万-$10万/项目</td><td>少数(自动化扫描为主)</td></tr>
+        <tr><td><strong>OpenZeppelin</strong></td><td>2017</td><td>800+</td><td>$3万-$12万/项目</td><td>极少(标准库维护者)</td></tr>
+        <tr><td><strong>Hacken</strong></td><td>2018</td><td>600+</td><td>$1万-$8万/项目</td><td>中等(部分审计项目仍被黑)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.7.4 审计与洗钱的关系</h2>
+    <table class="data-table">
+      <thead><tr><th>环节</th><th>关系</th></tr></thead>
+      <tbody>
+        <tr><td><strong>上游</strong></td><td>黑客攻击DeFi协议→获得巨额加密资产→这些资产天然需要"清洗"才能变现</td></tr>
+        <tr><td><strong>中游</strong></td><td>洗钱者利用未审计/低审计标准的协议漏洞进行"合法提取"(exploit as laundering)"</td></tr>
+        <tr><td><strong>下游</strong></td><td>通过混币器(Tornado Cash)/跨链桥/隐私币清洗exploit所得资金</td></tr>
+        <tr><td><strong>执法</strong></td><td>Chainalysis/Elliptic等链上分析公司通过智能合约交互图谱追踪exploit资金流向</td></tr>
+        <tr><td><strong>合规趋势</strong></td><td>2024年起多家审计公司推出"持续监控"服务(非一次性审计)，实时检测合约异常</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-audit"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="55-sanctions-evasion.html"><i class="fas fa-arrow-left"></i> 制裁规避</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">29 / 30</span>
+    <a class="nav-next" href="57-endgame-aml.html">AML的未来 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-audit'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['黑客损失金额($亿)', '追回金额($亿)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 100, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'value', name: '($亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'category', data: ['Ronin', 'Binance VMart', 'Wormhole', 'Voyager', 'Poly Network'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '黑客损失金额($亿)', type: 'bar', data: [62.5, 57, 3.2, 1.3, 6.1], itemStyle: { color: '#ef4444', borderRadius: [0, 4, 4, 0] } },
+        { name: '追回金额($亿)', type: 'bar', data: [1, 10, 3.2, 0.5, 6.1], itemStyle: { color: '#10b981', borderRadius: [0, 4, 4, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
