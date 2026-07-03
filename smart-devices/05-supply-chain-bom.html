@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五章：供应链选型与BOM成本 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第五章：供应链选型与BOM成本</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第五章：供应链选型与BOM成本 — ODM起步的最小成本验证</h1>
+    <div class="data-note" style="margin-bottom:20px">ODM公模方案MOQ仅1,000-3,000台，开模费0，总投入10-30万。手环BOM~188-268元(国产GPS方案)，药盒BOM~102-171元(自动分药版)。10K批量下浮15-20%。</div>
+
+    <h2 class="section-subtitle">5.1 ODM/方案商选型</h2>
+    <table class="data-table">
+      <thead><tr><th>厂商</th><th>地点</th><th>专长</th><th>MOQ</th><th>开发周期</th><th>预估费用</th></tr></thead>
+      <tbody>
+        <tr><td>华勤技术</td><td>上海/深圳</td><td>智能手表/手环ODM龙头</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td></tr>
+        <tr><td>龙旗科技</td><td>上海/深圳</td><td>智能穿戴ODM</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td></tr>
+        <tr><td>天珑移动</td><td>深圳</td><td>海外智能穿戴ODM</td><td>3,000-5,000台</td><td>3-6个月</td><td>30-80万</td></tr>
+        <tr><td><strong>润科技术(推荐)</strong></td><td>深圳</td><td>智能手环/手表方案</td><td>1,000-3,000台</td><td>2-4个月</td><td>10-30万</td></tr>
+        <tr><td><strong>杰理科技(推荐)</strong></td><td>深圳</td><td>低价位方案商</td><td>500-1,000台</td><td>1-3个月</td><td>5-15万</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">5.2 智能手环BOM — 模块化归类(中等配置)</h2>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>物料</th><th>成本(元)</th><th>供应商</th><th>10K批量折扣</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2">通信</td><td>Cat1模组(广和通L610-CM)</td><td>28-38</td><td>广和通</td><td>-20%</td></tr>
+        <tr><td>BLE SoC(nRF52810)</td><td>15-20</td><td>Nordic</td><td>-15%</td></tr>
+        <tr><td rowspan="2">定位</td><td>GPS/北斗(u-blox NEO-M9N)</td><td>65-90</td><td>u-blox(瑞士)</td><td>-15%</td></tr>
+        <tr><td>国产GPS(和芯星通UGN-7345)</td><td>25-40</td><td>和芯星通(国产)</td><td>-25%</td></tr>
+        <tr><td rowspan="2">健康监测</td><td>PPG/SpO2(汇顶GT3x)</td><td>40-60</td><td>汇顶(国产)</td><td>-20%</td></tr>
+        <tr><td>IMU(InvenSense ICM-42670)</td><td>25-35</td><td>InvenSense(TDK)</td><td>-15%</td></tr>
+        <tr><td rowspan="2">交互</td><td>1.14寸 IPS(ST7789)</td><td>8-15</td><td>天马/深天马</td><td>-10%</td></tr>
+        <tr><td>音频(喇叭+麦克风)</td><td>5-8</td><td>国产</td><td>-15%</td></tr>
+        <tr><td rowspan="2">主控+存储</td><td>MCU(兆易GD32E230)</td><td>7-12</td><td>兆易创新</td><td>-20%</td></tr>
+        <tr><td>Flash(W25Q64 8MB)</td><td>2-3</td><td>华邦</td><td>-10%</td></tr>
+        <tr><td rowspan="2">电源</td><td>锂电池(350mAh)</td><td>5-10</td><td>德赛/欣旺达</td><td>-15%</td></tr>
+        <tr><td>充电管理(IP5306)</td><td>2-4</td><td>智融科技</td><td>-20%</td></tr>
+        <tr><td rowspan="2">结构</td><td>外壳+表带(亲肤硅胶+PC+ABS)</td><td>8-15</td><td>国内模具厂</td><td>-10%</td></tr>
+        <tr><td>PCB+其他(4层FR-4)</td><td>10-16</td><td>深南电路</td><td>-15%</td></tr>
+        <tr><td colspan="2">组装测试(SMT+烧录+全检)</td><td>8-12</td><td>ODM厂</td><td>—</td></tr>
+        <tr><td colspan="2"><strong>合计BOM(国产GPS方案)</strong></td><td><strong>~188-268元</strong></td><td colspan="2">10K批量 → ~150-215元</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">5.3 智能药盒BOM — 自动分药版</h2>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>物料</th><th>成本(元)</th><th>供应商</th><th>10K批量折扣</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2">主控+通信</td><td>WiFi+BLE SoC(乐鑫ESP32-C3)</td><td>30-45</td><td>乐鑫(国产)</td><td>-15%</td></tr>
+        <tr><td>Flash(W25Q32)</td><td>2-3</td><td>华邦</td><td>-10%</td></tr>
+        <tr><td rowspan="2">分药机构</td><td>步进电机+驱动(28BYJ-48)</td><td>5-9</td><td>国产</td><td>-20%</td></tr>
+        <tr><td>旋转药仓+导轨(PETG)</td><td>8-15</td><td>国内塑胶厂</td><td>-10%</td></tr>
+        <tr><td rowspan="2">检测</td><td>光电+到位检测</td><td>3-5</td><td>国产</td><td>-15%</td></tr>
+        <tr><td>空仓检测(ITRB2800E)</td><td>3-5</td><td>国产</td><td>-15%</td></tr>
+        <tr><td rowspan="2">交互</td><td>语音TTS+喇叭(SYN5300)</td><td>12-22</td><td>国产</td><td>-15%</td></tr>
+        <tr><td>OLED(SSD1306 0.96寸)</td><td>8-15</td><td>国产</td><td>-10%</td></tr>
+        <tr><td rowspan="2">结构+电源</td><td>外壳(食品级阻燃ABS)</td><td>10-20</td><td>国内模具厂</td><td>-10%</td></tr>
+        <tr><td>PCB + 锂电池(2500mAh) + 充电管理</td><td>13-24</td><td>德赛/智融</td><td>-15%</td></tr>
+        <tr><td colspan="2">组装测试+包装</td><td>10-15</td><td>ODM厂</td><td>—</td></tr>
+        <tr><td colspan="2"><strong>合计BOM(自动分药版)</strong></td><td><strong>~102-171元</strong></td><td colspan="2">10K批量 → ~82-137元</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">5.4 成本与定价全景</h2>
+    <table class="data-table">
+      <thead><tr><th>产品</th><th>BOM成本</th><th>零售价</th><th>渠道价</th><th>单台毛利</th><th>毛利率</th></tr></thead>
+      <tbody>
+        <tr><td>智能手环(中档)</td><td>~188-230元</td><td>299-499元</td><td>180-250元</td><td>~70-150元</td><td>30-45%</td></tr>
+        <tr><td>智能药盒(自动分药)</td><td>~102-171元</td><td>299-499元</td><td>180-300元</td><td>~80-200元</td><td>30-50%</td></tr>
+        <tr><td>智能药盒(提醒型)</td><td>~30-50元</td><td>99-199元</td><td>60-120元</td><td>~40-80元</td><td>40-55%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-bom"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="04-competitive-analysis.html"><i class="fas fa-arrow-left"></i> 竞品分析</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">6 / 11</span>
+    <a class="nav-next" href="06-app-development.html">APP开发 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-bom'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['BOM成本(元)', '渠道价(元)', '零售价(元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 60 },
+      xAxis: { type: 'category', data: ['手环(中档)', '药盒(自动分药)', '药盒(提醒型)'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: 'BOM成本(元)', type: 'bar', data: [210, 137, 40], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
+        { name: '渠道价(元)', type: 'bar', data: [215, 240, 90], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } },
+        { name: '零售价(元)', type: 'bar', data: [399, 399, 149], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

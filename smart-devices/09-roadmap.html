@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第九章：8个月上市实施路线图 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第九章：8个月上市实施路线图</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第九章：8个月上市实施路线图 — 手环/药盒/APP并行推进</h1>
+    <div class="data-note" style="margin-bottom:20px">手环开发16-24周(4-6个月)，药盒16-22周(4-5.5个月)，APP MVP 3-4个月。三者并行推进，8个月实现双产品同步上市。</div>
+
+    <h2 class="section-subtitle">9.1 手环ODM开发全流程</h2>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>时间</th><th>关键任务</th><th>交付物</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Phase 1</strong></td><td>2周</td><td>需求评审：功能清单/定位精度/续航目标/IP67防水/SIM卡方案</td><td>PRD文档</td></tr>
+        <tr><td><strong>Phase 2</strong></td><td>2-3周</td><td>ODM方案选型：润科/杰理现有方案，评估MCU+定位+传感器+屏幕</td><td>方案选型报告</td></tr>
+        <tr><td><strong>Phase 3</strong></td><td>3-4周</td><td>ID/MD设计：适老化设计(大字体/大图标/实体SOS/硅胶表带/防拆卸表扣)</td><td>3D渲染图+结构图</td></tr>
+        <tr><td><strong>Phase 4</strong></td><td>3-4周</td><td>开模+手板验证：3D打印→防水测试→跌落测试(1米)</td><td>功能手板x10+</td></tr>
+        <tr><td><strong>Phase 5</strong></td><td>2-3周</td><td>EVT试产：工程验证测试(功能/射频/电池续航)</td><td>EVT报告</td></tr>
+        <tr><td><strong>Phase 6</strong></td><td>2-3周</td><td>DVT设计验证：高低温(-10~50°C)/盐雾/老化测试</td><td>DVT报告</td></tr>
+        <tr><td><strong>Phase 7</strong></td><td>2周</td><td>PVT小批量 → MP量产</td><td>量产出货</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">9.2 药盒ODM开发全流程</h2>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>时间</th><th>关键任务</th><th>交付物</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Phase 1</strong></td><td>2周</td><td>需求评审：药盒容量/分药机构方案/WiFi+BLE/续航目标</td><td>PRD文档</td></tr>
+        <tr><td><strong>Phase 2</strong></td><td>2-3周</td><td>ODM方案选型：ESP32-C3 + 步进电机分药 + 红外/光电检测</td><td>方案选型报告</td></tr>
+        <tr><td><strong>Phase 3</strong></td><td>3-4周</td><td>结构设计：食品级塑料药仓/防儿童锁/语音喇叭/LED指示</td><td>3D结构图</td></tr>
+        <tr><td><strong>Phase 4</strong></td><td>3-4周</td><td>开模+手板：3D打印验证分药机构可靠性(目标>10,000次循环)</td><td>功能手板x10+</td></tr>
+        <tr><td><strong>Phase 5</strong></td><td>4-6周</td><td>EVT/DVT/PVT：可靠性验证+小批量</td><td>量产出货</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">9.3 整体并行实施路线图</h2>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>时间</th><th>手环</th><th>药盒</th><th>APP</th><th>里程碑</th></tr></thead>
+      <tbody>
+        <tr><td><strong>M1-M2</strong></td><td>第1-2月</td><td>需求评审+ODM选型</td><td>需求评审+ODM选型</td><td>产品原型+UI设计</td><td>完成PRD文档和设计稿</td></tr>
+        <tr><td><strong>M3-M4</strong></td><td>第3-4月</td><td>ID设计+开模+EVT</td><td>结构设计+开模+EVT</td><td>APP MVP开发(定位+SOS+心率)</td><td>手环/药盒手板验证通过</td></tr>
+        <tr><td><strong>M5-M6</strong></td><td>第5-6月</td><td>DVT+PVT+小批量</td><td>DVT+PVT+小批量</td><td>APP标准版(用药提醒+家属共享)</td><td>硬件送测+APP内测</td></tr>
+        <tr><td><strong>M7-M8</strong></td><td>第7-8月</td><td>量产+上市</td><td>量产+上市</td><td>APP正式上线+微信小程序</td><td>双产品同步上市</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">9.4 认证时间线(与开发并行)</h2>
+    <table class="data-table">
+      <thead><tr><th>认证</th><th>开始时间</th><th>周期</th><th>完成时间</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>SRRC无线电核准</td><td>M3(提交样品)</td><td>1.5-3月</td><td>M5-M6</td><td>与EVT/DVT并行</td></tr>
+        <tr><td>CTA电信进网</td><td>M4(提交样品)</td><td>1-2月</td><td>M5-M6</td><td>需SRRC证书</td></tr>
+        <tr><td>CCC认证</td><td>M4(提交样品)</td><td>2-3月</td><td>M6-M7</td><td>与DVT并行</td></tr>
+        <tr><td>蓝牙SIG</td><td>M5(申请)</td><td>1-2月</td><td>M6-M7</td><td>可选但推荐</td></tr>
+        <tr><td>UN38.3电池</td><td>M5(提交电池)</td><td>2-4周</td><td>M6</td><td>量产前完成</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-roadmap"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="08-business-model.html"><i class="fas fa-arrow-left"></i> 商业模式</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">10 / 11</span>
+    <a class="nav-next" href="10-risk-assessment.html">风险评估 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-roadmap'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['手环开发', '药盒开发', 'APP开发', '认证周期'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '时间可控性', max: 100 },
+          { name: '技术成熟度', max: 100 },
+          { name: '风险等级', max: 100 },
+          { name: '并行可行性', max: 100 },
+          { name: '上市确定性', max: 100 },
+          { name: '成本可控性', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(16,185,129,0.02)', 'rgba(16,185,129,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [70, 85, 40, 90, 75, 80], name: '手环开发', itemStyle: { color: '#5a8ec4' } },
+          { value: [75, 75, 45, 90, 70, 85], name: '药盒开发', itemStyle: { color: '#5cb88a' } },
+          { value: [80, 80, 35, 85, 85, 75], name: 'APP开发', itemStyle: { color: '#8b5cf6' } },
+          { value: [60, 70, 50, 60, 65, 90], name: '认证周期', itemStyle: { color: '#d4a843' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

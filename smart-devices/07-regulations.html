@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第七章：合规红线与认证要求 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第七章：合规红线与认证要求</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第七章：政策法规与合规红线 — 不可触碰的底线</h1>
+    <div class="data-note" style="margin-bottom:20px">SRRC/CTA/CCC为强制认证，PIPL数据合规为生命线。MVP策略：手环和药盒不宣称医疗诊断功能，定位为"生活方式健康设备"，规避医疗器械注册(10-18月/30-80万)。</div>
+
+    <h2 class="section-subtitle">7.1 强制认证一览</h2>
+    <table class="data-table">
+      <thead><tr><th>认证</th><th>性质</th><th>周期</th><th>费用</th><th>不做后果</th></tr></thead>
+      <tbody>
+        <tr><td>SRRC无线电核准</td><td class="decline">强制</td><td>1.5-3月</td><td>2-5万</td><td>没收+罚款3-10倍+停产</td></tr>
+        <tr><td>CTA电信进网许可</td><td class="decline">强制(Cat1/NB-IoT)</td><td>1-2月</td><td>1-3万</td><td>没收+罚款5-10万</td></tr>
+        <tr><td>CCC认证</td><td class="decline">强制</td><td>2-3月</td><td>2-4万</td><td>不得销售</td></tr>
+        <tr><td>蓝牙SIG认证</td><td class="rise">推荐</td><td>1-2月</td><td>$7,500-12,500</td><td>无法使用蓝牙logo</td></tr>
+        <tr><td>UN38.3电池测试</td><td class="rise">运输必需</td><td>2-4周</td><td>1-2万</td><td>空运/海运被拒</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">7.2 数据合规 — PIPL个人信息保护法</h2>
+    <table class="data-table">
+      <thead><tr><th>要求</th><th>具体内容</th><th>合规动作</th></tr></thead>
+      <tbody>
+        <tr><td>敏感个人信息</td><td>健康数据+生物识别+精确位置 = 敏感个人信息(PIPL第28-32条)</td><td>单独同意 + 专项隐私政策</td></tr>
+        <tr><td>知情同意</td><td>需取得个人单独同意，不得捆绑授权</td><td>首次启动弹窗 + 逐项授权</td></tr>
+        <tr><td>境内存储</td><td>海量个人数据必须在境内存储(PIPL第40条)</td><td>阿里云/腾讯云国内节点</td></tr>
+        <tr><td>加密要求</td><td>TLS1.2+传输 / AES-256静态 / 密钥托管KMS</td><td>端到端加密</td></tr>
+        <tr><td>删除权</td><td>用户有权请求删除个人信息</td><td>APP内"一键注销+数据清除"</td></tr>
+        <tr><td>泄露报告</td><td>72小时内通知监管和个人</td><td>建立安全事件应急预案</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">7.3 医疗诊断红线</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>规则</th></tr></thead>
+      <tbody>
+        <tr><td><strong>《广告法》第十七条</strong></td><td>未取得医疗器械注册证的产品，禁止涉及疾病治疗功能。不可宣称"医疗诊断""治疗高血压""监测心脏病"</td></tr>
+        <tr><td><strong>可说的话术</strong></td><td>"运动监测""日常健康数据记录""生活方式参考"(强调"参考"而非"诊断")</td></tr>
+        <tr><td><strong>禁止词汇</strong></td><td>"治愈""疗效""治疗""预防""医疗级""医用"</td></tr>
+        <tr><td><strong>处罚</strong></td><td>《广告法》第58条：停止发布+罚款(广告费用3-5倍或20-100万元)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">7.4 医疗器械合规判断</h2>
+    <table class="data-table">
+      <thead><tr><th>功能宣称</th><th>是否医疗器械</th><th>周期/费用</th></tr></thead>
+      <tbody>
+        <tr><td>仅计步+心率(生活方式)</td><td><span class="rise">否</span></td><td>无需资质</td></tr>
+        <tr><td>心率监测+异常预警</td><td><span style="color:var(--yellow)">灰色地带</span></td><td>若宣称"监测心律失常"则触发监管</td></tr>
+        <tr><td>血压/血氧/ECG监测</td><td><span class="decline">是 — 二类</span></td><td>10-18月 / 30-80万</td></tr>
+        <tr><td>血糖监测</td><td><span class="decline">是 — 三类</span></td><td>2-3年 / 100-300万</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">7.5 地方补贴政策(可利用)</h2>
+    <table class="data-table">
+      <thead><tr><th>地区</th><th>政策</th><th>补贴</th></tr></thead>
+      <tbody>
+        <tr><td>北京</td><td>适老化改造补贴</td><td>每台100-300元</td></tr>
+        <tr><td>上海</td><td>智慧养老示范项目</td><td>50-200万资金支持</td></tr>
+        <tr><td>广东</td><td>智能家居产业扶持</td><td>研发补贴最高100万，量产3-5%</td></tr>
+        <tr><td>浙江</td><td>数字经济一号工程</td><td>纳入政府采购目录</td></tr>
+        <tr><td>全国</td><td>高新技术企业认定</td><td>企业所得税减免15%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-compliance"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="06-app-development.html"><i class="fas fa-arrow-left"></i> APP开发</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">8 / 11</span>
+    <a class="nav-next" href="08-business-model.html">商业模式 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-compliance'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['强制认证费用(万)', '可选认证费用(万)', '医疗器械注册周期(月)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 60 },
+      xAxis: { type: 'category', data: ['SRRC', 'CTA', 'CCC', '蓝牙SIG', 'UN38.3'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(万元/月)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '强制认证费用(万)', type: 'bar', data: [3.5, 2, 3, 0, 0], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
+        { name: '可选认证费用(万)', type: 'bar', data: [0, 0, 0, 8.5, 1.5], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } },
+        { name: '医疗器械注册周期(月)', type: 'line', data: [0, 0, 0, 14, 0], itemStyle: { color: '#f59e0b' }, smooth: true, lineStyle: { type: 'dashed' } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

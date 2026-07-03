@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三章：四层系统架构与数据流 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第三章：四层系统架构与数据流</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第三章：四层系统架构与数据流 — 从传感器到行动执行</h1>
+    <div class="data-note" style="margin-bottom:20px">系统分为感知层(手环/药盒采集数据)、传输层(Cat1/BLE/WiFi/微信)、平台层(云端服务+AI引擎)、应用层(老人/家属/运营交互)。数据从传感器到行动执行的完整闭环。</div>
+
+    <h2 class="section-subtitle">3.1 四层架构详解</h2>
+    <table class="data-table">
+      <thead><tr><th>层级</th><th>组成</th><th>技术</th><th>关键指标</th></tr></thead>
+      <tbody>
+        <tr><td><strong>感知层</strong></td><td>手环(定位+健康传感器)、药盒(分药机构+检测)、家属手机、社区/医院</td><td>GPS/北斗、PPG/SpO2、IMU、步进电机、红外检测、TTS语音</td><td>定位精度<3m、跌倒检测F1>0.92、分药误差<1片</td></tr>
+        <tr><td><strong>传输层</strong></td><td>Cat1蜂窝、BLE 5.0局域网、WiFi、4G/5G移动网络、微信小程序</td><td>MQTT over TLS、WebSocket、HTTPs、BLE GATT</td><td>手环持续在线、药盒家庭WiFi、APP移动网络、微信触达</td></tr>
+        <tr><td><strong>平台层</strong></td><td>设备管理、消息队列(RabbitMQ/Kafka)、数据存储(MySQL+Redis+MongoDB)、AI引擎、推送服务、RESTful API</td><td>Go/Java后端、Docker+K8s、PyTorch(ML模型)</td><td>跌倒检测端侧推理<30ms、告警P0级别优先路由</td></tr>
+        <tr><td><strong>应用层</strong></td><td>老人端(语音提醒+LED+SOS)、家属端(APP/小程序)、运营端(Web后台)</td><td>Swift(Kotlin)、Vue/React、高德/百度地图API</td><td>多账号共享、健康周报生成、B2B客户管理</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">3.2 业务链闭环 — 6步数据流</h2>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>描述</th><th>技术细节</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Step 1</strong></td><td>老人佩戴手环、使用药盒</td><td>手环持续采集：GPS位置(每30s) + 心率(每5min) + 加速度(100Hz采样)</td></tr>
+        <tr><td><strong>Step 2</strong></td><td>数据通过Cat1/BLE传输</td><td>位置+心率→Cat1蜂窝→云端；手环↔药盒→BLE 5.0局域网(功耗<1mA)</td></tr>
+        <tr><td><strong>Step 3</strong></td><td>云端AI实时分析</td><td>跌倒检测模型(M4端侧推理<30ms)→异常事件→标记P0级别→消息队列优先路由</td></tr>
+        <tr><td><strong>Step 4</strong></td><td>多维推送告警</td><td>APP推送(APNs/厂商通道)→微信订阅消息→SMS短信兜底→电话语音(紧急事件)</td></tr>
+        <tr><td><strong>Step 5</strong></td><td>家属响应 + 药盒联动</td><td>家属APP确认→电话老人→未接听自动呼叫社区/120；药盒根据手环健康数据调整用药提醒策略</td></tr>
+        <tr><td><strong>Step 6</strong></td><td>数据沉淀 + 模型迭代</td><td>所有事件→MongoDB时序存储→AI模型每周更新→跌倒检测准确率持续提升</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">3.3 关键技术参数</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>参数</th><th>目标值</th></tr></thead>
+      <tbody>
+        <tr><td><strong>定位精度</strong></td><td>GPS+北斗+GLONASS室外</td><td><3米</td></tr>
+        <tr><td></td><td>基站辅助(WiFi)室内</td><td>10-50米</td></tr>
+        <tr><td></td><td>告警时更新频率</td><td>1秒/次(正常30秒/次)</td></tr>
+        <tr><td><strong>健康监测</strong></td><td>心率精度</td><td>±2bpm</td></tr>
+        <tr><td></td><td>跌倒检测F1分数</td><td>>0.92，假阳性<1次/天</td></tr>
+        <tr><td></td><td>血氧精度(消费级)</td><td>±2%</td></tr>
+        <tr><td><strong>药盒性能</strong></td><td>分药精度</td><td>单次误差<1片</td></tr>
+        <tr><td></td><td>可靠性</td><td>>10,000次循环无故障</td></tr>
+        <tr><td></td><td>续航</td><td>2500mAh，WiFi待机7-15天</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-arch"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="02-user-profile.html"><i class="fas fa-arrow-left"></i> 用户画像</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">4 / 11</span>
+    <a class="nav-next" href="04-competitive-analysis.html">竞品分析 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-arch'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['感知层', '传输层', '平台层', '应用层'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '实时性', max: 100 },
+          { name: '可靠性', max: 100 },
+          { name: '安全性', max: 100 },
+          { name: '可扩展性', max: 100 },
+          { name: '低功耗', max: 100 },
+          { name: '用户体验', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(6,182,212,0.02)', 'rgba(6,182,212,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [90, 85, 80, 60, 70, 85], name: '感知层', itemStyle: { color: '#5a8ec4' } },
+          { value: [85, 90, 75, 70, 90, 60], name: '传输层', itemStyle: { color: '#5ac4b8' } },
+          { value: [80, 95, 95, 90, 60, 65], name: '平台层', itemStyle: { color: '#d4787e' } },
+          { value: [95, 80, 70, 75, 85, 95], name: '应用层', itemStyle: { color: '#5cb88a' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

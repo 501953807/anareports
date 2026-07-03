@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第六章：APP功能与开发团队 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第六章：APP功能与开发团队</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第六章：APP功能规划与开发团队配置</h1>
+    <div class="data-note" style="margin-bottom:20px">APP MVP版本(3-4个月)40-70万元，标准版(5-7个月)70-120万元，完整版(8-12个月)120-200万元。6-7人团队月成本10-14万。技术栈：Go/Java后端 + Swift/Kotlin双端 + Vue/React管理后台。</div>
+
+    <h2 class="section-subtitle">6.1 APP功能模块规划</h2>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>功能</th><th>优先级</th><th>开发周期</th><th>技术要点</th></tr></thead>
+      <tbody>
+        <tr><td>设备配对</td><td>BLE配对手环 + WiFi配药盒</td><td class="rise">P0 必须</td><td>2-3周</td><td>BLE GATT协议 / WiFi SmartConfig</td></tr>
+        <tr><td>实时定位地图</td><td>高德/百度地图API集成，实时轨迹回放</td><td class="rise">P0 必须</td><td>3-4周</td><td>地图SDK + GCJ-02转换 + 轨迹插值</td></tr>
+        <tr><td>电子围栏</td><td>多边形围栏设置、出入告警推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>地理围栏API + 多边形点包含算法</td></tr>
+        <tr><td>心率/血氧监测</td><td>PPG数据可视化、异常阈值预警</td><td class="rise">P0 必须</td><td>2-3周</td><td>时序数据图表 + 阈值规则引擎</td></tr>
+        <tr><td>跌倒检测告警</td><td>IMU数据触发SOS推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>端侧AI模型 + 告警优先级路由</td></tr>
+        <tr><td>SOS紧急呼救</td><td>一键拨号给预设联系人</td><td class="rise">P0 必须</td><td>1-2周</td><td>Telephony API + 通讯录权限</td></tr>
+        <tr><td>用药提醒/药盒联动</td><td>定时提醒、服药记录、家属通知</td><td class="rise">P1 重要</td><td>2-3周</td><td>本地通知 + 云端调度 + BLE指令</td></tr>
+        <tr><td>家属多人共享</td><td>多账号绑定同一老人设备</td><td class="rise">P1 重要</td><td>2-3周</td><td>设备-用户多对多 + 权限管理</td></tr>
+        <tr><td>健康周报/月报</td><td>数据聚合生成可视化报告</td><td class="decline">P2 增值</td><td>2-3周</td><td>数据聚合 + PDF/图片生成</td></tr>
+        <tr><td>后台管理Web端</td><td>运营人员管理后台</td><td class="decline">P2 增值</td><td>3-4周</td><td>Vue/React + ECharts + RBAC</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.2 开发团队配置</h2>
+    <table class="data-table">
+      <thead><tr><th>角色</th><th>人数</th><th>月薪(元)</th><th>技术栈</th></tr></thead>
+      <tbody>
+        <tr><td>产品经理</td><td>1</td><td>15,000-25,000</td><td>需求定义、原型设计、项目管理</td></tr>
+        <tr><td>iOS开发</td><td>1</td><td>20,000-30,000</td><td>Swift + CoreBluetooth + HealthKit</td></tr>
+        <tr><td>Android开发</td><td>1</td><td>20,000-30,000</td><td>Kotlin + BLE协议 + Telephony</td></tr>
+        <tr><td>后端开发</td><td>1-2</td><td>20,000-35,000</td><td>Go/Java + MQTT + 地图API + AI接口</td></tr>
+        <tr><td>UI/UX设计师</td><td>1</td><td>15,000-25,000</td><td>适老化界面 + 交互设计</td></tr>
+        <tr><td>测试工程师</td><td>1</td><td>12,000-18,000</td><td>功能测试 + 硬件联调 + 兼容性</td></tr>
+        <tr><td><strong>合计</strong></td><td><strong>6-7人</strong></td><td><strong>10-14万/月</strong></td><td>含社保公积金约上浮30%</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.3 技术栈与开发环境</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>技术方案</th></tr></thead>
+      <tbody>
+        <tr><td>后端</td><td>Go(Gin) 或 Java(Spring Boot) + MySQL + Redis + MongoDB + RabbitMQ/Kafka</td></tr>
+        <tr><td>部署</td><td>阿里云/腾讯云 ECS + Docker + K8s，CI/CD: GitHub Actions / GitLab CI</td></tr>
+        <tr><td>地图</td><td>高德地图API(轨迹绘制/电子围栏) / 百度地图API(备选)</td></tr>
+        <tr><td>推送</td><td>APNs(iOS) + 厂商通道(Android) + 微信订阅消息 + 阿里云SMS(紧急兜底)</td></tr>
+        <tr><td>AI训练</td><td>PyTorch 2.x / Google Colab(免费GPU) / 阿里云PAI</td></tr>
+        <tr><td>小程序版</td><td>微信原生 / uni-app，仅提醒/查看功能，作为轻量入口(10-20万，1-2个月)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-app"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="05-supply-chain-bom.html"><i class="fas fa-arrow-left"></i> 供应链BOM</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">7 / 11</span>
+    <a class="nav-next" href="07-regulations.html">政策法规 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-app'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['MVP版本', '标准版', '完整版'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['开发周期(月)', '团队成本(万)', '功能模块数'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(单位各异)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: 'MVP版本', type: 'bar', data: [4, 55, 6], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: '标准版', type: 'bar', data: [6, 95, 8], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
+        { name: '完整版', type: 'bar', data: [10, 160, 10], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

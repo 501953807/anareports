@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二章：用户画像与应用场景 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二章：用户画像与应用场景</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二章：用户画像与应用场景 — 三个角色的三角色矛盾</h1>
+    <div class="data-note" style="margin-bottom:20px">智能养老产品的核心矛盾：使用者(老人)不付钱，购买者(子女)不用。设计必须同时满足三方需求——老人要"无形关怀"而非"监控感"，子女要"可靠安心"，付费方(保险/政府)要"数据价值"。</div>
+
+    <h2 class="section-subtitle">2.1 使用者 — 60-85岁老人</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>生理特征</th><th>产品要求</th></tr></thead>
+      <tbody>
+        <tr><td>视力</td><td>老花眼，最小字体需≥14pt，高对比度</td><td>手环大屏(1.14"+)、药盒LED指示灯+大字体</td></tr>
+        <tr><td>听力</td><td>高频听力衰减，语音需中低频、音量≥65dB</td><td>药盒TTS语音提醒(60dB+)、手环震动+语音</td></tr>
+        <tr><td>操作能力</td><td>触屏精度下降，手抖</td><td>大按钮+实体SOS按键，极简操作</td></tr>
+        <tr><td>心理特征</td><td>抗拒"被管理"，需要"无形关怀"</td><td>外观不能像医疗设备，像普通手表</td></tr>
+        <tr><td>续航容忍度</td><td>至少5天，充电本身是障碍</td><td>手环5-7天、药盒7-15天</td></tr>
+        <tr><td>核心诉求</td><td colspan="2">安全(防走失)、方便(按时吃药)、不被打扰</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">2.2 购买者 — 40-55岁子女</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>特征</th><th>产品要求</th></tr></thead>
+      <tbody>
+        <tr><td>核心诉求</td><td colspan="2">实时知道父母在哪、有没有按时吃药</td></tr>
+        <tr><td>决策因素</td><td colspan="2">可靠性 > 易用性 > 价格 > 品牌</td></tr>
+        <tr><td>价格区间</td><td>手环200-500元 / 药盒100-300元</td><td>愿意为"安心"支付订阅费(19-39元/月)</td></tr>
+        <tr><td>使用场景</td><td>工作日上班，远程监控</td><td>APP实时位置+用药记录+SOS告警第一时间推送</td></tr>
+        <tr><td>痛点</td><td colspan="2">多父母照顾压力(上有老下有小)、异地无法陪伴</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">2.3 典型用户故事</h2>
+    <table class="data-table">
+      <thead><tr><th>场景</th><th>故事</th><th>产品介入</th><th>关键价值</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A：独居老人走失</strong></td><td>张奶奶78岁，轻度认知障碍，独自出门散步迷路，手机没电。</td><td>GPS+北斗+基站三重定位 → 电子围栏告警 → 子女APP收实时位置 → 30分钟找到。</td><td>黄金救援时间</td></tr>
+        <tr><td><strong>B：漏服降压药</strong></td><td>李爷爷72岁，高血压+糖尿病，每天4种药。某天忘吃降压药，下午头晕入院。</td><td>定时语音提醒 → 未取药 → 震动加强 → 通知子女APP → 子女电话提醒。</td><td>用药依从性从40%→90%+</td></tr>
+        <tr><td><strong>C：跌倒+紧急呼叫</strong></td><td>王爷爷80岁，浴室滑倒，意识清醒但无法起身。</td><td>手环IMU检测异常加速度 → 自动SOS → 预设联系人+位置 → 实体防水SOS按钮备用。</td><td>救命</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">2.4 慢病用药场景 — 刚需驱动</h2>
+    <table class="data-table">
+      <thead><tr><th>疾病</th><th>患者数(中国)</th><th>日均用药</th><th>漏服率</th><th>药盒价值</th></tr></thead>
+      <tbody>
+        <tr><td>高血压</td><td>~2.7亿</td><td>1-3种</td><td>老年人依从性仅40-60%</td><td>降低漏服→减少中风/心梗→节省医保</td></tr>
+        <tr><td>糖尿病</td><td>~1.4亿</td><td>2-4种</td><td>漏服→血糖波动→住院</td><td>用药记录+家属提醒双重保险</td></tr>
+        <tr><td>心脑血管</td><td>~1.1亿</td><td>3-6种</td><td>多药混服→相互作用风险</td><td>自动分药+库存管理+过期预警</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">2.5 商业模式 — 硬件获客 + 订阅盈利</h2>
+    <table class="data-table">
+      <thead><tr><th>环节</th><th>逻辑</th><th>数据</th></tr></thead>
+      <tbody>
+        <tr><td>硬件获客</td><td>手环299-499元(成本~100-230元) / 药盒99-499元(成本~30-171元)</td><td>硬件毛利率60-70%，但一次性收入</td></tr>
+        <tr><td>订阅增值</td><td>基础版免费 / 高级版19元/月 / 尊享版39元/月</td><td>假设10,000用户→15%付费→ARPU 29元→月收入4.35万</td></tr>
+        <tr><td>LTV</td><td>续费率30% × 24月 × 29元/月 = ~174元/用户</td><td>174元订阅LTV > 200元硬件毛利 → 长期订阅价值超过硬件</td></tr>
+        <tr><td>延伸收入</td><td>药品电商导流 / 保险合作 / B2B养老机构批量采购</td><td>手环数据→健康评分→保费优惠→双向获客</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-user"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="01-market-overview.html"><i class="fas fa-arrow-left"></i> 市场环境</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">3 / 11</span>
+    <a class="nav-next" href="03-system-architecture.html">系统架构 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-user'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['硬件毛利(元)', '订阅LTV(元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '老人-安全性', max: 100 },
+          { name: '老人-易用性', max: 100 },
+          { name: '子女-可靠性', max: 100 },
+          { name: '子女-便利性', max: 100 },
+          { name: '商业-毛利率', max: 100 },
+          { name: '商业-LTV/CAC', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(6,182,212,0.02)', 'rgba(6,182,212,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [90, 70, 85, 80, 65, 75], name: '硬件毛利', itemStyle: { color: '#06b6d4' } },
+          { value: [85, 80, 95, 90, 90, 95], name: '订阅LTV', itemStyle: { color: '#8b5cf6' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
