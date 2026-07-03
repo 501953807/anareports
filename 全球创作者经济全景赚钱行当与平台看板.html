@@ -724,7 +724,8 @@ footer{text-align:center;padding:30px 0;border-top:1px solid var(--text2);color:
 document.addEventListener('DOMContentLoaded',function(){
 // 图1: 市场规模趋势
 var c1=echarts.init(document.getElementById('chart-market-size'));
-c1.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['市场规模($亿)'],textStyle:{color:'#94a3b8'},top:0},grid:{left:70,right:20,top:50,bottom:40},xAxis:{type:'category',data:['2018','2019','2020','2021','2022','2023','2024','2025','2026'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'($亿)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'市场规模($亿)',type:'bar',data:[1000,1300,1600,2000,2300,2500,2700,2900,3200],itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#8b5cf6'},{offset:1,color:'#6366f1'}]),borderRadius:[8,8,0,0]}}]});
+var gradient1=new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#8b5cf6'},{offset:1,color:'#6366f1'}]);
+c1.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['市场规模($亿)'],textStyle:{color:'#94a3b8'},top:0},grid:{left:70,right:20,top:50,bottom:40},xAxis:{type:'category',data:['2018','2019','2020','2021','2022','2023','2024','2025','2026'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'($亿)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'市场规模($亿)',type:'bar',data:[1000,1300,1600,2000,2300,2500,2700,2900,3200],itemStyle:{color:gradient1,borderRadius:[8,8,0,0]}}]});
 
 // 图2: 赚钱手段收入占比
 var c2=echarts.init(document.getElementById('chart-revenue-mix'));
