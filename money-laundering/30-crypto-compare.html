@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.1 各币种洗钱特性对比 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">4.1 币种对比</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">4.1 各币种洗钱特性对比</h1>
+    <table class="data-table">
+      <thead><tr><th>币种</th><th>匿名性</th><th>流动性</th><th>主要混币工具</th><th>执法追踪难度</th><th>2024年洗钱占比</th></tr></thead>
+      <tbody>
+        <tr><td><strong>BTC</strong></td><td>中</td><td>极高</td><td>CoinJoin / Wasabi / Samourai</td><td>中（链上全公开）</td><td>35%</td></tr>
+        <tr><td><strong>ETH</strong></td><td>中</td><td>极高</td><td>Tornado Cash</td><td>中高</td><td>25%</td></tr>
+        <tr><td><strong>USDT</strong></td><td>低</td><td>极高</td><td>Tornado Cash(TRC20)</td><td>高(Tether可冻结)</td><td>20%</td></tr>
+        <tr><td><strong>XMR(门罗币)</strong></td><td>极高</td><td>低</td><td>无(天然匿名)</td><td>极低</td><td>8%</td></tr>
+        <tr><td><strong>USDC</strong></td><td>极低</td><td>高</td><td>无专门工具(强合规)</td><td>极高(Circle黑名单)</td><td>5%</td></tr>
+        <tr><td><strong>LTC</strong></td><td>低</td><td>高</td><td>无专门工具</td><td>低</td><td>4%</td></tr>
+        <tr><td><strong>SOL</strong></td><td>低</td><td>高</td><td>跨链桥分散</td><td>中</td><td>3%</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">匿名性从高到低排列。执法追踪难度越高意味着洗钱者越偏好该币种。USDT因Tether可远程冻结合约地址资金，反而不适合大额长期持有，但因其流动性好仍被广泛用于短期洗钱通道。</p>
+
+    <h2 class="section-subtitle" style="margin-top:30px">洗钱币种选择决策树</h2>
+    <div class="card" style="margin-bottom:16px">
+      <p><strong>需要快速出清？</strong> → USDT/TRC20 (流动性最好，P2P最容易找买家)</p>
+      <p><strong>追求长期匿名？</strong> → XMR (天然不可追踪，但流动性差)</p>
+      <p><strong>中等匿名+中等流动性？</strong> → BTC Wasabi / ETH Tornado (折中方案)</p>
+      <p><strong>跨链分散？</strong> → SOL/Swiss(多链部署，降低单链风险)</p>
+    </div>
+
+    <div class="chart-container" id="chart-crypto-compare"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="21-special-methods.html"><i class="fas fa-arrow-left"></i> 赌场/贵金属</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">16 / 23</span>
+    <a class="nav-next" href="31-monero.html">隐私币XMR <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-crypto-compare'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { data: ['匿名性', '流动性', '执法追踪难度'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 100, right: 20, top: 40, bottom: 40 },
+      xAxis: { type: 'value', max: 100, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'category', data: ['BTC', 'ETH', 'USDT', 'XMR', 'USDC', 'LTC', 'SOL'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '匿名性', type: 'bar', data: [50, 45, 10, 98, 5, 10, 15], itemStyle: { color: '#ef4444', borderRadius: [0, 4, 4, 0] } },
+        { name: '流动性', type: 'bar', data: [95, 95, 98, 20, 85, 75, 80], itemStyle: { color: '#10b981', borderRadius: [0, 4, 4, 0] } },
+        { name: '执法追踪难度', type: 'bar', data: [50, 60, 80, 5, 95, 20, 40], itemStyle: { color: '#8b5cf6', borderRadius: [0, 4, 4, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

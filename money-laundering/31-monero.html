@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.2 隐私币XMR深度解析 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">4.2 隐私币XMR</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">4.2 隐私币 Monero(XMR) — 天然不可追踪的洗钱利器</h1>
+    <div class="data-note" style="margin-bottom:20px">Monero使用环签名(Ring Signatures)+隐蔽地址(Stealth Addresses)+保密交易(Confidential Transactions)，<strong>天然不可追踪</strong>。链上交易金额、发送方、接收方全部隐藏。即使是Chainalysis/Elliptic等顶级链上分析公司也无法追踪XMR交易。</div>
+
+    <h2 class="section-subtitle">XMR洗钱四步法</h2>
+    <div class="step-detail">
+      <div class="step-num">STEP 1 — 法币→XMR</div>
+      <p>将BTC/ETH通过CEX兑换为XMR（CEX上XMR/BTC交易对）。或使用P2P兑换服务（如LocalMonero的继任者）。关键：不在同一CEX做BTC和XMR的记录关联。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 2 — 持有"冷却"</div>
+      <p>持有XMR一段时间（通常<span class="tag time">数天到数周</span>）。目的是切断时间上的关联性——如果XMR购买和提现间隔很短，更容易被标记。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 3 — XMR→BTC/ETH</div>
+      <p>将XMR兑换回BTC/ETH，使用<strong>新的</strong>CEX账户（非原账户）。建议使用审查抵抗型CEX(如Gate.io/BitMart)，这些交易所对XMR交易限制较少。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 4 — 出链</div>
+      <p>从新CEX提现到本人/关联银行账户。此时资金链路在链上完全断裂，无法追溯原始资金来源。</p>
+    </div>
+
+    <h2 class="section-subtitle">XMR的技术抗追踪原理</h2>
+    <table class="data-table">
+      <thead><tr><th>技术</th><th>作用</th><th>效果</th></tr></thead>
+      <tbody>
+        <tr><td>环签名(Ring Signatures)</td><td>将你的交易混入一组其他交易(环大小16-31)</td><td>无法确定谁是真正的发送方</td></tr>
+        <tr><td>隐蔽地址(Stealth Addresses)</td><td>每笔交易生成唯一的临时接收地址</td><td>无法确定接收方地址</td></tr>
+        <tr><td>保密交易(Confidential Transactions)</td><td>使用Pedersen承诺隐藏交易金额</td><td>无法确定转账金额</td></tr>
+        <tr><td>CoRing/CoWang(进阶)</td><td>与其他隐私币(XVG/GRIN)交叉混合</td><td>跨隐私币混合，增加追踪维度</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">执法现状</h2>
+    <ul style="list-style:none;padding:0">
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>CEX下架潮：</strong>2024-2025年多个CEX下架XMR交易对(Binance/Kraken/Coinbase)</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>P2P市场仍然活跃：</strong>LocalMonero继任者、XMR.to等服务仍在运营</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right-8px">●</span> <strong>欧盟MiCA：</strong>要求VASP提供"旅行规则"信息，XMR天然违反此要求</li>
+      <li style="padding:6px 0"><span style="color:var(--red);margin-right:8px">●</span> <strong>中国：</strong>XMR不在禁止加密名单上，但实际交易极少</li>
+    </ul>
+
+    <div class="chart-container" id="chart-monero"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="30-crypto-compare.html"><i class="fas fa-arrow-left"></i> 币种对比</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">17 / 23</span>
+    <a class="nav-next" href="32-regulations.html">监管新规 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-monero'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['XMR市值($B)', 'CEX支持数量', 'XMR相关执法案件'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(个/件)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' } }],
+      series: [
+        { name: 'XMR市值($B)', type: 'bar', data: [1.2, 2.5, 3.0, 2.8, 2.2, 1.8], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } },
+        { name: 'CEX支持数量', type: 'line', data: [35, 32, 28, 22, 15, 10], itemStyle: { color: '#ef4444' }, smooth: true },
+        { name: 'XMR相关执法案件', type: 'line', data: [3, 5, 8, 15, 25, 38], itemStyle: { color: '#8b5cf6' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

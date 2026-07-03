@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1 经典三步法 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">3.1 经典三步法</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li><li><a href="21-special-methods.html">3.2 赌场/贵金属</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">3.1 经典洗钱三步法 — 每种手法的具体操作详解</h1>
+    <div class="data-note" style="margin-bottom:20px">无论洗钱手段如何进化(加密/AI/跨境嵌套)，所有洗钱活动的本质都可以归约为三个基本阶段：放置(Placement)、分层(Stacking)、融合(Integration)。这是FATF定义的标准框架。</div>
+
+    <h2 class="section-subtitle">Phase 1 — 放置 (Placement)</h2>
+    <p style="color:var(--text2);margin-bottom:16px">将非法现金首次引入金融体系。这是洗钱过程中<span style="color:var(--red)">最脆弱</span>的阶段——大量现金突然出现容易引起注意。</p>
+    <table class="data-table">
+      <thead><tr><th>手法</th><th>操作细节</th><th>典型金额</th><th>被发现概率</th></tr></thead>
+      <tbody>
+        <tr><td>现金密集型企业谎报营收</td><td>餐馆/酒吧/停车场/自助洗衣店将非法现金混入"营业收入"，虚增每日现金收入</td><td>$1万-$100万/月</td><td>中 — 需实地核查客流量</td></tr>
+        <tr><td>购买高价值易携物品</td><td>黄金/钻石/艺术品，再转售变现。钻石是唯一同时具备超高价值和超高便携性的商品</td><td>$1万-$1000万</td><td>低 — 合法二手市场存在</td></tr>
+        <tr><td>结构化存款(Smurfing)</td><td>雇佣多人分散存入，美国&lt;$10,000(需填CTR)，中国&lt;¥50,000</td><td>$1万-$500万</td><td>高 — 银行有结构化交易监测模型</td></tr>
+        <tr><td>货币兑换携带出境</td><td>将大额现金拆分为多种外币，利用免申报额度携带出境(各国限额不同)</td><td>$1万-$100万</td><td>中 — 机场海关抽查</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">Phase 2 — 分层 (Layering)</h2>
+    <p style="color:var(--text2);margin-bottom:16px">通过复杂的金融交易网络切断资金与非法来源的联系。这一阶段<span style="color:var(--purple)">最复杂</span>，也是洗钱的核心。</p>
+    <table class="data-table">
+      <thead><tr><th>手法</th><th>操作细节</th><th>典型层数</th><th>追踪难度</th></tr></thead>
+      <tbody>
+        <tr><td>跨国多次转账</td><td>同一资金在5-10个银行账户间反复转移，跨越2-5个国家</td><td>5-10层</td><td>高 — 跨境协调难</td></tr>
+        <tr><td>金融资产快速交易</td><td>购买/出售股票/债券/保险单，制造合法交易记录</td><td>3-5层</td><td>中高 — 证券交易记录完整</td></tr>
+        <tr><td>多层离岸公司关联交易</td><td>通过"咨询服务费""特许权使用费"转移资金</td><td>3-7层</td><td>极高 — BO不透明</td></tr>
+        <tr><td>加密货币混币+跨链</td><td>Tornado Cash + 跨链桥 + DEX分散</td><td>4-8层</td><td>高 — 链上分析可部分追踪</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">Phase 3 — 融合 (Integration)</h2>
+    <p style="color:var(--text2);margin-bottom:16px">清洗后的资金以"合法"形式返回犯罪分子手中。这是<span style="color:var(--green)">最安全</span>的阶段——资金已有合法外衣。</p>
+    <table class="data-table">
+      <thead><tr><th>手法</th><th>操作细节</th><th>合法化名义</th></tr></thead>
+      <tbody>
+        <tr><td>房地产投资</td><td>通过离岸公司购买伦敦/纽约/温哥华/悉尼豪宅</td><td>"投资收益"</td></tr>
+        <tr><td>艺术品拍卖</td><td>自己拍自己的作品，制造合法高价交易记录</td><td>"艺术品增值"</td></tr>
+        <tr><td>虚假贷款</td><td>离岸公司向本人控制空壳公司发放"贷款"</td><td>"贷款收入"</td></tr>
+        <tr><td>返回法国的"投资收益"</td><td>以股息/利息名义合法回流</td><td>"海外投资收益"</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">三步法资金流向全景图</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="step-icon" style="color:var(--red)"><i class="fas fa-hand-holding-usd"></i></div><div class="step-label">非法现金</div><div class="step-desc">毒品/诈骗/贪污</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step" style="border-color:var(--red)"><div class="step-label" style="color:var(--red)">PHASE 1: 放置</div><div class="step-desc">混入银行体系</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step" style="border-color:var(--purple)"><div class="step-label" style="color:var(--purple)">PHASE 2: 分层</div><div class="step-desc">多层复杂交易</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step" style="border-color:var(--green)"><div class="step-label" style="color:var(--green)">PHASE 3: 融合</div><div class="step-desc">合法资产返回</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--green)"><i class="fas fa-check-circle"></i></div><div class="step-label">合法财富</div><div class="step-desc">豪宅/艺术品/企业</div></div>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="19-stablecoin.html"><i class="fas fa-arrow-left"></i> 稳定币</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">14 / 23</span>
+    <a class="nav-next" href="21-special-methods.html">赌场/贵金属 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    AnaNav.setupPrevNext(14, [
+      { title: '稳定币', path: '19-stablecoin.html' },
+      { title: '赌场/贵金属', path: '21-special-methods.html' }
+    ]);
+  </script>
+</body>
+</html>

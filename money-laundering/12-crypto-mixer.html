@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.3 虚拟币混币/跨链洗钱 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">2.3 虚拟币混币/跨链</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲</a></li><li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li><li><a href="12-crypto-mixer.html">2.3 虚拟币混币</a></li><li><a href="13-defend-exploit.html">2.4 链上犯罪</a></li><li><a href="14-tbml.html">2.5 贸易洗钱</a></li><li><a href="15-shell-company.html">2.6 离岸空壳</a></li><li><a href="16-cash-intensive.html">2.7 现金密集</a></li><li><a href="17-ai-money.html">2.8 AI洗钱</a></li><li><a href="18-sea-fraud.html">2.9 杀猪盘</a></li><li><a href="19-stablecoin.html">2.10 稳定币</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li><li><a href="21-special-methods.html">3.2 赌场/贵金属</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">2.3 虚拟币混币/跨链洗钱 — 区块链时代的隐形通道</h1>
+    <div class="data-note" style="margin-bottom:20px">2024年通过混币器清洗的加密货币总额超$1450亿。Tornado Cash(ETH)、Wasabi(Satoshi Nakamoto设计)、Samourai Whirlpool是三大主流混币工具。2023年OFAC制裁Tornado Cash开创了"制裁智能合约"的先例。</div>
+
+    <h2 class="section-subtitle">五步操作链路</h2>
+    <div class="step-detail">
+      <div class="step-num">STEP 1 — 法币入链 (On-Ramp)</div>
+      <p><span class="tag money">方式：</span><span class="tag tool">①CEX充值(伪造身份) ②P2P直接购买USDT(微信/Telegram找OTC买家) ③Bitcoin ATM分散操作</span><br><span class="tag money">常用币种：</span>USDT(流动性最好)、BTC(匿名性较高)、ETH</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 2 — 初级混币 (Layer 1)</div>
+      <p><span class="tag tool">Tornado Cash(ETH)：</span>存入→智能合约混合→新地址提取。<span class="tag time">混币2-5轮</span>，每轮间隔数小时至数天。<span class="tag money">2023年混币量$145亿</span><br><span class="tag tool">Wasabi CoinJoin(BTC)：</span>多用户共建交易，破坏输入输出关联<br><span class="tag tool">Samourai Whirlpool(BTC)：</span>自动化多轮CoinJoin</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 3 — 跨链转移 (Cross-Chain)</div>
+      <p><span class="tag tool">Changelly/ChangeNOW</span>(非托管交换) → <span class="tag tool">Stargate/Meson/Wormhole</span>(去中心化桥) → 转移到NEAR/Polkadot/Avalanche等</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 4 — DEX分散交易 (Layer 2)</div>
+      <p><span class="tag tool">Uniswap/PancakeSwap/Curve</span>：一笔资金分成<span class="tag money">10-50笔</span>小额交易，通过不同pair多次swap。使用<span class="tag time">时间锁</span>延时交易。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 5 — 法币出链 (Off-Ramp)</div>
+      <p><span class="tag tool">①合规CEX提现到本人/亲属账户 ②P2P出售给不知情的散户 ③加密货币借记卡直接消费 ④NFT洗水交易</span></p>
+    </div>
+
+    <h2 class="section-subtitle">资金流向图</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="step-icon" style="color:var(--red)"><i class="fas fa-money-bill"></i></div><div class="step-label">法币入金</div><div class="step-desc">CEX/P2P/ATM</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--purple)"><i class="fab fa-bitcoin"></i></div><div class="step-label">买入USDT/BTC</div><div class="step-desc">链上初始转换</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--cyan)"><i class="fas fa-random"></i></div><div class="step-label">混币器</div><div class="step-desc">Tornado/CoinJoin</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--green)"><i class="fas fa-link"></i></div><div class="step-label">跨链桥</div><div class="step-desc">ERC20→BSC/AVAX</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--orange)"><i class="fas fa-exchange-alt"></i></div><div class="step-label">DEX分散</div><div class="step-desc">PancakeSwap多pair</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--red)"><i class="fas fa-university"></i></div><div class="step-label">法币出链</div><div class="step-desc">CEX提现/P2P</div></div>
+    </div>
+
+    <h2 class="section-subtitle">真实案例：东南亚诈骗集团加密洗钱案</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-newspaper"></i> 中泰联合执法Chainalysis追踪案</div>
+      <div class="case-body">
+        <p><strong>诈骗获款：</strong>人民币约<span class="tag money">5亿</span></p>
+        <p><strong>入链：</strong>通过<span class="tag account">120个P2P卖家</span>分批买USDT(每笔10-50万)</p>
+        <p><strong>混币：</strong>Tornado混币<span class="tag time">3轮</span>(间隔2-3天)</p>
+        <p><strong>跨链：</strong>ERC20跨到BSC → PancakeSwap拆为<span class="tag money">80笔</span>swap</p>
+        <p><strong>出链：</strong>新加坡CEX(伪造身份)提现到泰国账户</p>
+        <p><strong>结果：</strong>Chainalysis追踪追回约<span class="tag money">15%</span>。标志链上分析成为反洗钱核心武器。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">执法现状</h2>
+    <ul style="list-style:none;padding:0">
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>OFAC 2022</strong> 制裁Tornado Cash — 首次制裁去中心化智能合约，开创先例</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>Pertsev(创始人) 2023</strong> 被判86个月 — 混币器创始人首次因加密洗钱获实刑</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>FinCEN 2025</strong> 对Blend(AI混币器)罚款$1.8亿后关闭</li>
+      <li style="padding:6px 0"><span style="color:var(--red);margin-right:8px">●</span> <strong>Chainalysis/Trkl/Elliptic</strong> 链上分析工具成为执法标配，追踪准确率持续提升</li>
+    </ul>
+
+    <div class="chart-container" id="chart-crypto-mixer"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="11-hawala.html"><i class="fas fa-arrow-left"></i> 哈瓦拉</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">6 / 23</span>
+    <a class="nav-next" href="13-defend-exploit.html">链上犯罪 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-crypto-mixer'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['混币器交易量($B)', '执法案件数', '追回金额($亿)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2019','2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(件/亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' } }],
+      series: [
+        { name: '混币器交易量($B)', type: 'bar', data: [2, 5, 15, 45, 85, 120, 145], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
+        { name: '执法案件数', type: 'line', data: [5, 8, 15, 25, 40, 55, 72], itemStyle: { color: '#ef4444' }, smooth: true },
+        { name: '追回金额($亿)', type: 'line', data: [2, 3, 5, 8, 12, 18, 25], itemStyle: { color: '#10b981' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

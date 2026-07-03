@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.8 AI赋能洗钱 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">2.8 AI洗钱</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄</a></li><li><a href="11-hawala.html">2.2 哈瓦拉</a></li><li><a href="12-crypto-mixer.html">2.3 虚拟币混币</a></li><li><a href="13-defend-exploit.html">2.4 链上犯罪</a></li><li><a href="14-tbml.html">2.5 贸易洗钱</a></li><li><a href="15-shell-company.html">2.6 离岸空壳</a></li><li><a href="16-cash-intensive.html">2.7 现金密集</a></li><li><a href="17-ai-money.html">2.8 AI洗钱</a></li><li><a href="18-sea-fraud.html">2.9 杀猪盘</a></li><li><a href="19-stablecoin.html">2.10 稳定币</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li><li><a href="21-special-methods.html">3.2 赌场/贵金属</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">2.8 AI赋能洗钱 — 2025-2026年最危险的洗钱趋势</h1>
+    <div class="data-note" style="margin-bottom:20px">Europol 2026年报告：AI洗钱案件2024-2025年增长340%。AI正在将洗钱从"手工操作"升级为"自动化流水线"。Blend AI Money Launcher的$10亿年清洗量和$1.8亿罚款标志着AI洗钱进入主流。</div>
+
+    <h2 class="section-subtitle">五大AI洗钱能力</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--purple)"><h3 style="color:var(--purple)"><i class="fas fa-user-secret"></i> AI生成伪造身份</h3><p>使用<span class="tag tool">Deepfake</span>技术生成逼真身份证/护照照片和视频，通过CEX KYC审核。2025年已有Deepfake KYC欺诈案件被多国曝光。AI还可以生成虚假地址证明、银行流水等全套身份材料。</p></div>
+      <div class="card" style="border-left:3px solid var(--red)"><h3 style="color:var(--red)"><i class="fas fa-code"></i> AI编写漏洞利用代码</h3><p>利用AI分析目标DeFi协议代码，<strong>自动发现并exploit</strong>安全漏洞。2025年出现"AI黑客即服务"(HaaS)平台，非技术人员也可用自然语言描述漏洞类型，AI自动生成exploit代码。</p></div>
+      <div class="card" style="border-left:3px solid var(--cyan)"><h3 style="color:var(--cyan)"><i class="fas fa-robot"></i> AI自动化混币</h3><p>Blend类工具：用户存入→AI自动选择最优混币路径(跨链+DEX+混币器组合)→AI实时调整交易策略以避开链上分析工具检测。2024年经Blend清洗资金超<span class="tag money">$10亿</span>。</p></div>
+      <div class="card" style="border-left:3px solid var(--orange)"><h3 style="color:var(--orange)"><i class="fas fa-file-invoice"></i> AI生成虚假贸易单据</h3><p>利用LLM自动生成逼真的发票、合同、提单等贸易文件，用于TBML。AI可以模仿特定国家/行业的单据格式，伪造质量达到以假乱真的水平。</p></div>
+      <div class="card" style="border-left:3px solid var(--green)"><h3 style="color:var(--green)"><i class="fas fa-brain"></i> AI对抗AML系统</h3><p>使用对抗性机器学习生成看似正常的交易模式，实则为洗钱操作。AI可以学习目标银行的AML规则，生成"刚好低于告警阈值"的交易模式。</p></div>
+      <div class="card" style="border-left:3px solid var(--gold)"><h3 style="color:var(--gold)"><i class="fas fa-chart-line"></i> AI优化洗钱策略</h3><p>AI分析历史查获数据，找出执法机构的"盲区"和"规律"，动态调整洗钱策略。例如：在执法宽松期加大某渠道用量，在严打期切换通道。</p></div>
+    </div>
+
+    <h2 class="section-subtitle">Blend AI Money Launcher — AI洗钱的里程碑案件</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-robot"></i> 2025年FinCEN查封案</div>
+      <div class="case-body">
+        <p><strong>原理：</strong>用户将加密货币存入Blend协议 → AI自动通过Tornado Cash+跨链桥+DEX组合混币 → 从干净地址提现</p>
+        <p><strong>规模：</strong>2024年经Blend清洗资金超<span class="tag money">$10亿</span></p>
+        <p><strong>结果：</strong>FinCEN 2025年罚款<span class="tag money">$1.8亿</span>后关闭，创始人被起诉</p>
+        <p><strong>意义：</strong>标志AI自动化洗钱进入主流，开创"AI即洗钱服务商"新模式</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">AI洗钱 vs AI反洗钱 — 军备竞赛</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>AI洗钱方</th><th>AI反洗钱方</th><th>胜负态势</th></tr></thead>
+      <tbody>
+        <tr><td>检测能力</td><td>生成对抗性交易模式</td><td>Chainalysis/Trkl/Elliptic推出AI检测模型</td><td>→ 胶着</td></tr>
+        <tr><td>KYC欺诈</td><td>Deepfake伪造身份</td><td>集成Deepfake检测(2026年新标准)</td><td>反洗钱略优</td></tr>
+        <tr><td>链上追踪</td><td>AI自动选择最优混币路径</td><td>图神经网络(GNN)追踪多跳关联</td><td>洗钱略优</td></tr>
+        <tr><td>TBML检测</td><td>AI生成逼真贸易单据</td><td>AI发票比价系统(偏离度检测&lt;5%)</td><td>反洗钱略优</td></tr>
+        <tr><td>成本</td><td>开源AI工具免费</td><td>商业AML系统年费$50万-$500万</td><td>洗钱方优势</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-ai-money"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="16-cash-intensive.html"><i class="fas fa-arrow-left"></i> 现金密集</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">11 / 23</span>
+    <a class="nav-next" href="18-sea-fraud.html">杀猪盘 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-ai-money'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['AI洗钱案件数', 'AI反洗钱投入($亿)', 'AI洗钱涉及金额($B)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2021','2022','2023','2024','2025','2026'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '(件)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '($B/$亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' } }],
+      series: [
+        { name: 'AI洗钱案件数', type: 'bar', data: [5, 12, 35, 85, 210, 450], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
+        { name: 'AI反洗钱投入($亿)', type: 'line', data: [2, 5, 12, 25, 45, 75], itemStyle: { color: '#10b981' }, smooth: true },
+        { name: 'AI洗钱涉及金额($B)', type: 'line', data: [5, 15, 35, 65, 100, 150], itemStyle: { color: '#ef4444' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

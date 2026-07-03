@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.3 全球加密监管新规 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">4.3 加密监管新规</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">4.3 全球加密监管新规（2025-2026）</h1>
+
+    <h2 class="section-subtitle">四大监管框架对比</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--cyan)"><h3 style="color:var(--cyan)"><i class="fas fa-gavel"></i> 欧盟MiCA法规</h3><p>2024年全面实施，2025年加强执行。要求所有加密服务提供商获得欧盟牌照，执行严格KYC/AML。稳定币发行商需1:1储备金审计。DeFi协议2026年起需注册。Travel Rule覆盖所有VASP间转账。</p></div>
+      <div class="card" style="border-left:3px solid var(--purple)"><h3 style="color:var(--purple)"><i class="fas fa-flag-usa"></i> 美国行政令+EXEC_ORDER</h3><p>2025年拜登政府发布加密资产行政令，要求财政部制定规则限制匿名DeFi协议。FinCEN 2025年要求所有加密服务商执行"同等旅行规则"(Equivalent Travel Rule)。SEC加强对DeFi治理代币的证券认定。</p></div>
+      <div class="card" style="border-left:3px solid var(--green)"><h3 style="color:var(--green)"><i class="fas fa-globe"></i> FATF Travel Rule强化</h3><p>2025年起，超过一定金额(欧盟€1000/美国$3000)的加密转账必须发送和接收双方VASP交换客户信息。到2026年预计<span class="tag money">140+国家</span>执行。TRUST模型(Travel Rule Unified Standard for Token Transfers)成为事实标准。</p></div>
+      <div class="card" style="border-left:3px solid var(--orange)"><h3 style="color:var(--orange)"><i class="fas fa-yin-yang"></i> 中国立场</h3><p>2025年继续严格禁止加密货币交易和挖矿，但数字人民币(e-CNY)推广增强了央行对资金流的监控能力。e-CNY支持"可控匿名"——小额匿名、大额可溯。2025年e-CNY余额超¥1.8万亿。</p></div>
+    </div>
+
+    <h2 class="section-subtitle">监管趋势总结</h2>
+    <table class="data-table">
+      <thead><tr><th>趋势</th><th>描述</th><th>影响</th></tr></thead>
+      <tbody>
+        <tr><td>DeFi监管突破</td><td>首个DeFi协议被直接罚款(2025年Blend $1.8亿)</td><td>去中心化不再是"法外之地"</td></tr>
+        <tr><td>稳定币发行商责任加重</td><td>Tether/Circle被要求主动配合执法冻结涉案资金</td><td>稳定币成为监管新抓手</td></tr>
+        <tr><td>跨境联合执法常态化</td><td>中泰缅老/中菲/美欧联合行动频率大幅增加</td><td>单一司法管辖区逃避难度剧增</td></tr>
+        <tr><td>BOI强制申报</td><td>美国CTA 2025年全面执行，60+国家建立BOI系统</td><td>离岸空壳公司难度大增</td></tr>
+        <tr><td>AI对抗AI</td><td>FATF 2026年发布AI洗钱风险提示，要求部署AI检测</td><td>洗钱成本上升，检测率提高</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-regulations"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="31-monero.html"><i class="fas fa-arrow-left"></i> 隐私币XMR</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">18 / 23</span>
+    <a class="nav-next" href="40-timeline.html">执法时间线 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-regulations'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['全球加密监管强度指数', '合规成本($亿)', '执法行动数'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025','2026'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '(指数)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '($亿/件)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' } }],
+      series: [
+        { name: '全球加密监管强度指数', type: 'bar', data: [20, 30, 45, 55, 65, 80, 92], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: '合规成本($亿)', type: 'line', data: [5, 8, 15, 25, 40, 65, 95], itemStyle: { color: '#8b5cf6' }, smooth: true },
+        { name: '执法行动数', type: 'line', data: [50, 80, 120, 180, 250, 350, 480], itemStyle: { color: '#ef4444' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

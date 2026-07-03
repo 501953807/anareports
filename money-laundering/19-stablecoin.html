@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.10 稳定币洗钱通道 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">2.10 稳定币洗钱</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄</a></li><li><a href="11-hawala.html">2.2 哈瓦拉</a></li><li><a href="12-crypto-mixer.html">2.3 虚拟币混币</a></li><li><a href="13-defend-exploit.html">2.4 链上犯罪</a></li><li><a href="14-tbml.html">2.5 贸易洗钱</a></li><li><a href="15-shell-company.html">2.6 离岸空壳</a></li><li><a href="16-cash-intensive.html">2.7 现金密集</a></li><li><a href="17-ai-money.html">2.8 AI洗钱</a></li><li><a href="18-sea-fraud.html">2.9 杀猪盘</a></li><li><a href="19-stablecoin.html">2.10 稳定币</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li><li><a href="21-special-methods.html">3.2 赌场/贵金属</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">2.10 稳定币洗钱通道 — 法币与加密之间的灰色桥梁</h1>
+    <div class="data-note" style="margin-bottom:20px">USDT 2024年全球交易量超$13万亿（仅次于SWIFT的$400+万亿）。7×24小时全天候无国界；TRC20转账手续费仅$1-3，适合小额分散。在拉美/非洲/东南亚已成为日常支付工具。</div>
+
+    <h2 class="section-subtitle">五步稳定币洗钱链路</h2>
+    <div class="step-detail">
+      <div class="step-num">STEP 1 — 法币购买USDT</div>
+      <p>通过P2P/OTC以现金或银行卡购买（绕过CEX KYC）。在阿根廷/土耳其/尼日利亚等外汇管制国家，USDT P2P市场极度活跃，黑色溢价可达10-30%。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 2 — 混币</div>
+      <p>USDT转入Tornado Cash(TRC20版本)或其他混币协议。与ETH不同，USDT混币更隐蔽——因为USDT本身就是"稳定"的，大量USDT流动不会引起异常。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 3 — 跨链</div>
+      <p>从TRC20→ERC20→BEP20多次跨链。每次跨链都是一次"重置"——链上分析工具需要重新建立关联。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 4 — 分散</div>
+      <p>在DEX上swap为多种稳定币(USDC/DAI/FDUSD/PAX)，进一步稀释单一币种的链上痕迹。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 5 — 集中提现</div>
+      <p>通过合规CEX（KYC较松的中小所）提现到银行账户。或使用稳定币借记卡(如Crypto.com/Mercado Pago)直接消费"洗白"。</p>
+    </div>
+
+    <h2 class="section-subtitle">USDT vs USDC vs 其他稳定币</h2>
+    <table class="data-table">
+      <thead><tr><th>特性</th><th>USDT</th><th>USDC</th><th>DAI</th><th>FDUSD</th></tr></thead>
+      <tbody>
+        <tr><td>2024市值</td><td class="amount">$1300亿+</td><td>$500亿+</td><td>$50亿+</td><td>$20亿+</td></tr>
+        <tr><td>链上支持</td><td>TRC20/ERC20/BSC/Sol</td><td>ERC20/Sol/Polygon</td><td>ERC20</td><td>ERC20/BSC</td></tr>
+        <tr><td>匿名性</td><td>低(可冻结)</td><td>中(强合规)</td><td>中(去中心化)</td><td>低(Devoted发行)</td></tr>
+        <tr><td>洗钱偏好</td><td>⭐⭐⭐⭐⭐ 全球最流行</td><td>⭐⭐⭐ 欧美偏好</td><td>⭐⭐ 技术型</td><td>⭐⭐ 交易所内</td></tr>
+        <tr><td>执法风险</td><td>Tether配合冻结超$2亿(2025)</td><td>Circle链上黑名单机制(2025)</td><td>无中央发行商</td><td>Devoted强合规</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">为什么稳定币成为洗钱首选？</h2>
+    <div class="grid-2">
+      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-bolt"></i> 7×24无国界</h3><p>不像银行系统有工作日和时区限制，稳定币随时可转。跨境转账从传统银行的3-5天缩短到几分钟，手续费$1-3。</p></div>
+      <div class="card"><h3 style="color:var(--purple)"><i class="fas fa-search"></i> 半匿名性</h3><p>虽然链上交易全公开，但地址与真实身份的关联难度大。CEX KYC可以伪造，P2P交易无需身份验证。</p></div>
+      <div class="card"><h3 style="color:var(--green)"><i class="fas fa-coins"></i> 小额分散友好</h3><p>TRC20转账费$1-3，适合"蚂蚁搬家"式结构化操作。一笔$100万的交易可以拆成10万笔$10的操作。</p></div>
+      <div class="card"><h3 style="color:var(--orange)"><i class="fas fa-globe-americas"></i> 新兴市场刚需</h3><p>在阿根廷/土耳其/尼日利亚等通胀和高外汇管制国家，USDT是天然的"逃生通道"——洗钱者伪装成正常用户。</p></div>
+    </div>
+
+    <h2 class="section-subtitle">执法现状</h2>
+    <ul style="list-style:none;padding:0">
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>Tether 2025：</strong>配合美国执法冻结超<span class="tag money">$2亿</span>涉案USDT — 稳定币发行商成为执法新抓手</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>Circle(USDC) 2025：</strong>加强链上黑名单机制，可实时冻结指定地址</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">●</span> <strong>P2P监管：</strong>巴西/尼日利亚要求USDT P2P交易者实名登记</li>
+      <li style="padding:6px 0"><span style="color:var(--red);margin-right:8px">●</span> <strong>Travel Rule扩展：</strong>2026年稳定币P2P交易也被纳入Travel Rule适用范围</li>
+    </ul>
+
+    <div class="chart-container" id="chart-stablecoin"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="18-sea-fraud.html"><i class="fas fa-arrow-left"></i> 杀猪盘</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">13 / 23</span>
+    <a class="nav-next" href="20-three-phases.html">经典三步法 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-stablecoin'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['USDT市值($B)', 'USDC市值($B)', '稳定币洗钱占比(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, max: 30 }],
+      series: [
+        { name: 'USDT市值($B)', type: 'bar', data: [40, 60, 80, 95, 110, 135], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } },
+        { name: 'USDC市值($B)', type: 'bar', data: [15, 25, 40, 50, 55, 58], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: '稳定币洗钱占比(%)', type: 'line', data: [3, 5, 8, 12, 18, 25], itemStyle: { color: '#ef4444' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

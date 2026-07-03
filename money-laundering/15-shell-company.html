@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.6 离岸空壳公司嵌套 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">2.6 离岸空壳公司</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄</a></li><li><a href="11-hawala.html">2.2 哈瓦拉</a></li><li><a href="12-crypto-mixer.html">2.3 虚拟币混币</a></li><li><a href="13-defend-exploit.html">2.4 链上犯罪</a></li><li><a href="14-tbml.html">2.5 贸易洗钱</a></li><li><a href="15-shell-company.html">2.6 离岸空壳</a></li><li><a href="16-cash-intensive.html">2.7 现金密集</a></li><li><a href="17-ai-money.html">2.8 AI洗钱</a></li><li><a href="18-sea-fraud.html">2.9 杀猪盘</a></li><li><a href="19-stablecoin.html">2.10 稳定币</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li><li><a href="21-special-methods.html">3.2 赌场/贵金属</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">2.6 离岸空壳公司嵌套 — 层层迷雾中的资金迷宫</h1>
+    <div class="data-note" style="margin-bottom:20px">全球估计存在数千万家离岸公司。BVI(英属维尔京群岛)注册公司已超<span class="tag money">100万家</span>，开曼群岛超<span class="tag money">20万家</span>。这些公司的最终受益人(UBO/BO)信息大多不公开，成为洗钱和逃税的核心工具。</div>
+
+    <h2 class="section-subtitle">五层嵌套结构</h2>
+    <div class="step-detail">
+      <div class="step-num">LEVEL 1 — 底层运营公司</div>
+      <p>在迪拜或匈牙利注册"运营公司"，开设<span class="tag account">私人银行账户</span>。这家公司是非法资金的"入口"——接收来自地下活动的所有款项。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">LEVEL 2 — 第一层SPV</div>
+      <p>底层公司在BVI或开曼注册股份有限公司，由<span class="tag tool">秘书公司(Maples/Walkers/Appleby/Mossack Fonseca)</span>代为注册，股东名单不公开。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">LEVEL 3 — 第二层SPV</div>
+      <p>第一层公司在塞舌尔或巴拿马再注册子公司，持有第一层100%股权。此时已<span class="tag time">两层</span>无法追溯到实际控制人。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">LEVEL 4 — 第三层SPV + 信托</div>
+      <p>第二层公司设立<strong>离岸信托</strong>(Nevis/库克群岛)，信托受益人可以是家族成员或慈善基金会。信托在法律上不属于任何人——无"所有者"概念。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">LEVEL 5 — 顶层传统银行</div>
+      <p>顶层公司以<span class="tag tool">"贸易利润""投资收益"</span>名义转入瑞银/德意志银行等传统金融机构，此时资金已有合法贸易背景外衣。</p>
+    </div>
+
+    <h2 class="section-subtitle">资金注入路径</h2>
+    <table class="data-table">
+      <thead><tr><th>注入名义</th><th>操作方式</th><th>优点</th><th>风险点</th></tr></thead>
+      <tbody>
+        <tr><td>股权投资</td><td>底层公司向顶层"注资"作为注册资本</td><td>合法商业行为</td><td>大额投资需披露BOI</td></tr>
+        <tr><td>股东贷款</td><td>底层公司向顶层发放"贷款"</td><td>可回收，不改变股权结构</td><td>贷款利息需申报</td></tr>
+        <tr><td>咨询服务费</td><td>顶层向底层收取"管理咨询费"</td><td>无需实物交付，纯账面</td><td>无实质服务易被质疑</td></tr>
+        <tr><td>特许权使用费</td><td>以"品牌授权""专利许可"名义付款</td><td>持续性现金流</td><td>需有真实IP支撑</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">1MDB $450亿案 — 史上最著名的离岸洗钱案</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-file-contract"></i> 马来西亚主权基金被盗案</div>
+      <div class="case-body">
+        <p><strong>起点：</strong>马来西亚主权基金1MDB → 离岸公司Good Star(开曼)贷款$25亿</p>
+        <p><strong>多层转移：</strong>资金通过Jubilant/Meduri等离岸公司多层转移</p>
+        <p><strong>终点：</strong>流入Jho Low控制实体 → 好莱坞电影《华尔街之狼》/奢侈品/艺术品</p>
+        <p><strong>纳吉布：</strong>马来西亚前总理个人账户收到<span class="tag money">$7亿</span>"政治捐款"</p>
+        <p><strong>结果：</strong>截至2025年仅追回约<span class="tag money">$70亿(15%)</span>。全球60+国家建立BOI登记系统加速追赃。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">执法现状：全球BOI登记浪潮</h2>
+    <ul style="list-style:none;padding:0">
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--green);margin-right:8px">●</span> <strong>美国CTA 2024：</strong>要求注册公司申报受益所有人(BOI)，超2000万份报告已提交</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--green);margin-right:8px">●</span> <strong>欧盟UEAD 2024：</strong>第四反洗钱指令要求全欧盟 Beneficial Ownership Register</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--green);margin-right:8px">●</span> <strong>UK PSC Register：</strong>英国个人控制登记册已运行多年，公开可查</li>
+      <li style="padding:6px 0"><span style="color:var(--green);margin-right:8px">●</span> <strong>BVI/开曼：</strong>开始与执法机构共享BO信息，但仅限刑事调查</li>
+    </ul>
+
+    <div class="chart-container" id="chart-shell-company"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="14-tbml.html"><i class="fas fa-arrow-left"></i> 贸易洗钱</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">9 / 23</span>
+    <a class="nav-next" href="16-cash-intensive.html">现金密集型 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-shell-company'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['离岸公司注册量(万)', 'BOI申报覆盖率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2018','2019','2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '(万)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, max: 100 }],
+      series: [
+        { name: '离岸公司注册量(万)', type: 'bar', data: [280, 300, 310, 330, 350, 370, 390, 420], itemStyle: { color: '#22c55e', borderRadius: [4, 4, 0, 0] } },
+        { name: 'BOI申报覆盖率(%)', type: 'line', data: [5, 10, 15, 25, 40, 55, 70, 85], itemStyle: { color: '#06b6d4' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

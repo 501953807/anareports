@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.3 AML系统建设指南 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">5.3 AML系统建设</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">5.3 AML系统建设指南 (2026版)</h1>
+    <div class="data-note" style="margin-bottom:20px">以下指南基于FinCEN/FATF最新要求和2025-2026年实际执法案例中的合规短板整理。适用于银行、支付机构、VASP(虚拟资产服务提供商)等受监管实体。</div>
+
+    <h2 class="section-subtitle">AML系统七大核心模块</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--cyan)"><h3 style="color:var(--cyan)">1. 链上地址标签系统</h3><p>接入Chainalysis/Trkl/Elliptic等API，对每笔链上交易自动标注地址风险等级。覆盖混币器/暗网/制裁地址/诈骗地址标签库(>5000万地址)。</p></div>
+      <div class="card" style="border-left:3px solid var(--purple)"><h3 style="color:var(--purple)">2. 混币器/跨链桥告警</h3><p>设置Tornado Cash/Wasabi/Samourai等混币器地址自动告警。跨链桥操作(ERC20→BSC→AVAX)触发二级审查。</p></div>
+      <div class="card" style="border-left:3px solid var(--green)"><h3 style="color:var(--green)">3. 贸易发票AI比价</h3><p>接入全球大宗商品价格数据库，对贸易发票价格偏离度进行AI检测。偏离市场均价&gt;5%自动触发人工审查。</p></div>
+      <div class="card" style="border-left:3px solid var(--orange)"><h3 style="color:var(--orange)">4. 受益所有人穿透</h3><p>对接BOI/OpenCorporates/UK PSC数据库，自动穿透查询交易对手的最终受益人。多层SPV结构自动标记高风险。</p></div>
+      <div class="card" style="border-left:3px solid var(--red)"><h3 style="color:var(--red)">5. 实时制裁筛查</h3><p>对接OFAC/UN/EU/HMT/MOF制裁名单，实时更新。交易对手名称模糊匹配(编辑距离≤2)触发拦截。</p></div>
+      <div class="card" style="border-left:3px solid var(--gold)"><h3 style="color:var(--gold)">6. AI客户行为分析</h3><p>建立每个客户的"行为基线"(交易频率/金额/对手方/地理分布)，偏离基线&gt;2σ触发告警。检测"刚好低于阈值"的对抗性模式。</p></div>
+      <div class="card" style="border-left:3px solid var(--text)"><h3 style="color:var(--text)">7. Deepfake KYC检测</h3><p>2026年新增模块。集成Deepfake检测API于KYC流程，识别伪造身份证/护照照片和视频。活体检测+多模态验证。</p></div>
+    </div>
+
+    <h2 class="section-subtitle">系统架构建议</h2>
+    <table class="data-table">
+      <thead><tr><th>层级</th><th>组件</th><th>推荐方案</th><th>年成本($万)</th></tr></thead>
+      <tbody>
+        <tr><td>数据层</td><td>交易数据采集+清洗</td><td>自建Kafka+Flink流处理</td><td>50-100</td></tr>
+        <tr><td>标签层</td><td>链上地址标签+制裁名单</td><td>Chainalysis Radar + OFAC API</td><td>100-300</td></tr>
+        <tr><td>规则引擎</td><td>阈值告警+模式匹配</td><td>自研规则引擎 + Drools</td><td>30-80</td></tr>
+        <tr><td>AI层</td><td>行为基线+异常检测</td><td>自研GNN模型 + 商业AI-AML</td><td>100-500</td></tr>
+        <tr><td>展示层</td><td>SAR报告+仪表盘</td><td>自研 + Tableau/Power BI</td><td>20-50</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">中型金融机构(年交易额$100亿+)的AML系统总建设成本约$300-1000万/年。小型机构可选择商业一体化方案(如Actimize/Oracle FLEXCUBE)，年费$100-300万。</p>
+
+    <div class="chart-container" id="chart-aml-system"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="41-risk-signals.html"><i class="fas fa-arrow-left"></i> 风险信号</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">21 / 23</span>
+    <a class="nav-next" href="../creators/index.html">返回创作者经济 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-aml-system'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['AML系统建设成本($万)', '罚款避免额($亿)', 'ROI(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025','2026'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '($万/亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, max: 500 }],
+      series: [
+        { name: 'AML系统建设成本($万)', type: 'bar', data: [200, 250, 350, 450, 600, 800, 1000], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: '罚款避免额($亿)', type: 'line', data: [2, 3, 5, 8, 12, 18, 28], itemStyle: { color: '#10b981' }, smooth: true },
+        { name: 'ROI(%)', type: 'line', data: [100, 120, 143, 178, 200, 225, 280], itemStyle: { color: '#f59e0b' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

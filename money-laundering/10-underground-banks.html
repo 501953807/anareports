@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.1 地下钱庄对敲模式 — 全球地下钱庄与洗钱全景风险</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">2.1 地下钱庄对敲</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模</a></li><li><a href="02-enforcement-data.html">1.2 各国执法数据</a></li><li><a href="03-major-fines.html">1.3 重大罚款</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲</a></li><li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li><li><a href="12-crypto-mixer.html">2.3 虚拟币混币</a></li><li><a href="13-defend-exploit.html">2.4 链上犯罪</a></li><li><a href="14-tbml.html">2.5 贸易洗钱</a></li><li><a href="15-shell-company.html">2.6 离岸空壳</a></li><li><a href="16-cash-intensive.html">2.7 现金密集</a></li><li><a href="17-ai-money.html">2.8 AI洗钱</a></li><li><a href="18-sea-fraud.html">2.9 杀猪盘</a></li><li><a href="19-stablecoin.html">2.10 稳定币</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li><li><a href="21-special-methods.html">3.2 赌场/贵金属</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 币种对比</a></li><li><a href="31-monero.html">4.2 隐私币XMR</a></li><li><a href="32-regulations.html">4.3 监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 执法时间线</a></li><li><a href="41-risk-signals.html">5.2 风险信号</a></li><li><a href="42-aml-system.html">5.3 AML系统</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">2.1 地下钱庄对敲模式 — 机制原理与操作详解</h1>
+    <div class="data-note" style="margin-bottom:20px">地下钱庄对敲是全球第二大洗钱渠道，年涉及金额估计$500亿。其核心特征是"资金不跨境"——境内人民币和境外外币各自独立闭环，彻底切断了跨境资金追踪的可能性。</div>
+
+    <h2 class="section-subtitle">核心机制</h2>
+    <p><strong>对敲原理：</strong>境内收人民币 → 境外付外币。资金从未跨境，通过境内外账户对敲完成兑换。境内"水房"和境外"水房"各自持有外币/人民币头寸，通过反向交易或贸易名义平衡差额。</p>
+
+    <h2 class="section-subtitle">五步操作链路</h2>
+    <div class="step-detail">
+      <div class="step-num">STEP 1 — 资金归集</div>
+      <p>诈骗/赌博/贪污所得人民币进入境内"水房"控制的批量个人账户（卡农卡），通常涉及数百至上千张银行卡，每张卡只收小额(<$5万)，规避大额交易报告。2024年广东"4·15"案涉及<span class="tag money">1200张银行卡</span>，分37个水房团伙。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 2 — 境内多层流转</div>
+      <p>资金在境内通过<span class="tag account">3-5层</span>个人账户快速流转，最终汇聚到水房核心账户。每层间隔<span class="tag time">几分钟</span>，使用不同银行分散操作。典型模式：一级卡→二级卡→三级核心账户→水房汇总账户。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 3 — 对敲通知</div>
+      <p>水房通过<span class="tag tool">Telegram/蝙蝠/Wickr</span>等加密通讯软件通知境外同伙，提供境内收款账户信息和金额汇率。汇率通常在市场汇率基础上加价<span class="tag money">1-3%</span>作为水房利润。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 4 — 境外放款</div>
+      <p>境外水房从自有外币账户直接打入目标客户指定的境外账户。<strong>资金从未跨境</strong>，境内人民币和境外外币各自独立闭环。境外放款速度通常为<span class="tag time">几分钟到几小时</span>。</p>
+    </div>
+    <div class="step-detail">
+      <div class="step-num">STEP 5 — 差额平衡</div>
+      <p>境内外水房通过<span class="tag tool">反向交易/贸易预付款/跨境服务费</span>合法名义平衡差额，通常<span class="tag time">每周/每月</span>结算一次。差额通过TBML(贸易洗钱)或离岸公司"咨询服务费"转回。</p>
+    </div>
+
+    <h2 class="section-subtitle">资金流向图</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="step-icon" style="color:var(--red)"><i class="fas fa-money-bill-wave"></i></div><div class="step-label">诈骗/贪污资金</div><div class="step-desc">人民币进入卡农账户</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--orange)"><i class="fas fa-layer-group"></i></div><div class="step-label">境内流转</div><div class="step-desc">3-5层分散汇聚</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--cyan)"><i class="fas fa-server"></i></div><div class="step-label">水房核心账户</div><div class="step-desc">境内资金汇总</div></div>
+      <div class="flow-arrow"><i class="fas fa-exchange-alt" style="color:var(--purple)"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--purple)"><i class="fas fa-comments"></i></div><div class="step-label">加密通讯</div><div class="step-desc">Telegram/Wickr通知</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--green)"><i class="fas fa-coins"></i></div><div class="step-label">境外水房</div><div class="step-desc">自有外币头寸</div></div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step"><div class="step-icon" style="color:var(--cyan)"><i class="fas fa-user-check"></i></div><div class="step-label">目标客户</div><div class="step-desc">境外账户收到外币</div></div>
+    </div>
+    <p class="data-note" style="text-align:center;margin-top:8px">关键：资金从未跨境！境内人民币闭环，境外外币闭环，两条平行线永不相交</p>
+
+    <h2 class="section-subtitle">真实案例：广东"4·15"特大地下钱庄案</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-newspaper"></i> 2024年粤菲联合执法</div>
+      <div class="case-body">
+        <p><strong>主犯：</strong>李某，在菲律宾/柬埔寨设水房境外节点</p>
+        <p><strong>规模：</strong>通过<span class="tag money">1200张银行卡</span>分37个水房团伙归集到8个核心账户，涉案<span class="tag money">300亿+/年</span>，涉6省</p>
+        <p><strong>手法：</strong>境内资金通过卡农体系→3层流转→8个核心账户→对敲通知菲律宾节点→菲律宾比索/美元放款给目标客户</p>
+        <p><strong>结果：</strong>粤菲联合执法打掉窝点<span class="tag money">43个</span>，逮捕<span class="tag money">127人</span>，主犯无期徒刑</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">执法现状与挑战</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--green)"><h3 style="color:var(--green)"><i class="fas fa-shield-alt"></i> 执法成果</h3><p>2024年中国公安部"云剑"行动打掉地下钱庄窝点<span class="tag money">500+</span>，冻结资金<span class="tag money">80亿</span>。2025年PBOC对12家银行开罚单合计超<span class="tag money">1亿</span>。中菲/中缅/中泰联合执法常态化。</p></div>
+      <div class="card" style="border-left:3px solid var(--red)"><h3 style="color:var(--red)"><i class="fas fa-exclamation-triangle"></i> 执法挑战</h3><p>①资金不跨境，传统跨境资金监测完全失效 ②加密通讯软件增加情报获取难度 ③卡农体系利用普通民众身份，取证量大 ④境外节点设在执法薄弱地区(菲/柬/缅)</p></div>
+    </div>
+
+    <h2 class="section-subtitle">识别信号</h2>
+    <ul style="list-style:none;padding:0">
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">⚠</span> <strong>短时间内大量不同银行账户向同一账户转账</strong> — 卡农归集模式</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">⚠</span> <strong>账户交易模式与客户身份不符</strong> — 普通个人不应有高频大额跨行转账</li>
+      <li style="padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--red);margin-right:8px">⚠</span> <strong>资金快进快出，不留余额</strong> — 典型的水房归集账户特征</li>
+      <li style="padding:6px 0"><span style="color:var(--red);margin-right:8px">⚠</span> <strong>与境外高风险地区(菲/柬/缅)有频繁资金往来</strong> — 对敲境外节点特征</li>
+    </ul>
+
+    <div class="chart-container" id="chart-underground-banks"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="03-major-fines.html"><i class="fas fa-arrow-left"></i> 重大罚款</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">4 / 23</span>
+    <a class="nav-next" href="11-hawala.html">哈瓦拉体系 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-underground-banks'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['涉案金额(亿)', '打掉窝点数', '逮捕人数'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '(亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(个/人)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' } }],
+      series: [
+        { name: '涉案金额(亿)', type: 'bar', data: [120, 180, 250, 350, 400, 500], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
+        { name: '打掉窝点数', type: 'line', data: [150, 220, 310, 400, 500, 620], itemStyle: { color: '#06b6d4' }, smooth: true },
+        { name: '逮捕人数', type: 'line', data: [800, 1200, 1800, 2500, 3200, 4100], itemStyle: { color: '#8b5cf6' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
