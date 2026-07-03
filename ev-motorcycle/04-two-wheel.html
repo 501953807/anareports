@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四章：两轮电动车产业链 — 中国新能源汽车与电动摩托车全产业链书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 新能源出行书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第四章：两轮电动车产业链</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：市场规模</li>
+    <li><a href="01-market-overview.html">第一章：双轮驱动市场规模</a></li>
+    <li class="toc-chapter">第二部分：新能源汽车产业链</li>
+    <li><a href="02-nev-supply-chain.html">第二章：NEV全产业链拓扑</a></li>
+    <li class="toc-chapter">第三部分：零部件全品类</li>
+    <li><a href="03-parts-catalog.html">第三章：零部件单品级拆解</a></li>
+    <li class="toc-chapter">第四部分：电动两轮车产业链</li>
+    <li><a href="04-two-wheel.html">第四章：两轮电动车产业链</a></li>
+    <li class="toc-chapter">第五部分：产业集群与地图</li>
+    <li><a href="05-clusters.html">第五章：产业集群分布</a></li>
+    <li class="toc-chapter">第六部分：易损件与保养</li>
+    <li><a href="06-maintenance.html">第六章：易损件与保养周期</a></li>
+    <li class="toc-chapter">第七部分：全球市场与研判</li>
+    <li><a href="07-global-market.html">第七章：全球市场+多学派研判</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第四章：电动摩托车/两轮电动车全产业链</h1>
+    <div class="data-note" style="margin-bottom:20px">中国电动两轮车年销量约5,400万辆，市场规模约700亿元。雅迪(2,000万+)、爱玛(~800万)、台铃(~330万)构成三足鼎立格局。行业正经历"铅酸→锂电"技术升级和"代步→消费升级"双重变革。</div>
+
+    <h2 class="section-subtitle">4.1 两轮车产业链上下游</h2>
+    <table class="data-table">
+      <thead><tr><th>环节</th><th>细分</th><th>代表企业</th><th>市场规模</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3"><strong>上游</strong></td><td>铅酸电池</td><td>天能/超威(合计占70%+)</td><td>~250亿元</td></tr>
+        <tr><td>锂电池</td><td>星恒/宁德时代/比亚迪</td><td>~300亿元(锂电化率45%+)</td></tr>
+        <tr><td>电机/控制器/车架/塑件</td><td>金宇/全顺/雅迪自产/外采</td><td>~150亿元</td></tr>
+        <tr><td rowspan="2"><strong>中游</strong></td><td>整车组装(雅迪/爱玛/台铃)</td><td>雅迪/爱玛/台铃/小牛/九号</td><td>~700亿元</td></tr>
+        <tr><td>渠道销售(线下门店+电商)</td><td>雅迪12,000+门店/爱玛8,000+</td><td>—</td></tr>
+        <tr><td rowspan="3"><strong>下游</strong></td><td>售后服务/维修保养</td><td>各地经销商网点</td><td>~100亿元</td></tr>
+        <tr><td>以旧换新/电池回收</td><td>天能/超威/格林美</td><td>快速增长</td></tr>
+        <tr><td>出口(东南亚/非洲/拉美)</td><td>雅迪越南/印尼/南非基地</td><td>~300万辆/年</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">4.2 各环节市场规模</h2>
+    <div class="chart-container" id="chart-tw-market"></div>
+
+    <h2 class="section-subtitle">4.3 铅酸 vs 锂电 — 技术路线对比</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>铅酸电池</th><th>锂电池</th></tr></thead>
+      <tbody>
+        <tr><td>能量密度</td><td>30-50 Wh/kg</td><td>150-250 Wh/kg</td></tr>
+        <tr><td>循环寿命</td><td>300-500次</td><td>800-1500次</td></tr>
+        <tr><td>成本(元/Wh)</td><td>~0.5</td><td>~0.8-1.2</td></tr>
+        <tr><td>重量</td><td>重(15-20kg)</td><td>轻(3-5kg)</td></tr>
+        <tr><td>安全性</td><td>高(不易燃)</td><td>中(需BMS保护)</td></tr>
+        <tr><td>回收价值</td><td>高(铅可100%回收)</td><td>中(锂回收率~95%)</td></tr>
+        <tr><td>适用场景</td><td>入门级/短途代步</td><td>中高端/长续航/智能车</td></tr>
+        <tr><td>市场占比</td><td>~55%(下降中)</td><td>~45%(快速上升)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">4.4 品牌竞争格局</h2>
+    <table class="data-table">
+      <thead><tr><th>品牌</th><th>2024销量</th><th>营收</th><th>毛利率</th><th>核心差异化</th><th>锂电化率</th></tr></thead>
+      <tbody>
+        <tr><td><strong>雅迪</strong></td><td>2,000万+</td><td>310亿</td><td>20.5%</td><td>全球第一/TTFAR增程系统/高端化</td><td>~55%</td></tr>
+        <tr><td><strong>爱玛</strong></td><td>~800万</td><td>189亿</td><td>28.5%</td><td>女性时尚设计/渠道深耕</td><td>~40%</td></tr>
+        <tr><td><strong>台铃</strong></td><td>~330万</td><td>~115亿</td><td>22.5%</td><td>跑得更远/性价比</td><td>~35%</td></tr>
+        <tr><td><strong>九号</strong></td><td>~95万</td><td>~38亿</td><td>26%</td><td>智能化/自动驾驶基因</td><td>~70%</td></tr>
+        <tr><td><strong>小牛</strong></td><td>~55万</td><td>~22亿</td><td>19%</td><td>设计感/年轻群体</td><td>~65%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-brand"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="03-parts-catalog.html"><i class="fas fa-arrow-left"></i> 零部件拆解</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">4 / 7</span>
+    <a class="nav-next" href="05-clusters.html">产业集群 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart1 = echarts.init(document.getElementById('chart-tw-market'));
+    chart1.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['铅酸电池市场(亿)', '锂电池市场(亿)', '电机(亿)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2022','2023','2024','2025E'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(亿元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '铅酸电池市场(亿)', type: 'bar', data: [160, 150, 140, 120], itemStyle: { color: '#94a3b8', borderRadius: [4, 4, 0, 0] } },
+        { name: '锂电池市场(亿)', type: 'bar', data: [100, 140, 180, 230], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: '电机(亿)', type: 'line', data: [80, 90, 100, 110], itemStyle: { color: '#8b5cf6' }, smooth: true }
+      ]
+    });
+    var chart2 = echarts.init(document.getElementById('chart-brand'));
+    chart2.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['雅迪', '爱玛', '台铃', '九号', '小牛'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '销量规模', max: 100 },
+          { name: '营收', max: 100 },
+          { name: '毛利率', max: 100 },
+          { name: '智能化', max: 100 },
+          { name: '锂电化率', max: 100 },
+          { name: '海外布局', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [100, 100, 65, 50, 75, 60], name: '雅迪', itemStyle: { color: '#06b6d4' } },
+          { value: [40, 61, 100, 40, 50, 40], name: '爱玛', itemStyle: { color: '#8b5cf6' } },
+          { value: [17, 37, 72, 35, 40, 30], name: '台铃', itemStyle: { color: '#10b981' } },
+          { value: [5, 12, 80, 95, 85, 45], name: '九号', itemStyle: { color: '#f59e0b' } },
+          { value: [3, 7, 60, 80, 75, 35], name: '小牛', itemStyle: { color: '#ef4444' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart1.resize(); chart2.resize(); });
+  </script>
+</body>
+</html>
