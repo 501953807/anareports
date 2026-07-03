@@ -720,7 +720,7 @@ c5.setOption({backgroundColor:'transparent',tooltip:{trigger:'item'},legend:{ori
 
 // 图6: 十大洗钱渠道金额对比
 var c6=echarts.init(document.getElementById('chart-channels'));
-c6.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},grid:{left:120,right:20,top:10,bottom:40},xAxis:{type:'value',name:'($亿/年)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'category',data:['地下钱庄对敲','哈瓦拉体系','稳定币洗钱','虚拟币混币','贸易洗钱TBML','离岸空壳公司','现金密集型','AI洗钱','链上犯罪','杀猪盘/电诈'],axisLabel:{color:'#94a3b8',fontSize:11}},series:[{name:'年涉及金额($亿)',type:'bar',data:[500,200,150,145,800,500,100,50,209,300],itemStyle:{color:function(p){var colors=['#06b6d4','#f59e0b','#10b981','#8b5cf6','#ef4444','#22c55e','#f97316','#a855f7','#dc2626','#0ea5e9'];return colors[p.dataIndex]},borderRadius:[0,6,6,0]}]}]});
+c6.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},grid:{left:120,right:20,top:10,bottom:40},xAxis:{type:'value',name:'($亿/年)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'category',data:['地下钱庄对敲','哈瓦拉体系','稳定币洗钱','虚拟币混币','贸易洗钱TBML','离岸空壳公司','现金密集型','AI洗钱','链上犯罪','杀猪盘/电诈'],axisLabel:{color:'#94a3b8',fontSize:11}},series:[{name:'年涉及金额($亿)',type:'bar',data:[500,200,150,145,800,500,100,50,209,300],itemStyle:{color:function(p){var colors=['#06b6d4','#f59e0b','#10b981','#8b5cf6','#ef4444','#22c55e','#f97316','#a855f7','#dc2626','#0ea5e9'];return colors[p.dataIndex]},borderRadius:[0,6,6,0]}}]});
 
 // 响应式
 window.addEventListener('resize',function(){c1.resize();c2.resize();c3.resize();c4.resize();c5.resize();c6.resize()});
