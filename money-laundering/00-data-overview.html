@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第零章：洗钱规模与执法数据总览 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第零章：洗钱规模与执法数据总览</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">洗钱规模与执法数据总览 — 全球全景图</h1>
+    <div class="data-note" style="margin-bottom:20px">全球洗钱规模占全球GDP的2%-5%，即每年$8000亿-$20,000亿。2024年链上犯罪$209亿，AI洗钱案件增速340%。本章汇总最核心的宏观数据。</div>
+
+    <h2 class="section-subtitle">0.0.1 全球洗钱规模估算方法论</h2>
+    <table class="data-table">
+      <thead><tr><th>估算方法</th><th>原理</th><th>2024年估算值</th><th>优缺点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>货币需求法</strong>(McNally)</td><td>估算黑市交易规模，假设一定比例通过洗钱进入合法经济</td><td>$1.6万亿(中值)</td><td>优点：理论严谨；缺点：依赖大量假设</td></tr>
+        <tr><td><strong>基础投入法</strong>(Base Input)</td><td>估算参与洗钱的资源(人力/机构/技术)投入</td><td>$8000亿-$1万亿</td><td>优点：直观；缺点：低估大型系统化洗钱</td></tr>
+        <tr><td><strong>结果法</strong>(Outcome-based)</td><td>从已破获案件反推总体规模(破案率通常<1%)</td><td>$1.2万亿-$2万亿</td><td>优点：基于实证；缺点：破案率估计不准</td></tr>
+        <tr><td><strong>综合法</strong>(FATF推荐)</td><td>结合以上三种方法，给出区间估计</td><td>$8000亿-$2万亿</td><td>优点：最全面；缺点：区间过大</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">0.0.2 前置犯罪类型分布</h2>
+    <table class="data-table">
+      <thead><tr><th>前置犯罪</th><th>占洗钱案件比例</th><th>年涉及金额($亿)</th><th>主要洗钱渠道</th></tr></thead>
+      <tbody>
+        <tr><td>欺诈(含电商/投资/网贷诈骗)</td><td>38%</td><td>3000-5000</td><td>地下钱庄/加密混币/TBML/空壳公司</td></tr>
+        <tr><td>毒品走私</td><td>16%</td><td>1000-2000</td><td>现金密集/哈瓦拉/赌场</td></tr>
+        <tr><td>税务犯罪/逃税</td><td>11%</td><td>2000-4000</td><td>离岸空壳公司/信托/私人银行</td></tr>
+        <tr><td>腐败/贿赂</td><td>7%</td><td>500-1000</td><td>房地产/艺术品/离岸结构</td></tr>
+        <tr><td>有组织犯罪</td><td>6%</td><td>500-1500</td><td>地下钱庄/现金/加密</td></tr>
+        <tr><td>人口贩卖/器官交易</td><td>5%</td><td>200-500</td><td>现金/哈瓦拉/空壳公司</td></tr>
+        <tr><td>武器走私</td><td>3%</td><td>100-300</td><td>TBML/离岸结构</td></tr>
+        <tr><td>AI洗钱(新兴)</td><td>4%</td><td>50-200</td><td>AI混币/AI伪造身份/AI生成虚假贸易单据</td></tr>
+        <tr><td>其他</td><td>10%</td><td>500-1000</td><td>多种渠道</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">0.0.3 各国执法力度对比</h2>
+    <table class="data-table">
+      <thead><tr><th>国家/地区</th><th>年查处案件</th><th>年没收资产($亿)</th><th>年AML罚款($亿)</th><th>执法强度评级</th></tr></thead>
+      <tbody>
+        <tr><td>🇺🇸 美国</td><td>28万起(SAR filed)</td><td>$126亿</td><td>$40-50亿</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>🇪🇺 欧盟</td><td>8-10万起</td><td>$18亿</td><td>$20-30亿</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>🇨🇳 中国</td><td>3.8万起</td><td>$7亿</td><td>$2-5亿</td><td>⭐⭐⭐⭐(增速最快)</td></tr>
+        <tr><td>🇬🇧 英国</td><td>5万起(SAR)</td><td>$5亿</td><td>$5-10亿</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>🇸🇬 新加坡</td><td>2500起</td><td>$1亿</td><td>$1-2亿</td><td>⭐⭐⭐⭐(人均最高)</td></tr>
+        <tr><td>🇭🇰 香港</td><td>3000起</td><td>$0.5亿</td><td>$0.5-1亿</td><td>⭐⭐⭐</td></tr>
+        <tr><td>🇦🇪 阿联酋</td><td>1500起</td><td>$0.3亿</td><td>$0.2-0.5亿</td><td>⭐⭐⭐(快速加强中)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">0.0.4 执法难点 — 为什么抓不完</h2>
+    <table class="data-table">
+      <thead><tr><th>难点</th><th>描述</th><th>量化影响</th></tr></thead>
+      <tbody>
+        <tr><td><strong>破案率极低</strong></td><td>全球洗钱案件破案率估计<1%，大多数洗钱行为从未被发现</td><td>$8-2万亿规模 vs 仅$126亿没收</td></tr>
+        <tr><td><strong>跨境协作困难</strong></td><td>资金流经3-7个国家，每个国家管辖权不同，取证协调耗时6-24个月</td><td>平均调查周期18个月</td></tr>
+        <tr><td><strong>加密技术</strong></td><td>混币器/隐私币/去中心化协议使链上追踪变得极其困难</td><td>约85%的混币资金无法追回</td></tr>
+        <tr><td><strong>法律灰色地带</strong></td><td>某些司法管辖区不将特定洗钱行为入罪，或处罚极轻</td><td>全球仍有30+国家对洗钱处罚过轻</td></tr>
+        <tr><td><strong>职业帮凶</strong></td><td>律师/会计师/信托公司提供合法的洗钱基础设施</td><td>90%的大型洗钱案涉及专业服务机构</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-overview"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">1 / 28</span>
+    <a class="nav-next" href="01-global-scale.html">全球规模趋势 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-overview'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['洗钱规模下限($B)', '洗钱规模上限($B)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '欺诈', max: 5000 },
+          { name: '毒品', max: 2000 },
+          { name: '税务', max: 4000 },
+          { name: '腐败', max: 1000 },
+          { name: '有组织', max: 1500 },
+          { name: 'AI洗钱', max: 200 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(239,68,68,0.02)', 'rgba(239,68,68,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [{
+          value: [4000, 1500, 3000, 750, 1000, 125],
+          name: '年涉及金额($亿)',
+          itemStyle: { color: '#ef4444' }
+        }]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

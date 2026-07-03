@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第六章：FATF合规框架 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第六章：FATF合规框架</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle"onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">FATF合规框架 — 全球反洗钱标准的基石</h1>
+    <div class="data-note" style="margin-bottom:20px">FATF(金融行动特别工作组)是全球反洗钱标准的制定者，40个成员国涵盖全球主要经济体。其40项建议是所有国家AML立法的基准。</div>
+
+    <h2 class="section-subtitle">6.1.1 FATF四十项建议 — 核心条款速览</h2>
+    <table class="data-table">
+      <thead><tr><th>建议编号</th><th>核心要求</th><th>适用对象</th><th>违规后果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>R1-R4</strong></td><td>洗钱定罪、执法机构权力、冻结/没收权限</td><td>各国政府</td><td>FATF灰名单→资本管制</td></tr>
+        <tr><td><strong>R5-R8</strong></td><td>匿名Measure禁止、受益所有人登记、记录保存5年+</td><td>所有金融机构</td><td>罚款+牌照吊销</td></tr>
+        <tr><td><strong>R9-R13</strong></td><td>新科技风险(含加密资产)、电汇规则、代理行尽职调查</td><td>银行/支付机构</td><td>跨境业务受限</td></tr>
+        <tr><td><strong>R14-R16</strong></td><td>金融机构AML合规体系、风险管理、集团-wide合规</td><td>银行/券商/保险</td><td>高额罚款(数亿-数十亿)</td></tr>
+        <tr><td><strong>R17</strong></td><td>特定非金融行业(房地产/贵金属/律师/会计师)</td><td>NDAs</td><td>行业准入限制</td></tr>
+        <tr><td><strong>R18-R19</strong></td><td>FIU(金融情报机构)建设、执法机构能力建设</td><td>各国政府</td><td>国际合作降级</td></tr>
+        <tr><td><strong>R20-R21</strong><td>可疑交易报告(SAR)、简化/强化尽职调查</td><td>所有金融机构</td><td>个人刑事责任(高管)</td></tr>
+        <tr><td><strong>R22-R23</strong></td><td>加密货币VASP监管、Travel Rule执行</td><td>加密服务提供商</td><td>牌照吊销+罚款</td></tr>
+        <tr><td><strong>R24-R25</strong></td><td>法人/法人安排透明度、禁止匿名股份/空壳公司</td><td>公司注册机构</td><td>注册无效+罚款</td></tr>
+        <tr><td><strong>R26-R32</strong></td><td>媒体/政治人物(PEP)审查、跨境执法合作</td><td>金融机构/政府</td><td>外交关系影响</td></tr>
+        <tr><td><strong>R33-R40</strong></td><td>制裁合规、风险评估、统计标准、技术监督</td><td>各国+机构</td><td>FATF公开声明→降级</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.1.2 FATF灰名单/黑名单 — 当前高风险管辖区</h2>
+    <table class="data-table">
+      <thead><tr><th>名单</th><th>国家/地区</th><th>原因</th><th>影响</th></tr></thead>
+      <tbody>
+        <tr><td><strong>高风���(Grey List)</strong></td><td>缅甸</td><td>AML/CFT框架重大缺陷</td><td>跨境交易成本+20-40%，银行合规审查延长</td></tr>
+        <tr><td></td><td>叙利亚</td><td>恐怖融资+洗钱</td><td>全面制裁，几乎零国际贸易</td></tr>
+        <tr><td></td><td>土耳其</td><td>策略性漏洞(TBML/加密监管)</td><td>额外审查，但不完全禁止</td></tr>
+        <tr><td></td><td>巴哈马</td><td>加密资产监管不足</td><td>VASP牌照审批延迟</td></tr>
+        <tr><td></td><td>摩洛哥</td><td>FIU独立性不足</td><td>中等影响</td></tr>
+        <tr><td></td><td>塞浦路斯</td><td>黄金/公司注册洗钱</td><td>黄金交易额外审查</td></tr>
+        <tr><td></td><td>韩国</td><td>虚拟资产监管漏洞</td><td>加密交易额外KYC</td></tr>
+        <tr><td></td><td>多米尼克</td><td>CBI(护照买卖)洗钱</td><td>公民投资项目暂停</td></tr>
+        <tr><td><strong>黑名单(Jurisdictions under Call for Action)</strong></td><td>缅甸</td><td>恐怖融资+洗钱</td><td>建议成员国采取防御性措施</td></tr>
+        <tr><td></td><td>叙利亚</td><td>系统性AML失效</td><td>建议成员国采取更强措施</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.1.3 各国AML立法对照</h2>
+    <table class="data-table">
+      <thead><tr><th>国家</th><th>核心AML法律</th><th>FIU</th><th>SAR门槛</th><th>现金申报限额</th></tr></thead>
+      <tbody>
+        <tr><td>🇺🇸 美国</td><td>Bank Secrecy Act (1970)</td><td>FinCEN</td><td>无(任何可疑需报)</td><td>$10,000</td></tr>
+        <tr><td>🇪🇺 欧盟</td><td>AML Directives (6套)</td><td>各国FIU</td><td>无</td><td>€10,000</td></tr>
+        <tr><td>🇨🇳 中国</td><td>反洗钱法(2007,2024修订)</td><td>中国反洗钱监测分析中心(PBOC)</td><td>无</td><td>¥50,000</td></tr>
+        <tr><td>🇬🇧 英国</tdtd>Money Laundering Regulations 2017</td><td>NCA(国家犯罪局)</td><td>无</td><td>£10,000</td></tr>
+        <tr><td>🇸🇬 新加坡</td><td>MAS AML Guidelines</td><td>STRO(可疑交易办公室)</td><td>无</td><td>SGD 20,000</td></tr>
+        <tr><td>🇭🇰 香港</td><td>AML/CFT Ordinance</td><td>JFIU</td><td>无</td><td>MOP/HKD 120,000</td></tr>
+        <tr><td>🇦🇪 阿联酋</td><td>AML Law No.20(2018修订)</td><td>UIF</td><td>无</td><td>AED 55,000</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.1.4 Travel Rule — 加密转账的"实名制"</h2>
+    <table class="data-table">
+      <thead><tr><th>要素</th><th>要求</th></tr></thead>
+      <tbody>
+        <tr><td><strong>适用范围</strong></td><td>跨境加密资产转账，超过阈值(美国$3000，EU €1000)</td></tr>
+        <tr><td><strong>必须传递的信息</strong></td><td>发送方姓名+账户号 + 接收方姓名+账户号</td></tr>
+        <tr><td><strong>技术实现</strong></td><td>VASP-to-VASP协议(如TravelRule协议/Notabene/Sumsub)</td></tr>
+        <tr><td><strong>执行进度</strong></td><td>2025年140+国家宣布执行，实际执行率约60%</td></tr>
+        <tr><td><strong>违规后果</strong></td><td>VASP牌照吊销+罚款+个人刑事责任</td></tr>
+        <tr><td><strong>挑战</strong></td><td>P2P转账无法执行Travel Rule；去中心化协议(DEX)无"VASP"可执行</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-fatf"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="42-aml-system.html"><i class="fas fa-arrow-left"></i> AML系统</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">23 / 28</span>
+    <a class="nav-next" href="51-asset-recovery.html">资产追缴 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-fatf'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['SAR报告量(千份)', '罚款金额($亿)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '美国', max: 100 },
+          { name: '欧盟', max: 100 },
+          { name: '中国', max: 100 },
+          { name: '英国', max: 100 },
+          { name: '新加坡', max: 100 },
+          { name: '阿联酋', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(239,68,68,0.02)', 'rgba(239,68,68,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [100, 40, 55, 35, 15, 10], name: 'SAR报告量(归一化)', itemStyle: { color: '#06b6d4' } },
+          { value: [100, 60, 20, 50, 15, 10], name: '罚款力度(归一化)', itemStyle: { color: '#ef4444' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

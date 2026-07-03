@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第七章：资产追缴与没收 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第七章：资产追缴与没收</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">资产追缴与没收 — 让犯罪分子"血本无归"</h1>
+    <div class="data-note" style="margin-bottom:20px">全球每年没收的洗钱资产仅占洗钱规模的不到1%。追回率极低，但威慑效应巨大。本章详解各国资产追缴机制、成功案例和失败教训。</div>
+
+    <h2 class="section-subtitle">6.2.1 资产追缴核心机制</h2>
+    <table class="data-table">
+      <thead><tr><th>机制</th><th>描述</th><th>适用场景</th><th>追回率</th></tr></thead>
+      <tbody>
+        <tr><td><strong>民事没收</strong>(Civil Forfeiture)</td><td>无需刑事定罪，直接没收"涉案财产"。被告是财产本身。</td><td>美国最常见，$126亿/年。无需证明所有者有罪，只需证明财产与犯罪有关</td><td>~30%</td></tr>
+        <tr><td><strong>刑事没收</strong>(Criminal Forfeiture)</td><td>伴随刑事定罪，法院下令没收犯罪所得</td><td>各国通用，需先定罪</td><td>~20%(定罪率决定)</td></tr>
+        <tr><td><strong>冻结令</strong>(Freezing Order)</td><td>诉讼期间冻结涉案资产防止转移</td><td>英国/新加坡/香港常用，"Mareva Injunction"</td><td>预防性，追回率取决于速度</td></tr>
+        <tr><td><strong>国际合作</strong>(MLAT)</td><td>通过司法协助条约跨国追缴</td><td>跨境案件必备，通常耗时2-5年</td><td>~10%(耗时长+法律冲突)</td></tr>
+        <tr><td><strong>直接返还</strong>(Direct Repatriation)</td><td>两国协议直接返还没收资产</td><td>1MDB马来西亚→阿联酋→马来西亚三方协议</td><td>视政治意愿</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.2.2 著名资产追缴案例</h2>
+    <table class="data-table">
+      <thead><tr><th>案例</th><th>涉案金额</th><th>追回金额</th><th>追回率</th><th>关键手段</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1MDB(马来西亚)</strong></td><td>$45亿</td><td>$7亿(截至2025)</td><td>~15%</td><td>Jho Low购买的"快乐王子"画作被荷兰查获；游艇"Amadea"被德国扣押；金·卡戴珊耳环被FBI追回</td></tr>
+        <tr><td><strong>Norman Powell(中国)</strong></td><td>$10亿</td><td>$2.2亿</td><td>~22%</td><td>美国民事没收；2022年和解，资金来自离岸公司</td></tr>
+        <tr><td><strong>Ronin黑客(朝鲜Lazarus)</strong></td><td>$6.25亿</td><td>$1亿(FBI追回)</td><td>~16%</td><td>FBI 2022年6月从黑客电脑中冻结ETH，创历史首次链上追踪没收</td></tr>
+        <tr><td><strong>Philipp Rösler(中国)</strong></td><td>¥20亿+</td><td>¥10亿+</td><td>~50%</td><td>2015年外逃→2022年劝返→中美反腐败合作</td></tr>
+        <tr><td><strong>Abu Dhabi Commercial Bank</strong></td><td>$10亿(伊朗洗钱)</td><td>$3亿(冻结)</td><td>~30%</td><td>美国制裁+民事没收</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.2.3 加密货币资产追缴 — 新 frontier</h2>
+    <table class="data-table">
+      <thead><tr><th>手段</th><th>描述</th><th>成功案例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>链上追踪+CEX冻结</strong></td><td>通过Chainalysis/Elliptic追踪资金流向CEX，要求CEX冻结账户</td><td>FBI从Ronin黑客钱包追踪到CEX，冻结$8000万</td></tr>
+        <tr><td><strong>私钥破解</strong></td><td>通过审讯/社会工程获取私钥</td><td>2020年英国NCA通过审讯获取CryptoExchange私钥，冻结£70万</td></tr>
+        <tr><td><strong>漏洞利用追回</strong></td><td>利用协议漏洞反向追踪</td><td>2022年Poly Network黑客$6.1亿主动归还(声明"为了正义")</td></tr>
+        <tr><td><strong>Tether冻结</strong></td><td>Tether公司可单方面冻结USDT地址</td><td>2023年Tether配合执法冻结$2.3亿涉案USDT</td></tr>
+        <tr><td><strong>OTC商家协查</strong></td><td>追踪P2P OT C商家身份，获取下游买家信息</td><td>中国警方2024年通过OTC商家链条追回¥5亿诈骗资金</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.2.4 中国"天网行动"与"猎狐行动"</h2>
+    <table class="data-table">
+      <thead><tr><th>行动</th><th>启动时间</th><th>成果(截至2025)</th><th>特色手段</th></tr></thead>
+      <tbody>
+        <tr><td><strong>天网行动</strong></td><td>2015</td><td>追回外逃人员6000+人，追赃$120亿+</td><td>国际刑警红色通缉+双边引渡条约+金融监控</td></tr>
+        <tr><td><strong>猎狐行动</strong></td><td>2014</td><td>抓获逃犯4万+人，追赃$80亿+</td><td>海外抓捕+劝返+遣返</td></tr>
+        <tr><td><strong>断卡行动</strong></td><td>2020</td><td>抓获涉卡犯罪35万+人，冻结资金¥800亿+</td><td>源头打击——打击银行卡/电话卡买卖产业链</td></tr>
+        <tr><td><strong>云剑行动</strong></td><td>2019(持续)</td><td>追回电信诈骗资金¥380亿，抓获嫌疑人18万+</td><td>加密资产追踪+地下钱庄打击+跨境协作</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-recovery"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="50-fatf-framework.html"><i class="fas fa-arrow-left"></i> FATF框架</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">24 / 28</span>
+    <a class="nav-next" href="52-professional-facilitators.html">职业帮凶 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-recovery'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['涉案金额($亿)', '追回金额($亿)', '追回率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 100, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'value', name: '($亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'category', data: ['1MDB', 'Norman Powell', 'Ronin', 'Philipp Rösler', 'Poly Network'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '涉案金额($亿)', type: 'bar', data: [45, 10, 62.5, 28, 6.1], itemStyle: { color: '#ef4444', borderRadius: [0, 4, 4, 0] } },
+        { name: '追回金额($亿)', type: 'bar', data: [7, 2.2, 1, 14, 6.1], itemStyle: { color: '#10b981', borderRadius: [0, 4, 4, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

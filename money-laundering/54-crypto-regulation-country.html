@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十章：各国加密监管对比 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十章：各国加密监管对比</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">各国加密监管对比 — 从"加密天堂"到"全面禁止"</h1>
+    <div class="data-note" style="margin-bottom:20px">全球加密监管呈现两极分化：一部分国家全面禁止，一部分国家积极立法拥抱。这种监管套利正是洗钱者最爱的土壤。2025-2026年全球监管趋严是大趋势。</div>
+
+    <h2 class="section-subtitle">6.5.1 各国加密监管全景</h2>
+    <table class="data-table">
+      <thead><tr><th>国家</th><th>监管态度</th><th>核心法规</th><th>CEX牌照</th><th>个人持有</th><th>支付合法性</th></tr></thead>
+      <tbody>
+        <tr><td><strong>🇺🇸 美国</strong></td><td>严格但合法</td><td>SEC/CFTC双重监管，MiCA对标中</td><td>需州MSB牌照+联邦FINRA</td><td>合法</td><td>非法(部分州限制)</td></tr>
+        <tr><td><strong>🇪🇺 欧盟</strong></td><td>统一监管</td><td>MiCA(2024全面实施)</td><td>欧盟护照牌照(一国发牌全欧盟通行)</td><td>合法</td><td>合法</td></tr>
+        <tr><td><strong>🇨🇳 中国</strong></td><td>全面禁止</td><td>2021年九部委联合禁令</td><td>不存在</td><td>持有合法，交易/挖矿非法</td><td>非法</td></tr>
+        <tr><td><strong>🇸🇬 新加坡</strong></td><td>审慎开放</td><td>PAYMENTS SERVICES ACT(PSA)</td><td>DSA/PI(MAS牌照)</td><td>合法</td><td>合法(非法定货币)</td></tr>
+        <tr><td><strong>🇯🇵 日本</strong></td><td>严格但合法</td><td>Financial Instruments and Exchange Act</td><td>FSA牌照(需保证金)</td><td>合法</td><td>合法</td></tr>
+        <tr><td><strong>🇦🇪 阿联酋(Dubai)</strong></td><td>极度开放</td><td>VASP License(DVAR)</td><td>DVAR牌照(全球最快获批)</td><td>合法</td><td>合法</td></tr>
+        <tr><td><strong>🇭🇰 香港</strong></td><td>"三沙一陆"中最严</td><td>AMLO修订+加密VASP牌照(2023)</td><td>持牌VASP(7家获批)</td><td>合法</td><td>合法</td></tr>
+        <tr><td><strong>🇰🇷 韩国</strong></td><td>严格但合法</td><td>FSA虚拟资产监管</td><td>virtual asset business license</td><td>合法</td><td>合法</td></tr>
+        <tr><td><strong>🇧🇭 巴林</strong></td><td>开放</td><td>AML/CFT Law + CBB虚拟资产框架</td><td>CBB牌照</td><td>合法</td><td>合法</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.5.2 CEX牌照对比 — 洗钱风险最高的环节</h2>
+    <table class="data-table">
+      <thead><tr><th>CEX</th><th>总部</th><th>KYC严格度</th><th>无KYC额度</th><th>2025年罚款</th><th>洗钱风险评级</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Binance</strong></td><td>全球(多地注册)</td><td>中高(分级KYC)</td><td>$1000/天(未KYC)</td><td>$43亿(2023)</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>OKX</strong></td><td>塞舌尔</td><td>中</td><td>$1000/天</td><td>$10亿(2024)</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>KuCoin</strong></td><td>塞舌尔</td><td>中低</td><td>$1000/天</td><td>$4.1亿(2023)</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>Bybit</strong></td><td>迪拜</td><td>高</td><td>$1000/天</td><td>无</td><td>⭐⭐⭐</td></tr>
+        <tr><td><strong>Coinbase</strong></td><td>美国</td><td>极高</td><td>无(所有用户需KYC)</td><td>无大额罚款</td><td>⭐⭐</td></tr>
+        <tr><td><strong>中小CEX(未知总部)</strong></td><td>多地</td><td>极低</td><td>$5000+/天或不要求</td><td>—</td><td>⭐⭐⭐⭐⭐⭐(最高风险)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.5.3 监管套利 — 洗钱者如何选择CEX</h2>
+    <table class="data-table">
+      <thead><tr><th>策略</th><th>操作</th><th>典型路径</th></tr></thead>
+      <tbody>
+        <tr><td><strong>阶梯KYC</strong></td><td>先用低KYC额度小额多次交易，积累大量资金后逐步升级</td><td>$1000/天×365天=$36.5万无需KYC → 升级后额度提高</td></tr>
+        <tr><td><strong>假身份注册</strong></td><td>购买/伪造护照+地址证明，在多个CEX注册</td><td>黑市$50-200可购伪造证件，AI deepfake进一步提升通过率</td></tr>
+        <tr><td><strong>跨所转移</strong></td><td>在严格CEX(Coinbase)和宽松CEX(中小所)之间反复转移</td><td>Coinbase(严格) → 中小所(宽松) → 再次严格所 → 提现</td></tr>
+        <tr><td><strong>OTC场外</strong></td><td>不通过CEX撮合，直接找OTC商家现金/银行卡换USDT</td><td>微信/Telegram找OTC → 银行转账 → USDT直达钱包。无KYC或极简KYC</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-crypto-reg"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="53-real-estate.html"><i class="fas fa-arrow-left"></i> 房地产洗钱</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">27 / 28</span>
+    <a class="nav-next" href="index.html"><i class="fas fa-home"></i> 回到封面</a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-crypto-reg'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['监管严格度', '洗钱风险'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '美国', max: 100 },
+          { name: '欧盟', max: 100 },
+          { name: '中国', max: 100 },
+          { name: '新加坡', max: 100 },
+          { name: '阿联酋', max: 100 },
+          { name: '香港', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(6,182,212,0.02)', 'rgba(6,182,212,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [90, 80, 100, 70, 30, 85], name: '监管严格度', itemStyle: { color: '#06b6d4' } },
+          { value: [30, 40, 10, 50, 80, 45], name: '洗钱风险(反向)', itemStyle: { color: '#ef4444' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第九章：房地产洗钱 — 地下钱庄与洗钱全景风险书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 地下钱庄与洗钱</a><span class="nav-divider">/</span><span class="nav-chapter-title">第九章：房地产洗钱</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：全球概览</li>
+    <li><a href="00-data-overview.html">0.0 洗钱规模与执法数据总览</a></li>
+    <li><a href="01-global-scale.html">1.1 全球洗钱规模与趋势</a></li>
+    <li><a href="02-enforcement-data.html">1.2 各国执法数据对比</a></li>
+    <li><a href="03-major-fines.html">1.3 重大罚款案例</a></li>
+    <li class="toc-chapter">第二部分：十大洗钱渠道深度解析</li>
+    <li><a href="10-underground-banks.html">2.1 地下钱庄对敲模式</a></li>
+    <li><a href="11-hawala.html">2.2 哈瓦拉体系</a></li>
+    <li><a href="12-crypto-mixer.html">2.3 虚拟币混币/跨链</a></li>
+    <li><a href="13-defend-exploit.html">2.4 链上犯罪/DeFi Exploit</a></li>
+    <li><a href="14-tbml.html">2.5 贸易洗钱TBML</a></li>
+    <li><a href="15-shell-company.html">2.6 离岸空壳公司嵌套</a></li>
+    <li><a href="16-cash-intensive.html">2.7 现金密集型洗钱</a></li>
+    <li><a href="17-ai-money.html">2.8 AI赋能洗钱</a></li>
+    <li><a href="18-sea-fraud.html">2.9 杀猪盘/电诈资金出境</a></li>
+    <li><a href="19-stablecoin.html">2.10 稳定币洗钱通道</a></li>
+    <li class="toc-chapter">第三部分：传统洗钱手法</li>
+    <li><a href="20-three-phases.html">3.1 经典三步法</a></li>
+    <li><a href="21-special-methods.html">3.2 赌场/贵金属/钻石洗钱</a></li>
+    <li class="toc-chapter">第四部分：加密洗钱深度专题</li>
+    <li><a href="30-crypto-compare.html">4.1 各币种洗钱特性对比</a></li>
+    <li><a href="31-monero.html">4.2 隐私币XMR深度解析</a></li>
+    <li><a href="32-regulations.html">4.3 全球加密监管新规</a></li>
+    <li class="toc-chapter">第五部分：执法与合规</li>
+    <li><a href="40-timeline.html">5.1 全球执法时间线</a></li>
+    <li><a href="41-risk-signals.html">5.2 高风险信号识别</a></li>
+    <li><a href="42-aml-system.html">5.3 AML系统建设指南</a></li>
+    <li class="toc-chapter">第六部分：前沿专题</li>
+    <li><a href="50-fatf-framework.html">6.1 FATF合规框架</a></li>
+    <li><a href="51-asset-recovery.html">6.2 资产追缴与没收</a></li>
+    <li><a href="52-professional-facilitators.html">6.3 职业帮凶：律师/会计师/信托</a></li>
+    <li><a href="53-real-estate.html">6.4 房地产洗钱</a></li>
+    <li><a href="54-crypto-regulation-country.html">6.5 各国加密监管对比</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">房地产洗钱 — 全球最古老的洗钱方式正在升级</h1>
+    <div class="data-note" style="margin-bottom:20px">房地产是全球洗钱的最大目的地。FATF估计全球房地产洗钱年规模$3000-5000亿。伦敦/纽约/温哥华/悉尼/迪拜/巴厘岛的豪宅是"脏钱"的首选归宿。2024-2025年AI+加密正在让房地产洗钱更高效。</div>
+
+    <h2 class="section-subtitle">6.4.1 房地产洗钱五种手法</h2>
+    <table class="data-table">
+      <thead><tr><th>手法</th><th>操作方式</th><th>涉及金额</th><th>执法难度</th></tr></thead>
+      <tbody>
+        <tr><td><strong>直接现金购房</strong></td><td>用现金(或接近申报限额的多笔现金)购买房产，无需银行贷款</td><td>$10万-$500万</td><td>⭐⭐(容易发现)</td></tr>
+        <tr><td><strong>离岸公司购房</strong></td><td>通过BVI/开曼公司名义购买，产权登记在公司名下而非个人</td><td>$50万-$5000万</td><td>⭐⭐⭐⭐⭐(极难追踪)</td></tr>
+        <tr><td><strong>假买卖真洗钱</strong></td><td>关联方之间高价低买(或低价高卖)，制造"合法交易"记录</td><td>$100万-$1亿</td><td>⭐⭐⭐⭐(需专业调查)</td></tr>
+        <tr><td><strong>预售洗钱</strong></td><td>在楼盘预售阶段付款(此时产权未登记，追踪更难)，竣工后转售获利</td><td>$50万-$2000万</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>加密货币购房</strong></td><td>2024年起迈阿密/迪拜/巴哈马接受BTC/USDT直接购房，混币后"干净"资金</td><td>$100万-$5000万</td><td>⭐⭐⭐⭐⭐(新兴领域)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.4.2 全球房地产洗钱热点城市</h2>
+    <table class="data-table">
+      <thead><tr><th>城市</th><th>脏钱来源</th><th>热门区域</th><th>监管力度</th><th>近年变化</th></tr></thead>
+      <tbody>
+        <tr><td><strong>伦敦</strong></td><td>俄罗斯/中东/中国</td><td>Kensington/Chelsea/Mayfair</td><td>⭐⭐⭐</td><td>2022年UK SNIO(未实名业主命令)生效，但未执行</td></tr>
+        <tr><td><strong>纽约</strong></td><td>俄罗斯/中东/拉美/中国</td><td>Manhattan豪华公寓</td><td>⭐⭐⭐⭐</td><td>2024年Lawley Act要求MLS披露现金购房</td></tr>
+        <tr><td><strong>温哥华</strong></td><td>中国</td><td>West End/Shaughnessy</td><td>⭐⭐⭐⭐</td><td>2023年外国买家税+空置税</td></tr>
+        <tr><td><strong>悉尼</strong></td><td>中国/中东</td><td>Eastern Suburbs</td><td>⭐⭐⭐</td><td>TRIM(房地产洗钱情报中心)2018年成立</td></tr>
+        <tr><td><strong>迪拜</strong></td><td>俄罗斯/印度/巴基斯坦/中国</td><td>Downtown/Burj Khalifa/Palm</td><td>⭐⭐</td><td>2024年起接受加密货币购房，监管放松</td></tr>
+        <tr><td><strong>迈阿密</strong></td><td>拉美/俄罗斯/欧洲</td><td>Brickell/South Beach</td><td>⭐⭐⭐</td><td>2023年现金购房占比60%+</td></tr>
+        <tr><td><strong>巴厘岛</strong></td><td>中国/澳洲/俄罗斯</td><th>Canggu/Uluwatu</td><td>⭐</td><td>几乎无监管，现金交易普遍</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.4.3 典型案例 — 伦敦"俄罗斯清洁工"</h2>
+    <table class="data-table">
+      <thead><tr><th>项目</th><th>详情</th></tr></thead>
+      <tbody>
+        <tr><td><strong>规模</strong></td><td>2022年调查显示，伦敦房价中13%的资金来源可疑(俄罗斯制裁相关)</td></tr>
+        <tr><td><strong>手法</strong></td><td>俄罗斯 oligarch → 离岸公司(BVI) → 伦敦豪宅(£500万-£5000万) → 抵押借款 → 资金合法回流</td></tr>
+        <tr><td><strong>代表建筑</strong></td><td>One Hyde Park(£1200万/套起)、The Pinnacle(£3500万/套)、5 Cabrits Court</td></tr>
+        <tr><td><strong>执法困境</strong></td><td>英国Prohibited Orders(2022)可冻结涉案房产，但举证责任在政府，实际执行率<5%</td></tr>
+        <tr><td><strong>中国关联</strong></td><td>多名中国"红通"人员通过伦敦房产转移资产，如杨秀珠(2015年回国前在纽约/加州多处房产被没收)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-realestate"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="52-professional-facilitators.html"><i class="fas fa-arrow-left"></i> 职业帮凶</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">26 / 28</span>
+    <a class="nav-next" href="54-crypto-regulation-country.html">加密监管对比 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-realestate'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['可疑资金占比(%)', '监管力度(1-10)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '伦敦', max: 100 },
+          { name: '纽约', max: 100 },
+          { name: '温哥华', max: 100 },
+          { name: '迪拜', max: 100 },
+          { name: '迈阿密', max: 100 },
+          { name: '巴厘岛', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(239,68,68,0.02)', 'rgba(239,68,68,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [13, 8, 5, 15, 12, 20], name: '可疑资金占比(×10)', itemStyle: { color: '#ef4444' } },
+          { value: [30, 40, 35, 20, 30, 10], name: '监管力度(×10)', itemStyle: { color: '#10b981' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
