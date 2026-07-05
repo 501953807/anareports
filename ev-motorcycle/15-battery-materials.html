@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电池材料深度 — 中国新能源汽车与电动摩托车全产业链书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 新能源出行书</a><span class="nav-divider">/</span><span class="nav-chapter-title">电池材料深度</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：市场规模</li>
+    <li><a href="01-market-overview.html">第一章：双轮驱动市场规模</a></li>
+    <li><a href="11-nev-market-detail.html">1.1 NEV市场规模深度</a></li>
+    <li><a href="12-two-wheel-market-detail.html">1.2 两轮车市场深度</a></li>
+    <li><a href="13-price-analysis.html">1.3 价格竞争分析</a></li>
+    <li class="toc-chapter">第二部分：新能源汽车产业链</li>
+    <li><a href="02-nev-supply-chain.html">第二章：NEV全产业链拓扑</a></li>
+    <li><a href="14-upstream-minerals.html">2.1 上游矿产资源深度</a></li>
+    <li><a href="15-battery-materials.html">2.2 电池材料深度</a></li>
+    <li><a href="16-semiconductor.html">2.3 功率半导体深度</a></li>
+    <li><a href="17-chassis-components.html">2.4 底盘与车身部件深度</a></li>
+    <li class="toc-chapter">第三部分：零部件全品类</li>
+    <li><a href="03-parts-catalog.html">第三章：零部件单品级拆解</a></li>
+    <li><a href="21-battery-system-deep.html">3.1 电池系统深度</a></li>
+    <li><a href="22-electric-drive-deep.html">3.2 电驱系统深度</a></li>
+    <li><a href="23-thermal-management.html">3.3 热管理系统深度</a></li>
+    <li><a href="24-smart-driving.html">3.4 智能驾驶系统深度</a></li>
+    <li class="toc-chapter">第四部分：电动两轮车产业链</li>
+    <li><a href="04-two-wheel.html">第四章：两轮电动车产业链</a></li>
+    <li><a href="25-yadea-deep.html">4.1 雅迪深度</a></li>
+    <li><a href="26-aima-deep.html">4.2 爱玛深度</a></li>
+    <li><a href="27-battery-tech-compare.html">4.3 电池技术路线对比</a></li>
+    <li class="toc-chapter">第五部分：产业集群与地图</li>
+    <li><a href="05-clusters.html">第五章：产业集群分布</a></li>
+    <li><a href="31-nev-cluster-deep.html">5.1 NEV产业集群深度</a></li>
+    <li><a href="32-two-wheel-cluster-deep.html">5.2 两轮车产业集群深度</a></li>
+    <li class="toc-chapter">第六部分：易损件与保养</li>
+    <li><a href="06-maintenance.html">第六章：易损件与保养周期</a></li>
+    <li><a href="33-nev-maintenance-deep.html">6.1 NEV保养深度</a></li>
+    <li><a href="34-two-wheel-maintenance-deep.html">6.2 两轮车保养深度</a></li>
+    <li class="toc-chapter">第七部分：全球市场与研判</li>
+    <li><a href="07-global-market.html">第七章：全球市场+多学派研判</a></li>
+    <li><a href="35-europe-market.html">7.1 欧洲市场深度</a></li>
+    <li><a href="36-southeast-asia-market.html">7.2 东南亚市场深度</a></li>
+    <li><a href="37-policy-analysis.html">7.3 全球政策分析</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">电池材料深度 — 正极/负极/隔膜/电解液的"四方博弈"</h1>
+    <div class="data-note" style="margin-bottom:20px">锂电池由四大核心材料构成：正极(决定能量密度)/负极(决定储能能力)/隔膜(决定安全性)/电解液(决定离子传导)。这四者合计占电池成本的85%+。中国企业在四大材料领域均处于全球领先地位。</div>
+
+    <h2 class="section-subtitle">15.1 正极材料 — 电池的"心脏"</h2>
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>代表企业</th><th>2024市占率</th><th>能量密度(Wh/kg)</th><th>成本(元/Wh)</th><th>应用场景</th></tr></thead>
+      <tbody>
+        <tr><td><strong>磷酸铁锂(LFP)</strong></td><td>德方纳米/万润新能/龙蟠科技</td><td>~60%</td><td>140-180</td><td>~0.035</td><td>比亚迪刀片/全系A级车/两轮车</td></tr>
+        <tr><td><strong>三元NCM523</strong></td><td>容百科技/当升科技/长远锂科</td><td>~15%</td><td>180-220</td><td>~0.050</td><td>中高端车型</td></tr>
+        <tr><td><strong>三元NCM811</strong></td><td>容百科技/厦钨新能</td><td>~10%</td><td>220-260</td><td>~0.055</td><td>旗舰车型/长途乘用车</td></tr>
+        <tr><td><strong>磷酸锰铁锂(LMFP)</strong></td><td>德方纳米/万润</td><td>~3%(快速增长)</td><td>180-220</td><td>~0.040</td><td>LFP的升级替代</td></tr>
+        <tr><td><strong>镍钴铝(NCA)</strong></td><td>日立化成/东丽</td><td>~5%(全球)</td><td>250-300</td><td>~0.060</td><td>特斯拉/高端</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">LFP在2024年强势回归：比亚迪刀片电池+特斯拉标准版改用LFP，推动LFP市占率从2022年的40%升至2024年的60%+。LMFP(磷酸锰铁锂)是下一代正极，能量密度比LFP高15-20%，德方纳米已量产。</p>
+
+    <h2 class="section-subtitle">15.2 负极材料 — 从石墨到硅基</h2>
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>代表企业</th><th>比容量(mAh/g)</th><th>成本</th><th>产业化进度</th></tr></thead>
+      <tbody>
+        <tr><td><strong>人造石墨</strong></td><td>贝特瑞/璞泰来/杉杉股份</td><td>300-360</td><td>3-5万/吨</td><td>主流方案，占85%+</td></tr>
+        <tr><td><strong>天然石墨</strong></td><td>贝特瑞/凯金能源</td><td>320-360</td><td>1.5-2.5万/吨</td><td>中低端，占10%+</td></tr>
+        <tr><td><strong>硅碳负极</strong></td><td>贝特瑞/翔丰华</td><td>400-600</td><td>8-15万/吨</td><td>掺硅5-10%，已量产(特斯拉4680)</td></tr>
+        <tr><td><strong>锂金属负极</strong></td><td>清陶能源/卫蓝新能源</td><td>3,860</td><td>极高</td><td>固态电池终极方案，2027-2030量产</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">15.3 隔膜 — 安全的关键防线</h2>
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>代表企业</th><th>厚度(μm)</th><th>单价(元/m²)</th><th>市占率</th></tr></thead>
+      <tbody>
+        <tr><td><strong>湿法基膜</strong></td><td>恩捷股份(全球35%+)/星源材质</td><td>9-18</td><td>0.6-1.0</td><td>~70%</td></tr>
+        <tr><td><strong>干法基膜</strong></td><td>恩捷/星源材质/中材科技</td><td>20-40</td><td>0.3-0.6</td><td>~25%</td></tr>
+        <tr><td><strong>涂覆隔膜</strong></td><td>恩捷/长盈复合/智动力</td><td>12-25(涂覆后)</td><td>1.0-2.0</td><td>高端车型标配</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">隔膜是技术壁垒较高的环节。湿法隔膜更薄、孔隙率更高，适合高能量密度电池。涂覆(陶瓷/芳纶/PE)提升耐热性和安全性，是高端电池的标配。</p>
+
+    <h2 class="section-subtitle">15.4 电解液 — 离子的"高速公路"</h2>
+    <table class="data-table">
+      <thead><tr><th>成分</th><th>作用</th><th>代表企业</th><th>价格趋势</th></tr></thead>
+      <tbody>
+        <tr><td>六氟磷酸锂(LiPF6)</td><td>主盐(占60%成本)</td><td>天赐材料(全球第一)/新宙邦/天际股份</td><td>2022年高点33万/吨 → 2024年约7-8万/吨</td></tr>
+        <tr><td>溶剂(碳酸酯类)</td><td>溶解锂盐</td><td>多氟多/石大胜华</td><td>~1.5-2.5万/吨</td></tr>
+        <tr><td>添加剂(FSI/VC/ FEC)</td><td>提升SEI膜/低温/快充</td><td>新宙邦/瑞泰新材</td><td>~10-30万/吨(高附加值)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">15.5 四大材料成本结构</h2>
+    <table class="data-table">
+      <thead><tr><th>材料</th><th>占电池成本</th><th>中国全球市占</th><th>竞争格局</th><th>技术壁垒</th></tr></thead>
+      <tbody>
+        <tr><td>正极</td><td>~35-40%</td><td>~80%</td><td>分散(CR5 ~50%)</td><td>中(材料配方)</td></tr>
+        <tr><td>负极</td><td>~10-15%</td><td>~90%</td><td>集中(贝特瑞+杉杉+璞泰来 ~60%)</td><td>中(工艺)</td></tr>
+        <tr><td>隔膜</td><td>~10-15%</td><td>~60%</td><td>高度集中(恩捷 ~35%+)</td><td>高(设备+工艺)</td></tr>
+        <tr><td>电解液</td><td>~15-20%</td><td>~70%</td><td>集中(天赐 ~30%+)</td><td>中高(配方+纯度)</td></tr>
+        <tr><td>其他(壳体能/端子)</td><td>~10-15%</td><td>~80%</td><td>分散</td><td>低</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-batt-materials"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="14-upstream-minerals.html"><i class="fas fa-arrow-left"></i> 上游矿产</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <a class="nav-next" href="16-semiconductor.html">功率半导体 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-batt-materials'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['LFP', 'NCM523', 'NCM811', 'LMFP'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '能量密度', max: 100 },
+          { name: '安全性', max: 100 },
+          { name: '循环寿命', max: 100 },
+          { name: '成本效益', max: 100 },
+          { name: '低温性能', max: 100 },
+          { name: '充电速度', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(16,185,129,0.02)', 'rgba(16,185,129,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [65, 90, 100, 95, 50, 70], name: 'LFP', itemStyle: { color: '#10b981' } },
+          { value: [75, 60, 70, 60, 55, 65], name: 'NCM523', itemStyle: { color: '#06b6d4' } },
+          { value: [95, 40, 55, 40, 50, 60], name: 'NCM811', itemStyle: { color: '#f59e0b' } },
+          { value: [80, 80, 90, 75, 55, 70], name: 'LMFP', itemStyle: { color: '#8b5cf6' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

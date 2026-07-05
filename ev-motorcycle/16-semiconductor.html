@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>功率半导体深度 — 中国新能源汽车与电动摩托车全产业链书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 新能源出行书</a><span class="nav-divider">/</span><span class="nav-chapter-title">功率半导体深度</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：市场规模</li>
+    <li><a href="01-market-overview.html">第一章：双轮驱动市场规模</a></li>
+    <li><a href="11-nev-market-detail.html">1.1 NEV市场规模深度</a></li>
+    <li><a href="12-two-wheel-market-detail.html">1.2 两轮车市场深度</a></li>
+    <li><a href="13-price-analysis.html">1.3 价格竞争分析</a></li>
+    <li class="toc-chapter">第二部分：新能源汽车产业链</li>
+    <li><a href="02-nev-supply-chain.html">第二章：NEV全产业链拓扑</a></li>
+    <li><a href="14-upstream-minerals.html">2.1 上游矿产资源深度</a></li>
+    <li><a href="15-battery-materials.html">2.2 电池材料深度</a></li>
+    <li><a href="16-semiconductor.html">2.3 功率半导体深度</a></li>
+    <li><a href="17-chassis-components.html">2.4 底盘与车身部件深度</a></li>
+    <li class="toc-chapter">第三部分：零部件全品类</li>
+    <li><a href="03-parts-catalog.html">第三章：零部件单品级拆解</a></li>
+    <li><a href="21-battery-system-deep.html">3.1 电池系统深度</a></li>
+    <li><a href="22-electric-drive-deep.html">3.2 电驱系统深度</a></li>
+    <li><a href="23-thermal-management.html">3.3 热管理系统深度</a></li>
+    <li><a href="24-smart-driving.html">3.4 智能驾驶系统深度</a></li>
+    <li class="toc-chapter">第四部分：电动两轮车产业链</li>
+    <li><a href="04-two-wheel.html">第四章：两轮电动车产业链</a></li>
+    <li><a href="25-yadea-deep.html">4.1 雅迪深度</a></li>
+    <li><a href="26-aima-deep.html">4.2 爱玛深度</a></li>
+    <li><a href="27-battery-tech-compare.html">4.3 电池技术路线对比</a></li>
+    <li class="toc-chapter">第五部分：产业集群与地图</li>
+    <li><a href="05-clusters.html">第五章：产业集群分布</a></li>
+    <li><a href="31-nev-cluster-deep.html">5.1 NEV产业集群深度</a></li>
+    <li><a href="32-two-wheel-cluster-deep.html">5.2 两轮车产业集群深度</a></li>
+    <li class="toc-chapter">第六部分：易损件与保养</li>
+    <li><a href="06-maintenance.html">第六章：易损件与保养周期</a></li>
+    <li><a href="33-nev-maintenance-deep.html">6.1 NEV保养深度</a></li>
+    <li><a href="34-two-wheel-maintenance-deep.html">6.2 两轮车保养深度</a></li>
+    <li class="toc-chapter">第七部分：全球市场与研判</li>
+    <li><a href="07-global-market.html">第七章：全球市场+多学派研判</a></li>
+    <li><a href="35-europe-market.html">7.1 欧洲市场深度</a></li>
+    <li><a href="36-southeast-asia-market.html">7.2 东南亚市场深度</a></li>
+    <li><a href="37-policy-analysis.html">7.3 全球政策分析</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">功率半导体深度 — NEV的"电力心脏"</h1>
+    <div class="data-note" style="margin-bottom:20px">功率半导体是NEV电控系统的核心，负责直流-交流转换、电压变换和电流控制。一辆NEV约使用3-5kg功率半导体，价值约1,000-3,000元。中国在全球功率半导体市场占比不到15%，高度依赖进口，正在加速国产替代。</div>
+
+    <h2 class="section-subtitle">16.1 IGBT — 当前主力</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>详情</th></tr></thead>
+      <tbody>
+        <tr><td><strong>全称</strong></td><td>Insulated Gate Bipolar Transistor (绝缘栅双极型晶体管)</td></tr>
+        <tr><td><strong>单车用量</strong></td><td>6-12个IGBT模块(主逆变器+OBC+DC-DC+PDU)</td></tr>
+        <tr><td><strong>工作电压</strong></td><td>650V/1200V</td></tr>
+        <tr><td><strong>代表企业(全球)</strong></td><td>英飞凌(全球40%+)/三菱/富士电机/ON Semi/STMicro</td></tr>
+        <tr><td><strong>代表企业(中国)</strong></td><td>斯达半导(国内IGBT龙头)/士兰微/比亚迪半导体/时代电气</td></tr>
+        <tr><td><strong>国产化率</strong></td><td>约20-25%(快速提升中)</td></tr>
+        <tr><td><strong>单车价值</strong></td><td>¥800-2,000</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">IGBT是当前NEV的主流功率器件。英飞凌在全球NEV IGBT市场占40%+，是中国最大的供应来源。斯达半导是国内第一，已供货蔚来/吉利/上汽等。比亚迪半导体自给自足+对外供货。</p>
+
+    <h2 class="section-subtitle">16.2 SiC — 下一代王者</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>IGBT</th><th>SiC(碳化硅)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>禁带宽度</strong></td><td>1.12 eV</td><td>3.26 eV (3倍)</td></tr>
+        <tr><td><strong>击穿场强</strong></td><td>0.3 MV/cm</td><td>8 MV/cm (25倍)</td></tr>
+        <tr><td><strong>工作温度</strong></td><td>150-175°C</td><td>200-250°C+</td></tr>
+        <tr><td><strong>损耗</strong></td><td>基准</td><td>降低30-50%</td></tr>
+        <tr><td><strong>续航提升</strong></td><td>基准</td><td>+5-10%</td></tr>
+        <tr><td><strong>单车价值</strong></td><td>¥800-2,000</td><td>¥2,000-5,000</td></tr>
+        <tr><td><strong>代表企业</strong></td><td>英飞凌/三菱/斯达半导</td><td>Wolfspeed/罗姆/意法/三安光电/天岳先进</td></tr>
+        <tr><td><strong>产业化进度</strong></td><td>成熟</td><td>2024起大规模上车(保时捷Taycan/小鹏G9/比亚迪海狮)</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">SiC是800V高压平台的必备器件。2024-2025年，800V平台快速普及(小鹏G9/G6/理想MEGA/比亚迪海狮/极氪001)，SiC需求爆发。但SiC衬底成本高(是IGBT的5-10倍)，良率仍待提升。</p>
+
+    <h2 class="section-subtitle">16.3 MOSFET — 低压场景</h2>
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>应用场景</th><th>代表企业</th></tr></thead>
+      <tbody>
+        <tr><td>低压MOSFET(&lt;100V)</td><td>12V/48V车载电子/两轮车控制器</td><td>英飞凌/安森美/华润微/扬杰科技</td></tr>
+        <tr><td>超级结MOSFET(600V)</td><td>OBC车载充电机</td><td>英飞凌/PI/士兰微</td></tr>
+        <tr><td>GaN(氮化镓)</td><td>超快充/小型OBC(未来趋势)</td><td>纳微半导体/英诺赛科/比亚迪</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">16.4 中国功率半导体国产替代路线图</h2>
+    <table class="data-table">
+      <thead><tr><th>时间</th><th>目标</th><th>关键节点</th></tr></thead>
+      <tbody>
+        <tr><td>2024</td><td>IGBT国产化率25%</td><td>斯达半导/比亚迪半导体批量供货</td></tr>
+        <tr><td>2025-2026</td><td>IGBT国产化率40%+/SiC量产</td><td>天岳先进6英寸SiC衬底量产/8英寸研发</td></tr>
+        <tr><td>2027-2028</td><td>IGBT国产化率60%+/SiC成本接近IGBT</td><td>800V平台成为主流(SiC用量翻倍)</td></tr>
+        <tr><td>2030</td><td>IGBT+SiC国产化率80%+</td><td>形成完整产业链(衬底→器件→模块→整车)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-semi"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="15-battery-materials.html"><i class="fas fa-arrow-left"></i> 电池材料</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <a class="nav-next" href="17-chassis-components.html">底盘部件 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-semi'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['IGBT单车价值(元)', 'SiC单车价值(元)', '国产化率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2023','2024','2025','2026','2027','2030'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '(元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, max: 100 }],
+      series: [
+        { name: 'IGBT单车价值(元)', type: 'bar', data: [1200, 1000, 900, 850, 800, 700], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: 'SiC单车价值(元)', type: 'bar', data: [4000, 3000, 2500, 2000, 1500, 1000], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
+        { name: '国产化率(%)', type: 'line', data: [20, 25, 32, 40, 50, 80], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

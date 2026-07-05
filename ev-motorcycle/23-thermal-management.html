@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>热管理系统深度 — 中国新能源汽车与电动摩托车全产业链书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 新能源出行书</a><span class="nav-divider">/</span><span class="nav-chapter-title">热管理系统深度</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：市场规模</li>
+    <li><a href="01-market-overview.html">第一章：双轮驱动市场规模</a></li>
+    <li><a href="11-nev-market-detail.html">1.1 NEV市场规模深度</a></li>
+    <li><a href="12-two-wheel-market-detail.html">1.2 两轮车市场深度</a></li>
+    <li><a href="13-price-analysis.html">1.3 价格竞争分析</a></li>
+    <li class="toc-chapter">第二部分：新能源汽车产业链</li>
+    <li><a href="02-nev-supply-chain.html">第二章：NEV全产业链拓扑</a></li>
+    <li><a href="14-upstream-minerals.html">2.1 上游矿产资源深度</a></li>
+    <li><a href="15-battery-materials.html">2.2 电池材料深度</a></li>
+    <li><a href="16-semiconductor.html">2.3 功率半导体深度</a></li>
+    <li><a href="17-chassis-components.html">2.4 底盘与车身部件深度</a></li>
+    <li class="toc-chapter">第三部分：零部件全品类</li>
+    <li><a href="03-parts-catalog.html">第三章：零部件单品级拆解</a></li>
+    <li><a href="21-battery-system-deep.html">3.1 电池系统深度</a></li>
+    <li><a href="22-electric-drive-deep.html">3.2 电驱系统深度</a></li>
+    <li><a href="23-thermal-management.html">3.3 热管理系统深度</a></li>
+    <li><a href="24-smart-driving.html">3.4 智能驾驶系统深度</a></li>
+    <li class="toc-chapter">第四部分：电动两轮车产业链</li>
+    <li><a href="04-two-wheel.html">第四章：两轮电动车产业链</a></li>
+    <li><a href="25-yadea-deep.html">4.1 雅迪深度</a></li>
+    <li><a href="26-aima-deep.html">4.2 爱玛深度</a></li>
+    <li><a href="27-battery-tech-compare.html">4.3 电池技术路线对比</a></li>
+    <li class="toc-chapter">第五部分：产业集群与地图</li>
+    <li><a href="05-clusters.html">第五章：产业集群分布</a></li>
+    <li><a href="31-nev-cluster-deep.html">5.1 NEV产业集群深度</a></li>
+    <li><a href="32-two-wheel-cluster-deep.html">5.2 两轮车产业集群深度</a></li>
+    <li class="toc-chapter">第六部分：易损件与保养</li>
+    <li><a href="06-maintenance.html">第六章：易损件与保养周期</a></li>
+    <li><a href="33-nev-maintenance-deep.html">6.1 NEV保养深度</a></li>
+    <li><a href="34-two-wheel-maintenance-deep.html">6.2 两轮车保养深度</a></li>
+    <li class="toc-chapter">第七部分：全球市场与研判</li>
+    <li><a href="07-global-market.html">第七章：全球市场+多学派研判</a></li>
+    <li><a href="35-europe-market.html">7.1 欧洲市场深度</a></li>
+    <li><a href="36-southeast-asia-market.html">7.2 东南亚市场深度</a></li>
+    <li><a href="37-policy-analysis.html">7.3 全球政策分析</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">热管理系统深度 — NEV的"体温调节器"</h1>
+    <div class="data-note" style="margin-bottom:20px">热管理系统对NEV至关重要：电池需要工作在20-40°C(超出范围性能骤降)/电机需要散热/座舱需要空调。NEV热管理比燃油车复杂3-5倍(多了电池冷却回路+热泵系统)。热泵空调可提升冬季续航15-20%。</div>
+
+    <h2 class="section-subtitle">23.1 热管理系统的"多回路"架构</h2>
+    <table class="data-table">
+      <thead><tr><th>回路</th><th>功能</th><th>工作温度</th><th>冷却介质</th></tr></thead>
+      <tbody>
+        <tr><td><strong>电池冷却回路</strong></td><td>电池温控(加热/冷却/保温)</td><td>20-40°C</td><td>乙二醇水溶液</td></tr>
+        <tr><td><strong>电机冷却回路</strong></td><td>电机+电控散热</td><td>60-80°C</td><td>乙二醇水溶液</td></tr>
+        <tr><td><strong>座舱空调回路</strong></td><td>乘员舒适</td><td>15-28°C</td><td>R1234yf制冷剂</td></tr>
+        <tr><td><strong>冷媒直冷回路</strong></td><td>电池直接换热(高效)</td><td>15-30°C</td><td>R1234yf/R744(CO₂)</td></tr>
+        <tr><td><strong>电芯级冷却</strong></td><td>CTC电池集成冷却板</td><td>20-35°C</td><td>冷却液+流道</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.2 热泵空调 — 冬季续航杀手锏</h2>
+    <table class="data-table">
+      <thead><tr><th>技术</th><th>原理</th><th>冬季续航提升</th><th>代表车型</th><th>成本增量</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PTC加热</strong></td><td>电阻发热(类似吹风机)</td><td>基准</td><td>低端车型</td><td>低(¥500-1,000)</td></tr>
+        <tr><td><strong>空气源热泵</strong></td><td>吸取外界热量</td><td>+10-15%</td><td>比亚迪/吉利/蔚小理</td><td>中(¥1,500-3,000)</td></tr>
+        <tr><td><strong>双源热泵</strong></td><td>空气源+电机余热回收</td><td>+15-20%</td><td>特斯拉/极氪</td><td>高(¥3,000-5,000)</td></tr>
+        <tr><td><strong>CO₂热泵</strong></td><td>R744工质(-30°C仍高效)</td><td>+20-25%</td><td>大众ID.系列</td><td>极高(¥5,000+)</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">PTC是"电加热器"，耗电大但便宜。热泵是"反向空调"，从外界吸热，能效比(COP)可达2.5-4.0(即1度电产生2.5-4度热)。-20°C以下热泵效率大幅下降，PTC仍需介入。</p>
+
+    <h2 class="section-subtitle">23.3 热管理核心零部件</h2>
+    <table class="data-table">
+      <thead><tr><th>部件</th><th>代表企业(全球)</th><th>代表企业(中国)</th><th>单车价值</th></tr></thead>
+      <tbody>
+        <tr><td>热泵压缩机</td><td>法雷奥/三电/瀚高</td><td>松芝股份/银轮/三花</td><td>¥800-2,000</td></tr>
+        <tr><td>电子膨胀阀</td><td>丹佛斯/鹭宫</td><td>三花智控(全球龙头)</td><td>¥200-500</td></tr>
+        <tr><td>冷却模块</td><td>马勒/李尔</td><td>银轮股份/松芝</td><td>¥500-1,500</td></tr>
+        <tr><td>PTC加热器</td><td>奥托立夫/法雷奥</td><td>泉峰/科博达</td><td>¥300-800</td></tr>
+        <tr><td>水冷板/流道</td><td>—</td><td>银轮/三花/科达利</td><td>¥200-600</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.4 热管理市场格局</h2>
+    <table class="data-table">
+      <thead><tr><th>企业</th><th>2024营收(亿元)</th><th>核心产品</th><th>客户</th></tr></thead>
+      <tbody>
+        <tr><td><strong>三花智控</strong></td><td>350+</td><td>电子膨胀阀/热泵组件/CCS</td><td>特斯拉/比亚迪/蔚小理/大众</td></tr>
+        <tr><td><strong>银轮股份</strong></td><td>120+</td><td>冷却模块/换热器/热管理总成</td><td>比亚迪/吉利/理想/小鹏</td></tr>
+        <tr><td><strong>松芝股份</strong></td><td>40+</td><td>车载空调/热泵系统</td><td>比亚迪/宇通/金龙</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">三花智控是全球热管理零部件龙头，电子膨胀阀全球市占率30%+。银轮从传统换热器转型NEV热管理，增速迅猛。松芝专注车载空调，在客车领域强势。</p>
+
+    <div class="chart-container" id="chart-thermal"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="22-electric-drive-deep.html"><i class="fas fa-arrow-left"></i> 电驱系统</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <a class="nav-next" href="24-smart-driving.html">智能驾驶 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-thermal'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['PTC', '空气源热泵', '双源热泵', 'CO₂热泵'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '制热效率', max: 100 },
+          { name: '低温性能', max: 100 },
+          { name: '成本效益', max: 100 },
+          { name: '系统集成度', max: 100 },
+          { name: '可靠性', max: 100 },
+          { name: '续航提升', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(239,68,68,0.02)', 'rgba(239,68,68,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [30, 100, 95, 40, 90, 20], name: 'PTC', itemStyle: { color: '#94a3b8' } },
+          { value: [80, 70, 60, 70, 80, 65], name: '空气源热泵', itemStyle: { color: '#06b6d4' } },
+          { value: [90, 55, 45, 85, 75, 80], name: '双源热泵', itemStyle: { color: '#10b981' } },
+          { value: [95, 40, 20, 75, 70, 90], name: 'CO₂热泵', itemStyle: { color: '#f59e0b' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

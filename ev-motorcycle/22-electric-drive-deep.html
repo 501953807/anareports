@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电驱系统深度 — 中国新能源汽车与电动摩托车全产业链书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 新能源出行书</a><span class="nav-divider">/</span><span class="nav-chapter-title">电驱系统深度</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一部分：市场规模</li>
+    <li><a href="01-market-overview.html">第一章：双轮驱动市场规模</a></li>
+    <li><a href="11-nev-market-detail.html">1.1 NEV市场规模深度</a></li>
+    <li><a href="12-two-wheel-market-detail.html">1.2 两轮车市场深度</a></li>
+    <li><a href="13-price-analysis.html">1.3 价格竞争分析</a></li>
+    <li class="toc-chapter">第二部分：新能源汽车产业链</li>
+    <li><a href="02-nev-supply-chain.html">第二章：NEV全产业链拓扑</a></li>
+    <li><a href="14-upstream-minerals.html">2.1 上游矿产资源深度</a></li>
+    <li><a href="15-battery-materials.html">2.2 电池材料深度</a></li>
+    <li><a href="16-semiconductor.html">2.3 功率半导体深度</a></li>
+    <li><a href="17-chassis-components.html">2.4 底盘与车身部件深度</a></li>
+    <li class="toc-chapter">第三部分：零部件全品类</li>
+    <li><a href="03-parts-catalog.html">第三章：零部件单品级拆解</a></li>
+    <li><a href="21-battery-system-deep.html">3.1 电池系统深度</a></li>
+    <li><a href="22-electric-drive-deep.html">3.2 电驱系统深度</a></li>
+    <li><a href="23-thermal-management.html">3.3 热管理系统深度</a></li>
+    <li><a href="24-smart-driving.html">3.4 智能驾驶系统深度</a></li>
+    <li class="toc-chapter">第四部分：电动两轮车产业链</li>
+    <li><a href="04-two-wheel.html">第四章：两轮电动车产业链</a></li>
+    <li><a href="25-yadea-deep.html">4.1 雅迪深度</a></li>
+    <li><a href="26-aima-deep.html">4.2 爱玛深度</a></li>
+    <li><a href="27-battery-tech-compare.html">4.3 电池技术路线对比</a></li>
+    <li class="toc-chapter">第五部分：产业集群与地图</li>
+    <li><a href="05-clusters.html">第五章：产业集群分布</a></li>
+    <li><a href="31-nev-cluster-deep.html">5.1 NEV产业集群深度</a></li>
+    <li><a href="32-two-wheel-cluster-deep.html">5.2 两轮车产业集群深度</a></li>
+    <li class="toc-chapter">第六部分：易损件与保养</li>
+    <li><a href="06-maintenance.html">第六章：易损件与保养周期</a></li>
+    <li><a href="33-nev-maintenance-deep.html">6.1 NEV保养深度</a></li>
+    <li><a href="34-two-wheel-maintenance-deep.html">6.2 两轮车保养深度</a></li>
+    <li class="toc-chapter">第七部分：全球市场与研判</li>
+    <li><a href="07-global-market.html">第七章：全球市场+多学派研判</a></li>
+    <li><a href="35-europe-market.html">7.1 欧洲市场深度</a></li>
+    <li><a href="36-southeast-asia-market.html">7.2 东南亚市场深度</a></li>
+    <li><a href="37-policy-analysis.html">7.3 全球政策分析</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">电驱系统深度 — 电机+电控+减速器的"三合一"革命</h1>
+    <div class="data-note" style="margin-bottom:20px">电驱系统是NEV的"肌肉"，负责将电能转化为机械能。技术趋势从"电机+电控+减速器"分立，走向"多合一"集成(三合一→五合一→八合一)。集成度越高，重量越轻，效率越高，成本越低。</div>
+
+    <h2 class="section-subtitle">22.1 驱动电机类型对比</h2>
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>效率</th><th>功率密度</th><th>成本</th><th>代表车型</th><th>趋势</th></tr></thead>
+      <tbody>
+        <tr><td><strong>永磁同步电机(PMSM)</strong></td><td>95-97%</td><td>高</td><td>中(含稀土)</td><td>比亚迪/蔚来/小鹏/绝大多数</td><td>主流方案，占85%+</td></tr>
+        <tr><td><strong>异步感应电机(ASM)</strong></td><td>92-94%</td><td>中</td><td>低(无稀土)</td><td>特斯拉Performance/Model 3后驱</td><td>高性能版本搭配PMSM</td></tr>
+        <tr><td><strong>开关磁阻电机(DRAM)</td><td>90-93%</td><td>中低</td><td>最低</td><td>奇瑞部分车型</td><td> niche，噪音问题</td></tr>
+        <tr><td><strong>轴向磁通电机</strong></td><td>96-98%</td><td>极高</td><td>极高</td><td>Arcfox/研发阶段</td><td>未来方向，成本待降</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.2 多合一电驱系统演进</h2>
+    <table class="data-table">
+      <thead><tr><th>代际</th><th>集成内容</th><th>重量减轻</th><th>效率提升</th><th>代表企业</th></tr></thead>
+      <tbody>
+        <tr><td><strong>分立时代</strong></td><td>电机+电控+减速器各自独立</td><td>基准</td><td>基准</td><td>早期NEV(2015-2018)</td></tr>
+        <tr><td><strong>三合一</strong></td><td>电机+电控+减速器</td><td>↓15%</td><td>↑2-3%</td><td>比亚迪/汇川/博世</td></tr>
+        <tr><td><strong>五合一</strong></td><td>三合一+PDU+OBC</td><td>↓25%</td><td>↑3-5%</td><td>比亚迪/特斯拉</td></tr>
+        <tr><td><strong>八合一</strong></td><td>五合一+电机控制器+电控+热管理</td><td>↓35%</td><td>↑5-8%</td><td>比亚迪(e平台3.0)</td></tr>
+        <tr><td><strong>集成式电桥</strong></td><td>电驱+减速器+差速器一体化</td><td>↓40%</td><td>↑8-10%</td><td>汇川/精进/联合电子</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.3 主要电驱供应商</h2>
+    <table class="data-table">
+      <thead><tr><th>企业</th><th>2024装机量(GW)</th><th>市占率</th><th>客户</th><th>技术特点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>汇川技术</strong></td><td>~45</td><td>~20%</td><td>理想/广汽/小鹏/比亚迪</td><td>国内电控龙头，响应快</td></tr>
+        <tr><td><strong>比亚迪(自供)</strong></td><td>~60</td><td>~25%</td><td>比亚迪全系</td><td>垂直整合，八合一自研</td></tr>
+        <tr><td><strong>精进电动</strong></td><td>~15</td><td>~7%</td><td>北汽/江淮/金龙</td><td>专注电驱，海外布局早</td></tr>
+        <tr><td><strong>联合电子</strong></td><td>~12</td><td>~5%</td><td>吉利/上汽/长城</td><td>博世合资，电控强</td></tr>
+        <tr><td><strong>特斯拉(自供)</strong></td><td>~30</td><td>~12%</td><td>特斯拉全系</td><td>异步+永磁双路线</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.4 两轮车电机技术</h2>
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>功率范围</th><th>效率</th><th>成本</th><th>应用场景</th></tr></thead>
+      <tbody>
+        <tr><td><strong>有刷电机</strong></td><td>200-350W</td><td>~75%</td><td>极低(¥50-80)</td><td>低端/老年车/淘汰中</td></tr>
+        <tr><td><strong>无刷直流(BLDC)</strong></td><td>350-800W</td><td>~85%</td><td>低(¥100-200)</td><td>主流两轮车(雅迪/爱玛)</td></tr>
+        <tr><td><strong>高速无刷</strong></td><td>800-1500W</td><td>~90%</td><td>中(¥200-400)</td><td>电摩/九号/小牛高端</td></tr>
+        <tr><td><strong>轮毂电机(集成)</strong></td><td>350-1000W</td><td>~88%</td><td>中(¥150-300)</td><td>一体化设计趋势</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-drive"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="21-battery-system-deep.html"><i class="fas fa-arrow-left"></i> 电池系统</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <a class="nav-next" href="23-thermal-management.html">热管理 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-drive'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['永磁同步', '异步感应', '轴向磁通'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '效率', max: 100 },
+          { name: '功率密度', max: 100 },
+          { name: '可靠性', max: 100 },
+          { name: '成本效益', max: 100 },
+          { name: '噪音控制', max: 100 },
+          { name: '维护性', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(139,92,246,0.02)', 'rgba(139,92,246,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [95, 85, 90, 70, 85, 80], name: '永磁同步', itemStyle: { color: '#06b6d4' } },
+          { value: [88, 70, 95, 85, 70, 90], name: '异步感应', itemStyle: { color: '#10b981' } },
+          { value: [98, 98, 60, 20, 50, 40], name: '轴向磁通', itemStyle: { color: '#f59e0b' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
