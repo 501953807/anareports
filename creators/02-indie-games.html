@@ -200,6 +200,93 @@
     </div>
 
     <div class="chart-container" id="chart-indie-games"></div>
+
+    <h2 class="section-subtitle">八、实战：独立游戏变现深度指南</h2>
+
+    <h3 class="section-subtitle">8.1 主流游戏引擎深度对比</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>引擎</th><th>许可成本</th><th>学习曲线</th><th>目标平台</th><th>推荐团队规模</th><th>代表作</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Unity</strong></td><td>免费至$2,040/年/人（Pro版按收入抽成2.5%或固定年费）</td><td>中等，C#生态成熟</td><td>PC/移动端/主机/WebGL/Switch</td><td>1-20人</td><td>《空洞骑士》《原神》《杀戮尖塔》</td></tr>
+        <tr><td><strong>Unreal Engine</strong></td><td>免费，收入超$100万后抽成5%</td><td>较陡，蓝图为可视化编程降低门槛</td><td>PC/主机/PS/Xbox/Switch</td><td>5-100人</td><td>《无主之地》系列《星际公民》</td></tr>
+        <tr><td><strong>Godot</strong></td><td>完全免费开源(MIT协议)</td><td>简单，GDScript接近Python</td><td>PC/移动端/Web</td><td>1-5人</td><td>《Buckshot Roulette》《Amber Diceless》</td></tr>
+        <tr><td><strong>GameMaker</strong></td><td>标准版$39.99/月起，导出移动端需$499/起</td><td>低，GML脚本直观</td><td>PC/主机/移动端</td><td>1-3人</td><td>《Undertale》《Hyper Light Drifter》</td></tr>
+        <tr><td><strong>Construct</strong></td><td>个人版$69/年，专业版$230/年</td><td>极低，浏览器内拖拽+事件表</td><td>Web/HTML5/移动端(PWA)</td><td>1-2人</td><td>各类休闲Web游戏</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">8.2 各类型游戏收入结构拆解</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>收入来源</th><th>Roguelike</th><th>叙事冒险</th><th>休闲手游</th><th>独立动作</th><th>模拟经营</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>一次性买断</strong></td><td>45-60%</td><td>50-70%</td><td>5-15%</td><td>40-55%</td><td>30-50%</td></tr>
+        <tr><td><strong>DLC/扩展</strong></td><td>10-20%</td><td>5-15%</td><td>0%</td><td>10-20%</td><td>15-30%</td></tr>
+        <tr><td><strong>内购(IAP)</strong></td><td>0-5%</td><td>0%</td><td>50-70%</td><td>0-10%</td><td>5-15%</td></tr>
+        <tr><td><strong>广告变现</strong></td><td>0%</td><td>0%</td><td>15-30%</td><td>0%</td><td>5-15%</td></tr>
+        <tr><td><strong>周边/IP授权</strong></td><td>5-15%</td><td>10-25%</td><td>0%</td><td>5-15%</td><td>10-20%</td></tr>
+        <tr><td><strong>赞助/合作</strong></td><td>0-5%</td><td>0-5%</td><td>5-10%</td><td>5-10%</td><td>5-15%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:20px">
+      <div class="tip-title"><i class="fas fa-exclamation-triangle"></i> 独立游戏开发十大常见陷阱</div>
+      <div class="tip-body">
+        <p style="margin-bottom:8px">以下是独立游戏开发者最容易踩的坑，每个都能让一个项目死在半路上：</p>
+        <ul style="list-style:none;padding:0">
+          <li style="padding:6px 0"><strong style="color:var(--red)">范围蔓延(Scope Creep)</strong> — 从想做一款小游戏变成想做一个大型RPG。解决方案：第一版只做核心玩法，砍掉80%的花哨想法。<span class="badge red" style="margin-left:8px">致命</span></li>
+          <li style="padding:6px 0"><strong style="color:var(--orange)">忽视社区建设</strong> — 开发时不碰社交媒体，发布前一周才开始宣传。结果愿望单不到1000。正确做法：开发第1个月就建Twitter/Discord，持续产出开发日志。</li>
+          <li style="padding:6px 0"><strong style="color:var(--orange)">Steam页面上线太晚</strong> — 应该在游戏Alpha阶段就上架Steam页。最佳时机：发布Demo前至少6个月建好商店页面，收集早期愿望单。</li>
+          <li style="padding:6px 0"><strong style="color:var(--red)">不做垂直切片</strong> — 没有完成一个可玩的15分钟精修体验就直接做大体量游戏。应该先做Vertical Slice证明玩法可行性。</li>
+          <li style="padding:6px 0"><strong style="color:var(--orange)">忽视音效设计</strong> — 玩家对糟糕画面的容忍度远高于糟糕音效。花$500-2000在Freesound/Boomy/雇佣独立作曲家上，效果立竿见影。</li>
+          <li style="padding:6px 0"><strong style="color:var(--red)">发布即结束</strong> — 把100%精力放在开发上，发布后零维护。实际上Steam算法给首发7天流量窗口，之后全靠愿望单转化和评价驱动。</li>
+          <li style="padding:6px 0"><strong style="color:var(--orange)">忽略本地化</strong> — 英语市场之外，中文、日文、韩文、西班牙语市场占全球手游收入40%+。至少做中英双语。</li>
+          <li style="padding:6px 0"><strong style="color:var(--red)">过度依赖itch.io免费模式</strong> — "任意定价"只适合实验性项目。想靠游戏生活就必须定价，哪怕$5起。</li>
+          <li style="padding:6px 0"><strong style="color:var(--orange)">不设置里程碑</strong> — 没有明确的进度检查点，导致项目无限期拖延。建议每2-4周设一个小目标，每6周出一个可玩Build。</li>
+          <li style="padding:6px 0"><strong style="color:var(--red)">版权/素材法律问题</strong> — 使用未经授权的字体、音乐、图片素材。务必只使用CC0/Buy-Once或自己制作的素材。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">8.3 Steam发布全流程指南</h3>
+
+    <ol class="steps-list">
+      <li><strong>注册Steamworks账号</strong> — 前往 partner.steamgames.com，登录后完成税务和身份验证。需要公司营业执照或个人税号。</li>
+      <li><strong>支付Steam Direct费用</strong> — 每款游戏$100（2024年已从$95上调），通过审核后会返还。这是上架Steam商店的固定成本。</li>
+      <li><strong>创建商店页面</strong> — 上传封面图(1200×628)、截图(至少5张)、预告片。撰写描述文本，标签选择最关键：≤10个，选精准标签比泛标签更有效。</li>
+      <li><strong>获取黄金横幅(Gold Masthead)</strong> — 愿望单达到一定数量后Steam会提供黄金位置曝光，这是自然流量最重要的来源。目标：1万+愿望单触发黄金横幅。</li>
+      <li><strong>发布Demo/试玩版</strong> — Demo是获取愿望单最有效的手段。研究显示有Demo的游戏平均愿望单数是无Demo的3倍。Demo发布后同步开启愿望单。</li>
+      <li><strong>配置Steam成就</strong> — 至少设计15-30个成就。成就系统大幅提升玩家留存率和重玩价值。注意：发布后只能添加不能修改/删除成就。</li>
+      <li><strong>设置DLC规划</strong> — 在发布前就建好DLC结构。DLC需要单独的AppID，在审核流程上比本体快。季票绑定多个DLC可以提升客单价。</li>
+      <li><strong>提交审核</strong> — 构建上传到Steam后台后进入审核(通常1-2周)。确保内容不涉及违规（血腥、政治敏感、侵权素材等）。</li>
+      <li><strong>发布时间选择</strong> — 避开3A大作发行档期（通常11-12月圣诞季除外，那是独立游戏黄金期）。周二或周三发布效果较好。</li>
+      <li><strong>发布后72小时冲刺</strong> — 联系Steam Curator/KOL/媒体评测码发放。发布首周好评率决定了后续6个月的长尾销量。</li>
+    </ol>
+
+    <div class="grid-2">
+      <div class="tip-box">
+        <div class="tip-title"><i class="fas fa-bullhorn"></i> 独立游戏曝光策略</div>
+        <div class="tip-body">
+          <p><strong>IndieDB/Itch.io展示：</strong>定期上传开发中的build到IndieDB，获得玩家群体早期反馈。每月至少发布一次更新日志，保持项目活跃。</p>
+          <p style="margin-top:8px"><strong>Game Jam参赛：</strong>Global Game Jam、Ludum Dare、Global Game Jam是三大独立游戏赛事。即便不获奖，也能获得首批核心玩家和媒体关注。很多爆款游戏起源于Game Jam。</p>
+          <p style="margin-top:8px"><strong>Twitch/YouTube策略：</strong>主动联系10-50个小体量主播（100-1000并发），提供免费激活码。比找千万粉丝大V更有效——中小主播的转化率通常在5-15%。</p>
+        </div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-title"><i class="fas fa-users"></i> 社区与资金</div>
+        <div class="tip-body">
+          <p><strong>Discord运营：</strong>建一个活跃的Discord社区是独立游戏最重要的资产。每周至少一次开发直播/问答。设定清晰的频道分类：开发日志、玩法讨论、资源分享、招聘协作。</p>
+          <p style="margin-top:8px"><strong>Kickstarter/Patreon融资：</strong>成功的Kickstarter独立游戏项目平均募集$2-5万。需要有一个可演示的Prototype作为回报展示。Patreon适合持续运营——每月$3-5/人的赞助能覆盖基本开发成本。</p>
+          <p style="margin-top:8px"><strong>政府补贴与基金：</strong>许多国家和地区对独立游戏开发者提供补贴（如加拿大CODAN、英国Creative England、法国 CNC）。搜索你所在地区的创意产业扶持计划。</p>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="page-footer">
