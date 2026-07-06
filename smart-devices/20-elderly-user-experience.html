@@ -110,6 +110,115 @@
     </table>
 
     <div class="chart-container" id="chart-ux"></div>
+
+    <h2 class="section-subtitle">实操：老年用户体验设计落地 — 从原型到高保真交互</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：手环UI原型设计(Figma实操)</h3>
+    <ol class="steps-list">
+      <li><strong>创建Figma文件：</strong>新建Frame, 尺寸280×280px(1.3寸圆形裁剪)。导入Noto Sans SC字体(已内置中文字形)。</li>
+      <li><strong>设计主页(三功能卡片)：</strong>左滑=日期+天气, 中间=心率大数字(72bpm, 64pt粗体), 右滑=步数(3,200步) + 电池电量图标。每个卡片只放一个核心数据，不要堆砌。</li>
+      <li><strong>SOS一键页面：</strong>长电源键直接进入SOS页面，显示"紧急呼叫"四个大字(48pt)+"按SOS键接通"提示。背景色变为红色(#ef4444)。</li>
+      <li><strong>颜色规范：</strong>背景=#0f172a(深蓝黑)，主文字=#ffffff(白色)，强调色=#06b6d4(青色)，警告色=#ef4444(红色)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：老年交互设计清单</h3>
+    <table class="data-table">
+      <thead><tr><th>设计维度</th><th>年轻人</th><th>60-70岁</th><th>70岁以上</th></tr></thead>
+      <tbody>
+        <tr><td>最小触控区</td><td>44×44pt</td><td>56×56pt</td><td>72×72pt</td></tr>
+        <tr><td>字体大小</td><td>14pt</td><td>18pt</td><td>24pt</td></tr>
+        <tr><td>动画时长</td><td>200ms</td><td>400ms(缓出)</td><td>600ms+无动画</td></tr>
+        <tr><td>交互层级</td><td>可3级</td><td>最多2级</td><td>仅1级(无嵌套)</td></tr>
+        <tr><td>反馈方式</td><td>仅视觉</td><td>视觉+振动</td><td>视觉+振动+语音播报</td></tr>
+        <tr><td>颜色对比度</td><td>WCAG AA(4.5:1)</td><td>WCAG AAA(7:1)</td><td>WCAG AAA+自定义</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：语音播报内容模板(MCU TTS)</h3>
+    <table class="data-table">
+      <thead><tr><th>场景</th><th>语音内容</th><th>语速</th><th>音量</th></tr></thead>
+      <tbody>
+        <tr><td>早晨唤醒</td><td>"早上好，今天是晴天，气温22度。今天记得按时吃药，上午8点降压药。"</td><td>慢(120字/分钟)</td><td>中高音</td></tr>
+        <tr><td>心率异常</td><td>"您的心率偏高，当前98次每分钟。如果感到不适请坐下休息。"</td><td>中(140字/分钟)</td><td>高(确保听到)</td></tr>
+        <tr><td>SOS拨出</td><td>"正在呼叫您的儿子王伟，请保持镇静。"</td><td>快(160字/分钟)</td><td>最高</td></tr>
+        <tr><td>低电量</td><td>"手环电量不足，请及时充电。剩余电量百分之十五。"</td><td>中</td><td>中</td></tr>
+        <tr><td>久坐提醒</td><td>"您已经坐了30分钟了，站起来活动一下好吗？"</td><td>温柔慢速</td><td>低(不打扰)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">语音模块选型</div>
+      <div class="tip-body">推荐使用恒玄科技BES2700/2800系列，集成BLE+语音编解码+低功耗DSP。支持本地关键词唤醒(Offline KWS)，唤醒词可自定义。不需要联网就能执行"测心率""SOS"等语音指令，响应时间<500ms。BOM成本约¥8-12。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：老年人可用性测试实操(SIT用户测试)</h3>
+    <ol class="steps-list">
+      <li><strong>招募10位65-80岁的真实老人：</strong>通过社区养老中心/老年大学招募。准备报酬：每人¥200购物卡。确保男女各半，其中2位戴老花镜，1位视力较差。</li>
+      <li><strong>测试任务(每个任务记录成功率和用时)：</strong>(1)"戴上手环，说出你的心跳是多少" (2)"假设你摔倒了，你怎么求救？" (3)"打开手环盒子，找到充电器并充上电" (4)"在APP上让子女看到你今天的步数" (5)"手环没电了，你怎么知道？"</li>
+      <li><strong>评判标准：</strong>5分钟内独立完成=通过。超过5分钟或需助手提示=需要改进UI。任何一个任务通过率<80%，返回修改设计。</li>
+      <li><strong>迭代改进：</strong>根据测试结果，修改最大的是文字太小、SOS键手感不清、充电器插口方向不明等问题。重新测试直到所有任务通过率>95%。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：无障碍设计 checklist(面向开发)</h3>
+    <table class="data-table">
+      <thead><tr><th>类别</th><th>检查项</th><th>标准要求</th><th>验证方法</th></tr></thead>
+      <tbody>
+        <tr><td>文字</td><td>最小字号</td><td>APP≥18pt, 手环≥20pt</td><td>视觉设计师测量</td></tr>
+        <tr><td>文字</td><td>对比度</td><td>WCAG AAA(7:1)</td><td>Contrast Analyzer工具</td></tr>
+        <tr><td>触控</td><td>点击热区</td><td>≥56×56pt</td><td>Figma插件Auto Layout检测</td></tr>
+        <tr><td>文字</td><td>非纯视觉传达</td><td>重要信息≠仅靠颜色</td><td>灰度模式截图测试</td></tr>
+        <tr><td>导航</td><td>返回按钮</td><td>每页固定左上角返回</td><td>遍历所有页面确认</td></tr>
+        <tr><td>反馈</td><td>操作确认</td><td>点击后必须有振动+视觉+文字反馈</td><td>手工逐项测试</td></tr>
+        <tr><td>弹窗</td><td>限时限制</td><td>倒计时至少15秒，不可跳过</td><td>计时器验证</td></tr>
+        <tr><td>视频</td><td>无纯音频信息</td><td>视频必须配字幕/文字摘要</td><td>关闭声音观看测试</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：语音播报功能实现方案</h3>
+    <ol class="steps-list">
+      <li><strong>硬件选型：</strong>手环集成微型扬声器(1W, 8Ω) + DAC(audio codec)。推荐BES2700系列(恒玄科技)，集成PDM麦克风和CLASS-D功放。支持本地TTS(文本转语音)引擎。</li>
+      <li><strong>本地TTS引擎：</strong>使用科大讯飞离线语音合成SDK(嵌入MCU)。词库约5MB，发音自然度达到商业级。支持普通话/粤语方言识别。响应时间<300ms。</li>
+      <li><strong>触发时机：</strong>晨间播报(天气+用药提醒+心率基线) + 事件播报(心率异常/摔倒检测到) + 交互反馈(按键音+功能确认)。</li>
+      <li><strong>音量自适应：</strong>根据环境噪声传感器(如果有)自动调节音量。或手动三档调节(低/中/高)。默认中档(60-70dB SPL)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：老年人APP开发设计模式</h3>
+    <div class="tip-box">
+      <div class="tip-title">老年APP的三大设计模式</div>
+      <div class="tip-body">①"一张纸"模式：主界面只放最重要的1-3件事(今日心率/今日步数/今日用药)，其他功能藏在二级页面。②"大图块"模式：每个功能用≥72×72dp的大按钮，间距≥16dp，避免误触。③"文字+图标"模式：所有按钮同时显示文字说明和图标(仅图标老人看不懂)。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：子女端APP设计要点</h3>
+    <div class="case-box">
+      <div class="case-title">子女端APP信息架构</div>
+      <div class="case-body">子女端APP与老人端分离设计。①首页仪表盘：显示父母实时心率/位置/电量(一目了然的危险用红色标注) ②健康报告：可切换日/周/月视图，查看趋势 ③围栏管理：可视化创建围栏 ④告警中心：历史告警记录，可标记"已处理" ⑤设置：管理联系人、通知偏好、紧急就医信息(血型/过敏史)。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第九步：老年人适老化设计红线</h3>
+    <table class="data-table">
+      <thead><tr><th>红线项</th><th>禁止做法</th><th>替代方案</th></tr></thead>
+      <tbody>
+        <tr><td>验证码</td><td>滑动拼图/点选文字/倒立数字</td><td>短信验证码或免登录(手机号直登)</td></tr>
+        <tr><td>更新弹窗</td><td>强制更新无跳过按钮</td><td>"暂不更新"按钮必须可见且大号</td></tr>
+        <tr><td>广告</td><td>闪屏广告/全屏广告</td><td>老人产品零广告(或仅限医疗健康广告)</td></tr>
+        <tr><td>第三方SDK</td><td>不可控的数据收集</td><td>公开SDK列表，获取用户明示同意</td></tr>
+        <tr><td>自动续费</td><td>隐蔽的订阅扣费</td><td>每月扣费前3天推送提醒，一键取消</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">可用性子任务通过率</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">> 95%</div>
+        <div style="font-size:12px;color:#64748b">SIT测试，10位65-80岁老人</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">TTS响应时间</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">< 300 ms</div>
+        <div style="font-size:12px;color:#64748b">本地离线语音合成(MCU端)</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">界面层级</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">最多 2 级</div>
+        <div style="font-size:12px;color:#64748b">70岁以上用户仅允许单层扁平导航</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">色彩对比度</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">WCAG AAA 7:1</div>
+        <div style="font-size:12px;color:#64748b">黑底白字+青色强调色</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="19-factory-quality.html"><i class="fas fa-arrow-left"></i> 工厂品控</a>

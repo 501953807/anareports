@@ -102,6 +102,110 @@
     </table>
 
     <div class="chart-container" id="chart-arch"></div>
+
+    <h2 class="section-subtitle">实操：从零搭建智能穿戴系统架构 — 手把手教程</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：画架构图(Draw.io教程)</h3>
+    <ol class="steps-list">
+      <li>访问 draw.io (app.diagrams.net)，新建空白文档</li>
+      <li>左侧面板搜索"aws"加载AWS图标库，搜索"arrow"加载流程箭头</li>
+      <li>画4个矩形框作为四大层级，从上到下排列：感知层 → 传输层 → 平台层 → 应用层</li>
+      <li>在"感知层"内添加形状：圆形(手环图标) + 方形(药盒图标) + 手机图标 + 医院图标</li>
+      <li>用粗蓝色箭头标注数据流：手环 → Cat1 → 云端 → APP → 子女手机</li>
+      <li>导出为PNG(300dpi)插入PRD文档，命名为"SYS-ARCH-v1.png"</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：MQTT协议本地搭建测试(1小时)</h3>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>命令/操作</th><th>预期输出</th></tr></thead>
+      <tbody>
+        <tr><td>安装Mosquitto</td><td>brew install mosquitto (macOS) / apt install mosquitto (Ubuntu)</td><td>Version 2.x installed</td></tr>
+        <tr><td>启动broker</td><td>mosquitto -v -p 1883</td><td>Starting broker (version 2.x)</td></tr>
+        <tr><td>打开终端A(订阅)</td><td>mosquitto_sub -h localhost -p 1883 -t "devices/wristband/+/telemetry"</td><td>等待消息...</td></tr>
+        <tr><td>打开终端B(发布)</td><td>mosquitto_pub -h localhost -p 1883 -t "devices/wristband/WD001/telemetry" -m '{"hr":72,"spo2":98,"gps":{"lat":39.9,"lon":116.4}}'</td><td>终端A收到JSON消息</td></tr>
+        <tr><td>测试TLS加密</td><td>mosquitto -v -p 8883 --cafile ca.crt --cert server.crt --key server.key</td><td>Secure broker running</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：BLE GATT自定义服务设计</h3>
+    <table class="data-table">
+      <thead><tr><th>UUID</th><th>类型</th><th>方向</th><th>用途</th><th>数据格式</th></tr></thead>
+      <tbody>
+        <tr><td>0000fff0-0000-1000-8000-00805f9b34fb</td><td>Service</td><td>-</td><td>自定义健康监测服务</td><td>-</td></tr>
+        <tr><td>0000fff1-...-34fb</td><td>Characteristic</td><td>Device→APP</td><td>心率数据</td><td>2字节uint16(bpm)</td></tr>
+        <tr><td>0000fff2-...-34fb</td><td>Characteristic</td><td>Device→APP</td><td>血氧数据</td><td>1字节uint8(%)</td></tr>
+        <tr><td>0000fff3-...-34fb</td><td>Characteristic</td><td>Device→APP</td><td>位置坐标</td><td>4字节lat(int32) + 4字节lon(int32)</td></tr>
+        <tr><td>0000fff4-...-34fb</td><td>Characteristic</td><td>APP→Device</td><td>发送用药提醒</td><td>4字节时间戳(uint32)</td></tr>
+        <tr><td>0000fff5-...-34fb</td><td>Characteristic</td><td>APP→Device</td><td>电子围栏设置</td><td>经纬度数组[lat,lon,radius]</td></tr>
+        <tr><td>0000fff6-...-34fb</td><td>Characteristic</td><td>Device→APP</td><td>电池电量</td><td>1字节uint8(%)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">BLE GATT编码技巧</div>
+      <div class="tip-body">经纬度使用int32存储(实际值×10,000)，例如116.4度存为1164000。这样可以压缩传输数据量。Heart Rate Service使用标准UUID 0x2A37，建议保留标准UUID提高兼容性。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：数据库Schema设计(MySQL)</h3>
+    <table class="data-table">
+      <thead><tr><th>表名</th><th>核心字段</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><strong>users</strong></td><td>id, openid, phone, role(elder/child/admin), created_at</td><td>用户主表，role决定APP页面</td></tr>
+        <tr><td><strong>devices</strong></td><td>device_id, mac_address, type(wristband/medicine_box), firmware_version, last_seen</td><td>设备注册表，一对多关联users</td></tr>
+        <tr><td><strong>user_devices</strong></td><td>user_id, device_id, relation(family/caregiver)</td><td>多对多关系表，一个用户可以关联多个设备</td></tr>
+        <tr><td><strong>health_data</strong></td><td>device_id, hr, spo2, step_count, timestamp</td><td>时序健康数据，按月分区存储</td></tr>
+        <tr><td><strong>gps_trace</strong></td><td>device_id, lat, lon, accuracy, speed, timestamp</td><td>轨迹数据，每日一条记录</td></tr>
+        <tr><td><strong>medication_records</strong></td><td>device_id, slot_index, reminder_time, taken_at, status(taken/missed/skipped)</td><td>用药记录，状态机驱动</td></tr>
+        <tr><td><strong>alerts</strong></td><td>alert_id, device_id, type(fall/geofence/health), severity(P0-P2), notified_to, status</td><td>告警记录，P0必须通知到子女</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：RESTful API设计规范</h3>
+    <table class="data-table">
+      <thead><tr><th>端点</th><th>方法</th><th>请求示例</th><th>响应示例</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>/api/v1/auth/login</td><td>POST</td><td>{"phone": "13800138000", "code": "123456"}</td><td>{"token": "eyJ...", "role": "child"}</td><td>手机号+验证码登录</td></tr>
+        <tr><td>/api/v1/devices/{id}/location</td><td>GET</td><td>—</td><td>{"lat": 39.9042, "lon": 116.4074, "acc": 3, "ts": 1720000000}</td><td>查询最近位置</td></tr>
+        <tr><td>/api/v1/health/hr</td><td>GET</td><td>?device_id=WD001&from=2025-01-01&to=2025-01-07</td><td>{"data": [[ts1,hr1],[ts2,hr2]...]}</td><td>心率时序数据查询</td></tr>
+        <tr><td>/api/v1/alerts/new</td><td>POST</td><td>{"type":"fall","severity":"P0","device_id":"WD001"}</td><td>{"alert_id":"ALERT001","status":"processed"}</td><td>接收设备告警</td></tr>
+        <tr><td>/api/v1/medications/remind</td><td>PUT</td><td>{"device_id":"MB001","slot":1,"time":"08:00"}</td><td>{"ok": true}</td><td>设置用药提醒</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：阿里云部署操作清单</h3>
+    <ol class="steps-list">
+      <li><strong>ECS购买：</strong>选择ecs.c7.xlarge(4核8G)，CentOS 7.9，按量付费。首年约¥2,500。地域选杭州(靠近华东用户)。</li>
+      <li><strong>RDS购买：</strong>MySQL 8.0高可用版，2核4G，100GB SSD。首年约¥3,600。开启Binlog备份。</li>
+      <li><strong>Redis购买：</strong>1GB标准版，用于session存储。开启SSL。</li>
+      <li><strong>OSS购买：</strong>100GB存储+CDN流量包，用于APP安装包和健康报告PDF存储。</li>
+      <li><strong>安全组配置：</strong>仅开放443(HTTPS)、22(SSH仅限VPN IP)、8883(MQTT TLS)端口。其余全部拒绝。</li>
+      <li><strong>Docker安装：</strong>curl -fsSL https://get.docker.com | sh && systemctl enable docker</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：系统架构图交付文档清单</h3>
+    <table class="data-table">
+      <thead><tr><th>文档编号</th><th>文档名称</th><th>格式</th><th>负责角色</th><th>完成时间</th></tr></thead>
+      <tbody>
+        <tr><td>DOC-001</td><td>系统架构顶层图(四层+数据流)</td><td>Draw.io + PNG</td><td>系统架构师</td><td>Week 1</td></tr>
+        <tr><td>DOC-002</td><td>数据库ER图</td><td>MySQL Workbench .erb</td><td>后端开发</td><td>Week 2</td></tr>
+        <tr><td>DOC-003</td><td>API接口文档(Swagger)</td><td>openapi.yaml</td><td>后端开发</td><td>Week 2</td></tr>
+        <tr><td>DOC-004</td><td>BLE GATT协议说明</td><td>PDF</td><td>嵌入式开发</td><td>Week 3</td></tr>
+        <tr><td>DOC-005</td><td>MQTT Topic命名规范</td><td>Markdown</td><td>系统架构师</td><td>Week 1</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：系统监控与告警配置</h3>
+    <ol class="steps-list">
+      <li><strong>安装Prometheus+Grafana：</strong>docker run -p 9090:9090 prom/prometheus:latest。访问localhost:9090/grafana配置Dashboard，监控CPU/内存/磁盘/网络流量。</li>
+      <li><strong>配置告警规则：</strong>在Prometheus alert.rules文件中定义规则：if cpu_usage > 80% for 5min then alert("CPU过载")；if mysql_connections > 90% then alert("数据库连接池接近上限")。</li>
+      <li><strong>接入钉钉/企业微信机器人：</strong>用Webhook把告警推送到团队群。关键告警(P0/P1)同时触发SMS短信，确保值班人员24小时响应。</li>
+      <li><strong>日志收集：</strong>安装ELK(Elasticsearch+Logstash+Kibana)或使用阿里云SLS，统一收集所有微服务的日志。设置关键词告警：ERROR/FATAL/Exception。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第九步：系统压测方案(Load Testing)</h3>
+    <table class="data-table">
+      <thead><tr><th>测试场景</th><th>并发用户数</th><th>预期响应时间</th><th>工具</th></tr></thead>
+      <tbody>
+        <tr><td>查询老人实时位置</td><td>1,000并发</td><td>P95 < 200ms</td><td>jmeter或locust</td></tr>
+        <tr><td>SOS告警推送</td><td>100并发(突发)</td><td>P99 < 1,000ms</td><td>k6云压测</td></tr>
+        <tr><td>批量同步手环数据</td><td>10,000设备/小时</td><td>写入延迟 < 5s</td><td>自研压测脚本</td></tr>
+        <tr><td>健康数据查询(7天趋势)</td><td>500并发</td><td>P95 < 500ms</td><td>gatling</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title">系统架构设计核心原则</div>
+      <div class="tip-body">记住三条铁律：第一，定位和告警永远高优先级——这些数据不走消息队列排队，走独立Redis channel直接推。第二，所有时间戳统一用UTC存储，展示时转为东八区+夏令时偏移。第三，老人端设备掉线不崩溃——手环本地缓存3天的健康数据和轨迹，恢复连接后断点续传。</div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="12-sleep-tracking-depth.html"><i class="fas fa-arrow-left"></i> 睡眠追踪</a>

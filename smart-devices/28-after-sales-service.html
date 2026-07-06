@@ -108,6 +108,92 @@
     </table>
 
     <div class="chart-container" id="chart-service"></div>
+
+    <h2 class="section-subtitle">实操：售后服务落地手册 — 从客服搭建到OTA升级</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：客服系统选型对比(7天搭建SOP)</h3>
+    <table class="data-table">
+      <thead><tr><th>系统</th><th>月费(元)</th><th>机器人意图</th><th>人工坐席</th><th>适合阶段</th><th>推荐理由</th></tr></thead>
+      <tbody>
+        <tr><td>网易七鱼</td><td>8,000+</td><td>200+预置</td><td>不限</td><td>成长期(月对话>1万)</td><td>AI语义理解行业Top3，支持全渠道接入</td></tr>
+        <tr><td>智齿科技</td><td>5,000+</td><td>100+预置</td><td>不限</td><td>早期+成长期</td><td>性价比高，有专门的电商客服模块</td></tr>
+        <tr><td>Tidio(国际)</td><td>$29+</td><td>简单flow</td><td>共享邮箱+聊天</td><td>出海阶段</td><td>对接Shopify/WhatsApp，英文友好</td></tr>
+        <tr><td>自建(Rasa)</td><td>服务器¥500</td><td>自训</td><td>自研</td><td>技术团队强</td><td>完全可控，数据不出境，适合医疗场景</td></tr>
+        <tr><td>微信客服(原生)</td><td>免费</td><td>基础自动回复</td><td>2-3人</td><td>冷启动期</td><td>零成本验证需求，首月推荐</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：客服机器人意图库搭建(20个核心Intent)</h3>
+    <table class="data-table">
+      <thead><tr><th>P1高频(70%对话)</th><th>P2中频(20%对话)</th><th>P3低频(10%对话)</th></tr></thead>
+      <tbody>
+        <tr><td>手环连不上APP</td><td>如何设置电子围栏</td><td>退货流程</td></tr>
+        <tr><td>手环定位不准</td><td>药盒怎么加药</td><td>发票开具</td></tr>
+        <tr><td>怎么充值话费/SIM卡</td><td>跌倒误报怎么关闭</td><td>企业团购询价</td></tr>
+        <tr><td>忘记APP密码</td><td>SOS拨不出去</td><td>定制LOGO服务</td></tr>
+        <tr><td>手环充不进电</td><td>订阅续费在哪里操作</td><td>数据导出/转移</td></tr>
+      </tbody>
+    </table>
+    <ol class="steps-list">
+      <li><strong>训练语料收集：</strong>每个intent准备20条用户问法。如"连不上APP"：我的手环连不上手机/蓝牙搜不到设备/APP显示设备离线/手环和手机断开了怎么办/重新绑定流程。</li>
+      <li><strong>回复话术编写：</strong>每条问法对应一个标准化回复，包含：步骤截图+视频教程链接+转人工入口。例："1.长按手环侧面按键重启 → 2.打开手机蓝牙 → 3.在APP点击'添加设备'..."</li>
+      <li><strong>上线前仿真测试：</strong>用50条真实用户提问测试识别率。目标：Top3准确率达85%以上，否则继续训练。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title">冷启动建议</div>
+      <div class="tip-body">首月用微信群客服+微信原生客服机器人验证话术。收集Top50高频问题后，再投入预算上网易七鱼等专业系统。这一步可以省下3-5万的初期投入。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：退换货SOP(6步闭环)</h3>
+    <ol class="steps-list">
+      <li><strong>第1步-申请：</strong>用户在APP/小程序提交退换货申请 → 系统自动判断是否在7天/15天/质保期内 → 通过后发放退货快递单号。</li>
+      <li><strong>第2步-寄回：</strong>用户寄回 → 快递单号录入系统 → 物流签收后48小时内处理。</li>
+      <li><strong>第3步-质检：</strong>仓库收到后拍照(外观+开机+配件) → 判断退换原因(质量问题/无理由/人为损坏) → 录入工单。</li>
+      <li><strong>第4步-处理：</strong>质量问题 → 换新(顺丰到付寄出)；无理由 → 检查无损坏后退款(原路退回)；人为损坏 → 报价维修。</li>
+      <li><strong>第5步-反馈：</strong>处理完成后自动短信通知用户 → 附带满意度评价链接(1-5星)。</li>
+      <li><strong>第6步-分析：</strong>每周汇总退换原因TOP5，反馈给产品和研发团队。目标：首月退换率<3%，季度降至<1%。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：维修工单系统配置(Jira Service Management)</h3>
+    <table class="data-table">
+      <thead><tr><th>字段</th><th>说明</th><th>示例</th></tr></thead>
+      <tbody>
+        <tr><td>Request Type</td><td>工单类型</td><td>硬件维修 / 软件问题 / 更换配件</td></tr>
+        <tr><td>Severity</td><td>优先级</td><td>P0(无法使用) / P1(部分功能) / P2(轻微)</td></tr>
+        <tr><td>Device SN</td><td>设备序列号</td><td>WD20250101001</td></tr>
+        <tr><td>Stage</td><td>处理阶段</td><td>新创建 → 已派单 → 维修中 → 已完成 → 已签收</td></tr>
+        <tr><td>SLA Timer</td><td>时效倒计时</td><td>P0: 24h / P1: 72h / P2: 5天</td></tr>
+        <tr><td>Customer Satisfaction</td><td>满意度</td><td>1-5星 + 文字评价</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：OTA固件升级实操 — 自建HTTPS升级服务器</h3>
+    <ol class="steps-list">
+      <li><strong>服务器搭建：</strong>用阿里云ECS(CentOS 7) + Nginx，创建升级目录 /ota/firmware/，配置HTTPS(免费Let's Encrypt证书)。</li>
+      <li><strong>固件上传：</strong>将编译好的.bin文件上传到 /ota/firmware/v1.2.0.bin ，同时生成SHA256校验文件 v1.2.0.bin.sha256。</li>
+      <li><strong>升级接口：</strong>在云端创建 /api/v1/firmware/check 接口，返回JSON：{"version": "1.2.0", "url": "https://ota.yourbrand.com/firmware/v1.2.0.bin", "size": 2048576, "changelog": "优化跌倒检测准确率至95%", "force_update": false}。</li>
+      <li><strong>端侧逻辑：</strong>手环APP每24小时调用一次 /api/v1/firmware/check ，对比本地版本号。如有新版本且非force，弹窗提醒用户；force_update=true则强制在充电+WiFi连接时自动升级。</li>
+      <li><strong>升级过程：</strong>Cat1连接下下载固件(~5MB约需5分钟) → CRC校验 → 写入Flash的第二分区(AB分区) → 重启 → 验证成功则标记旧分区为non-bootable。</li>
+      <li><strong>回滚机制：</strong>升级后24小时内未上报心跳 → 自动回滚到A分区。升级失败率目标<0.5%。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：备件库存管理(WMS配置+安全库存)</h3>
+    <table class="data-table">
+      <thead><tr><th>备件类型</th><th>安全库存公式</th><th>目标天数</th><th>存放位置</th></tr></thead>
+      <tbody>
+        <tr><td>手环整机(翻新)</td><td>日均退换率 × 3天处理期 × 1.5安全系数</td><td>50台</td><td>深圳总仓+区域仓各25台</td></tr>
+        <tr><td>药盒整机(翻新)</td><td>日均退换率 × 3天处理期 × 1.5安全系数</td><td>30台</td><td>深圳总仓+华东仓各15台</td></tr>
+        <tr><td>表带(硅胶M/L)</td><td>月均销量5%备货率</td><td>500条</td><td>总仓</td></tr>
+        <tr><td>充电器</td><td>月均退换量 × 1.5</td><td>200个</td><td>总仓</td></tr>
+        <tr><td>电池(电芯)</td><td>维修月均用量 × 2</td><td>1,000颗</td><td>深圳总仓(ODM代储)</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：NPS净推荐值调查(每月一次)</h3>
+    <ol class="steps-list">
+      <li>在产品使用第30天自动触发问卷："您有多大可能向亲友推荐我们的产品？(0-10分)"</li>
+      <li>9-10分 → 赞美者(Promoters)：请求在京东/小红书留评价，赠送1个月高级会员</li>
+      <li>7-8分 → 被动者(Passives)：推送使用技巧短视频，加深产品依赖</li>
+      <li>0-6分 → 贬损者(Detractors)：客服24小时内电话回访，了解不满原因，提供补偿方案(延保/换货)</li>
+      <li>NPS = (赞美者% − 贬损者%) × 100。行业基准线：智能穿戴30+，医疗/养老服务60+。目标：Year 1 NPS ≥ 35</li>
+    </ol>
+    <div class="case-box">
+      <div class="case-title">真实案例：华米的售后体系</div>
+      <div class="case-body">华米(Amazfit母公司)在深圳设总部维修中心(20人团队)，在合肥工厂旁设翻新产线(日处理能力500台)。售后成本控制在营收的1.8%以内——远低于行业平均的4-6%。核心做法：① 模块化设计(屏幕坏了只换屏不换整机) ② ODMI厂承担部分售后成本(质保期内免费翻新) ③ 社区合作网点覆盖(与手机维修店合作，每台赚¥30返修费)。</div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="27-brand-marketing.html"><i class="fas fa-arrow-left"></i> 品牌营销</a>

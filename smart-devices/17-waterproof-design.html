@@ -110,6 +110,110 @@
     </table>
 
     <div class="chart-container" id="chart-waterproof"></div>
+
+    <h2 class="section-subtitle">实操：防水设计落地 — 从结构设计到产线检测</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：IP等级选择实操指南</h3>
+    <table class="data-table">
+      <thead><tr><th>等级</th><th>防尘</th><th>防水</th><th>测试方法</th><th>推荐产品</th></tr></thead>
+      <tbody>
+        <tr><td>IP54</td><td>防尘(不允许完全侵入)</td><td>防溅水(任何方向)</td><td>喷壶喷水3分钟</td><td>不推荐(太低)</td></tr>
+        <tr><td>IP65</td><td>完全防尘</td><td>防低压喷水</td><td>6.3mm喷嘴12.5L/min喷射15分钟</td><td>入门手环</td></tr>
+        <tr><td>IP67</td><td>完全防尘</td><td>1米水深30分钟</td><td>水箱浸泡，水深1.0±0.1m</td><td>推荐(基础款)</td></tr>
+        <tr><td>IP68</td><td>完全防尘</td><td>1.5米水深30分钟</td><td>水箱浸泡，推荐厂家做1.5m加压测试</td><td>推荐(标准款)</td></tr>
+        <tr><td>5 ATM</td><td>完全防尘</td><td>水压相当于50米</td><td>压力舱测试(比IP68更严苛)</td><td>高端款</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">老年场景防水关键设计点</div>
+      <div class="tip-body">老人每天洗澡时必须佩戴手环(洗澡时跌倒风险最高)。因此最低要求IP67。但淋浴时水温可能高达45°C，热水会使硅胶膨胀、空气膨胀。对策：①防水膜用PTFE材质(耐温至120°C) ②壳体内预留微小气压平衡孔 ③充电接口必须为磁吸式(Pogo Pin+防水盖)。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：超声波焊接工艺参数</h3>
+    <table class="data-table">
+      <thead><tr><th>参数</th><th>推荐值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>焊接频率</td><td>15 kHz</td><td>低频适合大件(手表壳体直径~40mm)</td></tr>
+        <tr><td>振幅</td><td>35-45μm</td><td>根据材料调整，硅胶包覆件用较低振幅</td></tr>
+        <tr><td>保压时间</td><td>0.5-1.0秒</td><td>冷却定型时间</td></tr>
+        <tr><td>焊接深度</td><td>0.3-0.5mm</td><td>Guide Depth控制，确保每次焊接一致</td></tr>
+        <tr><td>能量限制</td><td>Max Energy 15J</td><td>超过此能量自动停止保护模具</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：防水测试站搭建(预算<2万元)</h3>
+    <ol class="steps-list">
+      <li><strong>设备清单：</strong>亚克力水箱(60×40×40cm) ×2、水泵循环过滤系统 ×1、计时器 ×1、打气增压泵(0-5bar) ×1、干燥压缩空气源 ×1。合计约¥8,000。</li>
+      <li><strong>水压测试流程：</strong>(1)设备置于水箱底部 (2)加水至淹没设备(3)用打气泵给水箱加压至0.5bar (4)保压5分钟 (5)检查设备内外有无水汽凝结 (6)通过=无渗漏。</li>
+      <li><strong>产线全检频率：</strong>每班抽检5%+每次换线首件全检。全检方法为气密检测仪(Porsche测试法：往壳体注入0.2bar压缩空气，看压力下降速率)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：防水设计验证清单</h3>
+    <table class="data-table">
+      <thead><tr><th>测试</th><th>条件</th><th>通过标准</th></tr></thead>
+      <tbody>
+        <tr><td>浸泡测试</td><td>1.5m清水浸泡30分钟→取出擦干→72小时功能正常</td><td>所有功能正常，内部无水汽</td></tr>
+        <tr><td>热水测试</td><td>45°C热水浸泡10分钟×3次</td><td>硅胶膨胀<5%，密封圈不脱落</td></tr>
+        <tr><td>汗液腐蚀测试</td><td>人工汗液(pH5.5)浸泡72小时</td><td>外壳无变色、无龟裂</td></tr>
+        <tr><td>跌落防水测试</td><td>1米高度跌落到瓷砖地面×3次</td><td>跌落后仍需通过IP67浸泡测试</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：防水测试数据解读方法</h3>
+    <table class="data-table">
+      <thead><tr><th>测试方法</th><th>仪器</th><th>判定标准</th><th>测试周期</th></tr></thead>
+      <tbody>
+        <tr><td>气泡法</td><td>水箱+放大镜</td><td> submerged 30秒无气泡冒出</td><td>5分钟/样品</td></tr>
+        <tr><td>压差法</td><td>气密测试仪(IPX7)</td><td>压降<0.5kPa/分钟</td><td>1分钟/样品</td></tr>
+        <tr><td>氦质谱检漏</td><td>氦质谱仪</td><td>漏率<1×10^-6 Pa·m³/s</td><td>3分钟/样品</td></tr>
+        <tr><td>内窥镜检测</td><td>工业内窥镜</td><td>内部无水汽/无冷凝</td><td>5分钟/样品</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：UV胶涂布工艺SOP</h3>
+    <ol class="steps-list">
+      <li><strong>表面处理：</strong>壳体接缝面先用等离子清洗机(PCB Plasma Cleaner)处理30秒，去除脱模剂和有机污染物。表面能需>42 dyne/cm(用达因笔测试)。</li>
+      <li><strong>点胶参数：</strong>选用Nordson EFD精密点胶系统。针头0.3mm针嘴，压力25psi，速度2mm/s。涂布宽度0.5mm，截面高度0.3mm。首件用显微镜测量截面积确认。</li>
+      <li><strong>UV固化：</strong>使用365nm UV LED固化灯。照射强度20mW/cm²，曝光时间30秒。固化后做剥离测试(用镊子撕UV胶边缘)验证固化质量。</li>
+      <li><strong>在线检测：</strong>自动CCD相机拍摄涂胶路径，与CAD模板做图像差分。偏差>0.1mm标记NG(不良)。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title">防水密封圈安装要点</div>
+      <div class="tip-body">O型圈安装时切勿使用尖锐工具(可能导致划伤)。正确方法：①涂抹少量硅脂润滑 ②用手指将O型圈推入槽内 ③安装后检查O型圈是否均匀贴合。特别关注充电触点周围的O型圈——这是进水概率最高的位置。建议在该位置增加一道迷宫式密封结构(Labyrinth Seal)作为第二道防线。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：游泳级认证(Test Report)准备</h3>
+    <div class="case-box">
+      <div class="case-title">5ATM认证全流程</div>
+      <div class="case-body">按照ISO 22810:2010标准送样到TUV/SGS实验室。①样品准备：10台成品手环 ②测试项目：水压测试(1.5m静水压×1小时)、温度循环(20°C→30°C→20°C，30次)、氯水浸泡(0.3%NaCl溶液，50°C×2小时) ③通过后颁发5ATM Certificate。总费用约¥15,000，周期3-4周。注意：5ATM认证不含潜水/跳水等高速水冲击场景。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：防水维修与售后指南</h3>
+    <table class="data-table">
+      <thead><tr><th>问题</th><th>临时方案</th><th>长期方案</th></tr></thead>
+      <tbody>
+        <tr><td>屏幕起雾</td><td>硅胶干燥剂+通风24小时</td><td>更换UV胶+O型圈</td></tr>
+        <tr><td>充电触点进水</td><td>酒精擦拭+吹风机低温烘干</td><td>更换防水帽+检查密封圈</td></tr>
+        <tr><td>表带接口松动</td><td>临时用防水胶带</td><td>更换表带弹簧销组件</td></tr>
+        <tr><td>扬声器孔漏水</td><td>拆下防水膜干燥后重贴</td><td>更换ePTFE防水透气膜</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">防水等级</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">IP68 / 5ATM</div>
+        <div style="font-size:12px;color:#64748b">1.5m水深30分钟 + 游泳级认证</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">产线检测节拍</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">< 1 秒/台</div>
+        <div style="font-size:12px;color:#64748b">气密性全检(Porsche测试法)</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">UV胶固化</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">30 秒</div>
+        <div style="font-size:12px;color:#64748b">365nm UV LED, 20mW/cm²</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">氦质谱漏率</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">< 1×10⁻⁶</div>
+        <div style="font-size:12px;color:#64748b">Pa·m³/s 行业标杆级别</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="16-battery-tech.html"><i class="fas fa-arrow-left"></i> 电池技术</a>

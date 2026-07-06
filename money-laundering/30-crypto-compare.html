@@ -44,6 +44,95 @@
     </div>
 
     <div class="chart-container" id="chart-crypto-compare"></div>
+
+    <h2 class="section-subtitle">合规操作指南：加密资产币种级风控策略</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fab fa-bitcoin"></i> VASP/CEX风控团队的币种级准入与监控标准</div>
+      <div class="tip-body">
+        <p>不同加密币种的风险特征差异极大。合规团队应为每种交易币种设定明确的风控参数和监控规则。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>币种风险分级：</strong>按匿名性/流动性/可追踪性三维评分将币种分为红(禁止交易)/黄(强化监控)/绿(标准监控)三色。BTC/ETH → 黄(需链上标签+风险评分)；XMR/ZEC/GRIN → 红(禁止充提/交易)；USDC → 绿(强合规发行人可快速审批)；USDT → 黄(可冻结但流动性最好，需重点监控)。</li>
+      <li><strong>充值地址预筛查：</strong>客户申请充提某一币种时，自动查询该地址的历史交易路径(最多10跳)。若发现与混币器/暗网/制裁地址关联 → 禁止充值或要求二级KYC(视频面谈+地址用途声明)。</li>
+      <li><strong>交易监控规则差异化：</strong>对不同币种配置不同的监控阈值。(a) BTC/ETH：单笔≥$50k自动风险标签查询；(b) USDT(TRC20)：单笔≥$30k触发；(c) USDC：单笔≥$100k触发(因其强合规属性)；(d) SOL/DOT：单笔≥$50k触发。</li>
+      <li><strong>提现审批流程：</strong>大额提现(≥客户风险等级限额)必须执行(1)链上目的地地址风险标签；(2)是否为CEX/托管钱包/非托管钱包判断；(3)若目的地为CEX → 检查该CEX是否在FATF Travel Rule合规名单上。</li>
+    </ol>
+
+    <h2 class="section-subtitle">加密币种风险分级速查表</h2>
+    <table class="data-table">
+      <thead><tr><th>币种</th><th>风险等级</th><th>充提限制</th><th>监控阈值</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><strong>USDT</strong></td><td>🟡 黄</td><td>开放但需KYC</td><td>≥$30,000/笔</td><td>流动性最好但Tether可冻结，需重点追踪</td></tr>
+        <tr><td><strong>BTC</strong></td><td>🟡 黄</td><td>开放但需KYC</td><td>≥$50,000/笔</td><td>链上全公开，CoinJoin混币较常见</td></tr>
+        <tr><td><strong>ETH</strong></td><td>🟡 黄</td><td>开放但需KYC</td><td>≥$50,000/笔</td><td>Tornado Cash混币、DeFi交互复杂</td></tr>
+        <tr><td><strong>USDC</strong></td><td>🟢 绿</td><td>标准KYC</td><td>≥$100,000/笔</td><td>Circle可冻结+强合规，风险最低</td></tr>
+        <tr><td><strong>SOL</strong></td><td>🟢 绿</td><td>标准KYC</td><td>≥$50,000/笔</td><td>链上透明但混币工具较少</td></tr>
+        <tr><td><strong>XMR</strong></td><td>🔴 红</td><td>禁止</td><td>不适用</td><td>天然不可追踪，FATF明确列为高风险</td></tr>
+        <tr><td><strong>ZEC</strong></td><td>🔴 红</td><td>禁止</td><td>不适用</td><td>可选shielded交易，匿名性高</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-crypto-compare"></div>
+
+    <h2 class="section-subtitle">实操教程：各币种链上监控SOP（以Chainalysis/TRM Labs为例）</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-cogs"></i> VASP合规团队必知的币种级链上监控落地步骤</div>
+      <div class="tip-body">
+        <p>以下SOP适用于在Chainalysis Radar或TRM Labs平台上为不同加密资产配置监控规则。每一步都对应一个具体的后台操作。</p>
+      </div>
+    </div>
+    <h3 style="margin:20px 0 12px;color:var(--cyan)">▌SOP：Chainalysis Radar币种类监控规则配置</h3>
+    <ol class="steps-list">
+      <li><strong>添加目标币种地址监控（第1-10步）：</strong>(1) 登录Chainalysis Compliance Suite → 点击"Monitoring"；(2) 点击"Add Watch Address"；(3) 输入客户充币地址（支持批量CSV导入）；(4) 为该地址选择币种类别（BTC/ETH/USDT-ERC20/USDT-TRC20等）；(5) 设置风险级别（基于KYC完成度自动判定Low/Medium/High）；(6) 配置通知条件（Incoming/Outgoing/Both）；(7) 设置单笔金额阈值（如≥$50,000则触发预警）；(8) 启用"标签检查"功能（自动匹配Chainalysis Risk Labels）；(9) 设置最大跳跃深度（Depth = 5，即追踪5跳以内的对手方地址）；(10) 勾选"自动生成Risk Score每日报告"。</li>
+      <li><strong>配置混币器/暗网监控规则（第11-18步）：</strong>(11) 在"Entities"模块添加黑名单实体：Tornado Cash、ChipMixer、BigWaterMix、DeepMix、DarkMix、Known Crypto-Scammer、Known Crypto-Scammer、Stolen Hack Funds（Elliptic Database导入）；(12) 进入"Rules Engine" → "New Rule" → 选择"Counterparty Risk"类型；(13) 设定条件：if any transaction counterparty (within ≤3 hops) matches blacklisted entity → severity = Critical；(14) 同时设定：if transaction flow pattern resembles mixing (≥3 addresses branching from same source, each sending to ≥2 destinations) → severity = High；(15) 关联自动化响应：标记待审核(Flag for Review)+发送MLRO通知；(16) 对高风险币种(XMR/ZEC)客户额外添加"地址来源调查"步骤：要求客户提供资金来源证明；(17) 设置月度自动审计——导出所有"已关闭"告警，抽查5%确认是否漏报；(18) 每季度更新一次黑名单位址库（Chainalysis每月更新、Elliptic每周更新、OFAC SDN名单每周更新）。</li>
+      <li><strong>USDT vs BTC 差异化监控配置：</strong>(19) USDT(ERC20/TRC20)单独配置规则：因Tether可远程冻结地址，需额外监控"大额集中转入→分散转出"模式（典型USDT洗钱特征）；(20) 对USDT设置"集中指数"规则——若单个地址在24小时内收到来自≥20个不同地址的资金然后转给≥30个地址，触发"聚合器检查"；(21) BTC监控重点在于CoinJoin检测：检测同一输入中有≥5个其他无关输入（CoinJoin的典型环大小），使用Chainalysis的"CoinJoin Detection"插件；(22) USDC/USDE等强合规稳定币配置简化规则——因为发行人有黑名单能力，洗钱者使用较少，监控频率可适当降低。</li>
+      <li><strong>跨链资产监控设置：</strong>(23) 启用跨链桥接监控：当客户资产从一条链转移到另一条链时（如ETH→BSC via Aave Bridge），自动创建关联案例(Case)；(24) 对SOL/DOT/AVAX等L1链配置独立的地址监控组；(25) 配置跨链"跳跃分析"：如果一个客户同时使用BSC和Polygon，系统应自动识别这是同一实体的"跨链套利"模式还是两个不同用户在使用相同策略。</li>
+    </ol>
+
+    <h3 style="margin:24px 0 12px;color:var(--cyan)">▌案例研究：USDT / XMR / BTC 三种典型洗钱路径对比与检测</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>USDT快速通道型</th><th>XMR隐私混和型</th><th>BTC复杂分类型</th></tr></thead>
+      <tbody>
+        <tr><td><strong>资金来源</strong></td><td>电诈/赌博聚合资金池</td><td>CZ旧钱包/暗网市场出售</td><td>OTC场外大额卖出</td></tr>
+        <tr><td><strong>第一步：入金</strong></td><td>P2P买入USDT(TRC20)，从数百个散户钱包聚合</td><td>通过韩系CEX(Upbit)将BTC→XMR</td><td>Bitget/OKX大额卖出BTC→USDT→法币</td></tr>
+        <tr><td><strong>第二步：传播层</strong></td><td>USDT经3-5层CEX跳转(Binance→KuCoin→Gate.io)</td><td>XMR在Changelly/P2B平台锁定→换BTC</td><td>通过CoinJoin混币→分拆到10+新地址</td></tr>
+        <tr><td><strong>第三步：融合层</strong></td><td>在菲律宾/东南亚本地P2P兑换为法币</td><td>清洗后的BTC转入新CEX → 提现至本人银行账户</td><td>提现到ColdWallet → OTC柜台→法币</td></tr>
+        <tr><td><strong>检测信号 #1</strong></td><td>"快进快出"——同一批USDT在≤6小时内跨越≥3个CEX</td><td>时间模式：大额BTC持仓突然转为XMR且持有≥7天</td><td>CoinJoin输入中混入≥15个无关Tx(环大小16+)</td></tr>
+        <tr><td><strong>检测信号 #2</strong></td><td>对手方地址中有≥3个标记为"Stolen"或"Scammer"</td><td>XMR兑换前后地址完全不重合(天然隔离)</td><td>同一CEX账户的BTC频繁大额转出后立即小额回流(测试地址)</td></tr>
+        <tr><td><strong>Chainalysis检测率</strong></td><td>★★★★☆ (较高——Tether可冻结+CEX数据共享)</td><td>★☆☆☆☆ (极低——链上完全不可见)</td><td>★★★☆☆ (中等——CoinJoin部分可识别)</td></tr>
+        <tr><td><strong>建议处置</strong></td><td>冻结相关USDT地址 + STR上报 + 通知Tether</td><td>只能依赖KYC数据+链下情报(IP/设备指纹)</td><td>标记CoinJoin地址群组 + 提高后续监控频率</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:24px 0 12px;color:var(--cyan)">▌交易所合规团队：加密资产监控规则清单</h3>
+    <table class="data-table">
+      <thead><tr><th>#</th><th>检查项</th><th>操作指引</th><th>推荐工具</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>币种风险分级</td><td>红(禁)/黄(强化)/绿(标准)，按匿名性×可追踪性矩阵打分</td><td>内部RiskMatrix模板</td></tr>
+        <tr><td>2</td><td>充值地址黑名单</td><td>每次充值前自动查询地址是否命中Chainalysis/Elliptic黑名单</td><td>Chainalysis SDK / TRM Labs API</td></tr>
+        <tr><td>3</td><td>KYC/KYB强度匹配</td><td>高风险币种(黄)用户需补充"资金来源说明"+"地址用途声明"</td><td>自研表单 + 人工复核</td></tr>
+        <tr><td>4</td><td>交易模式异常检测</td><td>快进快出(<6h)、环形转账(地址A→B→C→A)、金额接近阈值但不超过(如$49,999)</td><td>规则引擎 + 图数据库(GraphAware)</td></tr>
+        <tr><td>5</td><td>跨CEX行为追踪</td><td>同一客户在多个CEX有相似交易模式(可能为协同洗钱)</td><td>Chainalysis Investigate + 情报共享联盟</td></tr>
+        <tr><td>6</td><td>Travel Rule执行</td><td>跨境加密转账100%携带发起方/接收方身份数据</td><td>Notabene / Sygna / VaspVasp</td></tr>
+        <tr><td>7</td><td>制裁名单实时筛查</td><td>充提前即时扫描OFAC/UN/EU/CHINAZHENG制裁名单</td><td>Refinitiv World-Check / Dow Jones</td></tr>
+        <tr><td>8</td><td>定期报告</td><td>月度TM规则效能报告 + 季度风险评审会议 + 年度外部审计</td><td>PowerBI / Tableau可视化仪表板</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:24px 0 12px;color:var(--cyan)">▌链上分析工具推荐对比</h3>
+    <table class="data-table">
+      <thead><tr><th>工具</th><th>优势</th><th>劣势</th><th>适用场景</th><th>月费(USD)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Chainalysis</strong></td><td>覆盖面最广(150+链)、与160+监管机构合作、最完整的Entity标签库</td><td>价格昂贵、学习曲线陡</td><td>大型VASP/银行/执法</td><td>$10,000+/月</td></tr>
+        <tr><td><strong>Elliptic</strong></td><td>实时制裁筛查最强、Neural图神经网络精准度高</td><td>支持链数略少于Chainalysis</td><td>欧美银行合规、制裁合规</td><td>$8,000+/月</td></tr>
+        <tr><td><strong>Nansen</strong></td><td>DeFi/NFT深度链上分析、智能资金流可视化</td><td>传统Fi领域覆盖弱</td><td>DeFi项目方、NFT交易平台</td><td>$1,500+/月</td></tr>
+        <tr><td><strong>TRM Labs</strong></td><td>API集成最友好、AI驱动的异常检测模型</td><td>小众链覆盖不如Chainalysis</td><td>中小型VASP、FinTech</td><td>$5,000+/月</td></tr>
+        <tr><td><strong>GetBlock Explorer</strong></td><td>免费基础查询、支持多链</td><td>无AI/无Entity标签、无实时监控</td><td>个人研究员、小型合规团队</td><td>$0 (免费版)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-crypto-compare"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="21-special-methods.html"><i class="fas fa-arrow-left"></i> 赌场/贵金属</a>

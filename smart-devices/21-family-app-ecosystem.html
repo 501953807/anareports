@@ -108,6 +108,265 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">21.5 手把手：用 Express + TypeScript 搭建家庭 APP 后端 API</h2>
+
+    <h3 class="steps-heading">步骤一：初始化项目与数据库 Schema 设计</h3>
+    <p style="color:var(--text2);font-size:13px;margin-bottom:12px">我们使用 Node.js + Express + TypeScript + PostgreSQL 搭建 RESTful API。先设计好数据模型再写代码，避免返工。</p>
+
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-terminal"></i> 终端命令：初始化项目</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code># 创建项目目录
+mkdir elderly-care-api && cd elderly-care-api
+
+# 初始化 TypeScript 项目
+npm init -y
+npm install express pg redis ioredior jsonwebtoken bcryptjs cors helmet
+npm install --save-dev typescript @types/node @types/express @types/pg @types/jsonwebtoken ts-node nodemon
+
+# 生成 tsconfig.json
+npx tsc --init --target ES2020 --module commonjs --outDir dist --rootDir src --strict
+
+# 创建目录结构
+mkdir -p src/{routes,middleware,models,services,config,utils}</code></pre>
+    </details>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 数据库 Schema 设计要点</div>
+      <div class="tip-body" style="margin-top:8px">
+        老人手环产品核心表只有5张，遵循最小必要原则。以下是最关键的 <code>users</code> 表设计：
+      </div>
+    </div>
+
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-database"></i> SQL: 核心表结构</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>-- 用户表(子女+老人+医护三种角色)
+CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  role VARCHAR(20) CHECK (role IN ('caregiver','elderly','nurse')),
+  phone VARCHAR(20) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- 老人档案表
+CREATE TABLE profiles (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id),
+  device_id VARCHAR(64) UNIQUE,
+  first_name VARCHAR(50),
+  date_of_birth DATE,
+  medical_conditions TEXT[],  -- 慢性病数组:['高血压','糖尿病']
+  emergency_contacts JSONB DEFAULT '[]'::jsonb
+);
+
+-- 家庭成员关系表(一人多设备/一设备多 caregiver)
+CREATE TABLE family_relations (
+  id SERIAL PRIMARY KEY,
+  family_id UUID NOT NULL,
+  user_id UUID REFERENCES users(id),
+  role VARCHAR(20) CHECK (role IN ('primary','collaborator','viewer')),
+  invited_at TIMESTAMP DEFAULT NOW(),
+  accepted_at TIMESTAMP
+);
+
+-- 健康数据时序表(Redis存热数据, PG存冷数据)
+CREATE TABLE health_events (
+  id BIGSERIAL PRIMARY KEY,
+  device_id VARCHAR(64) NOT NULL,
+  event_type VARCHAR(30),  -- 'heartbeat','fall','gps','medication'
+  payload JSONB NOT NULL,
+  recorded_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_device_event ON health_events(device_id, recorded_at DESC);
+CREATE INDEX idx_event_type ON health_events(event_type) WHERE event_type = 'fall';</code></pre>
+    </details>
+
+    <h3 class="steps-heading">步骤二：编写核心 API 端点</h3>
+
+    <table class="data-table">
+      <thead><tr><th>文件</th><th>代码片段</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>src/routes/auth.ts</code></td>
+          <td>
+            <pre style="background:var(--surface2);padding:4px 8px;border-radius:4px;font-size:11px;white-space:pre-wrap;word-break:break-all;">
+export const login = async (req, res) => {
+  const { phone, password } = req.body;
+  const user = await pool.query(
+    'SELECT * FROM users WHERE phone=$1', [phone]);
+  if (!user.rows[0]) return res.status(401).json({error:'用户不存在'});
+  const valid = await bcrypt.compare(password, user.rows[0].password_hash);
+  if (!valid) return res.status(401).json({error:'密码错误'});
+  const token = jwt.sign({userId: user.rows[0].id, role: user.rows[0].role},
+    process.env.JWT_SECRET, {expiresIn: '7d'});
+  res.json({token, role: user.rows[0].role});
+};</pre>
+          </td>
+          <td>手机号+密码登录，返回 JWT Token（7天有效）</td>
+        </tr>
+        <tr>
+          <td><code>src/routes/health.ts</code></td>
+          <td>
+            <pre style="background:var(--surface2);padding:4px 8px;border-radius:4px;font-size:11px;white-space:pre-wrap;word-break:break-all;">
+// 设备上报健康数据 → 入库 + 触发告警检查
+router.post('/telemetry', authenticateToken, async (req, res) => {
+  const { deviceId, telemetry } = req.body;
+  // 批量插入(高性能)
+  const values = telemetry.map(t =>
+    [`$1`, `$2`, JSON.stringify(t.payload), `NOW()`]);
+  const query = `INSERT INTO health_events(device_id, event_type, payload, recorded_at) VALUES ${values.join(',')} ON CONFLICT DO NOTHING`;
+  await pool.query(query, [`deviceId`, ...values.flat()]);
+  // 同时写入 Redis 用于实时告警
+  await redis.lpush(`device:${deviceId}:live`, JSON.stringify(telemetry));
+  await redis.expire(`device:${deviceId}:live`, 86400);
+  res.json({ok: true});
+});</pre>
+          </td>
+          <td>设备批量上报，同时写入PG持久化和Redis实时流</td>
+        </tr>
+        <tr>
+          <td><code>src/routes/alerts.ts</code></td>
+          <td>
+            <pre style="background:var(--surface2);padding:4px 8px;border-radius:4px;font-size:11px;white-space:pre-wrap;word-break:break-all;">
+// 告警规则引擎(简化版)
+const ALERT_RULES = [
+  { type: 'fall', threshold: 1, windowMs: 5000,  notifyAll: true },
+  { type: 'high_hr', threshold: 120, windowMs: 300000, notifyAll: false },
+  { type: 'missed_med', threshold: 1, windowMs: 7200000, notifyAll: false },
+];
+
+// 检查最近一条事件是否触发告警
+async function checkAlerts(deviceId, event) {
+  const rule = ALERT_RULES.find(r => r.type === event.type);
+  if (!rule) return;
+  const recent = await redis.lrange(`device:${deviceId}:${event.type}`, 0, -1);
+  if (recent.length >= rule.threshold) {
+    // 触发告警 → 调用推送服务
+    await sendPushNotification(deviceId, event.type);
+    // 清理队列
+    await redis.del(`device:${deviceId}:${event.type}`);
+  }
+}</pre>
+          </td>
+          <td>告警规则配置 + 实时检查函数</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="steps-heading">步骤三：配置 Firebase 推送通知</h3>
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 推送服务架构</div>
+      <div class="tip-body" style="margin-top:8px">
+        FCM 推送分为三层：<strong>P0 紧急告警</strong> 同时走 FCM 高优先级 + 阿里云短信(容灾)、<strong>P1 重要通知</strong> 仅 FCM、<strong>P2 普通信息</strong> 存入 APP 内消息队列。
+      </div>
+    </div>
+
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-mobile-alt"></i> FCM 服务端代码</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>// services/fcm.ts (Node.js + Firebase Admin SDK)
+import { initializeApp, cert } from 'firebase-admin/app';
+import { getMessaging } from 'firebase-admin/messaging';
+
+initializeApp({
+  credential: cert({
+    projectId: 'elderly-care-prod',
+    privateKey: process.env.FCM_PRIVATE_KEY,  // 从密钥JSON读取
+    clientEmail: process.env.FCM_CLIENT_EMAIL,
+  })
+});
+
+const messaging = getMessaging();
+
+export async function sendEmergencyAlert({
+  token, userId, alertType, deviceId, message
+}: { token: string; userId: string; alertType: string;
+     deviceId: string; message: string }) {
+  await messaging.send({
+    token,
+    notification: {
+      title: '紧急告警',
+      body: message,
+    },
+    data: { alertType, deviceId, urgency: 'P0' },
+    android: {
+      priority: 'high',
+      notification: {
+        sound: 'emergency_alert.mp3',  // 自定义铃声
+        channelId: 'emergency_alerts',
+      }
+    },
+    apns: {
+      payload: {
+        aps: { sound: 'emergency_alert.wav', badge: 1 }
+      }
+    }
+  });
+}
+
+export async function sendMedReminder(userId, pillInfo) {
+  // P2 级别: 仅 APP 内消息 + FCM 低优先级
+  await messaging.sendEachForMulticast({
+    tokens: await getUserTokens(userId),
+    notification: { title: '吃药提醒', body: pillInfo },
+    data: { urgency: 'P2' }
+  });
+}</code></pre>
+    </details>
+
+    <h3 class="steps-heading">步骤四：配置消息推送与短信网关(阿里云)</h3>
+    <div class="case-box" style="margin:16px 0">
+      <div class="case-title"><i class="fas fa-box-open"></i> 阿里云短信套餐参考</div>
+      <div class="case-body">
+        阿里云短信套餐：新人 ¥0.04/条(首月100条免费)。按量计费，超出 ¥0.045/条。<br>
+        签约 10万条/月 套餐包: ¥3,800/月(约 ¥0.038/条)。<br>
+        签名模板审批: 1个工作日内完成。推荐使用固定模板："【健康守护】张奶奶心率异常(135bpm)，请立即查看。"
+      </div>
+    </div>
+
+    <h3 class="steps-heading">步骤五：Docker Compose 一键启动完整环境</h3>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fab fa-docker"></i> docker-compose.yml 完整配置</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>version: '3.8'
+services:
+  api:
+    build: ./src
+    ports: ["3000:3000"]
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/elderly_care
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET}
+      - FCM_PROJECT_ID=${FCM_PROJECT_ID}
+    depends_on: [db, redis]
+
+  db:
+    image: postgres:16-alpine
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=elderly_care
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+volumes:
+  pgdata:</code></pre>
+    </details>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-check-circle"></i> 本章实操清单</div>
+      <div class="tip-body" style="margin-top:8px">
+        <ul style="padding-left:18px;margin-top:6px;">
+          <li>[ ] 完成 PostgreSQL Schema 设计和 migration 脚本</li>
+          <li>[ ] 实现 3 个核心 API 端点(auth/health/alerts)</li>
+          <li>[ ] 配置 Firebase Admin SDK 并测试推送</li>
+          <li>[ ] 注册阿里云短信账户，完成签名和模板申请</li>
+          <li>[ ] docker-compose up 一键拉起完整开发环境</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-family"></div>
   </main>
   <footer class="page-footer">

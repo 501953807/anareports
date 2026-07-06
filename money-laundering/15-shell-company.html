@@ -81,6 +81,56 @@
     </ul>
 
     <div class="chart-container" id="chart-shell-company"></div>
+
+    <h2 class="section-subtitle">合规操作指南：离岸空壳公司穿透审查流程</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-building"></i> UBO(最终受益人)穿透方法论</div>
+      <div class="tip-body">
+        <p>应对五层嵌套离岸结构的系统化审查方法，基于FATF Recommendations第24和25条(受益所有权与透明度)及美国Corporate Transparency Act 2024。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>公司层级映射：</strong>要求客户提供完整的股权结构图(至少穿透至最终自然人)。使用OpenCorporates API逐级查询：母公司介绍→子公司注册地→董事/股东信息。超过4层嵌套自动标记为"结构复杂性风险"。</li>
+      <li><strong>秘书公司情报收集：</strong>记录注册代理机构(Maples/Walkers/Appleby/Mossak Fonseca)。若秘书公司为知名"影子注册商"(如Mossack Fonseca)，将客户风险等级提升至"极高"。</li>
+      <li><strong>司法管辖区评级：</strong>对每一层注册地打分：(a) BVI/开曼 → 3分(强保密但已与多国签署BEPS MOU)；(b) 塞舌尔/巴拿马 → 4分(仍不公开BO)；(c) UK/新加坡/日本 → 0-1分(BOI公开可查)。累计≥10分触发增强尽调(EDD)。</li>
+      <li><strong>实质性经营验证：</strong>要求提供目标公司的三项实质证据证明其非空壳：(a) 纳税申报表及完税证明；(b) 办公室租赁合约；(c) ≥3名全职员工社保缴纳记录。缺失任意一项 → 标注为"潜在空壳"。</li>
+      <li><strong>BOI申报交叉核验：</strong>对美国CTA管辖范围内的公司(≥2024年1月1日后注册)，通过FinCen BOI数据库核验最终受益人申报。若目标公司在BVI注册但其交易对手在美国有CTA报告义务 → 交叉引用触发警报。</li>
+      <li><strong>生成EDD(Enhanced Due Diligence)报告：</strong>包含：公司层级图谱(含注册地/秘书公司/董事)、BOI穿透结果(如可获取)、实质性经营结论、风险评级、建议的持续监控频率(高危：季度；中高：半年；低：年度)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">全球BOI/UBO透明度制度对照</h2>
+    <table class="data-table">
+      <thead><tr><th>司法管辖区</th><th>制度名称</th><th>生效时间</th><th>公开程度</th><th>合规影响</th></tr></thead>
+      <tbody>
+        <tr><td>美国</td><td>Corporate Transparency Act (CTA)</td><td>2024.01.01</td><td>仅FIU/执法可查(非公开)</td><td>注册须申报BOI，违规罚款$500/天</td></tr>
+        <tr><td>英国</td><td>Persons of Significant Control (PSC) Register</td><td>2016.04</td><td>公开可查(GOV.UK)</td><td>与英国任何金融机构交易均需PSC验证</td></tr>
+        <tr><td>欧盟</td><td>4AMLD/5AMLD UEAD Directive</td><td>2019.01</td><td>成员国各异(多数部分公开)</td><td>跨境交易需符合来源国UBO登记</td></tr>
+        <tr><td>新加坡</td><td>ACRA BoC Register</td><td>2020.01</td><td>仅授权机构可查</td><td>MAS监管金融机构必须查询BoC</td></tr>
+        <tr><td>中国大陆</td><td>市场主体信用信息公示系统</td><td>持续完善</td><td>部分公开(限于国内注册主体)</td><td>跨境交易对手需额外EDD</td></tr>
+        <tr><td>BVI</td><td>BOSS Register(机密)</td><td>2018.01</td><td>仅执法请求可查</td><td>已与美/英/加/澳签MOU共享BO信息</td></tr>
+        <tr><td>开曼群岛</td><td>CFT Register</td><td>2021.04</td><td>仅执法/监管可查</td><td>与FATF白名单挂钩，影响银行关系</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">实务工具：UBO尽调软件工具清单</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-search"></i> 股权穿透与UBO查询工具</div>
+      <div class="tip-body">
+        <p>以下是2026年金融机构常用的UBO尽调和公司穿透工具。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>工具</th><th>数据类型</th><th>覆盖范围</th><th>核心能力</th><th>年费参考</th></tr></thead>
+      <tbody>
+        <tr><td>OpenCorporates</td><td>公司注册信息</td><td>2亿+公司，190+司法管辖区</td><td>公司关联图谱/董事/交叉持股</td><td>$10-50k(API)</td></tr>
+        <tr><td>Refinitiv World-Check</td><td>风险人物/实体</td><td>6亿+风险档案</td><td>PEP/制裁/负面新闻/UBO网络</td><td>$100-300k</td></tr>
+        <tr><td>Dow Jones Risk Solutions</td><td>综合风险数据</td><td>20亿+风险信号</td><td>UBO穿透/实体映射/FATF合规</td><td>$200-600k</td></tr>
+        <tr><td>LexisNexis Millicent</td><td>全球公司注册</td><td>1.3亿+实体</td><td>一站式UBO查询/文档自动生成</td><td>$50-150k</td></tr>
+        <tr><td>FinCEN BOI eFiling</td><td>美国BOI申报</td><td>仅美国CTA管辖实体</td><td>官方申报平台/查询(需授权)</td><td>免费(申报)/授权查询</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-shell-company"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="14-tbml.html"><i class="fas fa-arrow-left"></i> 贸易洗钱</a>

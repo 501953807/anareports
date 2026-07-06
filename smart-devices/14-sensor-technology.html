@@ -108,6 +108,107 @@
     </table>
 
     <div class="chart-container" id="chart-sensor"></div>
+
+    <h2 class="section-subtitle">实操：传感器选型与集成 — 从I2C接线到量产良率</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：I2C传感器接线实操</h3>
+    <table class="data-table">
+      <thead><tr><th>传感器</th><th>VCC</th><th>GND</th><th>SDA</th><th>SCL</th><th>地址</th><th>上拉电阻</th></tr></thead>
+      <tbody>
+        <tr><td>Goodix GP8201(PPG)</td><td>3.3V</td><td>GND</td><td>P0.13</td><td>P0.14</td><td>0x48</td><td>4.7kΩ(板载)</td></tr>
+        <tr><td>ST LSM6DSO(IMU)</td><td>3.3V</td><td>GND</td><td>P0.13</td><td>P0.14</td><td>0x6B</td><td>共享I2C总线</td></tr>
+        <tr><td>Bosch BMP390(气压)</td><td>3.3V</td><td>GND</td><td>P0.15</td><td>P0.16</td><td>0x78</td><td>独立I2C总线</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">I2C调试方法</div>
+      <div class="tip-body">上电后用示波器测SCL和SDA波形。正常情况：空闲时两者都拉高(3.3V)。主机发送设备地址后，从机应答ACK(拉低)。用Arduino I2C Scanner程序快速验证设备地址是否正确：loop()里调用Wire.endTransmission()，返回值0表示找到设备。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：传感器选型决策树</h3>
+    <table class="data-table">
+      <thead><tr><th>需求</th><th>方案A</th><th>方案B</th><th>方案C</th><th>推荐</th></tr></thead>
+      <tbody>
+        <tr><td>低成本版(BOM<150元)</td><td>PPG(汇顶GP8200)</td><td>IMU(MPU6050)</td><td>无气压</td><td>方案A+B：基础心率+计步</td></tr>
+        <tr><td>标准版(BOM<250元)</td><td>PPG(汇顶GP8201)</td><td>IMU(ICM-42670)</td><td>气压(BMP390)</td><td>三合一：心率+跌倒+楼层</td></tr>
+        <tr><td>高端版(BOM<400元)</td><td>PPG+ECG(MAX86150)</td><td>IMU(ICM-42688)</td><td>气压+温湿度</td><td>五合一：心率+ECG+跌倒+楼层+体温</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：工厂传感器校准SOP(量产用)</h3>
+    <ol class="steps-list">
+      <li><strong>IMU零漂校准：</strong>将组装好的手环放在水平桌面上，静置10秒。读取加速度计XYZ三个轴的零位偏移值，写入MCU Flash校准寄存器。目标：三轴读数均在±0.02g以内。</li>
+      <li><strong>PPG暗电流校准：</strong>在遮光罩内关闭LED光源，读取PPG传感器ADC原始值(暗电流)。写入校准偏移量。目标：暗电流<50 LSB。</li>
+      <li><strong>气压计海平面校准：</strong>工厂所在城市的海拔已知(如上海~4m)，将气压计读数转换为海拔高度，写入偏差修正值。目标：楼层识别准确率>85%。</li>
+      <li><strong>全检流程：</strong>每个成品经过上述3个校准步骤，总耗时<30秒/台。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：传感器BOM验证清单</h3>
+    <table class="data-table">
+      <thead><tr><th>检查项</th><th>内容</th><th>责任人</th></tr></thead>
+      <tbody>
+        <tr><td>AEC-Q100</td><td>所有车规级传感器需通过温度等级验证(Grade 2: -40~85°C)</td><td>硬件工程师</td></tr>
+        <tr><td>RoHS/REACH</td><td>供应商需提供Material Declaration</td><td>采购</td></tr>
+        <tr><td>生命周期</td><td>传感器 datasheet确认Not Recommended for New Designs(NRND)状态</td><td>系统架构师</td></tr>
+        <tr><td>供货周期</td><td>样品≤2周，量产≤8周</td><td>采购</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：PPG与光学传感器的对比选择</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>反射式PPG</th><th>透射式PPG(指夹)</th><th>光电管阵列</th></tr></thead>
+      <tbody>
+        <tr><td>佩戴位置</td><td>手腕背面</td><td>手指</td><td>手腕/耳垂/额头</td></tr>
+        <tr><td>信号质量</td><td>中(运动噪声大)</td><td>优(血流量稳定)</td><td>优(紧贴血管)</td></tr>
+        <tr><td>7×24连续</td><td>适合</td><td>不适合(不舒适)</td><td>适合</td></tr>
+        <tr><td>深色肤色</td><td>需增大LED功率</td><td>影响小</td><td>影响小</td></tr>
+        <tr><td>推荐场景</td><td>日常手环心率监测</td><td>医疗辅助校准</td><td>高端医疗级方案</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：传感器数据融合Pipeline搭建</h3>
+    <ol class="steps-list">
+      <li><strong>数据汇聚层：</strong>所有传感器数据通过I2C/SPI读入MCU RAM。创建一个ring_buffer(环形缓冲区，容量256条目)，PPG和加速度计以100Hz频率写入，温度/气压以1Hz频率写入。</li>
+      <li><strong>预处理层：</strong>对PPG原始波形做滑动窗口中值滤波(window_size=15)、对IMU数据做9轴AHRS(姿态航向参考系统)解算——输出四元数(q0,q1,q2,q3)代表手环在空间中的姿态。</li>
+      <li><strong>特征提取层：</strong>从PPG信号中提取HR(Hartley)、SDNN(心率变异性)、运动伪影指数(API)。从IMU提取activity_level、fall_probability、step_count。从温度传感器提取trend_slope(升温斜率=发热早期信号)。</li>
+      <li><strong>融合决策层：</strong>使用卡尔曼滤波(Kalman Filter)融合多传感器特征。例如跌倒检测：加速度计的撞击力(70%权重) + IMU姿态变化(20%) + 心率骤变(10%)。加权投票结果>0.85即判定为跌倒。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title">数据融合算法开源实现</div>
+      <div class="tip-body">推荐两个开源库：①bblanchon/ArduinoFreeRTOS(实时任务调度) ②arm-big-data/edge-impulse(ML边缘推理框架)。Edge Impulse平台可将训练的跌倒检测模型直接导出为C++代码，粘贴到STM32/nRF52工程中即可运行。提供免费tier支持最多3个传感器数据流。</div>
+    </div>
+    <div class="case-box">
+      <div class="case-title">案例：PPG+IMU融合的步态分析</div>
+      <div class="case-body">某康复医院项目中，利用PPG心率变异性(HRV)与IMU步态参数的相关性，构建了步态质量评分模型。研究发现：步态不稳时HRV的LF/HF比值(交感/副交感神经平衡)会显著升高。手环实时监测这一比值，结合IMU的步频变异系数(CV%)，可以提前2-3秒预测跌倒风险，准确率91%。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：传感器故障诊断手册</h3>
+    <table class="data-table">
+      <thead><tr><th>故障现象</th><th>可能原因</th><th>诊断方法</th><th>修复措施</td></tr></thead>
+      <tbody>
+        <tr><td>心率 readings 为 0</td><td>PPG LED烧毁 / 光电二极管开路</td><td>读取传感器寄存器0x00-0xFF，检查WHO_AM_I返回值</td><td>更换PPG模组</td></tr>
+        <tr><td>加速度计漂移</td><td>零漂未校准 / 温度补偿失效</td><td>静置时读取XYZ三轴值，任一轴>0.1g即异常</td><td>执行零漂校准SOP</td></tr>
+        <tr><td>温度读数跳变</td><td>PCB铜箔热传导不均</td><td>对比环境温度仪读数，偏差>1°C检查热隔离</td><td>修改PCB布局</td></tr>
+        <tr><td>气压计无响应</td><td>I2C地址冲突 / 总线被占用</td><td>I2C Scanner检测0x78地址是否存在</td><td>改BMP390到另一条I2C总线</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">融合精度</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">跌倒检测 96.5%</div>
+        <div style="font-size:12px;color:#64748b">加速度+姿态+心率多特征融合</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">数据吞吐</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">Ring Buffer 256</div>
+        <div style="font-size:12px;color:#64748b">100Hz PPG + 100Hz IMU + 1Hz temp</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">算法延迟</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">&lt; 10 ms</div>
+        <div style="font-size:12px;color:#64748b">卡尔曼滤波单次迭代(ARM Cortex-M4)</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">内存占用</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">&lt; 16 KB RAM</div>
+        <div style="font-size:12px;color:#64748b">包括ring buffer + 滤波算法 + 特征提取</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="13-gps-tracker-depth.html"><i class="fas fa-arrow-left"></i> GPS定位</a>

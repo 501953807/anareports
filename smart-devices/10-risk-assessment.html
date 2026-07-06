@@ -97,6 +97,112 @@
     </table>
 
     <div class="chart-container" id="chart-risk"></div>
+
+    <h2 class="section-subtitle">实操：风险管理实操 — FMEA分析与保险投保指南</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：FMEA工作坊操作流程(半日完成)</h3>
+    <ol class="steps-list">
+      <li><strong>准备阶段：</strong>提前打印每张失效模式的FMEA表单(含S/O/D三栏，1-10分)。召集硬件PM+嵌入式+APP+供应链负责人，半天开会。</li>
+      <li><strong>头脑风暴：</strong>逐项讨论每个子系统可能的失效模式。示例：手环GPS模块→失效模式：定位漂移超过100米→后果：电子围栏告警不触发。</li>
+      <li><strong>评分：</strong>Severity(严重度)给8分(完全漏报走失)；Occurrence(发生频次)给4分(城市开阔地GPS精度通常<10m)；Detection(探测度)给6分(测试难发现)。RPN=8×4×6=192。</li>
+      <li><strong>优先级排序：</strong>RPN>200的为P0改进项。本例中RPN=192接近阈值，列为P1关注项。</li>
+      <li><strong>制定对策：</strong>增加LBS基站辅助定位(当GPS信号弱时切换)，目标将Occurrence降到2，RPN=8×2×6=96，达标。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：Top 10风险登记簿(持续更新)</h3>
+    <table class="data-table">
+      <thead><tr><th>#</th><th>风险</th><th>RPN</th><th>等级</th><th>责任人</th><th>缓解措施</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>自动分药机构卡药</td><td>320</td><td>P0</td><td>硬件PM</td><td>ODM选型时要求提供>10,000次无故障报告</td><td>监控中</td></tr>
+        <tr><td>2</td><td>跌倒检测误报>3次/天</td><td>240</td><td>P0</td><td>算法工程师</td><td>加加速度阈值+心率骤变双因子过滤</td><td>已缓解至120</td></tr>
+        <tr><td>3</td><td>SRRC认证延迟上市</td><td>200</td><td>P1</td><td>法务</td><td>送测前预测试，提前2周预约泰尔实验室</td><td>已解决</td></tr>
+        <tr><td>4</td><td>PPG心率精度不达标</td><td>180</td><td>P1</td><td>嵌入式</td><td>与汇顶联合调试，使用GP8201(非GP8200降低成本)</td><td>进行中</td></tr>
+        <tr><td>5</td><td>APP闪退率高(>5%)</td><td>160</td><td>P1</td><td>APP开发</td><td>Firebase Crashlytics实时监控，每周review</td><td>进行中</td></tr>
+        <tr><td>6</td><td>供应链芯片断供</td><td>140</td><td>P2</td><td>采购</td><td>关键物料(MCU/GPS/PPG)指定2家供应商</td><td>已缓解</td></tr>
+        <tr><td>7</td><td>PIPL合规被监管处罚</td><td>120</td><td>P2</td><td>法务</td><td>聘请外部合规顾问，隐私政策经律师审核</td><td>已缓解</td></tr>
+        <tr><td>8</td><td>订阅转化率<5%</td><td>100</td><td>P2</td><td>产品</td><td>MVP版本先跑A/B测试再定最终价格</td><td>监控中</td></tr>
+        <tr><td>9</td><td>电池起火(极端情况下)</td><td>400</td><td>P0</td><td>结构工程师</td><td>选用UL94-V0阻燃外壳+过充保护IC+UN38.3认证电池</td><td>已缓解</td></tr>
+        <tr><td>10</td><td>竞品降价打击</td><td>80</td><td>P3</td><td>CEO</td><td>靠订阅+服务差异化，不走纯硬件价格战</td><td>监控中</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：产品责任险投保指南</h3>
+    <table class="data-table">
+      <thead><tr><th>险种</th><th>保费估算</th><th>保额</th><th>涵盖范围</th></tr></thead>
+      <tbody>
+        <tr><td>产品责任险(人保PICC)</td><td>¥8,000-15,000/年</td><td>每次事故¥200万，累计¥500万</td><td>产品缺陷造成的人身伤害(如电池爆炸致烧伤)</td></tr>
+        <tr><td>产品责任险(平安保险)</td><td>¥6,000-12,000/年</td><td>每次事故¥100万</td><td>同上，附加"召回费用险"</td></tr>
+        <tr><td>网络安全险(数据泄露)</td><td>¥10,000-20,000/年</td><td>¥500万</td><td>用户健康数据被黑客攻击的赔偿+律师费</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">保险理赔流程</div>
+      <div class="tip-body">事故发生→24小时内报案→保险公司派公估员现场查勘→提交证明材料(产品检验报告、医疗记录、证人陈述)→15个工作日内核定→达成一致后赔付。建议事故后先拍照留存现场再移动产品。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：季度风险管理评审议程模板</h3>
+    <table class="data-table">
+      <thead><tr><th>时间段</th><th>议程</th><th>参与者</th></tr></thead>
+      <tbody>
+        <tr><td>14:00-14:30</td><td>回顾上期风险项：哪些已关闭？哪些恶化了？更新RPN评分。</td><td>全员</td></tr>
+        <tr><td>14:30-15:00</td><td>新风险识别：当前阶段是否有新暴露的问题？(如DVT发现了新的防水缺陷)</td><td>各组长</td></tr>
+        <tr><td>15:00-15:30</td><td>应对策略讨论：针对P0风险分配资源(预算/人力/时间)</td><td>管理层</td></tr>
+        <tr><td>15:30-16:00</td><td>更新风险登记簿，打印签字归档</td><td>PM</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：应急响应预案(Runbook)模板</h3>
+    <table class="data-table">
+      <thead><tr><th>事件</th><th>响应时效</th><th>处理步骤</th><th>升级路径</th></tr></thead>
+      <tbody>
+        <tr><td>APP大面积崩溃</td><td>15分钟内</td><td>①查Firebase Crashlytics ②回滚上一版本 ③发hotfix</td><td>1小时未恢复→CTO接管</td></tr>
+        <tr><td>后端宕机</td><td>5分钟内</td><td>①K8s自动扩容 ②切备用region ③维护页面</td><td>30分钟→通知所有用户+公关</td></tr>
+        <tr><td>电池鼓包</td><td>24小时内</td><td>①停发该批次 ②召回 ③联系电池厂</td><td>≥2例→启动产品召回流程</td></tr>
+        <tr><td>数据泄露</td><td>立即</td><td>①断外网 ②备份日志 ③PIPL要求72h报告</td><td>1小时内→CEO+法务+公关</td></tr>
+        <tr><td>SOS无人接听</td><td>实时</td><td>①切备呼叫 ②APP提示"繁忙" ③短信通知</td><td>持续>10分钟→启动120联动</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：供应链风险对冲策略</h3>
+    <ol class="steps-list">
+      <li><strong>双供应商制度：</strong>关键物料(MCU/GPS/PPG)至少2家合格供应商。如MCU：Nordic(nRF52832)为主供，国晨微为备选。Pin-to-Pin兼容，代码无需改。</li>
+      <li><strong>战略备货：</strong>量产前3个月按预估产量30%采购做安全库存。即使上市延期，物料也用于后续批次。</li>
+      <li><strong>价格锁定：</strong>与供应商签季度框架协议(Quarterly Price Agreement)，锁定Q1-Q2价格，涨幅不超过5%。若公开市场价更低，自动适用市场低价。</li>
+      <li><strong>替代料验证：</strong>每个BOM组件准备Alternative Part List。如GP8201缺货→MAX86150替代(Pin兼容，仅需重写PPG驱动)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：保险投保完整清单</h3>
+    <table class="data-table">
+      <thead><tr><th>险种</th><th>公司</th><th>年保费</th><th>保额</th><th>投保时机</th></tr></thead>
+      <tbody>
+        <tr><td>产品责任险</td><td>人保/平安</td><td>¥8,000-15,000</td><td>¥200万/次</td><td>量产首批出货前</td></tr>
+        <tr><td>雇主责任险</td><td>平安/太保</td><td>¥500/人/年</td><td>¥80万/人</td><td>入职当月</td></tr>
+        <tr><td>网络安全险</td><td>安联</td><td>¥10,000-20,000</td><td>¥500万(含数据泄露)</td><td>APP上线前</td></tr>
+        <tr><td>财产险</td><td>人保/太保</td><td>¥3,000-5,000</td><td>仓库+办公设备</td><td>仓库启用后</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：风险仪表盘(Metabase免费BI看板)</h3>
+    <div class="case-box">
+      <div class="case-title">用Metabase搭建风险看板</div>
+      <div class="case-body">docker run -p 3000:3000 metabase/metabase 连接MySQL风险库。3个Dashboard：①风险热力图——散点图S(纵轴)vsO(横轴)，P0标红。②里程碑进度——甘特图展示实际vs计划。③现金流——折线图展示Burn Rate和Runway。每周一自动邮件给管理层。</div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">核心风险</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">5 大领域</div>
+        <div style="font-size:12px;color:#64748b">竞争/技术/合规/续费率/供应链</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">产品责任险</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">¥200万/次</div>
+        <div style="font-size:12px;color:#64748b">年产费¥8,000-15,000</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">战略阶段</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">4 阶段</div>
+        <div style="font-size:12px;color:#64748b">快速上市→订阅变现→自研→平台化</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">应急响应</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">5-15 分钟</div>
+        <div style="font-size:12px;color:#64748b">宕机5分钟内响应</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="07-regulations.html"><i class="fas fa-arrow-left"></i> 政策法规</a>

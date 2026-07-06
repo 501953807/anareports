@@ -79,6 +79,40 @@
     </ul>
 
     <div class="chart-container" id="chart-cash-intensive"></div>
+
+    <h2 class="section-subtitle">合规操作指南：现金密集型行业客户AML审查SOP</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-store"></i> 商业银行对CIB(Cash-Intensive Business)客户的尽调流程</div>
+      <div class="tip-body">
+        <p>现金密集型企业是Smurfing(结构化存款)和TBML的重灾区。以下是银行合规官的标准操作程序。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>客户准入尽调：</strong>对申请对公账户的现金密集型企业，执行强化尽调(EDD)。(a)实地访查经营场所(拍照+GPS定位)；(b)核实营业执照经营范围与实际业务的匹配度；(c)评估"声称的日营业额"与"同行业平均值"的比例——超标2倍以上的必须要求额外证明材料。</li>
+      <li><strong>现金申报合规检查(CTR/STR)：</strong>确认客户理解并遵守现金交易报告义务。(a)美国：单笔或多笔关联交易≥$10,000需填CTR(现金交易报告)， Structured deposits < $10,000 需填 SAR(suspicious activity report)；(b)中国：单笔≥¥50,000或当日累计≥¥200,000需大额交易报告。</li>
+      <li><strong>现金收入合理性建模：</strong>运用以下公式计算"合理现金收入上限"：合理上限 = (客流量 × 平均客单价 × 现金支付比例) + 季节性浮动系数(±20%)。实际现金收入持续高于合理上限≥30% → 触发预警。</li>
+      <li><strong>行业基准对比：</strong>接入FATF行业基准数据库或各国FIU发布的行业数据，比对以下指标：(a) 餐饮业的"现金收入/营业面积"比率(通常$200-$800/㎡/月)；(b) 自助洗衣店的"现金收入/洗衣机台数"比率(通常$500-$2000/台/月)；(c) 停车场的"现金收入/车位数"比率。</li>
+      <li><strong>Smurfing(跑分人员)检测：</strong>分析存款人员模式：(a) 同一账户出现≥5个不同存款人；(b) 存款时间在早市/午休/晚市高峰期集中；(c) 存款金额呈规律性分布($9,500/$9,800——刻意接近$10k门槛)。以上任一模式 → 标记"疑似Smurfing"。</li>
+      <li><strong>STR编制与上报：</strong>对确认可疑的CIB客户，编制STR报告，内容应包括：现金收入模型计算过程、行业基准对比数据、存款人员模式分析、以及建议的账户控制措施(降低存款上限/要求转账替代/关闭账户)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">现金密集型企业风险检测清单</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:30%">检测维度</th><th style="width:40%">红旗信号(触发调查)</th><th style="width:30%">评分</th></tr></thead>
+      <tbody>
+        <tr><td>现金收入合理性</td><td>月现金存款 > 同行业坪效/人均产值均值 3倍以上</td><td>15分</td></tr>
+        <tr><td>存款行为模式</td><td>多存款人、固定金额(如$9,500)、固定时间段</td><td>15分</td></tr>
+        <tr><td>客户资质匹配</td><td>注册地址为虚拟办公室/居民楼，与实际经营规模不符</td><td>10分</td></tr>
+        <tr><td>交易对手异常</td><td>与高风险司法管辖区的公司有贸易往来(如BVI/塞舌尔)</td><td>10分</td></tr>
+        <tr><td>现金流突增</td><td>连续3个月平稳后突然月收入增长≥200%</td><td>15分</td></tr>
+        <tr><td>账户行为</td><td>收到资金后当日或次日全额转出(不留余额)</td><td>15分</td></tr>
+        <tr><td>税务申报不一致</td><td>银行存款金额与税务申报收入差异≥30%</td><td>10分</td></tr>
+        <tr><td>员工规模</td><td>声称月营收$50万但申报全职员工<3人</td><td>10分</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2" style="font-weight:600;text-align:right">总分 ≥ 50 分：</td><td style="color:var(--red);font-weight:700">提交STR + EDD 实地核查</td></tr></tfoot>
+    </table>
+
+    <div class="chart-container" id="chart-cash-intensive"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="15-shell-company.html"><i class="fas fa-arrow-left"></i> 离岸空壳</a>

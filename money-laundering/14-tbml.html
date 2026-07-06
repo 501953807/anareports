@@ -82,6 +82,57 @@
     </ul>
 
     <div class="chart-container" id="chart-tbml"></div>
+
+    <h2 class="section-subtitle">合规操作指南：TBML(贸易洗钱)银行筛查SOP</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-file-invoice-dollar"></i> 贸易金融部门的AML审查流程</div>
+      <div class="tip-body">
+        <p>TBML是银行贸易金融部门最大的合规盲区。以下六步筛查流程符合FATF Trade-Based Money Laundering 2024指南。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>发票价格比对：</strong>对每笔进口信用证(L/C)和商业发票，调用第三方大宗商品价格数据库(Platts/Bloomberg/Reuters)进行实时价格比对。偏离基准价>±10%触发黄色警报，>±20%触发红色警报并暂缓付款。</li>
+      <li><strong>贸易路线合理性校验：</strong>构建"商品-产地-目的国"知识库。例如：瑞士出口煤炭至越南→异常(瑞士非产煤国)；索马里出口木炭至迪拜→正常。使用规则引擎自动匹配ISIC行业分类和UN Comtrade贸易数据库。</li>
+      <li><strong>单据一致性审查：</strong>对信用证项下全套单据(发票/提单/装箱单/原产地证/检验证)执行交叉比对。重点检测：(a)发票日期与提单日期倒挂；(b)装箱单毛重与船运Manifest不符；(c)原产地证签发机构不在官方认可名单。</li>
+      <li><strong>交易对手筛查：</strong>将进出口商名称逐一对照World-Check制裁名单、PEP名单、以及已知离岸空壳公司数据库(OpenCorporates)。使用模糊匹配(编辑距离≤2)捕获"ABC Trading LLC"与"Abc Trading Incorporated"等同名变体。</li>
+      <li><strong>交易频率与时序异常：</strong>检测以下模式：(a)同一买方在30天内≥5次进口同类高价值商品，单价逐次递增；(b)出口订单集中在月底/季末(人为冲量)；(c)同一艘船在不同提单中重复使用(AIS关闭/"船舶公海转运")。</li>
+      <li><strong>STR编制与上报：</strong>对确认可疑的TBML交易，按FATF建议起草STR报告。必须包含：涉案公司UBO信息、商品HS编码及申报价格、实际市场价格偏离百分比、全套贸易单据扫描件、与已知TBML手法(高报/低报/虚假)的对应分析。</li>
+    </ol>
+
+    <h2 class="section-subtitle">TBML高风险行业与商品筛查清单</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:20%">行业</th><th style="width:30%">高风险商品(HS编码)</th><th style="width:25%">主要洗钱手法</th><th style="width:25%">执法关注等级</th></tr></thead>
+      <tbody>
+        <tr><td>贵金属</td><td>7108(黄金)/7106(银)/7102(铂金)</td><td>高报纯度/重量，虚假进出口</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>纺织品</td><td>50-63章(丝绸/棉/化纤)</td><td>低报出口价值(资金入境)</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>电子产品</td><td>84-85章(芯片/手机/电脑)</td><td>质量操纵(高报等级低交劣品)</td><td>⭐⭐⭐</td></tr>
+        <tr><td>农产品</td><td>10-12章(谷物/豆类/油籽)</td><td>重复报关/虚增数量</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>木材</td><td>44章(原木/半成品)</td><td>虚假原产地证(非法木材洗白)</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>钻石/宝石</td><td>7102-7104(钻石/半宝石)</td><td>低报克拉/净度/颜色等级</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>化工品</td><td>28-38章(有机/无机化学品)</td><td>价格操纵(标准化程度高难定价)</td><td>⭐⭐⭐</td></tr>
+        <tr><td>海鲜</td><td>03章(鱼/甲壳类)</td><td> IUU捕捞(非法渔获洗白入主流市场)</td><td>⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">实务工具：TBML检测软件与数据源</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-database"></i> 贸易金融AML技术栈</div>
+      <div class="tip-body">
+        <p>以下工具和数据源是当前银行业TBML检测的主流方案。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>工具/数据源</th><th>类型</th><th>核心能力</th><th>参考价格</th></tr></thead>
+      <tbody>
+        <tr><td>Dow Jones Risk & Compliance</td><td>商业软件</td><td>Trade Flow analytics + 制裁筛查 + UBO穿透</td><td>$200-500k/年</td></tr>
+        <tr><td>Refinitiv World-Check</td><td>数据API</td><td>PEP/制裁/负面新闻数据库，模糊匹配引擎</td><td>$100-300k/年</td></tr>
+        <tr><td>Platts / Bloomberg Commodities</td><td>价格数据</td><td>实时大宗商品基准价格，用于发票偏离度检测</td><td>$50-150k/年</td></tr>
+        <tr><td>OpenCorporates API</td><td>公司注册数据</td><td>全球2亿+公司注册信息查询，UBO关联</td><td>$10-50k/年</td></tr>
+        <tr><td>Actimize (IBM)</td><td>综合AML套件</td><td>贸易金融+传统AML+制裁筛查一体化</td><td>$500-2M/年</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-tbml"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="13-defend-exploit.html"><i class="fas fa-arrow-left"></i> 链上犯罪</a>

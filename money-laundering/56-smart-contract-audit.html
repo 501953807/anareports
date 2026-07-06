@@ -103,6 +103,119 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">DeFi协议审计合规SOP — 交易所如何评估DeFi对手方</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">第一阶段：尽职调查（Onboarding前）</h3>
+    <ol class="steps-list">
+      <li><strong>审计历史核查：</strong>查询目标协议是否经过至少2家顶级审计公司（ConsenSys Diligence / Trail of Bits / OpenZeppelin）的审计。核查审计报告发布日期，超过12个月需追加审查。</li>
+      <li><strong>漏洞修复确认：</strong>审计发现的Critical和High级别问题必须有明确的修复时间和状态。使用 Immunefi 或 ConsenSys Sigil 漏洞赏金平台确认无未披露漏洞。</li>
+      <li><strong>治理机制评估：</strong>协议是否有有效的治理机制？多签钱包的签署者数量？是否有 timelock（时间锁）？治理代币集中度是否过高（前10地址持有超30%为高风险）。</li>
+      <li><strong>合约源码验证：</strong>确认证符已在 Etherscan/BscScan 上验证，且部署代码与审计通过的代码一致（使用 Sourdav 或 Sourcify 校验）。</li>
+      <li><strong>链上资金流向分析：</strong>使用 Chainalysis Reactor 或 TRM Labs 扫描协议地址池，确认无涉黑/涉诈/涉制裁地址。对 USDT/USDC 大额流出设置实时告警。</li>
+    </ol>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 实操建议：建立 DeFi 对手方风险评分卡</div>
+      <div class="tip-body">
+        以下评分体系可供参考：审计评分(0-25) + 治理评分(0-20) + 链上安全评分(0-20) + 流动性安全评分(0-15) + 合规合作记录(0-20)。总分≥80为绿灯（可合作），60-79为黄灯（限制额度），<60为红灯（禁止接入）。每季度更新一次评分。
+      </div>
+    </div>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">第二阶段：持续监控（Post-Audit）</h3>
+    <table class="data-table">
+      <thead><tr><th>监控项</th><th>频率</th><th>工具推荐</th><th>告警阈值</th></tr></thead>
+      <tbody>
+        <tr><td>合约代码变更（Proxy升级）</td><td>实时</td><td>OpenZeppelin Defender / Forta</td><td>任何 upgradeTx 触发告警</td></tr>
+        <tr><td>大额资金流出</td><td>实时</td><td>Chainalysis / MNTL</td><td>单笔 > $500K 或 24h 累计 > $2M</td></tr>
+        <tr><td>新地址与协议交互</td><td>每日</td><td>Dune Analytics / Nansen</td><td>检测到已知黑名单地址</td></tr>
+        <tr><td>治理提案投票</td><td>每次提案</td><td>Tally / Snapshot</td><td>异常高票通过或低参与度提案</td></tr>
+        <tr><td>TVL（锁仓价值）异常变动</td><td>每日</td><td>DefiLlama</td><td>24h 跌幅 > 30%</td></tr>
+        <tr><td>审计公司发布新漏洞公告</td><td>每周复查</td><td>审计公司博客 / DeFi Security Alerts</td><td>涉及已合作协议的同类漏洞</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">持续监控检查清单（打印版）</h3>
+    <div class="grid-2">
+      <div class="card">
+        <p style="font-size:13px"><input type="checkbox"> [ ] 今日无 Proxy 合约升级事件</p>
+        <p style="font-size:13px"><input type="checkbox"> [ ] 所有 TVL 变动在合理范围内（±10%/日）</p>
+        <p style="font-size:13px"><input type="checkbox"> [ ] 无 Critical/High 级别新漏洞公告涉及本协议</p>
+        <p style="font-size:13px"><input type="checkbox"> [ ] 多签钱包签署者列表未变更</p>
+      </div>
+      <div class="card">
+        <p style="font-size:13px"><input type="checkbox"> [ ] 本周链上分析筛查无新增黑名单命中</p>
+        <p style="font-size:13px"><input type="checkbox"> [ ] 治理代币持仓集中度无显著变化</p>
+        <p style="font-size:13px"><input type="checkbox"> [ ] Forta Bot 网络无告警</p>
+        <p style="font-size:13px"><input type="checkbox"> [ ] 审计公司续签/续约在有效期内</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">如何选择审计公司：关键指标与红旗</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--green)">
+        <h3 style="color:var(--green);font-size:14px"><i class="fas fa-check-circle"></i> 选择标准（关键指标）</h3>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>审计师是否具有<strong>实战 exploit 背景</strong>（曾发现真实漏洞者优先）</li>
+          <li>是否提供<strong>持续监控服务</strong>（非一次性审计）</li>
+          <li>审计报告的<strong>详细程度</strong>：应包含代码行覆盖、 fuzzing 测试、形式化验证结果</li>
+          <li>是否具备<strong>同类协议审计经验</strong>（ lending / DEX / vault / bridge 各有不同风险面）</li>
+          <li>审计团队的<strong>人员稳定性</strong>：频繁换人的团队需警惕</li>
+          <li>是否公开<strong>历史审计项目与被黑记录</strong>（透明度是关键信任指标）</li>
+          <li>报价中是否包含<strong>紧急响应服务</strong>（发现严重漏洞后的 48h 内修复支持）</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--red)">
+        <h3 style="color:var(--red);font-size:14px"><i class="fas fa-flag"></i> 红旗预警（遇到即拒绝）</h3>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li><strong>24h 内交付完整审计报告</strong> — 不可能做深度审查</li>
+          <li><strong>从不失败记录</strong> — 要么隐瞒要么造假</li>
+          <li><strong>无法提供审计方法论</strong> — 纯黑盒收费</li>
+          <li><strong>同一审计师负责超过5个项目同时审计</strong> — 资源不匹配</li>
+          <li><strong>审计报告无具体代码行号和修复建议</strong> — 敷衍了事</li>
+          <li><strong>拒绝提供审计覆盖率报告</strong> — 隐藏盲点</li>
+          <li><strong>与协议方存在利益绑定</strong>（接受代币支付作为主要收入）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">实操工具箱</h2>
+    <div class="grid-3" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="data-card">
+        <div class="value" style="font-size:16px">CertiK Skynet</div>
+        <div class="label">实时监控仪表盘<br/>覆盖2000+ DeFi协议<br/>免费+付费版本<br/><a href="https://www.certik.com/skynet" target="_blank" style="color:var(--cyan)">certik.com/skynet</a></div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px">OpenZeppelin Defender</div>
+        <div class="label">自动化守护 + 多签管理<br/>告警 + 应急开关<br/>开发者API集成<br/><a href="https://defender.openzeppelin.com/" target="_blank" style="color:var(--cyan)">defender.openzeppelin.com</a></div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px">Forta Bot Network</div>
+        <div class="label">去中心化Bot网络<br/>社区贡献检测脚本<br/>实时链上告警<br/><a href="https://forta.network/" target="_blank" style="color:var(--cyan)">forta.network</a></div>
+      </div>
+    </div>
+    <div class="grid-3" style="grid-template-columns: repeat(3, 1fr); margin-top:12px;">
+      <div class="data-card">
+        <div class="value" style="font-size:16px">Immunefi</div>
+        <div class="label">最大Web3漏洞赏金平台<br/>累计赔付超$3亿<br/>支持在线提交漏洞<br/><a href="https://immunefi.com/" target="_blank" style="color:var(--cyan)">immunefi.com</a></div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px">Chainabuse</div>
+        <div class="label">链上滥用行为数据库<br/>标记已知恶意合约<br/>API可集成到内部系统<br/><a href="https://chainabuse.com/" target="_blank" style="color:var(--cyan)">chainabuse.com</a></div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px">De.Fi Scanner</div>
+        <div class="label">一站式协议扫描<br/>安全评分 + 审计报告聚合<br/>支持多链<br/><a href="https://de.fi/scanner/" target="_blank" style="color:var(--cyan)">de.fi/scanner</a></div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:20px">
+      <div class="tip-title"><i class="fas fa-shield-alt"></i> 合规提醒：交易所接入DeFi协议的监管要求</div>
+      <div class="tip-body">
+        根据FATF 2025最新指引，金融机构接入DeFi协议被视为"加密资产服务提供"(VASP)行为。这意味着：<br>
+        1) 必须对协议进行事前风险评估并留存记录；2) 建立持续的链上监控系统；3) 发现协议被标记为高风险时应立即断开连接；4) 定期向监管机构报告DeFi风险敞口。未合规的交易所可能面临与洗钱等同等的处罚。
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-audit"></div>
   </main>
   <footer class="page-footer">

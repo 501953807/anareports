@@ -119,6 +119,94 @@
     </table>
 
     <div class="chart-container" id="chart-cert"></div>
+
+    <h2 class="section-subtitle">实操：全球认证落地手册 — 从送样测试到获证上市</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：如何选择认证实验室(3家报价对比法)</h3>
+    <ol class="steps-list">
+      <li><strong>列出候选实验室：</strong>TUV Rheinland(德国，全球认可度高)、SGS(瑞士，费用中等)、Intertek(英国，北美强)、CTI华测检测(中国本土，价格最低)。</li>
+      <li><strong>发RFQ邮件：</strong>将产品规格书(BOM清单+电路图+用户手册英文版+照片)打包发PDF，要求对方在5个工作日内报含"测试项目+费用+周期"的详细报价单。</li>
+      <li><strong>比价维度：</strong>不仅比价格，还要看：是否具备目标实验室资质(TUV有FCC授权实验室、SGS有CE公告机构编号)、是否能做一站式打包认证(降低转场费用)、是否提供预审服务(免费初检后再正式送样)。</li>
+      <li><strong>送样要求：</strong>准备3台工程样板(ENGN样机，非最终外壳) + 1台预生产样机(PVT样机)用于最终验证。每台约¥2,000(含PCBA+结构+包装)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：FCC认证实操全流程(20天时间表)</h3>
+    <table class="data-table">
+      <thead><tr><th>天数</th><th>动作</th><th>交付物</th></tr></thead>
+      <tbody>
+        <tr><td>Day 1-2</td><td>签订服务协议、付款、寄送样机</td><td>服务合同 + 样机</td></tr>
+        <tr><td>Day 3-5</td><td>预扫描(Pre-scan)：在实验室做射频传导+辐射测试，找出超标频段</td><td>Pre-scan报告(内部文件)</td></tr>
+        <tr><td>Day 6-8</td><td>整改(Design Change)：根据Pre-scan结果调整屏蔽罩/滤波器/天线位置</td><td>整改记录文档</td></tr>
+        <tr><td>Day 9-12</td><td>正式测试：FCC Part 15B(EMC) + Part 15C/247(射频)</td><td>测试原始数据</td></tr>
+        <tr><td>Day 13-15</td><td>编制Technical Report + Declaration of Conformity</td><td>FCC文件包</td></tr>
+        <tr><td>Day 16-18</td><td>在TCG系统(telecom-granting-system)提交SDoC</td><td>GRANT编号</td></tr>
+        <tr><td>Day 19-20</td><td>获得FCC Grant，贴FCC标志到产品外包装</td><td>FCC ID证书PDF</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">FCC SDoC vs Certification</div>
+      <div class="tip-body">BLE 5.0和GPS模块用的是SSC(Supportedradiatedsource_class)，适用SDoC(Self-Declaration of Conformity)，只需企业自行测试+存档，不需FCC官方审批，省时2-4周。如果是WiFi 6(2.4GHz)则需要Certification走官方审批。我们的混合方案里WiFi部分走Certification、BLE/GPS走SDoC。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：CE-RED认证实操(EN 300 328/EN 301 908清单)</h3>
+    <ol class="steps-list">
+      <li><strong>测试标准确认：</strong>BLE 5.0 → EN 300 328 V3.2.1。WiFi → EN 301 893 V2.2.1。Cat1 → EN 301 908 V14.3.1。</li>
+      <li><strong>安规测试：</strong>EN 62368-1(音视频/IT设备安全) —— 电池仓设计、绝缘距离、温升测试。</li>
+      <li><strong>EMC测试：</strong>EN 55032(辐射骚扰)、EN 55035(抗扰度)。用TEM小室(Biotic或EMC Institute)测手环辐射，用静电枪(±8kV接触/±15kV空气)测抗扰度。</li>
+      <li><strong> Declaration of Conformity(DoC)起草：</strong>CE标志+DoC文件必须随产品一起提供给欧盟海关和市场监管机构。用EU官方模板写，附上测试报告和关键部件清单(FCC ID/BLE SIG UID)。</li>
+      <li><strong>时间线和费用：</strong>SGS/Intertek中国分公司可做CE-RED一站式测试，约€4,000-6,000、4-6周。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：SRRC无线电型号核准申请</h3>
+    <table class="data-table">
+      <thead><tr><th>项目</th><th>详情</th></tr></thead>
+      <tbody>
+        <tr><td>申请机构</td><td>工业和信息化部无线电管理局 → 测试机构为中国泰尔实验室(Testlab China)</td></tr>
+        <tr><td>所需资料</td><td>①申请表 ②技术手册(方块图/原理图/频谱图) ③外部照片(正/侧/背面，含标签位置) ④用户手册 ⑤内部照片(主板+天线)</td></tr>
+        <tr><td>测试项目</td><td>发射功率、频率偏差、带外发射、杂散辐射、Receiver blocking</td></tr>
+        <tr><td>周期</td><td>正规流程12周(含补测)；加急通道4-6周(费用+50%)</td></tr>
+        <tr><td>费用</td><td>¥15,000-30,000(含测试费+代理服务费)</td></tr>
+        <tr><td>有效期</td><td>长期有效(除非技术标准变更要求重新测试)</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：UN38.3锂电池运输认证(8项测试+报告)</h3>
+    <ol class="steps-list">
+      <li><strong>送样要求：</strong>3个完整电池样品 + 3个保护样品(包装好后)。每个样品需有UL/cUL/CE认证(如果电芯已有认证可跳过)。</li>
+      <li><strong>8项测试内容：</strong>(1)高度模拟(11.3kPa, 6h) (2)温度循环(-40°C↔72°C, 10 cycles) (3)振动(5-500Hz, 12h) (4)冲击(15g, 6ms, 3axes×3) (5)外短接(外部短路1分钟, 外壳温升<170°C) (6)撞击(13.8kg重物从60cm落下) (7)过充(120%额定容量) (8)强制放电。</li>
+      <li><strong>测试合格后：</strong>获得UN38.3测试摘要(Summary) + 测试机构盖章报告。将此报告放入出口报关文件。</li>
+      <li><strong>航空运输文件：</strong>(1)Shipper's Declaration for Dangerous Goods (2)Cargo Aircraft Only Label (如适用) (3)UN 38.3 Summary (4) MSDS化学品安全数据表。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：RoHS 3.0环保材料筛选(测试标准件对照表)</h3>
+    <table class="data-table">
+      <thead><tr><th>限制物质</th><th>限值(ppm)</th><th>常见来源</th><th>替代方案</th></tr></thead>
+      <tbody>
+        <tr><td>Pb(铅)</td><td>1,500</td><td>焊锡、电镀层、玻璃(屏幕)</td><td>无铅焊锡(SnAgCu)、水性电镀</td></tr>
+        <tr><td>Hg(汞)</td><td>1,000</td><td>背光灯管(不用)、开关</td><td>LED背光、机械开关</td></tr>
+        <tr><td>Cd(镉)</td><td>100</td><td>颜料(红色/橙色塑料)</td><td>改用无机颜料</td></tr>
+        <tr><td>Cr6+(六价铬)</td><td>1,000</td><td>金属镀层钝化</td><td>三价铬钝化或锌镍合金</td></tr>
+        <tr><td>PBB/PBDE</td><td>1,000</td><td>阻燃剂(PCB板/线缆胶皮)</td><td>卤素-free阻燃材料</td></tr>
+        <tr><td>DIBP/BBP/DBP(DEHP)</td><td>1,000(每项)</td><td>邻苯增塑剂(硅胶表带/线缆)</td><td>TPU或液态硅胶(LSR)</td></tr>
+        <tr><td>DINP/DIDP/DNOP</td><td>1,000(每项)</td><td>新增4项邻苯(塑料外壳涂层)</td><td>无邻苯ABS材料</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：认证并行时间表(最优路径——12周内拿到中国上市证)</h3>
+    <table class="data-table">
+      <thead><tr><th>周</th><th>CTA入网许可</th><th>SRRC</th><th>UN38.3</th><th>CCC</th></tr></thead>
+      <tbody>
+        <tr><td>W1-W2</td><td>提交申请+送样</td><td>签订协议+送样</td><td>—</td><td>—</td></tr>
+        <tr><td>W3-W4</td><td>EMC测试+射频测试</td><td>预扫描+整改</td><td>送检电池+开始8项测试</td><td>提交资料+型式检验</td></tr>
+        <tr><td>W5-W6</td><td>拿到测试报告+获批</td><td>正式测试</td><td>完成全部8项测试</td><td>工厂审查(如适用)</td></tr>
+        <tr><td>W7-W8</td><td>张贴CTA标志</td><td>拿到核准证+编码</td><td>拿到UN报告</td><td>拿到CCC证书</td></tr>
+        <tr><td>W9-W12</td><td colspan="4">整理全套认证文件 → 制作产品包装 → 准备电商上架资料 → 量产发货</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">认证省钱技巧</div>
+      <div class="tip-body">手环和药盒共用同一个射频模块(Cat1+BLE 5.0)的话，可以把两个产品合并申请一个SRRC编码(称为"同一型号的不同配置")，省30%测试费。UN38.3的电池如果用的都是同一家(德赛/欣旺达)的已认证电芯，只需做系统级测试(不含电芯重复测试)，费用减半。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：出海认证额外准备(欧美日)</h3>
+    <ol class="steps-list">
+      <li><strong>欧洲EPR注册：</strong>在德国( packaging registry/EPR )和法国( Adelphe )分别注册生产者责任延伸号。注册号印在产品包装上。费用约€500-1,000/年/国家，交给回收组织(Eco-emballages)。</li>
+      <li><strong>蓝牙SIG认证：</strong>在 bluetooth.com 注册Developper账号 → 申请Product UUID → 提交一致性测试报告 → 拿到 certification number (印在手环包装盒背面)。</li>
+      <li><strong>美国FCC SDoC + 加州Prop 65：</strong>FCC已在上面流程覆盖。Prop 65需要检测产品中的铅/邻苯含量是否超过safe harbor level，并在产品上贴警告标签(如果超标)。</li>
+      <li><strong>日本TELEC + P-mark：</strong>总务省认证 + 节能标识。需在日本本地代理(Gitec或TSS)代为申请。周期6-8周，费用约¥200,000。</li>
+    </ol>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="29-partnership-hospital.html"><i class="fas fa-arrow-left"></i> 医院合作</a>

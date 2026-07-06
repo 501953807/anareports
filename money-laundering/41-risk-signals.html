@@ -59,6 +59,55 @@
     </div>
 
     <div class="chart-container" id="chart-risk-signals"></div>
+
+    <h2 class="section-subtitle">合规操作指南：建立AML风险信号检测规则库</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-code"></i> 将风险信号转化为可执行的监控规则</div>
+      <div class="tip-body">
+        <p>以下是将红旗信号转化为交易监测规则引擎具体规则的实操方法，适用于SQL/DataBricks/Flink环境。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>规则1——结构化交易检测(Smurfing)：</strong>SELECT customer_id, DATE_TRUNC('day', transaction_date) AS txn_day, COUNT(DISTINCT CASE WHEN amount BETWEEN threshold_min AND threshold_max THEN transaction_id END) AS near_threshold_txns FROM transactions GROUP BY customer_id, txn_day HAVING near_threshold_txns >= 5 AND near_threshold_txns / COUNT(*) >= 0.3。解释：客户单日≥30%的交易金额落在阈值附近(如美国$8,000-$9,999或中国¥40,000-¥49,999)。</li>
+      <li><strong>规则2——快进快出(水房归集)：</strong>SELECT account_id, SUM(incoming_amount) as total_in, AVG(TIMESTAMPDIFF(SECOND, first_in_time, first_out_time)) AS avg_balance_hours FROM (SELECT * FROM daily_balances WHERE balance_at_eod <= daily_inflow * 0.05) WHERE avg_balance_hours <= 24。解释：账户日均留存时间≤24h且当日结束时余额≤当日流入的5%。</li>
+      <li><strong>规则3——夜间异常活跃：</strong>SELECT customer_id, COUNT(*) AS night_txns FROM transactions WHERE HOUR(transaction_time) BETWEEN 23 AND 5 GROUP BY customer_id HAVING night_txns / total_txns >= 0.4。解释：夜间(23:00-05:00)交易占比≥40%的客户标记异常。</li>
+      <li><strong>规则4——多对一资金归集：</strong>SELECT recipient_account, COUNT(DISTINCT sender_account) AS unique_senders, SUM(amount) AS total FROM transactions WHERE transaction_date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) GROUP BY recipient_account HAVING unique_senders >= 10 AND total > base_income * 5。解释：7天内≥10个不同付款人向同一账户转账且总额超客户基准收入5倍以上。</li>
+      <li><strong>规则5——加密地址风险接触：</strong>SELECT wallet_address, chain, risk_score FROM chainalysis_risk_api WHERE risk_score >= 50 AND last_seen_days_ago <= 30。解释：最近30天内与风险评分≥50的链上地址发生过交易的钱包地址。</li>
+    </ol>
+
+    <h2 class="section-subtitle">风险信号优先级排序矩阵</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:15%">优先级</th><th style="width:25%">风险信号类别</th><th style="width:20%">建议响应时限</th><th style="width:20%">自动处理动作</th><th style="width:20%">人工复核要求</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--red)">P0</td><td>制裁名单命中/OFAC匹配</td><td>即时(≤1分钟)</td><td>自动冻结交易</td><td>MLRO 24h内确认</td></tr>
+        <tr><td style="color:var(--red)">P0</td><td>混币器地址直接关联</td><td>即时(≤1分钟)</td><td>禁止充提+标记</td><td>合规分析师1h内审查</td></tr>
+        <tr><td style="color:var(--orange)">P1</td><td>结构化交易(Smurfing)</td><td>T+1(次日)</td><td>降额+增强KYC</td><td>合规分析师48h内审查</td></tr>
+        <tr><td style="color:var(--orange)">P1</td><td>多对一归集模式</td><td>T+1</td><td>触发EDD流程</td><td>MLRO 72h内出具报告</td></tr>
+        <tr><td style="color:var(--gold)">P2</td><td>夜间高频交易</td><td>T+3</td><td>标记观察名单</td><td>合规分析师1周内复核</td></tr>
+        <tr><td style="color:var(--gold)">P2</td><td>FPATF高风险管辖区交易</td><td>T+3</td><td>增强记录留存</td><td>EDD流程</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">实务工具：风险信号检测软件栈</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-server"></i> 信号检测技术架构推荐</div>
+      <div class="tip-body">
+        <p>以下是构建风险信号检测系统的主流技术栈选择。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>功能层</th><th>开源方案</th><th>商业方案</th><th>适用场景</th></tr></thead>
+      <tbody>
+        <tr><td>流式数据采集</td><td>Apache Kafka + Flink</td><td>AWS Kinesis</td><td>实时交易流接入，毫秒级延迟</td></tr>
+        <tr><td>规则引擎</td><td>Drools / EasyRules</td><td>FICO Blaze Advisor</td><td>硬编码阈值规则(结构化/夜间交易)</td></tr>
+        <tr><td>机器学习检测</td><td>Scikit-learn / PyTorch (GNN)</td><td>Actimize AML (IBM)</td><td>行为基线模型/异常集群检测</td></tr>
+        <tr><td>链上分析</td><td>开源UTXO追踪脚本</td><td>Chainalysis Reactor / TRM Labs API</td><td>加密货币地址风险标签和路径分析</td></tr>
+        <tr><td>情报数据</td><td>OFAC/UN制裁名单RSS</td><td>Refinitiv World-Check / Dow Jones</td><td>外部制裁/PEP/负面新闻数据</td></tr>
+        <tr><td>SAR/STR报表</td><td>自研报表生成器</td><td>Actimize / SAS AML / Nice Actimize</td><td>可疑报告自动生成+电子提交</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-risk-signals"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="40-timeline.html"><i class="fas fa-arrow-left"></i> 执法时间线</a>

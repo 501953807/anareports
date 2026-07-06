@@ -80,6 +80,100 @@
       <li style="padding:6px 0"><span style="color:var(--orange);margin-right:8px">●</span> <strong>核心难点：</strong>100-500个中间账户、3种币种、2-8周时间跨度、每步伪装正常交易</li>
     </ul>
 
+    <h2 class="section-subtitle">电诈资金追踪SOP — 执法与合规的标准操作流程</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">黄金4小时快速冻结流程</h3>
+    <ol class="steps-list">
+      <li><strong>接警与信息收集（T+0min）：</strong>受害者报案后，警方第一时间采集：受害者银行账户/支付宝/微信支付账号、诈骗平台URL、对方收款账户号码、转账时间、转账金额、聊天截图（含诈骗分子电话号码和社交账号）。关键：获取对方的<strong>银行卡号+姓名+开户行</strong>三位一体信息。</li>
+      <li><strong>快速止付（T+0-30min）：</strong>通过公安部电信网络诈骗案件侦查信息平台发起紧急止付。系统自动查询收款账户状态并冻结。必须在受害者转账后4小时内完成——黄金4小时原则。成功率：4小时内冻结约65%，超过24小时降至15%。</li>
+      <li><strong>二级/三级扩散冻结（T+30min-2h）：</strong>止付成功后，系统自动追踪资金流向。第一层（收款账户）冻结后，立即分析该账户的 inbound/outbound 交易，追溯资金是否已分流到二级账户，同步申请二级冻结。以此类推到第三层。</li>
+      <li><strong>链上资金追踪（如涉及crypto）：</strong>如果资金已转换为USDT/ETH，立即获取交易所的KYC记录。通过Chainalysis Reactor标记涉案地址，追踪到CEX存款地址后，向该CEX发送法律协查函要求冻结相关账户。</li>
+    </ol>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">东南亚水房打击的跨国协作SOP</h3>
+    <table class="data-table">
+      <thead><tr><th>环节</th><th>中方职责</th><th>东南亚合作机构</th><th>关键产出</th></tr></thead>
+      <tbody>
+        <tr><td><strong>情报共享</strong></td><td>提供境内资金流水、卡农信息</td><td>泰国FBI、菲律宾PCI、马来西亚BNM</td><td>跨境资金链路全貌</td></tr>
+        <tr><td><strong>窝点定位</strong></td><td>分析境外服务器日志、IP归属</td><td>当地警察+移民局</td><td>物理位置+人员名录</td></tr>
+        <tr><td><strong>联合抓捕</strong></td><td>外交渠道发出司法协助请求</td><td>当地警察执行抓捕</td><td>嫌疑人控制</td></tr>
+        <tr><td><strong>资产冻结</strong></td><td>境内账户冻结</td><td>境外银行账户/物业冻结</td><td>涉案资产保全</td></tr>
+        <tr><td><strong>证据固定</strong></td><td>境内通话记录/转账记录公证</td><td>境外服务器数据/evidence提取</td><td>跨境诉讼证据链</td></tr>
+        <tr><td><strong>资产返还</strong></td><td>依法启动返还程序</td><td>东南亚国家配合资产处置</td><td>受害者赔偿</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">银行检测P2P加密货币购买诈骗的Checklist</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--red)">
+        <h4 style="color:var(--red);font-size:14px;margin-bottom:8px">高风险信号 — 触发的必查项</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li><strong>新开户3天内</strong>即开始大额转账转出</li>
+          <li>客户年龄<25或>60岁（电诈高发人群）+ 首次大额交易</li>
+          <li>同一IP/MAC地址下多个账户注册并互转</li>
+          <li>深夜频繁小额转入、整块转出（结构化特征）</li>
+          <li>交易对手方为已知加密货币OTC商家（通过名称关键词+收款账户黑名单匹配）</li>
+          <li>客户职业与收入水平明显不符（如学生单笔转账>$50K）</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--orange)">
+        <h4 style="color:var(--orange);font-size:14px;margin-bottom:8px">强化尽调（EDD）触发条件</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>满足2项以上高风险信号 → 升级至EDD</li>
+          <li>EDD内容：要求客户提供资金来源证明、交易目的说明</li>
+          <li>安排面谈话术："请问您近两周通过什么平台进行了这几笔转账？对方是谁？"</li>
+          <li>如回答模糊/前后矛盾 → 立即上报STR并考虑临时冻结</li>
+          <li>同时查询该客户名下是否注册了OTC平台账户（对接第三方数据源）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">与东南亚FIU合作的实用指南</h2>
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">核心联络机构清单</h3>
+    <table class="data-table">
+      <thead><tr><th>国家</th><th>FIU名称</th><th>联系方式</th><th>合作经验</th></tr></thead>
+      <tbody>
+        <tr><td>柬埔寨</td><td>CAMFIU（ Cambodia Financial Intelligence Unit ）</td><td>通过公安部国际合作局对接</td><td>★★★ 四国联合执法框架下合作紧密</td></tr>
+        <tr><td>缅甸</td><td>MFIU（ Myanmar FIU under CBD ）</td><td>Egmont Group渠道</td><td>★★ 受当地局势影响较大</td></tr>
+        <tr><td>老挝</td><td>LAFIU（ Laos FIU under BOL ）</td><td>大湄公河次区域(GMS)警务合作机制</td><td>★★ 合作逐步加深</td></tr>
+        <tr><td>泰国</td><td>AMLO（ Anti-Money Laundering Office ）</td><td>中泰刑事司法协助条约渠道</td><td>★★★★ 合作最成熟的东南亚FIU</td></tr>
+        <tr><td>菲律宾</td><td>AMLC（ Anti-Money Laundering Council ）</td><td>Egmont Group + 中菲警务合作备忘录</td><td>★★★★ 在打击电诈窝点方面配合积极</td></tr>
+        <tr><td>马来西亚</td><td>FIU（ Bank Negara Malaysia ）</td><td>Egmont Group + MAS监管合作</td><td>★★★★ 对加密货币洗钱打击严格</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">情报请求的标准模板</h3>
+    <div class="tip-box" style="margin-top:12px">
+      <div class="tip-title"><i class="fas fa-envelope-open-text"></i> 跨境情报请求关键要素</div>
+      <div class="tip-body">
+        一份标准的跨境FIU情报请求应包含：<br>
+        1) <strong>案件编号与紧急程度</strong>（Normal/Urgent/Emergency — 紧急需48h内回应）<br>
+        2) <strong>涉案资金链路</strong>（从受害者账户→卡农账户→OTC→CEX deposit地址→水房账户）<br>
+        3) <strong>需要协助的具体事项</strong>（查冻境外账户/获取交易记录/协调抓捕/资产返还）<br>
+        4) <strong>法律依据</strong>（双边司法协助条约/MLAT/Egmont渠道）<br>
+        5) <strong>承诺保密条款</strong>（保障情报接收方的信息安全）
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">实操工具：Chainalysis Reactor东南亚钱包追踪</h2>
+    <ol class="steps-list">
+      <li><strong>获取涉案USDT地址：</strong>从受害者转账记录中提取OTC商家的USDT钱包地址（通常在USDT ERC20/TRC20链上）。注意TRC20和ERC20的USDT是不同的合约地址。</li>
+      <li><strong>Reactor追踪：</strong>将地址输入Chainalysis Reactor，点击"Follow transactions"。系统将自动生成资金流向图，最多追踪10跳。重点关注：汇聚点（aggregator wallet）——通常是一个集中管理多个用户资金的地址。</li>
+      <li><strong>实体识别：</strong>Reactor会自动标记已知实体（CEX: Binance/OKX/Bybit, mixer: Tornado Cash, OTC商家, 水房地址）。如果命中CEX存款地址，立即向该CEX发送协查函获取KYC信息。</li>
+      <li><strong>风险评分：</strong>对每个中间地址查看Risk Score。Score>50%的地址高度疑似与水房或混币器关联。按风险排序找到资金出口节点。</li>
+      <li><strong>导出证据包：</strong>Reactor可以生成PDF格式的证据报告（含资金流向图+地址清单+实体标签），直接用于国内立案和跨境司法协助。</li>
+    </ol>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-tools"></i> 其他推荐的追踪工具组合</div>
+      <div class="tip-body">
+        <strong>Etherscan + BscScan：</strong>免费的链上浏览器，适合初步确认地址余额和历史交易。可手动追踪3-5跳，之后效率大幅下降。<br>
+        <strong>Mempool.Space：</strong>比特币链上的地址追踪，适合追踪BTC来源的电诈资金（相比USDT更难拆分和混币）。<br>
+        <strong>ARO(Advanced Risk Objects)：</strong>Chainalysis的产品，通过行为聚类发现新的水房地址群体——即使地址本身不在已知列表中，其行为模式与水房相似也会被标记。<br>
+        <strong>Bubblemap：</strong>可视化地址间关联性（bubble map），特别适合发现由同一实际控制人控制的多个地址群。
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-sea-fraud"></div>
   </main>
   <footer class="page-footer">

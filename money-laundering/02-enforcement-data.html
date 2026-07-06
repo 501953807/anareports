@@ -104,6 +104,61 @@
     </table>
 
     <div class="chart-container" id="chart-cases"></div>
+
+    <h2 class="section-subtitle">合规操作指南：各国SAR/STR报送操作对照</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-file-alt"></i> 金融机构合规官必读：可疑交易报告全球框架</div>
+      <div class="tip-body">
+        <p>SAR(可疑活动报告)/STR(可疑交易报告)是AML合规的核心产出。不同司法管辖区的报送要求和格式差异很大。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>确定报送触发条件：</strong>满足以下任一情形即应启动内部STR流程：(a)交易无合理经济目的；(b)客户行为偏离已知基线(≥2σ)；(c)涉及OFAC/FATF制裁名单或FATF高风险管辖区；(d)交易模式疑似Structuring/Smurfing。</li>
+      <li><strong>内部情报聚合(Intelligence Gathering)：</strong>收集该客户过去12个月的完整交易快照、KYC档案更新记录、先前SAR报告(如有)、外部情报(制裁名单/PEP/负面新闻/World-Check命中)。</li>
+      <li><strong>撰写STR报告：</strong>按FIU模板填写：(a)主体信息——客户名称、地址、ID类型号码、职业/经营范围；(b)可疑活动描述——时间线、金额、涉及工具(银行转账/加密货币/贸易票据)；(c)涉嫌前置犯罪——FATF犯罪类型代码(如欺诈/毒品/腐败/TBML)；(d)影响评估——对机构声誉/合规风险的影响。</li>
+      <li><strong>内部审批流程：</strong>合规分析师提交初稿 → MLRO(反洗钱报告官)审核 → 合规总监批准。全程留痕，审批时限不超过5个工作日。</li>
+      <li><strong>按时限上报FIU：</strong>美国→FinCEN(日历年底，T+30天截止)；中国→AMLRC(可疑交易T+5个工作日)；英国→NCA(无时间限制但建议尽快，防止tipping-off)；新加坡→STRO(T+7天)；EU→各成员国FIU依本国法。</li>
+    </ol>
+
+    <h2 class="section-subtitle">全球主要司法管辖区FIU与报送要求对照</h2>
+    <table class="data-table">
+      <thead><tr><th>司法管辖区</th><th>FIU名称</th><th>报送时限</th><th>格式</th><th>在线平台</th></tr></thead>
+      <tbody>
+        <tr><td>美国</td><td>FinCEN</td><td>日历年底(T+30天)</td><td>SAR Form (OCR/JSON)</td><td>FinCEN eFiling portal</td></tr>
+        <tr><td>中国</td><td>AMLRC(反洗钱监测分析中心)</td><td>T+5个工作日</td><td>XML v3.1.1</td><td>中国反洗钱监测分析中心系统</td></tr>
+        <tr><td>英国</td><td>NCA(国家刑事调查局)</td><td>无强制时限(防 tipping-off)</td><td>Online report</td><td>NCA Intelligence Portal</td></tr>
+        <tr><td>新加坡</td><td>STRO(可疑交易办公室)</td><td>T+7天</td><td>STR online form</td><td>MAS FlashGuard / STRonline</td></tr>
+        <tr><td>德国</td><td>FIU Germany (Zentralstelle)</td><td>即时(immediately)</td><td>Elektronisch</td><td>FIU Portal</td></tr>
+        <tr><td>日本</td><td>VMATJ (金融情报中心)</td><td>T+5天</td><td>PDF/线上</td><td>VMATJ e-Filing</td></tr>
+        <tr><td>阿联酋</td><td>UIFIE</td><td>T+30天</td><td>Online form</td><td>UIFIE Portal</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">实务工具：STR撰写模板摘要</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-pen-fancy"></i> 标准STR模板字段</div>
+      <div class="tip-body">
+        <p>以下模板基于FinCEN SAR Form和组织原则，可供国内机构编写STR时参考。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th style="width:25%">字段类别</th><th style="width:20%">必填项</th><th style="width:55%">填写说明</th></tr></thead>
+      <tbody>
+        <tr><td>报告机构信息</td><td>是</td><td>机构名称/代码/地址/MLRO姓名和联系方式</td></tr>
+        <tr><td>报告对象(Subject)</td><td>是</td><td>姓名/公司名称/ID类型号码/国籍/职业/开户日期</td></tr>
+        <tr><td>关联人员</td><td>条件</td><td>受益所有人/董事/关联账户持有人(如有)</td></tr>
+        <tr><td>活动类型</td><td>是</td><td>选择FATF犯罪代码：Fraud/Drug/Corruption/TBML/Terror等</td></tr>
+        <tr><td>可疑活动描述</td><td>是</td><td>按时间线叙述：何时、何地、何种手法、涉及金额</td></tr>
+        <tr><td>交易金额</td><td>是</td><td>可疑交易总额+币种(USD/CNY/EUR等)</td></tr>
+        <tr><td>交易工具</td><td>是</td><td>银行转账/Crypto/Trade Finance/Cash/NFT/Other</td></tr>
+        <tr><td>关联地址</td><td>条件</td><td>涉及账号/钱包地址/SWIFT/BIC(如有)</td></tr>
+        <tr><td>是否已冻结账户</td><td>是</td><td>Yes/No。如已冻结说明原因和法律授权依据</td></tr>
+        <tr><td>是否此前申报过</td><td>是</td><td>是→附此前SAR编号。便于FIU做关联分析</td></tr>
+        <tr><td>附件</td><td>条件</td><td>交易流水/合同/发票/聊天记录/链上分析截图(可选)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-cases"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="01-global-scale.html"><i class="fas fa-arrow-left"></i> 全球规模</a>

@@ -93,6 +93,93 @@
     </table>
 
     <div class="chart-container" id="chart-batt-tech"></div>
+
+    <h2 class="section-subtitle">电池选购与更换实操：从铅酸到锂电的全面指南</h2>
+
+    <h3 class="subsection-title">一、铅酸 vs 锂电：你的车该用什么电池？</h3>
+    <table class="data-table">
+      <thead><tr><th>使用场景</th><th>推荐类型</th><th>理由</th><th>预算</th></tr></thead>
+      <tbody>
+        <tr><td><strong>外卖骑手</strong></td><td>铅酸(72V23Ah)</td><td>坏了就换不心疼、维修店随处可见、200元一组</td><td>400元/2年</td></tr>
+        <tr><td><strong>日常通勤</strong></td><td>锂电(48V20Ah)</td><td>可拎回家充电、重量轻、寿命长</td><td>800元/3-4年</td></tr>
+        <tr><td><strong>短途买菜</strong></td><td>铅酸(48V12Ah)</td><td>最便宜的选择、150元一组</td><td>300元/2年</td></tr>
+        <tr><td><strong>长续航需求</strong></td><td>锂电(72V32Ah铁锂)</td><td>铁锂安全+寿命长+能量密度高</td><td>1,500元/5年</td></tr>
+        <tr><td><strong>高性能电摩</strong></td><td>三元锂(72V40Ah+)</td><td>放电倍率高、动力猛、低温好</td><td>2,500元/3年</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">二、电池规格匹配五步法</h3>
+    <ol class="steps-list">
+      <li><strong>确认电压(V)：</strong>必须与原车一致。看原电池标签上的"V"数值，48V的车不能用60V电池，会烧电机控制器。如果电压不匹配，必须同时更换控制器。</li>
+      <li><strong>确认容量(Ah)：</strong>越大续航越长。原车48V12Ah可升级为48V20Ah或48V24Ah(前提是电池仓放得下)。容量提升50%≈续航提升50%。</li>
+      <li><strong>确认尺寸：</strong>量好电池仓的长宽高(单位mm)。锂电体积约为同容量铅酸的1/3，大多数车可以容纳更大的锂电。</li>
+      <li><strong>确认接口：</strong>铅酸电池用的是航空插头(圆形3针)；锂电用的是XT60/XT90(方形)。买锂电时确认插头与原车充电器匹配。</li>
+      <li><strong>确认BMS参数：</strong>BMS的持续放电电流必须大于电机额定电流。计算：电机功率÷电压=BMS最小电流。例：1,000W÷72V=13.9A，BMS至少选20A以上的。</li>
+    </ol>
+
+    <h3 class="subsection-title">三、电池识别：如何判断一块好电池？</h3>
+    <table class="data-table">
+      <thead><tr><th>识别维度</th><th>真品标识</th><th>翻新/假电池特征</th></tr></thead>
+      <tbody>
+        <tr><td><strong>外观</strong></td><td>外壳光洁无毛刺、标签印刷清晰</td><td>标签起翘、外壳有打磨痕迹</td></tr>
+        <tr><td><strong>重量</strong></td><td>铅酸48V12Ah约7.2kg(误差±0.3)</td><td>明显偏轻=少灌了电解液</td></tr>
+        <tr><td><strong>生产日期</strong></td><td>激光打码(摸上去凹凸不平)</td><td>贴纸打印(一抠就掉)可能是库存货</td></tr>
+        <tr><td><strong>防伪查询</strong></td><td>刮开涂层扫码验真</td><td>无法扫描或跳到山寨页面</td></tr>
+        <tr><td><strong>新电池特征</strong></td><td>静置电压≥13.0V(48V铅酸)</td><td>静置电压<12.5V说明存放太久或有问题</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">四、BMS(电池管理系统)识别要点</h3>
+    <p class="data-note">BMS是锂电池的"大脑"，没有BMS的锂电池严禁使用。以下是购买时你需要核对的参数：</p>
+    <ul class="steps-list">
+      <li><strong>一致性保护：</strong>优质BMS会标注电芯压差监测范围(通常±5mV以内触发均衡)。压差不均衡的电池组寿命缩短40%+</li>
+      <li><strong>低温保护：</strong>温度低于0°C自动限制充电电流。北方冬季必备功能，防止锂结晶刺穿隔膜</li>
+      <li><strong>放电截止电压：</strong>48V系统(3串锂电)单节不低于3.0V(总计9.0V)、60V系统(4串)不低于12.0V。过低会永久损伤电芯</li>
+      <li><strong>认证标志：</strong>必须有UN38.3(运输安全)+CE/FCC(电磁兼容)+GB31241(便携式锂电安全)。三无BMS=定时炸弹</li>
+      <li><strong>自耗电：</strong>优质BMS静态自耗电<2mA/天。差劲的BMS会偷偷把电池电量耗尽</li>
+    </ul>
+
+    <div class="tip-box">
+      <strong>安全第一：</strong>如果发现锂电池有以下任何一个症状，立即停止使用并联系售后：1) 充电时外壳膨胀鼓包 2) 充电速度异常加快(原来8小时变3小时) 3) 骑行中途突然断电又恢复 4) 电池表面温度明显高于平时。这些都是热失控前兆！
+    </div>
+
+    <h3 class="subsection-title">五、电池更换完整流程</h3>
+    <ol class="steps-list">
+      <li><strong>购买决策：</strong>根据上面的表格确定类型和规格。建议在线比价(京东/天猫官方旗舰店)，线下门店安装。线上买通常比线下便宜15-25%。</li>
+      <li><strong>拆卸旧电池：</strong>关闭电源开关→拔掉充电器→打开电池仓盖→拆下固定螺丝/绑带→先拔负极(黑线)再拔正极(红线)→取出旧电池。注意：拔掉线头后用绝缘胶带裹住接头，防止短路。</li>
+      <li><strong>安装新电池：</strong>放入新电池→固定螺丝/绑带→先接正极→再接负极→插上电池仓盖锁扣。安装完成后用万用表测量输出电压，确认与标称值一致。</li>
+      <li><strong>首次充电：</strong>铅酸电池首次充满需8-10小时，可用到20%以下再充；锂电首次充满需6-8小时，建议在有人看护的情况下进行。</li>
+      <li><strong>验收测试：</strong>充满电后满负荷骑行10分钟→回看剩余电量百分比(应与标称一致)→正常情况续航应达到新电池标称值的90%以上。</li>
+    </ol>
+
+    <h3 class="subsection-title">六、旧电池回收：别当废品卖了</h3>
+    <table class="data-table">
+      <thead><tr><th>电池类型</th><th>废品店价格</th><th>品牌回收价</th><th>差价</th><th>建议</th></tr></thead>
+      <tbody>
+        <tr><td>铅酸48V12Ah</td><td>30-50元</td><td>80-100元(以旧换新抵扣)</td><td>+50元</td><td>一定走以旧换新</td></tr>
+        <tr><td>铅酸72V23Ah</td><td>60-80元</td><td>150-180元</td><td>+100元</td><td>以旧换新抵扣</td></tr>
+        <tr><td>锂电48V20Ah</td><td>50-80元(杂牌)</td><td>200-300元(京东/品牌)</td><td>+200元</td><td>走官方回收渠道</td></tr>
+        <tr><td>锂电72V32Ah</td><td>100-150元</td><td>400-600元</td><td>+350元</td><td>必须走官方回收</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <strong>重要提醒：</strong>铅酸电池是强制回收品类，随意丢弃会严重污染土壤和地下水。购买新电池时一定选择提供以旧换新服务的商家，省下的钱足够覆盖差价。
+    </div>
+
+    <h3 class="subsection-title">七、电池寿命延长指南</h3>
+    <table class="data-table">
+      <thead><tr><th>习惯</th><th>对寿命的影响</th><th>正确做法</th></tr></thead>
+      <tbody>
+        <tr><td>每次都用到彻底没电才充</td><td>深度放电缩短40%寿命</td><td>电量剩20-30%时充电</td></tr>
+        <tr><td>充电过夜(充12小时+)</td><td>过充加速电解液干涸</td><td>充满即拔(现代充电器有自动断电功能)</td></tr>
+        <tr><td>暴晒后立即充电</td><td>高温+充电=热失控风险</td><td>冷却30分钟后再充</td></tr>
+        <tr><td>长期闲置不充电</td><td>自放电导致过放报废</td><td>每月充一次电到80%</td></tr>
+        <tr><td>冬天把电池搬进屋</td><td>锂电池低温充电危险！</td><td>室温放置充电，充完装车即可</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-batt-lifetime"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="26-aima-deep.html"><i class="fas fa-arrow-left"></i> 爱玛</a>
@@ -132,6 +219,23 @@
       }]
     });
     window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+  <script>
+    var chart2 = echarts.init(document.getElementById('chart-batt-lifetime'));
+    chart2.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['铅酸寿命', '三元锂寿命', '铁锂寿命'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(%容量保持率)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, max: 100, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '铅酸寿命', type: 'line', data: [100, 70, 40, null, null], itemStyle: { color: '#94a3b8' }, smooth: true, symbol: 'circle', symbolSize: 8 },
+        { name: '三元锂寿命', type: 'line', data: [100, 85, 70, 50, null], itemStyle: { color: '#f59e0b' }, smooth: true, symbol: 'circle', symbolSize: 8 },
+        { name: '铁锂寿命', type: 'line', data: [100, 92, 83, 74, 65], itemStyle: { color: '#10b981' }, smooth: true, symbol: 'circle', symbolSize: 8 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart2.resize(); });
   </script>
 </body>
 </html>

@@ -100,6 +100,91 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">22.5 实操：电机选型 — 永磁同步 vs 交流异步</h2>
+    <div class="case-box">
+      <h3>案例：选一款350W电机装在雅迪经典款上</h3>
+      <p><strong>场景</strong>：你是一台两轮电摩的DIY改装爱好者，车架是雅迪经典款铅酸版，电池48V 20Ah，想更换更强动力电机。你面临两个选择：350W永磁同步BLDC电机 vs 350W交流异步电机。</p>
+    </div>
+
+    <h3 class="steps-heading">选型步骤</h3>
+    <ol class="steps-list">
+      <li><strong>确定电压平台</strong>：两轮车常见48V/60V/72V。雅迪经典款48V，保持原电压可免改线束。</li>
+      <li><strong>确定功率</strong>：国标电动自行车限速25km/h，电机350W即可；若改电摩需72V 800W以上。</li>
+      <li><strong>确定类型</strong>：
+        <ul>
+          <li>日常通勤选<strong>永磁同步(BLDC)</strong>：效率高(85%+)、扭矩大、成本低(¥120-200)。</li>
+          <li>高性能选<strong>交流异步(ASM)</strong>：耐过热(适合长时间满负荷)、免维护、但效率低(75-80%)。</li>
+        </ul>
+      </li>
+      <li><strong>检查接口兼容性</strong>：霍尔传感器信号线(红+5V/蓝绿黄信号/黑GND)是否与原控制器匹配。</li>
+      <li><strong>验证轮径</strong>：14寸/16寸/18寸轮毂电机必须匹配车架。</li>
+    </ol>
+
+    <table class="data-table">
+      <thead><tr><th>对比项</th><th>永磁同步(BLDC)</th><th>交流异步(ASM)</th></tr></thead>
+      <tbody>
+        <tr><td>效率</td><td>85-92%</td><td>75-80%</td></tr>
+        <tr><td>成本</td><td>¥120-200</td><td>¥150-250</td></tr>
+        <tr><td>维护</td><td>正常更换碳刷</td><td>免维护(无转子磁铁)</td></tr>
+        <tr><td>低速扭矩</td><td>大(适合起步)</td><td>一般</td></tr>
+        <tr><td>高速表现</td><td>一般</td><td>好(适合>60km/h)</td></tr>
+        <tr><td>推荐场景</td><td>通勤/短途/性价比</td><td>高速电摩/频繁满载</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.6 实操：控制器编程基础</h2>
+    <div class="case-box">
+      <h3>案例：用Arduino写一个简易无刷电机控制器</h3>
+      <p><strong>目的</strong>：理解FOC(Field Oriented Control)矢量控制基本原理，不追求工业级性能，重点掌握三相桥驱动+PWM+反电动势检测逻辑。</p>
+    </div>
+
+    <h3 class="steps-heading">编程步骤</h3>
+    <ol class="steps-list">
+      <li><strong>硬件准备</strong>：Arduino Nano + DRV8313三相Motor Shield + 霍尔传感器 + 直流电源(48V)。</li>
+      <li><strong>初始化</strong>：设置PWM频率(16-20kHz)、GPIO方向、ADC通道(读取电流/电压/温度)。</li>
+      <li><strong>反电动势检测</strong>：通过霍尔信号判断转子位置，每60度切换一次三相桥开关状态。</li>
+      <li><strong>PWM调制</strong>：根据油门信号(0-5V映射到0-100%)调整占空比，实现调速。</li>
+      <li><strong>过流保护</strong>：实时监测相电流，超过阈值(如15A)立即关闭PWM输出。</li>
+    </ol>
+
+    <div class="tip-box">
+      <p><strong>提示</strong>：实际工业级控制器使用STM32G0B1或TI F280049等专用MCU，运行QPO(Quadrature Pulse Observer)算法实现更精确的转子位置估计。不建议直接用Arduino量产产品，仅用于学习和原型开发。</p>
+    </div>
+
+    <h2 class="section-subtitle">22.7 实操：功率匹配计算</h2>
+    <p class="data-note">功率匹配是电驱系统设计的核心。以下是一个完整的计算示例。</p>
+
+    <h3 class="steps-heading">计算示例：48V 20Ah电池 + 350W电机，能跑多远？</h3>
+    <ol class="steps-list">
+      <li><strong>电池总能量</strong>：E = V × Ah = 48V × 20Ah = 960Wh = 0.96kWh</li>
+      <li><strong>百公里能耗</strong>：两轮车典型值约12-15Wh/km(含控制器损耗)。</li>
+      <li><strong>理论续航</strong>：960Wh ÷ 14Wh/km ≈ 68.6km</li>
+      <li><strong>实际修正</strong>：
+        <ul>
+          <li>低温衰减(-10°C)：×0.8 = 54.9km</li>
+          <li>载人/上坡(+20%能耗)：×0.85 = 58.3km</li>
+          <li>轮胎气压不足(+10%滚阻)：×0.9 = 52.4km</li>
+        </ul>
+      </li>
+      <li><strong>结论</strong>：48V20Ah铅酸版在实际冬季城市通勤工况下，续航约45-55km。锂版本版可提升至60-70km。</li>
+    </ol>
+
+    <h3 class="steps-heading">功率选型速查表</h3>
+    <table class="data-table">
+      <thead><tr><th>车型</th><th>车重</th><th>建议功率</th><th>建议电压</th><th>预估时速</th></tr></thead>
+      <tbody>
+        <tr><td>新国标电动自行车</td><td>≤55kg</td><td>350W</td><td>48V</td><td>≤25km/h</td></tr>
+        <tr><td>轻便电摩</td><td>60-80kg</td><td>400-600W</td><td>60V</td><td>30-45km/h</td></tr>
+        <tr><td>标准电摩</td><td>80-120kg</td><td>800W-1kW</td><td>60V/72V</td><td>45-55km/h</td></tr>
+        <tr><td>高性能电摩</td><td>≥120kg</td><td>1.5-3kW</td><td>72V/96V</td><td>55-80km/h</td></tr>
+        <tr><td>三轮货运车</td><td>200-400kg</td><td>2-4kW</td><td>72V/96V</td><td>40-50km/h</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <p><strong>关键公式</strong>：扭矩 T(Nm) = 9550 × P(kW) ÷ n(rpm)。一辆800W电机、额定转速300rpm的电摩，扭矩约25.4Nm(含齿轮减速比后轮扭矩更大)。</p>
+    </div>
+
     <div class="chart-container" id="chart-drive"></div>
   </main>
   <footer class="page-footer">

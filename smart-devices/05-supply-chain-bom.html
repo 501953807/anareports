@@ -126,6 +126,89 @@
     </table>
 
     <div class="chart-container" id="chart-bom"></div>
+
+    <h2 class="section-subtitle">实操：供应链实操手册 — 从找工厂到下单采购</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：如何在1688上找到ODM方案商(详细步骤)</h3>
+    <ol class="steps-list">
+      <li><strong>注册1688账号：</strong>用公司营业执照注册(个人账号看不到工厂报价)。准备公司简介、产品概念文档(PDF, 5页以内)。</li>
+      <li><strong>关键词搜索：</strong>在1688搜索"智能手环ODM""GPS手表代工""老人定位手表方案"。筛选条件：找"深度验厂"标识(已通过SGS实地验证)的工厂。</li>
+      <li><strong>精准沟通话术：</strong>发站内信："您好，我司正在开发一款面向老年人群的GPS定位+健康管理智能手环，预计首单3,000台，后续爬坡至30,000台。希望了解贵司现有公模方案的MOQ、开发费用和交付周期。请提供方案商目录册。"</li>
+      <li><strong>电话跟进：</strong>对回复的厂家直接打电话。关键问题清单：(1)是否有Cat1通信方案？(2)支持几颗卫星？(3)PPG传感器用的哪家？(4)能否做微信数据对接？(5)开模费用是否可在量产货款中抵扣？</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：RFQ邮件模板(可直接复制修改)</h3>
+    <table class="data-table">
+      <thead><tr><th>项目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>产品名称</td><td>智能养老手环 + 智能药盒套装</td></tr>
+        <tr><td>核心功能</td><td>GPS+北斗+LBS三重定位、电子围栏、一键SOS、PPG心率、Cat1联网(移动/联通)、适老化设计(大字体/大按钮)</td></tr>
+        <tr><td>目标价格</td><td>手环BOM控制在200元以内，药盒BOM控制在150元以内</td></tr>
+        <tr><td>首单量/年量</td><td>手环3,000台/年30,000台；药盒2,000台/年20,000台</td></tr>
+        <tr><td>交货期</td><td>从合同签署到首批发货≤90天</td></tr>
+        <tr><td>资质要求</td><td>需提供SRRC/CCC/蓝牙SIG认证支持</td></tr>
+        <tr><td>期望回复</td><td>方案目录册 + 2-3个可参考案例 + 报价单</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：BOM Excel计算器构建方法</h3>
+    <table class="data-table">
+      <thead><tr><th>列</th><th>含义</th><th>公式</th><th>示例</th></tr></thead>
+      <tbody>
+        <tr><td>A列: 物料编码</td><td>内部物料号</td><td>-</td><td>HW-MCU-001</td></tr>
+        <tr><td>B列: 名称</td><td>物料名称</td><td>-</td><td>MCU GD32E230</td></tr>
+        <tr><td>C列: 单价(元)</td><td>供应商报价(1K)</td><td>-</td><td>10.5</td></tr>
+        <tr><td>D列: 用量</td><td>每台用量</td><td>-</td><td>1</td></tr>
+        <tr><td>E列: 小计</td><td>单台物料成本</td><td>=C2*D2</td><td>10.5</td></tr>
+        <tr><td>F列: 损耗率</td><td>SMT良率补偿</td><td>-</td><td>1.03(3%损耗)</td></tr>
+        <tr><td>G列: 调整后成本</td><td>含损耗</td><td>=E2*F2</td><td>10.82</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">BOM管理最佳实践</div>
+      <div class="tip-body">使用Excel的SUMPRODUCT函数自动计算总BOM。在最后一行=SUM(G:G)得到总BOM。增加一个"10K批量折扣"列，公式=G列×(1-折扣率)。建议每月向供应商询价一次更新单价。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：元器件现货采购 — 立创商城操作指南</h3>
+    <ol class="steps-list">
+      <li>注册立创商城(szlcsc.com)企业账户，实名认证后开通BOM配单功能。</li>
+      <li>上传你的BOM CSV文件(含料号+数量)，系统自动匹配库存和替代料。</li>
+      <li>查看"替代料推荐"：如果汇顶GP8200缺货，系统会推荐Maxim MAX86150或聚洵AP7115作为备选。</li>
+      <li>下单后，深圳仓库次日达(15:00前下单)，次日18:00前到货。</li>
+      <li><strong>首样订单建议：</strong>每种关键物料多买20%备用(SMT贴片损耗+调试损耗)。总首样成本控制在5,000元以内。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：深圳PCBA工厂实地考察清单</h3>
+    <table class="data-table">
+      <thead><tr><th>考察项</th><th>检查什么</th><th>合格标准</th></tr></thead>
+      <tbody>
+        <tr><td>SMT产线</td><td>Pick-and-Place机器型号、贴装精度、日产能</td><td>Fuji NXT或Panasonic CM402，精度±0.03mm</td></tr>
+        <tr><td>回流焊</td><td>温度曲线Profile、锡膏品牌</td><td>有回流焊炉温测试仪，锡膏用千住M705</td></tr>
+        <tr><td>AOI检测</td><td>自动光学检测设备覆盖率</td><td>100% SMT面AOI检测，关键节点X-ray</td></tr>
+        <tr><td>老化房</td><td>高温老化设施</td><td>60°C恒温48小时老化，每板功能全测</td></tr>
+        <tr><td>静电防护</td><td>ESD地面/工作台/腕带</td><td>离子风机距工位≤1m，每小时腕带检测记录</td></tr>
+        <tr><td>质量管理体系</td><td>是否ISO9001, IATF16949</td><td>看证书原件，查近一年客户投诉记录</td></tr>
+        <tr><td>产能</td><td>日产能为多少片</td><td>我们首单3,000片，工厂日产≥500片方可接受</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：打样验证流程</h3>
+    <ol class="steps-list">
+      <li>向3家OEM工厂发同一份Gerber文件和BOM清单，回收报价和交期(比价)。</li>
+      <li>选定一家交50片工程样板(PCB裸板+SMT贴片)，成本约¥800-1,200。</li>
+      <li>收到样板后用放大镜目检锡点，再用万用表测VCC-GND短路。</li>
+      <li>编程烧录固件，用串口打印调试信息确认MCU正常启动。</li>
+      <li>连接BLE到手机APP，测试所有传感器数据是否正常上报。</li>
+      <li>3家对比合格后，进入DVT阶段下单100片中测板。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：供应链文件交付清单</h3>
+    <table class="data-table">
+      <thead><tr><th>文件</th><th>格式</th><th>提供方</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>BOM清单</td><td>Excel CSV</td><td>我方</td><td>工厂采购元器件</td></tr>
+        <tr><td>Gerber文件</td><td>ZIP</td><td>我方</td><td>PCB制版</td></tr>
+        <tr><td>装配图</td><td>PDF</td><td>我方</td><td>SMT贴片坐标</td></tr>
+        <tr><td>固件BIN</td><td>.bin</td><td>我方</td><td>量产烧录</td></tr>
+        <tr><td>测试程序</td><td>.hex</td><td>我方/FCT供应商</td><td>产线功能测试</td></tr>
+        <tr><td>包装图纸</td><td>AI/PDF</td><td>设计供应商</td><td>彩盒印刷</td></tr>
+        <tr><td>SOP作业指导书</td><td>PDF</td><td>ODM厂</td><td>产线工人操作指引</td></tr>
+        <tr><td>出厂检验标准</td><td>PDF</td><td>ODM厂</td><td>QA放行依据</td></tr>
+      </tbody>
+    </table>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="02-user-profile.html"><i class="fas fa-arrow-left"></i> 用户画像</a>

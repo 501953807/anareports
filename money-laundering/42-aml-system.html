@@ -45,8 +45,76 @@
     </table>
     <p class="data-note">中型金融机构(年交易额$100亿+)的AML系统总建设成本约$300-1000万/年。小型机构可选择商业一体化方案(如Actimize/Oracle FLEXCUBE)，年费$100-300万。</p>
 
+    <h2 class="section-subtitle">合规实操：AML系统从0到1部署路线图</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-server"></i> 中型金融机构AML系统部署的12个月行动计划</div>
+      <div class="tip-body">
+        <p>以下路线图适用于年交易额$10-100亿的支付机构/加密VASP/区域性银行。小型机构可压缩至6个月，大型机构需18-24个月。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>Month 1-2：需求分析与供应商选型。</strong>(a) 梳理业务线(法币转账/加密交易/贸易融资)和对应AML要求；(b) 列出必填功能(制裁筛查/交易监测/SAR生成/KYC)；(c) RFP评分至少3家供应商(Actimize/SAS NICE/FICO)；(d) 技术评估API兼容性(Kafka/Flink/链上分析)。验收标准：签署供应商合同+SLA。</li>
+      <li><strong>Month 3-4：数据管道搭建。</strong>(a) 接入核心交易系统日志(Kafka主题：transactions.kyc, transactions.inbound, transactions.outbound)；(b) 接入链上数据(ERC20/TRC20/BSC多链节点)；(c) 接入外部数据(OFAC/UN/EU制裁名单实时API、Chainalysis风险标签API)；(d) 数据清洗和标准化(统一customer_id across systems)。验收标准：数据覆盖率≥99%，延迟≤5秒。</li>
+      <li><strong>Month 5-6：规则引擎部署+回溯测试。</strong>(a) 部署首批20条核心规则(结构化/快进快出/制裁命中/夜间断崖等)；(b) 使用过去24个月历史数据回溯测试，计算每条规则的TPR/FPR；(c) 淘汰TPR<1%的规则，调优阈值。验收标准：规则引擎TPR≥5%，误报率≤92%。</li>
+      <li><strong>Month 7-8：AI/ML模型训练。</strong>(a) 构建客户行为基线模型(Isolation Forest + GNN)；(b) 使用已标注的可疑交易数据(SAR ground truth)训练监督模型；(c) A/B测试：AI模型 vs 传统规则。验收标准：AI模型相比纯规则提升30%检测率。</li>
+      <li><strong>Month 9-10：SAR报告自动化+工作流。</strong>(a) 开发SAR自动生成模板；(b) 建立合规分析师工作流队列；(c) 集成电子提交接口(FinCEN/BSA E-Filing)。验收标准：SAR从识别到提交全流程自动化率≥70%。</li>
+      <li><strong>Month 11-12：压力测试+监管验收。</strong>(a) 邀请第三方进行Pen-test和红蓝对抗；(b) 模拟监管检查；(c) 编制Compliance Program Documentation提交董事会。验收标准：通过外部审计+董事会批准上线。</li>
+    </ol>
+
+    <h2 class="section-subtitle">AML系统供应商选型对比表</h2>
+    <table class="data-table">
+      <thead><tr><th>供应商</th><th>类型</th><th>适用机构</th><th>年费用($万)</th><th>优势</th><th>劣势</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Actimize (ICE)</strong></td><td>一站式商业</td><td>大型银行/券商</td><td>200-500</td><td>功能最全，全球认可度高</td><td>贵，部署慢(6-12月)</td></tr>
+        <tr><td><strong>SAS Anti-Money Laundering</strong></td><td>一站式商业</td><td>中大型银行</td><td>150-400</td><td>AI/ML能力强，GNN支持好</td><td>配置复杂，需专业数据科学家</td></tr>
+        <tr><td><strong>Falcon Fraud Manager (FICO)</strong></td><td>一站式商业</td><td>中型银行/支付机构</td><td>100-300</td><td>规则+ML结合，上手较快</td><td>链上分析能力弱</td></tr>
+        <tr><td><strong>Chainalysis Suite</strong></td><td>链上专精</td><td>VASP/加密平台</td><td>50-200</td><td>链上追踪最强，Reactor可视化好</td><td>不覆盖法币系统</td></tr>
+        <tr><td><strong>TRM Labs</strong></td><td>链上专精+API</td><td>VASP/DeFi</td><td>40-150</td><td>API友好，DeFi监控强，实时候补</td><td>品牌认知度低于Chainalysis</td></tr>
+        <tr><td><strong>Elliptic</strong></td><td>链上专精</td><td>交易所/银行</td><td>60-200</td><td>Neural图神经网络强，CEX集成好</td><td>价格偏高</td></tr>
+        <tr><td><strong>ComplyAdvantage</strong></td><td>RegTech API</td><td>初创VASP/FinTech</td><td>10-50</td><td>便宜，API-first，部署快(<2周)</td><td>功能不如大厂全面</td></tr>
+        <tr><td><strong>开源(Kafka+Flink+自研)</strong></td><td>自建</td><td>有技术团队的中大型机构</td><td>50-150(人力成本)</td><td>完全自主可控，无许可证费用</td><td>开发周期长(6-12月)，运维要求高</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">实操教程：链上地址风险筛查API集成指南</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-code"></i> 将Chainalysis/TRM Labs风险标签接入充值/提现工作流的代码级配置</div>
+      <div class="tip-body">
+        <p>以下是一个典型的链上地址筛查在交易审批工作流中的集成方式和伪代码示例。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>动作</th><th>API/工具</th><th>返回值判定</th></tr></thead>
+      <tbody>
+        <tr><td>1. 客户发起充币请求</td><td>获取客户提供的钱包地址</td><td>内部API</td><td>address字段非空则进入步骤2</td></tr>
+        <tr><td>2. 风险标签查询</td><td>调用Chainalysis/Refine API查询地址风险</td><td>POST /v1/address/risk</td><td>riskScore=0-25低风险，26-50中风险，51-75高风险，76-100极高风险</td></tr>
+        <tr><td>3a. 风险评分≤25</td><td>自动批准充值</td><td>内部规则引擎</td><td>状态=APPROVED</td></tr>
+        <tr><td>3b. 风险评分26-50</td><td>触发二级KYC(短信验证+资金来源声明)</td><td>KYC Service</td><td>完成=APPROVED，否则=MANUAL_REVIEW</td></tr>
+        <tr><td>3c. 风险评分>50</td><td>自动拒绝+标记调查</td><td>Alert System</td><td>状态=REJECTED，创建调查工单</td></tr>
+        <tr><td>4. 客户发起提现请求</td><td>同样查询目标地址风险标签</td><td>同步骤2</td><td>额外检查是否属于混币器/暗网/制裁地址</td></tr>
+        <tr><td>5. 提现审批</td><td>大额提现(>$10k)需人工审批链上路径</td><td>Chainalysis Reactor可视化</td><td>人工确认路径无风险标记后批准</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">系统运维KPI看板 — 合规运营团队每日必查</h2>
+    <div class="grid-2">
+      <div class="card"><h3><i class="fas fa-exclamation-triangle" style="color:var(--orange)"></i> 核心KPI</h3><p>(a) 今日告警数 vs 昨日告警数(波动>±20%需排查)；(b) 待处理告警队列长度(目标<100)；(c) 平均告警处理时长(目标<4h)；(d) SAR本周提交数(目标≥上周同期)；(e) 制裁名单今日命中数(任何命中=必须冻结)</p></div>
+      <div class="card"><h3><i class="fas fa-cogs" style="color:var(--cyan)"></i> 技术健康度</h3><p>(a) 链上API响应时间(P99 < 200ms)；(b) 制裁名单同步延迟(< 5分钟)；(c) Kafka消费延迟(< 10秒)；(d) 规则引擎CPU使用率(< 70%)；(e) 数据管道丢包率(= 0%)</p></div>
+    </div>
+
+    <h2 class="section-subtitle">常见合规陷阱 — 避免踩坑</h2>
+    <table class="data-table">
+      <thead><tr><th>陷阱</th><th>描述</th><th>后果</th><th>预防措施</th></tr></thead>
+      <tbody>
+        <tr><td>规则疲劳(Rule Fatigue)</td><td>告警规则过多，分析师对所有告警无差别处理</td><td>漏掉真正可疑交易，SAR质量下降</td><td>每月评审一次规则有效性，淘汰TPR<1%的规则</td></tr>
+        <tr><td>链上API单点故障</td><td>只接一个链上分析API，宕机时无备选</td><td>风控系统瘫痪，合规缺口</td><td>至少双API冗余(Chainalysis + TRM/Elliptic)</td></tr>
+        <tr><td>制裁名单更新延迟</td><td>OFAC名单变更后未及时同步到筛查引擎</td><td>与制裁对象交易=违法</td><td>API实时同步+每日手动核对OFAC官网</td></tr>
+        <tr><td>忽略内部风险</td><td>只关注外部制裁，不监控内部员工异常行为</td><td>内鬼协助洗钱(如2024年某银行职员泄露客户数据给地下钱庄)</td><td>员工交易行为基线监控+权限审计日志</td></tr>
+        <tr><td>过度依赖AI模型</td><td>AI给出"正常"结论就跳过人工审查</td><td>新型洗钱模式AI未训练到，漏报</td><td>AI仅作为辅助，高风险交易强制人工复核</td></tr>
+      </tbody>
+    </table>
+
     <div class="chart-container" id="chart-aml-system"></div>
-  </main>
   <footer class="page-footer">
     <a class="nav-prev" href="41-risk-signals.html"><i class="fas fa-arrow-left"></i> 风险信号</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>

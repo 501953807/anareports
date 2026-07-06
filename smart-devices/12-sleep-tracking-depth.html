@@ -109,6 +109,103 @@
     </table>
 
     <div class="chart-container" id="chart-sleep"></div>
+
+    <h2 class="section-subtitle">实操：睡眠追踪落地 — 从算法实现到异常通知配置</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：加速度计驱动的就寝/起床检测算法</h3>
+    <table class="data-table">
+      <thead><tr><th>状态</th><th>判定逻辑</th><th>参数</th></tr></thead>
+      <tbody>
+        <tr><td>就寝</td><td>连续10分钟加速度<0.02g + 心率下降至静息基线</td><td>滑动窗口10min，阈值0.02g</td></tr>
+        <tr><td>入睡</td><td>就寝状态持续30分钟 + 心率下降>15% vs 日间均值</td><td>防止"躺床上玩手机"被误判</td></tr>
+        <tr><td>醒来</td><td>加速度>0.1g持续5分钟 + 心率上升>20%</td><td>夜间翻身不算醒</td></tr>
+        <tr><td>小睡检测</td><td>日间静坐>30分钟 + 体位躺平 + 心率下降</td><td>午觉识别(12:00-15:00之间)</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：睡眠质量评分计算公式(0-100分)</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>公式</th><th>满分</th><th>老年特殊阈值</th></tr></thead>
+      <tbody>
+        <tr><td>深睡评分</td><td>score = max(0, min(100, 100 - |(深睡% - 5)| / 5 × 100))</td><td>25</td><td>老年深睡3-5%即满分</td></tr>
+        <tr><td>入睡效率</td><td>score = (总睡眠时间 / 卧床时间) × 100，>85%满分</td><td>20</td><td>>75%即及格</td></tr>
+        <tr><td>觉醒次数</td><td>score = max(0, 100 - (觉醒次数 - 2) × 20)，≤2次满分</td><td>20</td><td>≥3次即标记碎片化</td></tr>
+        <tr><td>SpO2评分</td><td>夜间平均SpO2≥92%得满分，每低1%扣10分</td><td>20</td><td>≥90%即及格线(比年轻人宽)</td></tr>
+        <tr><td>作息规律性</td><td>过去7天入睡时间标准差<1小时满分，>3小时扣分</td><td>15</td><td>老年人作息紊乱是痴呆早期信号</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：睡眠报告推送策略配置</h3>
+    <ol class="steps-list">
+      <li><strong>早安推送：</strong>每天早上7:30自动生成睡眠报告，推送到老人APP。内容：昨日睡眠质量评分、深睡时长、异常情况标注。</li>
+      <li><strong>周报：</strong>每周一上午9:00汇总上周7天睡眠数据，生成趋势图。如果深睡占比持续<3%连续5天，标记"建议就医"。</li>
+      <li><strong>强提醒：</strong>夜间SpO2连续10分钟<85% → 立即推送子女APP + 短信提醒。</li>
+      <li><strong>白噪音推荐：</strong>如果连续3天入睡>45分钟 → APP推送白噪音播放功能(雨声/海浪声)，帮老人入睡。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：睡眠功能发布前验证清单</h3>
+    <table class="data-table">
+      <thead><tr><th>测试项</th><th>方法</th><th>通过标准</th></tr></thead>
+      <tbody>
+        <tr><td>深睡准确率</td><td>10人×7夜 vs 便携式睡眠监测仪(Zepp Bell)</td><td>深睡判定F1>0.75</td></tr>
+        <tr><td>续航影响</td><td>睡眠模式(每30秒采样IMU+心率) vs 纯待机</td><td>睡眠模式功耗<0.5mW额外增加</td></tr>
+        <tr><td>佩戴检测</td><td>不戴时自动关闭睡眠监测，避免空数据</td><td>100%准确</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：Snore检测功能开发指南</h3>
+    <table class="data-table">
+      <thead><tr><th>组件</th><th>型号</th><th>功耗</th><th>灵敏度(dBSPL)</th></tr></thead>
+      <tbody>
+        <tr><td>麦克风(Software Defined)</td><td>INMP441 / MSME651T</td><td>0.35 mW</td><td>-26 dB @ 1kHz</td></tr>
+        <tr><td>ADC采样率</td><td>—</td><td>—</td><td>8 kHz(鼾声频段500Hz-4kHz)</td></tr>
+        <tr><td>降噪预处理</td><td>MCU DSP FIR</td><td>0.5 mW</td><td>环境噪声抑制>15dB</td></tr>
+      </tbody>
+    </table>
+    <ol class="steps-list">
+      <li><strong>麦克风选型：</strong>选用MEMS全向数字麦克风(INMP441)，I2S接口、功耗0.35mW、SINR=65dB。采样率8kHz足够覆盖鼾声主要频段(200-2000Hz)。</li>
+      <li><strong>特征提取算法：</strong>每100ms计算一次短时能量(Short-Time Energy)和零交叉率(ZCR)。鼾声的特征：能量突增(比环境噪声高>15dB) + 低频ZCR(50-500Hz)。</li>
+      <li><strong>事件聚类：</strong>将连续>300ms的高能帧聚为一个snore event。相邻event间隔<2秒合并为同一声群。</li>
+      <li><strong>呼吸暂停关联：</strong>如果一个snore event之后出现>10秒无呼吸运动信号，标注为"疑似呼吸暂停事件"。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title">鼾声检测隐私保护方案</div>
+      <div class="tip-body">鼾声属于个人生物特征数据。方案：①所有音频处理在MCU本地完成，不上传云端 ②只输出事件计数和频谱特征(不存储原始波形) ③用户可随时在APP关闭麦克风 ④符合GDPR/PIPL个人信息保护法要求。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：Bedtime Analytics Dashboard搭建</h3>
+    <div class="case-box">
+      <div class="case-title">Dashboard设计原则：一屏看懂睡眠质量</div>
+      <div class="case-body">老人端APP不需要复杂图表。首页只显示三组数据：①昨晚睡了几个小时+睡了几个好觉/7天的饼图 ②深睡时长与昨天的对比(绿色箭头=改善/红色箭头=下降) ③是否需要就医的建议卡片(基于连续7天深睡<3%或SpO2<90%持续3晚触发)。子女端可以看详细波形和AHI趋势图。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：睡眠分期算法部署到MCU</h3>
+    <table class="data-table">
+      <thead><tr><th>部署步骤</th><th>说明</th><th>耗时</th></tr></thead>
+      <tbody>
+        <tr><td>1. 模型训练</td><td>用Python+scikit-learn在服务器上训练随机森林分类器(特征：心率+IMU+SpO2)</td><td>2天</td></tr>
+        <tr><td>2. 模型导出</td><td>将训练好的模型转为C数组(weight数组+predict函数)</td><td>4小时</td></tr>
+        <tr><td>3. MCU量化</td><td>模型从float32量化为int8，减小flash占用(128K→16K)</td><td>4小时</td></tr>
+        <tr><td>4. 嵌入式推理</td><td>在nRF52840上实现predict_float8()函数，每30秒推理一次</td><td>1天</td></tr>
+        <tr><td>5. 现场验证</td><td>10名志愿者佩戴7夜，对比Polysomnography(PSG)金标准</td><td>2周</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：老年睡眠异常干预策略库</h3>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">轻度异常</div>
+        <div style="font-size:14px;font-weight:600;color:#06b6d4">入睡>45分钟</div>
+        <div style="font-size:12px;color:#64748b">对策：推荐白噪音→薰衣草语音助眠→减少晚间饮水</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">中度异常</div>
+        <div style="font-size:14px;font-weight:600;color:#f59e0b">深睡<3%持续5天</div>
+        <div style="font-size:12px;color:#64748b">对策：提醒子女→建议就医→记录用药变化是否影响睡眠</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">重度异常</div>
+        <div style="font-size:14px;font-weight:600;color:#ef4444">SpO2<85%持续10分钟</div>
+        <div style="font-size:12px;color:#64748b">对策：立即通知紧急联系人→建议做睡眠呼吸监测(PSG)</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">长期趋势</div>
+        <div style="font-size:14px;font-weight:600;color:#8b5cf6">REM占比持续下降</div>
+        <div style="font-size:12px;color:#64748b">对策：REM下降与抑郁/认知衰退相关，建议精神科评估</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="11-heart-monitor-depth.html"><i class="fas fa-arrow-left"></i> 心率监测</a>

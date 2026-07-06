@@ -113,6 +113,128 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">26.5 手把手：NPI 新产品质量导入实操 + SMT钢网设计 + DIP 作业指导书</h2>
+
+    <h3 class="steps-heading">步骤一：NPI 流程实操(New Product Introduction)</h3>
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-clipboard-check"></i> NPI 五大阶段核心交付物</div>
+      <div class="tip-body" style="margin-top:8px">
+        从工程样品到量产上市，每个阶段必须通过评审(Review Gate)才能进入下一阶段。以下是每个阶段的关键输出物和常见踩坑点：
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>英文缩写</th><th>交付物</th><th>评审标准</th><th>常见踩坑</th></tr></thead>
+      <tbody>
+        <tr><td>手板验证</td><td>EB(v1)</td><td>3D打印外壳 + 飞线PCBA<br>"丑模", 不能用</td><td>尺寸OK, 结构合理</td><td>忘了测试表带扣入力度</td></tr>
+        <tr><td>工程验证</td><td>EVT</td><td>铝CNC外壳 + 功能完整PCBA<br>小批量20台</td><td>所有功能跑通, 防水第一次过</td><td>电池仓公差太大导致晃动</td></tr>
+        <tr><td>设计验证</td><td>DVT</td><td>开模注塑外壳 + 完整认证样机<br>50-100台</td><td>通过跌落/高低温/防水认证测试</td><td>RF天线在金属壳内信号衰减3dB</td></tr>
+        <tr><td>生产验证</td><td>PVT</td><td>正式产线试产, 500台<br>包装全套OK</td><td>直通率>95%, SOP已写好</td><td>螺丝扭力标准没定, 返工率高</td></tr>
+        <tr><td>量产</td><td>MP</td><td>正式量产, 日产能5000台<br>持续优化</td><td>直通率>98%, 月出货>1万台</td><td>供应商突然涨价或断供</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="steps-heading">步骤二：DVT 测试 Checklist (实操模板)</h3>
+    <div class="case-box" style="margin:16px 0">
+      <div class="case-title"><i class="fas fa-vial"></i> DVT 阶段必做的 12 项可靠性测试</div>
+      <div class="case-body" style="margin-top:6px;">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>测试项目</th><th>测试条件</th><th>通过标准</th><th>设备/供应商</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>高低温运行</td><td>-10°C ~ 55°C, 通电运行8小时</td><td>所有功能正常, 屏幕不迟滞</td><td>高低温箱(北京恒科)</td></tr>
+            <tr><td>2</td><td>高低温存储</td><td>-20°C ~ 65°C, 静置48小时</td><td>恢复常温后功能正常</td><td>同上</td></tr>
+            <tr><td>3</td><td>冷热冲击</td><td>-20°C ↔ 70°C, 100循环</td><td>外壳不开裂, 密封胶不脱落</td><td>冷热冲击试验箱</td></tr>
+            <tr><td>4</td><td>盐雾测试</td><td>5% NaCl, 37°C, 48小时</td><td>金属件无锈蚀</td><td>盐雾试验机(东莞银通)</td></tr>
+            <tr><td>5</td><td>IP68防水</td><td>1.5m水深, 24小时</td><td>内部无水汽, 重量变化<0.1g</td><td>防水测试台</td></tr>
+            <tr><td>6</td><td>跌落测试</td><td>1.2m高度, 6面4角共12次, 水泥地面</td><td>功能正常, 外壳无明显裂纹</td><td>自动跌落试验机</td></tr>
+            <tr><td>7</td><td>振动测试</td><td>10-500Hz, 3轴各1小时</td><td>元器件无松动脱落</td><td>振动试验台</td></tr>
+            <tr><td>8</td><td>滚筒测试</td><td>60rpm, 10000转, 亚克力滚筒内</td><td>表带无断裂, 按键无卡死</td><td>滚筒耐磨试验机</td></tr>
+            <tr><td>9</td><td>弯折测试(表带)</td><td>表带弯折60°, 10000次</td><td>无裂纹, 无断裂</td><td>万能材料试验机</td></tr>
+            <tr><td>10</td><td>ESD静电测试</td><td>接触±8kV, 空气±15kV</td><td>设备不重启, 数据不丢失</td><td>ESD仿真器(奇力新)</td></tr>
+            <tr><td>11</td><td>射频性能</td><td>蓝牙/BLE 发射功率/灵敏度</td><td>符合 BLE 5.3 规范</td><td>暗室 + 频谱仪</td></tr>
+            <tr><td>12</td><td>电池安全性</td><td>过充/过放/短路/挤压</td><td>不起火不爆炸</td><td>宁德时代安规测试</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="steps-heading">步骤三：SMT 钢网设计规范</h3>
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-th"></i> 钢网(Solder Paste Stencil)设计要点</div>
+      <div class="tip-body" style="margin-top:8px">
+        钢网是 SMT 贴片的第一个制造文件。设计不当会导致 80% 以上的锡膏印刷不良。以下是关键参数：
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>参数</th><th>推荐值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>钢网材质</td><td>不锈钢(Ni镀面)</td><td>0.15mm厚度, 抗腐蚀, 可重复使用100次+</td></tr>
+        <tr><td>开孔比例</td><td>>450(对于0201封装)</td><td>Kaysen公式: OpenArea = Ratio × Perimeter × Thickness</td></tr>
+        <tr><td>钢网厚度</td><td>0.12mm (一般), 0.10mm (BGA)</td><td>厚 → 锡多但易连锡; 薄 → 锡少但印刷清晰</td></tr>
+        <tr><td>开孔形状补偿</td><td>长方形 > 方形</td><td>方块焊盘需要缩小开孔(补偿系数0.88), 长条形不需要</td></tr>
+        <tr><td>定位标记</td><td>3个对角 + 1个边</td><td>钢网对准印刷机 CCD 相机标志</td></tr>
+      </tbody>
+    </table>
+    <div class="case-box" style="margin:16px 0">
+      <div class="case-title"><i class="fas fa-exclamation-triangle"></i> 实操经验：PCB 工厂 Gerber 文件提交</div>
+      <div class="case-body">
+        把 <strong>Gerber文件 + 钻孔文件 + BOM清单 + 坐标文件(XYZ)</strong> 四个文件打包发给 PCB 工厂(如嘉立创, 5片 ¥5+快递, 24小时交)。告诉工厂："双面板, 1.6mm FR4, 黑色阻焊, 金手指镀金, 钢网厚度0.12mm"。SMT 贴片另下单独工单(0402元件 ¥0.003/颗, 0201 ¥0.005/颗)。
+      </div>
+    </div>
+
+    <h3 class="steps-heading">步骤四：DIP 插件工位作业指导书(SOP) 编写</h3>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-file-alt"></i> SOP 模板示例</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>========================================================
+  作业指导书 SOP-026-DIP-003
+  工位名称: 电池焊接与测试
+  适用产品: ElderlyCare Band Pro
+  版本: Rev.2.1
+  编制: 工艺工程部    日期: 2026-03-15
+========================================================
+
+【操作步骤】
+Step 1: 领取PCBA主板(来自SMT线, 检验OK标签)
+        → 检查: 主板无氧化、无异物、元件无缺失
+
+Step 2: 安装电池组 (Part#: BAT-LP-350mAh-2S)
+        → 撕掉电池胶面保护膜
+        → 对齐电池仓定位柱
+        → 用手按压5秒确保粘牢
+        → 插入XH2.54线束至PCB插座
+
+Step 3: 焊接 VBUS 电源线
+        → 烙铁温度: 350°C (±10°C)
+        → 焊接时间: 2-3秒
+        → 焊点要求: 圆润饱满, 无虚焊/连锡
+
+Step 4: 初步功能测试
+        → 按下电源键, LED指示灯应亮起绿色
+        → 蓝牙配对测试: 用测试手机连接BLE
+        → 电量计校准: 记录初始电压值
+
+【注意事项】
+* 烙铁每次使用前要在湿海绵上擦拭
+* 焊接完成后 30秒内不可移动主板(锡未凝固)
+* 不良品放入红色"NG"周转盒, 不得混入良品
+
+【质检标准】AQL 1.0 (严格抽检)
+  CR: 0 | MAJ: 1.0 | MIN: 2.5
+========================================================</code></pre>
+    </details>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-check-circle"></i> 本章实操清单</div>
+      <div class="tip-body" style="margin-top:8px">
+        <ul style="padding-left:18px;margin-top:6px;">
+          <li>[ ] 准备 Gerber + BOM + XYZ 文件, 发嘉立创下单(5pcs + SMT)</li>
+          <li>[ ] 设计钢网参数(厚度0.12mm, 开孔补偿按 Kaysen 公式)</li>
+          <li>[ ] 完成 EVT 20台功能测试, 记录全部 Bug</li>
+          <li>[ ] 按12项 DVT Checklist 送第三方检测机构(TÜV/SGS)</li>
+          <li>[ ] PVT 试产 500台, SOP 编写完成(每工位一张)</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-manufacturing"></div>
   </main>
   <footer class="page-footer">

@@ -102,6 +102,109 @@
     </table>
 
     <div class="chart-container" id="chart-compete"></div>
+
+    <h2 class="section-subtitle">实操：如何开展竞品拆解与竞争分析 — 从买到评分</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：购买竞品样机(预算2,000元)</h3>
+    <ol class="steps-list">
+      <li>在京东自营下单：小米手环9 Pro(349元)、华为WATCH FIT 4(约1,399元)、小寻T5s Pro(299元)、360老人手表SE 1C(159元)。共4台约2,206元。</li>
+      <li>在亚马逊美国下单：Apple Watch SE 40mm GPS(1,999元合人民币约¥1,500)，从美国寄回需2-3周。如等不及可用"海外购"频道代购约¥2,000。</li>
+      <li>录制开箱视频：每台设备的开箱流程、配件、首次配对APP安装。这是后续对比"我们的包装体验"的基准线。</li>
+      <li>建立样机档案：每台设备贴标签(品牌+型号+价格+购买日期)，记录IMEI/SN码便于追溯。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：功能对比评分卡(20项×5分制)</h3>
+    <table class="data-table">
+      <thead><tr><th>功能</th><th>权重</th><th>我们</th><th>小米</th><th>华为</th><th>小寻</th><th>Apple</th></tr></thead>
+      <tbody>
+        <tr><td>多重卫星定位</td><td>15%</td><td>5(GPS+北斗+LBS+WiFi)</td><td>4(四卫星)</td><td>4</td><td>4</td><td>3(GPS+GLONASS)</td></tr>
+        <tr><td>电子围栏</td><td>15%</td><td>5(多边形围栏)</td><td>0</td><td>0</td><td>3(圆形)</td><td>0</td></tr>
+        <tr><td>SOS紧急呼救</td><td>12%</td><td>5(双SOS+自动)</td><td>0</td><td>3</td><td>3</td><td>5(跌倒+车祸)</td></tr>
+        <tr><td>用药管理</td><td>15%</td><td>5(自动分药+库存)</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>心率监测精度</td><td>10%</td><td>4</td><td>4</td><td>5(TruSeen 6.0)</td><td>2</td><td>5</td></tr>
+        <tr><td>跌倒检测</td><td>10%</td><td>4</td><td>0</td><td>3</td><td>0</td><td>5(行业标杆)</td></tr>
+        <tr><td>续航天数</td><td>8%</td><td>5(7天)</td><td>4(14天)</td><td>5(14天)</td><td>4(5天)</td><td>1(18小时)</td></tr>
+        <tr><td>适老化设计</td><td>10%</td><td>5(大字体+实体按键)</td><td>2</td><td>3</td><td>3</td><td>2</td></tr>
+        <tr><td>微信生态整合</td><td>5%</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：竞品拆解实操指南</h3>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>所需工具</th><th>目标信息</th></tr></thead>
+      <tbody>
+        <tr><td>1. 拆开后盖</td><td>吸盘+撬片+十字螺丝刀(000#)</td><td>内部结构布局、电池型号、主板层级</td></tr>
+        <tr><td>2. 拍照记录</td><td>手机微距模式+标尺</td><td>各组件相对位置，为MD结构设计参考</td></tr>
+        <tr><td>3. 称整机重量</td><td>电子秤(精度0.1g)</td><td>小米~18g, 华为~26g, Apple~32g。目标我们的手环<20g</td></tr>
+        <tr><td>4. 量表带宽度</td><td>游标卡尺</td><td>老人手腕周长140-190mm，表带调节范围需覆盖</td></tr>
+        <tr><td>5. 查屏幕型号</td><td>放大镜检查Marking</td><td>小米1.64" AMOLED, 华为1.82" LCD。我们定1.14" IPS(成本低)</td></tr>
+        <tr><td>6. 估算BOM</td><td>Tsingsee拆解报告+ICmarking</td><td>小米手环9 Pro BOM估计~120元(出货量极大)</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：定位精度实地测试方案</h3>
+    <ol class="steps-list">
+      <li><strong>测试场地：</strong>选择一个5公里环形公园步道(如北京奥林匹克森林公园北侧环道)，设置10个已知坐标 waypoints(用手机测量一次作为ground truth)。</li>
+      <li><strong>测试方法：</strong>同时开启4台设备(小米+华为+小寻+Apple)，以相同速度步行，每30秒在waypoint处停车拍照记录各设备显示的坐标。</li>
+      <li><strong>数据处理：</strong>将每个waypoint的设备坐标与ground truth对比，计算RMSE(root mean square error)。预期结果：Apple ~2m, 华为 ~3m, 小米 ~4m, 小寻 ~5m。</li>
+      <li><strong>室内测试：</strong>在同一商场的同一楼层，观察各设备定位漂移情况(应静止不动时GPS点跳动<10米)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：竞品APP UX评分(尼尔森十法则)</h3>
+    <table class="data-table">
+      <thead><tr><th>评估项</th><th>评分标准</th><th>小米运动</th><th>华为运动健康</th><th>我们的改进点</th></tr></thead>
+      <tbody>
+        <tr><td>状态可见性</td><td>设备连接状态是否一目了然</td><td>4/5 - 底部tab显示连接状态</td><td>4/5</td><td>增加老人模式：连接状态用"绿色大圆点"表示</td></tr>
+        <tr><td>系统与现实匹配</td><td>用语是否适合目标用户</td><td>2/5 - 大量医学术语</td><td>3/5</td><td>全部用"走得稳不稳""睡得香不香"等口语</td></tr>
+        <tr><td>操作效率</td><td>核心功能几步可达</td><td>3/5 - 查看心率需3步</td><td>3/5</td><td>首页直接展示今日心率/位置/用药状态</td></tr>
+        <tr><td>异常恢复</td><td>断连/离线时的引导</td><td>2/5 - "设备离线"四个字就完了</td><td>3/5</td><td>给出具体操作："检查是否戴着""检查电量是否充足"</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：SWOT分析模板(填空版)</h3>
+    <table class="data-table">
+      <thead><tr><th></th><th>内部优势(strengths)</th><th>内部劣势(weaknesses)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>机会(opportunities)</strong></td><td>利用BMS优势抓住XX机会：<br/>- 用电子围栏功能切入养老社区采购<br/>- 用微信生态避开独立APP下载门槛</td><td>弥补XXX劣势以利用XX机会：<br/>- 通过ODM快速补齐APP短板<br/>- 先做小程序版APP快速验证</td></tr>
+        <tr><td><strong>威胁(threats)</strong></td><td>用优势抵御威胁：<br/>- 用差异化功能对抗巨头价格战<br/>- 订阅收入降低对硬件毛利的依赖</td><td>最小化弱势+规避威胁：<br/>- 避免与华为/小米正面竞争手环市场<br/>- 专注"手环+药盒"生态位避开巨头</td></tr>
+        <tr><td><strong>产品拆解报告来源</strong></td><td colspan="2">拆解报告获取渠道：①Tsingsight(tsingsight.com)付费订阅¥500/年，每天发布新品拆解。②京东/天猫买家秀搜索"拆解"关键词。③B站搜索"手环 拆解"，UP主通常会公开拆解过程和BOM猜测。</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：竞品定价追踪与调价策略</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>操作</th><th>工具</th><th>频率</th></tr></thead>
+      <tbody>
+        <tr><td>价格监控</td><td>爬取京东/天猫竞品价格，输出CSV时间序列</td><td>Python requests + BeautifulSoup</td><td>每日自动</td></tr>
+        <tr><td>促销日历</td><td>记录618/双11/年货节期间的折扣力度</td><td>Excel跟踪表</td><td>大促前后一周</td></tr>
+        <tr><td>我们的调价触发</td><td>竞品降价>10%时启动应对预案(赠品/限时折扣)</td><td>内部CRM系统</td><td>事件驱动</td></tr>
+        <tr><td>ASIN排名跟踪</td><td>记录类目排名变化，反映市场份额趋势</td><td>Jungle Scout/卖家精灵</td><td>每周</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：竞品用户评论情感分析</h3>
+    <ol class="steps-list">
+      <li><strong>数据采集：</strong>用Python的jdparser库抓取京东评论页，筛选目标商品近6个月的全部评论。以小米手环9 Pro为例，抓取约2,000条评论。</li>
+      <li><strong>情感打分：</strong>用SnowNLP库(nightswatchcat.github.io/SnowNLP)对每条评论打分(0=极度负面，1=极度正面)。<strong>目标：</strong>我们的APP在"适老化"维度的正面率要高于小米的85%，达到90%+。</li>
+      <li><strong>关键词云：</strong>用jieba分词 + wordcloud库生成负面关键词词云。高频负面词 = 最需要改进的功能。如小米手环高频负面词"没有SOS"就是我们最大的卖点机会。</li>
+      <li><strong>输出报告：</strong>每月生成一页竞品差评TOP10清单，发给产品团队作为下个迭代的输入。</li>
+    </ol>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">功能评分项</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">20项 × 5分制</div>
+        <div style="font-size:12px;color:#64748b">覆盖定位/续航/健康监测/适老化</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">尼尔森可用性</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">10项法则</div>
+        <div style="font-size:12px;color:#64748b">逐项对比竞品APP交互体验</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">样机采购预算</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">¥2,000</div>
+        <div style="font-size:12px;color:#64748b">覆盖5大竞品(小米/华为/小寻/360/Apple)</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">SWOT分析</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">四象限模板</div>
+        <div style="font-size:12px;color:#64748b">填空版可直接用于董事会汇报</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="13-gps-tracker-depth.html"><i class="fas fa-arrow-left"></i> GPS定位</a>

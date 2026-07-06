@@ -101,6 +101,106 @@
     </table>
     <p class="data-note">三花智控是全球热管理零部件龙头，电子膨胀阀全球市占率30%+。银轮从传统换热器转型NEV热管理，增速迅猛。松芝专注车载空调，在客车领域强势。</p>
 
+    <h2 class="section-subtitle">23.5 实操：液冷系统设计入门</h2>
+    <div class="case-box">
+      <h3>案例：为一台72V 1500W电机设计液冷散热系统</h3>
+      <p><strong>场景</strong>：你正在改装一台高性能电摩，电机额定功率1500W、峰值3000W。风冷不够用了，需要加液冷系统来维持电机和控制器的温度。</p>
+    </div>
+
+    <h3 class="steps-heading">设计步骤</h3>
+    <ol class="steps-list">
+      <li><strong>计算热负荷</strong>：电机效率90%，损耗10% → 1500W × 10% = 150W持续散热需求。峰值3000W时损耗300W，但持续时间短(按15分钟计)。</li>
+      <li><strong>选择散热器</strong>：铝制板换式散热器，热阻0.15°C/W。温升ΔT = 150W × 0.15°C/W = 22.5°C(环境温度35°C时，冷却液出口温度约57.5°C)。</li>
+      <li><strong>计算流量</strong>：Q = P ÷ (Cp × ΔT_liquid)。Cp=4186J/(kg·K)，目标液温差10°C → Q = 150 ÷ (4186 × 10) = 0.00358 kg/s ≈ 0.21 L/min(选0.5L/min泵留裕量)。</li>
+      <li><strong>选水泵</strong>：6V/12V小型离心泵，流量1-2L/min，功耗2-5W。</li>
+      <li><strong>管路选型</strong>：内径6mm硅胶管(耐高温+抗腐蚀)，连接电机冷却夹套→水泵→散热器→电机。</li>
+    </ol>
+
+    <table class="data-table">
+      <thead><tr><th>部件</th><th>型号/规格</th><th>价格(元)</th><th>安装要点</th></tr></thead>
+      <tbody>
+        <tr><td>冷却水泵</td><td>12V DC微型离心泵 1L/min</td><td>¥25-50</td><td>安装回水侧，避免气蚀</td></tr>
+        <tr><td>板换散热器</td><td>铝制 50×50×10cm</td><td>¥80-150</td><td>前置迎风面+加装风扇</td></tr>
+        <tr><td>温度传感器</td><td>NTC 10KΩ ±0.5°C</td><td>¥5-10</td><td>贴电机壳体/出水口各一</td></tr>
+        <tr><td>硅胶管</td><td>内径6mm/外径10mm 耐高温</td><td>¥2/m</td><td>卡箍固定，避免弯折</td></tr>
+        <tr><td>膨胀水箱</td><td>50ml PET透明</td><td>¥15-25</td><td>最高点安装，排气用</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.6 实操：冷却液选择指南</h2>
+    <p class="data-note">冷却液不只是水，正确的冷却液可以防锈+防沸+防冻+绝缘。</p>
+
+    <h3 class="steps-heading">冷却液配方选择</h3>
+    <ol class="steps-list">
+      <li><strong>最简单方案</strong>：蒸馏水(不要用自来水！氯离子会腐蚀铝材)。缺点：0°C结冰，100°C沸腾。</li>
+      <li><strong>推荐方案</strong>：50%乙二醇 + 50%蒸馏水。冰点-35°C，沸点106°C，防锈添加剂。</li>
+      <li><strong>高性能方案</strong>：专用NEV冷却液(GME/Toshiba Type-NB等效)。含有机酸缓蚀剂(OAT)+电绝缘处理。</li>
+    </ol>
+
+    <table class="data-table">
+      <thead><tr><th>类型</th><th>冰点</th><th>沸点</th><th>电导率</th><th>成本</th><th>推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>自来水</td><td>0°C</td><td>100°C</td><td>高(腐蚀)</td><td>¥0</td><td>×禁用</td></tr>
+        <tr><td>蒸馏水</td><td>0°C</td><td>100°C</td><td>中</td><td>¥5/加仑</td><td>★★勉强</td></tr>
+        <tr><td>50%乙二醇</td><td>-35°C</td><td>106°C</td><td>低</td><td>¥30/升</td><td>★★★★推荐</td></tr>
+        <tr><td>专用冷却液</td><td>-40°C</td><td>110°C</td><td>极低(绝缘)</td><td>¥100/升</td><td>★★★★★最佳</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <p><strong>警告</strong>：两轮车/低成本方案建议用"蒸馏水+少量防冻防锈添加剂"即可。专用冷却液主要用于400V高压NEV系统(电池液冷)，因为要求极高绝缘电阻(>500MΩ)。</p>
+    </div>
+
+    <h2 class="section-subtitle">23.7 实操：温控策略设计</h2>
+    <div class="case-box">
+      <h3>案例：给电池包设计一套温控逻辑</h3>
+      <p><strong>场景</strong>：你的电池包由4块60V 32Ah LFP电芯串联组成(实际上是16串)，需要在各种工况下保持电芯温度20-40°C。</p>
+    </div>
+
+    <h3 class="steps-heading">温控策略设计</h3>
+    <ol class="steps-list">
+      <li><strong>定义温度阈值</strong>：
+        <ul>
+          <td><strong>低温加热</strong>：低于5°C启动PTC加热膜，目标加热到15°C。</li>
+          <li><strong>常温</strong>：15-35°C，不干预。</li>
+          <li><strong>高温冷却</strong>：高于35°C启动水冷泵+散热风扇。</li>
+          <li><strong>严重过热</strong>：高于45°C，限制功率至50%；高于50°C切断输出。</li>
+        </ul>
+      </li>
+      <li><strong>充电温控</strong>：充电时产热更多。低于10°C禁止充电(先预热再充)；高于45°C降低充电电流。</li>
+      <li><strong>行车温控</strong>：持续爬坡或高速工况(≥1小时)，提前启动冷却(预测性温控)。</li>
+      <li><strong>休眠保温</strong>：停放超过4小时且温度低于0°C时，用电池余电微加热保温(防止下次无法启动)。</li>
+    </ol>
+
+    <table class="data-table">
+      <thead><tr><th>工况</th><th>电芯温度</th><th>动作</th><th>优先级</th></tr></thead>
+      <tbody>
+        <tr><td>超低温停车</td><td>< 0°C</td><td>休眠加热保温(15°C)</td><td>低</td></tr>
+        <tr><td>低温充电</td><td>0-10°C</td><td>先预热至15°C再充电</td><td>中高</td></tr>
+        <tr><td>常温骑行</td><td>15-35°C</td><td>正常</td><td>无</td></tr>
+        <tr><td>高温骑行</td><td>35-45°C</td><td>启动水冷+风扇</td><td>中</td></tr>
+        <tr><td>严重过热</td><td>> 45°C</td><td>功率限制50%</td><td>高</td></tr>
+        <tr><td>危险高温</td><td>> 50°C</td><td>切断输出+报警</td><td>紧急</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.8 实操：常见故障排查清单</h2>
+    <table class="data-table">
+      <thead><tr><th>症状</th><th>可能原因</th><th>排查方法</th><th>修复方案</th></tr></thead>
+      <tbody>
+        <tr><td>电机过热保护频繁触发</td><td>冷却液不足/水泵故障</td><td>检查液位+听水泵声音</td><td>补充冷却液/更换水泵</td></tr>
+        <tr><td>电池续航突然下降30%+</td><td>冷却系统失效导致高温限功率</td><td>读取BMS温度日志</td><td>检修液冷回路</td></tr>
+        <tr><td>散热器出水口漏水</td><td>硅胶管老化/卡箍松动</td><td>目视检查+手动紧固</td><td>更换软管+不锈钢卡箍</td></tr>
+        <tr><td>PTC不加热</td><td>加热丝熔断/MOS驱动故障</td><td>测量PTC电阻(正常10-30Ω)</td><td>更换PTC模块</td></tr>
+        <tr><td>温度传感器读数异常</td><td>NTC开路/短路</td><td>测量NTC阻值对照温度表</td><td>更换NTC(建议选±0.2°C高精度型)</td></tr>
+        <tr><td>冷却液浑浊/有铁锈</td><td>使用了自来水+未加缓蚀剂</td><td>目视+pH试纸检测(pH应7-9)</td><td>彻底冲洗+更换专用冷却液</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <p><strong>维护建议</strong>：每6个月检查一次冷却液液位和颜色。颜色变深/发浑说明缓蚀剂耗尽，需要更换。每年至少彻底更换一次冷却液。</p>
+    </div>
+
     <div class="chart-container" id="chart-thermal"></div>
   </main>
   <footer class="page-footer">

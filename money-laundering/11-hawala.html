@@ -77,6 +77,36 @@
     </ul>
 
     <div class="chart-container" id="chart-hawala"></div>
+
+    <h2 class="section-subtitle">合规操作指南：IFIS(非正式汇款系统)监测步骤</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-handshake"></i> 针对跨境汇款业务的AML监测</div>
+      <div class="tip-body">
+        <p>哈瓦拉等非正式汇款系统(IFIS)是跨境合规的重点监控领域。以下为支付机构和银行的实操监测流程。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>建立IFIS对手方名单：</strong>从OFAC/SANDBOX/Deloitte IFIS报告提取已知哈瓦拉商户名称、WhatsApp/Telegram群名、收款人姓名模式。维护动态更新的高风险商户数据库。</li>
+      <li><strong>交易对手命名规则匹配：</strong>在跨境汇款交易描述中扫描以下关键词模式："Hawala"/"Hundi"/"Karzai"/"Agencies"/"Exchange"以及常见南亚-中东城市组合("Lahore-Dubai"/"Mumbai-Kuwait")。</li>
+      <li><strong>汇入汇出时间差分析：</strong>计算每笔汇款的"到账时间"。若汇款发出后≤24小时即到账且手续费率≤2%(远低于正规渠道3-5%)，高度疑似IFIS对敲。</li>
+      <li><strong>客户关系图谱挖掘：</strong>对汇款人和收款人进行姓名-电话-地址三重匹配聚类。若发现一个电话号码对应≥3个不同汇款人，或一个姓名出现在≥5个不同汇款关系中，标记为疑似IFIS枢纽节点。</li>
+      <li><strong>生成STR并上报FIU：</strong>参照FATF建议15(IFIS监管)撰写可疑报告，标注：疑似哈瓦拉商名称、涉案金额区间、资金流向区域、通讯手段推测(WhatsApp群名/ Signal 联系人等)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">哈瓦拉体系自查评估表</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:50%">合规自查项</th><th style="width:20%">达标标准</th><th style="width:30%">未达标整改</th></tr></thead>
+      <tbody>
+        <tr><td>是否已将IFIS/Hawala列入客户风险评级模型</td><td>是，且权重≥25%</td><td>更新评分卡模型参数</td></tr>
+        <tr><td>跨境汇款到账时间是否≥2个工作日</td><td>是(排除实时汇款)</td><td>引入汇款时效规则引擎</td></tr>
+        <tr><td>手续费费率是否与市场价偏差≤20%</td><td>是</td><td>设置手续费率异常告警阈值</td></tr>
+        <tr><td>是否有≥5个客户共用同一收款联系电话</td><td>否</td><td>实施联系电话唯一性校验</td></tr>
+        <tr><td>是否定期接入World-Check/Dow Jones制裁筛查</td><td>每日自动</td><td>配置API自动同步</td></tr>
+        <tr><td>近12个月是否提交过≥3份IFIS相关STR</td><td>是</td><td>若无 → 加强员工培训</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-hawala"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="10-underground-banks.html"><i class="fas fa-arrow-left"></i> 地下钱庄</a>

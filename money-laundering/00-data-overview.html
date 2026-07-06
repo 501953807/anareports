@@ -105,8 +105,49 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">合规操作指南：宏观数据驱动的AML风险评估框架</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chart-bar"></i> 如何运用宏观执法数据设计机构的洗钱风险评估模型</div>
+      <div class="tip-body">
+        <p>金融机构应将全球洗钱规模数据和前置犯罪分布纳入自身的Risk Assessment Framework。以下是将宏观数据转化为机构级风险评分的实操步骤。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>客户前置犯罪风险分类：</strong>根据0.0.2节的前置犯罪类型分布数据，为每个客户行业赋予初始风险权重。(a) 欺诈相关行业(电商/网贷/投资顾问) → 风险权重0.38(最高)；(b) 跨境贸易/物流 → 0.16(毒品+武器高风险)；(c) 房地产/艺术品/贵金属 → 0.11(税务+腐败高风险)；(d) 娱乐业/博彩 → 0.06(有组织犯罪)；(e) 传统银行业 → 0.03(相对较低，但需注意TBML)。</li>
+      <li><strong>跨境交易地域风险矩阵：</strong>结合0.0.3节各国执法数据，对客户的交易对手方所在司法管辖区赋予地域风险分。(a) 高执法力度地区(美国/英国/新加坡) → 地域风险分30(高合规=低风险)；(b) 中等执法力度地区(欧盟/中国/香港) → 地域风险分50；(c) 低执法力度/FATF灰名单地区(缅甸/叙利亚/土耳其) → 地域风险分90(极高风险)；(d) 制裁地区(古巴/伊朗/朝鲜/叙利亚) → 地域风险分100(自动拦截)。</li>
+      <li><strong>渠道风险评分：</strong>对客户的资金转移渠道赋予风险分。(a) SWIFT银行转账 → 20分(全程记录)；(b) CEX加密交易 → 40分(需KYC)；(c) P2P/OTC → 60分(弱KYC)；(d) 混币器 → 95分(自动拦截)；(e) 地下钱庄对敲 → 100分(自动拦截)；(f) 现金存款 → 50分(需CTR)；(g) TBML → 70分(需发票核验)。</li>
+      <li><strong>综合风险评分计算：</strong>最终风险分 = 前置犯罪分(40%) + 地域风险分(30%) + 渠道风险分(30%)。得分0-25为低风险(标准监控)，26-50为中风险(强化监控)，51-75为高风险(定期审查)，76-100为极高风险(拒绝服务或强制SAR)。</li>
+      <li><strong>动态风险调整：</strong>每季度根据0.0.4节的执法难点更新调整因子。(a) 若检测到客户使用跨境7国以上通道 → +15分；(b) 若客户交易模式"刚好低于阈值" → +10分(结构化嫌疑)；(c) 若客户与FATF灰名单国家有交易 → +20分；(d) 若客户首次交易金额超过年收入10倍 → +25分(立即冻结+举报)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">实操教程：从零搭建AML合规数据看板</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-tachometer-alt"></i> 合规官必备的8个核心指标仪表盘</div>
+      <div class="tip-body">
+        <p>一个有效的AML合规数据看板应该覆盖以下8个核心指标，帮助管理层和监管机构一眼看清机构的反洗钱健康状态。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>计算公式</th><th>达标目标</th><th>监控频率</th><th>预警阈值</th></tr></thead>
+      <tbody>
+        <tr><td>SAR/STR提交率</td><td>已提交SAR数 / 触发告警总数</td><td>≥95%</td><td>月度</td><td>&lt;90%触发管理层预警</td></tr>
+        <tr><td>规则引擎误报率</td><td>确认为正常的告警数 / 总告警数</td><td>≤90%</td><td>月度</td><td>&gt;95%需立即优化规则</td></tr>
+        <tr><td>制裁筛查命中率</td><td>命中制裁名单的交易数 / 总交易数</td><td>接近0(理想)</td><td>实时</td><td>任何命中=立即冻结</td></tr>
+        <tr><td>KYC到期率</td><td>过期KYC客户数 / 总客户数</td><td>0%</td><td>周度</td><td>&gt;1%触发整改</td></tr>
+        <tr><td>高风险客户覆盖率</td><td>EDD完成的客户数 / 标记高风险的客户数</td><td>100%</td><td>季度</td><td>&lt;100%=合规缺口</td></tr>
+        <tr><td>平均交易审查时效</td><td>从告警到人工审查的平均小时数</td><td>≤24h</td><td>日度</td><td>&gt;48h触发升级</td></tr>
+        <tr><td>链上地址风险覆盖率</td><td>已完成链上分析的客户地址数 / 总加密交易客户数</td><td>100%</td><td>实时</td><td>&lt;100%=监控缺口</td></tr>
+        <tr><td>合规培训完成率</td><td>完成年度培训的员工数 / 应培训员工总数</td><td>100%</td><td>季度</td><td>&lt;98%通报各部门负责人</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">合规工具箱推荐</h2>
+    <div class="grid-2">
+      <div class="card"><h3><i class="fas fa-database" style="color:var(--cyan)"></i> 数据源</h3><p>(a) OFAC SDN List API — 制裁名单实时同步；(b) FATF Public Statements RSS — 全球监管动态；(c) Chainalysis Geographic Risk Index — 地域风险评分API；(d) OpenCorporates API — 公司所有权穿透查询；(e) World-Check — 高净值PEP/负面新闻数据库。</p></div>
+      <div class="card"><h3><i class="fas fa-tools" style="color:var(--purple)"></i> 分析工具</h3><p>(a) Chainalysis Reactor — 链上资金路径可视化追踪；(b) Elliptic Neural — 图神经网络检测团伙洗钱；(c) Refinitiv Watchlist — 实时制裁/PEP筛查引擎；(d) activerain — 房地产反洗钱情报平台；(e) Forta Network — DeFi协议实时监控Bot。</p></div>
+    </div>
+
     <div class="chart-container" id="chart-overview"></div>
-  </main>
   <footer class="page-footer">
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
     <span class="page-info">1 / 28</span>

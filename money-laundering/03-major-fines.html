@@ -59,6 +59,38 @@
     </div>
 
     <div class="chart-container" id="chart-fines-trend" style="margin-top:30px"></div>
+
+    <h2 class="section-subtitle">合规操作指南：从罚款案例学习AML框架修复</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-gavel"></i> 罚款背后的合规短板与修复方法论</div>
+      <div class="tip-body">
+        <p>全球银行罚款TOP15揭示了AML系统的6大常见短板。合规官应以此为鉴，逐项排查自身机构的合规缺口。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>SAR/STR报告缺失：</strong>Wells Fargo ($32亿)和Deutsche Bank ($15亿)的共同短板是可疑报告严重不足。修复措施：(a)建立"可疑活动→MLRO审核→SAR提交"的SLA时限；(b)将SAR提交率纳入合规KPI(目标：≥95%的可疑线索在时限内上报)；(c)每季度回溯审查"未提交SAR的预警记录"。</li>
+      <li><strong>KYC/DDC不足：</strong>JPMorgan ($8.66亿)和Credit Suisse ($8.46亿)涉及加密KYC缺失和离岸BO不透明。修复措施：(a)对加密货币相关业务执行专项DDC(Enhanced Due Diligence)；(b)接入链上分析API实现KYC中的地址风险标签；(c)要求所有离岸交易对手提供BOI证明。</li>
+      <li><strong>交易监测模型失效：</strong>Wells Fargo ($30亿)和Rabobank ($8.4亿)因监测模型未能捕获结构性交易和TBML被重罚。修复措施：(a)引入机器学习异常检测模型替代纯规则引擎；(b)针对现金结构化合规检测训练"smurfing classifier"；(c)TBML模块接入大宗商品价格API做发票偏离度检测。</li>
+      <li><strong>制裁筛查缺失：</strong>Citibank/Benzinga/ING的共性问题是OFAC/EU制裁名单遗漏。修复措施：(a)建立制裁名单自动同步机制(OFAC/UN/EU/HMT每日增量更新)；(b)配置模糊匹配(编辑距离≤2)；(c)定期回溯测试——每月随机抽样500笔交易重新筛查。</li>
+      <li><strong>代理行/第三方风险管理：</strong>HSBC ($6.65亿)因墨西哥/土耳其分行代理行网络洗钱被罚。修复措施：(a)对所有代理行客户实施EDD(包括实地访查和第三方审计)；(b)限制代理行业务的产品范围(禁止代理行访问制裁国家)；(c)建立代理行交易抽样审查机制(每月抽检≥10%)。</li>
+      <li><strong>治理与文化修复：</strong>所有重罚案例的共同根源是"合规文化"问题——管理层对AML重视不足。修复措施：(a)董事会层面设立独立AML Committee(每季度召开)；(b)合规部门负责人直接向CEO报告且有Board直达通道；(c)将AML违规与高管薪酬挂钩(负向考核)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">罚款案例对照自查表(Anti-Fine Checklist)</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:40%">合规检查项</th><th style="width:25%">现状(达标/未达标)</th><th style="width:35%">整改措施</th></tr></thead>
+      <tbody>
+        <tr><td>SAR提交率是否≥95%(以可疑线索数为基数)</td><td>___</td><td>低于95% → 启动SAR backlog清理计划</td></tr>
+        <tr><td>制裁名单每日自动同步机制是否存在</td><td>___</td><td>缺失 → 集成OFAC/UN/EU/HMT API</td></tr>
+        <tr><td>加密业务是否执行链上地址风险标签</td><td>___</td><td>缺失 → 接入Chainalysis/Radar API</td></tr>
+        <tr><td>TBML发票价格偏离度检测规则是否启用</td><td>___</td><td>缺失 → 配置Platts/Bloomberg价格API</td></tr>
+        <tr><td>代理行客户是否完成100% EDD覆盖</td><td>___</td><td>未完成 → 优先EDD高风险代理行</td></tr>
+        <tr><td>董事会是否有独立AML Committee(每季度)</td><td>___</td><td>缺失 → 设立并提交首次会议纪要</td></tr>
+        <tr><td>近12个月是否接受过外部AML审计</td><td>___</td><td>无 → 聘请四大或精品合规事务所</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-fines-trend" style="margin-top:30px"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="02-enforcement-data.html"><i class="fas fa-arrow-left"></i> 执法数据</a>

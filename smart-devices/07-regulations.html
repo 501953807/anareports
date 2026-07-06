@@ -121,6 +121,120 @@
     </table>
 
     <div class="chart-container" id="chart-compliance"></div>
+
+    <h2 class="section-subtitle">实操：认证合规全流程 — 手把手教你拿到SRRC/CCC/蓝牙SIG证书</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：SRRC无线电核准证申请(耗时约6周)</h3>
+    <ol class="steps-list">
+      <li><strong>前期准备：</strong>准备3台功能样机(1台送测、1台备用、1台留档)。样机不可与最终量产机有明显差异，否则会被怀疑"送测机和量产机不一致"。</li>
+      <li><strong>选择检测机构：</strong>推荐中国泰尔实验室(CCAT，北京朝阳区酒仙桥路)或深圳市计量质量检测研究院(SQMRC，深圳福田区彩田路)。电话预约送样时间，确认排期约2-3周。</li>
+      <li><strong>准备材料：</strong>①申请表(泰尔实验室官网下载) ②企业营业执照复印件 ③测试样机3台 ④用户手册(含无线电频率声明) ⑤外观照片(6面各一张，白底)</li>
+      <li><strong>测试项目：</strong>发射功率、频率容限、杂散辐射、占用带宽。Cat1模组(GSM 900/1800MHz)和BLE(2.4GHz)分别测试。</li>
+      <li><strong>获得证书：</strong>测试通过后取得SRRC认证编号(CMIC-XXXX-XXXXXXX)，印在产品铭牌上。有效期永久，但变更设计需重新申请。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：CCC认证(中国强制性产品认证)</h3>
+    <table class="data-table">
+      <thead><tr><th>项目</th><th>细节</th></tr></thead>
+      <tbody>
+        <tr><td>适用类别</td><td>信息技术设备(ITE, GB4943.1) + 电磁兼容(GB/T 17626)</td></tr>
+        <tr><td>检测机构</td><td>南京信息安全认证中心(NASEC)、上海泰尔实验室</td></tr>
+        <tr><td>测试项目</td><td>电击保护、能量危险、温升、辐射EMI、传导EMI、ESD抗扰度、浪涌抗扰度</td></tr>
+        <tr><td>工厂审查</td><td>审核生产线QC体系(来料检验、过程检验、成品检验记录)</td></tr>
+        <tr><td>费用</td><td>¥20,000-40,000(含测试+审厂+证书年费)</td></tr>
+        <tr><td>周期</td><td>8-12周</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：PIPL合规文档编写模板</h3>
+    <ol class="steps-list">
+      <li><strong>隐私政策首页：</strong>"本应用仅收集必要数据(设备位置、健康体征、用药记录)用于为您提供照护服务。所有数据传输采用AES-256加密存储于中国大陆境内服务器。"</li>
+      <li><strong>数据收集清单：</strong>用表格列出每一类数据(位置/心率/用药记录)的收集目的、法律依据、保存期限(12个月)、删除方式。</li>
+      <li><strong>单独同意弹窗：</strong>首次使用时，逐项弹出授权请求：(1)位置权限-用于防走失(2)健康数据-用于异常预警(3)相机-用于SOS紧急联系人照片上传(4)通知-用药提醒推送。</li>
+      <li><strong>数据导出/删除：</strong>在"设置→账号与安全"页面增加"一键导出我的数据"(JSON格式下载)和"注销账号并删除所有数据"按钮。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：认证代理机构选择指南</h3>
+    <table class="data-table">
+      <thead><tr><th>代理机构</th><th>专长</th><th>服务费</th><th>加急能力</th><th>评价</th></tr></thead>
+      <tbody>
+        <tr><td>通标标准(TUV SUD)</td><td>全套认证(CCC/SRRC/CE/FCC)</td><td>¥30,000(服务费等额测试费)</td><td>CCC可加急至4周</td><td>价格偏高，质量最可靠</td></tr>
+        <tr><td>华测检测(CTA)</td><td>深圳本地，SRRC/CCC快</td><td>¥25,000起</td><td>SRRC最快3周</td><td>性价比高，深圳工厂首选</td></tr>
+        <tr><td>广电计量(GTE)</td><td>电磁兼容测试</td><td>¥20,000起</td><td>标准周期</td><td>国企背景，报告认可度高</td></tr>
+        <tr><td>第三方中介</td><td>代办服务(跑腿)</td><td>¥3,000-5,000(跑腿费)</td><td>可加快预约</td><td>适合已有测试能力的团队</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">认证省钱策略</div>
+      <div class="tip-body">首版产品可先完成3项强制认证(SRRC+CCC+CTA)，蓝牙SIG认证和UN38.3电池测试放到第二批。SRRC和CTA可同步送测(不是串行)，节省2周。蓝牙SIG认证¥50,000但无此证无法印蓝牙Logo，建议在量产前完成。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：FCC认证出口美国必备(美国市场)</h3>
+    <table class="data-table">
+      <thead><tr><th>测试项</th><th>标准</th><th>限值</th><th>费用</th><th>周期</th></tr></thead>
+      <tbody>
+        <tr><td>传导骚扰(CON)</td><td>CISPR 32 / FCC Part 15B</td><td>30-230MHz: -43dBμA</td><td>$3,000-5,000</td><td>2-3周</td></tr>
+        <tr><td>辐射骚扰(RAD)</td><td>FCC Part 15B §15.109</td><td>30-1000MHz: 40dBμV/m(@3m)</td><td>$4,000-7,000</td><td>2-4周</td></tr>
+        <tr><td>蓝牙FCC-ID</td><td>FCC Part 15C</td><td>2.4GHz ISM频段</td><td>$5,000-8,000</td><td>3-4周</td></tr>
+        <tr><td>Laser GDO(如有)</td><td>21 CFR 1040.10/11</td><td>Class I豁免</td><td>$1,000</td><td>1周</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：CE-RED认证(欧盟市场准入)</h3>
+    <ol class="steps-list">
+      <li><strong>确定适用指令：</strong>RED指令2014/53/EU涵盖射频设备。手环需满足：①EN 300 328(VLAN 2.4GHz) ②EN 62368-1(信息安全) ③EN 50566(RoHS电气电子) ④EEC Directive 2014/53 Annex III(射频测试)。</li>
+      <li><strong>选Notified Body：</strong>如果只做self-declaration(自行声明)，可跳过Notified Body。蓝牙BLE手环一般不需要第三方介入。费用可省€15,000+。</li>
+      <li><strong>编写Technical Construction File(TCF)：</strong>包含电路图、BOM、PCB layout照片、用户手册、标签样式、射频测试报告。TCF必须保存10年。</li>
+      <li><strong>签署DoCDeclaration of Conformity)：</strong>用欧盟官方语言(英语/德语等)起草DoC，包含产品型号、适用指令、 harmonized standard引用。打印、签字、加盖公司公章。</li>
+      <li><strong>贴CE标记：</strong>CE标记最小高度5mm，必须清晰可见。与SRRC编号/CCC标志/蓝牙Logo一起印在产品铭牌上。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：APP上架合规审查(中国应用商店)</h3>
+    <table class="data-table">
+      <thead><tr><th>要求</th><th>具体内容</th><th>不合规后果</th></tr></thead>
+      <tbody>
+        <tr><td>ICP备案</td><td>APP后端服务器域名必须做ICP备案(工信部备案系统beian.miit.gov.cn)</td><td>应用市场拒绝上架</td></tr>
+        <tr><td>APP备案</td><td>2023年起新增APP/小程序备案要求，需通过管局提交</td><td>苹果审核不过/安卓市场下架</td></tr>
+        <tr><td>隐私政策合规</td><td>首次启动必须有独立隐私政策弹窗，不能捆绑安装包勾选</td><td>工信部通报下架</td></tr>
+        <tr><td>SDK合规</td><td>APP集成的第三方SDK(如高德地图/阿里云推送)需列出名称和隐私政策</td><td>应用市场审核驳回</td></tr>
+        <tr><td>个人信息最小化</td><td>不可因用户不同意非必要权限而拒绝提供服务(《个人信息保护法》第16条)</td><td>被网信办处罚</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：合规自查月历(全年12项任务)</h3>
+    <table class="data-table">
+      <thead><tr><th>月份</th><th>合规任务</th><th>负责人</th></tr></thead>
+      <tbody>
+        <tr><td>1月</td><td>SSL证书续费 + TLS版本检查(禁用TLS1.0/1.1)</td><td>运维</td></tr>
+        <tr><td>3月</td><td>PIPL隐私政策年度复审(法律更新)</td><td>法务</td></tr>
+        <tr><td>4月</td><td>SRRC证书年审(如适用)</td><td>质量</td></tr>
+        <tr><td>6月</td><td>等保2.0测评(如果数据量>10万用户)</td><td>安全团队</td></tr>
+        <tr><td>7月</td><td>APP个人信息收集合规自查(用腾讯/阿里的合规工具)</td><td>产品+法务</td></tr>
+        <tr><td>9月</td><td>供应商数据安全审计(云服务商/ODM工厂)</td><td>采购+法务</td></tr>
+        <tr><td>10月</td><td>员工保密协议更新 + 数据安全培训</td><td>HR</td></tr>
+        <tr><td>12月</td><td>年度数据合规报告(汇总全年安全事件/用户投诉)</td><td>CEO+法务</td></tr>
+      </tbody>
+    </table>
+    <div class="case-box">
+      <div class="case-title">合规风险真实案例：某手环品牌因隐私政策被罚</div>
+      <div class="case-body">2024年某智能手环品牌因隐私政策违规被工信部通报：①未明示收集精确位置信息的目的 ②APP启动时默认勾选"同意所有权限" ③删除账号后未彻底清除云端数据。整改费用¥20万+品牌声誉损失。教训：隐私政策务必让专业互联网律师审核，不要直接用模板。</div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">CCC认证周期</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">8-12 周</div>
+        <div style="font-size:12px;color:#64748b">含测试+审厂+发证</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">SRRC加急</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">最快 3 周</div>
+        <div style="font-size:12px;color:#64748b">华测检测(SQMRC)加急通道</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">FCC全套费用</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">$13,000-20,000</div>
+        <div style="font-size:12px;color:#64748b">传导+辐射+蓝牙FCC-ID</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">CE-RED自检</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">€0 (Self-Declaration)</div>
+        <div style="font-size:12px;color:#64748b">BLE手环可用self-declaration免第三方</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="04-competitive-analysis.html"><i class="fas fa-arrow-left"></i> 竞品分析</a>

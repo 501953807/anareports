@@ -43,6 +43,38 @@
     </table>
 
     <div class="chart-container" id="chart-regulations"></div>
+
+    <h2 class="section-subtitle">合规操作指南：加密监管框架落地SOP</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-balance-scale"></i> VASP合规官必读：如何将监管要求转化为内部政策</div>
+      <div class="tip-body">
+        <p>MiCA/Travel Rule/CTA等新规不只是合规要求，更是业务竞争的门槛。以下是将监管框架落地的五步法。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>监管范围映射(Regulatory Mapping)：</strong>梳理机构在哪些司法管辖区开展业务，列出适用的监管框架矩阵。(a) 欧盟 → MiCA + 5AMLD + Travel Rule；(b) 美国 → BSA/AML + FinCEN规则 + CTAs + SEC/CFTC管辖；(c) 英国 → FCA注册 + MLRs 2017；(d) 新加坡 → PSA(MAS) + FMCA；(e) 中国 → 禁止加密交易(但e-CNY合规需遵守PBOC)。</li>
+      <li><strong>Travel Rule落地实施：</strong>以JAMF标准(VASP间客户信息共享)为基础：(a) 部署IVRTripex/Morphcoin/Notabene等Travel Rule解决方案；(b) 配置金额阈值(US≥$3,000/EU≥€1,000)；(c) 对于不合规的counterparty VASP，降级或终止合作关系。</li>
+      <li><strong>KYC/EDD框架升级：</strong>应对MiCA和各国加密新规：(a) 引入Biometric KYC(人脸+证件比对)；(b) 对≥$10,000交易补充EDD(资金来源声明+风险问卷)；(c) 对DeFi协议交互地址实施链上标签筛查。</li>
+      <li><strong>监管科技(RegTech)工具部署：</strong>整合以下工具形成合规技术栈：(a) Chainalysis Portfolio/Refinery → 链上资金追踪；(b) TRM Labs/AEB → 实时API风控；(c) Complianz/Coinscope → VASP合规平台(自动化MiCA/Travel Rule)；(d) OCR/Microsemi → 反欺诈和反身份冒用。</li>
+      <li><strong>年度合规审计与压力测试：</strong>每年至少一次第三方合规审计，检查：(a) SAR/STR提交的及时性和完整性；(b) 制裁名单筛查的召回率和精确率；(c) Travel Rule互操作性测试(与≥5家counterparty VASP)；(d) 加密监管变化的年度影响评估。</li>
+    </ol>
+
+    <h2 class="section-subtitle">监管框架合规落地检查表</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:35%">合规要求</th><th style="width:30%">实施动作</th><th style="width:35%">责任部门</th></tr></thead>
+      <tbody>
+        <tr><td>Travel Rule (JAMF标准)</td><td>部署Travel Rule API网关，对接≥3家counterparty VASP进行互操作性测试</td><td>IT + 合规部</td></tr>
+        <tr><td>MiCA VASP牌照</td><td>提交牌照申请材料(公司治理+AML政策+技术架构说明+财务审计报告)</td><td>法务 + 合规</td></tr>
+        <tr><td>CTA BOI申报</td><td>对美注册实体收集并申报BOI，接入FinCen数据库</td><td>法务 + IT</td></tr>
+        <tr><td>FATF Recommendation 15</td><td>将加密资产纳入机构整体风险评估(Risk Assessment Framework)</td><td>风险管理部</td></tr>
+        <tr><td>SAR/STR加密专项</td><td>为加密相关业务单独建立SAR提交流程和模板</td><td>合规部</td></tr>
+        <tr><td>Chainalysis/Radar集成</td><td>将链上分析API接入充值/提现审批工作流</td><td>IT + 风控</td></tr>
+        <tr><td>隐私币禁令执行</td><td>交易所/CEX下架XMR/ZEC等隐私币充提功能</td><td>交易运营 + 合规</td></tr>
+        <tr><td>年度合规审计</td><td>聘请四大/精品律所执行外部合规审计</td><td>内部审计 + 合规</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-regulations"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="31-monero.html"><i class="fas fa-arrow-left"></i> 隐私币XMR</a>

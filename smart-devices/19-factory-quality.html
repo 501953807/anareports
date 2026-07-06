@@ -111,6 +111,114 @@
     </table>
 
     <div class="chart-container" id="chart-quality"></div>
+
+    <h2 class="section-subtitle">实操：工厂品控落地 — 从IQC验收到产线良率提升</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：如何选择ODM工厂(深圳龙华/东莞长安)</h3>
+    <ol class="steps-list">
+      <li><strong>线上筛选：</strong>在1688搜"智能手环 ODM"，看"实力商家"标识。重点关注：成立年限(>5年)、认证(ISO9001/ISO13485)、月产能(>10K台)、是否有蓝牙/WiFi认证经验。</li>
+      <li><strong>工厂审核清单(Sourcing Checklist)：</strong>①SMT线有几条(B0级+DIP)？②有没有功能测试治具(self-built test jig)？③老化仓多大？能同时老化多少台？④防水测试用什么设备(水压/气密)？⑤有没有ESD防护(EPA车间)？</li>
+      <li><strong>验厂实操：</strong>去工厂看他们的MES(制造执行系统)界面，看能不能实时看到每条线的FPY和停机时间。如果工厂还用手写报表，慎重。</li>
+      <li><strong>打样验货：</strong>先下单3-5台工程样机(价格通常比普通BOM高3-5倍)，收到后拆机看PCB做工、锡点饱满度、排线走线。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：产线良率提升五步法</h3>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>方法</th><th>预期效果</th></tr></thead>
+      <tbody>
+        <tr><td>1. 帕累托分析</td><td>统计前3大不良原因(通常占80%不良)</td><td>聚焦关键问题</td></tr>
+        <tr><td>2. 鱼骨图根因分析</td><td>人(man)机(machine)料(material)法(method)测(measurement)五大维度逐一排查</td><td>找到根本原因</td></tr>
+        <tr><td>3.  DOE试验设计</td><td>对关键参数(如锡膏印刷速度/回流焊温度)做正交试验</td><td>找到最优参数组合</td></tr>
+        <tr><td>4. 防呆设计(Poka-Yoke)</td><td>测试治具加传感器反向检测功能；电池仓加极性防反凸台</td><td>杜绝人为错误</td></tr>
+        <tr><td>5. SPC统计过程控制</td><td>实时监控关键尺寸(X轴宽度)的Cpk值, &gt;1.33为合格</td><td>防止不良累积</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：FCT功能测试站搭建实操</h3>
+    <table class="data-table">
+      <thead><tr><th>测试项目</th><th>测试设备</th><th>测试方法</th><th>时长</th></tr></thead>
+      <tbody>
+        <tr><td>BLE连通性</td><td>测试笔记本电脑安装BlueZ</td><td>治具Pogo Pin连接MCU UART/SWD, 发送AT命令</td><td>5秒</td></tr>
+        <tr><td>PPG传感器</td><td>模拟光源+光电二极管</td><td>输入模拟心跳信号(60-120bpm), 读取数值偏差</td><td>3秒</td></tr>
+        <tr><td>加速度计</td><td>标准转台(100rpm)</td><td>旋转设备, 读取角速度值是否与设定值匹配</td><td>2秒</td></tr>
+        <tr><td>屏幕</td><td>红/绿/白全亮画面</td><td>目检+光照度计检测亮度是否达标(&gt;400nit)</td><td>3秒</td></tr>
+        <tr><td>按键</td><td>治具按钮触发</td><td>按压SOS键/电源键, MCU上报事件日志</td><td>2秒</td></tr>
+        <tr><td>电池电压</td><td>高精度万用表(纳睿科技NY27xx)</td><td>读取电池电压应在3.7-4.2V区间</td><td>1秒</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：质量指标看板与追溯</h3>
+    <table class="data-table">
+      <thead><tr><th>KPI</th><th>公式</th><th>目标值</th><th>看板展示</th></tr></thead>
+      <tbody>
+        <tr><td>FPY(一次通过率)</td><td>首次通过÷总投入×100%</td><td>>98.5%</td><td>车间大屏实时刷新</td></tr>
+        <tr><td>客诉率</td><td>月退货数÷月出货量×100%</td><td><0.3%/月</td><td>周报复盘</td></tr>
+        <tr><td>条码追溯率</td><td>有SN码的成品÷总产出</td><td>100%</td><td>每盒贴SN码, 扫码入库</td></tr>
+        <tr><td>返工成本</td><td>返工人时×工资+物料损耗</td><td><¥3/台</td><td>月度财务报表</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">SN码追溯方案</div>
+      <div class="tip-body">每台设备出厂时写入唯一SN码(格式: WW2026-XX-YYYYYY，WW=周次, XX=产线编号, YYYYYY=流水号)。SMT阶段扫码绑定PCB序列号；组装阶段扫码绑定壳体序列号；测试站扫码绑定测试数据。售后客诉时可以追溯到具体哪个批次/哪条产线/哪个操作员。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：AOI自动光学检测配置指南</h3>
+    <table class="data-table">
+      <thead><tr><th>检测项</th><th>AOI参数</th><th>触发条件</th></tr></thead>
+      <tbody>
+        <tr><td>锡球(solder bridge)</td><td>两相邻焊点间距<0.2mm → NG</td><td>回流焊后200ms内扫描</td></tr>
+        <tr><td>少锡(joint deficiency)</td><td>焊锡面积<标准值60% → NG</td><td>视觉系统计算焊点填充率</td></tr>
+        <tr><td>立碑(tombstone)</td><td>元件两端翘起角度>30° → NG</td><td>双视角相机对比</td></tr>
+        <tr><td>偏移(offset)</td><td>元件中心偏离焊盘>50%宽度 → NG</td><td>X/Y方向分别检测</td></tr>
+        <tr><td>极性错误</td><td>二极管/电容极性反装 → NG</td><td>OCR识别极性标记</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：Burn-In(老化)测试标准化流程</h3>
+    <ol class="steps-list">
+      <li><strong>老化箱配置：</strong>温度60°C ±2°C，湿度65% ±5%RH。每台设备插在老化治具上，治具同时容纳100台设备。电源线接24V/10A直流电源，通过Pogo Pin模拟充电。</li>
+      <li><strong>测试脚本：</strong>烧录专用的burn-in固件(firmware_burnin.bin)。该固件循环执行：①PPG数据采集(100Hz) ②BLE广播(1次/秒) ③温度采样(1次/分钟) ④LED全部点亮(5秒)→熄灯(5秒)。持续运行48小时。</li>
+      <li><strong>PASS/FAIL判定：</strong>48小时后逐一检查：设备是否死机/重启、PPG数据是否正常(心率0-200bpm范围内的随机值)、BLE广播是否能被发现。任何一项异常标记FAIL。</li>
+      <li><strong>统计要求：</strong>每批次30台，FAIL数≤0台才能放行下一道工序。如果1台FAIL→整批次退回复检。目标FPY(一次通过率)>98%。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title"> burn-in 测试的黄金法则</div>
+      <div class="tip-body">Burn-in的核心目标是筛除"早期失效"(Infant Mortality)。电子元器件和组装不良通常在最初48-72小时暴露。经验数据：经过完整burn-in的批次，量产后的前30天客诉率可降低70%。千万不要为了省时间而缩短burn-in周期——低于48小时将失去筛除早期失效的意义。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：AQL抽样检验实操表</h3>
+    <table class="data-table">
+      <thead><tr><th>批量</th><th>样本量</th><th>Critical AQL=0</th><th>Major AQL=0.65</th><th>Minor AQL=2.5</th></tr></thead>
+      <tbody>
+        <tr><td>1-150</td><td>5</td><td>0/0</td><td>0/1</td><td>1/2</td></tr>
+        <tr><td>151-500</td><td>13</td><td>0/0</td><td>0/1</td><td>2/3</td></tr>
+        <tr><td>501-1200</td><td>20</td><td>0/0</td><td>1/2</td><td>3/4</td></tr>
+        <tr><td>1201-3200</td><td>32</td><td>0/0</td><td>1/2</td><td>5/6</td></tr>
+        <tr><td>3201-10000</td><td>50</td><td>0/0</td><td>2/3</td><td>7/8</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：ISO13485认证准备清单</h3>
+    <div class="case-box">
+      <div class="case-title">ISO13485认证时间线与费用</div>
+      <div class="case-body">①第1-2月：建立质量管理体系(QMS)，编写20+份程序文件(设计控制/风险管理/采购控制/纠正预防) ②第3月：内部审核和模拟认证 ③第4-5月：认证机构现场审核(2-3天) ④第6月：拿到证书。全程费用：咨询费¥10-15万 + 认证费¥5-10万 + 整改费用(视情况)。</div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">FPY目标</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">> 98.5%</div>
+        <div style="font-size:12px;color:#64748b">首次通过率，车间大屏实时刷新</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">客诉率</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">< 0.3%</div>
+        <div style="font-size:12px;color:#64748b">月退货数 ÷ 月出货量 × 100%</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">Burn-in周期</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">48 小时</div>
+        <div style="font-size:12px;color:#64748b">60°C/65%RH，筛除早期失效</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">追溯覆盖率</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">100%</div>
+        <div style="font-size:12px;color:#64748b">每台SN码绑定SMT→组装→测试全数据</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="18-materials-selection.html"><i class="fas fa-arrow-left"></i> 材料选型</a>

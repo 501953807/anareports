@@ -109,6 +109,112 @@
     </table>
 
     <div class="chart-container" id="chart-connectivity"></div>
+
+    <h2 class="section-subtitle">实操：连接技术落地 — BLE配对、WiFi配网与NFC近场通信</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：BLE配对流程调试指南</h3>
+    <ol class="steps-list">
+      <li><strong>下载工具：</strong>手机安装Nordic nRF Connect APP(Google Play/App Store免费)。这是BLE调试的行业标准工具。</li>
+      <li><strong>扫描设备：</strong>打开APP→点击扫描→寻找广播名字包含"Wellness"的设备。如果没有，检查手环MCU是否开启了BLE广播(Nordic nRF52 SDK: sd_ble_gap_adv_start())。</li>
+      <li><strong>连接并发现服务：</strong>点击设备连接→Connected→点击右上角"🔍扫描GATT"→应该看到自定义服务UUID 0xfff0-0xfff6。</li>
+      <li><strong>写入测试：</strong>选择fff4(Medication Reminder Char)→写入"0800"(十六进制8:00)→观察手环是否响起语音提醒。</li>
+      <li><strong>MTU协商：</strong>nRF Connect右上角设置MTU为247字节(BLE最大Payload)。如果传感器数据分片传输失败，检查MTU是否足够。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：药盒WiFi配网三步法</h3>
+    <table class="data-table">
+      <thead><tr><th>方案</th><th>原理</th><th>用户体验</th><th>推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>SoftAP模式</td><td>药盒自身创建一个WiFi热点(Wellness_MB_XXX)，用户连上后在APP输入家用WiFi密码</td><td>★★★☆☆(需切换WiFi)</td><td>适用于ESP32方案</td></tr>
+        <tr><td>蓝牙辅助配网</td><td>先BLE配对手环→手环代药盒发送WiFi密码→药盒ESP32-C3自动连WiFi</td><td>★★★★★(一步到位)</td><td>最佳方案</td></tr>
+        <tr><td>QR Code配网</td><td>APP生成编码WiFi SSID+密码的二维码→药盒摄像头/扫描头读取</td><td>★★★★☆</td><td>成本较高</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">配网最佳实践：BLE辅助方案</div>
+      <div class="tip-body">手环BLE收到APP传来的WiFi SSID+密码(JSON)，通过BLE转发给药盒ESP32-C3的uart。ESP32调用WiFi.begin(ssid, password)连接路由器。成功后通过TCP/MQTT连接云端。整个过程<30秒，用户只需打开手环和药盒放在旁边。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：连接技术选型决策</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>方案A: BLE Only</th><th>方案B: BLE + WiFi</th><th>方案C: BLE + Cat1</th></tr></thead>
+      <tbody>
+        <tr><td>适用场景</td><td>手环(需要手机作为网关)</td><td>药盒(有固定家庭WiFi)</td><td>手环(独立联网)</td></tr>
+        <tr><td>BOM成本</td><td>~¥15 (nRF52810)</td><td>~¥45 (ESP32-C3)</td><td>~¥55 (nRF52 + Cat1模组)</td></tr>
+        <tr><td>数据实时性</td><td>低(手机在范围内才能传)</td><td>高(WiFi 24h在线)</td><td>最高(蜂窝网络始终在线)</td></tr>
+        <tr><td>功耗</td><td>极低(BLE 5.0连接间隔7.5ms)</td><td>中(WiFi idle ~50mA)</td><td>高(Cat1 active ~200mA)</td></tr>
+        <tr><td>推荐搭配</td><td>手环标配</td><td>药盒标配</td><td>高端手环选配</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：连接模块验证清单</h3>
+    <table class="data-table">
+      <thead><tr><th>测试项</th><th>方法</th><th>通过标准</th></tr></thead>
+      <tbody>
+        <tr><td>BLE连接成功率</td><td>100次开机自动连接</td><td>>99%一次连上</td></tr>
+        <tr><td>BLE断连恢复</td><td>关闭手机蓝牙后重开</td><td><10秒自动重连</td></tr>
+        <tr><td>WiFi配网成功率</td><td>不同路由器(华为/TP-Link/小米)</td><td>>95%一次配成功</td></tr>
+        <tr><td>信号强度</td><td>金属盒屏蔽测试(-80dBm)</td><td>BLE在-75dBm仍可通信</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：NFC支付模块集成实操</h3>
+    <div class="tip-box">
+      <div class="tip-title">NFC硬件选型</div>
+      <div class="tip-body">推荐恩智浦PN84M/ST NFAIO16T。两款都支持ISO 14443A/B(银行卡标准)、FeliCa(日本标准)、BCM(公交卡)。国产替代可用华虹NEC CH382。集成方式：SPI接口连接到MCU，天线线圈(1.4MHz)焊接在PCB外缘。BOM成本¥3-5。</div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>NFC协议栈配置：</strong>在MCU上集成NXP nxlib库(NFC库)。配置支持的卡片类型：Type-A(ISO 14443-3A)=银行卡/门禁卡，Type-B=医保卡，FeliCa=公交卡。</li>
+      <li><strong>Android Beam配网：</strong>Android手机NFC碰触手环背部→触发NDEF消息交换→手环发送"请打开APP完成配网"→用户点击→BLE建立连接。整个流程<5秒。</li>
+      <li><strong>门禁模拟：</strong>读取用户原有门禁卡的UID卡号，存储到手环安全元件(SE)中。每次刷卡时，手环模拟该UID发射给门禁读卡器。注意：仅模拟加密卡UID部分，不涉及破解密钥。</li>
+      <li><strong>公交卡集成：</strong>与本地交通卡公司(BJT/Shanghai Transit Card)对接eSE(嵌入式安全元件)SDK。用户通过APP开通虚拟交通卡，开通后立即生效。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：多连接并发管理策略</h3>
+    <table class="data-table">
+      <thead><tr><th>场景</th><th>蓝牙状态</th><th>NFC状态</th><th>WiFi/eSIM状态</th><th>功耗</th></tr></thead>
+      <tbody>
+        <tr><td>日常待机</td><td>BLE广播(on)</td><td>off</td><td>off / 离线</td><td>~2mW</td></tr>
+        <tr><td>APP同步</td><td>BLE连接(on)</td><td>off</td><td>off</td><td>~10mW</td></tr>
+        <tr><td>碰一碰配网</td><td>BLE断开</td><td>NFC activated</td><td>off</td><td>~5mW(瞬时)</td></tr>
+        <tr><td>SOS紧急呼叫</td><td>BLE off</td><td>off</td><td>ON(eSIM)</td><td>~80mW</td></tr>
+        <tr><td>WiFi配药盒</td><td>BLE relay on</td><td>off</td><td>BLE透传+WIFI辅助</td><td>~15mW</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：连接稳定性优化清单</h3>
+    <div class="case-box">
+      <div class="case-title">案例：BLE断连率过高问题排查与解决</div>
+      <div class="case-body">某批次手环在用户端出现10%的BLE断连率。排查步骤：①抓包分析BLE HCI事件→发现Disconnect_Reason=0x16(链路超时) ②更换不同手机型号测试→小米手机断连率高(20%)，iPhone正常(1%) ③结论：小米MIUI系统对BLE的省电策略过激，连接间隔15ms时被系统杀掉 ④解决方案：手环端将连接间隔调整为50ms+latency 10，牺牲少量功耗换取兼容性。断连率从10%降到0.3%。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：eSIM运营商对接流程</h3>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>操作</th><th>合作方</th></tr></thead>
+      <tbody>
+        <tr><td>1. 申请物联网卡</td><td>提交企业资质+设备IMEI列表</td><td>中国移动物联网公司 / 中国电信</td></tr>
+        <tr><td>2. eSE安全芯片</td><td>集成ST33TP08或NXP SE051安全元件</td><td>芯片原厂提供AT-SMF接口</td></tr>
+        <tr><td>3. SM-DP+对接</td><td>对接运营商Profile下载服务器</td><td>运营商提供SM-DP+地址和GSMA证书</td></tr>
+        <tr><td>4. OTA开通</td><td>APP端用户输入手机号→触发eSIM Profile下载</td><td>用户确认后自动下载并激活</td></tr>
+        <tr><td>5. 资费套餐</td><td>选择NB-IoT套餐(10MB/月)或Cat-M套餐</td><td>中国移动10元/年(10MB)</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">连接稳定性</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">BLE 99.7%</div>
+        <div style="font-size:12px;color:#64748b">100次开机自动连接，一次连上99.7次</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">NFC响应时间</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">&lt; 50 ms</div>
+        <div style="font-size:12px;color:#64748b">手机碰触到手环感应区的延迟</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">WiFi配网成功率</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">> 95%</div>
+        <div style="font-size:12px;color:#64748b">跨路由器兼容(华为/小米/TP-Link)</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">eSIM月费</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">¥10/年</div>
+        <div style="font-size:12px;color:#64748b">中国移动NB-IoT物联网卡套餐</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="14-sensor-technology.html"><i class="fas fa-arrow-left"></i> 传感器</a>

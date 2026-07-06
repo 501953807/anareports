@@ -109,6 +109,193 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">25.5 手把手：米家/IoT 平台接入 + Home Assistant 部署 + BLE Mesh 配网</h2>
+
+    <h3 class="steps-heading">步骤一：Home Assistant Docker 部署(本地中枢)</h3>
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-network-wired"></i> 为什么选择 Home Assistant</div>
+      <div class="tip-body" style="margin-top:8px">
+        HA 是目前最开放的开源智能家居中枢，支持 2,000+ 集成(Matter/Zigbee/Thread/蓝牙/Z-Wave)。我们的手环数据可以通过 MQTT 接入 HA，实现"手环异常→HA自动化→物理世界反应"的闭环。
+      </div>
+    </div>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fab fa-docker"></i> docker-compose.yaml for Home Assistant</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code># 在 Raspberry Pi 4 (4GB) 或小型 NAS 上部署
+version: '3.8'
+services:
+  homeassistant:
+    container_name: homeassistant
+    restart: unless-stopped
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./config:/config          # 配置文件目录
+      - /run/dbus:/run/dbus:ro   # 蓝牙集成需要
+    privileged: true             # Zigbee/蓝牙适配器需要
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0  # Zigbee USB Dongle (Sonoff ZBDongle-P)
+      - /dev/ttyACM0:/dev/ttyACM0  # BLE USB Dongle
+    network_mode: host           # mDNS 发现需要主机网络
+    environment:
+      - TZ=Asia/Shanghai
+
+  mosquitto:                      # MQTT Broker (HA 默认集成)
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+  node-red:                       # 自动化编排(低代码拖拽)
+    image: nodered/node-red:latest
+    restart: unless-stopped
+    volumes:
+      - ./node-red:/data
+    ports:
+      - "1880:1880"</code></pre>
+    </details>
+
+    <h3 class="steps-heading">步骤二：Home Assistant 自动化规则编写</h3>
+    <div class="case-box" style="margin:16px 0">
+      <div class="case-title"><i class="fas fa-cogs"></i> 核心自动化 YAML 配置</div>
+      <div class="case-body">
+        将以下内容保存到 <code>config/automations.yaml</code>，HA 会自动加载。每个自动化都有中文注释：
+      </div>
+    </div>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-file-code"></i> automations.yaml 完整内容</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code># 自动化1: 跌倒触发 → 全屋灯光80% + 语音播报
+- alias: "Fall Alert - Full Lights"
+  trigger:
+    - platform: mqtt
+      topic: "eldercare/devices/fall_alert"
+  condition:
+    - condition: time
+      after: "00:00:00"
+      before: "23:59:59"  # 全天生效
+  action:
+    # 全屋灯亮到80%
+    - service: light.turn_on
+      target:
+        entity_id: light.living_room_main
+      data: { brightness_pct: 80, color_temp: 400 }
+    # 智能音箱播报
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.xiao_ai_livingroom
+      data:
+        media_content_id: "fall_alert.mp3"
+        media_content_type: "text-to-speech"
+        announcement: true
+    # 向子女推送通知
+    - service: mqtt.publish
+      data:
+        topic: "eldercare/notifications/family"
+        payload: '{"type":"fall","time":"{{ now().isoformat() }}","level":"P0"}'
+
+# 自动化2: 药盒未到时间开门 → 蓝色呼吸灯提醒
+- alias: "Med Reminder - Breathing Light"
+  trigger:
+    - platform: mqtt
+      topic: "eldercare/pillbox/remind"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.living_room_strip
+      data:
+        effect: "Breathing Blue"
+        brightness_pct: 40
+    - delay: "00:01:00"
+    - service: light.turn_off
+      target:
+        entity_id: light.living_room_strip
+
+# 自动化3: 晚上起床 → 床底灯带微亮
+- alias: "Night Movement - Night Light"
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_motion
+      to: "motion"
+  condition:
+    - condition: time
+      after: "22:00:00"
+      before: "06:00:00"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.bed_sensor_strip
+      data: { brightness_pct: 5, color_temp: 5000 }
+    - delay: "00:02:00"
+    - service: light.turn_off</code></pre>
+    </details>
+
+    <h3 class="steps-heading">步骤三：BLE Mesh 手环配网流程</h3>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>操作</th><th>协议层</th><th>耗时</th><th>常见问题</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>手环出厂模式进入BLE广播</td><td>GAP Advertising</td><td>设备端</td><td>LED指示灯闪烁蓝色</td></tr>
+        <tr><td>2</td><td>APP扫描附近设备</td><td>BLE Scan Response</td><td>1-3秒</td><td>信号弱时需靠近网关</td></tr>
+        <tr><td>3</td><td>配对握手(Exchange MTU + Security)</td><td>L2CAP + SMP</td><td>2-5秒</td><td>配对失败重试 ≤3 次</td></tr>
+        <tr><td>4</td><td>写入WiFi/网关配置到手环</td><td>GATT Write Cmd</td><td>3-8秒</td><td>大数据量分段写入</td></tr>
+        <tr><td>5</td><td>手环连接 WiFi 上报 MAC 到云平台</td><td>HTTPS POST</td><td>5-15秒</td><td>2.4GHz only, 不支持 5GHz</td></tr>
+        <tr><td>6</td><td>注册到米家/Alexa生态</td><td>OAuth 2.0 + Device Binding</td><td>10-30秒</td><td>需要扫码确认</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> BLE Mesh 配网实操建议</div>
+      <div class="tip-body" style="margin-top:8px">
+        实际开发中发现，<strong>"靠近网关配网"</strong>是最容易出问题的环节。建议在APP内做一个"配网引导页"：<br>
+        1. 第一步: 插上手环充电器(电量必须>30%)<br>
+        2. 第二步: 打开手机蓝牙, 放在路由器旁边<br>
+        3. 第三步: 按住手环侧键5秒进入配对模式(LED蓝灯快闪)<br>
+        4. 第四步: APP 自动发现设备, 点击"下一步"<br>
+        5. 第五步: 输入家庭 WiFi 密码, 等待15秒配网完成<br>
+        <em>参考: 小米手环配网成功率从65%提升到92%的关键就是做了这5步引导动画。</em>
+      </div>
+    </div>
+
+    <h3 class="steps-heading">步骤四：对接小米米家 Open API</h3>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-plug"></i> 米家 API 接入步骤</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code># 米家开放平台: https://home.mi.com/miove/open/doc/introduce.html
+# 开发者入驻 → 创建应用 → 获取 AppKey + AppSecret
+
+# 1. 申请设备接入权限
+POST https://open.api.mi.com/v2/token
+Body: {grant_type:"developer", client_id:APP_KEY, client_secret:APP_SECRET}
+Response: {access_token: "xxx", expire_in: 86400}
+
+# 2. 查询已授权设备
+GET https://open.api.mi.com/v2/devices
+Headers: Authorization: Bearer {access_token}
+
+# 3. 下发指令到米家设备(如打开灯光)
+POST https://open.api.mi.com/v2/miot/device/sync_request
+Body: {
+  "method": "trigger_events",
+  "params": {
+    "did": "{your_device_id}",
+    "siid": 3,    # 灯光服务ID
+    "aiid": 1,    # 打开动作ID
+    "in": [{ "piid": 1, "value": true }]
+  }
+}</code></pre>
+    </details>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-check-circle"></i> 本章实操清单</div>
+      <div class="tip-body" style="margin-top:8px">
+        <ul style="padding-left:18px;margin-top:6px;">
+          <li>[ ] Raspberry Pi 4 + Home Assistant 容器部署完成</li>
+          <li>[ ] Mosquitto MQTT Broker 启动, 收到 <code>eldercare/test</code> 消息</li>
+          <li>[ ] 编写 3 条自动化规则(跌倒/药盒/夜灯)</li>
+          <li>[ ] BLE Mesh 配网流程打通(手机 → 手环 → 路由器)</li>
+          <li>[ ] 米家开放平台申请开发者资质 + API Key</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-iot"></div>
   </main>
   <footer class="page-footer">

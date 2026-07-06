@@ -73,6 +73,44 @@
       <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
       <div class="flow-step"><div class="step-icon" style="color:var(--green)"><i class="fas fa-check-circle"></i></div><div class="step-label">合法财富</div><div class="step-desc">豪宅/艺术品/企业</div></div>
     </div>
+
+    <h2 class="section-subtitle">合规操作指南：基于三步法的AML监测规则设计</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-project-diagram"></i> 从洗钱三阶段推导监控规则</div>
+      <div class="tip-body">
+        <p>以下将经典三步法映射到AML监控系统的具体规则设计方法论，帮助合规官从零搭建监测规则库。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>Phase 1(放置)监测规则——"发现钱入体系"：</strong>目标：捕捉首次将非法资金引入金融体系的行为。核心规则：(a)大额现金存款(美国CTR阈值附近：$9,500-$9,999)；(b)无历史客户新开账户即存入大额资金；(c)通过P2P/OTC渠道首次购买USDT/BTC≥$50k。</li>
+      <li><strong>Phase 2(分层)监测规则——"发现资金混淆"：</strong>目标：捕捉复杂资金转移模式。核心规则：(a)同一资金在≥3个账户间72h内流转(跨银行/跨境)；(b)多层离岸公司之间的"咨询服务费"/"特许权使用费"支付且金额无业务实质支撑；(c)与混币器/跨链桥的智能合约地址发生交互。</li>
+      <li><strong>Phase 3(融合)监测规则——"发现合法伪装"：</strong>目标：捕捉清洗后资金的"合法化"。核心规则：(a)离岸公司大量购买房地产/艺术品(单笔≥$500k)；(b)现金密集型企业突然出现"投资收益"类入账；(c)高风险司法管辖区的空壳公司向低风险国家实体进行大额股息分配。</li>
+      <li><strong>跨Phase关联分析：</strong>将上述三类规则整合为"端到端"案件视图——当同一客户(或其关联网络)同时命中Phase 1+Phase 2+Phase 3规则时，自动升级为"三级案件"(最高优先级)并触发强制STR申报。</li>
+      <li><strong>规则参数校准：</strong>每半年校准一次阈值参数。方法：(a) 收集过去半年的True Positive案例，反向检查它们触发了哪些规则；(b) 如果某个案例本应触发规则A但没有→说明规则A的阈值太松；(c) 如果某个规则每月产生≥95%的False Positive→淘汰或收紧该规则。</li>
+    </ol>
+
+    <h2 class="section-subtitle">三步法对应的SAR/STR填写指南</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:25%">洗钱阶段</th><th style="width:25%">STR中"可疑活动描述"写法</th><th style="width:25%">建议引用的FATF犯罪代码</th><th style="width:25%">附证材料</th></tr></thead>
+      <tbody>
+        <tr><td>Phase 1 放置</td><td>"客户A于XX日期通过XX方式首次将非法资金(约$XXX万)引入金融体系，涉嫌{前置犯罪}资金"</td><td>Fraud / Drug Trafficking / Corruption</td><td>存款凭证/OTC聊天记录/充值流水</td></tr>
+        <tr><td>Phase 2 分层</td><td>"上述资金随后通过{X}层{账户/地址}的反复转账/混币/跨链操作，试图切断与原始资金来源的关联"</td><td>Money Laundering (Stage 2)</td><td>资金路径图/链上分析截图/银行流水</td></tr>
+        <tr><td>Phase 3 融合</td><td>"经{X}层操作后的资金最终以{房地产/艺术品/企业投资}形式回流至客户名下，伪装为合法{投资收益/贸易回款}"</td><td>Money Laundering (Integration)</td><td>购房合同/拍卖成交记录/公司股权变更记录</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">案例：完整三步法资金追踪报告模板</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-file-alt"></i> STR案例模板——某诈骗集团资金链路追踪</div>
+      <div class="tip-body" style="font-size:13px;line-height:1.7">
+        <p><strong>案件编号：</strong>STR-2025-0612-001</p>
+        <p><strong>前置犯罪：</strong>电信网络诈骗(杀猪盘)，涉案受害人52名</p>
+        <p><strong>Phase 1 — 放置 (Day 1-3)：</strong>诈骗所得人民币1,250万通过38个"卡农"账户分散汇入主犯王某控制的8个银行账户(每卡单笔<$50,000，规避大额报告)。</p>
+        <p><strong>Phase 2 — 分层 (Day 3-15)：</strong>王某通过地下钱庄对敲将人民币转为USDT，再经Tornado Cash混币3轮(间隔2-4天)→ 跨链到BSC → PancakeSwap拆为63笔swap分散至12个新钱包地址。</p>
+        <p><strong>Phase 3 — 融合 (Day 15-30)：</strong>干净后的USDT在菲律宾合规CEX(Maya)出金为PHP，转入王某在菲律宾注册的公司"XYZ Trading Corp."账户，以"贸易回款"名义购买一辆价值$380,000的保时捷。</p>
+        <p><strong>链上追踪结论：</strong>通过Chainalysis反推，67.3%的最终资金可追溯至52名受害人的原转账账户。已提交STR至人民银行AMLRC。</p>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="19-stablecoin.html"><i class="fas fa-arrow-left"></i> 稳定币</a>

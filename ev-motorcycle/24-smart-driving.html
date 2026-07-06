@@ -117,6 +117,80 @@
     </table>
     <p class="data-note">两轮车智能化是下一波竞争焦点。九号公司以"自动驾驶基因"切入两轮车，App生态+智能功能吸引年轻用户。小牛主打设计感+智能化。雅迪和爱玛正在补课智能化。</p>
 
+    <h2 class="section-subtitle">24.6 实操：传感器选型与安装</h2>
+    <div class="case-box">
+      <h3>案例：给两轮电动摩托加装一套基础智驾套件</h3>
+      <p><strong>场景</strong>：你有一台九号电动摩托，想加装自动循迹+碰撞预警功能。预算控制在¥2,000以内，需要选择合适的传感器组合。</p>
+    </div>
+
+    <h3 class="steps-heading">传感器选型</h3>
+    <ol class="steps-list">
+      <li><strong>摄像头</strong>：OV2640或ESP32-CAM模组(¥30-80)。分辨率640×480，帧率30fps，用于车道线识别。安装在前挡泥板上方，俯角15°。</li>
+      <li><strong>超声波传感器</strong>：HC-SR04(¥5/个)或VL53L0X ToF(¥25/个)。测距范围0.02-4m。前装2个+后装2个，形成包围式检测。</li>
+      <li><strong>IMU(惯性测量单元)</strong>：MPU6050(¥15)或ICM-20948(¥40)。六轴(加速度+陀螺仪)，用于姿态检测和防倾倒。</li>
+      <li><strong>GNSS模块</strong>：ATGM336H(¥60)或UBLOX NEO-M8N(¥200)。定位精度2.5m(单频)→0.3m(RTK)。</li>
+      <li><strong>毫米波雷达(选配)</strong>：LV013A(¥300)或禾赛AT128(¥3,000+，超出预算)。测距150m，用于高速障碍物检测。</li>
+    </ol>
+
+    <table class="data-table">
+      <thead><tr><th>传感器</th><th>单价(元)</th><th>数量</th><th>总价</th><th>功能</th><th>安装难度</th></tr></thead>
+      <tbody>
+        <tr><td>ESP32-CAM</td><td>¥30-80</td><td>2</td><td>¥60-160</td><td>车道线/交通标志识别</td><td>★☆☆☆☆ 简单</td></tr>
+        <tr><td>VH53TOF</td><td>¥25</td><td>4</td><td>¥100</td><td>近距离障碍物检测</td><td>★★☆☆☆ 一般</td></tr>
+        <tr><td>MPU6050</td><td>¥15</td><td>1</td><td>¥15</td><td>姿态/倾斜检测</td><td>★☆☆☆☆ 简单</td></tr>
+        <tr><td>ATGM336H</td><td>¥60</td><td>1</td><td>¥60</td><td>GPS定位/航速</td><td>★★☆☆☆ 一般</td></tr>
+        <tr><td>LV013A毫米波</td><td>¥300</td><td>1</td><td>¥300</td><td>远距离障碍物检测</td><td>★★★☆☆ 中等</td></tr>
+        <tr><td>主控: ESP32-S3</td><td>¥50</td><td>1</td><td>¥50</td><td>AI推理+传感器融合</td><td>★★☆☆☆ 一般</td></tr>
+        <tr><td><strong>合计</strong></td><td colspan="3"><strong>≈¥585-755</strong></td><td colspan="2">预算内完成基础套件</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">24.7 实操：部署YOLO目标检测算法</h2>
+    <div class="case-box">
+      <h3>案例：在ESP32-S3上部署车辆检测模型</h3>
+      <p><strong>目标</strong>：让两轮车能实时检测到前方汽车、行人、自行车，发出碰撞预警。</p>
+    </div>
+
+    <h3 class="steps-heading">部署步骤</h3>
+    <ol class="steps-list">
+      <li><strong>数据收集</strong>：用手机拍摄500+张骑行视角照片(不同天气/光照/角度)，标注车辆/行人/自行车。</li>
+      <li><strong>模型训练</strong>：用YOLOv8n(最小子模型)在Colab上训练。损失收敛后导出ONNX格式。</li>
+      <li><strong>模型量化</strong>：INT8量化，从3.2MB压缩到800KB，精度损失约2-3%。</li>
+      <li><strong>部署到ESP32</strong>：使用TFLite Micro框架，编译后烧录到ESP32-S3(eSPI加速)。</li>
+      <li><strong>实测推理</strong>：ESP32-S3运行INT8-YOLOv8n约80-120ms/帧(8-12fps)，满足实时性要求。</li>
+    </ol>
+
+    <div class="tip-box">
+      <p><strong>替代方案</strong>：如果ESP32算力不够，可以用RK3588(¥200-400)或Jetson Orin Nano(¥2,500+)。RK3588可运行完整YOLOv8s(~15ms/帧)，算力8TOPS足够本地推理。</p>
+    </div>
+
+    <h2 class="section-subtitle">24.8 实操：实现L2级辅助驾驶</h2>
+    <p class="data-note">两轮车要实现完整L2自动驾驶(如Tesla的NOP)难度极大——平衡+避障+导航的耦合远超四轮车。以下是渐进式实现路径。</p>
+
+    <table class="data-table">
+      <thead><tr><th>级别</th><th>功能</th><th>实现方式</th><th>技术难度</th><th>成本</th></tr></thead>
+      <tbody>
+        <tr><td><strong>L0</strong>(现状)</td><td>无辅助，纯人工</td><td>—</td><td>—</td><td>¥0</td></tr>
+        <tr><td><strong>L1</strong></td><td>定速巡航+碰撞预警</td><td>雷达+蜂鸣器/语音</td><td>★☆☆☆☆</td><td>¥100-300</td></tr>
+        <tr><td><strong>L2</strong>(雏形)</td><td>自动循迹+跟车+避障</td><td>摄像头+ESP32+舵机转向控制</td><td>★★★☆☆</td><td>¥500-1,500</td></tr>
+        <tr><td><strong>L2+</strong>(研究)</td><td>全场景自动跟随</td><td>多传感器融合+强化学习</td><td>★★★★☆</td><td>¥2,000-5,000</td></tr>
+        <tr><td><strong>L3</strong>(概念)</td><td>特定场景自动驾驶</td><td>全栈自研+冗余设计</td><td>★★★★★</td><td>¥10,000+</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="steps-heading">L2自动循迹实现要点</h3>
+    <ol class="steps-list">
+      <li><strong>车道线提取</strong>：HSV色彩空间分割黄色/白色线→Canny边缘检测→Hough变换拟合直线。</li>
+      <li><strong>偏差计算</strong>：直线与图像中心夹角θ→转换为横向偏差d = h × tan(θ)(h为相机高度)。</li>
+      <li><strong>PID控制</strong>：PID参数整定(Kp=2.0, Ki=0.1, Kd=0.5)，控制前轮舵机转角。</li>
+      <li><strong>速度调节</strong>：弯道减速(S曲线段降速30%)，直道加速(最高25km/h合规速度)。</li>
+      <li><strong>安全兜底</strong>：imu检测倾斜>25°自动刹停；超声波检测到<0.5m障碍物紧急制动。</li>
+    </ol>
+
+    <div class="tip-box">
+      <p><strong>推荐开源项目</strong>：AutoDriveCycle(https://github.com/autodrivecycle)、ESP32-Motorcycle-Autopilot。参考资料：Stanford CS231n课程笔记、Udacity Self-Driving Car NanoDegree。</p>
+    </div>
+
     <div class="chart-container" id="chart-smart-drive"></div>
   </main>
   <footer class="page-footer">

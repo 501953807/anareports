@@ -86,6 +86,56 @@
     </ul>
 
     <div class="chart-container" id="chart-crypto-mixer"></div>
+
+    <h2 class="section-subtitle">合规操作指南：混币器/跨链交易风险排查六步法</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fab fa-bitcoin"></i> 加密业务合规实操</div>
+      <div class="tip-body">
+        <p>适用于VASP/加密CEX/DeFi协议合规团队。以下流程基于Chainalysis/Elliptic/Tokenterminal的行业最佳实践。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>地址标签入库：</strong>将所有链上存入地址接入Chainalysis Radar API 或 TRM Labs RiskScore API，实时获取地址标签(交易所/混币器/暗网/制裁名单)。设置风险评分>50自动拦截规则。</li>
+      <li><strong>混币器流量检测：</strong>配置以下地址模式的正则匹配：(a) Tornado Cash: 0xa3D...1f03(ETH池)/0x7Bm...593d(BSC池)；(b) Wasabi: CoinJoin输出模式；(c) Samourai: Whirlpool pool address。命中则触发二级审查。</li>
+      <li><strong>跨链桥操作追踪：</strong>对每笔ERC20→BSC/AVAX/POLYGON的跨链操作，查询Stargate/Wormhole/Meson桥合约交互日志。记录跨链后的目标地址和金额，形成完整的跨链路径。</li>
+      <li><strong>DEX拆分交易检测：</strong>分析同一来源地址在24小时内的swap笔数。若同一笔资金被拆分为≥10笔小额swap(每笔<$10,000)且在PancakeSwap/Uniswap的不同Pair中流转，标记为"拆分洗币"。</li>
+      <li><strong>资金溯源回溯：</strong>对已标记地址使用Chainalysis ChainAnalysis™或Elliptic Navigator进行最多15跳追溯(backtracking)，找到最初资金来源(诈骗/黑客/交易所充值)，写入调查报告。</li>
+      <li><strong>STR编制与上交：</strong>按FinCEN SAR Form模板编写，附链上分析截图、地址风险评分、跨链路径图。加密类STR要求在交易发生后5个工作日内提交。</li>
+    </ol>
+
+    <h2 class="section-subtitle">混币器/跨链风险检测清单</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:35%">检测类别</th><th style="width:40%">具体信号</th><th style="width:25%">Action</th></tr></thead>
+      <tbody>
+        <tr><td>混币器接触</td><td>交易对手地址属于Tornado Cash / Wasabi / Blend标签</td><td>立即冻结+STR申报</td></tr>
+        <tr><td>OFAC制裁地址 1跳</td><td>地址直接发送/接收已知制裁地址资金</td><td>拒绝处理+上报FIU</td></tr>
+        <tr><td>跨链桥 高频</td><td>单个地址24h内跨链≥3次，涉及≥2条链</td><td>标记高风险+人工审核</td></tr>
+        <tr><td>DEX拆分</td><td>同一UTXO/tx_hash拆为≥10笔≤$5k swap</td><td>触发"刚好低于"规则引擎</td></tr>
+        <tr><td>Privacy Coin</td><td>涉及XMR/ZEC/Grin的交易</td><td>直接拒绝充值/禁止交易对</td></tr>
+        <tr><td>CEX跳跃</td><td>从强KYC交易所充值后立即转出到无KYC DEX</td><td>追踪完整路径+风险评估</td></tr>
+        <tr><td>NFT洗水</td><td>同一NFT在7天内≥3次不同地址间低价交易</td><td>视为洗钱信号+报告</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">实务工具：链上分析软件选型对照</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-laptop-code"></i> 2026年主流链上分析工具对比</div>
+      <div class="tip-body">
+        <p>合规团队需要根据机构规模和预算选择合适的链上分析工具。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>工具</th><th>核心功能</th><th>年费($万)</th><th>适用场景</th><th>优势</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Chainalysis</strong></td><td>风险评分/资金追踪/合规管理平台</td><td>80-300</td><td>银行/CEX/执法机构</td><td>标签库最大(50M+地址)，OFAC认可度最高</td></tr>
+        <tr><td><strong>TRM Labs</strong></td><td>实时API风控/AI异常检测</td><td>50-200</td><td>支付机构/DeFi协议</td><td>API集成最简单，实时评分<100ms</td></tr>
+        <tr><td><strong>Elliptic</strong></td><td>图分析/反洗钱调查平台</td><td>60-250</td><td>银行/FIU</td><td>图算法强大，可追溯到20跳以上</td></tr>
+        <tr><td><strong>Nansen</strong></td><td>聪明钱追踪/DAN Token Score</td><td>5-30</td><td>加密原生机构/VC</td><td>实时Hot Wallet追踪，社区数据丰富</td></tr>
+        <tr><td><strong>PeckShield</strong></td><td>安全审计/风险监测</td><td>10-80</td><td>中小型VASP/DeFi项目</td><td>中文界面友好，亚太覆盖好</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-crypto-mixer"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="11-hawala.html"><i class="fas fa-arrow-left"></i> 哈瓦拉</a>

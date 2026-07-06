@@ -96,6 +96,56 @@
     </ul>
 
     <div class="chart-container" id="chart-underground-banks"></div>
+
+    <h2 class="section-subtitle">合规操作指南：识别地下钱庄对敲交易模式</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-clipboard-check"></i> 适用对象：银行AML合规官、金融机构风控岗</div>
+      <div class="tip-body">
+        <p>本章节提供可落地的合规操作步骤，帮助金融机构合规官在日常工作中识别和防范地下钱庄对敲模式。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>采集客户画像数据：</strong>调取客户开户资料(KYC)、历史交易记录(≥12个月)、IP/MAC地址设备指纹、关联账户信息。重点标注客户职业、收入水平与当前交易规模的匹配度。</li>
+      <li><strong>构建资金归集图：</strong>使用内部数据+第三方情报(如Chainalysis/Refinitiv World-Check)，将客户所有账户的"入款源"可视化。若发现≥5个不同付款人的资金在72小时内汇聚到单一账户，标记为"疑似水房归集"。</li>
+      <li><strong>运行结构化交易检测：</strong>对全部交易流水应用以下规则引擎：(a)单笔或当日累计存款接近但低于申报阈值的笔数占比&gt;30%；(b)多账户同日向同一收款方转账；(c)账户夜间高频交易(23:00-05:00)占比&gt;40%。</li>
+      <li><strong>关联境外放款节点：</strong>对有跨境汇款历史的客户，比对"境内人民币汇款时间"与"外币放款时间"的时间差。若时间差始终在2小时以内且汇率固定在特定加点幅度(如USD/CNY=7.25±0.01)，标记为疑似对敲。</li>
+      <li><strong>生成可疑活动报告(STR/SAR)：</strong>按FinCEN格式(或人民银行STR模板)编写报告，包含：客户基本信息、监测到的高风险交易时间线、资金归集拓扑图、关联地址/账户列表、可疑模式说明(引用FATF 45条指引)。</li>
+      <li><strong>内部升级与管控：</strong>触发STR后48小时内上报合规总监；同步采取账户限制措施(只收不付/降低非柜面限额/禁止跨境汇款)；保留完整证据链以备执法调取。</li>
+    </ol>
+
+    <h2 class="section-subtitle">地下钱庄对敲风险检测清单(Red Flag Checklist)</h2>
+    <table class="data-table">
+      <thead><tr><th style="width:30%">检测维度</th><th style="width:45%">红旗信号(需人工复核)</th><th style="width:25%">评分权重</th></tr></thead>
+      <tbody>
+        <tr><td>资金归集</td><td>单日 incoming ≥20 笔来自不同付款人，总额 > 客户历史均值的 300%</td><td>20分</td></tr>
+        <tr><td>留存时间</td><td>资金到账后 2 小时内 90% 以上被转走，账户日均余额 ≤ 500 元</td><td>15分</td></tr>
+        <tr><td>交易时间</td><td>夜间 23:00-05:00 交易笔数占比 ≥ 40% (异常活跃时段)</td><td>10分</td></tr>
+        <tr><td>对手方集中度</td><td>同一收款方在 30 天内收到来自 ≥10 个不同付款人的转账</td><td>15分</td></tr>
+        <tr><td>跨境行为</td><td>境内人民币汇款后，短期内有等值外币向高风险地区(菲/缅/柬)流出</td><td>20分</td></tr>
+        <tr><td>设备指纹</td><td>多账户共用同一 IP/MAC/设备指纹，但客户声称无关</td><td>10分</td></tr>
+        <tr><td>汇率固定</td><td>跨境兑换汇率长期固定(偏离市场中间价 ≤ 1.5%)，不含正常银行点差</td><td>10分</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2" style="font-weight:600;text-align:right">总分 ≥ 60 分：</td><td style="color:var(--red);font-weight:700">触发 STR 强制申报</td></tr></tfoot>
+    </table>
+
+    <h2 class="section-subtitle">实务工具：PBOC 反洗钱监测系统对接要点</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-tools"></i> 银行合规技术对接</div>
+      <div class="tip-body">
+        <p>中国人民银行反洗钱监测分析中心(AMLRC)要求金融机构在T+5个工作日内报送STR。以下是常见对接方式和最佳实践。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>对接方式</th><th>适用机构类型</th><th>数据格式</th><th>时效要求</th><th>注意事项</th></tr></thead>
+      <tbody>
+        <tr><td>PC端直报</td><td>小型银行/非银支付机构</td><td>XML v3.1.1</td><td>T+5</td><td>手工录入，出错率高，适合交易量小的机构</td></tr>
+        <tr><td>SFTP批量上传</td><td>中型银行</td><td>XML v3.1.1 批量文件</td><td>T+5</td><td>需在每日12:00前将前一工作日数据上传</td></tr>
+        <tr><td>API实时接口</td><td>大型银行/头部支付机构</td><td>JSON/Protobuf</td><td>T+1(可疑交易)</td><td>需通过人行安全测评，部署前置机</td></tr>
+        <tr><td>商业AML套件</td><td>所有类型</td><td>依厂商</td><td>依配置</td><td>推荐: SAP GRC, Oracle FLEXCUBE Actimize, Refinitiv World-Check</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-underground-banks"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="03-major-fines.html"><i class="fas fa-arrow-left"></i> 重大罚款</a>

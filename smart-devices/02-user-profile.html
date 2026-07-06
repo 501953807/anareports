@@ -118,6 +118,117 @@
     </table>
 
     <div class="chart-container" id="chart-user"></div>
+
+    <h2 class="section-subtitle">实操：如何开展老年人智能设备用户研究 — 从招募到报告</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：确定调研方法论(2天)</h3>
+    <table class="data-table">
+      <thead><tr><th>方法</th><th>适用场景</th><th>样本量</th><th>成本</th><th>产出</th></tr></thead>
+      <tbody>
+        <tr><td>深度访谈</td><td>了解老人真实生活场景、痛点、用药习惯</td><td>15人(60-85岁各5人)</td><td>3,000元(礼品+交通)</td><td>主题分析报告</td></tr>
+        <tr><td>可用性测试</td><td>测试手环/药盒原型机的操作难度</td><td>10人(配对照青年组10人)</td><td>5,000元(实验室租赁+设备)</td><td>SUS评分+改进建议</td></tr>
+        <tr><td>问卷调查</td><td>量化用户需求优先级、付费意愿</td><td>200份有效样本</td><td>2,000元(问卷星专业版)</td><td>数据交叉分析报告</td></tr>
+        <tr><td>家庭入户观察</td><td>记录老人日常行为模式(吃药/起居/外出)</td><td>5个家庭×7天</td><td>8,000元(调研员薪资)</td><td>行为日志+时间线</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：老人深度访谈提纲(10题模板)</h3>
+    <ol class="steps-list">
+      <li><strong>"您平时一天吃几次药？都是什么时间？"</strong> — 摸底用药频率，判断需要分几格药盒</li>
+      <li><strong>"上次忘记吃药是什么时候？后来怎么发现的？"</strong> — 找漏服场景的真实触发机制</li>
+      <li><strong>"您最近一次出门迷路/找不到路是什么时候？"</strong> — 评估走失风险的真实发生频率</li>
+      <li><strong>"如果有个手表能提醒您吃药、告诉孩子您在哪，您觉得有用吗？"</strong> — 测试接受度(注意措辞不能是"监控")</li>
+      <li><strong>"您的子女多久给您打一次电话？最担心他们什么事？"</strong> — 定位情感需求层次</li>
+      <li><strong>"您戴过什么电子产品？觉得哪里不方便？"</strong> — 了解既有电子产品的使用门槛</li>
+      <li><strong>"充电对您来说容易吗？一般几天充一次电？"</strong> — 评估续航目标设定(至少7天)</li>
+      <li><strong>"如果这个设备能帮您测心率、测血压，您会相信上面的数字吗？"</strong> — 测试健康数据信任度</li>
+      <li><strong>"您希望这个设备长什么样？像手表还是像医疗器材？"</strong> — ID设计关键输入(要像时尚手表)</li>
+      <li><strong>"如果每个月需要付30元用这个服务，您觉得值吗？谁付这笔钱？"</strong> — 付费意愿验证(老人vs子女)</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：用户招募渠道指南</h3>
+    <table class="data-table">
+      <thead><tr><th>渠道</th><th>操作方式</th><th>单个成本</th><th>到达人数</th><th>质量</th></tr></thead>
+      <tbody>
+        <tr><td>社区居委会</td><td>联系街道办，在社区公告栏贴海报，现场招募</td><td>50元/人(礼品)</td><td>每个社区10-20人</td><td>高(真实的社区老人)</td></tr>
+        <tr><td>公园晨练群体</td><td>早7点在社区公园蹲点，发小礼品邀请填写问卷</td><td>20元/人(鸡蛋+纸巾)</td><td>每次50-100人</td><td>中高(活跃老人，可能低估需求)</td></tr>
+        <tr><td>老年大学</td><td>联系校长，在课堂上做5分钟宣讲+扫码报名</td><td>500元/场(场地+咖啡)</td><td>每期30-50人</td><td>高(认知水平较高的老人)</td></tr>
+        <tr><td>医院内分泌科/心内科</td><td>等待候诊区发放调研问卷(需医院伦理委员会批准)</td><td>1000元/天(研究员+礼品)</td><td>每次20-30人</td><td>高(慢病患者的用药需求最强)</td></tr>
+        <tr><td>微信群/朋友圈</td><td>在"子女照顾群""照护者联盟"群中发红包问卷</td><td>5元/人(红包)</td><td>取决于群活跃度</td><td>中(受访者是子女本人)</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：建立用户画像卡片(模板)</h3>
+    <div class="grid-2">
+      <div class="card highlight">
+        <h4 style="font-size:13px;color:var(--cyan);margin-bottom:8px">画像A：独居奶奶型</h4>
+        <p style="font-size:12px;color:var(--text2)">姓名：张秀兰，78岁，独居，轻度高血压。子女在北京工作。每天自行服药2次。去年走失2次(每次2小时找回)。需求排序：防走失(SOS) > 用药提醒 > 心率监测。</p>
+        <p style="font-size:12px;color:var(--purple)">设计要点：大字体(18pt+)、实体SOS键、电子围栏、超长续航</p>
+      </div>
+      <div class="card">
+        <h4 style="font-size:13px;color:var(--cyan);margin-bottom:8px">画像B：照护妈妈型</h4>
+        <p style="font-size:12px;color:var(--text2)">姓名：李薇，45岁，企业中层，母亲72岁住同城。母亲有3种慢性药(降压+降糖+降脂)。经常担心母亲漏服。工作日忙没时间打电话。需求：远程监控 + 用药记录通知 + 紧急联络。</p>
+        <p style="font-size:12px;color:var(--purple)">设计要点：简洁APP界面、微信消息推送、用药统计周报</p>
+      </div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：可用性测试设置(家庭实验室)</h3>
+    <ol class="steps-list">
+      <li><strong>准备设备：</strong>用3D打印外壳+Arduino模拟手环原型，LCD屏显示心率数字，USB供电。药盒用乐高搭建分药机构原型。总成本约500元。</li>
+      <li><strong>测试任务：</strong>给每个老人3个任务：(1)按下SOS键(2)读出屏幕上的心率(3)打开药盒拿一片药。记录完成时间和错误次数。</li>
+      <li><strong>Think-aloud录音：</strong>请老人边操作边说出想法。"你看到这个按钮想按吗？为什么？你觉得它会做什么？"</li>
+      <li><strong>量表评分：</strong>完成后让老人用1-5分打分：(1)好不好用 (2)会不会嫌麻烦 (3)愿不愿意戴出去 (4)愿不愿意告诉朋友</li>
+      <li><strong>数据分析：</strong>SUS(System Usability Scale) = Σ(每项得分×2.5)。目标：SUS > 60(及格线)，>75(优秀)</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：需求优先级决策工具</h3>
+    <table class="data-table">
+      <thead><tr><th>需求</th><th>重要性(1-5)</th><th>实现难度(1-5)</th><th>MoSCoW等级</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td>GPS定位+SOS</td><td>5</td><td>3</td><td>Must have</td><td>防走失是核心刚需，无此功能等于普通手环</td></tr>
+        <tr><td>电子围栏</td><td>4</td><td>4</td><td>Must have</td><td>定位的下游价值，没有围栏定位无意义</td></tr>
+        <tr><td>心率监测</td><td>4</td><td>2</td><td>Must have</td><td>PPG模组成熟，BOM增量仅5元</td></tr>
+        <tr><td>用药提醒</td><td>5</td><td>1</td><td>Must have</td><td>药盒核心功能，无需技术难度</td></tr>
+        <tr><td>跌倒检测</td><td>4</td><td>4</td><td>Should have</td><td>价值高但算法精度有不确定性</td></tr>
+        <tr><td>ECG心电图</td><td>3</td><td>3</td><td>Could have</td><td>需要医疗器械认证，首版暂缓</td></tr>
+        <tr><td>视频通话</td><td>2</td><td>3</td><td>Could have</td><td>增加BOM 80元，用户场景有限(老人不会用)</td></tr>
+        <tr><td>自动分药</td><td>5</td><td>5</td><td>Should have</td><td>差异化竞争力极强，但机械可靠性风险高</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：用户访谈数据整理与分析</h3>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>操作</th><th>工具</th><th>产出</th></tr></thead>
+      <tbody>
+        <tr><td>1. 录音转文字</td><td>用讯飞听见或微信读书语音转文字，生成逐字稿</td><td>讯飞听见APP</td><td>每位访谈5,000-8,000字逐字稿</td></tr>
+        <tr><td>2. 提取痛点标签</td><td>高亮所有表示不满/困难/焦虑的词句，打上标签(如#怕丢 #忘吃药 #不会充电)</td><td>飞书文档</td><td>150+原始标签</td></tr>
+        <tr><td>3. 聚类分组</td><td>将相似标签合并为大类：安全类、健康类、便捷类、情感类</td><td>Miro白板</td><td>4大类12小类痛点群</td></tr>
+        <tr><td>4. 频次统计</td><td>统计每个标签被提到的次数，提及率>60%为核心痛点</td><td>Excel透视表</td><td>核心痛点清单Top 5</td></tr>
+        <tr><td>5. 撰写洞察报告</td><td>每个核心痛点配一个真实用户原话+场景图片</td><td>Keynote/PPT</td><td>20页洞察报告</td></tr>
+      </tbody>
+    </table>
+    <div class="case-box">
+      <div class="case-title">真实洞察案例：充电恐惧</div>
+      <div class="case-body">在某社区访谈中发现，43%的老人说"手表电量少了不知道怎么办"——他们不敢戴手环因为怕电池耗尽后无法联系子女。这个洞察直接改变了产品设计：把手环续航从目标5天提升到7天，并在电量低于20%时用TTS语音提醒("张奶奶，手环该充电了")，而非仅仅在手机APP上显示一个数字图标。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：用户旅程地图绘制方法</h3>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>老人行为</th><th>情绪曲线</th><th>触点</th><th>机会点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>收到礼物</strong></td><td>子女送上手环，帮佩戴</td><td>+2(惊喜)</td><td>包装盒上手环外观</td><td>包装内附大字版"使用指南"</td></tr>
+        <tr><td><strong>初次配对</strong></td><td>按说明书连接APP</td><td>-1(困惑)</td><td>说明书/APP引导流程</td><td>改为"扫码一键配对"，零操作成本</td></tr>
+        <tr><td><strong>日常使用</strong></td><td>正常佩戴，偶尔查看心率</td><td>+1(平淡)</td><td>手环屏幕/APP</td><td>增加语音问候"早上好，今天天气不错"</td></tr>
+        <tr><td><strong>收到用药提醒</strong></td><td>听到语音后取药</td><td>+1(安心)</td><td>药盒TTS语音</td><td>语音语调温暖亲切，非机械播报</td></tr>
+        <tr><td><strong>GPS告警触发</strong></td><td>子女收到"老人走出安全区域"通知</td><td>+3(被关心)</td><td>APP推送通知</td><td>通知措辞要温和："奶奶好像在公园散步了"</td></tr>
+        <tr><td><strong>SOS触发</strong></td><td>意外跌倒后一键求助</td><td>未知</td><td>实体SOS按钮</td><td>必须保证一键直达，不能有任何前置步骤</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：场景验证清单——产品上线前必做的事</h3>
+    <ol class="steps-list">
+      <li><strong>模拟走失场景：</strong>戴上手环，去一个陌生地方走2公里，看APP定位是否能准确跟随。</li>
+      <li><strong>模拟漏服场景：</strong>设置药盒提醒时间，故意不吃药，看子女是否会收到通知和二次提醒。</li>
+      <li><strong>模拟低电量场景：</strong>把电池放电到10%，看手环是否会发出低电量语音提醒，APP是否有足够提前量。</li>
+      <li><strong>模拟老人视角：</strong>让团队里最年轻的成员(22岁)戴上老花镜来操作手环和APP，记录每一步卡点。</li>
+      <li><strong>模拟子女焦虑：</strong>让测试者连续3天不在家，期间手环发出多次SOS告警，感受"父母在 danger"的紧迫感。</li>
+      <li><strong>极端网络测试：</strong>在电梯/地下室等无信号场景，定位数据和SOS告警是否会缓存、有信号后是否自动补传。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title">用户研究ROI公式</div>
+      <div class="tip-body">投入3万元做用户研究(访谈+可用性测试+入户观察)，可能避免30万元的后期设计返工。一个典型的教训：我们原以为需要"大屏幕"，但测试发现老人只需要"大按钮+语音播报"。省下了一块昂贵的AMOLED屏幕预算。</div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="11-heart-monitor-depth.html"><i class="fas fa-arrow-left"></i> 心率监测</a>

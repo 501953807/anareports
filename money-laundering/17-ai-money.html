@@ -60,6 +60,104 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">AI反洗钱实战指南 — 如何部署AI驱动的AML检测系统</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">为什么传统规则引擎已经不够用了？</h3>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--red)">
+        <h4 style="color:var(--red);font-size:14px;margin-bottom:8px">传统规则引擎的痛点</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>误报率高达<strong>95%+</strong>，分析师疲于处理假阳性</li>
+          <li>规则维护成本高，每增加一条规则都需要IT开发和测试</li>
+          <li>无法检测新型洗钱模式——规则只能匹配"已知的已知"</li>
+          <li>对复杂的多账户协同作案无能为力</li>
+          <li>阈值设定主观性强，缺乏数据支撑</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--green)">
+        <h4 style="color:var(--green);font-size:14px;margin-bottom:8px">AI增强后的改进</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>误报率可降低<strong>60-80%</strong>，分析师专注真正可疑的交易</li>
+          <li>自适应学习：模型随数据自动优化，无需人工调参</li>
+          <li>可检测"未知的未知"：发现从未见过的洗钱模式</li>
+          <li>图神经网络可穿透5-10层的账户嵌套</li>
+          <li>基于贝叶斯优化的阈值推荐，数据驱动决策</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">构建AI增强型交易监控系统的步骤</h3>
+    <ol class="steps-list">
+      <li><strong>数据准备与特征工程：</strong>汇聚结构化数据（交易金额、频次、对手方、时间戳）和非结构化数据（客户描述、备注文本、KYC文件）。构建特征向量：交易金额的对数、24h累计交易额、与客户历史均值的偏离度、首次与对手方交互的时间衰减系数等。目标特征数：100-500维。</li>
+      <li><strong>选择基线模型：</strong>推荐使用<strong>梯度提升树（LightGBM/XGBoost）</strong>作为基线分类器，因为它对表格型数据表现优异且推理速度快（<1ms/笔）。对于时序模式（如周期性交易），叠加LSTM/Transformer模型。</li>
+      <li><strong>构建图神经网络：</strong>将客户-账户-地址-对手方建模为异构图（heterogeneous graph），节点属性包含KYC信息，边属性包含交易详情。使用GraphSAGE或GAT卷积层，输出每个节点的嵌入(embedding)。GNN擅长发现"团伙结构"——洗钱者常用的多层嵌套和环形转账。</li>
+      <li><strong>无监督异常检测：</strong>使用Autoencoder或Isolation Forest在无需标注数据的情况下检测异常。特别适用于检测新型洗钱手法——没有历史样本的情况下也能识别偏离常态的模式。</li>
+      <li><strong>模型融合与部署：</strong>将规则引擎（确保满足监管硬性要求）与AI模型（捕捉复杂模式）的结果进行加权融合。生产环境建议使用KServe或TF Serving进行模型部署，实现<50ms的推理延迟。</li>
+      <li><strong>反馈闭环与持续学习：</strong>分析师对AI标记的交易进行处理后，将结果（真是/假阳）反馈回训练集。每月重新训练模型，每季度进行完整的模型性能评审。</li>
+    </ol>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">模型评估指标体系</h3>
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>目标值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>Precision（精确率）</td><td>>85%</td><td>AI标记的可疑交易中，真正可疑的比例。直接影响分析师工作效率</td></tr>
+        <tr><td>Recall（召回率）</td><td>>90%</td><td>所有实际可疑交易中，被AI成功捕获的比例。过低会导致漏报</td></tr>
+        <tr><td>F1-Score</td><td>>88%</td><td>精确率和召回率的调和平均值，综合评估指标</td></tr>
+        <tr><td>False Positive Rate</td><td><5%</td><td>假阳性率。低于5%表示分析师时间利用率大幅提升</td></tr>
+        <tr><td>Model Drift (PSI)</td><td><0.1</td><td>PSI<0.1表示模型稳定，无需重新训练</td></tr>
+        <tr><td>Inference Latency</td><td><50ms</td><td>单笔交易AI评分的延迟，影响实时决策能力</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">AI AML供应商评估清单</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--cyan)">
+        <h4 style="color:var(--cyan);font-size:14px;margin-bottom:8px">选型前自查</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>您的机构类型（商业银行/券商/支付机构/crypto）决定了适合的产品线</li>
+          <li>您需要解决的AML场景（客户尽调/交易监控/名单筛查/STR报告）</li>
+          <li>您的数据成熟度（数据结构化程度/数据量/数据质量）</li>
+          <li>IT集成能力（能否对接现有核心系统/是否有ML工程团队）</li>
+          <li>合规管辖范围（需要满足哪些地区的监管要求）</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--purple)">
+        <h4 style="color:var(--purple);font-size:14px;margin-bottom:8px">供应商评估打分表（每项1-5分）</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>AI模型透明度和可解释性（ regulators要求"可解释的AI"）</li>
+          <li>检测准确性（要求供应商提供基准测试结果）</li>
+          <li>实时处理能力（<50ms延迟，支持高峰并发）</li>
+          <li>定制化程度（能否针对您的业务场景调优）</li>
+          <li>供应商的行业声誉和客户案例</li>
+          <li>总拥有成本（license+实施+运维，3年TCO）</li>
+          <li>是否支持在本地部署（数据不出境要求）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">AI AML主流工具对比</h2>
+    <table class="data-table">
+      <thead><tr><th>产品</th><th>厂商</th><th>核心技术</th><th>适用机构</th><th>起售价/年</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Actimize AI</strong></td><td>NYISO/Negative</td><td>ML + 图分析 + NLP</td><td>大型商业银行</td><td>$500K+</td></tr>
+        <tr><td><strong>SAS AML</strong></td><td>SAS Institute</td><td>深度学习 + 网络分析</td><td>中大型银行</td><td>$300K+</td></tr>
+        <tr><td><strong>FICO Falcon Fraud</strong></td><td>FICO</td><td>实时ML + 行为分析</td><td>银行/支付机构</td><td>$200K+</td></tr>
+        <tr><td><strong>Featurespace ADASS</strong></td><td>Featurespace</td><td>自适应AI(无监督学习)</td><td>中银行/支付机构</td><td>$150K+</td></tr>
+        <tr><td><strong>ComplyAdvantage</strong></td><td>ComplyAdvantage</td><td>ML + 实时名单筛查</td><td>中小企业/FinTech</td><td>$50K+</td></tr>
+        <tr><td><strong>LexisNexis Risk Solutions</strong></td><td>LexisNexis</td><td>大数据图 + ML</td><td>大型机构</td><td>$400K+</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-robot"></i> 实操建议：从POC到生产的过渡策略</div>
+      <div class="tip-body">
+        第一步（Month 1-2）：选择1-2个高风险业务场景做POC（如客户尽调CTR/交易监控TM），用供应商的sandbox环境验证基本功能。<br>
+        第二步（Month 3-4）：在POC基础上进行数据对接，导入过去12个月的交易数据进行回溯测试(back-testing)。<br>
+        第三步（Month 5-6）：灰度上线，先对5%的交易运行AI模型（并行运行不拦截），对比AI标记与传统规则标记的差异。<br>
+        第四步（Month 7+）：根据灰度结果调优模型阈值，逐步扩大至全量交易。保留规则引擎作为兜底，实现双轨并行至少3个月。
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-ai-money"></div>
   </main>
   <footer class="page-footer">

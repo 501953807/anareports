@@ -111,6 +111,116 @@
     </table>
 
     <div class="chart-container" id="chart-roadmap"></div>
+
+    <h2 class="section-subtitle">实操：项目管理实操 — 用Jira+甘特图管控8个月开发节奏</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：Jira项目搭建</h3>
+    <ol class="steps-list">
+      <li>创建项目→选"Software Development"模板→命名"WeWatch 产品V1.0"。成员：CEO(管理员)、硬件PM、嵌入式开发×2、APP开发×3、设计×1、测试×1。</li>
+      <li>创建Epics：(1)HW-手环硬件开发 (2)MB-药盒开发 (3)APP-APP客户端 (4)BACKEND-后端服务 (5)CERT-认证合规 (6)MK-上市准备。每个Epic对应一个Team。</li>
+      <li>创建Sprint：每2周一个Sprint，Sprint 0做需求评审，Sprint 1-15覆盖整个8个月。每周固定周二/四下午站会(15分钟)。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：Sprint站会议题模板(15分钟)</h3>
+    <table class="data-table">
+      <thead><tr><th>问题</th><th>回答格式</th><th>时长</th></tr></thead>
+      <tbody>
+        <tr><td>你上个Sprint完成了什么？</td><td>"完成了心率校准模块，联调通过。"</td><td>2分钟/人</td></tr>
+        <tr><td>这个Sprint你计划做什么？</td><td>"计划做跌倒检测模型部署。"</td><td>2分钟/人</td></tr>
+        <tr><td>有什么阻碍？</td><td>"PPG传感器的I2C驱动文档不全，需要向汇顶技术支持申请。"</td><td>3分钟/人</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：开发里程碑Checklist</h3>
+    <table class="data-table">
+      <thead><tr><th>里程碑</th><th>检查项</th><th>通过标准</th></tr></thead>
+      <tbody>
+        <tr><td>SIT (Software-in-Test)</td><td>MCU固件+传感器驱动+BLE通信+屏幕点亮</td><td>能在模拟器上显示心率数字</td></tr>
+        <tr><td>EVT (Engineering VT)</td><td>3D打印外壳+整机组装+功能完整测试</td><td>10台功能板全部通过自测用例</td></tr>
+        <tr><td>DVT (Design VT)</td><td>铝合金/CNC外壳+防水测试+跌落测试</td><td>1米跌落0裂纹，IP67水浸无进水</td></tr>
+        <tr><td>PVT (Production VT)</td><td>正式产线试产100台+老化48h</td><td>良率≥95%，无系统性缺陷</td></tr>
+        <tr><td>MP (Mass Production)</td><td>首批3,000台出货+SRRC/CCC证书到手</td><td>出货检验OK率≥98%</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：甘特图工具选择与搭建</h3>
+    <table class="data-table">
+      <thead><tr><th>工具</th><th>适用场景</th><th>成本</th><th>推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>Microsoft Project</td><td>传统项目管理，精确排期，关键路径分析</td><td>¥3,000/年(教育版免费)</td><td>★★★★☆ (推荐用于DVT/PVT阶段)</td></tr>
+        <tr><td>ClickUp</td><td>轻量级甘特图+任务管理一体化</td><td>免费版够用</td><td>★★★★★ (初创团队首选)</td></tr>
+        <tr><td>飞书项目</td><td>国内团队协作，与文档/日历/审批打通</td><td>免费版</td><td>★★★★☆ (适合3-10人团队)</td></tr>
+        <tr><td>Excel</td><td>最简单粗暴，画条形图就当甘特图</td><td>0元</td><td>★★★☆☆ (MVP阶段够用)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">8个月里程碑甘特图关键路径</div>
+      <div class="tip-body">关键路径：需求评审(2W)→ODM选型(2W)→ID设计(3W)→开模(4W)→EVT(3W)→DVT(3W)→认证(8W并行)→PVT(2W)→MP(1W)=30周≈7.5月。缓冲预留2周应对模具返工。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：Jira看板配置详细步骤</h3>
+    <table class="data-table">
+      <thead><tr><th>Jira配置项</th><th>设置值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>工作流</td><td>简单工作流(To Do → In Progress → Done)</td><td>增加"Blocked"标签标记阻塞项</td></tr>
+        <tr><td>优先级</td><td>P0(紧急) / P1(高) / P2(中) / P3(低)</td><td>P0必须当日解决，P1本周内，P2本 Sprint，P3 backlog</td></tr>
+        <tr><td>组件(Component)</td><td>HW-手环 / MB-药盒 / APP-iOS / APP-Android / Backend / CERT</td><td>方便按模块筛选Issue</td></tr>
+        <tr><td>自定义字段</td><td>"关联设备SN"(Single line text)</td><td>测试阶段记录每块测试板对应的量产SN</td></tr>
+        <tr><td>仪表盘(Dashboard)</td><td>创建"高管看板"</td><td>包含：Sprint燃尽图、Bug总数趋势、关键里程碑进度</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：硬件开发的独特里程碑(与纯软件不同)</h3>
+    <ol class="steps-list">
+      <li><strong>T0(需求冻结日)：</strong>所有功能需求在PRD中签字确认，之后任何变更需走CR(Change Request)流程。硬件开发一旦开模就无法"热更新"，冻结越早越好。</li>
+      <li><strong>T+4周(Design Review)：</strong>ID和MD设计评审，3D渲染图确认。此阶段可无成本改设计。</li>
+      <li><strong>T+8周(Tooling Release)：</strong>模具厂开工。这是"不可逆"节点——一旦开模，修改模具至少多花2-4周+几万块费用。</li>
+      <li><strong>T+14周(First Article Inspection, FAI)：</strong>第一批量产样件检验。拿着样件和图纸逐尺寸测量，公差超差立即改模。</li>
+      <li><strong>T+20周(Risk Run)：</strong>小批量试产100台，模拟真实量产流程。目标是发现产线上的"意料之外"的问题。</li>
+      <li><strong>T+26周(Mass Production Start)：</strong>首批3,000台正式量产，SRRC/CCC证书必须在此节点前到手。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：跨团队协作会议节奏</h3>
+    <table class="data-table">
+      <thead><tr><th>会议</th><th>频率</th><th>参会人</th><th>时长</th><th>核心议题</th></tr></thead>
+      <tbody>
+        <tr><td>每日站会</td><td>每个工作日9:30</td><td>各小组内部</td><td>15分钟</td><td>昨天做了什么/今天计划/有什么阻碍</td></tr>
+        <tr><td>双周Sprint Review</td><td>双周周五下午</td><td>全员</td><td>1小时</td><td>演示Sprint完成的Demo，收集反馈</td></tr>
+        <tr><td>每周Cross-team Sync</td><td>每周三下午</td><td>硬件PM+APP PM+后端PM</td><td>45分钟</td><td>对齐接口变更、联调计划、依赖项</td></tr>
+        <tr><td>月度经营会</td><td>每月最后一天</td><td>管理层</td><td>2小时</td><td>预算使用率、里程碑达成、风险升级</td></tr>
+        <tr><td>上市后周会</td><td>每周</td><td>全员</td><td>30分钟</td><td>用户反馈、APP崩溃率、客服投诉TOP5</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：上市Go-Live Checklist(产品上线前一周)</h3>
+    <table class="data-table">
+      <thead><tr><th>类别</th><th>检查项</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>硬件</td><td>首批3,000台入库+质检合格率>98%+SN码扫描入库完成</td><td>☐</td></tr>
+        <tr><td>软件</td><td>APP全平台上架+后端服务器扩容到2核4G+CDN预热完毕</td><td>☐</td></tr>
+        <tr><td>认证</td><td>SRRC/CCC/CTA证书齐全+包装已印刷认证编号</td><td>☐</td></tr>
+        <tr><td>客服</td><td>客服电话/微信客服号已开通+FAQ文档已编写+常见问题话术培训完成</td><td>☐</td></tr>
+        <tr><td>物流</td><td>快递合同已签(通达系/顺丰)+仓库租赁合同已签+货架到位</td><td>☐</td></tr>
+        <tr><td>营销</td><td>京东店铺装修完成+首批达人种草视频已拍+小红书笔记已排期</td><td>☐</td></tr>
+        <tr><td>应急</td><td>服务器宕机应急预案+客服超负荷应急预案+产品召回流程</td><td>☐</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">总开发周期</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">8 个月</div>
+        <div style="font-size:12px;color:#64748b">手环/药盒/APP三线并行推进</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">关键里程碑数</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">7 个阶段</div>
+        <div style="font-size:12px;color:#64748b">PRD→选型→ID→开模→EVT→DVT→PVT→MP</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">模具不可逆节点</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">T+8 周</div>
+        <div style="font-size:12px;color:#64748b">开模后修改至少多花2-4周+几万元</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">Go-Live检查项</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">7 大类</div>
+        <div style="font-size:12px;color:#64748b">硬件/软件/认证/客服/物流/营销/应急</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="06-app-development.html"><i class="fas fa-arrow-left"></i> APP开发</a>

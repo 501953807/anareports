@@ -82,6 +82,35 @@
     </table>
 
     <div class="chart-container" id="chart-global-trend"></div>
+
+    <h2 class="section-subtitle">合规实务：金融机构洗钱风险自评估(SRA)操作手册</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chart-bar"></i> FATF建议第1条：风险评估要求</div>
+      <div class="tip-body">
+        <p>FATF建议第1条要求所有受监管实体进行书面化的洗钱/恐怖融资风险评估(Risk Assessment)。以下是自评估操作指南。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>界定评估范围：</strong>明确覆盖的业务范围(零售银行/企业银行/贸易金融/私人银行/加密业务)、地理范围(本国/跨境/高风险司法管辖区)、客户类型(自然人/法人/信托/FOA)。</li>
+      <li><strong>识别固有风险(RI)：</strong>对每个业务单元评估四大风险因子：(a)客户风险——PEP/现金密集行业/VASP/无面对面KYC客户分别赋分3-5分；(b)产品/服务风险——代理行业务/私人银行/跨境汇款分别赋分3-5分；(c)渠道风险——非面对面开户/代理行分别赋分3-5分；(d)地域风险——FATF灰名单国家赋分5分，高风险司法管辖区赋分4分。</li>
+      <li><strong>评估现有 controls有效性：</strong>逐项评估现有AML控制措施：KYC流程成熟度(0-3分)、Transaction Monitoring规则覆盖率(规则数/行业建议规则数×3)、SAR/STR提交质量(FIU反馈评分)、Staff Training覆盖率(%)。controls越弱→调整后风险(After-Risk)越高。</li>
+      <li><strong>计算剩余风险(RR)：</strong>RR = RI × (1 - Controls_Effectiveness)。若RR > Risk_Appetite_Threshold → 必须制定 remediation plan并在下次董事会汇报。</li>
+      <li><strong>编写SRA报告并报送治理层：</strong>报告需包含：方法论说明、数据源(内部交易数据/行业基准/执法案例)、风险热力图、差距分析(gap analysis)、remediation计划(责任人+截止日期)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">洗钱风险自评估热力图打分表</h2>
+    <table class="data-table">
+      <thead><tr><th>风险因子</th><th>低风险(1分)</th><th>中风险(3分)</th><th>高风险(5分)</th><th>自评得分</th></tr></thead>
+      <tbody>
+        <tr><td>客户类型</td><td>普通零售客户</td><td>中小企业客户</td><td>PEP/虚拟货币VASP/无脸KYC</td><td>___分</td></tr>
+        <tr><td>地域风险</td><td>OECD成员国</td><td>欧盟/亚洲新兴市场</td><td>FATF灰黑名单/制裁国家</td><td>___分</td></tr>
+        <tr><td>产品/服务</td><td>储蓄账户/国内转账</td><td>信用卡/国内汇款</td><td>跨境汇款/代理行/私人银行</td><td>___分</td></tr>
+        <tr><td>交付渠道</td><td>面对面(网点)</td><td>网银/手机银行</td><td>纯线上无脸KYC/代理行</td><td>___分</td></tr>
+        <tr><td>交易模式</td><td>可预测/常规</td><td>偶发异常</td><td>结构化/快进快出/频繁跨境</td><td>___分</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-global-trend"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="index.html"><i class="fas fa-arrow-left"></i> 封面</a>

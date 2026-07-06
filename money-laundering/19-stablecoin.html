@@ -77,6 +77,117 @@
       <li style="padding:6px 0"><span style="color:var(--red);margin-right:8px">●</span> <strong>Travel Rule扩展：</strong>2026年稳定币P2P交易也被纳入Travel Rule适用范围</li>
     </ul>
 
+    <h2 class="section-subtitle">稳定币AML合规手册 — 交易所如何监控稳定币资金流</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">稳定币交易监控的核心挑战</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color:var(--orange);font-size:14px;margin-bottom:8px">与传统法币交易的不同</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>7x24不停顿 → 无法依赖"工作时间监控"，必须实时自动化</li>
+          <li>跨境即时到账 → 从发现到资金出境只需几分钟</li>
+          <li>地址匿名性 → 无法直接从链上数据识别交易对手身份</li>
+          <li>多链共存 → USDT在TRC20/ERC20/BSC/Sol等多条链上流通</li>
+          <li>稳定币"黑名单" → 发行商可随时冻结地址，合规系统需实时跟踪</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green);font-size:14px;margin-bottom:8px">合规监控系统必须具备的能力</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>全链监控：至少覆盖以太坊、Tron、BSC、Sol四个主流链</li>
+          <li>实体识别：自动识别CEX/混币器/DeFi协议/水房地址</li>
+          <li>实时告警：可疑交易在10秒内触发内部告警</li>
+          <li>资金路径还原：一键生成从入口地址到出口地址的完整链路图</li>
+          <li>合规报告自动生成：支持FATF Travel Rule格式的报文生成</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">稳定币可疑交易模式库（共10类）</h3>
+    <table class="data-table">
+      <thead><tr><th>编号</th><th>模式名称</th><th>链上特征</th><th>典型场景</th></tr></thead>
+      <tbody>
+        <tr><td>M01</td><td>快速拆分(Sandwich Split)</td><td>一笔大额入→N笔等额小额出→间隔<5分钟</td><td>结构化规避申报门槛</td></tr>
+        <tr><td>M02</td><td>循环转账(Circular Flow)</td><td>A→B→C→D→A，形成闭环</td><td>制造虚假交易量和历史</td></tr>
+        <tr><td>M03</td><td>跨链跳跃(Chain Hop)</td><td>同一地址在TRC20→ERC20→BSC间快速迁移</td><td>混淆追踪路径</td></tr>
+        <tr><td>M04</td><td>时间锁分散(Time-Lock Diffusion)</td><td>多笔定时转账在不同日期释放</td><td>规避短期频繁交易监控</td></tr>
+        <tr><td>M05</td><td>混币器交互(Mixer Touch)</td><td>与Tornado Cash/Unknown Pool交互</td><td>恶意（所有主流CEX已列入黑名单）</td></tr>
+        <tr><td>M06</td><td>小额高频(Dusting)</td><td>单笔<$100但日均交易>500笔</td><td>蚂蚁搬家式转移</td></tr>
+        <tr><td>M07</td><td>新地址首次大额(New Address Large)</td><td>创建<7天的地址单笔转出>$100K</td><td>可疑账户激活</td></tr>
+        <tr><td>M08</td><td>稳定币互换(Coin Swap)</td><td>USDT→USDC→DAI→USDT快速swap</td><td>改变币种分布混淆来源</td></tr>
+        <tr><td>M09</td><td>DEX大额滑点(Large Slippage)</td><td>单次swap滑点>2%或金额>$500K</td><td>可能是受迫性紧急交易</td></tr>
+        <tr><td>M10</td><td>黑单地址间接接触(Indirect Blacklist)</td><td>与已知黑单地址有≤3跳关联</td><td>间接关联洗钱网络</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">稳定币发行人合规评估清单（Tether / Circle）</h2>
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid var(--green)">
+        <h4 style="color:var(--green);font-size:14px;margin-bottom:8px">发行人应具备的合规能力</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>✓ 实时链上黑名单维护能力（24/7运营）</li>
+          <li>✓ 响应执法冻结请求的SLA（要求<4小时）</li>
+          <li>✓ 储备金季度独立审计（Big4级别事务所）</li>
+          <li>✓ OFAC制裁名单自动拦截（存款/铸造环节）</li>
+          <li>✓ Travel Rule合规支持（VASP-to-VASP传输）</li>
+          <li>✓ 透明的USDT/USDC供应量每日公布</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--red)">
+        <h4 style="color:var(--red);font-size:14px;margin-bottom:8px">发行人合规红旗</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>✗ 超过6个月未公布储备金证明</li>
+          <li>✗ 冻结请求响应时间超过48小时</li>
+          <li>✗ 被FATF列入"高风险司法管辖区"关联名单</li>
+          <li>✗ 大量流通在非KYC链上（如Sidechain/L2无身份绑定）</li>
+          <li>✗ 多次被Chenalysis标记为洗钱高频用途代币</li>
+          <li>✗ 不配合任何执法机构的调查</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">USDT冻结配合操作流程</h2>
+    <ol class="steps-list">
+      <li><strong>接收执法文书：</strong>公安机关出具《协助冻结财产通知书》+ 案件立案决定书 + 执法人员工作证件。确认文书包含：涉案USDT合约地址、涉案钱包地址清单、冻结金额/比例、法律依据。</li>
+      <li><strong>内部审批流程：</strong>合规官收到文书后，在2小时内完成三级审批（合规负责人→法务总监→CEO授权）。紧急情况下可先执行冻结，48小时内补齐书面流程。</li>
+      <li><strong>链上执行冻结：</strong>通过Tether官方通道发送冻结指令。Tether冻结的是合约层面的余额——被冻结地址的USDT将无法转出（合约内嵌blacklist机制）。注意：冻结不影响地址内已存在的USDT余额展示，但会阻止所有 outbound transfer。</li>
+      <li><strong>确认冻结生效：</strong>冻结后10分钟内通过Etherscan/TRCScan验证地址的USDT balance是否变为"frozen"。同时向执法机关发送冻结回执。</li>
+      <li><strong>延伸追踪：</strong>冻结后持续监控该地址的 inbound 交易——可能有后续赃款流入。建立"地址家族树"(address clustering)，识别关联地址并申请扩大冻结范围。</li>
+    </ol>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-link"></i> 稳定币发行商的冻结协作机制对比</div>
+      <div class="tip-body">
+        <strong>Tether(USDT)：</strong>通过专有的Law Enforcement Request Portal接收请求。2025年全年配合冻结超$2亿。支持TRC20和ERC20两个版本。<br>
+        <strong>Circle(USDC)：</strong>拥有行业内最完善的链上合规系统——Compliance API。可在交易发生前实时查询对手方是否在黑名单上。2025年主动冻结超$3.5亿。支持ERC20/Sol/Polygon。<br>
+        <strong>其他发行商：</strong>FDUSD(Devoted)、BUSD(Paxos)同样具备冻结能力，但体量较小。DAI( MakerDAO )因为是去中心化发行，没有中央冻结机制。
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">实操工具箱：稳定币监控</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color:var(--cyan);font-size:14px;margin-bottom:8px">免费工具</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li><strong>Etherscan / Tronscan：</strong>查看单个地址的完整交易历史和token持仓</li>
+          <li><strong>De.Fi Scanner：</strong>一键扫描地址的风险评分和关联实体</li>
+          <li><strong>Bubblemaps：</strong>可视化地址间的资金关联网络</li>
+          <li><strong>Arkham Intelligence：</strong>白帽追踪器，可搜索知名实体地址并查看其持仓和交易</li>
+          <li><strong>Trwl：</strong>链上搜索引擎，支持复杂的查询语法</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--purple);font-size:14px;margin-bottom:8px">商业级工具</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li><strong>Chainalysis Reactor：</strong>行业标准，支持地址标注+资金流追踪+风险评分</li>
+          <li><strong>Elliptic NFT/CEX Tracker：</strong>擅长追踪大额机构级资金流动</li>
+          <li><strong>TRM Labs：</strong>提供API级别的实时交易筛查，适合系统集成</li>
+          <li><strong>Merkle Science：</strong>侧重稳定币的实时异常检测和预测性分析</li>
+          <li><strong>Obsidian(SquareX)：</strong>提供稳定的链上数据分析基础设施</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-stablecoin"></div>
   </main>
   <footer class="page-footer">

@@ -112,6 +112,129 @@
     </table>
 
     <div class="chart-container" id="chart-heart"></div>
+
+    <h2 class="section-subtitle">实操：心率监测功能落地 — 从传感器校准到临床验证</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：PPG传感器校准实操(48小时)</h3>
+    <ol class="steps-list">
+      <li><strong>准备设备：</strong>医疗级脉搏血氧仪(BS120，约¥500)、待测手环原型机×5、笔记本(MQTT服务器跑在本机)。</li>
+      <li><strong>校准流程：</strong>让10位志愿者同时佩戴手环和医疗血氧仪，静坐5分钟后开始记录。每5分钟对比一次，共测60分钟。目标：静息状态下手环心率与医疗设备的偏差<±3bpm。</li>
+      <li><strong>参数调优：</strong>如果偏差>5bpm，调整PPG采样频率(默认100Hz→提升到200Hz)，调整LED驱动电流(默认5mA→提升到10mA增加信号强度)，调整软件滤波参数。</li>
+      <li><strong>运动校准：</strong>让志愿者快走10分钟后重复测试。运动状态下的偏差通常更大，因为手臂摆动引入噪声。调整加速计融合算法过滤运动伪影。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：Python RR间期提取代码骨架</h3>
+    <div class="tip-box">
+      <div class="tip-title">RR间期提取核心代码</div>
+      <div class="tip-body"># pip install scipy numpy matplotlib
+import numpy as np
+from scipy.signal import find_peaks, butter, filtfilt
+
+def extract_rr_intervals(ppg_signal, sample_rate=100):
+    # 1. 带通滤波(0.5-8Hz，覆盖60-480bpm心率范围)
+    b, a = butter(4, [0.5/(sr/2), 8/(sr/2)], btype='band')
+    filtered = filtfilt(b, a, ppg_signal)
+
+    # 2. 检测PPG峰值(R波对应点)
+    peaks, _ = find_peaks(filtered, distance=sample_rate*0.5, height=0.1)
+
+    # 3. 计算RR间期(毫秒)
+    rr_intervals = np.diff(peaks) / sample_rate * 1000
+
+    # 4. 心率变异性指标
+    mean_hr = 60000 / np.mean(rr_intervals) if len(rr_intervals) > 0 else 0
+    sdnn = np.std(rr_intervals)  # HRV常用指标
+
+    return rr_intervals, mean_hr, sdnn</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：临床验证方案设计(30人试验)</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>方案</th></tr></thead>
+      <tbody>
+        <tr><td>受试者</td><td>60-85岁老人30人，男15女15，其中房颤患者10人、正常20人</td></tr>
+        <tr><td>对照设备</td><td>医院Holter动态心电仪(12导联，金标准)</td></tr>
+        <tr><td>测试时长</td><td>每人连续佩戴24小时(白天+夜间)</td></tr>
+        <tr><td>评估指标</td><td>Bland-Altman一致性分析：手环vs Holter的平均偏差和95%置信区间</td></tr>
+        <tr><td>通过标准</td><td>平均偏差<±5bpm，95%置信区间在±10bpm以内</td></tr>
+        <tr><td>伦理审查</td><td>提交研究所属医院伦理委员会(IRB)，签署知情同意书</td></tr>
+        <tr><td>费用估算</td><td> volunteers礼品¥500 + 医院检测费¥2,000 + 数据分析师¥5,000 = ¥7,500</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：手环佩戴位置解剖学指南</h3>
+    <table class="data-table">
+      <thead><tr><th>佩戴位置</th><th>距离腕骨(mm)</th><th>信号质量</th><th>舒适度</th><th>推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>过于贴近手掌</td><td>0-10</td><td>差(软组织厚，PPG信号弱)</td><td>高</td><td>×</td></tr>
+        <tr><td>推荐位置</td><td>15-25</td><td>优(桡动脉表浅)</td><td>高</td><td>√ 最佳</td></tr>
+        <tr><td>过于靠近手肘</td><td>30-40</td><td>中(信号衰减)</td><td>中</td><td>○</td></tr>
+        <tr><td>松紧度</td><td>能插入一根手指</td><td>优</td><td>中</td><td>√ 标准</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">APP端心率预警阈值设置方法</div>
+      <div class="tip-body">在APP后台(admin dashboard)→设置→健康预警→心率阈值，可以个性化设置每位老人的上下限。老年人基础心率偏慢(静息55-70)，建议设上限110bpm、下限45bpm，避免误报。连续3次异常才触发告警，减少假阳性。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：心率监测质量验证清单</h3>
+    <table class="data-table">
+      <thead><tr><th>#</th><th>验证项</th><th>方法</th><th>通过标准</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>静息心率精度</td><td>vs 医疗血氧仪对比</td><td>±3bpm (95%置信)</td></tr>
+        <tr><td>2</td><td>运动心率延迟</td><td>骑车功率车测试</td><td><15秒跟踪变化</td></tr>
+        <tr><td>3</td><td>信号丢失检测</td><td>摘下手环后30秒内报错</td><td>100%触发</td></tr>
+        <tr><td>4</td><td>夜间心率基线</td><td>连续7天记录静息心率趋势</td><td>夜间心率<日间基线10%</td></tr>
+        <tr><td>5</td><td>房颤筛查准确率</td><td>10人房颤志愿者盲测</td><td>敏感度>85%，特异度>90%</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：ECG算法调优实战指南</h3>
+    <div class="tip-box">
+      <div class="tip-title">ECG信号预处理流水线</div>
+      <div class="tip-body">原始ECG信号必须经过以下处理才能获得可用的RR间期：①50Hz工频陷波滤波器剔除 mains interference ②基线漂移消除(高通滤波截止频率0.05Hz) ③QRS检测(Pan-Tompkins算法) ④人工波形修正(剔除运动伪影导致的假峰)。MCU端推荐用CMSIS-DSP库实现，ARM Cortex-M4可在2ms内完成单帧ECG处理。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：FDA 510(k)申报路径规划</h3>
+    <ol class="steps-list">
+      <li><strong>产品分类：</strong>手环ECG功能属于Class II医疗设备，产品代码ERC( Electrocardiograph)，适用法规21 CFR 870.2320。</li>
+      <li><strong>等同性论证：</strong>在FDA数据库中搜索predicate device(等同器械)，选择已获批的竞品(AmbulatoryECG如BioTelemetry、AliveCor)撰写Substantial Equivalence(SE)论证报告。</li>
+      <li><strong>性能测试：</strong>依据IEC 60601-1-2(EMC)和IEC 60601-1(安全)进行型式检验。PPG精度需满足AHA标准(85%误差<5bpm，15%误差<10bpm)。</li>
+      <li><strong>临床评价：</strong>如果无法充分证明等同性，需开展前瞻性临床试验(≥100例患者)验证诊断准确性。与三甲医院心内科合作。</li>
+      <li><strong>文档准备：</strong>撰写510(k)摘要、设备描述、性能数据、生物相容性报告、EMC测试报告、风险管理报告(ISO 14971)。</li>
+      <li><strong>费用和周期：</strong>FDA用户费2026财年约为$21,711。审核周期90天(常规)或150天(需补充信息)。</li>
+    </ol>
+    <table class="data-table">
+      <thead><tr><th>ECG调试参数</th><th>默认值</th><th>调优范围</th><th>影响</th></tr></thead>
+      <tbody>
+        <tr><td>ECG采样率</td><td>500 Hz</td><td>250-1000 Hz</td><td>越高越清晰但功耗越大</td></tr>
+        <tr><td>LED驱动电流(PPG)</td><td>5 mA</td><td>1-30 mA</td><td>深色肤色老人需加大到15mA+</td></tr>
+        <tr><td>运动融合权重</td><td>0.3</td><td>0-0.5</td><td>运动量大时增大以抑制伪影</td></tr>
+        <tr><td>房颤判定窗口</td><td>连续3个RR间隔变异>15%</td><td>2-5个周期</td><td>减少误报但增加漏报</td></tr>
+        <tr><td>心率异常持续时间</td><td>连续5分钟HR>110</td><td>3-15分钟</td><td>老年人推荐7-10分钟</td></tr>
+      </tbody>
+    </table>
+    <div class="case-box">
+      <div class="case-title">案例：某国产手环ECG误报率过高问题排查</div>
+      <div class="case-body">一款手环在房颤检测中误报率高达25%。排查发现原因：①LED功率不足(仅5mA)，深色皮肤老人PPG信号幅值太小导致峰检测错误 ②运动伪影滤波器截止频率设为3Hz过低，未能滤除步频噪声 ③ECG电极触点面积过小(<4mm²)，接触阻抗>20kΩ。解决方案：将LED电流提高到15mA、滤波器改为自适应截止频率(动态0.5-10Hz)、ECG电极加金镀层降低阻抗。误报率从25%降到3.2%。</div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">关键指标</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">PPG精度 ±3bpm</div>
+        <div style="font-size:12px;color:#64748b">静息状态 vs 医疗血氧仪</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">关键指标</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">房颤检测敏感度 >88%</div>
+        <div style="font-size:12px;color:#64748b">对比12导联Holter金标准</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">关键指标</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">ECG处理延迟 <2ms</div>
+        <div style="font-size:12px;color:#64748b">MCU Cortex-M4 CMSIS-DSP</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">关键指标</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">连续佩戴 7天</div>
+        <div style="font-size:12px;color:#64748b">PPG低功耗模式(采样1次/30s)</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="10-risk-assessment.html"><i class="fas fa-arrow-left"></i> 风险评估</a>

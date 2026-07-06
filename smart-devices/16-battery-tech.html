@@ -113,6 +113,116 @@
     </table>
 
     <div class="chart-container" id="chart-battery"></div>
+
+    <h2 class="section-subtitle">实操：电池系统设计 — 选型、充电电路与续航优化</h2>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第一步：电池选型实操(Li-Po vs LiFePO4)</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>Li-Po(锂聚合物)</th><th>LiFePO4(磷酸铁锂)</th><th>推荐</th></tr></thead>
+      <tbody>
+        <tr><td>能量密度</td><td>高(~600Wh/L)</td><td>中(~350Wh/L)</td><td>手环选Li-Po(体积小)</td></tr>
+        <tr><td>循环寿命</td><td>500次(80%容量)</td><td>2,000次</td><td>药盒选LiFePO4(长期插电极频繁)</td></tr>
+        <tr><td>工作温度</td><td>-20~60°C</td><td>-20~75°C</td><td>两者均可</td></tr>
+        <tr><td>自放电</td><td>~2%/月</td><td>~3%/月</td><td>—</td></tr>
+        <tr><td>推荐型号</td><td>350mAh 3.7V 超薄卷绕(Li-Po)</td><td>2500mAh 3.2V 圆柱18650</td><td>手环: 350mAh / 药盒: 2500mAh</td></tr>
+        <tr><td>供应商</td><td>亿纬锂能(eve.com.cn) / 珠海冠宇</td><td>比亚迪 / 国轩高科</td><td>联系业务员要样品规格书</td></tr>
+        <tr><td>单价(1K)</td><td>¥4-6</td><td>¥3-5</td><td>10K批量压到30%</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：充电管理芯片选型</h3>
+    <table class="data-table">
+      <thead><tr><th>芯片</th><th>厂商</th><th>输入</th><th>最大充电电流</th><th>效率</th><th>单价</th></tr></thead>
+      <tbody>
+        <tr><td>IP5306</td><td>智融</td><td>5V USB</td><td>1.5A</td><td>92%</td><td>¥1.5</td></tr>
+        <tr><td>BD Chip BQ25100</td><td>TI</td><td>USB-C PD</td><td>1A</td><td>95%</td><td>¥4</td></tr>
+        <tr><td>SC7685</td><td>圣邦微</td><td>5V USB</td><td>1A</td><td>90%</td><td>¥1.2</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title">充电电路设计要点</div>
+      <div class="tip-body">IP5306内部集成了升压转换器，可以直接给外设供电并同时充电(Pass-through)。这样手环边充边用不影响GPS精度。充电指示灯用LED引脚驱动(PMOS)，充电中红色闪烁，充满常绿。务必加NTC热敏电阻做温度保护，电池>60°C自动停止充电。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：续航计算实战</h3>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>平均电流</th><th>日均耗电(mAh)</th></tr></thead>
+      <tbody>
+        <tr><td>MCU空闲待机</td><td>5μA</td><td>0.12</td></tr>
+        <tr><td>PPG心率(1次/5min)</td><td>1.5mA × 2.88min/天</td><td>0.72</td></tr>
+        <tr><td>GPS定位(1次/30min)</td><td>50mA × 4.8min/天</td><td>4.0</td></tr>
+        <tr><td>BLE广播(连接间隔1s)</td><td>0.5mA 平均</td><td>1.2</td></tr>
+        <tr><td>IMU(100Hz持续)</td><td>0.8mA</td><td>1.15</td></tr>
+        <tr><td><strong>日均总计</strong></td><td>—</td><td><strong>~7.2 mA/day</strong></td></tr>
+        <tr><td><strong>350mAh电池 → 续航</strong></td><td>350÷7.2 =</td><td><strong>~48天</strong>(不含屏幕点亮)</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：电池验证与测试清单</h3>
+    <ol class="steps-list">
+      <li><strong>循环寿命测试：</strong>送第三方实验室(深圳CTI)做UN38.3。测试项目：高度模拟(15,240Pa)、温度循环(-40°C/72°C×10次)、振动、冲击、外短路、强制充电。费用约¥8,000，周期3周。</li>
+      <li><strong>自放电测试：</strong>电池充满后存放30天，容量衰减<5%为合格。</li>
+      <li><strong>高低温充放电：</strong>在-10°C恒温箱中测试是否能正常充电(很多锂电池低温拒充)。</li>
+      <li><strong>过充保护验证：</strong>用5V/2A快充头充IP5306，拔下电源后观察电压是否稳定在4.2V±1%。</li>
+    </ol>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：BMS(电池管理系统)设计</h3>
+    <table class="data-table">
+      <thead><tr><th>保护功能</th><th>触发条件</th><th>响应时间</th><th>IC选型</th></tr></thead>
+      <tbody>
+        <tr><td>过充保护(OCP)</td><td>Vbat > 4.25V</td><td><1μs</td><td>IP5306内部集成</td></tr>
+        <tr><td>过放保护(UVP)</td><td>Vbat < 3.0V</td><td><50ms</td><td>IP5306内部集成</td></tr>
+        <tr><td>过流保护(SCP)</td><td>Icharge > 1.5A</td><td><1μs</td><td>IP5306内部集成</td></tr>
+        <tr><td>过温保护OTP</td><td>NTC > 60°C 或 < -10°C</td><td><100ms</td><td>外部NTC + MCU GPIO检测</td></tr>
+        <tr><td>短路保护</td><td>I > 5A</td><td><10ns</td><td>MOSFET栅极驱动切断</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第六步：无线充电线圈设计与调试</h3>
+    <ol class="steps-list">
+      <li><strong>线圈选型：</strong>推荐TDK PLC080505或国产顺络电子DLL080515。规格：外径10mm、内径6mm、厚度0.5mm、电感量1.2μH±10%。Qi标准频率110-205kHz。</li>
+      <li><strong>谐振电容匹配：</strong>与线圈构成LC谐振回路，谐振频率=1/(2π√(LC))=125kHz。选C=1.3nF ±5% NP0材质(温度稳定性好)。</li>
+      <li><strong>放置位置：</strong>线圈贴在壳体背部中心，下方垫0.3mm绝缘云母片。上方距离PPG传感器≥2mm避免电磁干扰。</li>
+      <li><strong>充电效率测试：</strong>用可调交流电源(100-200kHz)驱动Qi发射端，测量接收端输出电压。目标：传输效率>70%(@10mm距离)。</li>
+    </ol>
+    <div class="tip-box">
+      <div class="tip-title">无线充电调试技巧</div>
+      <div class="tip-body">充电效率低最常见的原因是线圈谐振频率偏移。用LCR表测量实际电感值和电容值，计算谐振频率。如果偏离125kHz超过±5%，微调谐振电容(换0.1pF步进)。另外检查线圈与发射端的对中偏差——偏心>3mm会导致耦合系数急剧下降。建议在设计外壳时加入磁铁对准结构(就像AirPods充电盒那样)。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：电池健康度(SOH)估算算法</h3>
+    <div class="case-box">
+      <div class="case-title">SOH估算实现方案</div>
+      <div class="case-body">手环MCU每隔7天(充电时)执行一次SOH标定：①记录本次充满电后到下次充电之间的总放电量(mAh) ②与出厂标定容量(350mAh)对比 ③SOH = 实际放电量/350 × 100%。当SOH<80%时APP推送"建议更换电池"。SOH<70%时自动进入更 aggressive 省电模式(降低采样频率+缩短GPS间隔)。</div>
+    </div>
+    <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第八步：快充与涓流充电策略</h3>
+    <table class="data-table">
+      <thead><tr><th>充电阶段</th><th>充电电流</th><th>电池电压</th><th>时长占比</th><th>目的</th></tr></thead>
+      <tbody>
+        <tr><td>预充(Pre-charge)</td><td>50mA</td><td>Vbat < 3.0V</td><td>0-5%</td><td>检测电池是否正常(非短路)</td></tr>
+        <tr><td>恒流(CC)</td><td>200mA</td><td>3.0-4.1V</td><td>5-80%</td><td>快速灌入电量</td></tr>
+        <tr><td>恒压(CV)</td><td>200mA→20mA递减</td><td>4.1-4.2V</td><td>80-98%</td><td>缓慢充满，保护电芯</td></tr>
+        <tr><td>涓流(Trickle)</td><td>20mA</td><td>4.2V</td><td>98-100%</td><td>补偿自放电，保持满电</td></tr>
+        <tr><td>终止</td><td>0mA</td><td>4.2V</td><td>—</td><td>Icharge < 10mA自动停止</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">充满时间</div>
+        <div style="font-size:18px;font-weight:700;color:#06b6d4">1.5 小时</div>
+        <div style="font-size:12px;color:#64748b">CC-CV标准充电(350mAh电池)</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">无线充电效率</div>
+        <div style="font-size:18px;font-weight:700;color:#8b5cf6">> 70%</div>
+        <div style="font-size:12px;color:#64748b">@10mm距离，125kHz谐振</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">电池循环寿命</div>
+        <div style="font-size:18px;font-weight:700;color:#10b981">500 次(80%)</div>
+        <div style="font-size:12px;color:#64748b">典型Li-Po，0-100%循环</div>
+      </div>
+      <div class="data-card">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">SOH估算精度</div>
+        <div style="font-size:18px;font-weight:700;color:#f59e0b">±5%</div>
+        <div style="font-size:12px;color:#64748b">CC-CV充放电曲线积分法</div>
+      </div>
+    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="15-bluetooth-wifi-nfc.html"><i class="fas fa-arrow-left"></i> 连接技术</a>

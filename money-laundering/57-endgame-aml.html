@@ -93,6 +93,121 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">2030年合规路线图 — 下一代AML分阶段实施方案</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">Phase 1（2025-2026）：基础设施夯实期</h3>
+    <ol class="steps-list">
+      <li><strong>统一客户视图(UCV)建设：</strong>整合内部所有系统的客户数据（开户、交易、KYC、行为日志），建立单一客户360度画像。这是后续所有高级分析的基础。</li>
+      <li><strong>规则引擎现代化：</strong>将遗留的硬编码规则迁移到可配置的规则引擎（如 Drools / IBM ODM），支持业务人员自助调整阈值。目标：从修改规则到上线，从2周缩短到2小时。</li>
+      <li><strong>链上分析集成：</strong>对于涉及加密资产的机构，采购 Chainalysis / Elliptic / TRM Labs 的API，将链上交易数据嵌入内部客户行为模型。重点：追踪USDT/USDC/ETH的资金来源和去向。</li>
+      <li><strong>STR/CTR自动化生成：</strong>部署NLP工具，将可疑交易的结构化数据自动生成标准形式的STR（可疑交易报告）草稿，减少分析师70%的手动工作量。</li>
+    </ol>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">Phase 2（2026-2028）：AI深度融入期</h3>
+    <ol class="steps-list">
+      <li><strong>图神经网络(GNN)部署：</strong>构建交易网络图模型（客户-账户-地址-对手方），使用GNN检测团伙式洗钱。参考：Chainalysis 2025年推出的Graph AI模块，可将团伙识别准确率提升3倍。</li>
+      <li><strong>实时交易监控(Real-Time Monitoring)：</strong>从T+1批处理升级到流式计算(Apache Flink / Kafka Streams)，实现毫秒级交易拦截。欧盟MiCA法规已对此提出明确要求。</li>
+      <li><strong>联邦学习平台：</strong>多家银行在不共享原始数据的前提下，通过联邦学习联合训练AML模型。新加坡MAS已启动FedML试点项目，目标是降低单家机构的误报率。</li>
+      <li><strong>Deepfake KYC防护：</strong>部署活体检测+情绪分析+证件防伪的三重验证系统。参考：Jumio / Onfido 2025年的Deepfake检测模块，误识率<0.1%。</li>
+    </ol>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">Phase 3（2028-2030）：范式转型期</h3>
+    <ol class="steps-list">
+      <li><strong>CBDC时代合规就绪：</strong>若所在地区推出CBDC，提前改造支付接口以支持可编程货币的AML规则。重点是：CBDC可以设置"用途限制""有效期""目的地限制"，合规系统需能解析和执行这些规则。</li>
+      <li><strong>ZK-合规框架落地：</strong>在DeFi场景中，使用零知识证明实现"匿名但可验证"的AML检查——证明交易符合AML规则但不暴露交易细节。参考：Polygon zkEVM + ConsenSys Linea的ZK-AML方案。</li>
+      <li><strong>量子安全密码学迁移：</strong>评估现有签名算法(ECDSA/SHA-256)是否能在量子计算机面前存活。NIST已标准化CRYSTALS-Kyber和后量子SHA-3替代品(PQC)，银行需规划迁移时间表。</li>
+      <li><strong>AI对抗AI常态化：</strong>建立红蓝对抗机制——红色AI团队模拟新型洗钱策略，蓝色AI团队训练检测模型。目标：将新型洗钱手法的平均检测时间从30天缩短到24小时以内。</li>
+    </ol>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-calendar-alt"></i> 合规路线图执行要点</div>
+      <div class="tip-body">
+        <strong>预算分配建议：</strong>Phase 1 占40%（基建为主），Phase 2 占35%（AI部署），Phase 3 占25%（前瞻投入）。<br>
+        <strong>人员配置：</strong>每个阶段至少配备：数据工程师2-3人、ML工程师2人、合规专家1-2人、前端工程师1人。<br>
+        <strong>ROI测算：</strong>AI部署后的预期效果——误报率下降60-80%，检测率提升3-5倍，人均处理案件从10件/天提升到50件/天。
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">量子安全加密评估清单</h2>
+    <table class="data-table">
+      <thead><tr><th>评估项</th><th>低风险</th><th>中风险</th><th>高风险</th><th>应对建议</th></tr></thead>
+      <tbody>
+        <tr><td>当前使用的签名算法</td><td>已采用PQC(NIST标准)</td><td>ECDSA但key size≥256bit</td><td>RSA-1024或更弱</td><td>RSA-1024立即迁移到PQC</td></tr>
+        <tr><td>密钥存储方式</td><td>HSM + 多方分片</td><td>云端KMS</td><td>服务器本地磁盘</td><td>立即引入HSM</td></tr>
+        <tr><td>跨链桥签名验证</td><td>使用Threshold Signature</td><td>多签(5/9)</td><td>单签/少签</td><td>升级为t-of-n多签</td></tr>
+        <tr><td>数据加密传输</td><td>TLS 1.3 + PQC混合模式</td><td>TLS 1.3</td><td>TLS 1.2或更低</td><td>升级TLS + 启用PQC混合证书</td></tr>
+        <tr><td>哈希算法</td><td>SHA-3 或 BLAKE3</td><td>SHA-256</td><td>SHA-1 或 MD5</td><td>SHA-1立即废弃</td></tr>
+        <tr><td>量子威胁等级(LTE)</td><td>LTE-B (NIST PQC达标)</td><td>LTE-A (部分达标)</td><td>No LTE评估</td><td>立即申请LTE-A评估</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">隐私增强技术(Privacy-Enhancing Tech)指南 — ZK-Proofs在合规DeFi中的应用</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">什么是零知识证明(ZKP)？</h3>
+    <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:12px">零知识证明允许一方(证明者)向另一方(验证者)证明某个陈述为真，而无需透露任何额外信息。在AML场景中的核心价值：<strong>你可以证明你的交易是合规的，而不必暴露交易金额、对手方、地点等敏感信息。</strong></p>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">ZK-AML实践架构</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color:var(--cyan);font-size:14px;margin-bottom:8px">Step 1: 建立证明模板</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>定义AML规则为布尔逻辑电路</li>
+          <li>例：NOT(sanctioned_address) AND amount < $10K AND NOT(large_cash_structuring_pattern)</li>
+          <li>将逻辑电路转换为R1CS约束系统</li>
+          <li>选择ZK协议：zk-SNARKs(验证快)或zk-STARKs(量子抗性)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--purple);font-size:14px;margin-bottom:8px">Step 2: 生成和验证证明</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>证明者使用电路输入(交易数据)生成zk证明</li>
+          <li>证明大小：zk-SNARKs ~288字节，zk-STARKs ~几KB</li>
+          <li>验证者在链上验证证明(Gas成本$0.01-$0.10)</li>
+          <li>验证通过 = 交易合规，无需知道任何明文数据</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">ZK-AML主流工具栈</h3>
+    <table class="data-table">
+      <thead><tr><th>工具</th><th>类型</th><th>适用场景</th><th>学习曲线</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ZK-AML (开源)</strong></td><td>专用框架</td><td>DeFi协议的链上AML合规</td><td>高(需理解椭圆曲线)</td></tr>
+        <tr><td><strong>Zeromonero</strong></td><td>隐私协议</td><td>基于Monero的ZK匿名交易</td><td>中</td></tr>
+        <tr><td><strong>Aztec Network</strong></td><td>L2区块链</td><td>隐私DeFi全栈方案</td><td>中(开发者工具完善)</td></tr>
+        <tr><td><strong>Tornado Cash (恢复版)</strong></td><td>混币器</td><td>ZK-based混币合规版本</td><td>低(MiCA豁免方案)</td></tr>
+        <tr><td><strong>Circom + snarkJS</strong></td><td>开发工具链</td><td>自定义ZK电路编写</td><td>极高(学术研究级)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">CBDC时代AML准备指南</h2>
+
+    <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">CBDC与现有支付系统的AML差异</h3>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>现有系统(FiAT)</th><th>CBDC(数字法币)</th><th>合规影响</th></tr></thead>
+      <tbody>
+        <tr><td>交易可见性</td><td>银行间不可见</td><td>央行全程可见</td><td>AML监测从"抽样"变"全量"</td></tr>
+        <tr><td>身份绑定</td><td>通过账户间接绑定</td><td>直接绑定数字身份</td><td>KYC前置，无需额外验证</td></tr>
+        <tr><td>可编程性</td><td>不可编程(纯资金)</td><td>可附加智能合约条件</td><td>资金用途限制可自动化</td></tr>
+        <tr><td>跨境追踪</td><td>依赖SWIFT MT报文</td><td>央行间API直连</td><td>跨境AML情报共享实时化</td></tr>
+        <tr><td>匿名性</td><td>现金保留一定匿名性</td><td>可控匿名(分级)</td><td>大额CBDC交易必须KYC</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-university"></i> CBDC合规就绪检查清单（机构版）</div>
+      <div class="tip-body">
+        <ul style="line-height:2.2">
+          <li>[ ] 确认所在国家/地区的CBDC时间表和AML法规要求</li>
+          <li>[ ] 改造核心银行系统以支持CBDC智能合约的条件触发</li>
+          <li>[ ] 建立CBDC交易的异常模式检测模型（不同于传统FiAT）</li>
+          <li>[ ] 培训交易监控团队理解"可编程资金"的AML含义</li>
+          <li>[ ] 评估CBDC与加密资产的转换节点的合规要求(最关键的AML薄弱环节)</li>
+          <li>[ ] 参与央行组织的CBDC沙箱测试（如有机会）</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-endgame"></div>
   </main>
   <footer class="page-footer">

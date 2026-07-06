@@ -110,6 +110,158 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">22.5 手把手：Python + Pandas 清洗与分析健康传感器数据</h2>
+
+    <h3 class="steps-heading">步骤一：搭建数据分析环境</h3>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-terminal"></i> pip 安装清单</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>pip install pandas numpy matplotlib plotly scikit-learn
+pip install jupyterlab sqlalchemy clickhouse-connect
+pip install pyarrow fastparquet
+jupyter lab --port=8888 --no-browser</code></pre>
+    </details>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-info-circle"></i> 原始数据 5 大清洗问题</div>
+      <div class="tip-body" style="margin-top:8px">(1) BLE 断连时间戳跳跃 (2) PPG 运动伪影 (3) GPS 漂移 (4) 设备 UTC 与服务器 UTC 偏差 (5) 重传导致的重复记录。</div>
+    </div>
+
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fab fa-python"></i> Pandas 清洗流水线</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>import pandas as pd
+import numpy as np
+
+# 加载 CSV (设备导出格式)
+df = pd.read_csv('telemetry_export.csv', parse_dates=['timestamp'])
+
+# 1. 去重: 同一 deviceId+timestamp 保留最新一条
+df = df.drop_duplicates(subset=['device_id', 'timestamp'])
+
+# 2. 时间排序 + 计算间隔
+df = df.sort_values(['device_id', 'timestamp'])
+df['dt_interval_min'] = df.groupby('device_id')['timestamp'].diff().dt.total_seconds() / 60
+
+# 3. 过滤 BLE 断连跳变(间隔 > 10 分钟视为数据断档)
+df['gap_flag'] = df['dt_interval_min'] > 10
+df_clean = df[df['gap_flag'] == False].copy()
+
+# 4. 异常心率过滤(ppg_heartrate)
+# 规则: 5-200bpm 之间, 且用 5 分钟滚动中位数平滑
+mask = (df_clean['ppg_heartrate'] >= 5) & (df_clean['ppg_heartrate'] <= 200)
+df_clean.loc[~mask, 'ppg_heartrate'] = np.nan
+df_clean['hr_smooth'] = df_clean.groupby('device_id')['ppg_heartrate'] \
+    .transform(lambda x: x.rolling(5, min_periods=1, center=True).median())
+
+# 5. GPS 漂移过滤(速度 > 30km/h 标记为漂移)
+df_clean['gps_speed'] = np.sqrt(df_clean['gps_dx']**2 + df_clean['gps_dy']**2)
+df_clean['gps_valid'] = df_clean['gps_speed'] < 8.3  # 30km/h = 8.3m/s
+
+# 6. 保存到 Parquet(压缩比高, 查询快10倍)
+df_clean.to_parquet('clean_data_v1.parquet', engine='pyarrow')
+print(f'原始记录: {len(df)}, 清洗后: {len(df_clean)}, 剔除: {len(df) - len(df_clean)}')</code></pre>
+    </details>
+
+    <h3 class="steps-heading">步骤二：Plotly 交互式可视化</h3>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-chart-line"></i> Plotly 绘制心率曲线</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+df = pd.read_parquet('clean_data_v1.parquet')
+
+fig = make_subplots(rows=2, cols=1, shared_xaxes=True,
+    vertical_spacing=0.05,
+    subplot_titles=('心率24小时趋势', 'SpO2 + 活动量'),
+    row_heights=[0.6, 0.4])
+
+# 子图1: 心率曲线 + 正常区间
+fig.add_trace(go.Scatter(x=df['timestamp'], y=df['hr_smooth'],
+    name='心率', line=dict(color='#06b6d4', width=1.5)),
+    row=1, col=1)
+
+# 正常区间填充
+fig.add_shape(type='rect',
+    x0=df['timestamp'].min(), x1=df['timestamp'].max(),
+    y0=60, y1=100, fillcolor='rgba(16,185,129,0.1)',
+    line=dict(width=0), row=1, col=1)
+
+# 异常高亮
+abnormal = df[df['hr_smooth'] > 100]
+fig.add_trace(go.Scatter(x=abnormal['timestamp'], y=abnormal['hr_smooth'],
+    mode='markers', marker=dict(color='#ef4444', size=4),
+    name='异常(>100bpm)'), row=1, col=1)
+
+# 子图2: SpO2
+fig.add_trace(go.Scatter(x=df['timestamp'], y=df['spo2'],
+    name='SpO2', line=dict(color='#10b981', width=1)), row=2, col=1)
+
+# 子图3: 步数柱状图
+fig.add_trace(go.Bar(x=df['timestamp'], y=df['step_count'],
+    name='步数', marker_color='rgba(139,92,246,0.6)'), row=2, col=1)
+
+fig.update_layout(height=700, title_text='老人张XX 24小时健康数据看板',
+    template='plotly_dark')
+fig.write_html('daily_report.html')
+fig.show()</code></pre>
+    </details>
+
+    <h3 class="steps-heading">步骤三：异常检测规则引擎配置</h3>
+    <table class="data-table">
+      <thead><tr><th>规则编号</th><th>检测维度</th><th>条件</th><th>动作</th><th>误报率</th></tr></thead>
+      <tbody>
+        <tr><td>R01</td><td>心率持续过高</td><td>hr_smooth &gt; 120 持续5分钟</td><td>Push通知P1</td><td>~3%(运动导致)</td></tr>
+        <tr><td>R02</td><td>心率骤降</td><td>hr_diff(-30s) &lt; -40bpm</td><td>Push通知P0 + 电话P1</td><td>~1%</td></tr>
+        <tr><td>R03</td><td>跌倒确认</td><td>accel_peak &gt; 5g + 静止 &gt; 30s</td><td>PushP0 + 电话P0</td><td>~0.5%</td></tr>
+        <tr><td>R04</td><td>SpO2低氧</td><td>spo2 &lt; 92% 持续10分钟</td><td>PushP1 + 建议就医</td><td>~5%(设备误差)</td></tr>
+        <tr><td>R05</td><td>夜间活动异常</td><td>凌晨2-5点加速度 &gt; 阈值</td><td>PushP0(紧急联系人)</td><td>~2%(起身喝水)</td></tr>
+        <tr><td>R06</td><td>活动量骤降</td><td>日步数 &lt; 昨日30% 持续2天</td><td>微信模板消息P2</td><td>~8%(老人外出住几天)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="case-box" style="margin:16px 0">
+      <div class="case-title"><i class="fas fa-box-open"></i> 真实案例：R06 误报的改进</div>
+      <div class="case-body">
+        初期 R06 误报率高达12%。改进方案：引入"GPS位置变化"辅助判断。如果日步数低但GPS位置变化超过500米(老人外出拜访亲友)，则标记为"外出"而非"活动骤降"。规则改为 AND 条件：步数 &lt; 昨日30% AND 当日GPS位移 &lt; 200米。误报率降到3.2%。
+      </div>
+    </div>
+
+    <h3 class="steps-heading">步骤四：用 Scikit-learn 训练基线动态阈值模型</h3>
+    <details style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:12px 0;font-size:13px;">
+      <summary style="cursor:pointer;color:var(--cyan);font-weight:600;"><i class="fas fa-brain"></i> Isolation Forest 异常评分</summary>
+      <pre style="background:#0d1117;color:#c9d1d9;padding:12px;border-radius:6px;margin:8px 0;overflow-x:auto;font-size:12px;line-height:1.6;"><code>from sklearn.ensemble import IsolationForest
+import pandas as pd
+
+# 加载清洗后的数据
+df = pd.read_parquet('clean_data_v1.parquet')
+
+# 选取特征列
+features = ['hr_smooth', 'spo2', 'step_count', 'dt_interval_min']
+X = df[features].fillna(method='ffill').fillna(0)
+
+# 训练孤立森林模型(contamination 设0.02=假设2%异常)
+clf = IsolationForest(contamination=0.02, random_state=42, n_estimators=100)
+df['anomaly_score'] = clf.decision_function(X)
+df['is_anomaly'] = clf.predict(X)  # -1=异常, 1=正常
+
+# 导出异常记录给子女端展示
+anomalies = df[df['is_anomaly'] == -1][['timestamp', 'hr_smooth', 'spo2', 'anomaly_score']]
+anomalies.to_csv('detected_anomalies.csv', index=False)
+print(f'检测到 {len(anomalies)} 条异常记录, 占比 {(len(anomalies)/len(df)*100):.2f}%')</code></pre>
+    </details>
+
+    <div class="tip-box" style="margin:16px 0">
+      <div class="tip-title"><i class="fas fa-check-circle"></i> 本章实操清单</div>
+      <div class="tip-body" style="margin-top:8px">
+        <ul style="padding-left:18px;margin-top:6px;">
+          <li>[ ] 完成 pandas 数据清洗流水线(Drop duplicates → 过滤间隔 → 中值平滑)</li>
+          <li>[ ] 用 Plotly 画出交互式24小时健康看板(HR + SpO2 + 步数三层)</li>
+          <li>[ ] 配置6条规则引擎(R01~R06), 上线前人工标注100条历史数据校准</li>
+          <li>[ ] 训练 Isolation Forest 动态异常评分模型(contamination=0.02)</li>
+          <li>[ ] 每周自动产出 anomaly_report.csv 推送给数据分析团队</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-analytics"></div>
   </main>
   <footer class="page-footer">
