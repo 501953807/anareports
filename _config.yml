@@ -1,0 +1,7 @@
+title: AnaReports 全景书合集
+description: 7套深度行业全景书 · 218页实操指南 · 赛博朋克主题
+baseurl: ""
+url: https://501953807.github.io
+
+plugins:
+  - jekyll-redirect-from
