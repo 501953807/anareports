@@ -90,6 +90,61 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">6.4.4 房地产洗钱AML合规实操指南</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-home"></i> 房地产反洗钱合规——五大关键岗位的职责</div>
+      <div class="tip-body">
+        <p>2024年欧盟REAL Act(房地产法案)和各国类似立法，正把房地产商纳入AML监管。以下是房地产相关机构的合规SOP：</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>角色</th><th>AML义务</th><th>日常执行</th><th>违规后果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>房地产经纪人</strong></td><td>执行KYC、识别资金来源、报告可疑交易</td><td>每单必须采集买家KYC信息，录入AML系统</td><td>吊销执照+$50万罚款(美国)</td></tr>
+        <tr><td><strong>房地产开发商</strong><td>验收买方资金来源、识别关联方交易</td><td>预售阶段即要求SoF证明(不同于现房)</td><td>项目停工+行政处罚</td></tr>
+        <tr><td><strong>产权登记机构</strong></td><td>披露买方真实身份(禁止匿名持有)</td><td>BOI(受益所有人)信息强制上传登记</td><td>系统接口关闭</td></tr>
+        <tr><td><strong>抵押贷款机构</strong></td><td>反欺诈+AML双重审查</td><td>贷款申请与AML KYC合并流程</td><td>丧失放贷资格</td></tr>
+        <tr><td><strong>房屋估价师</strong></td><td>识别"虚高估价"洗钱</td><td>如估价>市场价15%以上标记异常</td><td>行业禁入</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.4.5 实务检查表：房地产商如何识别"假买房真洗钱"</h2>
+    <ol class="steps-list">
+      <li><strong>检查付款方与合同买方是否一致：</strong>如果不一致(第三方代付)，立即启动EDD。要求代付方提供与买方的关系证明(母子公司的股权结构图/亲属关系公证书)。异常信号：代付方在离岸金融中心(开曼/BVI/泽西)。</li>
+      <li><strong>检查交易价格与市场价的偏差：</strong>聘请独立估价师进行估值。如果成交价超过估值15%以上——可能是"高价买入洗入、低价卖出洗出"的模式。记录估价报告和交易价格差异的合理性说明。</li>
+      <li><strong>检查买方是否为PEP或制裁关联人：</strong>输入World-Check数据库筛查。如命中PEP(政治公众人物)，必须进行高级管理层审批+持续监控。如命中制裁名单——拒绝交易并立即报告。</li>
+      <li><strong>检查资金来源的合理性：</strong>$100万以上的购房款，要求提供至少3份资金来源证明。典型组合：(a)工资收入→纳税申报+工资单；(b)资产出售→出售合同+过户记录；(c)继承→遗嘱公证书+遗产分配文件；(d)加密货币出售→CEX交易记录+链上追溯。</li>
+      <li><strong>检查是否存在"快速转手"模式：</strong>如果买方在购入房产后2年内转手出售——标记为高风险(典型洗钱模式：分层阶段快速处置)。记录持有期、转售价格、转售买家信息。</li>
+    </ol>
+
+    <div class="grid-2">
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--cyan)">合规工具推荐</div>
+        <div class="label">房地产KYC：Trulioo / Onfido(身份核验) + Refinitiv World-Check(制裁/PEP筛查) + Chainalysis(加密货币资金来源追踪) + 独立估价API(Market Properties/Zillow API)</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--purple)">合规陷阱提醒</div>
+        <div class="label">不要相信口头解释——所有KYC/EDD结论必须有书面记录和支撑文件。不要接受"我的朋友会代付"但不提供代付方信息的情况。不要在未完成BOI穿透的情况下接受离岸公司购房。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">6.4.6 预售阶段洗钱风险——开发商必读</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-exclamation-triangle"></i> 预售洗钱的独特风险</div>
+      <div class="case-body">
+        <p>预售阶段的洗钱比现房交易更隐蔽、更难追踪。原因：(1)产权尚未登记，无公开的产权记录；(2)购房者支付的通常是定金(10%-30%)，金额相对小；(3)项目竣工后再转售，经过了"自然"的增值理由掩盖洗白痕迹。典型路径：脏钱→购买期房(通过离岸公司)→等待竣工→估值上涨→转售给"不知情的"最终买家→资金变得看似合法。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>风险控制点</th><th>预售阶段</th><th>施工阶段</th><th>竣工交付阶段</th><th>转售阶段</th></tr></thead>
+      <tbody>
+        <tr><td>身份核实</td><td>⚠️ 最容易跳过</td><td>✅ 合同备案</td><td>✅ 产权登记</td><td>✅ 二次交易KYC</td></tr>
+        <tr><td>资金来源</td><td>❌ 几乎不查</td><td>❌ 不查</td><td>⚠️ 按揭时有</td><td>⚠️ 偶有</td></tr>
+        <tr><td>价格合理性</td><td>✅ 开发商定价可控</td><td>✅ 同</td><td>✅ 独立评估</td><td>⚠️ 市场价参照</td></tr>
+        <tr><td>推荐控制措施</td><td>预售前强制KYC+SoF</td><td>监控工程进度与付款进度匹配</td><td>产权登记时交叉验证KYC</td><td>2年内转手标记</td></tr>
+      </tbody>
+    </table>
+
     <div class="chart-container" id="chart-realestate"></div>
   </main>
   <footer class="page-footer">

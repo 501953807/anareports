@@ -99,6 +99,81 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">6.2.5 实操手册：民事没收案件调查与取证流程</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-book-open"></i> 执法机构操作指南</div>
+      <div class="tip-body">
+        <p>以下是FBI/DON/NCA等机构在进行民事没收时的标准操作流程(SOP)。每个步骤都必须形成完整的证据链。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>线索发现(Week 1-2)：</strong>交易监控告警(CTR/SAR/电诈受害人报案)触发初步调查。调取目标账户最近12个月的完整交易流水，绘制资金流向图(Use Palantir/Chainalysis/内部工具)。确定资金来源是否涉及犯罪(腐败/贩毒/诈骗/逃税)。</li>
+      <li><strong>临时冻结令(Week 2-3)：</strong>向法院申请临时冻结令(Temporary Restraining Order)。需提供"合理依据"(probable cause)证明财产与犯罪有关。紧急情况下可先冻结后补手续(48小时内)。冻结目标包括：银行账户/房产/车辆/加密货币钱包/离岸信托权益。</li>
+      <li><strong>资产定位与估值(Week 3-4)：</strong>实地勘查查封目标资产。房地产：调取产权登记/评估报告。加密货币：在CEX要求冻结相关地址。离岸资产：通过MLAT请求外国司法协助。估值：由独立第三方机构出具价值报告。</li>
+      <li><strong>正式没收诉讼(Month 2-6)：</strong>向法院提起民事没收诉讼。注意：被告是财产本身(notice in rem)，不是个人。向所有已知利益相关方发出通知(包括声称拥有合法权益的第三方)。举证责任在政府——需证明财产"源于或用于"犯罪。</li>
+      <li><strong>第三方抗辩应对(Month 6-12)：</strong>合法所有者(善意第三人)bona fide purchaser可提出抗辩。需要准备充分证据证明其"明知或应知"(actual knowledge或reasonably should have known)财产来源非法。此阶段通常持续6-18个月。</li>
+      <li><strong>资产变现与分配(Month 12-24)：</strong>法庭判决没收后，资产通过拍卖变现(RealHubs/Crackles/司法拍卖)。变现所得按比例分配：(1)执法成本优先扣除；(2)善意第三人补偿；(3)受害人赔偿(如适用)；(4)剩余上缴国库。</li>
+    </ol>
+
+    <h2 class="section-subtitle">6.2.6 加密货币时代资产追缴的五大实战工具</h2>
+    <div class="grid-2">
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--cyan)">Chainalysis Reactor</div>
+        <div class="label">全球70+执法机构在用。输入任意BTC/ETH地址即可生成可视化资金流向图，标注每个关联地址的风险评分(洗钱/暗网/混币器/黑客攻击)。支持批量地址分析。</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--purple)">Elliptic Neural Analytics</div>
+        <div class="label">英国公司，主打图神经网络(GNN)分析。对加密货币混币器、跨链桥、DeFi协议有更好的追踪能力。CEX首选分析工具(Binance/KuCoin均使用)。</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--green)">TRM Labs</div>
+        <div class="label">AI驱动的链上分析平台。对新兴资产类型(L2代币、RWA代币、稳定币)追踪能力强。2024年获FBI等机构大规模采用。API可直接集成到AML系统。</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--orange)">CipherTrace (Chainalysis)</div>
+        <div class="label">原MicroSecuraty产品，后被Chainalysis收购。擅长XMR/ZEC等隐私币的间接追踪(通过出入金CEX路径反向还原)。支持跨链(ETH↔BTC通过侧链/跨链桥)。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">6.2.7 中国追赃实务：监察委+公安部+央行联动机制</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-gavel"></i> 姚锦旗案 — 境外追赃的标杆</div>
+      <div class="case-body">
+        <p>浙江绍兴市监委2018年通过国际警务合作，从保加利亚引渡姚锦旗(受贿$1700万+)。关键手段：(1)监察委提前固定离岸公司证据；(2)公安部国际刑警红色通缉；(3)外交部通过双边引渡条约交涉；(4)央行反洗钱中心追踪资金链。2018年是首个从境外引渡国家工作人员案件，标志着"天网行动"进入新阶段。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>主导机构</th><th>所需材料</th><th>平均用时</th></tr></thead>
+      <tbody>
+        <tr><td>1. 国内立案+证据固定</td><td>监委/公安经侦</td><td>受贿/诈骗/职务犯罪证据链，资金流向报告</td><td>1-3月</td></tr>
+        <tr><td>2. 红色通缉令</td><td>国际刑警中国中心局</td><td>逮捕令+涉案金额证明+基本信息</td><td>2-8周</td></tr>
+        <tr><td>3. 双边引渡/遣返</td><td>外交部+公安部</td><td>引渡条约+法律文书+证据交换</td><td>6-24月</td></tr>
+        <tr><td>4. 境外资产冻结</td><td>驻外使馆+当地律师</td><td>法院冻结令+资产定位证明</td><td>1-3月</td></tr>
+        <tr><td>5. 资产返还国内</td><td>央行/监委/法院</td><td>没收裁定+资产变现证明</td><td>3-12月</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.2.8 AML合规人员自查清单 — 机构资产保护</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-clipboard-check"></i> 金融机构年度AML自查要点(2026版)</div>
+      <div class="tip-body">
+        <p>以下清单供银行/支付机构/CEX合规官对照检查自身AML体系的有效性。每项建议形成书面记录备查。</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>检查项</th><th>达标标准</th><th>常见问题</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">KYC/CDD</td><td>客户身份验证覆盖率</td><td>≥99.5%(已开户客户)</td><td>存量客户信息不完整(2020年前开户的"老户")</td></tr>
+        <tr><td>受益所有人穿透率</td><td>≥95%(公司/信托/基金客户)</td><td>多层离岸结构无法穿透至自然人</td></tr>
+        <tr><td>EDD执行率(高风险客户)</td><td>100%高风险客户均有EDD记录</td><td>PEP客户EDD流于形式(只填表格不深挖)</td></tr>
+        <tr><td rowspan="2">监控/报告</td><td>SAR提交及时率</td><td>发现可疑后≤30日提交</td><td>合规人手不足导致积压(常见于中小银行)</td></tr>
+        <tr><td>警报准确率(真阳性率)</td><td>≥5%(其余95%应为误报)</td><td>规则太宽导致误报率95%+浪费人力</td></tr>
+        <tr><td rowspan="2">制裁合规</td><td>SDN名单匹配实时率</td><td>100%交易实时扫描SDN</td><td>名单更新延迟(OFAC每月更新但系统未及时同步)</td></tr>
+        <tr><td> geo-blocking</td><td>伊朗/朝鲜/古巴等全面制裁国家交易100%拦截</td><td>跨境代理行业务管控不到位</td></tr>
+        <tr><td>培训/文化</td><td>全员AML年度培训完成率</td><td>100%员工(含高管)完成≥4小时培训</td><td>新员工培训滞后，高管培训走过场</td></tr>
+      </tbody>
+    </table>
+
     <div class="chart-container" id="chart-recovery"></div>
   </main>
   <footer class="page-footer">

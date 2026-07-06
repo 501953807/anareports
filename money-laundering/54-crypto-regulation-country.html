@@ -92,6 +92,63 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">6.5.4 合规实操：跨国加密企业如何选择注册地</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-globe"></i> CEX/VASP选址决策框架</div>
+      <div class="tip-body">
+        <p>对于计划开设加密交易所或VASP服务的创业者，选择合适的司法管辖区是合规的第一步。以下是决策流程：</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>确定目标市场：</strong>如果你的用户主要在欧盟→选MICA框架下的牌照国(法国/葡萄牙/立陶宛)；如果面向全球但希望低合规负担→考虑阿联酋(Dubai VARA)或新加坡(MAS PSA)；如果要接入美元体系→必须做美国MSB注册+各州MSB+可能的SEC/CFTC合规。</li>
+      <li><strong>比较牌照成本和时间：</strong>阿联酋DVAR：约$5万-10万，审批2-3个月。新加onia(DSA牌照)：约$10万-20万，审批6-12个月。欧盟(MICA)：各国不同(法国约€15万)，审批6-18个月。美国：无联邦牌照→走州MSB(50个州分别申请≈$50万+)，时间12-24个月。香港VASP：HK$10万+，审批3-6个月但门槛极高(需证明充足的资本和技术能力)。</li>
+      <li><strong>评估Travel Rule(旅行规则)合规成本：</strong>FATF Travel Rule要求跨境加密转账必须携带发送人和接收人的身份信息。你需要接入VTU(Travel Rule Utility)——主流方案包括Notabene、Viresci、CherryGate。年均成本$5万-20万，取决于交易量。不遵守→部分国家可能吊销牌照。</li>
+      <li><strong>本地团队与物理存在：</strong>大多数司法管辖区要求至少有1-2名合规官员"居住"(residency requirement)在当地。新加坡要求MLCO在新加坡常驻。阿联酋DVAR要求管理团队至少有1人在迪拜。美国各州MSB虽不要求物理存在但需要授权代理人(process agent)。</li>
+    </ol>
+
+    <h2 class="section-subtitle">6.5.5 CEX合规官的每日工作清单</h2>
+    <table class="data-table">
+      <thead><tr><th>时段</th><th>任务</th><th>工具/系统</th><th>输出</th></tr></thead>
+      <tbody>
+        <tr><td>每日08:00</td><td>OFAC/UN制裁名单最新变更检查</td><td>World-Check API / OFAC SDN RSS feed</td><td>匹配报告(如有新匹配→标记账户冻结)</td></tr>
+        <tr><td>每日09:00</td><td>昨日SAR(可疑活动报告)队列审查</td><td>内部AML系统(SAS/Actimize/自研)</td><td>按风险级别排序的待处理SAR列表</td></tr>
+        <tr><td>每日10:00</td><td>链上告警复核(涉及加密货币充值/提现)</td><td>Chainalysis Reactor / Elliptic Dashboard</td><td>每个告警的处置决定(清除/升级/提交SAR)</td></tr>
+        <tr><td>每日11:00</td><td>高风险KYC案件跟进</td><td>CRM + KYC provider dashboard</td><td>EDD补充材料收集清单</td></tr>
+        <tr><td>每周</td><td>规则引擎参数调优(降低误报率)</td><td>规则引擎控制台</td><td>调整后的阈值+回测结果</td></tr>
+        <tr><td>每月</td><td>管理层AML报告 + FIU报告一致性校验</td><td>BI Dashboard + 监管报送系统</td><td>月度SAR数量、清除率、平均处理时间</td></tr>
+        <tr><td>每季度</td><td>独立审计(MIC/MBR)——最小独立测试/基础测试</td><td>外部审计师</td><td>审计发现+整改时间表</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2">
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--cyan)">监管科技选型建议</div>
+        <div class="label">KYC：SumSub / Onfido / Jumio(支持190+国护照OCR+活体检测)。制裁筛查：Refinitiv World-Check One / Dow Jones Risk & Compliance。链上分析：Chainalysis Reactor / TRM Labs / Elliptic。SAR报送：自研→开源AML框架(Hyperledger Steward) / 商业→SAS AML / IBM OpenPages。</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--purple)">监管套利警示</div>
+        <div class="label">不要认为"在小岛国注册就可以无视合规"。2025年起马耳他/瓦莱塔/塞浦路斯等"宽松"辖区全面收紧。没有CEX敢用一个可能被SWIFT切断、被上游合作伙伴除名的平台。合规是CEX的核心竞争力。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">6.5.6 MiCA(欧盟加密监管框架)合规实操</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-euro-sign"></i> MiCA核心要求速查</div>
+      <div class="tip-body">
+        <p>MiCA(Markets in Crypto-Assets Regulation)是2024年起全面实施的欧盟统一加密监管框架。以下是CEX和稳定币发行者的关键义务：</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>义务类别</th><th>具体要求</th><th>合规时间表</th><th>不合规后果</th></tr></thead>
+      <tbody>
+        <tr><td>牌照要求</td><td>所有加密服务提供商必须在欧盟某成员国获得授权</td><td>已在运营的业务需2026年底前完成过渡</td><td>停止在欧盟提供服务</td></tr>
+        <tr><td>稳定币储备</td><td>e-money tokens和asset-reference tokens必须100%储备金 backed</td><td>每月独立审计</td><td>€50万/日罚款+</td></tr>
+        <tr><td>投资者保护</td><td>明确披露风险+不适合性测试+赔偿机制</td><td>营销材料发布前</td><td>产品下架+罚款</td></tr>
+        <tr><td>数据隐私</td><td>符合GDPR+Travel Rule数据跨境传输</td><td>持续合规</td><td>GDPR最高€2000万/4%营收罚款</td></tr>
+        <tr><td>市场滥用防范</td><td>内幕交易/市场操纵监测+报告</td><td>实时</td><td>Market Abuse Regulation罚款</td></tr>
+      </tbody>
+    </table>
+
     <div class="chart-container" id="chart-crypto-reg"></div>
   </main>
   <footer class="page-footer">

@@ -100,6 +100,69 @@
       </tbody>
     </table>
 
+    <h2 class="section-subtitle">6.6.5 合规实操：OFAC制裁筛查SOP</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-search"></i> 企业如何建立有效的制裁名单筛查系统</div>
+      <div class="tip-body">
+        <p>以下SOP适用于任何涉及美元结算或美国关联的金融机构和跨国企业。核心原则是：在交易执行前同时筛查买方和卖方。</p>
+      </div>
+    </div>
+    <ol class="steps-list">
+      <li><strong>名单配置：</strong>加载OFAC SDN名单 + OFAC Sectoral Sanctions Identifications(SSSI)名单 + EU Sanctions List + UN Sanctions List + UK HMT Sanctions List。确保名单每日自动更新(OFAC每月发布更新但临时增加随时可能发生)。</li>
+      <li><strong>匹配算法设置：</strong>使用模糊匹配(fuzzy matching)而非精确匹配。建议配置：(a)姓名匹配：Levenshtein距离≤2(如"Vladimir Putin"vs"Vladimr Putin")；(b)公司地址：关键词匹配(如"Moscow"出现在制裁地区俄罗斯的地址中)；(c)船舶IMO编号/IMSI号码精确匹配。</li>
+      <li><strong>匹配结果分级：</strong>Alert分为三级：Hard Match(确定性命中)→立即冻结+24小时内报告OFAC。 Soft Match(潜在命中)→AML分析师人工复核，48小时内决定是否升级。 False Positive(误报)→记录原因后清除，保留审计追踪。</li>
+      <li><strong>穿透筛查(Enhanced)：</strong>不仅筛查直接交易对手，还要筛查其控股股东(≥50%)和实际控制人。OFAC 50% Rule——如果被SDN实体合计持有50%或以上股权的非SDN实体，同样被视为SDN。穿透至自然人。</li>
+      <li><strong>交易回溯：</strong>除事前筛查外，还应对过去2年的历史交易做回溯扫描。每次OFAC新增SDN名单时(2022-2025年间俄罗斯SDN新增超10000条)，全量回放历史交易看是否有遗漏的命中。</li>
+    </ol>
+
+    <h2 class="section-subtitle">6.6.6 制裁规避的检测信号 — 合规官情报手册</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-ship"></i> 影子船队的链上+链下检测信号</div>
+      <div class="case-body">
+        <p>2024-2025年，俄罗斯石油出口约2/3通过"影子船队"(Shadow Fleet)运输。以下信号可以帮助海关/AML系统识别涉嫌规避制裁的石油贸易：</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>信号类别</th><th>具体指标</th><th>数据来源</th><th>阈值/判断标准</th></tr></thead>
+      <tbody>
+        <tr><td>AIS异常</td><td>AIS关闭或AIS信号突然中断</td><td>MarineTraffic / FleetMon / 卫星AIS</td><td>在港口间航行时AIS关闭>2h标记异常</td></tr>
+        <tr><td>船龄超标</td><td>油轮船龄>25年</td><td>Lloyd's Register / Equasis</td><td>此类船舶通常不在主流保险市场承保</td></tr>
+        <tr><td>船旗变更</td><td>频繁更换国旗(方便旗)</td><td>船舶注册数据库</td><td>12个月内更换>2次国旗标记异常</td></tr>
+        <tr><td>船名变更</td><td>无合理原因的船名/涂装变更</td><td>船舶历史数据比对</td><td>船名与历史记录不匹配→手动复核</td></tr>
+        <tr><td>船对船转运</td><td>两船在海上交接货物</td><td>卫星遥感(AIS+合成孔径雷达)</td><td>非港口区域的STS操作高度可疑</td></tr>
+        <tr><td>保险异常</td><td>P&I Club非主流俱乐部</td><td>保险记录 / Bunker Journal</td><td>非IIA成员俱乐部承保→潜在影子船队</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">6.6.7 企业合规自检清单</h2>
+    <div class="grid-2">
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--cyan)">Must-Have (必须有)</div>
+        <div class="label">1. OFAC/UN/EU制裁名单每日自动筛查<br>2. 100%交易对手筛查覆盖率<br>3. Hard Match自动冻结+报告流程<br>4. Soft Match人工复核SOP<br>5. 50% Rule穿透筛查<br>6. 年度回溯扫描<br>7. 员工制裁合规培训(年度)<br>8. 制裁合规官(Compliance Officer)专职岗位</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="font-size:16px;color:var(--orange)">Recommended (建议有)</div>
+        <div class="label">1. 第三方供应商(代理商/分销商)制裁筛查<br>2. 供应链上下游风险地图<br>3. 加密资产转账筛查(链上地址监控)<br>4. Trade-based sanctions evasion检测规则<br>5. AIS/船运数据交叉验证(如涉及大宗商品)<br>6. 红队演练/渗透测试制裁合规系统有效性</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">6.6.8 违反制裁的代价 — 为什么不能碰</h2>
+    <table class="data-table">
+      <thead><tr><th>处罚案例</th><th>行业</th><th>罚金</th><th>违规原因</th></tr></thead>
+      <tbody>
+        <tr><td>Standard Chartered(2022)</td><td>银行</td><td>$1.08亿</td><td>处理伊朗/缅甸/苏丹受制裁交易</td></tr>
+        <tr><td>Norinchuko Bank(2021)</td><td>银行</td><td>$2.35亿</td><td>处理朝鲜/伊朗/古巴交易2004-2013</td></tr>
+        <tr><td>ZTE(2022)</td><td>电信</td><td>$14亿</td><td>向伊朗/北韩出口美国技术(违反出口管制)</td></tr>
+        <tr><td>Mahana Medical(2024)</td><td>医疗设备</td><td>$1500万</td><td>通过阿联酋转运设备至俄罗斯(军用潜在用途)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-exclamation-circle"></i> 核心教训</div>
+      <div class="tip-body">
+        <p>制裁合规不是"可选的合规领域"——它是企业合规的"生死线"。一旦被OFAC认定故意规避制裁，后果不仅是罚款(动辄数亿美元)，还包括：(1)失去美元清算能力；(2)被排除在SWIFT之外；(3)高管个人刑事责任；(4)声誉彻底破产。2025年起AI+自动化使制裁筛查能力大幅提升，"不小心碰到SDN"的借口越来越难以成立。</p>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-sanctions"></div>
   </main>
   <footer class="page-footer">
