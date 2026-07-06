@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二十五章：IoT智能家居 — 音箱联动/智能灯光</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二十五章：IoT智能家居</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二十五章：IoT智能家居 — 语音助手/灯光/蜂鸣器联动</h1>
+    <div class="data-note" style="margin-bottom:20px">手环是家庭智能网络的"人体传感器"。当老人出现异常时，不仅仅是通知子女，还可以通过智能家居系统直接在物理世界做出反应——开灯提醒、蜂鸣器呼叫、语音助手介入。</div>
+
+    <h2 class="section-subtitle">25.1 IoT联动场景设计</h2>
+    <table class="data-table">
+      <thead><tr><th>触发条件</th><th>联动设备</th><th>响应动作</th><th>响应时间</th></tr></thead>
+      <tbody>
+        <tr><td>跌倒检测(老人家中)</td><td>客厅+卧室灯光</td><td>全亮到80%亮度(方便搜救)</td><td><1秒</td></tr>
+        <tr><td>跌倒检测</td><td>蜂鸣器/音箱</td><td>"有人跌倒！请协助!"循环播放</td><td><2秒</td></tr>
+        <tr><td>长时间无活动(12小时)</td><td>音箱播报</td><td>"张奶奶，我看到您还没起来，需要帮助吗？"</td><td>定时触发</td></tr>
+        <tr><td>药盒提醒</td><td>客厅灯光(呼吸闪烁)</td><td>蓝色呼吸灯1分钟(不扰眠)</td><td>定时触发</td></tr>
+        <tr><td>电子围栏告警</td><td>门口灯光+门磁</td><td>门口灯闪+记录开门时间</td><td><3秒</td></tr>
+        <tr><td>SOS触发</td><td>全屋灯光+音箱</td><td>全亮+语音"已联系救援，保持冷静"</td><td><1秒</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">25.2 智能家居生态兼容</h2>
+    <table class="data-table">
+      <thead><tr><th>生态</th><th>协议</th><th>兼容性</th><th>推广价值</th><th>实现方式</th></tr></thead>
+      <tbody>
+        <tr><td>小米IoT(米家)</td><td>Bluetooth Mesh/Zigbee</td><td>中国最大智能家居生态</td><td>★★★★★</td><td>Matter桥接/米家插件</td></tr>
+        <tr><td>天猫精灵</td><td>IoT协议</td><td>阿里生态整合</td><td>★★★★☆</td><td>技能开发(语音控制)</td></tr>
+        <tr><td>华为HiLink</td><td>HarmonyOS Connect</td><td>华为手机用户全覆盖</td><td>★★★★☆</td><td>HarmonyOS服务卡片</td></tr>
+        <tr><td>Alexa</td><td>Skills SDK</td><td>海外市场</td><td>★★★☆☆</td><td>Alexa Skill</td></tr>
+        <tr><td>Google Home</td><td>Actions SDK</td><td>海外市场</td><td>★★★☆☆</td><td>Google Action</td></tr>
+        <tr><td>Matter</td><td>统一协议</td><td>未来通用标准</td><td>★★★★☆</td><td>Matter over Thread</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">25.3 智能灯/警报器联动方案</h2>
+    <table class="data-table">
+      <thead><tr><th>场景</th><th>灯光策略</th><th>声音策略</th><th>适用时段</th></tr></thead>
+      <tbody>
+        <tr><td>日间正常活动</td><td>跟随环境光传感器自动调节</td><td>无</td><td>6:00-22:00</td></tr>
+        <tr><td>夜间起床上厕所</td><td>床边灯带微亮(5%亮度, 暖色)</td><td>无</td><td>22:00-6:00</td></tr>
+        <tr><td>服药提醒</td><td>客厅灯蓝色呼吸(30秒)</td><td>轻柔提示音(非刺耳)</td><td>饭前/睡前</td></tr>
+        <tr><td>异常长时间无活动</td><td>全屋灯光渐亮(30秒→80%)</td><td>语音助手询问</td><td>全天</td></tr>
+        <tr><td>紧急告警</td><td>全屋全亮+红灯闪烁</td><td>高分贝蜂鸣+语音播报</td><td>全天</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">25.4 IoT网关部署要求</h2>
+    <table class="data-table">
+      <thead><tr><th>方案</th><th>硬件成本</th><th>配置难度</th><th>可靠性</th><th>推荐场景</th></tr></thead>
+      <tbody>
+        <tr><td>子女手机APP做网关</td><td>¥0</td><td>低</td><td>中(手机关机则失效)</td><td>早期验证阶段</td></tr>
+        <tr><td>智能音箱内置</td><td>已有</td><td>极低(下载技能)</td><td>高(常开设备)</td><td>家庭主流方案</td></tr>
+        <tr><td>独立Matter网关</td><td>¥80-150</td><td>中(配网)</td><td>最高</td><td>专业养老方案</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-iot"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="24-cloud-platform.html"><i class="fas fa-arrow-left"></i> 云平台</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">26 / 31</span>
+    <a class="nav-next" href="26-manufacturing-process.html">制造流程 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-iot'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['生态覆盖率(%)', '实现难度(分)', '用户价值(分)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['小米米家','天猫精灵','华为HiLink','Matter','Alexa','Google Home'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 100 }
+      ],
+      series: [
+        { name: '生态覆盖率(%)', type: 'bar', data: [95, 80, 75, 60, 20, 25], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '实现难度(分)', type: 'line', data: [70, 40, 65, 80, 30, 35], itemStyle: { color: '#f59e0b' }, smooth: true, yAxisIndex: 1 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二十三章：AI算法 — 跌倒/心律失常/行为识别</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二十三章：AI算法</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二十三章：AI算法 — 跌倒检测/心律失常识别/活动分类</h1>
+    <div class="data-note" style="margin-bottom:20px">AI算法是从"智能设备"走向"智能照护"的核心跃迁。本章节覆盖边缘端(手环MCU)和云端两层AI模型的设计方案、训练数据和部署策略。</div>
+
+    <h2 class="section-subtitle">23.1 跌倒检测算法</h2>
+    <table class="data-table">
+      <thead><tr><th>算法类型</th><th>输入特征</th><th>模型架构</th><th>准确率</th><th>部署位置</th><th>推理延迟</th></tr></thead>
+      <tbody>
+        <tr><td>规则阈值法</td><td>加速度峰值+角速度+静止时长</td><td>if-else逻辑树</td><td>85-90%</td><td>MCU(嵌入式)</td><td><10ms</td></tr>
+        <tr><td>SVM分类器</td><td>统计特征(均值/方差/峰度)</td><td>线性SVM</td><td>90-93%</td><td>MCU/手机</td><td>50-100ms</td></tr>
+        <tr><td>随机森林</td><td>128维时序特征</td><td>100棵决策树</td><td>93-95%</td><td>手机端APP</td><td>200-500ms</td></tr>
+        <tr><td>1D-CNN</td><td>原始加速度波形(2秒窗口)</td><td>Conv1D + FC</td><td>95-97%</td><td>云端</td><td>50-100ms</td></tr>
+        <tr><td>Transformer(TS-Ticker)</td><td>多模态(加速度+PPG+ECG)</td><td>时序Transformer</td><td>97-98.5%</td><td>云端</td><td>200ms</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.2 心律失常检测</h2>
+    <table class="data-table">
+      <thead><tr><th>心律失常类型</th><th>检测信号</th><th>算法</th><th>敏感度</th><th>特异度</th></tr></thead>
+      <tbody>
+        <tr><td>房颤(AFib)</td><td>ECG单导联 R-R间期不规则</td><td>深度学习(CNN-LSTM)</td><td>96.5%</td><td>95.2%</td></tr>
+        <tr><td>室性早搏(PVC)</td><td>ECG QRS形态异常</td><td>1D-CNN</td><td>89%</td><td>92%</td></tr>
+        <tr><td>心动过速</td><td>PPG脉率持续>100</td><td>阈值+运动融合</td><td>91%</td><td>88%</td></tr>
+        <tr><td>心动过缓</td><td>PPG脉率持续<50</td><td>阈值+夜间基线</td><td>87%</td><td>90%</td></tr>
+        <tr><td>心跳停搏</td><td>PPG信号消失+加速度无运动</td><td>信号丢失检测</td><td>94%</td><td>96%</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.3 活动识别(Activity Recognition)</h2>
+    <table class="data-table">
+      <thead><tr><th>活动类别</th><th>识别特征</th><th>用途</th><th>准确度</th></tr></thead>
+      <tbody>
+        <tr><td>静坐/卧床</td><td>加速度<0.05g, 心率下降</td><td>久坐提醒/异常基线</td><td>95%</td></tr>
+        <tr><td>步行</td><td>周期性加速度~1Hz</td><td>步数/活动量</td><td>97%</td></tr>
+        <tr><td>跑步</td><td>周期性加速度~2-3Hz, 峰值>3g</td><td>运动强度评估</td><td>93%</td></tr>
+        <tr><td>上下楼梯</td><td>垂直加速度特征 + 气压变化</td><td>跌倒前行为分析</td><td>88%</td></tr>
+        <tr><td>跌倒</td><td>高加速度突变 + 姿态翻转 + 静止</td><td>SOS触发</td><td>96.5%</td></tr>
+        <tr><td>洗澡</td><td>水温+持续室内静止+无移动</td><td>防滑倒场景识别</td><td>80%(模糊)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">23.4 边缘-云端协同部署策略</h2>
+    <table class="data-table">
+      <thead><tr><th>模型</th><th>大小</th><th>边缘部署</th><th>云端部署</th><th>协同策略</th></tr></thead>
+      <tbody>
+        <tr><td>跌倒检测(紧急)</td><td>1D-CNN: ~200KB</td><td>必选(MCU)</td><td>备用复核</td><td>边缘触发→云端二次确认</td></tr>
+        <tr><td>睡眠分期</td><td>轻量RNN: ~150KB</td><td>可选(手机)</td><td>推荐(云端高精度)</td><td>边缘初筛→云端精修</td></tr>
+        <tr><td>房颤检测</td><td>ECG-CNN: ~1MB</td><td>否(MCU不够)</td><td>必选(云端GPU)</td><td>PPG触发→ECG采样→云端分析</td></tr>
+        <tr><td>活动识别</td><td>RF: ~50KB</td><td>必选(MCU)</td><td>补充训练</td><td>边缘推理+云端模型OTA更新</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-ai"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="22-health-data-analytics.html"><i class="fas fa-arrow-left"></i> 健康数据</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">24 / 31</span>
+    <a class="nav-next" href="24-cloud-platform.html">云平台 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-ai'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'item' },
+      legend: { data: ['准确度(%)', '模型大小(KB)', '推理延迟(ms)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['规则阈值','SVM','随机森林','1D-CNN','Transformer'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(KB/ms)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }
+      ],
+      series: [
+        { name: '准确度(%)', type: 'bar', data: [88, 92, 94, 96, 98], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '模型大小(KB)', type: 'bar', data: [5, 10, 50, 200, 1024], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 1 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

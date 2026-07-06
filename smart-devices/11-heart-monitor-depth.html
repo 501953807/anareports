@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十一章：心率/ECG监测深度技术 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十一章：心率/ECG监测深度技术</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第十一章：心率/ECG监测深度技术 — 医用级 vs 消费级</h1>
+    <div class="data-note" style="margin-bottom:20px">心率监测是手环最核心的健康监测功能，对60岁以上人群尤为重要。本章节深入对比消费级PPG与医用级单导联ECG的技术差异、精度指标及在老年场景中的临床价值。</div>
+
+    <h2 class="section-subtitle">11.1 PPG光电容积脉搏波技术</h2>
+    <table class="data-table">
+      <thead><tr><th>参数</th><th>消费级PPG(手环)</th><th>医用级PPG(监护仪)</th></tr></thead>
+      <tbody>
+        <tr><td>光源波长</td><td>绿光525nm ±10nm (1-2颗LED)</td><td>绿光+红光+红外(多波长)</td></tr>
+        <tr><td>采样率</td><td>25-100 Hz</td><td>256-1000 Hz</td></tr>
+        <tr><td>信噪比(SNR)</td><td>>15 dB (运动干扰下)</td><td>>30 dB (静态)</td></tr>
+        <tr><td>测量范围</td><td>30-220 bpm</td><td>20-300 bpm</td></tr>
+        <tr><td>精度(Accuracy)</td><td>±5 bpm (静息), ±10 bpm (运动中)</td><td>±3 bpm (AHA认证标准)</td></tr>
+        <tr><td>适合场景</td><td>日常心率趋势监测</td><td>临床诊断参考</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">11.2 单导联ECG心电图技术</h2>
+    <table class="data-table">
+      <thead><tr><th>参数</th><th>Apple Watch Series 9</th><th>华为Watch D2</th><th>本方案建议</th></tr></thead>
+      <tbody>
+        <tr><td>导联数</td><td>单导联(III导)</td><td>单导联(I导)</td><td>单导联(I导)</td></tr>
+        <tr><td>电极方式</td><td>表冠+数码表冠</td><td>表冠+屏幕触控</td><td>背部PPG+侧面金属电极</td></tr>
+        <tr><td>采样率</td><td>512 Hz</td><td>500 Hz</td><td>500 Hz</td></tr>
+        <tr><td>检测能力</td><td>房颤/心动过速/过缓</td><td>房颤/ST段变化</td><td>房颤/心动过速/过缓</td></tr>
+        <tr><td>FDA认证</td><td>510(k)</td><td>二类医疗器械</td><td>目标: 二类医疗器械</td></tr>
+        <tr><td>BOM增量</td><td>—</td><td>+¥15-20</td><td>预算: +¥10-15</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">11.3 老年人心率异常事件分类</h2>
+    <table class="data-table">
+      <thead><tr><th>事件类型</th><th>特征</th><th>手环检测方案</th><th>紧急程度</th><th>推送策略</th></tr></thead>
+      <tbody>
+        <tr><td>窦性心动过速</td><td>HR > 100bpm持续10分钟</td><td>PPG连续监测</td><td>黄</td><td>APP通知 + 子女端</td></tr>
+        <tr><td>窦性心动过缓</td><td>HR < 50bpm持续5分钟</td><td>PPG连续监测</td><td>橙</td><td>APP强提醒 + 电话语音</td></tr>
+        <tr><td>房颤(AFib)</td><td>RR间期不规则+心率异常</td><td>ECG单导联确认</td><td>红</td><td>立即通知子女 + 建议就医</td></tr>
+        <tr><td>运动后心率恢复差</td><td>运动停止后2分钟心率下降&lt;20bpm</td><td>PPG+加速度计融合</td><td>橙</td><td>健康报告标注</td></tr>
+        <tr><td>夜间心率异常</td><td>深睡期心率&gt;静息基线+20%</td><td>PPG+SpO2融合</td><td>红</td><td>次日早通知子女</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">11.4 手环EEG芯片方案对比</h2>
+    <table class="data-table">
+      <thead><tr><th>芯片型号</th><th>厂商</th><th>集成度</th><th>功耗</th><th>PPG精度</th><th>ECG支持</th><th>推荐指数</th></tr></thead>
+      <tbody>
+        <tr><td>BCM21532</td><td> Broadcom</td><td>SoC + BLE</td><td>中</td><td>优</td><td>否</td><td>★★★☆☆</td></tr>
+        <tr><td>S3FG-A7</td><td> Samsung</td><td>SoC + BLE</td><td>低</td><td>良</td><td>否</td><td>★★★★☆</td></tr>
+        <tr><td>Nordic nRF52840</td><td> Nordic</td><td>MCU + BLE5.3</td><td>极低</td><td>外接PPG芯片</td><td>外接ECG芯片</td><td>★★★★☆</td></tr>
+        <tr><td>汇顶GP8200</td><td> Goodix</td><td>PPG专用</td><td>极低</td><td>优(AHA认证)</td><td>需外接</td><td>★★★★★</td></tr>
+        <tr><td>爱芯EC2400</td><td> AXera</td><td>ECG专用</td><td>低</td><td>否</td><td>优(医疗级)</td><td>★★★★☆</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-heart"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="10-risk-assessment.html"><i class="fas fa-arrow-left"></i> 风险评估</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">12 / 31</span>
+    <a class="nav-next" href="12-sleep-tracking-depth.html">睡眠追踪 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-heart'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['静息心率(正常)', '心率变异性HRV(ms)', '房颤检测延迟(s)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['青年(20-35)','中年(36-55)','老年I(56-70)','老年II(71-80)','老年III(80+)'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(毫秒)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '静息心率(正常)', type: 'bar', data: [65, 68, 72, 76, 80], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxis: { min: 40, max: 120 } },
+        { name: '心率变异性HRV(ms)', type: 'line', data: [65, 50, 35, 25, 18], itemStyle: { color: '#8b5cf6' }, smooth: true },
+        { name: '房颤检测延迟(s)', type: 'line', data: [2, 3, 5, 8, 12], itemStyle: { color: '#ef4444' }, smooth: true, yAxisIndex: 1 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

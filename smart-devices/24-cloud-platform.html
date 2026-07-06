@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二十四章：云平台 — 数据存储/HIPAA/API/弹性扩展</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二十四章：云平台</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二十四章：云平台 — 数据存储/HIPAA合规/API设计/弹性扩展</h1>
+    <div class="data-note" style="margin-bottom:20px">云平台的可靠性直接决定了设备在线时的数据一致性和紧急呼叫的响应速度。本章节设计基于阿里云的混合云架构，满足中国数据安全法规及可能的出海需求。</div>
+
+    <h2 class="section-subtitle">24.1 云平台架构选型</h2>
+    <table class="data-table">
+      <thead><tr><th>组件</th><th>国内方案(阿里云)</th><th>海外方案(AWS)</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>消息队列</td><td>RocketMQ</td><td>SNS/SQS</td><td>设备↔云端双向消息, 告警推送</td></tr>
+        <tr><td>实时数据流</td><td>TSDB(Time Series DB)</td><td>Timestream</td><td>传感器时序数据存储(心率/加速度)</td></tr>
+        <tr><td>关系型数据库</td><td>PolarDB</td><td>Aurora PostgreSQL</td><td>用户账户/订阅/家庭成员关系</td></tr>
+        <tr><td>对象存储</td><td>OSS</td><td>S3</td><td>健康报告PDF/ECG波形原始数据</td></tr>
+        <tr><td>计算引擎</td><td>ECI(弹性容器)</td><td>ECS/Fargate</td><td>API服务/ML推理/报表生成</td></tr>
+        <tr><td>CDN</td><td>CDN+PTS</td><td>CloudFront</td><td>APP/页面资源加速分发</td></tr>
+        <tr><td>监控告警</td><td>SAR+CloudMonitor</td><td>CloudWatch</td><td>服务可用性监控</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">24.2 数据安全与合规架构</h2>
+    <table class="data-table">
+      <thead><tr><th>合规框架</th><th>适用范围</th><th>技术要求</th><th>数据驻留</th></tr></thead>
+      <tbody>
+        <tr><td>中国 PIPL(个人信息保护法)</td><td>所有中国境内用户</td><td>明示同意+最小必要+数据可删除</td><td>境内存储</td></tr>
+        <tr><td>等保三级</td><td>涉及健康数据的系统</td><td>加密传输/存储隔离/审计日志/渗透测试</td><td>境内</td></tr>
+        <tr><td>HIPAA</td><td>海外(美国)用户</td><td>BAA协议+BA/SA角色分离+审计</td><td>区域隔离</td></tr>
+        <tr><td>GDPR</td><td>欧洲用户</td><td>DPIA评估+数据可携权+被遗忘权</td><td>欧盟区域</td></tr>
+        <tr><td>FDAAA(美国FDA)</td><td>医疗器械数据</td><td>21 CFR Part 11电子签名+审计追踪</td><td>本地或云</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">24.3 API设计概要</h2>
+    <table class="data-table">
+      <thead><tr><th>API域</th><th>端点示例</th><th>方法</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>设备数据上报</td><td>/api/v1/device/{deviceId}/telemetry</td><td>POST</td><td>批量上报心率/位置/电量</td></tr>
+        <tr><td>实时位置查询</td><td>/api/v1/device/{deviceId}/location</td><td>GET</td><td>获取最新经纬度和时间戳</td></tr>
+        <tr><td>健康报告</td><td>/api/v1/user/{userId}/reports/weekly</td><td>GET</td><td>返回本周健康报告JSON</td></tr>
+        <tr><td>告警订阅</td><td>/api/v1/user/{userId}/alerts/subscribe</td><td>PUT</td><td>配置通知规则和接收人</td></tr>
+        <tr><td>药盒控制</td><td>/api/v1/pillbox/{boxId}/remind</td><td>POST</td><td>远程触发服药提醒</td></tr>
+        <tr><td>家人管理</td><td>/api/v1/family/{familyId}/members</td><td>GET/POST</td><td>增删改成员和权限</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">24.4 弹性扩缩容策略</h2>
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>扩容阈值</th><th>缩容阈值</th><th>扩缩容幅度</th></tr></thead>
+      <tbody>
+        <tr><td>API QPS</td><td>>5,000/s(单实例瓶颈)</td><td><1,000/s</td><td>自动加2-4实例</td></tr>
+        <tr><td>消息队列积压</td><td>>10,000条</td><td><100条</td><td>增加消费者实例</td></tr>
+        <tr><td>数据库连接数</td><td>>80%上限</td><td><30%</td><td>PolarDB读写分离+只读节点</td></tr>
+        <tr><td>TSDB写入吞吐</td><td>>50,000点/秒</td><td><10,000点/秒</td><td>新增TSDB分片</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-cloud"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="23-ai-algorithm.html"><i class="fas fa-arrow-left"></i> AI算法</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">25 / 31</span>
+    <a class="nav-next" href="25-iot-smart-home.html">智能家居 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-cloud'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['月活用户(千)', '日均API调用(百万)', '数据存储(TB)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['MVP(0-3月)','V1.0(3-6月)','V2.0(6-12月)','Scale(1-2年)','Mass(2-5年)'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '月活用户(千)', type: 'line', data: [1, 5, 30, 200, 1000], itemStyle: { color: '#06b6d4' }, smooth: true },
+        { name: '日均API调用(百万)', type: 'bar', data: [0.1, 0.5, 3, 20, 100], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
+        { name: '数据存储(TB)', type: 'bar', data: [0.01, 0.05, 0.3, 2, 10], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

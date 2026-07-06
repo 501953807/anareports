@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十六章：电池技术 — 7天续航设计</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十六章：电池技术</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第十六章：电池技术 — 锂聚合物电池与7天续航设计</h1>
+    <div class="data-note" style="margin-bottom:20px">老人最大的痛点是充电遗忘——每天充电的手环续用量产失败。本章节深入分析锂电池选型、低功耗设计、无线充电实现及7天续航的功耗管理策略。</div>
+
+    <h2 class="section-subtitle">16.1 电池选型对比</h2>
+    <table class="data-table">
+      <thead><tr><th>电池类型</th><th>容量(mAh)</th><th>体积</th><th>循环寿命</th><th>安全等级</th><th>成本</th></tr></thead>
+      <tbody>
+        <tr><td>锂聚合物(软包)</td><td>180-280</td><td>窄长形适应手环</td><td>500次(80%容量)</td><td>高(无电解液泄漏)</td><td>中</td></tr>
+        <tr><td>锂金属(一次性)</td><td>50-100</td><td>更小</td><td>不可充</td><td>低(航空限制)</td><td>低</td></tr>
+        <tr><td>固态电池(新一代)</td><td>300-400</td><td>同体积+20%</td><td>1000次+</td><td>极高</td><td>高(量产初期)</td></tr>
+        <tr><td>钛酸锂(LTO)</td><td>150-200</td><td>稍大</td><td>3000次+</td><td>极高</td><td>高</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">16.2 7天续航功耗预算分配</h2>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>活跃功耗</th><th>休眠功耗</th><th>日均活跃时间</th><th>日耗电量(mAh)</th></tr></thead>
+      <tbody>
+        <tr><td>PPG心率监测</td><td>3 mW</td><td>0.3 mW</td><td>24h(低频)</td><td>1.2</td></tr>
+        <tr><td>加速度计(运动检测)</td><td>0.8 mW</td><td>0.01 mW</td><td>24h</td><td>0.3</td></tr>
+        <tr><td>GPS定位</td><td>50 mW</td><td>—</td><td>30min/天</td><td>0.5</td></tr>
+        <tr><td>BLE蓝牙</td><td>3 mW</td><td>0.01 mW</td><td>2h(同步)</td><td>0.2</td></tr>
+        <tr><td>MCU主芯片</td><td>15 mW</td><td>0.5 mW</td><td>间歇</td><td>0.8</td></tr>
+        <tr><td>eSIM NB-IoT</td><td>30 mW</td><td>0.1 mW</td><td>10min/天</td><td>0.25</td></tr>
+        <tr><td>屏幕(CPU/MIPI)</td><td>20 mW</td><td>0</td><td>5min/天</td><td>0.03</td></tr>
+        <tr><td colspan="3"><strong>日均总耗电量</strong></td><td><strong>3.28 mAh</strong></td></tr>
+        <tr><td colspan="4"><strong>280mAh电池 / 3.28mAh/天 = 约85天理论续航</strong>(保守按GPS增强模式计7天)</td><td><strong>冗余系数7x</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">16.3 充电方案对比</h2>
+    <table class="data-table">
+      <thead><tr><th>方案</th><th>充电时间</th><th>BOM成本</th><th>老人友好度</th><th>防水要求</th></tr></thead>
+      <tbody>
+        <tr><td>磁吸Pogo Pin</td><td>1.5小时(0-100%)</td><td>¥3-5</td><td>★★★☆☆ 对准即可</td><td>触点需密封</td></tr>
+        <tr><td>Qi无线充电</td><td>2小时</td><td>¥8-12</td><td>★★★★★ 放底座就行</td><td>全封闭无接口</td></tr>
+        <tr><td>USB-C快充</td><td>45分钟</td><td>¥5-8</td><td>★★☆☆☆ 需对准插口</td><td>需防水塞</td></tr>
+        <tr><td>太阳能辅助</td><td>延长10-20%</td><td>¥15-20</td><td>★★★☆☆ 需晒太阳</td><td>面板密封</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">16.4 低功耗设计清单</h2>
+    <table class="data-table">
+      <thead><tr><th>优化手段</th><th>节能效果</th><th>实现难度</th><th>实施优先级</th></tr></thead>
+      <tbody>
+        <tr><td>动态采样率调节(白天1Hz→夜间0.1Hz PPG)</td><td>-30%</td><td>低</td><td>P0 必做</td></tr>
+        <tr><td>GPS间隔定位(非连续跟踪)</td><td>-60%GPS耗电</td><td>中</td><td>P0 必做</td></tr>
+        <tr><td>BLE连接参数优化(minInterval 15ms, latency 10)</td><td>-20% BLE</td><td>低</td><td>P1 推荐</td></tr>
+        <tr><td>DeepSleep时仅RTC+加速度唤醒</td><td>-50%整体</td><td>中</td><td>P0 必做</td></tr>
+        <tr><td>按键长按2秒才唤醒屏幕</td><td>-10%屏幕</td><td>极低</td><td>P1 推荐</td></tr>
+        <tr><td>充电低于20%时自动进入省电模式</td><td>-40%应急</td><td>低</td><td>P0 必做</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-battery"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="15-bluetooth-wifi-nfc.html"><i class="fas fa-arrow-left"></i> 连接技术</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">17 / 31</span>
+    <a class="nav-next" href="17-waterproof-design.html">防水设计 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-battery'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['无优化续航', '低功耗优化后', 'GPS增强模式'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['180mAh电池','220mAh电池','280mAh电池','350mAh电池'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(天)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '无优化续航', type: 'bar', data: [4, 5, 6, 7], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
+        { name: '低功耗优化后', type: 'bar', data: [12, 15, 18, 22], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+        { name: 'GPS增强模式', type: 'bar', data: [4, 5, 7, 9], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

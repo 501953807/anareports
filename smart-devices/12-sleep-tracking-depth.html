@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十二章：睡眠追踪深度技术 — 智能手环与智能药盒产品开发书</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十二章：睡眠追踪深度技术</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第十二章：睡眠追踪深度技术 — 分期算法与呼吸暂停检测</h1>
+    <div class="data-note" style="margin-bottom:20px">中国60岁以上人群平均睡眠时间5.5-6.5小时，远低于推荐的7小时。睡眠呼吸暂停综合征(SAS)患病率达20-40%，手环可通过PPG+加速度计实现初步筛查。</div>
+
+    <h2 class="section-subtitle">12.1 睡眠分期算法</h2>
+    <table class="data-table">
+      <thead><tr><th>睡眠阶段</th><th>时长占比</th><th>生理特征</th><th>手环识别信号</th><th>老年异常阈值</th></tr></thead>
+      <tbody>
+        <tr><td>清醒(Waking)</td><td>5-15分钟(累积)</td><td>EEG α波/θ波切换</td><td>加速度计零运动 + 心率升高</td><td>>30分钟/夜</td></tr>
+        <tr><td>N1浅睡</td><td>2-5%(总睡眠)</td><td>脑电θ波为主</td><td>心率开始下降 + 微动减少</td><td>>15%(碎片化)</td></tr>
+        <tr><td>N2浅睡</td><td>40-55%</td><td>睡眠纺锤波/K复合波</td><td>心率稳定 + 体温下降</td><td>—</td></tr>
+        <tr><td>N3深睡</td><td>13-23%(青年) / 5-10%(老年)</td><td>δ慢波主导</td><td>心率最低 + 几乎无运动</td><td><3%(严重不足)</td></tr>
+        <tr><td>REM快速动眼</td><td>20-25%</td><td>脑电似清醒 + 肌肉麻痹</td><td>心率波动大 + 无动作 + 呼吸不规则</td><td><10%(抑郁/痴呆相关)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">12.2 睡眠呼吸暂停(SAS)检测原理</h2>
+    <table class="data-table">
+      <thead><tr><th>检测方法</th><th>原理</th><th>准确度</th><th>适用性(老年)</th><th>功耗影响</th></tr></thead>
+      <tbody>
+        <tr><td>PPG血氧法</td><td>通过血氧饱和度周期性下降检测呼吸事件</td><td>AHI敏感度75-85%</td><td>★★★★★ 最佳</td><td>低(+5%)</td></tr>
+        <tr><td>胸廓运动法</td><td>加速度计检测呼吸引起的微弱胸廓振动</td><td>AHI敏感度60-70%</td><td>★★★☆☆ 一般</td><td>极低(+1%)</td></tr>
+        <tr><td>心律变化法</td><td>呼吸暂停导致的心率变异性(RRI)变化</td><td>AHI敏感度70-80%</td><td>★★★★☆ 良好</td><td>极低(+2%)</td></tr>
+        <tr><td>声音法</td><td>麦克风采集鼾声和呼吸音</td><td>AHI敏感度50-60%</td><td>★★☆☆☆ 隐私敏感</td><td>中(+8%)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">12.3 睡眠质量评分模型</h2>
+    <table class="data-table">
+      <thead><tr><th>维度</th><th>权重</th><th>评分标准</th><th>老年优化阈值</th></tr></thead>
+      <tbody>
+        <tr><td>入睡潜伏期</td><td>15%</td><td><20min=满分, >60min=0分</td><td>>40min即标记异常</td></tr>
+        <tr><td>深睡时长占比</td><td>25%</td><td>≥5%=满分, <2%=0分</td><td><3%标注"深睡不足"</td></tr>
+        <tr><td>REM占比</td><td>15%</td><td>≥15%=满分</td><td><8%关联抑郁风险</td></tr>
+        <tr><td>夜间觉醒次数</td><td>20%</td><td>≤2次=满分</td><td>>3次标注"睡眠碎片化"</td></tr>
+        <tr><td>血氧均值得分</td><td>15%</td><td>均值≥95%=满分</td><td><92%触发SpO2告警</td></tr>
+        <tr><td>心率基线</td><td>10%</td><td>夜间心率<日间10%=满分</td><td>夜间>日间标注异常</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">12.4 睡眠报告推送策略</h2>
+    <table class="data-table">
+      <thead><tr><th>异常指标</th><th>单次触发</th><th>连续触发条件</th><th>通知对象</th><th>通知方式</th></tr></thead>
+      <tbody>
+        <tr><td>深睡<2%(3晚连续)</td><td>仅报告记录</td><td>连续3晚</td><td>老人APP</td><td>早安推送</td></tr>
+        <tr><td>AHI>15(中度SAS)</td><td>标注"疑似SAS"</td><td>连续5晚</td><td>子女端+老人</td><td>强提醒+图文报告</td></tr>
+        <tr><td>夜间SpO2<88%(≥5分钟)</td><td>立即通知子女</td><td>单晚2次以上</td><td>子女+紧急联系人</td><td>APP推送+短信</td></tr>
+        <tr><td>入睡时间凌晨>3:00</td><td>标注"作息紊乱"</td><td>一周内≥3天</td><td>老人APP</td><td>作息建议推送</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-sleep"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="11-heart-monitor-depth.html"><i class="fas fa-arrow-left"></i> 心率监测</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">13 / 31</span>
+    <a class="nav-next" href="13-gps-tracker-depth.html">GPS定位 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-sleep'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['青年深睡占比(%)', '老年深睡占比(%)', '老年SAS发生率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['50-55','56-60','61-65','66-70','71-75','76-80','80+'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '青年深睡占比(%)', type: 'line', data: [18, 17, 15, 14, 12, 10, 8], itemStyle: { color: '#06b6d4' }, smooth: true },
+        { name: '老年深睡占比(%)', type: 'line', data: [8, 7, 6, 5.5, 5, 4.5, 3.5], itemStyle: { color: '#8b5cf6' }, smooth: true },
+        { name: '老年SAS发生率(%)', type: 'bar', data: [8, 12, 18, 22, 28, 35, 42], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] }, yAxis: { min: 0, max: 60 } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

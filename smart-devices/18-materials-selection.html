@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十八章：材料选型 — 医用硅胶/铝合金/蓝宝石玻璃</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十八章：材料选型</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第十八章：材料选型 — 亲肤医用硅胶/铝合金/蓝宝石玻璃</h1>
+    <div class="data-note" style="margin-bottom:20px">老人皮肤薄、敏感，长时间贴肤佩戴的材料安全性至关重要。本章节覆盖表带、表壳、屏幕三大部件的材料选择，重点分析医用级硅胶、阳极氧化铝和蓝宝石玻璃的优劣。</div>
+
+    <h2 class="section-subtitle">18.1 表带材料对比</h2>
+    <table class="data-table">
+      <thead><tr><th>材料</th><th>亲肤性</th><th>防水性</th><th>耐用性</th><th>致敏率</th><th>成本</th></tr></thead>
+      <tbody>
+        <tr><td>医用液态硅胶(LSR)</td><td>★★★★★</td><td>★★★★★</td><td>★★★★☆</td><td><0.1%(通过ISO10993)</td><td>¥5-8/条</td></tr>
+        <tr><td>TPE热塑性弹性体</td><td>★★★☆☆</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>1-3%</td><td>¥2-4/条</td></tr>
+        <tr><td>氟橡胶(FKM)</td><td>★★★★☆</td><td>★★★★★</td><td>★★★★★</td><td>0.5%</td><td>¥10-15/条</td></tr>
+        <tr><td>尼龙编织</td><td>★★★☆☆(透气)</td><td>★☆☆☆☆</td><td>★★★★☆</td><td>0.3%</td><td>¥6-10/条</td></tr>
+        <tr><td>金属米兰带</td><td>★★☆☆☆(导热)</td><td>★★★★☆</td><td>★★★★★</td><td>镍释放需控制</td><td>¥8-12/条</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">18.2 表壳材料选择</h2>
+    <table class="data-table">
+      <thead><tr><th>材料</th><th>重量(g)</th><th>强度</th><th>散热</th><th>手感</th><th>方案</th></tr></thead>
+      <tbody>
+        <tr><td>PC+ABS工程塑料</td><td>—</td><td>中等</td><td>差</td><td>廉价感</td><td>低端方案: ¥3-5</td></tr>
+        <tr><td>锌合金压铸</td><td>轻+30%</td><td>高</td><td>好</td><td>压手</td><td>不推荐</td></tr>
+        <tr><td>6系铝合金+CNC</td><td>基准</td><td>高</td><td>优秀</td><td>金属质感</td><td>推荐: ¥12-18</td></tr>
+        <tr><td>316L不锈钢</td><td>重+50%</td><td>极高</td><td>良好</td><td> premium</td><td>旗舰: ¥25-40</td></tr>
+        <tr><td>钛合金(Ti-6Al-4V)</td><td>轻+10%</td><td>极高</td><td>中</td><td>顶级</td><td>超旗舰: ¥40-60</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">18.3 屏幕盖板玻璃</h2>
+    <table class="data-table">
+      <thead><tr><th>材料</th><th>莫氏硬度</th><th>抗刮擦</th><th>透光率</th><th>耐摔</th><th>增量成本</th></tr></thead>
+      <tbody>
+        <tr><td>普通玻璃(Gorilla Glass 3)</td><td>6H</td><td>良</td><td>91%</td><td>中</td><td>基准</td></tr>
+        <tr><td>大猩猩玻璃Victus 2</td><td>7H+</td><td>优</td><td>90%</td><td>优(跌落-50%)</td><td>+¥2-3</td></tr>
+        <tr><td>蓝宝石玻璃(Sapphire)</td><td>9H</td><td>极佳</td><td>85-90%</td><td>差(脆性高)</td><td>+¥15-25</td></tr>
+        <tr><td>陶瓷(氧化锆)</td><td>6-7H</td><td>良</td><td>88%</td><td>中</td><td>+¥10-15</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">18.4 本方案推荐材料组合</h2>
+    <table class="data-table">
+      <thead><tr><th>部件</th><th>经济版(199元)</th><th>标准版(399元)</th><th>旗舰版(699元)</th></tr></thead>
+      <tbody>
+        <tr><td>表壳</td><td>锌合金压铸</td><td>6系铝合金+CNC</td><td>钛合金</td></tr>
+        <tr><td>屏幕</td><td>强化玻璃</td><td>Gorilla Glass Victus 2</td><td>蓝宝石</td></tr>
+        <tr><td>表带</td><td>TPE</td><td>医用LSR硅胶</td><td>氟橡胶LSR</td></tr>
+        <tr><td>充电接口</td><td>Pogo Pin防水帽</td><td>Pogo Pin</td><td>磁吸无线Qi</td></tr>
+        <tr><td>整机关重</td><td>~45g</td><td>~35g</td><td>~30g</td></tr>
+        <tr><td>整机BOM</td><td>¥65-80</td><td>¥95-120</td><td>¥140-180</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-materials"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="17-waterproof-design.html"><i class="fas fa-arrow-left"></i> 防水设计</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">19 / 31</span>
+    <a class="nav-next" href="19-factory-quality.html">工厂品控 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-materials'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['亲肤安全得分', '耐用性得分', '成本效益得分'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '亲肤性', max: 100 },
+          { name: '防水性', max: 100 },
+          { name: '耐用性', max: 100 },
+          { name: '轻量化', max: 100 },
+          { name: '成本', max: 100 },
+          { name: '美观', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(6,182,212,0.02)', 'rgba(6,182,212,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [90, 85, 70, 80, 85, 75], name: '经济版', itemStyle: { color: '#06b6d4' } },
+          { value: [98, 95, 90, 92, 70, 88], name: '标准版', itemStyle: { color: '#8b5cf6' } },
+          { value: [95, 98, 95, 70, 50, 98], name: '旗舰版', itemStyle: { color: '#10b981' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

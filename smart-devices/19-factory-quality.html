@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十九章：工厂品控 — ISO13485与可靠性测试</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十九章：工厂品控</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第十九章：工厂品控 — ISO13485体系与可靠性测试</h1>
+    <div class="data-note" style="margin-bottom:20px">ODM代工的质量控制是产品上市的关键保障。手环涉及医疗健康数据和老人生命安全(防走失/SOS)，制造环节必须执行严格的可靠性测试和过程质量控制。</div>
+
+    <h2 class="section-subtitle">19.1 质量管理体系要求</h2>
+    <table class="data-table">
+      <thead><tr><th>标准</th><th>适用范围</th><th>认证周期</th><th>费用估算</th><th>必要性</th></tr></thead>
+      <tbody>
+        <tr><td>ISO9001</td><td>通用质量管理</td><td>3个月</td><td>¥5-10万</td><td>工厂基础要求</td></tr>
+        <tr><td>ISO13485</td><td>医疗器械质量管理</td><td>6个月</td><td>¥15-30万</td><td>有ECG/血压功能时必需</td></tr>
+        <tr><td>IATF16949</td><td>汽车级质量(可选)</td><td>6-12个月</td><td>¥20-40万</td><td>不适用</td></tr>
+        <tr><td>GB/T19001</td><td>中国国标质量体系</td><td>3个月</td><td>¥3-8万</td><td>国内销售基础</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">19.2 可靠性测试矩阵</h2>
+    <table class="data-table">
+      <thead><tr><th>测试项目</th><th>测试标准</th><th>合格条件</th><th>样本量</th></tr></thead>
+      <tbody>
+        <tr><td>老化测试(Aging)</td><td>60°C/85%RH, 48小时</td><td>无死机/传感器无漂移/电池无膨胀</td><td>每批次30pcs</td></tr>
+        <tr><td>高低温循环</td><td>-20°C ↔ +60°C, 50次</td><td>外观无裂纹/功能正常</td><td>每款5pcs(DVT)</td></tr>
+        <tr><td>自由跌落</td><td>1.2m, 6面2棱6角各1次(共36次)</td><td>结构完整/屏幕无碎/功能正常</td><td>每款5pcs</td></tr>
+        <tr><td>按键寿命</td><td>SOS键按压100,000次</td><td>弹性不失/接触良好</td><td>每款3pcs</td></tr>
+        <tr><td>盐雾测试</td><td>5%NaCl, 48小时</td><td>金属件无腐蚀/白锈</td><td>每款3pcs</td></tr>
+        <tr><td>滚筒测试</td><td>旋转跌落5,000次</td><td>外观磨损在允差范围内</td><td>每款10pcs</td></tr>
+        <tr><td>汗液腐蚀</td><td>pH4.5-6.5人工汗液浸泡72h</td><td>外壳无色变/无腐蚀</td><td>每款5pcs</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">19.3 生产过程质量控制点</h2>
+    <table class="data-table">
+      <thead><tr><th>工序</th><th>检验项目</th><th>检验方法</th><th>抽样频率</th></tr></thead>
+      <tbody>
+        <tr><td>SMT贴片</td><td>焊点质量/元件到位</td><td>AOI光学检测</td><td>100%在线</td></tr>
+        <tr><td>FPCA绑定</td><td>COF/POP绑定的拉力</td><td>显微镜+拉力计</td><td>每批次10pcs</td></tr>
+        <tr><td>模组组装</td><td>传感器对齐/电池固定</td><td>CCD视觉定位</td><td>100%在线</td></tr>
+        <tr><td>防水组装</td><td>UV胶涂布/密封圈安装</td><td>气密性测试</td><td>100%全检</td></tr>
+        <tr><td>功能测试(FCT)</td><td>所有传感器/蓝牙/GPS/SOS</td><td>自动化测试架</td><td>100%全检</td></tr>
+        <tr><td>外观检验</td><td>划痕/色差/合模线</td><td>目检+标准光源</td><td>每批次AQL 0.65</td></tr>
+        <tr><td>包装检验</td><td>配件齐全/标签正确</td><td>扫码核对BOM</td><td>每批次AQL 1.0</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">19.4 AQL抽检标准(ANSI/ASQ Z1.4)</h2>
+    <table class="data-table">
+      <thead><tr><th>缺陷等级</th><th>定义</th><th>AQL值</th><th>示例</th></tr></thead>
+      <tbody>
+        <tr><td>致命缺陷(Critical)</td><td>危害安全的缺陷</td><td>0</td><td>电池漏液/漏电/EMC超标</td></tr>
+        <tr><td>主要缺陷(Major)</td><td>影响功能的缺陷</td><td>0.65</td><td>屏幕坏点/传感器失灵/防水不合格</td></tr>
+        <tr><td>次要缺陷(Minor)</td><td>外观轻微问题</td><td>2.5</td><td>轻微划痕/标签偏移/颜色微差</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-quality"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="18-materials-selection.html"><i class="fas fa-arrow-left"></i> 材料选型</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">20 / 31</span>
+    <a class="nav-next" href="20-elderly-user-experience.html">老年体验 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-quality'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['不良率(%)', '检测成本(元/千台)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['来料IQC','制程IPQC','成品FQC','出货OQC'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }
+      ],
+      series: [
+        { name: '不良率(%)', type: 'bar', data: [0.8, 0.5, 0.3, 0.1], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
+        { name: '检测成本(元/千台)', type: 'line', data: [3000, 5000, 4000, 2000], itemStyle: { color: '#06b6d4' }, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

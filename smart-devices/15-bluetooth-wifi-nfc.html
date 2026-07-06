@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第十五章：连接技术对比 — 蓝牙/WiFi/NFC/eSIM</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第十五章：连接技术对比</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第十五章：连接技术对比 — 蓝牙5.3 / WiFi 6 / NFC / eSIM</h1>
+    <div class="data-note" style="margin-bottom:20px">手环的定位和紧急呼叫功能依赖于稳定的数据传输。针对60岁以上老人的独立通信需求，本章节全面对比蓝牙、WiFi、NFC和eSIM四种技术方案的优劣与混合组网策略。</div>
+
+    <h2 class="section-subtitle">15.1 四大无线通信技术横评</h2>
+    <table class="data-table">
+      <thead><tr><th>技术指标</th><th>蓝牙5.3</th><th>WiFi 6(802.11ax)</th><th>NFC</th><th>eSIM(LTE-M/NB-IoT)</th></tr></thead>
+      <tbody>
+        <tr><td>传输速率</td><td>2 Mbps</td><td>9.6 Gbps(共享)</td><td>424 kbps</td><td>250 kbps(NB-IoT)</td></tr>
+        <tr><td>通信距离</td><td>100m(开阔)</td><td>30m</td><td>4cm</td><td>蜂窝网络全覆盖</td></tr>
+        <tr><td>功耗</td><td>极低(BLE)</td><td>高</td><td>极低</td><td>中(MTC-HaT优化)</td></tr>
+        <tr><td>独立通信</td><td>否(需手机网关)</td><td>是(需路由器)</td><td>否</td><td>是(直连云端)</td></tr>
+        <tr><td>资费</td><td>免费</td><td>WiFi免费</td><td>免费</td><td>月费3-8元/卡</td></tr>
+        <tr><td>手环BOM</td><td>¥5-8(集成在SoC)</td><td>+¥8-12</td><td>+¥2-3</td><td>+¥15-20</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">15.2 推荐连接架构</h2>
+    <table class="data-table">
+      <thead><tr><th>模块</th><th>技术</th><th>用途</th><th>启用策略</th></tr></thead>
+      <tbody>
+        <tr><td>主链路</td><td>蓝牙5.3</td><td>手环→手机APP数据同步、OTA升级、命令下发</td><td>始终开启</td></tr>
+        <tr><td>备用链路</td><td>eSIM NB-IoT</td><td>SOS紧急呼叫、离线定位上报、远程消息</td><td>按需/紧急时开启</td></tr>
+        <tr><td>NFC</td><td>NFC-A</td><td>碰一碰配对、门禁刷卡(可选)、支付方式</td><td>被动唤醒</td></tr>
+        <tr><td>辅助定位</td><td>WiFi扫描</td><td>获取周围WiFi SSID用于指纹定位辅助</td><td>GPS信号弱时开启</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">15.3 eSIM在老人防走失中的价值</h2>
+    <table class="data-table">
+      <thead><tr><th>功能</th><th>蓝牙方案(需手机在旁)</th><th>eSIM方案(独立通信)</th><th>老年用户收益</th></tr></thead>
+      <tbody>
+        <tr><td>SOS呼叫</td><td>需手机在10m内</td><td>独立拨打预设号码</td><td>手机没电/遗忘时仍可靠</td></tr>
+        <tr><td>位置上报</td><td>仅在连接手机时同步</td><td>每5分钟独立上报云端</td><td>子女可随时查看</td></tr>
+        <tr><td>电子围栏</td><td>依赖蓝牙断连判断</td><td>云端实时比对围栏</td><td>精准、即时、不误报</td></tr>
+        <tr><td>语音通话</td><td>不支持</td><td>eSIM支持VoLTE双向通话</td><td>一键拨给子女/社区</td></tr>
+        <tr><td>月增成本</td><td>0元</td><td>3-8元/月(eSIM流量)</td><td>家庭可接受范围</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">15.4 通信方案成本效益分析</h2>
+    <table class="data-table">
+      <thead><tr><th>方案</th><th>硬件BOM</th><th>月运营成本</th><th>用户付费意愿</th><th>推荐指数</th></tr></thead>
+      <tbody>
+        <tr><td>方案A: 蓝牙Only</td><td>基准</td><td>0元</td><td>子女需常伴手机</td><td>★☆☆☆☆</td></tr>
+        <tr><td>方案B: 蓝牙+NFC</td><td>基准+¥5</td><td>0元</td><td>基础防走失够用</td><td>★★★☆☆</td></tr>
+        <tr><td>方案C: 蓝牙+eSIM</td><td>基准+¥18</td><td>3-8元/月</td><td>强烈推荐(独立通信)</td><td>★★★★★</td></tr>
+        <tr><td>方案D: 全功能</td><td>基准+¥30</td><td>3-8元/月</td><td>高端版本</td><td>★★★★☆</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-connectivity"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="14-sensor-technology.html"><i class="fas fa-arrow-left"></i> 传感器</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">16 / 31</span>
+    <a class="nav-next" href="16-battery-tech.html">电池技术 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-connectivity'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'item' },
+      legend: { data: ['硬件BOM成本', '月运营成本(年化)', '技术评分'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['蓝牙Only','蓝牙+NFC','蓝牙+eSIM','全功能'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 100 }
+      ],
+      series: [
+        { name: '硬件BOM成本', type: 'bar', data: [0, 5, 18, 30], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '月运营成本(年化)', type: 'bar', data: [0, 0, 48, 48], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '技术评分', type: 'line', data: [40, 55, 90, 95], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

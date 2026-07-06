@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二十二章：健康数据分析 — 趋势/异常/报告生成</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二十二章：健康数据分析</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二十二章：健康数据分析 — 趋势分析/异常检测/医生报告</h1>
+    <div class="data-note" style="margin-bottom:20px">数据采集只是第一步，真正的价值在于将海量原始数据转化为可读的健康洞察。本章节设计数据处理流水线、异常检测规则和医生友好型报告格式。</div>
+
+    <h2 class="section-subtitle">22.1 健康数据流水线</h2>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>处理内容</th><th>技术</th><th>延迟要求</th></tr></thead>
+      <tbody>
+        <tr><td>设备端采集</td><td>PPG波形/加速度/温度原始采样</td><td>MCU DMA → 环形缓冲区</td><td>实时</td></tr>
+        <tr><td>设备端预处理</td><td>去噪(自适应滤波)/运动伪影消除</td><td>嵌入式FFT+卡尔曼滤波</td><td>次秒级</td></tr>
+        <tr><td>边缘特征提取</td><td>R-R间期/心率/步频/活动类别</td><td>轻量ML模型(TensorFlow Lite Micro)</td><td>秒级</td></tr>
+        <tr><td>云端聚合</td><td>跨源数据融合(手环+药盒+手机)</td><td>Kafka → Flink流式计算</td><td>分钟级</td></tr>
+        <tr><td>统计分析</td><td>日/周/月汇总/趋势拟合</td><td>ClickHouse OLAP</td><td>小时级(batch)</td></tr>
+        <tr><td>异常检测</td><td>阈值+ML异常评分</td><td>规则引擎(EasyRules) + IsolationForest</td><td>分钟级</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.2 个人基线与动态阈值</h2>
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>固定阈值(通用)</th><th>动态基线(个性化)</th><th>优势</th></tr></thead>
+      <tbody>
+        <tr><td>心率</td><td>静息>100或<50 bpm</td><td>个人30天均值±2σ, 偏离>1.5σ告警</td><td>老人静息心率天然偏高的情况不误报</td></tr>
+        <tr><td>血压</td><td>收缩压>140</td><td>个人基线+20mmHg偏差</td><td>低血压老人安全</td></tr>
+        <tr><td>步数</td><td>日步数<500</td><td>个人周均值×50%连续2天</td><td>区分"休息日"和"活动骤降"</td></tr>
+        <tr><td>睡眠</td><td>深睡<5%</td><td>个人基线深睡降低>50%持续3天</td><td>尊重个体差异</td></tr>
+        <tr><td>体温</td><td>≥37.3°C</td><td>个人24h均值+0.5°C</td><td>老人基础体温偏低的情况更准</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.3 医生报告模板</h2>
+    <table class="data-table">
+      <thead><tr><th>报告模块</th><th>内容</th><th>时间粒度</th><th>可视化</th></tr></thead>
+      <tbody>
+        <tr><td>生命体征摘要</td><td>近30天心率/血压/SpO2/体温趋势</td><td>日/周</td><td>多线图+正常区间阴影</td></tr>
+        <tr><td>心率变异性</td><td>SDNN, RMSSD, pNN50趋势</td><td>日(睡眠期)</td><td>雷达图+历史对比</td></tr>
+        <tr><td>活动量统计</td><td>日均步数/活动时间/久坐时长</td><td>日</td><td>柱状图+达标率进度条</td></tr>
+        <tr><td>睡眠分析</td><td>各阶段时长/觉醒次数/AHI指数</td><td>日+周平均</td><td>睡眠分期图(Hypnogram)</td></tr>
+        <tr><td>用药依从性</td><td>按时服药率/漏服次数/错服次数</td><td>日+周</td><td>日历热力图</td></tr>
+        <tr><td>异常事件日志</td><td>所有告警事件的详细时间线和上下文</td><td>事件驱动</td><td>时间轴+关联数据截图</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">22.4 数据价值转化路径</h2>
+    <table class="data-table">
+      <thead><tr><th>层级</th><th>能力</th><th>免费版</th><th>订阅版(高级)</th><th>订阅版(尊享)</th></tr></thead>
+      <tbody>
+        <tr><td>L1 描述</td><td>发生了什么？</td><td>今日心率/步数</td><td>日趋势</td><td>周趋势</td></tr>
+        <tr><td>L2 诊断</td><td>为什么发生？</td><td>无</td><td>异常标记</td><td>异常原因推断</td></tr>
+        <tr><td>L3 预测</td><td>将来会怎样？</td><td>无</td><td>3天风险趋势</td><td>7天风险趋势</td></tr>
+        <tr><td>L4 处方</td><td>该怎么做？</td><td>无</td><td>建议方案</td><td>医生在线咨询</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-analytics"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="21-family-app-ecosystem.html"><i class="fas fa-arrow-left"></i> 家庭APP</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">23 / 31</span>
+    <a class="nav-next" href="23-ai-algorithm.html">AI算法 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-analytics'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['每日数据量(MB)', '分析耗时(秒)', '报告价值评分'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['L1描述','L2诊断','L3预测','L4处方'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(MB/秒)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 100 }
+      ],
+      series: [
+        { name: '每日数据量(MB)', type: 'bar', data: [50, 50, 50, 50], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '分析耗时(秒)', type: 'bar', data: [0.5, 5, 30, 120], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '报告价值评分', type: 'line', data: [30, 55, 75, 95], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

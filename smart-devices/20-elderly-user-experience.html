@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二十章：老年人用户体验 — 大字简单语音控制</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二十章：老年人用户体验</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二十章：老年人用户体验 — 大字/简单/语音/一键SOS</h1>
+    <div class="data-note" style="margin-bottom:20px">60岁以上用户的视力下降(老花/白内障/黄斑变性)、手指灵活性降低、学习能力弱——是硬件设计的核心约束。老年用户不是"年轻用户的慢版本"，而是完全不同的使用模式。</div>
+
+    <h2 class="section-subtitle">20.1 老年人生理特征与设计约束</h2>
+    <table class="data-table">
+      <thead><tr><th>生理特征</th><th>数据</th><th>设计约束</th><th>实现方案</th></tr></thead>
+      <tbody>
+        <tr><td>远视/老花</td><td>60岁+: 调节力降至2D以下</td><td>屏幕文字必须超大</td><td>最小字号20pt, 行距1.8x</td></tr>
+        <tr><td>色彩辨别力下降</td><td>黄色透镜效应, 蓝紫色系难辨</td><td>高对比配色, 禁用蓝紫底白字</td><td>黑底+亮青/亮橙字, WCAG AAA</td></tr>
+        <tr><td>指尖触觉减退</td><td>振动感知阈+50-200%</td><td>触觉反馈必须强</td><td>Eccentric motor线性马达, ≥5N推力</td></tr>
+        <tr><td>短期记忆衰退</td><td>工作记忆容量从7±2降至4±1</td><td>界面元素≤3个, 无嵌套菜单</td><td>扁平化单层界面, 一键直达</td></tr>
+        <tr><td>反应时间延长</td><td>60岁: 0.5s → 80岁: 0.9s</td><td>交互响应宽容度</td><td>长按0.5s→1.5s均可, 无倒计时</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">20.2 手环UI设计规范</h2>
+    <table class="data-table">
+      <thead><tr><th>元素</th><th>标准版</th><th>大字体模式</th><th>超大字体模式</th></tr></thead>
+      <tbody>
+        <tr><td>主屏数字大小</td><td>32pt</td><td>48pt</td><td>64pt</td></tr>
+        <tr><td>图标尺寸</td><td>48×48dp</td><td>72×72dp</td><td>96×96dp</td></tr>
+        <tr><td>按钮点击区域</td><td>44×44pt(最低)</td><td>56×56pt</td><td>72×72pt</td></tr>
+        <tr><td>单页功能数</td><td>≤6个</td><td>≤4个</td><td>≤3个</td></tr>
+        <tr><td>滑动手势</td><td>上下左右滑动</td><td>仅上下滑动</td><td>仅点击, 无手势</td></tr>
+        <tr><td>屏幕常亮</td><td>触摸唤醒</td><td>显示5秒</td><td>常亮(低功耗AMOLED)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">20.3 语音交互设计</h2>
+    <table class="data-table">
+      <thead><tr><th>功能</th><th>语音指令示例</th><th>响应方式</th><th>技术实现</th></tr></thead>
+      <tbody>
+        <tr><td>SOS紧急呼叫</td><td>"救命""救命啊""快帮帮我"</td><td>立即拨打预设号码</td><td>本地关键词唤醒(无需联网)</td></tr>
+        <tr><td>打电话给儿子</td><td>"打电话给儿子""呼叫女儿"</td><td>发起语音通话</td><td>BLE透传到手机APP</td></tr>
+        <tr><td>测心率</td><td>"测心率""我的心率多少"</td><td>手环启动PPG测量并朗读结果</td><td>本地MCU处理</td></tr>
+        <tr><td>吃药提醒</td><td>"我吃了药""今天吃药了吗"</td><td>标记服药状态/播报今日安排</td><td>云端查询+语音合成</td></tr>
+        <tr><td>问天气</td><td>"今天天气怎么样"</td><td>播报天气信息</td><td>云端API+TTS</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">20.4 学习曲线与上手指导</h2>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>目标</th><th>引导方式</th><th>完成时间</th></tr></thead>
+      <tbody>
+        <tr><td>开箱</td><td>戴上就能用</td><td>预装SIM卡+绑定账号, 红色表扣固定</td><td>30秒</td></tr>
+        <tr><td>开机</td><td>知道基本操作</td><td>开机自动播放3步语音引导(测心率/按SOS/充电)</td><td>2分钟</td></tr>
+        <tr><td>日常</td><td>记住常用功能</td><td>大图标主页(心率/SOS/吃药/来电), 最多3个页面</td><td>3天</td></tr>
+        <tr><td>精通</td><td>主动查看数据</td><td>每周推送健康周报, 鼓励查看</td><td>1-2周</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-ux"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="19-factory-quality.html"><i class="fas fa-arrow-left"></i> 工厂品控</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">21 / 31</span>
+    <a class="nav-next" href="21-family-app-ecosystem.html">家庭APP <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-ux'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['上手难度', '误操作率', '功能使用率'], textStyle: { color: '#94a3b8' }, top: 0 },
+      radar: {
+        indicator: [
+          { name: '大字可读', max: 100 },
+          { name: '语音友好', max: 100 },
+          { name: '一键直达', max: 100 },
+          { name: '触觉反馈', max: 100 },
+          { name: '学习速度', max: 100 },
+          { name: '容错性', max: 100 }
+        ],
+        axisLine: { lineStyle: { color: '#1e2a3a' } },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(16,185,129,0.02)', 'rgba(16,185,129,0.05)'] } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [95, 90, 85, 80, 88, 82], name: '竞品平均', itemStyle: { color: '#94a3b8' } },
+          { value: [98, 95, 96, 92, 94, 95], name: '本方案目标', itemStyle: { color: '#10b981' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

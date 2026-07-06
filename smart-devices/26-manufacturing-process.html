@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二十六章：制造流程 — SMT/装配线/测试站</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 智能设备书</a><span class="nav-divider">/</span><span class="nav-chapter-title">第二十六章：制造流程</span></div>
+    <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
+  </nav>
+  <aside class="sidebar"><h3><i class="fas fa-list"></i> 目录</h3><ul class="toc-list">
+    <li class="toc-chapter">第一章：市场环境</li>
+    <li><a href="01-market-overview.html">第一章：全球与中国智能穿戴市场</a></li>
+    <li><a href="11-heart-monitor-depth.html">第十一章：心率/ECG监测深度技术</a></li>
+    <li><a href="12-sleep-tracking-depth.html">第十二章：睡眠追踪深度技术</a></li>
+    <li><a href="13-gps-tracker-depth.html">第十三章：GPS定位深度技术</a></li>
+    <li class="toc-chapter">第二章：用户画像</li>
+    <li><a href="02-user-profile.html">第二章：用户画像与应用场景</a></li>
+    <li class="toc-chapter">第三章：系统架构</li>
+    <li><a href="03-system-architecture.html">第三章：四层系统架构与数据流</a></li>
+    <li class="toc-chapter">第四章：竞品分析</li>
+    <li><a href="04-competitive-analysis.html">第四章：手环+药盒竞品全景</a></li>
+    <li class="toc-chapter">第五章：供应链与BOM</li>
+    <li><a href="05-supply-chain-bom.html">第五章：供应链选型与BOM成本</a></li>
+    <li class="toc-chapter">第六章：APP开发</li>
+    <li><a href="06-app-development.html">第六章：APP功能与开发团队</a></li>
+    <li class="toc-chapter">第七章：政策法规</li>
+    <li><a href="07-regulations.html">第七章：合规红线与认证要求</a></li>
+    <li class="toc-chapter">第八章：商业模式</li>
+    <li><a href="08-business-model.html">第八章：硬件获客+订阅盈利</a></li>
+    <li class="toc-chapter">第九章：实施路线</li>
+    <li><a href="09-roadmap.html">第九章：8个月上市实施路线图</a></li>
+    <li class="toc-chapter">第十章：风险评估</li>
+    <li><a href="10-risk-assessment.html">第十章：风险矩阵与四阶段战略</a></li>
+    <li><a href="14-sensor-technology.html">第十四章：传感器技术全景</a></li>
+    <li><a href="15-bluetooth-wifi-nfc.html">第十五章：连接技术对比</a></li>
+    <li><a href="16-battery-tech.html">第十六章：电池技术</a></li>
+    <li><a href="17-waterproof-design.html">第十七章：防水设计</a></li>
+    <li><a href="18-materials-selection.html">第十八章：材料选型</a></li>
+    <li><a href="19-factory-quality.html">第十九章：工厂品控</a></li>
+    <li><a href="20-elderly-user-experience.html">第二十章：老年人用户体验</a></li>
+    <li><a href="21-family-app-ecosystem.html">第二十一章：家庭APP生态</a></li>
+    <li><a href="22-health-data-analytics.html">第二十二章：健康数据分析</a></li>
+    <li><a href="23-ai-algorithm.html">第二十三章：AI算法</a></li>
+    <li><a href="24-cloud-platform.html">第二十四章：云平台</a></li>
+    <li><a href="25-iot-smart-home.html">第二十五章：IoT智能家居</a></li>
+    <li><a href="26-manufacturing-process.html">第二十六章：制造流程</a></li>
+    <li><a href="27-brand-marketing.html">第二十七章：品牌营销</a></li>
+    <li><a href="28-after-sales-service.html">第二十八章：售后服务</a></li>
+    <li><a href="29-partnership-hospital.html">第二十九章：医院合作</a></li>
+    <li><a href="30-global-certification.html">第三十章：全球认证</a></li>
+    <li class="toc-divider"></li>
+    <li><a href="../china-japan/index.html"><i class="fas fa-arrow-right"></i> 返回中日经济书</a></li>
+  </ul></aside>
+  <main class="content">
+    <h1 class="section-title">第二十六章：制造流程 — SMT贴片/装配线/测试/包装</h1>
+    <div class="data-note" style="margin-bottom:20px">手环的制造涉及PCBA贴片、模组组装、成品装配、功能测试和包装入库五个阶段。ODM模式意味着这些流程由代工厂执行，但品牌方必须全程参与DFM(可制造性设计)评审。</div>
+
+    <h2 class="section-subtitle">26.1 SMT贴片工艺流程</h2>
+    <table class="data-table">
+      <thead><tr><th>工序</th><th>设备</th><th>关键参数</th><th>节拍(秒/板)</th></tr></thead>
+      <tbody>
+        <tr><td>锡膏印刷</td><td>全自动印刷机(+钢网)</td><td>印刷压力/速度/脱模角度</td><td>8-12</td></tr>
+        <tr><td>SPI锡膏检测</td><td>SPI(锡膏厚度检测仪)</td><td>体积/高度/面积合格率>98%</td><td>5-8</td></tr>
+        <tr><td>贴片(Pick&Place)</td><td>高速贴片机</td><td>0201元件<0.3秒/颗</td><td>15-25</td></tr>
+        <tr><td>回流焊</td><td>12米回流焊炉</td><td>预热→恒温→回流→冷却(4温区)</td><td>300(过炉时间)</td></tr>
+        <tr><td>AOI光学检测</td><td>3D AOI</td><td>锡珠/桥接/立碑/偏移检测</td><td>10-15</td></tr>
+        <tr><td>X-Ray(隐性焊点)</td><td>X-Ray检测仪</td><td>BGA/QFN底部焊点检测</td><td>30-60</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">26.2 组装线工序</h2>
+    <table class="data-table">
+      <thead><tr><th>工序</th><th>工位描述</th><th>自动化程度</th><th>节拍</th></tr></thead>
+      <tbody>
+        <tr><td>PCBA下料</td><td>从料盘取出焊接好的主板</td><td>半自动</td><td>15秒</td></tr>
+        <tr><td>电池绑定</td><td>锂电贴双面胶→插入仓→焊接线束</td><td>半自动</td><td>20秒</td></tr>
+        <tr><td>传感器模块安装</td><td>PPG/ECG模组压入壳体+导电胶</td><td>半自动</td><td>15秒</td></tr>
+        <tr><td>屏幕贴合</td><td>OCA光学胶+屏幕盖板对位贴合</td><td>全自动CCD对位</td><td>30秒</td></tr>
+        <tr><td>壳体组装</td><td>上壳+下壳合拢+超声波焊接/螺丝</td><td>半自动</td><td>20秒</td></tr>
+        <tr><td>防水胶圈安装</td><td>UV胶涂布+密封圈放置</td><td>自动点胶机</td><td>15秒</td></tr>
+        <tr><td>表带装配</td><td>硅胶/氟橡胶表带扣入</td><td>手工</td><td>10秒</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">26.3 测试站设计</h2>
+    <table class="data-table">
+      <thead><tr><th>测试站</th><th>测试内容</th><th>单站时间</th><th>自动化</th></tr></thead>
+      <tbody>
+        <tr><td>烧录站</td><td>固件写入(USB/JTAG)</td><td>30秒</td><td>自动(多工位) 8台同时</td></tr>
+        <tr><td>功能测试</td><td>屏幕点亮/触摸/按键/BLE/WiFi/GPS</td><td>45秒</td><td>自动化测试架</td></tr>
+        <tr><td>传感器校准</td><td>PPG光功率/加速度零点/温度传感器</td><td>60秒</td><td>自动化夹具+校准软件</td></tr>
+        <tr><td>防水测试</td><td>气密性检测(-30kPa)</td><td>15秒</td><td>100%全检</td></tr>
+        <tr><td>电池充放电</td><td>充电功能/电量计校准</td><td>30秒</td><td>自动</td></tr>
+        <tr><td>外观终检</td><td>划痕/色差/合模线/标签</td><td>20秒</td><td>目检+标准光源</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">26.4 产能规划</h2>
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>小批量(PVT)</th><th>量产(MP)</th><th>满产</th></tr></thead>
+      <tbody>
+        <tr><td>日产量</td><td>500台</td><td>5,000台</td><td>10,000台</td></tr>
+        <tr><td>生产线数</td><td>1条(柔性)</td><td>2-3条</td><td>5条+</td></tr>
+        <tr><td>人均产出</td><td>50台/人/天</td><td>200台/人/天</td><td>400台/人/天</td></tr>
+        <tr><td>直通率(Yield)</td><td>92-95%</td><td>97-98%</td><td>98.5%+</td></tr>
+        <tr><td>不良返工率</td><td>5-8%</td><td>2-3%</td><td><1%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-container" id="chart-manufacturing"></div>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="25-iot-smart-home.html"><i class="fas fa-arrow-left"></i> IoT</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">27 / 31</span>
+    <a class="nav-next" href="27-brand-marketing.html">品牌营销 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-manufacturing'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['产能(千台/月)', '良品率(%)', '单位成本(元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['试产','小批量','量产爬坡','规模化'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(千台)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 105 }
+      ],
+      series: [
+        { name: '产能(千台/月)', type: 'bar', data: [5, 15, 150, 300], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: '良品率(%)', type: 'line', data: [90, 93, 97, 98.5], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 },
+        { name: '单位成本(元)', type: 'line', data: [120, 105, 85, 72], itemStyle: { color: '#f59e0b' }, smooth: true, yAxisIndex: 0 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
