@@ -41,8 +41,8 @@ body {
 /* Hero */
 .hero {
   text-align: center;
-  padding: 60px 20px 40px;
-  margin-bottom: 48px;
+  padding: 40px 20px 32px;
+  margin-bottom: 40px;
   position: relative;
 }
 .hero::before {
@@ -53,231 +53,154 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   background: linear-gradient(90deg, var(--cyan), var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
-.hero p { color: var(--text2); font-size: 16px; }
+.hero p { color: var(--text2); font-size: 15px; }
 .hero .stats-bar {
   display: inline-flex;
-  gap: 24px;
-  margin-top: 20px;
-  padding: 10px 24px;
+  gap: 20px;
+  margin-top: 16px;
+  padding: 8px 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text2);
 }
 .hero .stats-bar strong { color: var(--cyan); font-weight: 600; }
 
-/* Section titles */
-.section-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--cyan);
-  margin-bottom: 20px;
-  padding-left: 14px;
-  border-left: 3px solid var(--cyan);
-}
-.section-title i { margin-right: 8px; }
-
-/* Grid */
-.books-grid {
+/* Unified grid */
+.entries-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 20px;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
-/* Card */
-.book-card {
+/* Entry card */
+.entry-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
-  text-decoration: none;
-  color: var(--text);
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   position: relative;
   overflow: hidden;
 }
-.book-card::before {
+.entry-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
 }
-.book-card.cyan::before      { background: var(--cyan); box-shadow: var(--glow-cyan); }
-.book-card.purple::before    { background: var(--purple); box-shadow: var(--glow-purple); }
-.book-card.red::before       { background: var(--red); box-shadow: var(--glow-red); }
-.book-card.green::before     { background: var(--green); box-shadow: var(--glow-green); }
-.book-card.orange::before    { background: var(--orange); box-shadow: var(--glow-orange); }
-.book-card.pink::before      { background: var(--pink); box-shadow: var(--glow-pink); }
-.book-card.gold::before      { background: var(--gold); box-shadow: var(--glow-gold); }
+.entry-card.cyan::before       { background: var(--cyan); box-shadow: var(--glow-cyan); }
+.entry-card.purple::before    { background: var(--purple); box-shadow: var(--glow-purple); }
+.entry-card.green::before     { background: var(--green); box-shadow: var(--glow-green); }
+.entry-card.red::before       { background: var(--red); box-shadow: var(--glow-red); }
+.entry-card.orange::before    { background: var(--orange); box-shadow: var(--glow-orange); }
+.entry-card.pink::before      { background: var(--pink); box-shadow: var(--glow-pink); }
+.entry-card.gold::before      { background: var(--gold); box-shadow: var(--glow-gold); }
 
-.book-card:hover {
-  transform: translateY(-4px);
+.entry-card:hover {
+  transform: translateY(-3px);
   box-shadow: 0 8px 32px rgba(6,182,212,0.12);
 }
-.book-card.cyan:hover      { border-color: var(--cyan); box-shadow: 0 8px 32px rgba(6,182,212,0.18); }
-.book-card.purple:hover    { border-color: var(--purple); box-shadow: 0 8px 32px rgba(139,92,246,0.18); }
-.book-card.red:hover       { border-color: var(--red); box-shadow: 0 8px 32px rgba(239,68,68,0.18); }
-.book-card.green:hover     { border-color: var(--green); box-shadow: 0 8px 32px rgba(16,185,129,0.18); }
-.book-card.orange:hover    { border-color: var(--orange); box-shadow: 0 8px 32px rgba(245,158,11,0.18); }
-.book-card.pink:hover      { border-color: var(--pink); box-shadow: 0 8px 32px rgba(236,72,153,0.18); }
-.book-card.gold:hover      { border-color: var(--gold); box-shadow: 0 8px 32px rgba(234,179,8,0.18); }
+.entry-card.cyan:hover      { border-color: var(--cyan); box-shadow: 0 8px 32px rgba(6,182,212,0.18); }
+.entry-card.purple:hover    { border-color: var(--purple); box-shadow: 0 8px 32px rgba(139,92,246,0.18); }
+.entry-card.green:hover     { border-color: var(--green); box-shadow: 0 8px 32px rgba(16,185,129,0.18); }
+.entry-card.red:hover       { border-color: var(--red); box-shadow: 0 8px 32px rgba(239,68,68,0.18); }
+.entry-card.orange:hover    { border-color: var(--orange); box-shadow: 0 8px 32px rgba(245,158,11,0.18); }
+.entry-card.pink:hover      { border-color: var(--pink); box-shadow: 0 8px 32px rgba(236,72,153,0.18); }
+.entry-card.gold:hover      { border-color: var(--gold); box-shadow: 0 8px 32px rgba(234,179,8,0.18); }
 
-.book-card .card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.book-card .card-icon {
-  font-size: 30px;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: rgba(6,182,212,0.08);
-  flex-shrink: 0;
-}
-.book-card.cyan .card-icon      { background: rgba(6,182,212,0.12); }
-.book-card.purple .card-icon    { background: rgba(139,92,246,0.12); }
-.book-card.red .card-icon       { background: rgba(239,68,68,0.12); }
-.book-card.green .card-icon     { background: rgba(16,185,129,0.12); }
-.book-card.orange .card-icon    { background: rgba(245,158,11,0.12); }
-.book-card.pink .card-icon      { background: rgba(236,72,153,0.12); }
-.book-card.gold .card-icon      { background: rgba(234,179,8,0.12); }
-
-.book-card .card-title {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--text);
-  flex: 1;
-}
-.book-card .card-desc {
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.6;
-  flex: 1;
-}
-.book-card .card-meta {
+/* Card header */
+.card-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 12px;
-  color: var(--text2);
 }
-.book-card .card-meta .page-count {
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: var(--surface2);
-  font-weight: 500;
-}
-.book-card .card-meta i { margin-right: 4px; }
-
-.book-card .card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.book-card .card-tag {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 500;
-}
-.book-card.cyan .card-tag       { background: rgba(6,182,212,0.12); color: var(--cyan); }
-.book-card.purple .card-tag     { background: rgba(139,92,246,0.12); color: var(--purple); }
-.book-card.red .card-tag        { background: rgba(239,68,68,0.12); color: var(--red); }
-.book-card.green .card-tag      { background: rgba(16,185,129,0.12); color: var(--green); }
-.book-card.orange .card-tag     { background: rgba(245,158,11,0.12); color: var(--orange); }
-.book-card.pink .card-tag       { background: rgba(236,72,153,0.12); color: var(--pink); }
-.book-card.gold .card-tag       { background: rgba(234,179,8,0.12); color: var(--gold); }
-
-.book-card .card-arrow {
-  text-align: right;
-  font-size: 18px;
-  color: var(--text2);
-  opacity: 0.4;
-  transition: all 0.3s;
-}
-.book-card:hover .card-arrow {
-  opacity: 1;
-}
-.book-card.cyan:hover .card-arrow       { color: var(--cyan); }
-.book-card.purple:hover .card-arrow     { color: var(--purple); }
-.book-card.red:hover .card-arrow        { color: var(--red); }
-.book-card.green:hover .card-arrow      { color: var(--green); }
-.book-card.orange:hover .card-arrow     { color: var(--orange); }
-.book-card.pink:hover .card-arrow       { color: var(--pink); }
-.book-card.gold:hover .card-arrow       { color: var(--gold); }
-
-/* Kanban section */
-.kanban-section { margin-bottom: 48px; }
-.kanban-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 16px;
-}
-.kanban-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px 20px;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.25s;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.kanban-card:hover {
-  border-color: var(--cyan);
-  background: var(--surface2);
-}
-.kanban-card .kanban-icon {
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
+.card-icon {
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   background: rgba(6,182,212,0.08);
   flex-shrink: 0;
 }
-.kanban-card .kanban-title {
-  font-size: 13px;
+.entry-card.cyan .card-icon      { background: rgba(6,182,212,0.12); }
+.entry-card.purple .card-icon    { background: rgba(139,92,246,0.12); }
+.entry-card.green .card-icon     { background: rgba(16,185,129,0.12); }
+.entry-card.red .card-icon       { background: rgba(239,68,68,0.12); }
+.entry-card.orange .card-icon    { background: rgba(245,158,11,0.12); }
+.entry-card.pink .card-icon      { background: rgba(236,72,153,0.12); }
+.entry-card.gold .card-icon      { background: rgba(234,179,8,0.12); }
+
+.card-title {
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
+  flex: 1;
 }
-.kanban-card .kanban-badge {
-  margin-left: auto;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  background: rgba(6,182,212,0.12);
+.card-desc {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* Entry links */
+.entry-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.entry-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.entry-link.book {
+  background: rgba(6,182,212,0.1);
   color: var(--cyan);
-  white-space: nowrap;
+  border: 1px solid rgba(6,182,212,0.2);
 }
+.entry-link.book:hover {
+  background: rgba(6,182,212,0.2);
+  border-color: var(--cyan);
+}
+.entry-link.kanban {
+  background: rgba(139,92,246,0.1);
+  color: var(--purple);
+  border: 1px solid rgba(139,92,246,0.2);
+}
+.entry-link.kanban:hover {
+  background: rgba(139,92,246,0.2);
+  border-color: var(--purple);
+}
+.entry-link i { font-size: 11px; }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 40px 20px;
+  padding: 32px 20px;
   margin-top: 20px;
   border-top: 1px solid var(--border);
   color: var(--text2);
@@ -287,9 +210,9 @@ footer a { color: var(--cyan); text-decoration: none; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .books-grid, .kanban-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 26px; }
-  .hero .stats-bar { flex-wrap: wrap; gap: 12px; }
+  .entries-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 24px; }
+  .hero .stats-bar { flex-wrap: wrap; gap: 10px; font-size: 11px; }
 }
 </style>
 </head>
@@ -299,80 +222,80 @@ footer a { color: var(--cyan); text-decoration: none; }
 <!-- Hero -->
 <div class="hero">
   <h1><i class="fas fa-book-open"></i> AnaReports 全景书合集</h1>
-  <p>7 套深度行业全景书 · 每套 30+ 页 · 赛博朋克深色主题 · ECharts 数据可视化</p>
+  <p>7 套深度行业全景书 · 218+ 页实操指南 · 赛博朋克深色主题 · ECharts 数据可视化</p>
   <div class="stats-bar">
     <span><strong>7</strong> 套全景书</span>
-    <span><strong>210+</strong> 页内容</span>
+    <span><strong>218+</strong> 页实操内容</span>
     <span><strong>8</strong> 份独立看板</span>
     <span><i class="fas fa-calendar"></i> <strong>2026.07</strong> 更新</span>
   </div>
 </div>
 
-<!-- Books Section -->
-<h2 class="section-title"><i class="fas fa-layer-group"></i> 全景书</h2>
-<div class="books-grid">
+<!-- Unified Entry Cards -->
+<div class="entries-grid">
 
-  <a class="book-card purple" href="creators/index.html">
+  <!-- 创作者经济 -->
+  <div class="entry-card purple">
     <div class="card-header">
       <div class="card-icon">🎨</div>
       <div class="card-title">创作者经济全景书</div>
     </div>
     <div class="card-desc">
-      十大赚钱行当深度解析，20+ 主流平台全景图谱，八大变现手段拆解，创作者收入金字塔与新手起步路线图。涵盖自媒体、游戏、网文、播客、课程、自由职业等全领域。
+      十大赚钱行当深度解析，20+ 主流平台全景图谱，八大变现手段拆解。涵盖自媒体、游戏、网文、播客、课程、自由职业等全领域。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">创作者经济</span>
-      <span class="card-tag">变现手段</span>
-      <span class="card-tag">平台图谱</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="creators/index.html"><i class="fas fa-book"></i> 全景书 · 32 页</a>
+      <a class="entry-link kanban" href="全球创作者经济全景赚钱行当与平台看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 32 页</span>
-      <span><i class="fas fa-chart-bar"></i> 10 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+  </div>
 
-  <a class="book-card cyan" href="money-laundering/index.html">
+  <!-- 创作者经济 AI -->
+  <div class="entry-card purple">
+    <div class="card-header">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">创作者经济 AI 时代</div>
+    </div>
+    <div class="card-desc">
+      AI 时代个人变现与版权保护全景图谱。创作者工具链、IP 保护指南、平台操作手册、收益路径详解。
+    </div>
+    <div class="entry-links">
+      <a class="entry-link book" href="creators/index.html"><i class="fas fa-book"></i> 全景书 · 32 页</a>
+      <a class="entry-link kanban" href="全球创作者经济AI时代个人变现与版权保护看板.html"><i class="fas fa-th-large"></i> 看板</a>
+    </div>
+  </div>
+
+  <!-- 地下钱庄与洗钱 -->
+  <div class="entry-card cyan">
     <div class="card-header">
       <div class="card-icon">🏦</div>
       <div class="card-title">地下钱庄与洗钱全景书</div>
     </div>
     <div class="card-desc">
-      地下钱庄对敲、哈瓦拉体系、虚拟币混币、贸易洗钱、离岸空壳公司——六大渠道全解析，含链上犯罪追踪、东南亚杀猪盘资金链路、反洗钱合规指南。
+      地下钱庄对敲、哈瓦拉体系、虚拟币混币、贸易洗钱、离岸空壳公司——六大渠道全解析，含链上犯罪追踪、反洗钱合规指南。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">反洗钱</span>
-      <span class="card-tag">地下钱庄</span>
-      <span class="card-tag">虚拟币</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="money-laundering/index.html"><i class="fas fa-book"></i> 全景书 · 31 页</a>
+      <a class="entry-link kanban" href="全球地下钱庄与洗钱全景风险看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 30 页</span>
-      <span><i class="fas fa-chart-bar"></i> 8 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+  </div>
 
-  <a class="book-card green" href="guangzhou/index.html">
+  <!-- 广州 -->
+  <div class="entry-card green">
     <div class="card-header">
       <div class="card-icon">🍜</div>
       <div class="card-title">广州吃喝玩乐 + 供应链全景书</div>
     </div>
     <div class="card-desc">
-      千年商都美食地图、供应链批发市场（街道级详解）、跨境电商基地、八大品类市场深度、六大城区商贸格局、广交会与大湾区协同。
+      千年商都美食地图、供应链批发市场（街道级详解）、跨境电商基地、八大品类市场深度、广交会与大湾区协同。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">美食</span>
-      <span class="card-tag">供应链</span>
-      <span class="card-tag">跨境电商</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="guangzhou/index.html"><i class="fas fa-book"></i> 全景书 · 32 页</a>
+      <a class="entry-link kanban" href="广州吃喝玩乐+供应链全景看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 31 页</span>
-      <span><i class="fas fa-chart-bar"></i> 9 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+  </div>
 
-  <a class="book-card red" href="ev-motorcycle/index.html">
+  <!-- 新能源汽车 -->
+  <div class="entry-card red">
     <div class="card-header">
       <div class="card-icon">🚗</div>
       <div class="card-title">新能源汽车与电动摩托车全产业链书</div>
@@ -380,19 +303,14 @@ footer a { color: var(--cyan); text-decoration: none; }
     <div class="card-desc">
       新能源整车产业链、电池/电机/电控核心技术、电动摩托车出海战略、全球市场竞争格局、智能化发展趋势与政策环境分析。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">新能源车</span>
-      <span class="card-tag">电动摩托</span>
-      <span class="card-tag">全产业链</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="ev-motorcycle/index.html"><i class="fas fa-book"></i> 全景书 · 30 页</a>
+      <a class="entry-link kanban" href="中国新能源汽车与电动摩托车全产业链全景看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 29 页</span>
-      <span><i class="fas fa-chart-bar"></i> 11 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+  </div>
 
-  <a class="book-card orange" href="pharma/index.html">
+  <!-- 医药产业 -->
+  <div class="entry-card orange">
     <div class="card-header">
       <div class="card-icon">💊</div>
       <div class="card-title">中国医药产业全球竞争力与中药发展全景书</div>
@@ -400,19 +318,14 @@ footer a { color: var(--cyan); text-decoration: none; }
     <div class="card-desc">
       全球医药产业格局、中国医药竞争力分析、中药现代化发展路径、十大前沿医药赛道深度、原料药霸权、创新药管线、CXO 与 GLP-1 赛道。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">医药产业</span>
-      <span class="card-tag">中药</span>
-      <span class="card-tag">全球化</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="pharma/index.html"><i class="fas fa-book"></i> 全景书 · 31 页</a>
+      <a class="entry-link kanban" href="中国医药产业全球竞争力与中药发展全景看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 31 页</span>
-      <span><i class="fas fa-chart-bar"></i> 10 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+  </div>
 
-  <a class="book-card pink" href="china-japan/index.html">
+  <!-- 中日经济 -->
+  <div class="entry-card pink">
     <div class="card-header">
       <div class="card-icon">📊</div>
       <div class="card-title">中日经济周期对比与个人投资出路书</div>
@@ -420,19 +333,14 @@ footer a { color: var(--cyan); text-decoration: none; }
     <div class="card-desc">
       中国经济周期演进、日本失去的三十年经验教训、GDP/工资/资产价格数据对比、政策应对时间线、个人投资出路与资产配置策略。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">经济周期</span>
-      <span class="card-tag">中日对比</span>
-      <span class="card-tag">投资</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="china-japan/index.html"><i class="fas fa-book"></i> 全景书 · 31 页</a>
+      <a class="entry-link kanban" href="中日经济周期对比与个人投资出路看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 30 页</span>
-      <span><i class="fas fa-chart-bar"></i> 12 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+  </div>
 
-  <a class="book-card gold" href="smart-devices/index.html">
+  <!-- 智能设备 -->
+  <div class="entry-card gold">
     <div class="card-header">
       <div class="card-icon">⌚</div>
       <div class="card-title">智能手环与智能药盒产品开发全景书</div>
@@ -440,78 +348,16 @@ footer a { color: var(--cyan); text-decoration: none; }
     <div class="card-desc">
       智能手环产品规划、智能药盒技术方案、健康监测功能设计、产品开发全流程、市场竞争分析、AI 算法应用与商业化策略。
     </div>
-    <div class="card-tags">
-      <span class="card-tag">智能硬件</span>
-      <span class="card-tag">产品开发</span>
-      <span class="card-tag">健康</span>
+    <div class="entry-links">
+      <a class="entry-link book" href="smart-devices/index.html"><i class="fas fa-book"></i> 全景书 · 31 页</a>
+      <a class="entry-link kanban" href="智能手环与智能药盒产品开发全景看板.html"><i class="fas fa-th-large"></i> 看板</a>
     </div>
-    <div class="card-meta">
-      <span class="page-count"><i class="fas fa-file-alt"></i> 30 页</span>
-      <span><i class="fas fa-chart-bar"></i> 9 图表</span>
-    </div>
-    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
-
-</div>
-
-<!-- Kanban Section -->
-<div class="kanban-section">
-  <h2 class="section-title"><i class="fas fa-th-large"></i> 独立看板（单页版）</h2>
-  <div class="kanban-grid">
-
-    <a class="kanban-card" href="全球创作者经济全景赚钱行当与平台看板.html">
-      <div class="kanban-icon">💰</div>
-      <div class="kanban-title">全球创作者经济全景看板 — 十大赚钱行当·八大变现手段</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="广州吃喝玩乐+供应链全景看板.html">
-      <div class="kanban-icon">🍜</div>
-      <div class="kanban-title">广州吃喝玩乐 + 供应链全景看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="全球地下钱庄与洗钱全景风险看板.html">
-      <div class="kanban-icon">🏦</div>
-      <div class="kanban-title">全球地下钱庄与洗钱全景风险看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="中国医药产业全球竞争力与中药发展全景看板.html">
-      <div class="kanban-icon">💊</div>
-      <div class="kanban-title">中国医药产业全球竞争力与中药发展全景看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="中国新能源汽车与电动摩托车全产业链全景看板.html">
-      <div class="kanban-icon">🚗</div>
-      <div class="kanban-title">中国新能源汽车与电动摩托车全产业链全景看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="中日经济周期对比与个人投资出路看板.html">
-      <div class="kanban-icon">📊</div>
-      <div class="kanban-title">中日经济周期对比与个人投资出路看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="全球创作者经济AI时代个人变现与版权保护看板.html">
-      <div class="kanban-icon">🤖</div>
-      <div class="kanban-title">全球创作者经济 AI 时代个人变现与版权保护看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
-    <a class="kanban-card" href="智能手环与智能药盒产品开发全景看板.html">
-      <div class="kanban-icon">⌚</div>
-      <div class="kanban-title">智能手环与智能药盒产品开发全景看板</div>
-      <span class="kanban-badge">看板</span>
-    </a>
-
   </div>
+
 </div>
 
 <footer>
-  <p>AnaReports · 全景书合集 &nbsp;|&nbsp; 7 套全景书 · 210+ 页内容 · 8 份独立看板 &nbsp;|&nbsp; 2026</p>
+  <p>AnaReports · 全景书合集 &nbsp;|&nbsp; 7 套全景书 · 218+ 页内容 · 8 份看板 &nbsp;|&nbsp; 2026</p>
   <p style="margin-top:8px;"><a href="https://github.com/501953807/anareports" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a></p>
 </footer>
 
