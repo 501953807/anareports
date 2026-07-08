@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中华古典学术理论全景看板</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="traditional-academics/../common/js/echarts.inline.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e17;--surface:#111827;--surface-hover:#1a2332;
+  --border:#1e2d3d;--cyan:#06b6d4;--purple:#8b5cf6;--gold:#eab308;
+  --green:#10b981;--red:#ef4444;--orange:#f97316;--pink:#ec4899;
+  --text:#e2e8f0;--text-dim:#94a3b8;--text-bright:#f8fafc;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+  background-image:
+    radial-gradient(ellipse at 10% 20%,rgba(6,182,212,.06) 0%,transparent 50%),
+    radial-gradient(ellipse at 90% 80%,rgba(139,92,246,.06) 0%,transparent 50%);
+  min-height:100vh;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;padding:3rem 1rem 2rem;position:relative;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(6,182,212,.08) 0%,transparent 100%);
+}
+.header h1{
+  font-size:2.4rem;font-weight:700;letter-spacing:.15em;
+  background:linear-gradient(135deg,var(--cyan),var(--purple),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:.5rem;
+}
+.header .subtitle{
+  font-size:1rem;color:var(--text-dim);letter-spacing:.3em;
+}
+.header .glow-line{
+  width:200px;height:2px;margin:1.5rem auto 0;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),var(--gold),transparent);
+  border-radius:2px;
+}
+
+/* ===== STATS BAR ===== */
+.stats-bar{
+  display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
+  padding:1.5rem 1rem;margin:0 auto;max-width:900px;
+}
+.stat-item{
+  flex:1;min-width:120px;text-align:center;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:1rem .5rem;
+  transition:transform .2s,border-color .2s;
+}
+.stat-item:hover{transform:translateY(-2px);border-color:var(--cyan)}
+.stat-icon{font-size:1.5rem;margin-bottom:.4rem;color:var(--cyan)}
+.stat-icon.purple{color:var(--purple)}.stat-icon.gold{color:var(--gold)}
+.stat-icon.green{color:var(--green)}.stat-icon.pink{color:var(--pink)}
+.stat-value{font-size:1.8rem;font-weight:700;color:var(--text-bright);display:block}
+.stat-label{font-size:.75rem;color:var(--text-dim);letter-spacing:.1em}
+
+/* ===== MODULE GRID ===== */
+.modules-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;padding:1.5rem;max-width:1400px;margin:0 auto;
+}
+@media(max-width:900px){.modules-grid{grid-template-columns:1fr}}
+
+.module-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.module-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 30px rgba(6,182,212,.12),0 0 0 1px var(--cyan);
+}
+.module-card:nth-child(2):hover{box-shadow:0 8px 30px rgba(139,92,246,.12),0 0 0 1px var(--purple)}
+.module-card:nth-child(3):hover{box-shadow:0 8px 30px rgba(234,179,8,.12),0 0 0 1px var(--gold)}
+.module-card:nth-child(4):hover{box-shadow:0 8px 30px rgba(16,185,129,.12),0 0 0 1px var(--green)}
+.module-card:nth-child(5):hover{box-shadow:0 8px 30px rgba(249,115,22,.12),0 0 0 1px var(--orange)}
+.module-card:nth-child(6):hover{box-shadow:0 8px 30px rgba(236,72,153,.12),0 0 0 1px var(--pink)}
+
+.module-header{
+  padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;
+  border-bottom:1px solid var(--border);
+}
+.module-icon{
+  width:42px;height:42px;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;font-size:1.2rem;flex-shrink:0;
+}
+.module-icon.cyan{background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid rgba(6,182,212,.3)}
+.module-icon.purple{background:rgba(139,92,246,.15);color:var(--purple);border:1px solid rgba(139,92,246,.3)}
+.module-icon.gold{background:rgba(234,179,8,.15);color:var(--gold);border:1px solid rgba(234,179,8,.3)}
+.module-icon.green{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.module-icon.orange{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.3)}
+.module-icon.pink{background:rgba(236,72,153,.15);color:var(--pink);border:1px solid rgba(236,72,153,.3)}
+
+.module-title{font-size:1.15rem;font-weight:600;color:var(--text-bright)}
+.module-badge{
+  margin-left:auto;font-size:.7rem;padding:.2rem .6rem;
+  border-radius:20px;background:rgba(255,255,255,.06);color:var(--text-dim);
+  letter-spacing:.05em;
+}
+.chart-container{width:100%;height:400px}
+
+/* Key concept cards */
+.concept-cards{
+  display:flex;flex-wrap:wrap;gap:.5rem;padding:1rem 1.25rem .25rem;
+}
+.concept-tag{
+  font-size:.75rem;padding:.3rem .7rem;border-radius:8px;
+  border:1px solid;background:rgba(255,255,255,.03);
+  white-space:nowrap;
+}
+.concept-tag.cyan{border-color:rgba(6,182,212,.3);color:var(--cyan)}
+.concept-tag.purple{border-color:rgba(139,92,246,.3);color:var(--purple)}
+.concept-tag.gold{border-color:rgba(234,179,8,.3);color:var(--gold)}
+.concept-tag.green{border-color:rgba(16,185,129,.3);color:var(--green)}
+.concept-tag.orange{border-color:rgba(249,115,22,.3);color:var(--orange)}
+.concept-tag.pink{border-color:rgba(236,72,153,.3);color:var(--pink)}
+
+/* ===== SECTION TITLE ===== */
+.section-title{
+  text-align:center;padding:2.5rem 1rem 1.5rem;
+  font-size:1.6rem;font-weight:700;color:var(--text-bright);
+  letter-spacing:.1em;position:relative;
+}
+.section-title::after{
+  content:'';display:block;width:60px;height:3px;margin:1rem auto 0;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:3px;
+}
+
+/* ===== COMPARISON TABLE ===== */
+.table-wrapper{
+  max-width:1400px;margin:0 auto 2rem;padding:0 1.5rem;
+  overflow-x:auto;
+}
+.comparison-table{
+  width:100%;border-collapse:collapse;font-size:.85rem;
+  border-radius:12px;overflow:hidden;
+}
+.comparison-table thead th{
+  background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(139,92,246,.12));
+  color:var(--text-bright);padding:.9rem .8rem;text-align:center;
+  font-weight:600;letter-spacing:.05em;border-bottom:2px solid var(--border);
+  white-space:nowrap;
+}
+.comparison-table tbody td{
+  padding:.75rem .8rem;text-align:center;border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
+.comparison-table tbody tr{transition:background .2s}
+.comparison-table tbody tr:hover{background:rgba(6,182,212,.05)}
+.comparison-table td:first-child{
+  font-weight:600;color:var(--text-bright);white-space:nowrap;
+}
+.radar-container{width:100%;height:520px;margin:0 auto 2rem;max-width:1200px}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;padding:2rem 1rem 3rem;
+  border-top:1px solid var(--border);margin-top:2rem;
+  background:linear-gradient(0deg,rgba(6,182,212,.04) 0%,transparent 100%);
+}
+.footer a{
+  color:var(--cyan);text-decoration:none;font-size:.95rem;
+  border:1px solid rgba(6,182,212,.3);padding:.5rem 1.5rem;
+  border-radius:10px;transition:all .2s;display:inline-block;
+}
+.footer a:hover{background:rgba(6,182,212,.1);border-color:var(--cyan)}
+.footer p{color:var(--text-dim);font-size:.75rem;margin-top:1rem}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:rgba(6,182,212,.3)}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <h1>中华古典学术理论全景看板</h1>
+  <p class="subtitle">六大理论体系 &middot; 31章节 &middot; 全景可视化</p>
+  <div class="glow-line"></div>
+</header>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="stat-item"><i class="fas fa-brain stat-icon"></i><span class="stat-value">6</span><span class="stat-label">大学术体系</span></div>
+  <div class="stat-item"><i class="fas fa-layer-group stat-icon purple"></i><span class="stat-value">31</span><span class="stat-label">章节</span></div>
+  <div class="stat-item"><i class="fas fa-file-alt stat-icon gold"></i><span class="stat-value">32</span><span class="stat-label">页面</span></div>
+  <div class="stat-item"><i class="fas fa-chart-line stat-icon green"></i><span class="stat-value">32+</span><span class="stat-label">图表</span></div>
+  <div class="stat-item"><i class="fas fa-clock stat-icon pink"></i><span class="stat-value">5000+</span><span class="stat-label">年历史</span></div>
+</div>
+
+<!-- ===== MODULES ===== -->
+<div class="modules-grid">
+
+<!-- 1. 八卦 -->
+<div class="module-card">
+  <div class="module-header">
+    <div class="module-icon cyan"><i class="fas fa-yin-yang"></i></div>
+    <span class="module-title">一、八卦理论体系</span>
+    <span class="module-badge">5章节</span>
+  </div>
+  <div id="chart-bagua" class="chart-container"></div>
+  <div class="concept-cards">
+    <span class="concept-tag cyan">乾天</span>
+    <span class="concept-tag cyan">坤地</span>
+    <span class="concept-tag cyan">震雷</span>
+    <span class="concept-tag cyan">巽风</span>
+    <span class="concept-tag cyan">坎水</span>
+    <span class="concept-tag cyan">离火</span>
+    <span class="concept-tag cyan">艮山</span>
+    <span class="concept-tag cyan">兑泽</span>
+  </div>
+</div>
+
+<!-- 2. 阴阳五行 -->
+<div class="module-card">
+  <div class="module-header">
+    <div class="module-icon gold"><i class="fas fa-fire-alt"></i></div>
+    <span class="module-title">二、阴阳五行体系</span>
+    <span class="module-badge">5章节</span>
+  </div>
+  <div id="chart-yinyang-wuxing" class="chart-container"></div>
+  <div class="concept-cards">
+    <span class="concept-tag gold">阴</span><span class="concept-tag gold">阳</span>
+    <span class="concept-tag gold">木</span><span class="concept-tag gold">火</span>
+    <span class="concept-tag gold">土</span><span class="concept-tag gold">金</span>
+    <span class="concept-tag gold">水</span>
+  </div>
+</div>
+
+<!-- 3. 中医基础 -->
+<div class="module-card">
+  <div class="module-header">
+    <div class="module-icon green"><i class="fas fa-heartbeat"></i></div>
+    <span class="module-title">三、中医理论基础</span>
+    <span class="module-badge">6章节</span>
+  </div>
+  <div id="chart-tcm" class="chart-container"></div>
+  <div class="concept-cards">
+    <span class="concept-tag green">藏象</span><span class="concept-tag green">经络</span>
+    <span class="concept-tag green">气血津液</span><span class="concept-tag green">辨证论治</span>
+    <span class="concept-tag green">病因病机</span><span class="concept-tag green">养生保健</span>
+  </div>
+</div>
+
+<!-- 4. 易经 -->
+<div class="module-card">
+  <div class="module-header">
+    <div class="module-icon purple"><i class="fas fa-book-open"></i></div>
+    <span class="module-title">四、易经卦象体系</span>
+    <span class="module-badge">5章节</span>
+  </div>
+  <div id="chart-yijing" class="chart-container"></div>
+  <div class="concept-cards">
+    <span class="concept-tag purple">先天八卦</span><span class="concept-tag purple">后天八卦</span>
+    <span class="concept-tag purple">六十四卦</span><span class="concept-tag purple">卦爻辞</span>
+    <span class="concept-tag purple">十翼</span>
+  </div>
+</div>
+
+<!-- 5. 道家 -->
+<div class="module-card">
+  <div class="module-header">
+    <div class="module-icon orange"><i class="fas fa-feather-alt"></i></div>
+    <span class="module-title">五、道家思想体系</span>
+    <span class="module-badge">5章节</span>
+  </div>
+  <div id="chart-daoshu" class="chart-container"></div>
+  <div class="concept-cards">
+    <span class="concept-tag orange">道</span><span class="concept-tag orange">无为</span>
+    <span class="concept-tag orange">自然</span><span class="concept-tag orange">虚静</span>
+    <span class="concept-tag orange">精气神</span><span class="concept-tag orange">内丹</span>
+  </div>
+</div>
+
+<!-- 6. 儒家 -->
+<div class="module-card">
+  <div class="module-header">
+    <div class="module-icon pink"><i class="fas fa-scroll"></i></div>
+    <span class="module-title">六、儒家伦理体系</span>
+    <span class="module-badge">5章节</span>
+  </div>
+  <div id="chart-rujia" class="chart-container"></div>
+  <div class="concept-cards">
+    <span class="concept-tag pink">仁</span><span class="concept-tag pink">义</span>
+    <span class="concept-tag pink">礼</span><span class="concept-tag pink">智</span>
+    <span class="concept-tag pink">信</span><span class="concept-tag pink">孝悌</span>
+    <span class="concept-tag pink">中庸</span>
+  </div>
+</div>
+
+</div><!-- .modules-grid -->
+
+<!-- ===== RADAR CHART ===== -->
+<h2 class="section-title">六大学术体系多维对比</h2>
+<div id="chart-radar" class="radar-container"></div>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<div class="table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>学术体系</th><th>起源时间</th><th>核心概念</th><th>经典文本</th>
+        <th>应用领域</th><th>哲学属性</th><th>现代价值</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i class="fas fa-yin-yang" style="color:var(--cyan);margin-right:6px"></i>八卦</td>
+        <td>约前3000年</td><td>阴阳爻、八种自然象征</td><td>易传</td><td>占卜、风水、军事</td>
+        <td>象数哲学</td><td>系统思维、分类学</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-fire-alt" style="color:var(--gold);margin-right:6px"></i>阴阳五行</td>
+        <td>约前1000年</td><td>阴阳对立、五行生克</td><td>尚书&middot;洪范</td><td>中医、历法、命理</td>
+        <td>辩证哲学</td><td>整体观、平衡思维</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-heartbeat" style="color:var(--green);margin-right:6px"></i>中医基础</td>
+        <td>约前300年</td><td>藏象、经络、气血</td><td>黄帝内经</td><td>医疗、养生</td>
+        <td>生命哲学</td><td>预防医学、自然疗法</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-book-open" style="color:var(--purple);margin-right:6px"></i>易经</td>
+        <td>约前1000年</td><td>六十四卦、卦爻辞</td><td>周易</td><td>占卜、哲学、决策</td>
+        <td>变化哲学</td><td>决策思维、危机管理</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-feather-alt" style="color:var(--orange);margin-right:6px"></i>道家</td>
+        <td>约前400年</td><td>道、无为、自然</td><td>道德经、庄子</td><td>修身、养生、政治</td>
+        <td>自然哲学</td><td>减压方法、生态观</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-scroll" style="color:var(--pink);margin-right:6px"></i>儒家</td>
+        <td>约前500年</td><td>仁、义、礼、智、信</td><td>论语、孟子</td><td>教育、政治、伦理</td>
+        <td>伦理哲学</td><td>道德教育、领导力</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <a href="traditional-academics/index.html">&#128213; 返回全书封面</a>
+  <p>中华古典学术理论全景书 &middot; 六大理论体系全景可视化看板</p>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+
+  // Shared dark theme base
+  const themeBg='#0a0e17';
+  const textStyle={color:'#94a3b8',fontSize:12};
+
+  // Chart 1: Bagua graph
+  (function(){
+    var dom=document.getElementById('chart-bagua');
+    if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'item'},
+      series:[{
+        type:'graph',layout:'none',
+        roam:true,
+        categories:[
+          {name:'八方',itemStyle:{color:'#06b6d4'}},
+          {name:'属性',itemStyle:{color:'#eab308'}},
+          {name:'宫位',itemStyle:{color:'#8b5cf6'}}
+        ],
+        data:[
+          {name:'乾',value:'天',x:300,y:80,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'坤',value:'地',x:300,y:500,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'震',value:'雷',x:100,y:220,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'巽',value:'风',x:500,y:220,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'坎',value:'水',x:100,y:350,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'离',value:'火',x:500,y:350,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'艮',value:'山',x:140,y:460,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'兑',value:'泽',x:460,y:460,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+           label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
+          {name:'先天',value:'',x:300,y:290,itemStyle:{color:'#eab308'},symbolSize:40,symbol:'rect',category:1,
+           label:{show:true,fontSize:13,color:'#eab308',fontWeight:'bold'}},
+          {name:'后天',value:'',x:50,y:290,itemStyle:{color:'#eab308'},symbolSize:40,symbol:'rect',category:1,
+           label:{show:true,fontSize:13,color:'#eab308',fontWeight:'bold'}},
+        ],
+        links:[
+          {source:'乾',target:'震',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'乾',target:'兑',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'坤',target:'艮',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'坤',target:'巽',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'震',target:'坎',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'巽',target:'离',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'坎',target:'艮',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'离',target:'兑',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'先天',target:'乾',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'先天',target:'坤',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'先天',target:'离',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'先天',target:'坎',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'震',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'巽',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'坤',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'兑',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+        ],
+        label:{position:'inside',formatter:'{b}\\n{c}',color:'#f8fafc',fontSize:11},
+      }]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Chart 2: Yin-Yang Five Elements
+  (function(){
+    var dom=document.getElementById('chart-yinyang-wuxing');
+    if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'item'},
+      legend:{data:['阴阳','相生','相克'],top:5,textStyle:textStyle,itemWidth:12,itemHeight:8},
+      series:[
+        // Yin-Yang symbol
+        {
+          type:'pie',radius:['0%','28%'],center:['50%','30%'],
+          avoidLabelOverlap:false,
+          itemStyle:{borderColor:themeBg,borderWidth:3},
+          label:{show:true,position:'inside',formatter:'阴阳',color:'#f8fafc',fontSize:14,fontWeight:'bold'},
+          data:[
+            {value:1,name:'阳',itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,1,[{offset:0,color:'#eab308'},{offset:1,color:'#f97316'}])}},
+            {value:1,name:'阴',itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,1,[{offset:0,color:'#64748b'},{offset:1,color:'#334155'}])}}
+          ]
+        },
+        // Five elements cycle
+        {
+          type:'graph',layout:'none',roam:true,
+          categories:[{name:'相生'},{name:'相克'}],
+          data:[
+            {name:'木',x:180,y:130,itemStyle:{color:'#10b981'},label:{show:true,fontSize:13,color:'#10b981',fontWeight:'bold'}},
+            {name:'火',x:400,y:130,itemStyle:{color:'#ef4444'},label:{show:true,fontSize:13,color:'#ef4444',fontWeight:'bold'}},
+            {name:'土',x:320,y:290,itemStyle:{color:'#eab308'},label:{show:true,fontSize:13,color:'#eab308',fontWeight:'bold'}},
+            {name:'金',x:220,y:300,itemStyle:{color:'#94a3b8'},label:{show:true,fontSize:13,color:'#94a3b8',fontWeight:'bold'}},
+            {name:'水',x:120,y:220,itemStyle:{color:'#06b6d4'},label:{show:true,fontSize:13,color:'#06b6d4',fontWeight:'bold'}},
+          ],
+          links:[
+            {source:'木',target:'火',lineStyle:{color:'#10b981',width:3,type:'solid',curveness:0.2}},
+            {source:'火',target:'土',lineStyle:{color:'#10b981',width:3,type:'solid',curveness:0.2}},
+            {source:'土',target:'金',lineStyle:{color:'#10b981',width:3,type:'solid',curveness:0.2}},
+            {source:'金',target:'水',lineStyle:{color:'#10b981',width:3,type:'solid',curveness:0.2}},
+            {source:'水',target:'木',lineStyle:{color:'#10b981',width:3,type:'solid',curveness:0.2}},
+            // 相克
+            {source:'木',target:'土',lineStyle:{color:'#ef4444',width:2,type:'dotted',curveness:0.4}},
+            {source:'土',target:'水',lineStyle:{color:'#ef4444',width:2,type:'dotted',curveness:0.4}},
+            {source:'水',target:'火',lineStyle:{color:'#ef4444',width:2,type:'dotted',curveness:0.4}},
+            {source:'火',target:'金',lineStyle:{color:'#ef4444',width:2,type:'dotted',curveness:0.4}},
+            {source:'金',target:'木',lineStyle:{color:'#ef4444',width:2,type:'dotted',curveness:0.4}},
+          ]
+        }
+      ]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Chart 3: TCM Zang-Fu
+  (function(){
+    var dom=document.getElementById('chart-tcm');
+    if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{},
+      series:[{
+        type:'graph',layout:'force',force:{repulsion:300,edgeLength:120,gravity:0.1},
+        data:[
+          {name:'心',value:'君主之官',x:320,y:90,itemStyle:{color:'#ef4444'},label:{show:true,fontSize:13,fontWeight:'bold',color:'#ef4444'},symbolSize:60},
+          {name:'肝',value:'将军之官',x:120,y:180,itemStyle:{color:'#10b981'},label:{show:true,fontSize:13,fontWeight:'bold',color:'#10b981'},symbolSize:60},
+          {name:'脾',value:'仓廪之官',x:320,y:220,itemStyle:{color:'#eab308'},label:{show:true,fontSize:13,fontWeight:'bold',color:'#eab308'},symbolSize:60},
+          {name:'肺',value:'相傅之官',x:520,y:180,itemStyle:{color:'#94a3b8'},label:{show:true,fontSize:13,fontWeight:'bold',color:'#94a3b8'},symbolSize:60},
+          {name:'肾',value:'作强之官',x:320,y:350,itemStyle:{color:'#06b6d4'},label:{show:true,fontSize:13,fontWeight:'bold',color:'#06b6d4'},symbolSize:60},
+          {name:'胆',value:'中正之官',x:80,y:310,itemStyle:{color:'#8b5cf6'},label:{show:true,fontSize:12,color:'#8b5cf6'},symbolSize:50},
+          {name:'胃',value:'五谷之府',x:170,y:380,itemStyle:{color:'#8b5cf6'},label:{show:true,fontSize:12,color:'#8b5cf6'},symbolSize:50},
+          {name:'大肠',value:'传导之官',x:470,y:380,itemStyle:{color:'#8b5cf6'},label:{show:true,fontSize:12,color:'#8b5cf6'},symbolSize:50},
+          {name:'小肠',value:'受盛之官',x:560,y:310,itemStyle:{color:'#8b5cf6'},label:{show:true,fontSize:12,color:'#8b5cf6'},symbolSize:50},
+          {name:'膀胱',value:'州都之官',x:400,y:460,itemStyle:{color:'#8b5cf6'},label:{show:true,fontSize:12,color:'#8b5cf6'},symbolSize:50},
+          {name:'三焦',value:'决渎之官',x:240,y:460,itemStyle:{color:'#8b5cf6'},label:{show:true,fontSize:12,color:'#8b5cf6'},symbolSize:50},
+        ],
+        links:[
+          {source:'心',target:'小肠',lineStyle:{width:1,type:'dashed',color:'#64748b'}},
+          {source:'肝',target:'胆',lineStyle:{width:1,type:'dashed',color:'#64748b'}},
+          {source:'脾',target:'胃',lineStyle:{width:1,type:'dashed',color:'#64748b'}},
+          {source:'肺',target:'大肠',lineStyle:{width:1,type:'dashed',color:'#64748b'}},
+          {source:'肾',target:'膀胱',lineStyle:{width:1,type:'dashed',color:'#64748b'}},
+          {source:'肾',target:'三焦',lineStyle:{width:1,type:'dashed',color:'#64748b'}},
+          // Five element generation
+          {source:'肝',target:'心',lineStyle:{width:2.5,color:'#10b981',curveness:0.15}},
+          {source:'心',target:'脾',lineStyle:{width:2.5,color:'#ef4444',curveness:0.15}},
+          {source:'脾',target:'肺',lineStyle:{width:2.5,color:'#eab308',curveness:0.15}},
+          {source:'肺',target:'肾',lineStyle:{width:2.5,color:'#94a3b8',curveness:0.15}},
+          {source:'肾',target:'肝',lineStyle:{width:2.5,color:'#06b6d4',curveness:0.15}},
+        ],
+        label:{fontSize:11,position:'bottom'}
+      }]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Chart 4: Yi Jing 64 hexagrams tree
+  (function(){
+    var dom=document.getElementById('chart-yijing');
+    if(!dom||typeof echarts==='undefined')return;
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'item',formatter:'{b}'},
+      series:[{
+        type:'tree',
+        data:[{
+          name:'六十四卦',children:[
+            {
+              name:'上卦乾',children:[
+                {name:'乾为天'},{name:'天泽履'},{name:'天火同人'},{name:'天雷无妄'},
+                {name:'天水讼'},{name:'天山遁'},{name:'天地否'}
+              ]
+            },
+            {
+              name:'上卦坤',children:[
+                {name:'坤为地'},{name:'地雷复'},{name:'地泽临'},{name:'地天泰'},
+                {name:'地火明夷'},{name:'地山谦'},{name:'地雷豫'}
+              ]
+            },
+            {
+              name:'上卦震',children:[
+                {name:'震为雷'},{name:'火雷噬嗑'},{name:'山雷颐'},{name:'雷天大壮'},
+                {name:'泽雷随'},{name:'地雷复'},{name:'水雷屯'}
+              ]
+            },
+            {
+              name:'上卦巽',children:[
+                {name:'巽为风'},{name:'风天小畜'},{name:'风火家人'},{name:'风雷益'},
+                {name:'天风姤'},{name:'泽风大过'},{name:'山水蒙'}
+              ]
+            },
+            {
+              name:'上卦坎',children:[
+                {name:'坎为水'},{name:'水泽节'},{name:'水火既济'},{name:'水雷屯'},
+                {name:'风水涣'},{name:'水山蹇'},{name:'地水师'}
+              ]
+            },
+            {
+              name:'上卦离',children:[
+                {name:'离为火'},{name:'火泽睽'},{name:'火山旅'},{name:'火雷噬嗑'},
+                {name:'风火家人'},{name:'火水未济'},{name:'大地豫'}
+              ]
+            },
+            {
+              name:'上卦艮',children:[
+                {name:'艮为山'},{name:'山泽损'},{name:'山火贲'},{name:'山雷颐'},
+                {name:'风山渐'},{name:'地山谦'},{name:'水山蹇'}
+              ]
+            },
+            {
+              name:'上卦兑',children:[
+                {name:'兑为泽'},{name:'泽天夬'},{name:'泽火革'},{name:'泽雷随'},
+                {name:'泽风大过'},{name:'泽山咸'},{name:'水泽节'}
+              ]
+            }
+          ]
+        }],
+        orient:'vertical',
+        top:'1%',left:'35%',bottom:'1%',right:'2%',
+        symbolSize:14,
+        initialTreeDepth:-1,
+        label:{fontSize:11,color:'#94a3b8',backgroundColor:'rgba(17,24,39,.8)',borderRadius:4,padding:[3,6]},
+        leafNodeSymbolSize:10,
+        lineStyle:{color:'#1e2d3d',width:1.5},
+        emphasis:{focus:'descendant',label:{color:'#06b6d4'}},
+        expandAndCollapse:true,itemGap:2
+      }]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Chart 5: Daoism lineage tree
+  (function(){
+    var dom=document.getElementById('chart-daoshu');
+    if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'item',formatter:'{b}'},
+      series:[{
+        type:'tree',
+        data:[{
+          name:'道家思想谱系',
+          children:[
+            {
+              name:'先秦道家',children:[
+                {
+                  name:'老子（李耳）',children:[
+                    {name:'《道德经》',itemStyle:{color:'#f97316'}},
+                    {name:'道可道非常道',itemStyle:{color:'#f97316'}},
+                    {name:'无为而治',itemStyle:{color:'#f97316'}},
+                    {name:'反者道之动',itemStyle:{color:'#f97316'}}
+                  ]
+                },
+                {
+                  name:'庄子（庄周）',children:[
+                    {name:'《南华经》',itemStyle:{color:'#f97316'}},
+                    {name:'逍遥游',itemStyle:{color:'#f97316'}},
+                    {name:'齐物论',itemStyle:{color:'#f97316'}},
+                    {name:'庖丁解牛',itemStyle:{color:'#f97316'}}
+                  ]
+                },
+                {
+                  name:'列子（列御寇）',children:[
+                    {name:'《冲虚真经》',itemStyle:{color:'#f97316'}},
+                    {name:'愚公移山',itemStyle:{color:'#f97316'}},
+                    {name:'朝闻道',itemStyle:{color:'#f97316'}}
+                  ]
+                }
+              ]
+            },
+            {
+              name:'汉魏道家',children:[
+                {name:'黄老学派',children:[{name:'黄帝四经'},{name:'老子指归'}]},
+                {name:'道教兴起',children:[{name:'张道陵'},{name:'太平经'},{name:'周易参同契'}]}
+              ]
+            },
+            {
+              name:'唐宋道家',children:[
+                {name:'重玄学',children:[{name:'成玄英'},{name:'李荣'}]},
+                {name:'内丹学',children:[{name:'吕洞宾'},{name:'张伯端'},{name:'悟真篇'}]}
+              ]
+            },
+            {
+              name:'近现代',children:[
+                {name:'陈鼓应',children:[{name:'老子今注今译'}]},
+                {name:'南怀瑾',children:[{name:'道家与道教'}]},
+                {name:'任继愈',children:[{name:'中国道教史'}]}
+              ]
+            }
+          ]
+        }],
+        orient:'horizontal',
+        top:'5%',left:'3%',bottom:'5%',right:'15%',
+        symbolSize:8,
+        initialTreeDepth:3,
+        label:{fontSize:11,color:'#e2e8f0',backgroundColor:'rgba(17,24,39,.9)',borderRadius:4,padding:[2,5]},
+        lineStyle:{color:'#1e2d3d',width:1.5},
+        emphasis:{focus:'descendant',label:{color:'#f97316'}},
+        expandAndCollapse:true,itemGap:6
+      }]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Chart 6: Ru Jia lineage tree
+  (function(){
+    var dom=document.getElementById('chart-rujia');
+    if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'item',formatter:'{b}'},
+      series:[{
+        type:'tree',
+        data:[{
+          name:'儒家思想谱系',
+          children:[
+            {
+              name:'先秦儒学',children:[
+                {
+                  name:'孔子（孔丘）',children:[
+                    {name:'《论语》',itemStyle:{color:'#ec4899'}},
+                    {name:'仁者爱人',itemStyle:{color:'#ec4899'}},
+                    {name:'有教无类',itemStyle:{color:'#ec4899'}},
+                    {name:'克己复礼',itemStyle:{color:'#ec4899'}}
+                  ]
+                },
+                {
+                  name:'孟子（孟轲）',children:[
+                    {name:'《孟子》',itemStyle:{color:'#ec4899'}},
+                    {name:'性善论',itemStyle:{color:'#ec4899'}},
+                    {name:'民贵君轻',itemStyle:{color:'#ec4899'}},
+                    {name:'养浩然之气',itemStyle:{color:'#ec4899'}}
+                  ]
+                },
+                {
+                  name:'荀子（荀况）',children:[
+                    {name:'《荀子》',itemStyle:{color:'#ec4899'}},
+                    {name:'性恶论',itemStyle:{color:'#ec4899'}},
+                    {name:'隆礼重法',itemStyle:{color:'#ec4899'}}
+                  ]
+                }
+              ]
+            },
+            {
+              name:'汉代经学',children:[
+                {name:'董仲舒',children:[{name:'天人感应'},{name:'罢黜百家'},{name:'春秋繁露'}]},
+                {name:'《白虎通义》',children:[{name:'三纲五常'},{name:'谶纬神学'}]}
+              ]
+            },
+            {
+              name:'宋明理学',children:[
+                {name:'程朱理学',children:[{name:'程颢'},{name:'程颐'},{name:'朱熹'},{name:'格物致知'},{name:'理气论'}]},
+                {name:'陆王心学',children:[{name:'陆九渊'},{name:'王阳明'},{name:'致良知'},{name:'知行合一'}]}
+              ]
+            },
+            {
+              name:'近现代儒学',children:[
+                {name:'新儒家',children:[{name:'牟宗三'},{name:'唐君毅'},{name:'徐复观'},{name:'熊十力'}]},
+                {name:'当代发展',children:[{name:'儒学复兴'},{name:'文明对话'}]}
+              ]
+            }
+          ]
+        }],
+        orient:'horizontal',
+        top:'5%',left:'3%',bottom:'5%',right:'15%',
+        symbolSize:8,
+        initialTreeDepth:3,
+        label:{fontSize:11,color:'#e2e8f0',backgroundColor:'rgba(17,24,39,.9)',borderRadius:4,padding:[2,5]},
+        lineStyle:{color:'#1e2d3d',width:1.5},
+        emphasis:{focus:'descendant',label:{color:'#ec4899'}},
+        expandAndCollapse:true,itemGap:6
+      }]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Chart 7: Radar comparison
+  (function(){
+    var dom=document.getElementById('chart-radar');
+    if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
+    chart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{},
+      legend:{
+        data:['八卦','阴阳五行','中医基础','易经','道家','儒家'],
+        top:5,textStyle:{color:'#94a3b8',fontSize:12},itemWidth:12,itemHeight:8,
+        itemGap:20
+      },
+      radar:{
+        indicator:[
+          {name:'历史纵深',max:100},
+          {name:'哲学深度',max:100},
+          {name:'科学价值',max:100},
+          {name:'应用广度',max:100},
+          {name:'教育传承',max:100},
+          {name:'现代影响',max:100}
+        ],
+        center:['50%','55%'],
+        radius:'65%',
+        axisName:{color:'#94a3b8',fontSize:12},
+        splitArea:{areaStyle:{color:['rgba(6,182,212,.02)','rgba(139,92,246,.02)']}},
+        axisLine:{lineStyle:{color:'rgba(30,45,61,.6)'}},
+        splitLine:{lineStyle:{color:'rgba(30,45,61,.3)'}},
+      },
+      series:[{
+        type:'radar',
+        data:[
+          {
+            name:'八卦',value:[95,75,60,65,60,55],
+            lineStyle:{color:'#06b6d4',width:2},
+            itemStyle:{color:'#06b6d4'},areaStyle:{color:'rgba(6,182,212,.15)'},
+            label:{color:'#06b6d4',fontSize:11,show:true}
+          },
+          {
+            name:'阴阳五行',value:[90,85,80,80,70,75],
+            lineStyle:{color:'#eab308',width:2},
+            itemStyle:{color:'#eab308'},areaStyle:{color:'rgba(234,179,8,.12)'},
+            label:{color:'#eab308',fontSize:11,show:true}
+          },
+          {
+            name:'中医基础',value:[70,75,90,75,80,85],
+            lineStyle:{color:'#10b981',width:2},
+            itemStyle:{color:'#10b981'},areaStyle:{color:'rgba(16,185,129,.12)'},
+            label:{color:'#10b981',fontSize:11,show:true}
+          },
+          {
+            name:'易经',value:[95,90,70,70,65,60],
+            lineStyle:{color:'#8b5cf6',width:2},
+            itemStyle:{color:'#8b5cf6'},areaStyle:{color:'rgba(139,92,246,.12)'},
+            label:{color:'#8b5cf6',fontSize:11,show:true}
+          },
+          {
+            name:'道家',value:[85,90,60,55,65,70],
+            lineStyle:{color:'#f97316',width:2},
+            itemStyle:{color:'#f97316'},areaStyle:{color:'rgba(249,115,22,.12)'},
+            label:{color:'#f97316',fontSize:11,show:true}
+          },
+          {
+            name:'儒家',value:[85,85,50,90,95,80],
+            lineStyle:{color:'#ec4899',width:2},
+            itemStyle:{color:'#ec4899'},areaStyle:{color:'rgba(236,72,153,.12)'},
+            label:{color:'#ec4899',fontSize:11,show:true}
+          }
+        ]
+      }]
+    });
+    window.addEventListener('resize',function(){chart.resize()});
+  })();
+
+  // Fix Yi Jing chart reference (was referencing undefined `chart`)
+  var yijingDom=document.getElementById('chart-yijing');
+  if(yijingDom&&typeof echarts!=='undefined'){
+    var yc=echarts.init(yijingDom,null,{renderer:'canvas'});
+    yc.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'item',formatter:'{b}'},
+      series:[{
+        type:'tree',
+        data:[{
+          name:'六十四卦',children:[
+            {
+              name:'上卦乾',children:[
+                {name:'乾为天'},{name:'天泽履'},{name:'天火同人'},{name:'天雷无妄'},
+                {name:'天水讼'},{name:'天山遁'},{name:'天地否'}
+              ]
+            },
+            {
+              name:'上卦坤',children:[
+                {name:'坤为地'},{name:'地雷复'},{name:'地泽临'},{name:'地天泰'},
+                {name:'地火明夷'},{name:'地山谦'},{name:'地雷豫'}
+              ]
+            },
+            {
+              name:'上卦震',children:[
+                {name:'震为雷'},{name:'火雷噬嗑'},{name:'山雷颐'},{name:'雷天大壮'},
+                {name:'泽雷随'},{name:'地雷复'},{name:'水雷屯'}
+              ]
+            },
+            {
+              name:'上卦巽',children:[
+                {name:'巽为风'},{name:'风天小畜'},{name:'风火家人'},{name:'风雷益'},
+                {name:'天风姤'},{name:'泽风大过'},{name:'山水蒙'}
+              ]
+            },
+            {
+              name:'上卦坎',children:[
+                {name:'坎为水'},{name:'水泽节'},{name:'水火既济'},{name:'水雷屯'},
+                {name:'风水涣'},{name:'水山蹇'},{name:'地水师'}
+              ]
+            },
+            {
+              name:'上卦离',children:[
+                {name:'离为火'},{name:'火泽睽'},{name:'火山旅'},{name:'火雷噬嗑'},
+                {name:'风火家人'},{name:'火水未济'},{name:'天地豫'}
+              ]
+            },
+            {
+              name:'上卦艮',children:[
+                {name:'艮为山'},{name:'山泽损'},{name:'山火贲'},{name:'山雷颐'},
+                {name:'风山渐'},{name:'地山谦'},{name:'水山蹇'}
+              ]
+            },
+            {
+              name:'上卦兑',children:[
+                {name:'兑为泽'},{name:'泽天夬'},{name:'泽火革'},{name:'泽雷随'},
+                {name:'泽风大过'},{name:'泽山咸'},{name:'水泽节'}
+              ]
+            }
+          ]
+        }],
+        orient:'vertical',
+        top:'1%',left:'35%',bottom:'1%',right:'2%',
+        symbolSize:14,
+        initialTreeDepth:-1,
+        label:{fontSize:11,color:'#94a3b8',backgroundColor:'rgba(17,24,39,.8)',borderRadius:4,padding:[3,6]},
+        leafNodeSymbolSize:10,
+        lineStyle:{color:'#1e2d3d',width:1.5},
+        emphasis:{focus:'descendant',label:{color:'#06b6d4'}},
+        expandAndCollapse:true,itemGap:2
+      }]
+    });
+    window.addEventListener('resize',function(){yc.resize()});
+  }
+
+});
+</script>
+</body>
+</html>

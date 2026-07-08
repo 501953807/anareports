@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中华古典学术理论全景书 -- 封面</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0e17; --surface:#111827; --surface2:#1e293b; --border:#1e2a3a; --text:#e2e8f0; --text2:#94a3b8; --cyan:#06b6d4; --purple:#8b5cf6; --gold:#eab308; --red:#ef4444; --green:#10b981; --orange:#f59e0b; --pink:#ec4899; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Sans SC',sans-serif; background:var(--bg); color:var(--text); min-width:320px; }
+    a { color:inherit; text-decoration:none; }
+
+    .cover-hero { text-align:center; padding:60px 20px 40px; position:relative; overflow:hidden; }
+    .cover-hero::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:radial-gradient(ellipse at 50% 0%,rgba(234,179,8,0.12) 0%,rgba(6,182,212,0.06) 40%,transparent 70%); pointer-events:none; }
+    .cover-hero h1 { font-size:clamp(28px,5vw,42px); font-weight:700; background:linear-gradient(90deg,var(--gold),var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:12px; }
+    .cover-hero p { color:var(--text2); font-size:clamp(13px,2vw,16px); max-width:640px; margin:0 auto; line-height:1.7; }
+
+    .cover-stats { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:20px 24px; margin:0 auto 30px; max-width:900px; }
+    .cover-stat { text-align:center; padding:14px 24px; background:var(--surface); border:1px solid var(--border); border-radius:10px; min-width:120px; }
+    .cover-stat .num { font-size:28px; font-weight:700; color:var(--gold); }
+    .cover-stat .label { font-size:11px; color:var(--text2); margin-top:4px; }
+
+    .parts-section { max-width:1200px; margin:0 auto; padding:0 24px 40px; }
+    .parts-section h2 { text-align:center; font-size:20px; font-weight:600; margin-bottom:24px; color:var(--text); }
+
+    .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:20px; }
+    .toc-part { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; transition:all .2s; }
+    .toc-part:hover { border-color:var(--cyan); box-shadow:0 0 16px rgba(6,182,212,0.15); }
+    .toc-part h3 { font-size:15px; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .toc-part h3 .part-num { background:var(--surface2); padding:2px 8px; border-radius:4px; font-size:12px; color:var(--cyan); }
+    .toc-part ul { list-style:none; padding:0; }
+    .toc-part li { font-size:13px; color:var(--text2); padding:5px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+    .toc-part li:last-child { border-bottom:none; }
+    .toc-part li a { color:var(--text); transition:color .15s; flex:1; }
+    .toc-part li a:hover { color:var(--cyan); }
+    .toc-part li .ch-num { color:var(--text2); font-size:11px; white-space:nowrap; min-width:28px; }
+
+    .chart-section { max-width:650px; margin:0 auto 50px; padding:0 24px; }
+    .chart-section h2 { text-align:center; font-size:18px; font-weight:600; margin-bottom:16px; }
+    .chart-container { width:100%; height:420px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+
+    .cover-footer { text-align:center; padding:30px 20px; border-top:1px solid var(--border); color:var(--text2); font-size:12px; }
+    .cover-footer .authors { font-size:13px; color:var(--text); margin-bottom:6px; }
+
+    @media (max-width:480px) {
+      .toc-grid { grid-template-columns:1fr; }
+      .cover-stats { gap:10px; }
+      .cover-stat { min-width:80px; padding:10px 14px; }
+      .cover-stat .num { font-size:22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cover-hero">
+    <h1>中华古典学术理论全景书</h1>
+    <p>八卦 · 阴阳五行 · 中医基础 · 易经 · 道家 · 儒家 -- 六大理论体系全景解析</p>
+  </div>
+
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="num">6</div><div class="label">大学术体系</div></div>
+    <div class="cover-stat"><div class="num">31</div><div class="label">章节</div></div>
+    <div class="cover-stat"><div class="num">32</div><div class="label">页面</div></div>
+    <div class="cover-stat"><div class="num">30+</div><div class="label">数据ECharts图表</div></div>
+  </div>
+
+  <div class="parts-section">
+    <h2>-- 目录 --</h2>
+    <div class="toc-grid">
+
+      <div class="toc-part" style="border-color:var(--gold)">
+        <h3><span class="part-num">第一部分</span> 八卦（5章）</h3>
+        <ul>
+          <li><span class="ch-num">01</span><a href="01-bagua-origin.html">八卦起源与演变概述</a></li>
+          <li><span class="ch-num">02</span><a href="02-fuxi-shennong.html">伏羲画卦与上古传说</a></li>
+          <li><span class="ch-num">03</span><a href="03-zhouyi-wenwang.html">文王演周易</a></li>
+          <li><span class="ch-num">04</span><a href="04-bagua-xiangshu.html">八卦象数体系</a></li>
+          <li><span class="ch-num">05</span><a href="05-bagua-summary.html">八卦学习路径</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-part" style="border-color:var(--red)">
+        <h3><span class="part-num">第二部分</span> 阴阳五行（6章）</h3>
+        <ul>
+          <li><span class="ch-num">06</span><a href="06-yinyang-benyuan.html">阴阳概念本源</a></li>
+          <li><span class="ch-num">07</span><a href="07-yinyang-wuxing-classics.html">经典文本中的阴阳五行</a></li>
+          <li><span class="ch-num">08</span><a href="08-wuxing-theory.html">五行理论基础</a></li>
+          <li><span class="ch-num">09</span><a href="09-wuxing-cycles.html">五行生克乘侮</a></li>
+          <li><span class="ch-num">10</span><a href="10-yinyang-wuxing-synthesis.html">阴阳五行综合体系</a></li>
+          <li><span class="ch-num">11</span><a href="11-yinyang-summary.html">阴阳五行学习路径</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-part" style="border-color:var(--green)">
+        <h3><span class="part-num">第三部分</span> 中医基础理论（6章）</h3>
+        <ul>
+          <li><span class="ch-num">12</span><a href="12-tcm-neijing.html">黄帝内经与中医理论源头</a></li>
+          <li><span class="ch-num">13</span><a href="13-tcm-yinyang-health.html">阴阳平衡与中医健康观</a></li>
+          <li><span class="ch-num">14</span><a href="14-tcm-zangfu.html">藏象学说与五脏六腑</a></li>
+          <li><span class="ch-num">15</span><a href="15-tcm-jingluo.html">经络系统与针灸理论</a></li>
+          <li><span class="ch-num">16</span><a href="16-tcm-bingyin.html">病因病机与辨证论治</a></li>
+          <li><span class="ch-num">17</span><a href="17-tcm-summary.html">中医理论学习路径</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-part" style="border-color:var(--cyan)">
+        <h3><span class="part-num">第四部分</span> 易经体系（5章）</h3>
+        <ul>
+          <li><span class="ch-num">18</span><a href="18-yijing-overview.html">易经概述</a></li>
+          <li><span class="ch-num">19</span><a href="19-gua-ci-structure.html">六十四卦结构与缩卦</a></li>
+          <li><span class="ch-num">20</span><a href="20-yijing-philosophy.html">易经哲学思想</a></li>
+          <li><span class="ch-num">21</span><a href="21-yijing-divination.html">易经占卜方法</a></li>
+          <li><span class="ch-num">22</span><a href="22-yijing-summary.html">易学学习路径</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-part" style="border-color:var(--purple)">
+        <h3><span class="part-num">第五部分</span> 道家理论（5章）</h3>
+        <ul>
+          <li><span class="ch-num">23</span><a href="23-daoism-origins.html">道家学派起源</a></li>
+          <li><span class="ch-num">24</span><a href="24-daodejing.html">道德经核心思想</a></li>
+          <li><span class="ch-num">25</span><a href="25-zhuangzi.html">庄子哲学</a></li>
+          <li><span class="ch-num">26</span><a href="26-daoism-gongfu.html">道家修养工夫</a></li>
+          <li><span class="ch-num">27</span><a href="27-daoism-summary.html">道家学习路径</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-part" style="border-color:var(--orange)">
+        <h3><span class="part-num">第六部分</span> 儒家理论（4章）</h3>
+        <ul>
+          <li><span class="ch-num">28</span><a href="28-rujia-origins.html">儒家学派起源与孔子</a></li>
+          <li><span class="ch-num">29</span><a href="29-mengzi.html">孟子性善与仁政</a></li>
+          <li><span class="ch-num">30</span><a href="30-songming-lixue.html">宋明理学发展</a></li>
+          <li><span class="ch-num">31</span><a href="31-rujia-summary.html">儒家学习路径</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <h2>-- 六大理论体系概念关系 --</h2>
+    <div class="chart-container" id="chart-cover"></div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="authors">中华古典学术理论全景书 · 六大理论体系</div>
+    <div>电子版 · 2026年版</div>
+  </div>
+
+  <script src="common/js/echarts.inline.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var dom = document.getElementById('chart-cover');
+      if (!dom || typeof echarts === 'undefined') return;
+      var chart = echarts.init(dom);
+      chart.setOption({
+        backgroundColor: 'transparent',
+        tooltip: { trigger: 'item' },
+        legend: { bottom: 10, textStyle: { color: '#94a3b8', fontSize: 12 } },
+        radar: {
+          indicator: [
+            { name: '八卦', max: 100 },
+            { name: '阴阳', max: 100 },
+            { name: '五行', max: 100 },
+            { name: '中医', max: 100 },
+            { name: '易经', max: 100 },
+            { name: '道家', max: 100 },
+            { name: '儒家', max: 100 }
+          ],
+          shape: 'polygon',
+          splitNumber: 4,
+          axisName: { color: '#e2e8f0', fontSize: 13 },
+          splitLine: { lineStyle: { color: '#1e2a3a' } },
+          splitArea: { areaStyle: { color: ['rgba(234,179,8,0.02)', 'rgba(6,182,212,0.02)', 'rgba(139,92,246,0.02)', 'rgba(16,185,129,0.02)'] } },
+          axisLine: { lineStyle: { color: '#1e2a3a' } }
+        },
+        series: [{
+          type: 'radar',
+          data: [
+            {
+              value: [95, 80, 70, 60, 90, 65, 75],
+              name: '概念密度',
+              areaStyle: { color: 'rgba(234,179,8,0.15)' },
+              lineStyle: { color: '#eab308', width: 2 },
+              itemStyle: { color: '#eab308' }
+            },
+            {
+              value: [60, 85, 90, 95, 70, 55, 80],
+              name: '实践深度',
+              areaStyle: { color: 'rgba(6,182,212,0.15)' },
+              lineStyle: { color: '#06b6d4', width: 2 },
+              itemStyle: { color: '#06b6d4' }
+            }
+          ]
+        }]
+      });
+      window.addEventListener('resize', function() { chart.resize(); });
+    });
+  </script>
+</body>
+</html>
