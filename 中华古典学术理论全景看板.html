@@ -388,9 +388,9 @@ document.addEventListener('DOMContentLoaded',function(){
            label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
           {name:'巽',value:'风',x:500,y:220,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
            label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
-          {name:'坎',value:'水',x:100,y:350,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+          {name:'坎',value:'水',x:500,y:350,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
            label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
-          {name:'离',value:'火',x:500,y:350,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
+          {name:'离',value:'火',x:100,y:350,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
            label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
           {name:'艮',value:'山',x:140,y:460,itemStyle:{color:'#06b6d4'},symbolSize:55,category:0,
            label:{show:true,fontSize:16,fontWeight:'bold',color:'#06b6d4'}},
@@ -402,22 +402,22 @@ document.addEventListener('DOMContentLoaded',function(){
            label:{show:true,fontSize:13,color:'#eab308',fontWeight:'bold'}},
         ],
         links:[
-          {source:'乾',target:'震',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
           {source:'乾',target:'兑',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'兑',target:'离',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'离',target:'震',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'震',target:'坤',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
           {source:'坤',target:'艮',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
-          {source:'坤',target:'巽',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
-          {source:'震',target:'坎',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
-          {source:'巽',target:'离',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
-          {source:'坎',target:'艮',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
-          {source:'离',target:'兑',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'艮',target:'坎',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'坎',target:'巽',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
+          {source:'巽',target:'乾',lineStyle:{color:'#8b5cf6',width:2,type:'solid'}},
           {source:'先天',target:'乾',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
           {source:'先天',target:'坤',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
           {source:'先天',target:'离',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
           {source:'先天',target:'坎',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
-          {source:'后天',target:'震',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
-          {source:'后天',target:'巽',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
-          {source:'后天',target:'坤',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
-          {source:'后天',target:'兑',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'离',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'坎',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'乾',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
+          {source:'后天',target:'艮',lineStyle:{color:'#eab308',width:1,type:'dashed'}},
         ],
         label:{position:'inside',formatter:'{b}\\n{c}',color:'#f8fafc',fontSize:11},
       }]
@@ -523,6 +523,7 @@ document.addEventListener('DOMContentLoaded',function(){
   (function(){
     var dom=document.getElementById('chart-yijing');
     if(!dom||typeof echarts==='undefined')return;
+    var chart=echarts.init(dom,null,{renderer:'canvas'});
     chart.setOption({
       backgroundColor:'transparent',
       tooltip:{trigger:'item',formatter:'{b}'},
@@ -545,7 +546,7 @@ document.addEventListener('DOMContentLoaded',function(){
             {
               name:'上卦震',children:[
                 {name:'震为雷'},{name:'火雷噬嗑'},{name:'山雷颐'},{name:'雷天大壮'},
-                {name:'泽雷随'},{name:'地雷复'},{name:'水雷屯'}
+                {name:'泽雷随'},{name:'水雷屯'},{name:'地雷复'}
               ]
             },
             {
@@ -563,7 +564,7 @@ document.addEventListener('DOMContentLoaded',function(){
             {
               name:'上卦离',children:[
                 {name:'离为火'},{name:'火泽睽'},{name:'火山旅'},{name:'火雷噬嗑'},
-                {name:'风火家人'},{name:'火水未济'},{name:'大地豫'}
+                {name:'风火家人'},{name:'火水未济'},{name:'地火明夷'}
               ]
             },
             {
@@ -841,7 +842,7 @@ document.addEventListener('DOMContentLoaded',function(){
             {
               name:'上卦震',children:[
                 {name:'震为雷'},{name:'火雷噬嗑'},{name:'山雷颐'},{name:'雷天大壮'},
-                {name:'泽雷随'},{name:'地雷复'},{name:'水雷屯'}
+                {name:'泽雷随'},{name:'水雷屯'},{name:'地雷复'}
               ]
             },
             {
