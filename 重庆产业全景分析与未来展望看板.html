@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重庆产业全景分析与未来展望看板</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e17; --surface: #111827; --surface2: #1e293b; --border: #1e2a3a;
+  --text: #e2e8f0; --text2: #94a3b8; --cyan: #06b6d4; --purple: #8b5cf6;
+  --red: #ef4444; --green: #10b981; --orange: #f59e0b; --pink: #ec4899;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); }
+.dashboard { max-width: 1440px; margin: 0 auto; padding: 24px; }
+.dash-header { text-align: center; padding: 24px 0 20px; position: relative; }
+.dash-header::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.12) 0%, rgba(139,92,246,0.06) 40%, transparent 70%);
+  pointer-events: none;
+}
+.dash-header h1 { font-size: 28px; font-weight: 700; background: linear-gradient(90deg, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+.dash-header p { color: var(--text2); font-size: 13px; }
+.stat-row { display: flex; gap: 12px; justify-content: center; margin: 16px 0 24px; flex-wrap: wrap; }
+.stat-chip { padding: 6px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; font-size: 12px; color: var(--text2); }
+.stat-chip strong { color: var(--cyan); font-weight: 600; }
+.module { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.module-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.module-icon { font-size: 20px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: rgba(6,182,212,0.1); }
+.module:nth-child(2) .module-icon { background: rgba(139,92,246,0.1); }
+.module:nth-child(3) .module-icon { background: rgba(16,185,129,0.1); }
+.module:nth-child(4) .module-icon { background: rgba(239,68,68,0.1); }
+.module:nth-child(5) .module-icon { background: rgba(245,158,11,0.1); }
+.module:nth-child(6) .module-icon { background: rgba(236,72,153,0.1); }
+.module:nth-child(7) .module-icon { background: rgba(234,179,8,0.1); }
+.module-title { font-size: 15px; font-weight: 600; }
+.chart-box { width: 100%; height: 320px; border-radius: 8px; overflow: hidden; }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+.comp-table th { text-align: left; padding: 8px 12px; background: var(--surface2); color: var(--text2); font-weight: 500; border-bottom: 1px solid var(--border); }
+.comp-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text); }
+.comp-table tr:hover td { background: rgba(6,182,212,0.04); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+.tag-green { background: rgba(16,185,129,0.15); color: var(--green); }
+.tag-red { background: rgba(239,68,68,0.15); color: var(--red); }
+.tag-orange { background: rgba(245,158,11,0.15); color: var(--orange); }
+.dash-footer { text-align: center; padding: 20px; color: var(--text2); font-size: 11px; border-top: 1px solid var(--border); margin-top: 20px; }
+@media (max-width: 768px) { .dash-header h1 { font-size: 20px; } .chart-box { height: 260px; } .comp-table { font-size: 10px; } }
+</style>
+</head>
+<body>
+<div class="dashboard">
+
+<div class="dash-header">
+  <h1><i class="fas fa-chart-line"></i> 重庆产业全景分析与未来展望看板</h1>
+  <p>六大板块 · 七大数据可视化 · 32页深度分析配套看板 · 数据截至2024年</p>
+  <div class="stat-row">
+    <span class="stat-chip"><strong>3.25万亿</strong> GDP总量</span>
+    <span class="stat-chip"><strong>3212万</strong> 常住人口</span>
+    <span class="stat-chip"><strong>9.4万</strong> 人均GDP</span>
+    <span class="stat-chip"><strong>5.3%</strong> 增速</span>
+    <span class="stat-chip"><strong>23.1%</strong> 老龄化率</span>
+  </div>
+</div>
+
+<!-- Module 1: 人口与劳动力 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">👥</div>
+    <div class="module-title">第一部分：人口与劳动力态势</div>
+  </div>
+  <div class="chart-box" id="m1-population"></div>
+  <table class="comp-table">
+    <tr><th>指标</th><th>数值</th><th>趋势</th></tr>
+    <tr><td>常住人口</td><td>3212.4万人</td><td><span class="tag tag-red">↓ 连续2年负增长</span></td></tr>
+    <tr><td>城镇化率</td><td>71.6%</td><td><span class="tag tag-green">↑ 全国平均66.2%</span></td></tr>
+    <tr><td>60岁以上占比</td><td>23.1%</td><td><span class="tag tag-orange">⚠ 全国第三高</span></td></tr>
+    <tr><td>高校在校生</td><td>85万人</td><td><span class="tag tag-green">↑ 西部前列</span></td></tr>
+  </table>
+</div>
+
+<!-- Module 2: 经济规模与产业地位 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">📊</div>
+    <div class="module-title">第二部分：经济规模与产业地位</div>
+  </div>
+  <div class="chart-box" id="m2-gdp-ranking"></div>
+  <table class="comp-table">
+    <tr><th>城市</th><th>GDP（万亿元）</th><th>增速</th><th>全国排名</th></tr>
+    <tr><td>重庆</td><td>3.25</td><td>5.3%</td><td>第22</td></tr>
+    <tr><td>成都</td><td>2.29</td><td>5.2%</td><td>第18</td></tr>
+    <tr><td>武汉</td><td>2.00</td><td>5.0%</td><td>第20</td></tr>
+    <tr><td>西安</td><td>1.21</td><td>4.3%</td><td>第27</td></tr>
+  </table>
+</div>
+
+<!-- Module 3: 产业优势与核心竞争力 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">🏭</div>
+    <div class="module-title">第三部分：产业优势与核心竞争力</div>
+  </div>
+  <div class="chart-box" id="m3-industry-radar"></div>
+  <table class="comp-table">
+    <tr><th>产业</th><th>产值/规模</th><th>全国地位</th><th>竞争力</th></tr>
+    <tr><td>汽车制造</td><td>约340万辆/年</td><td>全国前五</td><td><span class="tag tag-green">强</span></td></tr>
+    <tr><td>笔电生产</td><td>~6200万台/年</td><td>全球1/3</td><td><span class="tag tag-green">极强</span></td></tr>
+    <tr><td>装备制造</td><td>约2000亿</td><td>西部前三</td><td><span class="tag tag-orange">中上</span></td></tr>
+    <tr><td>数字经济</td><td>~8000亿</td><td>西部前五</td><td><span class="tag tag-orange">成长中</span></td></tr>
+  </table>
+</div>
+
+<!-- Module 4: 下行周期优劣势分析 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">📉</div>
+    <div class="module-title">第四部分：下行周期优劣势分析</div>
+  </div>
+  <div class="chart-box" id="m4-cycle"></div>
+  <table class="comp-table">
+    <tr><th>风险项</th><th>当前值</th><th>警戒线</th><th>状态</th></tr>
+    <tr><td>房地产投资降幅</td><td>-37.5%</td><td>>-20%</td><td><span class="tag tag-red">超警戒</span></td></tr>
+    <tr><td>地方债务/GDP</td><td>~80%</td><td>>100%</td><td><span class="tag tag-orange">关注</span></td></tr>
+    <tr><td>CPI同比</td><td>-0.3%</td><td><0</td><td><span class="tag tag-red">通缩</span></td></tr>
+    <tr><td>储蓄率</td><td>45%</td><td>>40%</td><td><span class="tag tag-orange">偏高</span></td></tr>
+  </table>
+</div>
+
+<!-- Module 5: 底层民生与地区限制 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">🏠</div>
+    <div class="module-title">第五部分：底层民生与地区限制</div>
+  </div>
+  <div class="chart-box" id="m5-livelihood"></div>
+  <table class="comp-table">
+    <tr><th>指标</th><th>重庆</th><th>上海</th><th>差距</th></tr>
+    <tr><td>城镇居民可支配收入</td><td>4.75万</td><td>8.50万</td><td><span class="tag tag-red">56%</span></td></tr>
+    <tr><td>农村可支配收入</td><td>2.18万</td><td>4.50万</td><td><span class="tag tag-red">48%</span></td></tr>
+    <tr><td>房价收入比</td><td>8.7</td><td>20.1</td><td><span class="tag tag-green">合理</span></td></tr>
+    <tr><td>每千人执业医师</td><td>2.8</td><td>4.5</td><td><span class="tag tag-orange">偏低</span></td></tr>
+  </table>
+</div>
+
+<!-- Module 6: 未来展望与数据预言 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">🔮</div>
+    <div class="module-title">第六部分：未来展望与数据预言</div>
+  </div>
+  <div class="chart-box" id="m6-prediction"></div>
+  <table class="comp-table">
+    <tr><th>年份</th><th>基准情景GDP</th><th>乐观情景</th><th>悲观情景</th></tr>
+    <tr><td>2027</td><td>3.85万亿</td><td>4.15万亿</td><td>3.55万亿</td></tr>
+    <tr><td>2028</td><td>4.05万亿</td><td>4.45万亿</td><td>3.65万亿</td></tr>
+    <tr><td>2029</td><td>4.25万亿</td><td>4.75万亿</td><td>3.75万亿</td></tr>
+    <tr><td>2030</td><td>4.45万亿</td><td>5.05万亿</td><td>3.85万亿</td></tr>
+  </table>
+</div>
+
+<!-- Module 7: 综合风险矩阵 -->
+<div class="module">
+  <div class="module-header">
+    <div class="module-icon">⚠️</div>
+    <div class="module-title">综合风险矩阵与关键观察指标</div>
+  </div>
+  <div class="chart-box" id="m7-risk"></div>
+  <table class="comp-table">
+    <tr><th>持续观察指标</th><th>2024实际</th><th>2025目标</th><th>预警线</th></tr>
+    <tr><td>GDP增速</td><td>5.3%</td><td>5.5%</td><td><4.0%</td></tr>
+    <tr><td>新能源车产量</td><td>60万辆</td><td>80万辆</td><td><50万辆</td></tr>
+    <tr><td>城镇调查失业率</td><td>5.2%</td><td>≤5.0%</td><td>>6.0%</td></tr>
+    <tr><td>进出口总额</td><td>1300亿美元</td><td>1400亿</td><td><1100亿</td></tr>
+  </table>
+</div>
+
+<div class="dash-footer">
+  AnaReports · 重庆产业全景分析与未来展望看板 &nbsp;|&nbsp; 数据来源：重庆市统计局、国家统计局、海关总署 &nbsp;|&nbsp; 2026.07
+</div>
+
+</div>
+
+<script src="common/js/echarts.inline.js"></script>
+<script>
+(function() {
+  // Module 1: Population trend
+  var m1 = echarts.init(document.getElementById('m1-population'));
+  m1.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    legend: { data: ['常住人口(万)', '城镇化率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+    grid: { left: 60, right: 60, top: 40, bottom: 30 },
+    xAxis: { type: 'category', data: ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    yAxis: [
+      { type: 'value', name: '万人', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      { type: 'value', name: '%', min: 50, max: 80, axisLabel: { color: '#94a3b8', formatter: '{value}%' }, splitLine: { show: false } }
+    ],
+    series: [
+      { name: '常住人口(万)', type: 'line', smooth: true, data: [3075,3102,3146,3163,3124,3205,3212,3213,3217,3212], itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.1)' } },
+      { name: '城镇化率(%)', type: 'line', yAxisIndex: 1, smooth: true, data: [61.3,62.6,63.8,64.9,66.3,68.4,70.0,70.9,71.3,71.6], itemStyle: { color: '#8b5cf6' } }
+    ]
+  });
+
+  // Module 2: GDP comparison bar
+  var m2 = echarts.init(document.getElementById('m2-gdp-ranking'));
+  m2.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    grid: { left: 60, right: 30, top: 30, bottom: 30 },
+    xAxis: { type: 'value', name: '万亿元', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+    yAxis: { type: 'category', data: ['西安','武汉','成都','重庆'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    series: [{
+      type: 'bar', barWidth: 40, data: [
+        { value: 1.21, itemStyle: { color: '#64748b' } },
+        { value: 2.00, itemStyle: { color: '#64748b' } },
+        { value: 2.29, itemStyle: { color: '#64748b' } },
+        { value: 3.25, itemStyle: { color: '#06b6d4' } }
+      ]
+    }]
+  });
+
+  // Module 3: Industry radar
+  var m3 = echarts.init(document.getElementById('m3-industry-radar'));
+  m3.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {},
+    legend: { data: ['重庆', '全国平均'], bottom: 0, textStyle: { color: '#94a3b8' } },
+    radar: {
+      indicator: [
+        { name: '制造业规模', max: 100 },
+        { name: '电子信息', max: 100 },
+        { name: '汽车产业', max: 100 },
+        { name: '产业链完整度', max: 100 },
+        { name: '物流枢纽', max: 100 },
+        { name: '科技创新', max: 100 }
+      ],
+      shape: 'polygon', radius: '65%'
+    },
+    series: [{
+      type: 'radar',
+      data: [
+        { value: [85, 80, 90, 75, 85, 45], name: '重庆', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
+        { value: [65, 70, 55, 65, 60, 70], name: '全国平均', itemStyle: { color: '#64748b' }, areaStyle: { color: 'rgba(100,116,139,0.15)' } }
+      ]
+    }}
+  });
+
+  // Module 4: Cycle dual-axis
+  var m4 = echarts.init(document.getElementById('m4-cycle'));
+  m4.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    legend: { data: ['CPI(%)', 'PPI(%)', '储蓄率(%)'], top: 0, textStyle: { color: '#94a3b8' } },
+    grid: { left: 60, right: 60, top: 45, bottom: 30 },
+    xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    yAxis: [
+      { type: 'value', name: '%', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      { type: 'value', name: '%', min: 30, max: 55, axisLabel: { color: '#94a3b8', formatter: '{value}%' }, splitLine: { show: false } }
+    ],
+    series: [
+      { name: 'CPI(%)', type: 'line', data: [2.5, 0.9, 2.0, 0.2, -0.3], itemStyle: { color: '#ef4444' }, smooth: true },
+      { name: 'PPI(%)', type: 'line', data: [3.1, 1.1, -0.3, -0.8, -2.5], itemStyle: { color: '#f59e0b' }, smooth: true },
+      { name: '储蓄率(%)', type: 'line', yAxisIndex: 1, data: [35, 37, 40, 43, 45], itemStyle: { color: '#10b981' }, smooth: true }
+    ]
+  });
+
+  // Module 5: Livelihood comparison
+  var m5 = echarts.init(document.getElementById('m5-livelihood'));
+  m5.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: ['重庆', '上海'], top: 0, textStyle: { color: '#94a3b8' } },
+    grid: { left: 60, right: 30, top: 45, bottom: 30 },
+    xAxis: { type: 'category', data: ['城镇收入(万)', '农村收入(万)', '房价收入比(倍)', '每千人医生数'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    yAxis: { type: 'value', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+    series: [
+      { name: '重庆', type: 'bar', data: [4.75, 2.18, 8.7, 2.8], itemStyle: { color: '#06b6d4' } },
+      { name: '上海', type: 'bar', data: [8.50, 4.50, 20.1, 4.5], itemStyle: { color: '#8b5cf6' } }
+    ]
+  });
+
+  // Module 6: GDP prediction three scenarios
+  var m6 = echarts.init(document.getElementById('m6-prediction'));
+  m6.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    legend: { data: ['基准情景', '乐观情景', '悲观情景'], top: 0, textStyle: { color: '#94a3b8' } },
+    grid: { left: 60, right: 30, top: 45, bottom: 30 },
+    xAxis: { type: 'category', data: ['2024','2025','2026','2027','2028','2029','2030'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    yAxis: { type: 'value', name: '万亿元', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+    series: [
+      { name: '基准情景', type: 'line', smooth: true, data: [3.25,3.45,3.65,3.85,4.05,4.25,4.45], itemStyle: { color: '#06b6d4' }, lineStyle: { width: 3 } },
+      { name: '乐观情景', type: 'line', smooth: true, data: [3.25,3.55,3.85,4.15,4.45,4.75,5.05], itemStyle: { color: '#10b981' }, lineStyle: { type: 'dashed' } },
+      { name: '悲观情景', type: 'line', smooth: true, data: [3.25,3.35,3.45,3.55,3.65,3.75,3.85], itemStyle: { color: '#ef4444' }, lineStyle: { type: 'dashed' } }
+    ]
+  });
+
+  // Module 7: Risk matrix scatter
+  var m7 = echarts.init(document.getElementById('m7-risk'));
+  m7.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {
+      formatter: function(p) { return p.data[3] + '<br/>概率:' + ['低','中低','中','中高','高'][p.data[0]-1] + ' | 影响:' + ['低','中','高','极大'][p.data[1]-1]; }
+    },
+    grid: { left: 80, right: 30, top: 30, bottom: 60 },
+    xAxis: { name: '发生概率 →', type: 'category', data: ['低','中低','中','中高','高'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    yAxis: { name: '影响程度 ↑', type: 'category', data: ['低','中','高','极大'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+    series: [{
+      type: 'scatter',
+      symbolSize: function(d) { return d[2] * 10; },
+      data: [
+        { value: [4,2,3], name: '产业同质化', itemStyle: { color: '#f59e0b' } },
+        { value: [3,3,2], name: '人口流出', itemStyle: { color: '#f59e0b' } },
+        { value: [3,4,4], name: '汽车转型失败', itemStyle: { color: '#ef4444' } },
+        { value: [3,4,3], name: '地方债务', itemStyle: { color: '#ef4444' } },
+        { value: [4,3,2], name: '房地产硬着陆', itemStyle: { color: '#f59e0b' } },
+        { value: [3,2,2], name: '电子产业外迁', itemStyle: { color: '#f59e0b' } },
+        { value: [3,1,1], name: '贸易摩擦', itemStyle: { color: '#10b981' } },
+        { value: [2,4,1], name: '环境污染', itemStyle: { color: '#f59e0b' } },
+        { value: [3,1,1], name: '技术替代', itemStyle: { color: '#10b981' } },
+        { value: [3,1,1], name: '极端气候', itemStyle: { color: '#10b981' } }
+      ],
+      label: { show: true, position: 'right', formatter: '{c}', color: '#cbd5e1', fontSize: 10 }
+    }]
+  });
+
+  window.addEventListener('resize', function() { m1.resize(); m2.resize(); m3.resize(); m4.resize(); m5.resize(); m6.resize(); m7.resize(); });
+})();
+</script>
+</body>
+</html>

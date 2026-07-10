@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重庆产业全景分析与未来展望 — 封面</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .cover-hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cover-hero h1 {
+      font-size: 32px;
+      color: var(--cyan);
+      margin-bottom: 12px;
+      letter-spacing: 4px;
+    }
+    .cover-hero .subtitle {
+      font-size: 16px;
+      color: var(--text2);
+      margin-bottom: 30px;
+    }
+    .cover-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .cover-stat {
+      text-align: center;
+    }
+    .cover-stat .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--purple);
+    }
+    .cover-stat .label {
+      font-size: 12px;
+      color: var(--text2);
+      margin-top: 4px;
+    }
+    .toc-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+    .toc-part {
+      margin-bottom: 24px;
+    }
+    .toc-part-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 10px;
+      padding-left: 12px;
+      border-left: 3px solid var(--cyan);
+    }
+    .toc-chapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 6px;
+      padding-left: 12px;
+    }
+    .toc-chapter-link {
+      display: block;
+      padding: 6px 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .toc-chapter-link:hover {
+      background: var(--surface);
+      color: var(--cyan);
+    }
+    .chart-container {
+      width: 100%;
+      height: 350px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    @media (max-width: 600px) {
+      .cover-hero h1 { font-size: 22px; }
+      .cover-stats { gap: 20px; }
+      .cover-stat .value { font-size: 22px; }
+      .toc-chapters { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body style="background:var(--bg);color:var(--text);">
+  <div class="cover-hero">
+    <h1><i class="fas fa-mountain-city"></i> 重庆产业全景分析与未来展望</h1>
+    <p class="subtitle">人口·经济·产业·民生·未来 — 基于真实数据的深度分析</p>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="value">6</div><div class="label">大部分</div></div>
+      <div class="cover-stat"><div class="value">31</div><div class="label">章节</div></div>
+      <div class="cover-stat"><div class="value">7</div><div class="label">ECharts 看板</div></div>
+      <div class="cover-stat"><div class="value">2015–2030</div><div class="label">时间跨度</div></div>
+    </div>
+  </div>
+
+  <main class="content" style="padding-bottom:40px;">
+    <div class="chart-container" id="chart-radar"></div>
+    <script src="../common/js/echarts.inline.js"></script>
+    <script>
+    (function() {
+      var chart = echarts.init(document.getElementById('chart-radar'));
+      chart.setOption({
+        backgroundColor: 'transparent',
+        tooltip: {},
+        legend: { data: ['重庆', '成都', '武汉', '西安'], bottom: 0, textStyle: { color: '#94a3b8' } },
+        radar: {
+          indicator: [
+            { name: 'GDP总量', max: 100 },
+            { name: '人均GDP', max: 100 },
+            { name: '产业规模', max: 100 },
+            { name: '开放程度', max: 100 },
+            { name: '教育科研', max: 100 },
+            { name: '民生水平', max: 100 }
+          ],
+          radius: '65%'
+        },
+        series: [{
+          type: 'radar',
+          data: [
+            { value: [82, 45, 88, 70, 55, 50], name: '重庆', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
+            { value: [75, 68, 72, 60, 78, 65], name: '成都', itemStyle: { color: '#8b5cf6' }, areaStyle: { color: 'rgba(139,92,246,0.15)' } },
+            { value: [65, 60, 60, 55, 65, 58], name: '武汉', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.15)' } },
+            { value: [48, 52, 45, 40, 58, 45], name: '西安', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.15)' } }
+          ]
+        }}
+      });
+      window.addEventListener('resize', function() { chart.resize(); });
+    })();
+    </script>
+
+    <div class="toc-grid">
+      <div class="toc-part">
+        <div class="toc-part-title">第一部分 人口与劳动力</div>
+        <div class="toc-chapters">
+          <a href="01-demographic-overview.html" class="toc-chapter-link">一、常住人口规模与变化趋势</a>
+          <a href="02-hukou-vs-resident.html" class="toc-chapter-link">二、户籍人口 vs 常住人口的剪刀差</a>
+          <a href="03-labor-structure.html" class="toc-chapter-link">三、劳动力年龄结构与技能分布</a>
+          <a href="04-talent-flow.html" class="toc-chapter-link">四、人才流失与回流博弈</a>
+          <a href="05-chengdu-chongqing-population.html" class="toc-chapter-link">五、成渝双城人口红利对比</a>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-title">第二部分 经济规模与产业地位</div>
+        <div class="toc-chapters">
+          <a href="06-gdp-scale.html" class="toc-chapter-link">六、GDP 总量与增速全国排名</a>
+          <a href="07-industry-structure.html" class="toc-chapter-link">七、三大产业结构演变</a>
+          <a href="08-per-capita-gdp.html" class="toc-chapter-link">八、人均 GDP 与全国均值差距</a>
+          <a href="09-western-first-city.html" class="toc-chapter-link">九、西部第一城地位之争</a>
+          <a href="10-economic-resilience.html" class="toc-chapter-link">十、经济韧性指数</a>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-title">第三部分 产业优势与核心竞争力</div>
+        <div class="toc-chapters">
+          <a href="11-auto-manufacturing.html" class="toc-chapter-link">十一、汽车制造：长安+赛力斯双引擎</a>
+          <a href="12-electronics.html" class="toc-chapter-link">十二、电子信息：全球笔电基地</a>
+          <a href="13-equipment-manufacturing.html" class="toc-chapter-link">十三、装备制造与化工冶金</a>
+          <a href="14-emerging-industries.html" class="toc-chapter-link">十四、新兴产业布局</a>
+          <a href="15-industry-chain-analysis.html" class="toc-chapter-link">十五、产业链完整度评估</a>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-title">第四部分 下行周期优劣势分析</div>
+        <div class="toc-chapters">
+          <a href="16-deflation-consumer.html" class="toc-chapter-link">十六、通缩环境下的消费疲软</a>
+          <a href="17-real-estate-drags.html" class="toc-chapter-link">十七、房地产拖累与土地财政依赖</a>
+          <a href="18-local-debt-risk.html" class="toc-chapter-link">十八、地方债务压力测试</a>
+          <a href="19-policy-dividends.html" class="toc-chapter-link">十九、政策红利对冲</a>
+          <a href="20-inland-opening.html" class="toc-chapter-link">二十、内陆开放优势</a>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-title">第五部分 底层民生与地区限制</div>
+        <div class="toc-chapters">
+          <a href="21-income-levels.html" class="toc-chapter-link">二十一、居民收入水平</a>
+          <a href="22-housing-affordability.html" class="toc-chapter-link">二十二、房价收入比</a>
+          <a href="23-employment-quality.html" class="toc-chapter-link">二十三、就业质量与结构性矛盾</a>
+          <a href="24-public-services.html" class="toc-chapter-link">二十四、教育医疗资源</a>
+          <a href="25-urban-rural-difference.html" class="toc-chapter-link">二十五、城乡差距与区县分化</a>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-title">第六部分 未来展望与数据预言</div>
+        <div class="toc-chapters">
+          <a href="26-2030-predictions.html" class="toc-chapter-link">二十六、2027-2030 GDP 预测</a>
+          <a href="27-chengdu-chongqing-circle.html" class="toc-chapter-link">二十七、成渝双城经济圈战略</a>
+          <a href="28-belt-road-rcep.html" class="toc-chapter-link">二十八、一带一路与 RCEP 机遇</a>
+          <a href="29-risk-warnings.html" class="toc-chapter-link">二十九、风险预警清单</a>
+          <a href="30-action-guide.html" class="toc-chapter-link">三十、投资者/创业者行动建议</a>
+          <a href="31-summary-future.html" class="toc-chapter-link">三十一、总结与持续观察指标</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
+  </footer>
+  <script src="../common/js/navigation.js"></script>
+</body>
+</html>
