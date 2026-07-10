@@ -3,267 +3,262 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>二十九、孟子性善与仁政 -- 中华古典学术理论全景书</title>
-  <link rel="stylesheet" href="../common/css/book.css">
+  <title>二十九、孟子性善与仁政 — 中华古典学术理论全景书</title>
+  <link rel="stylesheet" href="common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="top-nav">
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="window.AnaNav.toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
     <div class="nav-left">
-      <a class="nav-book-name" href="index.html">&#x1F4DC; 中华古典学术理论全景书</a>
-      <span class="nav-divider">|</span>
-      <span class="nav-chapter-title">第二十九章 孟子性善与仁政</span>
+      <a class="nav-book-name" href="index.html">&#128220; 中华古典学术理论全景书</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">二十九、孟子性善与仁政</span>
     </div>
     <div class="nav-right">
-      <a class="nav-btn" href="28-rujia-origins.html">&#x25C0; 上一页</a>
-      <a class="nav-btn" href="30-songming-lixue.html">下一页 &#x25B6;</a>
+      <a class="nav-btn" href="28-rujia-origins.html"><i class="fas fa-arrow-left"></i> 前一章</a>
+      <a class="nav-btn" href="30-songming-lixue.html">后一章 <i class="fas fa-arrow-right"></i></a>
     </div>
   </nav>
-
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-header">
       <h3>中华古典学术理论</h3>
-      <button class="sidebar-close" aria-label="Close sidebar" onclick="this.parentElement.nextElementSibling.classList.toggle('open')"><i class="fas fa-times"></i></button>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
     </div>
     <nav class="toc">
       <ul class="toc-list">
         <li class="toc-chapter">第一部分 八卦</li>
-        <li><a href="../01-bagua-origin.html">01 八卦起源与演变概述</a></li>
-        <li><a href="../02-fuxi-shennong.html">02 伏羲画卦与上古传说</a></li>
-        <li><a href="../03-zhouyi-wenwang.html">03 文王演周易</a></li>
-        <li><a href="../04-bagua-xiangshu.html">04 八卦象数体系</a></li>
-        <li><a href="../05-bagua-summary.html">05 八卦学习路径</a></li>
+        <li><a href="01-bagua-origin.html">一、八卦起源与演变概述</a></li>
+        <li><a href="02-fuxi-shennong.html">二、伏羲画卦与上古传说</a></li>
+        <li><a href="03-zhouyi-wenwang.html">三、文王演周易</a></li>
+        <li><a href="04-bagua-xiangshu.html">四、八卦象数体系</a></li>
+        <li><a href="05-bagua-summary.html">五、八卦学习路径</a></li>
         <li class="toc-chapter">第二部分 阴阳五行</li>
-        <li><a href="06-yinyang-benyuan.html">06 阴阳本源论</a></li>
-        <li><a href="07-yinyang-wuxing-classics.html">07 阴阳五行经典</a></li>
-        <li><a href="08-wuxing-theory.html">08 五行学说</a></li>
+        <li><a href="06-yinyang-benyuan.html">六、阴阳概念本源</a></li>
+        <li><a href="07-yinyang-wuxing-classics.html">七、经典文本中的阴阳五行</a></li>
+        <li><a href="08-wuxing-theory.html">八、五行理论基础</a></li>
+        <li><a href="09-wuxing-cycles.html">九、五行生克乘侮</a></li>
+        <li><a href="10-yinyang-wuxing-synthesis.html">十、阴阳五行综合体系</a></li>
+        <li><a href="11-yinyang-summary.html">十一、阴阳五行学习路径</a></li>
         <li class="toc-chapter">第三部分 中医基础理论</li>
-        <li><a href="12-tcm-neijing.html">12 黄帝内经与中医理论源头</a></li>
-        <li><a href="13-tcm-yinyang-health.html">13 阴阳平衡与中医健康观</a></li>
-        <li><a href="14-tcm-zangfu.html">14 藏象学说与五脏六腑</a></li>
-        <li><a href="15-tcm-jingluo.html">15 经络系统与针灸理论</a></li>
-        <li><a href="16-tcm-bingyin.html">16 病因病机与辨证论治</a></li>
-        <li><a href="17-tcm-summary.html">17 中医理论学习路径</a></li>
+        <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
+        <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与健康</a></li>
+        <li><a href="14-tcm-zangfu.html">十四、藏象学说</a></li>
+        <li><a href="15-tcm-jingluo.html">十五、经络理论</a></li>
+        <li><a href="16-tcm-bingyin.html">十六、病因与辨证论治</a></li>
+        <li><a href="17-tcm-summary.html">十七、中医学习路径</a></li>
         <li class="toc-chapter">第四部分 易经体系</li>
-        <li><a href="18-yijing-overview.html">18 易经概述</a></li>
-        <li><a href="19-yijing-hexagrams.html">19 六十四卦详解</a></li>
-        <li><a href="20-yijing-text-analysis.html">20 易经文本分析</a></li>
-        <li><a href="21-yijing-commentary.html">21 易经历代注释</a></li>
-        <li><a href="22-yijing-summary.html">22 易学学习路径</a></li>
+        <li><a href="18-yijing-overview.html">十八、易经体系总论</a></li>
+        <li><a href="19-yijing-hexagrams.html">十九、六十四卦详解</a></li>
+        <li><a href="20-yijing-text-analysis.html">二十、卦爻辞解读方法</a></li>
+        <li><a href="21-yijing-commentary.html">二十一、十翼与传注体系</a></li>
+        <li><a href="22-yijing-summary.html">二十二、易经学习路径</a></li>
         <li class="toc-chapter">第五部分 道家理论</li>
+        <li><a href="23-daoism-origins.html">二十三、道家学派起源</a></li>
+        <li><a href="24-daodejing.html">二十四、道德经核心思想</a></li>
+        <li><a href="25-zhuangzi.html">二十五、庄子哲学</a></li>
+        <li><a href="26-daoism-gongfu.html">二十六、道家修养工夫</a></li>
+        <li><a href="27-daoism-summary.html">二十七、道家学习路径</a></li>
         <li class="toc-chapter">第六部分 儒家理论</li>
-        <li><a href="28-rujia-origins.html">28 儒家学派起源与孔子</a></li>
-        <li><a href="29-mengzi.html">29 孟子性善与仁政</a></li>
-        <li><a href="30-songming-lixue.html">30 宋明理学发展</a></li>
-        <li><a href="31-rujia-summary.html">31 儒家学习路径</a></li>
+        <li><a href="28-rujia-origins.html">二十八、儒家学派起源</a></li>
+        <li><a href="29-mengzi.html" class="active">二十九、孟子性善与仁政</a></li>
+        <li><a href="30-songming-lixue.html">三十、宋明理学</a></li>
+        <li><a href="31-rujia-summary.html">三十一、儒家学习路径</a></li>
       </ul>
     </nav>
   </aside>
-
   <main class="content">
-    <h1 class="section-title">二十九、孟子性善与仁政</h1>
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第六部分 儒家理论</span>
+        <h1 class="section-title">二十九、孟子性善与仁政</h1>
+        <p class="chapter-intro">从"孺子入井"到"民贵君轻"——孟子如何为儒家建立最系统的人性论与政治哲学</p>
+      </header>
 
-    <p>孟子（约公元前372年--前289年），名轲，字子与，战国时期邹国（今山东邹城）人，是孔子之后儒家学派的第二代宗师，被后世尊称为"亚圣"。孟子继承了孔子的思想并加以发展，建立了以"性善论"为基础、以"仁政"为核心的完整理论体系，成为儒家思想最重要的奠基人之一。</p>
+      <!-- 段落1：故事引入 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">一、从一则"孺子入井"的思想实验说起</h2>
+        <p>假设你突然看到一个小孩快要掉进井里，你会是什么反应？孟子说，任何人在这种情况下都会本能地感到惊恐和同情——"皆有怵惕恻隐之心"。这种反应不是因为你和孩子父母有什么关系，不是因为你想在邻居面前博个好名声，也不是因为你不喜欢孩子的哭声。它是纯粹的、不假思索的道德冲动。</p>
+        <p>孟子用这个思想实验要证明的，是一个极其大胆的观点：<strong>善良不是后天教育的结果，而是人与生俱来的本性。</strong>就像眼睛天生能看、耳朵天生能听一样，人心天生就知道什么是对什么是错。这个观点看似简单，却彻底改变了儒家思想的走向——如果人性本善，那么道德修养就不是向外求索，而是向内找回那个被蒙蔽的本心。</p>
+      </section>
 
-    <h2 class="section-subtitle">一、孟子生平与《孟子》七篇</h2>
+      <!-- 段落2：概念解析 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">二、核心概念详解</h2>
 
-    <p>关于孟子的生平，史料记载相对简略，但足以勾勒出这位伟大思想家的轮廓。他出生于战国中期，那是一个兼并战争频繁、弱肉强食的时代。在这样的环境中，孟子敏锐地意识到，只有以道德为基础的政治才能实现真正的长治久安。</p>
+        <h3>孟子其人其书</h3>
+        <p>孟子（约公元前372年—前289年），名轲，字子与，战国时期邹国（今山东邹城）人。他早年受业于孔子孙子孔伋（子思）的门人，继承了子思一脉的心性之学。孟子被后世尊称为"亚圣"，是孔子之后儒家学派的第二代宗师。</p>
+        <p>孟子周游列国，先后到宋、滕、魏、齐等地，向各国君主阐述自己的政治主张。尽管他的学说在当时被视为"迂阔"而不被采纳，但他退而与弟子万章等人著书立说，完成了《孟子》七篇。</p>
 
-    <p>孟子早年受业于孔子孙子孔伋（子思）的门人，继承了子思一脉的心性之学。他曾周游列国，先后到宋、滕、魏、齐等地，向各国君主阐述自己的政治主张。尽管他的学说在当时被视为"迂阔"而不被采纳，但他始终不改初心，退而与弟子万章等人著书立说，完成了《孟子》七篇。</p>
+        <h3>四端说：性善论的系统论证</h3>
+        <p>孟子认为人天生具有四种道德萌芽（"四端"），它们就像人的四肢一样天然存在：</p>
 
-    <table class="data-table">
-      <thead>
-        <tr><th>篇目</th><th>主题</th><th>核心论点</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>梁惠王上</td><td>仁政与王道的开端</td><td>"王何必曰利？亦有仁义而已矣。"</td></tr>
-        <tr><td>梁惠王下</td><td>与民同乐</td><td>"乐民之乐者，民亦乐其乐。"</td></tr>
-        <tr><td>公孙丑上</td><td>养浩然之气</td><td>"我善养吾浩然之气。"</td></tr>
-        <tr><td>公孙丑下</td><td>天时地利人和</td><td>"得道者多助，失道者寡助。"</td></tr>
-        <tr><td>滕文公上</td><td>井田制与社会公平</td><td>"民事本，然后可以有为。"</td></tr>
-        <tr><td>滕文公下</td><td>士人的操守与独立</td><td>"富贵不能淫，贫贱不能移，威武不能屈。"</td></tr>
-        <tr><td>告子上</td><td>性善论的系统论证</td><td>"人之性善也，犹水之就下也。"</td></tr>
-        <tr><td>告子下</td><td>磨砺与成长</td><td>"故天将降大任于是人也，必先苦其心志。"</td></tr>
-        <tr><td>尽心上</td><td>尽心知性的修养论</td><td>"尽其心者，知其性也。知其性，则知天矣。"</td></tr>
-        <tr><td>离娄上</td><td>反求诸己的修养论</td><td>"行有不得者，皆反求诸己。"</td></tr>
-      </tbody>
-    </table>
+        <table class="data-table">
+          <thead><tr><th>四端</th><th>对应德行</th><th>原文表述</th><th>含义</th></tr></thead>
+          <tbody>
+            <tr><td><strong>恻隐之心</strong></td><td>仁之端</td><td>今人乍见孺子将入于井，皆有怵惕恻隐之心</td><td>看到他人受苦时本能的同情与不忍</td></tr>
+            <tr><td><strong>羞恶之心</strong></td><td>义之端</td><td>羞恶之心，义之端也</td><td>对不道德行为的本能羞耻感和厌恶感</td></tr>
+            <tr><td><strong>辞让之心</strong></td><td>礼之端</td><td>辞让之心，礼之端也</td><td>在利益面前本能地谦让</td></tr>
+            <tr><td><strong>是非之心</strong></td><td>智之端</td><td>是非之心，智之端也</td><td>天生具有辨别对错的能力</td></tr>
+          </tbody>
+        </table>
 
-    <div class="tip-box">
-      <div class="tip-title">&#x1F4A1; 时代背景</div>
-      <div class="tip-body">孟子生活的战国时代，是一个礼崩乐坏、诸侯争霸的乱世。在这样的背景下，孟子提出了与当时流行的"霸道"截然不同的"王道"理想——不是靠武力征服，而是靠道德感召来统一天下。这一思想在功利的战国显得格格不入，却在后世成为了儒家政治理想的标杆。</div>
-    </div>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心理解要点</div>
+          <div class="tip-body">孟子说："仁义礼智，非由外铄我也，我固有之也。"<strong>这四端不是外界灌输的，而是人内心固有的。</strong>如果人做了不善的事，那不是本性出了问题，而是本性被外界蒙蔽了。道德修养的任务就是"求其放心"——把放失的本心找回来。</div>
+        </div>
 
-    <h2 class="section-subtitle">二、性善论：人之初，性本善</h2>
+        <div class="illustration-svg">
+          <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mengzi four ends diagram -->
+            <text x="250" y="18" text-anchor="middle" fill="#B8860B" font-size="13" font-weight="600" font-family="'Noto Sans SC', sans-serif">孟子四端说</text>
+            <!-- Center: 人性 -->
+            <circle cx="250" cy="130" r="35" fill="rgba(184,134,11,0.1)" stroke="#B8860B" stroke-width="2"/>
+            <text x="250" y="126" text-anchor="middle" fill="#B8860B" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">人性</text>
+            <text x="250" y="144" text-anchor="middle" fill="#B8860B" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">本善</text>
+            <!-- Four corners -->
+            <rect x="30" y="30" width="120" height="55" rx="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+            <text x="90" y="52" text-anchor="middle" fill="#dc2626" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">恻隐之心</text>
+            <text x="90" y="70" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">→ 仁之端</text>
+            <line x1="150" y1="58" x2="215" y2="110" stroke="#E8E6E1" stroke-width="1.5"/>
 
-    <p>孟子思想的最核心贡献在于对"人性"问题的系统论证。他认为人之初性本善，善是人之所以为人的本质特征。为了证明这一点，孟子提出了著名的"四端说"。</p>
+            <rect x="350" y="30" width="120" height="55" rx="6" fill="none" stroke="#1A5276" stroke-width="1.5"/>
+            <text x="410" y="52" text-anchor="middle" fill="#1A5276" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">羞恶之心</text>
+            <text x="410" y="70" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">→ 义之端</text>
+            <line x1="350" y1="58" x2="285" y2="110" stroke="#E8E6E1" stroke-width="1.5"/>
 
-    <p>"四端"指的是人天生具有的四种道德萌芽：</p>
+            <rect x="30" y="175" width="120" height="55" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+            <text x="90" y="197" text-anchor="middle" fill="#059669" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">辞让之心</text>
+            <text x="90" y="215" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">→ 礼之端</text>
+            <line x1="150" y1="198" x2="215" y2="150" stroke="#E8E6E1" stroke-width="1.5"/>
 
-    <div class="grid-2">
-      <div class="card highlight">
-        <h3 style="font-size:15px;color:var(--cyan);margin-bottom:6px;">恻隐之心 -- 仁之端</h3>
-        <p style="font-size:13px;color:var(--text2);">"今人乍见孺子将入于井，皆有怵惕恻隐之心。"这是孟子最著名的思想实验——任何人看到小孩快要掉进井里，都会本能地感到惊恐和同情。这种情感不是出于功利计算，而是发自内心的道德冲动。</p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:15px;color:var(--orange);margin-bottom:6px;">羞恶之心 -- 义之端</h3>
-        <p style="font-size:13px;color:var(--text2);">人对不道德的行为会产生羞耻感和厌恶感。这种内在的道德直觉是义的来源，使人知道什么是不该做的。</p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:15px;color:var(--purple);margin-bottom:6px;">辞让之心 -- 礼之端</h3>
-        <p style="font-size:13px;color:var(--text2);">在利益面前，人会本能地谦让。这种礼让之心是礼仪制度的内在根据，说明礼不只是外在约束。</p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:15px;color:var(--green);margin-bottom:6px;">是非之心 -- 智之端</h3>
-        <p style="font-size:13px;color:var(--text2);">人天生具有辨别对错的能力。这种判断力就是智慧的萌芽，不需要后天教导也能自然呈现。</p>
-      </div>
-    </div>
+            <rect x="350" y="175" width="120" height="55" rx="6" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+            <text x="410" y="197" text-anchor="middle" fill="#7c3aed" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">是非之心</text>
+            <text x="410" y="215" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">→ 智之端</text>
+            <line x1="350" y1="198" x2="285" y2="150" stroke="#E8E6E1" stroke-width="1.5"/>
+          </svg>
+          <figcaption class="illustration-caption">图二十九-1 四端说 — 人性本善，四端如四肢般天生具备，分别是恻隐、羞恶、辞让、是非之心</figcaption>
+        </div>
+      </section>
 
-    <p>孟子强调："恻隐之心，仁也；羞恶之心，义也；恭敬之心，礼也；是非之心，智也。仁义礼智，非由外铄我也，我固有之也。"这四端就像人的四肢一样，是天生的、自然存在的。如果人做了不善的事，那不是本性的丧失，而是本性被外界所蒙蔽。</p>
+      <!-- 段落3：深入理解 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">三、深入理解</h2>
 
-    <h2 class="section-subtitle">三、仁政学说：民为贵，社稷次之，君为轻</h2>
+        <h3>仁政的三个层面</h3>
+        <ol class="steps-list">
+          <li><strong>经济层面——制民之产：</strong>孟子主张实行井田制，使每家农户拥有百亩耕地和五亩宅园，种桑养蚕，保证"五十者可以衣帛，七十者可以食肉"。这是仁政的物质基础。政治的首要任务是保障基本民生，"黎民不饥不寒"是治理的第一要求。</li>
+          <li><strong>教育层面——谨庠序之教：</strong>在经济保障的基础上设立学校，普及道德教育，"申之以孝悌之义"。通过教育使人认识并扩充自己的善性，从自然本能升华为人格自觉。</li>
+          <li><strong>政治层面——与民同乐：</strong>统治者应当将百姓的快乐当作自己的快乐。孟子认为，一个能够关心百姓疾苦的君主才配得上统治天下的资格。</li>
+        </ol>
 
-    <p>孟子将性善论应用于政治领域，提出了系统的"仁政"学说。他认为，既然人的本性是善的，那么政治的根本任务就是保护和发展这种善性，而不是单纯依靠刑罚来约束。</p>
+        <h3>民贵君轻：中国政治哲学史上最激进的观点</h3>
+        <div class="case-box">
+          <div class="case-title"><i class="fas fa-balance-scale"></i> 案例：闻诛一夫纣矣，未闻弑君也</div>
+          <div class="case-body">
+            <p>孟子提出"民为贵，社稷次之，君为轻"——将人民置于国家和君主之上。他指出如果君主危害国家，就可以被废黜。当有人问他商汤流放夏桀、武王伐纣是否臣杀君时，孟子回答："闻诛一夫纣矣，未闻弑君也。"意思是：我只听说过诛杀了一个独夫纣，没听说过什么臣杀君——因为失去民心的统治者已经不再是合法的君主了。<br>
+            这一思想在后世产生了深远影响：董仲舒用它来约束皇权，黄宗羲在《明夷待访录》中进一步发展了批判君主专制的理论，直到近代成为中国民主思潮的重要资源。</p>
+          </div>
+        </div>
 
-    <h3>仁政的三个层面</h3>
+        <h3>浩然之气：孟子的精神境界</h3>
+        <p>"浩然之气"是一种至大至刚、充塞天地的精神状态。涵养这种气必须做到"配义与道"——所有行为都要符合正义和道德。如果内心有不仁不义之处，这种气就会萎缩。因此道德修养不仅是内心的功夫，更需要在日常行为中不断践行。</p>
 
-    <ol class="steps-list">
-      <li><strong>经济层面：制民之产</strong>。孟子主张实行井田制，使每家农户拥有百亩耕地和五亩宅园，种桑养蚕，保证"五十者可以衣帛，七十者可以食肉"。这是仁政的物质基础。他特别强调，政治的首要任务是保障基本民生，"黎民不饥不寒"是治理的第一要求。</li>
-      <li><strong>教育层面：谨庠序之教</strong>。在经济保障的基础上，应当设立学校，普及道德教育，"申之以孝悌之义"。通过教育使人认识并扩充自己的善性，从自然的本能升华为人格的自觉。</li>
-      <li><strong>政治层面：与民同乐</strong>。统治者应当将百姓的快乐当作自己的快乐，与民同乐则王。孟子认为，一个能够关心百姓疾苦的君主，才配得上统治天下的资格。</li>
-    </ol>
+        <h3>大丈夫人格理想</h3>
+        <table class="data-table">
+          <thead><tr><th>品格</th><th>原文</th><th>现代解读</th></tr></thead>
+          <tbody>
+            <tr><td><strong>大丈夫</strong></td><td>富贵不能淫，贫贱不能移，威武不能屈</td><td>在任何境况下都保持道德操守和人格独立</td></tr>
+            <tr><td><strong>磨砺观</strong></td><td>故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤</td><td>苦难是成就伟大人格的必要条件</td></tr>
+            <tr><td><strong>求放心</strong></td><td>学问之道无他，求其放心而已矣</td><td>学习的根本目的是找回放失的本心</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <div class="case-box">
-      <div class="case-title">&#x1F3DB; 案例：民贵君轻的政治哲学</div>
-      <div class="case-body">
-        <p>孟子对梁襄王的论述堪称中国政治哲学史上最激进的观点之一。当被问及天下何时能安定之时，孟子回答："定于一。"进一步追问谁能统一天下时，他说："不嗜杀人者能一之。"意思是只有不爱杀人的君主才能统一天下。</p>
-        <p>最震撼的是孟子提出的"民为贵，社稷次之，君为轻"。他将人民置于国家和君主之上，明确指出如果君主危害国家，就可以被废黜——"闻诛一夫纣矣，未闻弑君也"。这种思想在当时是极其革命的，因为它从根本上挑战了君权神授的观念。</p>
-        <p>这一思想在后世产生了深远的影响。董仲舒用它来约束皇权，黄宗羲在《明夷待访录》中进一步发展了批判君主专制的理论，直到近代，这一思想都成为中国民主思潮的重要资源。</p>
-      </div>
-    </div>
+      <!-- 段落4：实践应用 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">四、在现代生活中的应用</h2>
 
-    <h2 class="section-subtitle">四、孟子的修养论与人格理想</h2>
+        <h3>孟子思想的现代意义</h3>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 孟子与现代社会的三个连接点</div>
+          <div class="tip-body">
+            <p><strong>民生保障：</strong>孟子"制民之产"的思想与现代福利国家理念相通——政府的首要责任是保障公民的基本生存需求。<br>
+            <strong>教育公平：</strong>孟子的"谨庠序之教"强调教育普及，与现代"有教无类"（孔子）共同构成了中国教育公平的哲学基础。<br>
+            <strong>民本民主：</strong>孟子的"民贵君轻"虽非现代民主，但为中国人接受民主思想提供了本土哲学资源——黄宗羲、梁启超等都从孟子那里找到了批判专制的武器。</p>
+          </div>
+        </div>
 
-    <p>孟子不仅是一位政治家，更是一位人格哲学家。他提出了"浩然之气"的概念，描述了通过长期道德修养达到的精神境界。</p>
+        <h3>孟子与孔子的思想传承对比</h3>
+        <table class="data-table">
+          <thead><tr><th>对比维度</th><th>孔子</th><th>孟子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>核心概念</strong></td><td>仁、礼</td><td>性善、仁政</td></tr>
+            <tr><td><strong>论证方式</strong></td><td>感性经验为主（"己所不欲勿施于人"）</td><td>系统论证为主（"四端说"证明性善）</td></tr>
+            <tr><td><strong>政治侧重</strong></td><td>德治（为政以德）</td><td>仁政（制民之产+教化+与民同乐）</td></tr>
+            <tr><td><strong>人性观点</strong></td><td>"性相近，习相远"（较为模糊）</td><td>"性本善"（明确论证）</td></tr>
+            <tr><td><strong>理想人格</strong></td><td>君子</td><td>大丈夫（更强调骨气和抗争精神）</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <p>"浩然之气"是一种至大至刚、充塞天地的精神状态。要涵养这种气，必须做到"配义与道"，即所有的行为都要符合正义和道德。如果内心有不仁不义之处，这种气就会萎缩。因此，道德修养不仅是内心的功夫，更需要在日常行为中不断践行。</p>
+      <!-- 段落5：延伸阅读 -->
+      <section class="chapter-section chapter-extensions">
+        <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
-    <div class="grid-3">
-      <div class="data-card"><div class="value" style="color:var(--gold);">大丈夫</div><div class="label">富贵不能淫<br>贫贱不能移<br>威武不能屈</div></div>
-      <div class="data-card"><div class="value" style="color:var(--cyan);">天将降大任</div><div class="label">苦其心志<br>劳其筋骨<br>饿其体肤</div></div>
-      <div class="data-card"><div class="value" style="color:var(--purple);">求其放心</div><div class="label">学问之道无他<br>求其放心而已矣<br>放其心而不知求</div></div>
-    </div>
+        <h3>跨章节关联</h3>
+        <div class="cross-ref-grid">
+          <a href="28-rujia-origins.html" class="cross-ref-card">
+            <div class="cross-ref-icon">📖</div>
+            <div class="cross-ref-info"><strong>儒家学派起源</strong><span>孟子继承并发展了孔子的思想</span></div>
+          </a>
+          <a href="30-songming-lixue.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🏛</div>
+            <div class="cross-ref-info"><strong>宋明理学</strong><span>孟子性善论是理学的核心理论来源</span></div>
+          </a>
+          <a href="25-zhuangzi.html" class="cross-ref-card">
+            <div class="cross-ref-icon">☁</div>
+            <div class="cross-ref-info"><strong>庄子哲学</strong><span>儒道两家在人性论上的根本分歧</span></div>
+          </a>
+        </div>
 
-    <h2 class="section-subtitle">五、孟子与孔子的思想传承与发展</h2>
+        <div class="reflection-questions">
+          <h3><i class="fas fa-question-circle"></i> 思考题</h3>
+          <ol>
+            <li>孟子说"人皆有不忍人之心"——看到小孩入井会本能地感到惊恐同情。在你的生活中，有没有过这种"不假思索的道德冲动"？那种体验和经过理性计算后的选择有什么不同？</li>
+            <li>"民为贵，社稷次之，君为轻"在两千多年前是极其激进的观点。在现代社会，"以人民为中心"的发展思想与孟子的民本主义有什么异同？</li>
+            <li>孟子说"富贵不能淫，贫贱不能移，威武不能屈"——这是大丈夫的标准。在当今社会，你认为哪种诱惑或压力最能考验一个人的人格？为什么？</li>
+          </ol>
+        </div>
 
-    <p>孟子被视为孔子思想最直接、最忠实的继承者，但他并非简单的复制，而是在新的历史条件下进行了创造性的发展。相较于孔子偏重"礼"和"仁"的感性维度，孟子更系统地论证了道德的人性根基。如果说孔子告诉我们"应该"做什么，孟子则解释了"为什么"应该这样做——因为这是人的本性。</p>
-
-    <div class="chart-container" id="chart-mengzi-system"></div>
-
-    <div class="chart-container" id="chart-mengzi-compare"></div>
-
-    <div class="tip-box">
-      <div class="tip-title">&#x1F4A1; 对比学习</div>
-      <div class="tip-body">学习孟子的性善论时，建议同时了解荀子的性恶论。这两种看似矛盾的人性观实际上是从不同角度观察人类行为的结果。孟子关注的是人的潜能和可能性，荀子关注的是人的现实表现。理解这两种观点的互补性，有助于更全面地把握儒家对人性的思考。</div>
-    </div>
+        <div class="further-reading">
+          <h3><i class="fas fa-book-open"></i> 进一步阅读</h3>
+          <ul>
+            <li>《孟子译注》杨伯峻，中华书局</li>
+            <li>《孟子正义》焦循，中华书局</li>
+            <li>《孟子思想研究》朱熹（四书章句集注·孟子篇）</li>
+            <li>《先秦政治思想史》梁启超，东方出版社</li>
+          </ul>
+        </div>
+      </section>
+    </article>
   </main>
-
   <footer class="page-footer">
-    <a class="nav-prev" href="28-rujia-origins.html"><i class="fas fa-arrow-left"></i> 二十八、儒家学派起源与孔子</a>
+    <a class="nav-prev" href="28-rujia-origins.html"><i class="fas fa-arrow-left"></i> 儒家学派起源</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
     <span class="page-info">29 / 31</span>
-    <a class="nav-next" href="30-songming-lixue.html">三十、宋明理学发展 <i class="fas fa-arrow-right"></i></a>
+    <a class="nav-next" href="30-songming-lixue.html">宋明理学 <i class="fas fa-arrow-right"></i></a>
   </footer>
-
-  <script src="../common/js/echarts.inline.js"></script>
-  <script src="../common/js/navigation.js"></script>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 孟子思想体系结构
-      var c1 = echarts.init(document.getElementById('chart-mengzi-system'));
-      c1.setOption({
-        backgroundColor: 'transparent',
-        tooltip: {},
-        series: [{
-          type: 'tree',
-          data: [{
-            name: '孟子思想',
-            children: [
-              {
-                name: '性善论',
-                children: [
-                  { name: '四端说' },
-                  { name: '恻隐之心' },
-                  { name: '羞恶之心' },
-                  { name: '辞让之心' },
-                  { name: '是非之心' }
-                ]
-              },
-              {
-                name: '仁政学说',
-                children: [
-                  { name: '制民之产' },
-                  { name: '谨庠序之教' },
-                  { name: '与民同乐' },
-                  { name: '民贵君轻' }
-                ]
-              },
-              {
-                name: '修养论',
-                children: [
-                  { name: '浩然之气' },
-                  { name: '求其放心' },
-                  { name: '大丈夫人格' },
-                  { name: '苦心理论' }
-                ]
-              },
-              {
-                name: '政治哲学',
-                children: [
-                  { name: '王道vs霸道' },
-                  { name: '诛一夫纣' },
-                  { name: '制民之产' },
-                  { name: '井田设想' }
-                ]
-              }
-            ]
-          }],
-          left: '5%', top: '10%', bottom: '10%', right: '5%',
-          layout: 'radial',
-          symbol: 'circle',
-          symbolSize: 22,
-          initialTreeDepth: -1,
-          label: { color: '#e2e8f0', fontSize: 12, fontFamily: 'Noto Sans SC' },
-          leafLabel: { color: '#94a3b8', fontSize: 11 },
-          lineStyle: { color: '#1e2a3a', width: 1.5 },
-          emphasis: { focus: 'descendant' }
-        }]
+      var toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
       });
-
-      // 孔孟比较
-      var c2 = echarts.init(document.getElementById('chart-mengzi-compare'));
-      c2.setOption({
-        backgroundColor: 'transparent',
-        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        legend: { data: ['孔子', '孟子'], textStyle: { color: '#94a3b8' }, top: 0 },
-        grid: { left: '3%', right: '10%', bottom: '3%', containLabel: true },
-        xAxis: { type: 'value', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-        yAxis: { type: 'category', data: ['仁', '礼', '义', '智', '信', '王道', '性论'], axisLabel: { color: '#e2e8f0', fontSize: 12 } },
-        series: [
-          {
-            name: '孔子', type: 'bar', stack: 'total', data: [95, 90, 70, 65, 75, 60, 40],
-            itemStyle: { color: '#eab308' }
-          },
-          {
-            name: '孟子', type: 'bar', stack: 'total', data: [90, 60, 85, 80, 70, 95, 95],
-            itemStyle: { color: '#06b6d4' }
-          }
-        ]
-      });
-
-      window.addEventListener('resize', function() { c1.resize(); c2.resize(); });
     });
   </script>
 </body>

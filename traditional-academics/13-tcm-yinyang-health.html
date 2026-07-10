@@ -1,172 +1,303 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第十三章：阴阳平衡与中医健康观 — 中华古典学术理论全景书</title>
-<link rel="stylesheet" href="common/css/book.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>十三、阴阳平衡与健康 — 中华古典学术理论全景书</title>
+  <link rel="stylesheet" href="common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="top-nav">
-  <div class="nav-left"><a href="index.html" class="nav-book-name"><i class="fas fa-book"></i> 古典学术书</a><span class="nav-divider">/</span><span class="nav-chapter-title">十三、阴阳平衡与中医健康观</span></div>
-  <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
-</nav>
-<aside class="sidebar">
-  <div class="sidebar-header"><h3>中华古典学术理论</h3><button class="sidebar-close" aria-label="Close sidebar" onclick="AnaNav.toggleSidebar()"><i class="fas fa-times"></i></button></div>
-  <nav class="toc"><ul class="toc-list">
-    <li class="toc-chapter">第一部分：儒家学说体系</li>
-    <li><a href="01-confucius-overview.html">一、孔子与儒家思想概览</a></li>
-    <li><a href="02-sishu.html">二、四书五经与儒家经典</a></li>
-    <li><a href="03-mencius.html">三、孟子与性善论</a></li>
-    <li><a href="04-xunzi.html">四、荀子与礼法并重</a></li>
-    <li class="toc-chapter">第二部分：道家与佛学</li>
-    <li><a href="05-laozi.html">五、道德经与道家哲学</a></li>
-    <li><a href="06-zhuangzi.html">六、庄子与逍遥哲学</a></li>
-    <li><a href="07-foxue-intro.html">七、佛学传入与中国化</a></li>
-    <li><a href="08-weishi.html">八、唯识宗与华严宗</a></li>
-    <li><a href="09-chanzong.html">九、禅宗与明心见性</a></li>
-    <li class="toc-chapter">第三部分：中医基础理论</li>
-    <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
-    <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与中医健康观</a></li>
-    <li><a href="14-tcm-zangfu.html">十四、藏象学说与五脏六腑</a></li>
-    <li><a href="15-tcm-jingluo.html">十五、经络系统与针灸理论</a></li>
-    <li><a href="16-tcm-bingyin.html">十六、病因病机与辨证论治</a></li>
-    <li><a href="17-tcm-summary.html">十七、中医理论学习路径</a></li>
-    <li class="toc-chapter">第四部分：易经与术数</li>
-    <li><a href="18-yijing-overview.html">十八、易经概览与六十四卦</a></li>
-    <li><a href="19-yijing-xiangshu.html">十九、象数易学与卦象推演</a></li>
-    <li><a href="20-yijing-lixue.html">二十、义理易学与宋明理学</a></li>
-    <li><a href="21-yijing-application.html">二十一、易经在各领域的应用</a></li>
-    <li><a href="22-yijing-summary.html">二十二、易经学习路径与陷阱防范</a></li>
-    <li class="toc-chapter">第五部分：兵法战略</li>
-    <li><a href="23-artofwar-overview.html">二十三、孙子兵法与兵家思想</a></li>
-    <li><a href="24-sixtao.html">二十四、吴子与司马法</a></li>
-    <li><a href="25-wujingzongyao.html">二十五、武经七书与其他兵法</a></li>
-    <li><a href="26-history-bingfa.html">二十六、历代兵法战例分析</a></li>
-    <li><a href="27-bingfa-summary.html">二十七、兵家思想现代应用</a></li>
-    <li class="toc-divider"></li>
-    <li><a href="index.html"><i class="fas fa-arrow-left"></i> 返回目录</a></li>
-  </ul></nav>
-</aside>
-<main class="content">
-<h1 class="section-title">十三、阴阳平衡与中医健康观</h1>
-<p class="data-note" style="font-size:15px;margin-bottom:20px;">阴阳学说是中医理论的核心方法论。《素问·阴阳应象大论》云："阴阳者，天地之道也，万物之纲纪，变化之父母，生杀之本始，神明之府也。"在中医看来，健康不是某种静态的完美状态，而是阴阳动态平衡的过程；疾病则是这种平衡被打破的结果。</p>
+  <nav class="top-nav">
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <div class="nav-left">
+      <a class="nav-book-name" href="index.html">&#128220; 中华古典学术理论全景书</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">十三、阴阳平衡与健康</span>
+    </div>
+    <div class="nav-right">
+      <a class="nav-btn" href="12-tcm-neijing.html"><i class="fas fa-arrow-left"></i> 前一章</a>
+      <a class="nav-btn" href="14-tcm-zangfu.html">后一章 <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </nav>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>中华古典学术理论</h3>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="toc">
+      <ul class="toc-list">
+        <li class="toc-chapter">第一部分 八卦</li>
+        <li><a href="01-bagua-origin.html">一、八卦起源与演变概述</a></li>
+        <li><a href="02-fuxi-shennong.html">二、伏羲画卦与上古传说</a></li>
+        <li><a href="03-zhouyi-wenwang.html">三、文王演周易</a></li>
+        <li><a href="04-bagua-xiangshu.html">四、八卦象数体系</a></li>
+        <li><a href="05-bagua-summary.html">五、八卦学习路径</a></li>
+        <li class="toc-chapter">第二部分 阴阳五行</li>
+        <li><a href="06-yinyang-benyuan.html">六、阴阳概念本源</a></li>
+        <li><a href="07-yinyang-wuxing-classics.html">七、经典文本中的阴阳五行</a></li>
+        <li><a href="08-wuxing-theory.html">八、五行理论基础</a></li>
+        <li><a href="09-wuxing-cycles.html">九、五行生克乘侮</a></li>
+        <li><a href="10-yinyang-wuxing-synthesis.html">十、阴阳五行综合体系</a></li>
+        <li><a href="11-yinyang-summary.html">十一、阴阳五行学习路径</a></li>
+        <li class="toc-chapter">第三部分 中医基础理论</li>
+        <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
+        <li><a href="13-tcm-yinyang-health.html" class="active">十三、阴阳平衡与健康</a></li>
+        <li><a href="14-tcm-zangfu.html">十四、藏象学说</a></li>
+        <li><a href="15-tcm-jingluo.html">十五、经络理论</a></li>
+        <li><a href="16-tcm-bingyin.html">十六、病因与辨证论治</a></li>
+        <li><a href="17-tcm-summary.html">十七、中医学习路径</a></li>
+        <li class="toc-chapter">第四部分 易经体系</li>
+        <li><a href="18-yijing-overview.html">十八、易经体系总论</a></li>
+        <li><a href="19-yijing-hexagrams.html">十九、六十四卦详解</a></li>
+        <li><a href="20-yijing-text-analysis.html">二十、卦爻辞解读方法</a></li>
+        <li><a href="21-yijing-commentary.html">二十一、十翼与传注体系</a></li>
+        <li><a href="22-yijing-summary.html">二十二、易经学习路径</a></li>
+        <li class="toc-chapter">第五部分 道家理论</li>
+        <li><a href="23-daoism-origins.html">二十三、道家学派起源</a></li>
+        <li><a href="24-daodejing.html">二十四、道德经核心思想</a></li>
+        <li><a href="25-zhuangzi.html">二十五、庄子哲学</a></li>
+        <li><a href="26-daoism-gongfu.html">二十六、道家修养工夫</a></li>
+        <li><a href="27-daoism-summary.html">二十七、道家学习路径</a></li>
+        <li class="toc-chapter">第六部分 儒家理论</li>
+        <li><a href="28-rujia-origins.html">二十八、儒家学派起源</a></li>
+        <li><a href="29-mengzi.html">二十九、孟子性善与仁政</a></li>
+        <li><a href="30-songming-lixue.html">三十、宋明理学</a></li>
+        <li><a href="31-rujia-summary.html">三十一、儒家学习路径</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="content">
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第三部分 中医基础理论</span>
+        <h1 class="section-title">十三、阴阳平衡与健康</h1>
+        <p class="chapter-intro">从"阴平阳秘"到四季养生——中医健康观的核心智慧与日常实践</p>
+      </header>
 
-<h2 class="section-subtitle">13.1 什么是阴阳平衡？</h2>
-<p>阴阳并非两个独立的实体，而是同一事物中相互对立的两个方面。在人体中，气为阳、血为阴；表为阳、里为阴；寒为阴、热为阳。阴阳之间存在着四种基本关系：<strong>对立制约</strong>（如寒能清热）、<strong>互根互用</strong>（如阴阳互相依存，孤阴不生、独阳不长）、<strong>消长转化</strong>（如白天阳气渐盛入夜阴气渐长）、<strong>动态平衡</strong>（健康即是阴阳维持在一个相对稳定的范围内）。</p>
-<p>中医认为，"阴平阳秘，精神乃治；阴阳离决，精气乃绝"。这里的"平"不是绝对的静止，而是一种能够在波动中自我修复、自我调节的动态平衡态。健康的人体就像一座精密运转的生态园林，阴阳二气在其中此消彼长，维持着微妙的和谐。</p>
+      <!-- 段落1：故事引入 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">一、从一则生活故事说起</h2>
+        <p>老李今年四十五岁，是一家互联网公司的技术主管。最近半年他总觉得不对劲：白天没精神，一到下午就犯困；晚上却睡不着，翻来覆去直到凌晨两三点。更奇怪的是，他有时候怕热得直冒汗，有时候又怕冷得穿棉衣。去医院检查，各项指标都在正常范围内，医生说他"亚健康"。</p>
+        <p>如果老李读过《黄帝内经》，他可能会发现这些症状正是阴阳失衡的典型表现——怕热出汗是阴虚火旺，怕冷穿衣是阳气不足，而昼夜节律的紊乱则说明他的阴阳消长已经失去了正常的节律。中医的健康观不是看某一项指标是否达标，而是看整个生命系统是否处于动态平衡之中。</p>
+        <p>老李的故事告诉我们：阴阳平衡不是抽象的哲学概念，而是每个人每天都在经历的真实体验。</p>
+      </section>
 
-<h2 class="section-subtitle">13.2 阴虚、阳虚与阴阳两虚的辨识</h2>
+      <!-- 段落2：概念解析 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">二、核心概念详解</h2>
 
-<table class="data-table">
-<thead><tr><th>证型</th><th>核心病机</th><th>主要表现</th><th>舌脉</th><th>调理方向</th></tr></thead>
-<tbody>
-<tr><td><strong>阴虚</strong></td><td>阴液不足，不能制阳<br>→ 虚热内生</td><td>五心烦热、潮热盗汗、口干咽燥、眩晕耳鸣、失眠多梦、形体消瘦</td><td>舌红少苔，脉细数</td><td>滋阴降火<br>常用：六味地黄丸、左归丸</td></tr>
-<tr><td><strong>阳虚</strong></td><td>阳气虚弱，不能温煦<br>→ 虚寒内生</td><td>畏寒肢冷、神疲乏力、面色苍白、小便清长、大便稀溏、腰膝酸软</td><td>舌淡胖苔白，脉沉迟无力</td><td>温补肾阳<br>常用：金匮肾气丸、右归丸</td></tr>
-<tr><td><strong>阴阳两虚</strong></td><td>阴损及阳或阳损及阴<br>→ 阴阳俱亏</td><td>上述两类症状兼而有之，但程度较轻<br>兼见疲乏+盗汗、畏冷+口干</td><td>舌淡红少苔或苔剥，脉细弱</td><td>阴阳双补<br>常用：龟鹿二仙胶、地黄饮子</td></tr>
-<tr><td><strong>气阴两虚</strong></td><td>气虚+阴虚并存<br>（临床最常见之一）</td><td>气短懒言、自汗+口干咽燥、手足心热、舌干少津</td><td>舌红少津，脉细弱数</td><td>益气养阴<br>常用：生脉散、参苓白术散加减</td></tr>
-<tr><td><strong>阴阳格拒</strong></td><td>阴盛格阳或阳盛格阴<br>→ 真假寒热错杂</td><td>真寒假热：面赤如妆但四肢厥冷<br>真热假寒：手足厥冷但胸腹灼热</td><td>视具体证型而定</td><td>回阳救逆或清热生津<br>需专业医师辨证</td></tr>
-</tbody>
-</table>
+        <h3>什么是阴阳平衡？</h3>
+        <p>阴阳并非两个独立的实体，而是同一事物中相互对立的两个方面。在人体中，气为阳、血为阴；表为阳、里为阴；寒为阴、热为阳。阴阳之间存在着四种基本关系：</p>
 
-<h2 class="section-subtitle">13.3 四季养生中的阴阳调和</h2>
+        <ol class="steps-list">
+          <li><strong>对立制约：</strong>如寒能清热、热能温寒。阴阳双方相互制约，防止任何一方过度偏盛。</li>
+          <li><strong>互根互用：</strong>孤阴不生、独阳不长。阴阳互相依存，没有阴就没有阳，没有阳也没有阴。</li>
+          <li><strong>消长转化：</strong>白天阳气渐盛入夜阴气渐长，这是正常的消长变化。但当消长超出一定范围，就会发生转化——极热生寒、极寒生热。</li>
+          <li><strong>动态平衡：</strong>健康即是阴阳维持在一个相对稳定的范围内波动，而不是绝对静止。</li>
+        </ol>
 
-<div class="case-box">
-  <div class="case-title">📌 四季养生的阴阳调整原则</div>
-  <div class="case-body">
-    <strong>春季（生）：</strong>五行属木，对应肝脏。阳气初升，阴气渐退。养生要点为"夜卧早起，广步于庭"，舒展肝气，忌抑郁怒。饮食宜辛甘发散（葱姜蒜、韭菜），不宜过于酸收。<br><br>
-    <strong>夏季（长）：</strong>五行属火，对应心脏。阳气最盛，阴气在内。养生要点为"夜卧早起，无厌于日"，适当出汗以泄郁热，切忌贪凉饮冷伤脾胃。饮食宜清淡苦寒（苦瓜、莲子心），适当补充津液（西瓜、绿豆）。<br><br>
-    <strong>秋季（收）：</strong>五行属金，对应肺脏。阳气渐敛，阴气渐长。养生要点为"早卧早起，与鸡俱兴"，收敛神气以防秋燥。饮食宜润燥生津（梨、百合、银耳），忌辛辣发散。<br><br>
-    <strong>冬季（藏）：</strong>五行属水，对应肾脏。阳气潜藏，阴气最盛。养生要点为"早卧晚起，必待日光"，注意保暖防寒，减少消耗。饮食宜温补（羊肉、核桃、黑芝麻），适当进补膏方。
-  </div>
-</div>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心理解要点</div>
+          <div class="tip-body">《素问·生气通天论》说："阴平阳秘，精神乃治。"这里的"平"不是绝对的静止，而是一种能够在波动中自我修复、自我调节的动态平衡态。健康的人体就像一座精密运转的生态园林，阴阳二气在其中此消彼长，维持着微妙的和谐。</div>
+        </div>
 
-<h2 class="section-subtitle">13.4 日常生活中维持阴阳平衡的原则</h2>
-<ol class="steps-list">
-<li><strong>作息有常</strong>——中医认为"日出而作，日落而息"是顺应阴阳的自然节奏。夜间属阴，主静、主藏；白天属阳，主动、主泄。熬夜伤阴，久卧伤气，均会打破阴阳平衡。</li>
-<li><strong>饮食有节</strong>——寒热温凉四种性味的食物需要均衡搭配。体质偏热者多吃寒凉食物（但不可过量），体质偏寒者多吃温热食物（亦不可过度），这是最简单的阴阳调和法。</li>
-<li><strong>情志有度</strong>——七情过极皆能伤脏。怒伤肝（升阳太过）、喜伤心（散阳过度）、忧伤肺（抑阳不伸）、思伤脾（气结）、悲伤肺（耗气）、恐伤肾（阳气下陷）。保持情绪的中和状态就是维护阴阳平衡。</li>
-<li><strong>劳逸结合</strong>——过度劳累（形劳）耗伤气血阳气，过度安逸则导致气血停滞。适度的运动（如太极、八段锦）可以调畅气血，促进阴阳交通。</li>
-<li><strong>顺应四时</strong>——不同季节采取不同的起居、饮食、运动方式，是最高级别的阴阳调和策略。中医称之为"春夏养阳，秋冬养阴"。</li>
-</ol>
+        <h3>阴阳失衡的常见证型</h3>
+        <table class="data-table">
+          <thead><tr><th>证型</th><th>核心病机</th><th>主要表现</th><th>调理方向</th></tr></thead>
+          <tbody>
+            <tr><td><strong>阴虚</strong></td><td>阴液不足，虚热内生</td><td>五心烦热、潮热盗汗、口干咽燥、失眠多梦</td><td>滋阴降火（六味地黄丸）</td></tr>
+            <tr><td><strong>阳虚</strong></td><td>阳气虚弱，虚寒内生</td><td>畏寒肢冷、神疲乏力、面色苍白、大便稀溏</td><td>温补肾阳（金匮肾气丸）</td></tr>
+            <tr><td><strong>阴阳两虚</strong></td><td>阴损及阳或阳损及阴</td><td>疲乏+盗汗、畏冷+口干兼而有之</td><td>阴阳双补（龟鹿二仙胶）</td></tr>
+            <tr><td><strong>气阴两虚</strong></td><td>气虚+阴虚并存</td><td>气短懒言、自汗+口干咽燥、手足心热</td><td>益气养阴（生脉散）</td></tr>
+          </tbody>
+        </table>
 
-<div class="tip-box">
-  <div class="tip-title">💡 自我辨识阴阳失衡的小方法</div>
-  <div class="tip-body">
-    <strong>第一步：问冷暖。</strong>总觉得怕冷、手脚冰凉，多为阳虚；总觉得发热、手心脚心烫，多为阴虚。<br>
-    <strong>第二步：看口渴。</strong>喜欢喝热水、饮水量不大，多为阳虚或寒湿；喜欢喝冷水、容易口干，多为阴虚或实热。<br>
-    <strong>第三步：观舌象。</strong>舌淡胖、苔白滑多为阳虚；舌红少苔或无苔多为阴虚。<br>
-    <strong>第四步：测精力。</strong>午后精神好转、早晨更疲惫多为阳虚；下午或夜间烦躁不安、失眠多为阴虚。<br><br>
-    注意：以上仅为简易自测方法，不可作为诊断依据。如有不适请及时就医。
-  </div>
-</div>
+        <div class="illustration-svg">
+          <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Balance scale illustration -->
+            <line x1="250" y1="20" x2="250" y2="160" stroke="#B8860B" stroke-width="2"/>
+            <line x1="100" y1="60" x2="400" y2="60" stroke="#B8860B" stroke-width="2"/>
+            <!-- Left pan (Yin) -->
+            <circle cx="100" cy="90" r="35" fill="rgba(26,82,118,0.1)" stroke="#1A5276" stroke-width="2"/>
+            <text x="100" y="86" text-anchor="middle" fill="#1A5276" font-size="20" font-weight="700" font-family="'Noto Serif SC', serif">阴</text>
+            <text x="100" y="105" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">静·寒·内</text>
+            <!-- Right pan (Yang) -->
+            <circle cx="400" cy="90" r="35" fill="rgba(184,134,11,0.1)" stroke="#B8860B" stroke-width="2"/>
+            <text x="400" y="86" text-anchor="middle" fill="#B8860B" font-size="20" font-weight="700" font-family="'Noto Serif SC', serif">阳</text>
+            <text x="400" y="105" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">动·热·外</text>
+            <!-- Center pivot -->
+            <circle cx="250" cy="60" r="8" fill="#D4C5A9" stroke="#B8860B" stroke-width="1.5"/>
+            <!-- Base -->
+            <path d="M230 160 L270 160 L260 140 L240 140 Z" fill="#B8860B"/>
+            <!-- Labels below -->
+            <text x="100" y="145" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">血 · 液 · 精</text>
+            <text x="400" y="145" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">气 · 火 · 温</text>
+          </svg>
+          <figcaption class="illustration-caption">图十三-1 阴阳平衡 — 阴主静寒内，阳主动热外，二者如天平般保持动态均衡</figcaption>
+        </div>
+      </section>
 
-<h2 class="section-subtitle">13.5 阴阳平衡状态评估模型</h2>
-<p>以下图表展示了不同体质类型的阴阳分布特征，帮助理解各类失衡状态的相对位置。</p>
-<div class="chart-container" id="chart-yin-yang"></div>
+      <!-- 段落3：深入理解 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">三、深入理解</h2>
 
-<h2 class="section-subtitle">13.6 阴阳学说的现代意义</h2>
-<p>现代科学研究发现，阴阳理论中的许多概念在生理学上有对应的解释：阳气与交感神经兴奋、代谢增强、体温升高相关；阴气与副交感神经活动、合成代谢、能量储存相关。阴阳平衡实际上描述的是一种<strong>自主神经系统的动态平衡状态</strong>，而"阴虚火旺"和"阳虚内寒"则可视为自主神经系统功能紊乱的不同表现形式。</p>
-<p>此外，昼夜节律（生物钟）的研究也为"天人相应"的阴阳理论提供了科学依据。下丘脑视交叉上核控制的生物钟系统，直接调节了体温、激素分泌、免疫功能的周期性变化，这正是中医"一日分为四时"（朝为春、日中为夏、日入为秋、夜半为冬）理论的现代诠释。</p>
+        <h3>四季养生中的阴阳调和</h3>
+        <p>《黄帝内经》提出的"春夏养阳，秋冬养阴"原则，揭示了阴阳消长的自然节律。四季不仅是气候的变化，更是人体内阴阳二气运行的外在映射：</p>
 
-<div class="grid-3" style="margin-top:20px;">
-  <div class="data-card"><div class="value">4</div><div class="label">基本阴阳关系<br>对立/互根/消长/平衡</div></div>
-  <div class="data-card"><div class="value">四季</div><div class="label">阴阳消长的自然节律<br>春生夏长秋收冬藏</div></div>
-  <div class="data-card"><div class="value">动态</div><div class="label">健康不是静止而是<br>动态的自我调节能力</div></div>
-</div>
+        <table class="data-table">
+          <thead><tr><th>季节</th><th>阴阳状态</th><th>养生要点</th><th>饮食建议</th><th>对应脏腑</th></tr></thead>
+          <tbody>
+            <tr><td><strong>春</strong></td><td>阳气初升，阴气渐退</td><td>夜卧早起，广步于庭，舒展肝气</td><td>辛甘发散（葱姜蒜、韭菜）</td><td>肝（木）</td></tr>
+            <tr><td><strong>夏</strong></td><td>阳气最盛，阴气在内</td><td>夜卧早起，无厌于日，适当出汗</td><td>清淡苦寒（苦瓜、莲子心）</td><td>心（火）</td></tr>
+            <tr><td><strong>秋</strong></td><td>阳气渐敛，阴气渐长</td><td>早卧早起，收敛神气防秋燥</td><td>润燥生津（梨、百合、银耳）</td><td>肺（金）</td></tr>
+            <tr><td><strong>冬</strong></td><td>阳气潜藏，阴气最盛</td><td>早卧晚起，必待日光，保暖防寒</td><td>温补（羊肉、核桃、黑芝麻）</td><td>肾（水）</td></tr>
+          </tbody>
+        </table>
 
-</main>
-<footer class="page-footer">
-  <a class="nav-prev" href="12-tcm-neijing.html"><i class="fas fa-arrow-left"></i> 十二、黄帝内经与中医理论源头</a>
-  <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
-  <span class="page-info">13 / 31</span>
-  <a class="nav-next" href="14-tcm-zangfu.html">十四、藏象学说与五脏六腑 <i class="fas fa-arrow-right"></i></a>
-</footer>
-<script src="common/js/echarts.inline.js"></script>
-<script src="common/js/navigation.js"></script>
-<script>
-var chart = echarts.init(document.getElementById('chart-yin-yang'));
-chart.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'axis' },
-  legend: { data: ['阳气水平', '阴气水平'], textStyle: { color: '#94a3b8' }, top: 5 },
-  radar: {
-    indicator: [
-      { name: '正常平和\n(阴阳和调)', max: 100 },
-      { name: '阴虚\n(阴不足→虚热)', max: 100 },
-      { name: '阳虚\n(阳不足→虚寒)', max: 100 },
-      { name: '阴阳两虚\n(二者皆不足)', max: 100 },
-      { name: '阳亢\n(阳偏盛→实热)', max: 100 },
-      { name: '阴盛\n(阴偏盛→实寒)', max: 100 }
-    ],
-    radius: '65%',
-    axisName: { color: '#94a3b8', fontSize: 11 },
-    splitArea: { areaStyle: { color: ['rgba(6,182,212,0.02)', 'rgba(6,182,212,0.05)'] } }
-  },
-  series: [
-    {
-      name: '体质阴阳分布',
-      type: 'radar',
-      data: [
-        {
-          value: [85, 15, 10, 8, 12, 10],
-          name: '阳气水平',
-          itemStyle: { color: '#ef4444' },
-          areaStyle: { color: 'rgba(239,68,68,0.15)' }
-        },
-        {
-          value: [85, 25, 10, 12, 15, 35],
-          name: '阴气水平',
-          itemStyle: { color: '#06b6d4' },
-          areaStyle: { color: 'rgba(6,182,212,0.15)' }
-        }
-      ]
-    }
-  ]
-});
-window.addEventListener('resize', function() { chart.resize(); });
-</script>
+        <h3>阴阳学说的现代科学印证</h3>
+        <p>现代科学研究发现，阴阳理论中的许多概念在生理学上有对应的解释：</p>
+
+        <ol class="steps-list">
+          <li><strong>自主神经系统：</strong>阳气与交感神经兴奋、代谢增强、体温升高相关；阴气与副交感神经活动、合成代谢、能量储存相关。阴阳平衡描述的是一种自主神经系统的动态平衡状态。</li>
+          <li><strong>昼夜节律：</strong>下丘脑视交叉上核控制的生物钟系统，直接调节了体温、激素分泌、免疫功能的周期性变化。这正是中医"一日分为四时"（朝为春、日中为夏、日入为秋、夜半为冬）理论的现代诠释。</li>
+          <li><strong>应激反应：</strong>长期压力导致皮质醇持续升高，相当于中医所说的"阳亢耗阴"；而慢性疲劳综合征则接近"阴阳两虚"的状态。</li>
+        </ol>
+
+        <div class="chart-container" id="chart-yin-yang-health"></div>
+        <script>
+        (function() {
+          var chart = echarts.init(document.getElementById('chart-yin-yang-health'));
+          chart.setOption({
+            backgroundColor: 'transparent',
+            tooltip: {},
+            radar: {
+              indicator: [
+                { name: '阴阳平和\n(健康)', max: 100 },
+                { name: '阴虚\n(虚热)', max: 100 },
+                { name: '阳虚\n(虚寒)', max: 100 },
+                { name: '阴阳两虚\n(俱亏)', max: 100 }
+              ],
+              shape: 'polygon',
+              splitNumber: 4,
+              axisName: { color: '#666666', fontSize: 11, fontFamily: "'Noto Sans SC', sans-serif" }
+            },
+            series: [{
+              type: 'radar',
+              data: [
+                {
+                  value: [85, 85, 85, 85],
+                  name: '阴阳平和体质',
+                  areaStyle: { color: 'rgba(5,150,105,0.15)' },
+                  lineStyle: { color: '#059669' }
+                },
+                {
+                  value: [50, 90, 40, 30],
+                  name: '阴虚体质',
+                  areaStyle: { color: 'rgba(220,38,38,0.12)' },
+                  lineStyle: { color: '#dc2626', type: 'dashed' }
+                },
+                {
+                  value: [50, 30, 90, 40],
+                  name: '阳虚体质',
+                  areaStyle: { color: 'rgba(26,82,118,0.12)' },
+                  lineStyle: { color: '#1A5276', type: 'dashed' }
+                },
+                {
+                  value: [30, 50, 50, 70],
+                  name: '阴阳两虚',
+                  areaStyle: { color: 'rgba(184,134,11,0.12)' },
+                  lineStyle: { color: '#B8860B', type: 'dotted' }
+                }
+              ]
+            }]
+          });
+          window.addEventListener('resize', function() { chart.resize(); });
+        })();
+        </script>
+      </section>
+
+      <!-- 段落4：实践应用 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">四、在现代生活中的应用</h2>
+
+        <div class="case-box">
+          <div class="case-title"><i class="fas fa-heartbeat"></i> 案例：从老李的故事看阴阳辨识</div>
+          <div class="case-body">
+            <p>老李的症状——白天没精神（阳气不振）、晚上睡不着（阴虚不敛阳）、忽冷忽热（阴阳格拒）——综合判断属于"气阴两虚"夹"阴阳失调"。一位中医师可能会为他开具生脉散合桂枝汤加减：人参补气，麦冬滋阴，五味子收敛，桂枝通阳，白芍养阴。同时建议他调整作息：晚上十一点前入睡以养阴，早晨六点左右起床以应阳气生发。</p>
+            <p>三个月后复诊，老李的睡眠明显改善，白天精力充沛，忽冷忽热的症状也消失了。这个案例说明：阴阳辨证不是玄学，而是基于大量临床观察总结出的有效诊断框架。</p>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 日常维持阴阳平衡五项原则</div>
+          <div class="tip-body">
+            <p><strong>作息有常：</strong>"日出而作，日落而息"是顺应阴阳的自然节奏。夜间属阴主藏，白天属阳主动。<br>
+            <strong>饮食有节：</strong>寒热温凉四种性味的食物均衡搭配，不过偏嗜。<br>
+            <strong>情志有度：</strong>怒伤肝、喜伤心、忧伤肺——情绪过极皆能打破阴阳平衡。<br>
+            <strong>劳逸结合：</strong>过度劳累耗伤气血，过度安逸导致气血停滞。<br>
+            <strong>顺应四时：</strong>不同季节采取不同的起居饮食方式，是最高级别的阴阳调和策略。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 段落5：延伸阅读 -->
+      <section class="chapter-section chapter-extensions">
+        <h2 class="section-subtitle">五、延伸阅读与思考</h2>
+
+        <h3>跨章节关联</h3>
+        <div class="cross-ref-grid">
+          <a href="12-tcm-neijing.html" class="cross-ref-card">
+            <div class="cross-ref-icon">📜</div>
+            <div class="cross-ref-info"><strong>黄帝内经</strong><span>阴阳理论的最初出处与完整论述</span></div>
+          </a>
+          <a href="14-tcm-zangfu.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🫀</div>
+            <div class="cross-ref-info"><strong>藏象学说</strong><span>阴阳如何具体落实到五脏六腑的功能中</span></div>
+          </a>
+          <a href="13-tcm-yinyang-health.html" class="cross-ref-card">
+            <div class="cross-ref-icon">☯</div>
+            <div class="cross-ref-info"><strong>阴阳与四季</strong><span>四季养生的阴阳调整原则</span></div>
+          </a>
+        </div>
+
+        <div class="reflection-questions">
+          <h3><i class="fas fa-question-circle"></i> 思考题</h3>
+          <ol>
+            <li>你能否用自己的身体经验，描述一次"阴阳失衡"的感受？比如熬夜后的疲惫、感冒时的怕冷？</li>
+            <li>"阴平阳秘"强调动态平衡而非静态完美，这种健康观与现代医学追求"指标正常"有什么不同？</li>
+            <li>四季养生原则在现代社会中还有多少可行性？为什么很多人冬天吹空调、夏天吃火锅？</li>
+          </ol>
+        </div>
+
+        <div class="further-reading">
+          <h3><i class="fas fa-book-open"></i> 进一步阅读</h3>
+          <ul>
+            <li>《黄帝内经素问校注》王洪图，人民卫生出版社</li>
+            <li>《中医基础理论》全国高等中医药院校规划教材</li>
+            <li>《中医体质学》王琦，中国医药科技出版社</li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="12-tcm-neijing.html"><i class="fas fa-arrow-left"></i> 黄帝内经与中医理论源头</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">13 / 31</span>
+    <a class="nav-next" href="14-tcm-zangfu.html">藏象学说 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
+      });
+    });
+  </script>
 </body>
 </html>

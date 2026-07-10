@@ -1,172 +1,302 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第十二章：黄帝内经与中医理论源头 — 中华古典学术理论全景书</title>
-<link rel="stylesheet" href="common/css/book.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>十二、黄帝内经与中医理论源头 — 中华古典学术理论全景书</title>
+  <link rel="stylesheet" href="common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="top-nav">
-  <div class="nav-left"><a href="index.html" class="nav-book-name"><i class="fas fa-book"></i> 古典学术书</a><span class="nav-divider">/</span><span class="nav-chapter-title">十二、黄帝内经与中医理论源头</span></div>
-  <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
-</nav>
-<aside class="sidebar">
-  <div class="sidebar-header"><h3>中华古典学术理论</h3><button class="sidebar-close" aria-label="Close sidebar" onclick="AnaNav.toggleSidebar()"><i class="fas fa-times"></i></button></div>
-  <nav class="toc"><ul class="toc-list">
-    <li class="toc-chapter">第一部分：儒家学说体系</li>
-    <li><a href="01-confucius-overview.html">一、孔子与儒家思想概览</a></li>
-    <li><a href="02-sishu.html">二、四书五经与儒家经典</a></li>
-    <li><a href="03-mencius.html">三、孟子与性善论</a></li>
-    <li><a href="04-xunzi.html">四、荀子与礼法并重</a></li>
-    <li class="toc-chapter">第二部分：道家与佛学</li>
-    <li><a href="05-laozi.html">五、道德经与道家哲学</a></li>
-    <li><a href="06-zhuangzi.html">六、庄子与逍遥哲学</a></li>
-    <li><a href="07-foxue-intro.html">七、佛学传入与中国化</a></li>
-    <li><a href="08-weishi.html">八、唯识宗与华严宗</a></li>
-    <li><a href="09-chanzong.html">九、禅宗与明心见性</a></li>
-    <li class="toc-chapter">第三部分：中医基础理论</li>
-    <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
-    <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与中医健康观</a></li>
-    <li><a href="14-tcm-zangfu.html">十四、藏象学说与五脏六腑</a></li>
-    <li><a href="15-tcm-jingluo.html">十五、经络系统与针灸理论</a></li>
-    <li><a href="16-tcm-bingyin.html">十六、病因病机与辨证论治</a></li>
-    <li><a href="17-tcm-summary.html">十七、中医理论学习路径</a></li>
-    <li><a href="18-yijing-overview.html">十八、易经概览与六十四卦</a></li>
-    <li><a href="19-yijing-xiangshu.html">十九、象数易学与卦象推演</a></li>
-    <li><a href="20-yijing-lixue.html">二十、义理易学与宋明理学</a></li>
-    <li><a href="21-yijing-application.html">二十一、易经在各领域的应用</a></li>
-    <li><a href="22-yijing-summary.html">二十二、易经学习路径与陷阱防范</a></li>
-    <li class="toc-chapter">第五部分：兵法战略</li>
-    <li><a href="23-artofwar-overview.html">二十三、孙子兵法与兵家思想</a></li>
-    <li><a href="24-sixtao.html">二十四、吴子与司马法</a></li>
-    <li><a href="25-wujingzongyao.html">二十五、武经七书与其他兵法</a></li>
-    <li><a href="26-history-bingfa.html">二十六、历代兵法战例分析</a></li>
-    <li><a href="27-bingfa-summary.html">二十七、兵家思想现代应用</a></li>
-    <li class="toc-divider"></li>
-    <li><a href="index.html"><i class="fas fa-arrow-left"></i> 返回目录</a></li>
-  </ul></nav>
-</aside>
-<main class="content">
-<h1 class="section-title">十二、黄帝内经与中医理论源头</h1>
-<p class="data-note" style="font-size:15px;margin-bottom:20px;">《黄帝内经》是中国现存最早、体系最完整的医学典籍，被誉为"医家之宗"。它不仅是中医理论的起点，更是中国古典哲学在生命科学与健康实践中的一次伟大综合。理解《黄帝内经》，就是理解中医的灵魂。</p>
+  <nav class="top-nav">
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <div class="nav-left">
+      <a class="nav-book-name" href="index.html">&#128220; 中华古典学术理论全景书</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">十二、黄帝内经与中医理论源头</span>
+    </div>
+    <div class="nav-right">
+      <a class="nav-btn" href="11-yinyang-summary.html"><i class="fas fa-arrow-left"></i> 前一章</a>
+      <a class="nav-btn" href="13-tcm-yinyang-health.html">后一章 <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </nav>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>中华古典学术理论</h3>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="toc">
+      <ul class="toc-list">
+        <li class="toc-chapter">第一部分 八卦</li>
+        <li><a href="01-bagua-origin.html">一、八卦起源与演变概述</a></li>
+        <li><a href="02-fuxi-shennong.html">二、伏羲画卦与上古传说</a></li>
+        <li><a href="03-zhouyi-wenwang.html">三、文王演周易</a></li>
+        <li><a href="04-bagua-xiangshu.html">四、八卦象数体系</a></li>
+        <li><a href="05-bagua-summary.html">五、八卦学习路径</a></li>
+        <li class="toc-chapter">第二部分 阴阳五行</li>
+        <li><a href="06-yinyang-benyuan.html">六、阴阳概念本源</a></li>
+        <li><a href="07-yinyang-wuxing-classics.html">七、经典文本中的阴阳五行</a></li>
+        <li><a href="08-wuxing-theory.html">八、五行理论基础</a></li>
+        <li><a href="09-wuxing-cycles.html">九、五行生克乘侮</a></li>
+        <li><a href="10-yinyang-wuxing-synthesis.html">十、阴阳五行综合体系</a></li>
+        <li><a href="11-yinyang-summary.html">十一、阴阳五行学习路径</a></li>
+        <li class="toc-chapter">第三部分 中医基础理论</li>
+        <li><a href="12-tcm-neijing.html" class="active">十二、黄帝内经与中医理论源头</a></li>
+        <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与健康</a></li>
+        <li><a href="14-tcm-zangfu.html">十四、藏象学说</a></li>
+        <li><a href="15-tcm-jingluo.html">十五、经络理论</a></li>
+        <li><a href="16-tcm-bingyin.html">十六、病因与辨证论治</a></li>
+        <li><a href="17-tcm-summary.html">十七、中医学习路径</a></li>
+        <li class="toc-chapter">第四部分 易经体系</li>
+        <li><a href="18-yijing-overview.html">十八、易经体系总论</a></li>
+        <li><a href="19-yijing-hexagrams.html">十九、六十四卦详解</a></li>
+        <li><a href="20-yijing-text-analysis.html">二十、卦爻辞解读方法</a></li>
+        <li><a href="21-yijing-commentary.html">二十一、十翼与传注体系</a></li>
+        <li><a href="22-yijing-summary.html">二十二、易经学习路径</a></li>
+        <li class="toc-chapter">第五部分 道家理论</li>
+        <li><a href="23-daoism-origins.html">二十三、道家学派起源</a></li>
+        <li><a href="24-daodejing.html">二十四、道德经核心思想</a></li>
+        <li><a href="25-zhuangzi.html">二十五、庄子哲学</a></li>
+        <li><a href="26-daoism-gongfu.html">二十六、道家修养工夫</a></li>
+        <li><a href="27-daoism-summary.html">二十七、道家学习路径</a></li>
+        <li class="toc-chapter">第六部分 儒家理论</li>
+        <li><a href="28-rujia-origins.html">二十八、儒家学派起源</a></li>
+        <li><a href="29-mengzi.html">二十九、孟子性善与仁政</a></li>
+        <li><a href="30-songming-lixue.html">三十、宋明理学</a></li>
+        <li><a href="31-rujia-summary.html">三十一、儒家学习路径</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="content">
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第三部分 中医基础理论</span>
+        <h1 class="section-title">十二、黄帝内经与中医理论源头</h1>
+        <p class="chapter-intro">从黄帝问医到中医体系——一部奠定两千年医学根基的对话录</p>
+      </header>
 
-<h2 class="section-subtitle">12.1 成书背景与历史地位</h2>
-<p>《黄帝内经》成书于战国至西汉时期（约公元前475年—公元25年），非一人一时之作，而是长期医学经验的总结与理论升华。它以黄帝与岐伯等大臣问答的形式，系统阐述了中国古代对人体生理、病理、诊断、治疗和养生的根本认识。</p>
-<p>从学术史角度看，《黄帝内经》融合了先秦道家、阴阳家、儒家等多个学派的思想，将"天人合一""阴阳五行""气一元论"等哲学概念转化为医学理论框架，标志着中国古代医学从经验医学向理论医学的飞跃。</p>
+      <!-- 段落1：故事引入 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">一、从一则历史故事说起</h2>
+        <p>相传在远古时代，有一位部落首领名叫轩辕，他勤学好问，精通天文地理。有一天，他遇到了一位名叫岐伯的隐士，两人对坐于山野之间，黄帝向岐伯请教人体健康的奥秘。这场对话持续了很长时间，从阴阳五行讲到脏腑经络，从四季养生讲到疾病治疗。</p>
+        <p>后人将这场传奇对话整理成书，托名为《黄帝内经》。虽然现代学者普遍认为它并非黄帝与岐伯的真实对话，而是战国至汉代众多医家的集体智慧结晶，但"黄帝问岐伯"的故事却象征着一个根本事实：中医不是某个天才的灵光一闪，而是在数百年间由无数医者通过观察自然、研究人体、总结临床经验逐步构建起来的完整知识体系。</p>
+        <p>理解《黄帝内经》，就是理解中医的"源代码"——后面所有的中医理论，包括阴阳平衡、藏象学说、经络针灸、病因辨证，都可以在这里找到它们的最初表述。</p>
+      </section>
 
-<table class="data-table">
-<thead><tr><th>维度</th><th>说明</th><th>意义</th></tr></thead>
-<tbody>
-<tr><td><strong>成书年代</strong></td><td>战国末至西汉（约公元前4世纪—公元前1世纪）</td><td>历经数百年编撰，汇集了多家医学流派观点</td></tr>
-<tr><td><strong>作者</strong></td><td>托名黄帝，实为集体创作</td><td>岐伯、雷公、少俞等为传说中的医官代表</td></tr>
-<tr><td><strong>文献来源</strong></td><td>继承《足臂十一脉灸经》《阴阳十一脉灸经》等马王堆帛书内容</td><td>反映从朴素经验到系统理论的过渡</td></tr>
-<tr><td><strong>学术影响</strong></td><td>奠定中医理论体系基础</td><td>后世所有中医流派均以《内经》为理论源头</td></tr>
-<tr><td><strong>国际影响</strong></td><td>传入日本、朝鲜、越南等东亚地区</td><td>成为韩医、汉方医学的理论根基</td></tr>
-</tbody>
-</table>
+      <!-- 段落2：概念解析 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">二、核心概念详解</h2>
 
-<h2 class="section-subtitle">12.2 《素问》与《灵枢》的结构差异</h2>
-<p>《黄帝内经》共十八卷、一百六十二篇，分为《素问》和《灵枢》两部分，各有侧重。</p>
+        <h3>《黄帝内经》的成书背景</h3>
+        <p>《黄帝内经》分为《素问》和《灵枢》两部分，各九卷，每卷九篇，共十八卷、一百六十二篇。《素问》以问答形式阐述中医基本理论，侧重生理、病理、诊断和预防；《灵枢》则以经络腧穴为主，是针灸学的奠基之作。</p>
 
-<table class="data-table">
-<thead><tr><th>篇章</th><th>篇数</th><th>核心内容</th><th>理论特点</th></tr></thead>
-<tbody>
-<tr><td><strong>《素问》</strong></td><td>八十一篇</td><td>阴阳五行、藏象经络、病因病机、诊法治则、养生防病等基础理论</td><td>偏重医学哲学与理论框架，是中医理论的"形而上"部分</td></tr>
-<tr><td><strong>《灵枢》</strong></td><td>八十一篇</td><td>经络循行、腧穴定位、针刺技法、气血运行等临床技术</td><td>偏重解剖与实践操作，被称为"针经"，是中医技术的"形而下"部分</td></tr>
-</tbody>
-</table>
+        <table class="data-table">
+          <thead><tr><th>对比维度</th><th>《素问》</th><th>《灵枢》</th></tr></thead>
+          <tbody>
+            <tr><td><strong>核心内容</strong></td><td>阴阳五行、藏象、气血津液、病因病机、诊法、治则</td><td>经络循行、腧穴定位、针刺技法、营卫气血运行</td></tr>
+            <tr><td><strong>写作风格</strong></td><td>以问答对话体为主，偏重理论阐释</td><td>以描述性文字为主，偏重操作技术</td></tr>
+            <tr><td><strong>代表篇章</strong></td><td>《上古天真论》《四气调神大论》《生气通天论》</td><td>《经脉》《经别》《水热穴论》</td></tr>
+            <tr><td><strong>后世影响</strong></td><td>奠定了中医理论的基础框架</td><td>奠定了针灸学的基础框架</td></tr>
+            <tr><td><strong>别名</strong></td><td>又称《九墟》《素问九卷》</td><td>又称《九灵》《针经》</td></tr>
+          </tbody>
+        </table>
 
-<div class="card highlight">
-<strong>核心洞见：</strong>《素问》讲"为什么"（理论原理），《灵枢》讲"怎么做"（技术手段）。两者互为表里，如同现代医学中基础医学与临床医学的关系。缺一不可，这正是中医"理法方药一体"传统的起点。
-</div>
+        <div class="illustration-svg">
+          <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="210" height="160" rx="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+            <text x="125" y="55" text-anchor="middle" fill="#B8860B" font-size="22" font-weight="700" font-family="'Noto Serif SC', serif">素 问</text>
+            <text x="125" y="80" text-anchor="middle" fill="#666666" font-size="11" font-family="'Noto Sans SC', sans-serif">问答对话体 · 理论篇</text>
+            <line x1="40" y1="95" x2="210" y2="95" stroke="#E8E6E1" stroke-width="1"/>
+            <text x="40" y="115" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 阴阳五行</text>
+            <text x="40" y="133" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 藏象学说</text>
+            <text x="40" y="151" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 病因病机</text>
+            <text x="40" y="169" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 诊法治则</text>
+            <rect x="270" y="20" width="210" height="160" rx="8" fill="none" stroke="#1A5276" stroke-width="2"/>
+            <text x="375" y="55" text-anchor="middle" fill="#1A5276" font-size="22" font-weight="700" font-family="'Noto Serif SC', serif">灵 枢</text>
+            <text x="375" y="80" text-anchor="middle" fill="#666666" font-size="11" font-family="'Noto Sans SC', sans-serif">描述叙述体 · 技术篇</text>
+            <line x1="290" y1="95" x2="460" y2="95" stroke="#E8E6E1" stroke-width="1"/>
+            <text x="290" y="115" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 经络循行</text>
+            <text x="290" y="133" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 腧穴定位</text>
+            <text x="290" y="151" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 针刺技法</text>
+            <text x="290" y="169" fill="#2C2C2C" font-size="11" font-family="'Noto Sans SC', sans-serif">• 营卫运行</text>
+            <text x="245" y="105" text-anchor="middle" fill="#B8860B" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">&amp;</text>
+          </svg>
+          <figcaption class="illustration-caption">图十二-1 《黄帝内经》双篇结构 — 素问主理论，灵枢主针灸</figcaption>
+        </div>
 
-<h2 class="section-subtitle">12.3 中医理论的基本框架</h2>
+        <h3>《黄帝内经》核心篇章摘要</h3>
+        <table class="data-table">
+          <thead><tr><th>篇名</th><th>所属</th><th>核心主题</th><th>关键论述</th></tr></thead>
+          <tbody>
+            <tr><td><strong>上古天真论</strong></td><td>素问·第一篇</td><td>养生长寿之道</td><td>"恬淡虚无，真气从之；精神内守，病安从来？"</td></tr>
+            <tr><td><strong>四气调神大论</strong></td><td>素问</td><td>顺应四季的养生法则</td><td>春生、夏长、秋收、冬藏，逆之则灾害生</td></tr>
+            <tr><td><strong>生气通天论</strong></td><td>素问</td><td>阳气的重要性</td><td>"阳气者，若天与日，失其所则折寿而不彰"</td></tr>
+            <tr><td><strong>金匮真言论</strong></td><td>素问</td><td>阴阳五行与脏腑对应</td><td>五脏应四时，各有收受</td></tr>
+            <tr><td><strong>阴阳应象大论</strong></td><td>素问</td><td>阴阳对立统一的根本法则</td><td>"阴阳者，天地之道也，万物之纲纪"</td></tr>
+            <tr><td><strong>经脉</strong></td><td>灵枢</td><td>十二经脉循行</td><td>详细描述了每条经脉的起止点和循行路线</td></tr>
+            <tr><td><strong>本输</strong></td><td>灵枢</td><td>五输穴理论</td><td>井、荥、输、经、合五种穴位及其主治</td></tr>
+            <tr><td><strong>九针十二原</strong></td><td>灵枢</td><td>针灸工具与方法</td><td>九种针具的形制和适应症</td></tr>
+            <tr><td><strong>营卫生会</strong></td><td>灵枢</td><td>营卫之气的生成与运行</td><td>"营行脉中，卫行脉外"</td></tr>
+            <tr><td><strong>口问</strong></td><td>灵枢</td><td>疾病的成因与治疗原则</td><td>百病生于气，治之必先知其本</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-<h3>整体观念</h3>
-<p>整体观念是中医理论的第一大支柱。它包含三层含义：<strong>人体的整体性</strong>——五脏六腑、气血津液构成统一整体，任何局部病变都反映整体失衡；<strong>人与自然的统一性</strong>——四季气候变化、地理环境差异直接影响人体生理与病理；<strong>人与社会的统一性</strong>——社会地位、经济状况、人际关系等精神因素通过情志影响脏腑功能。</p>
+      <!-- 段落3：深入理解 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">三、深入理解</h2>
 
-<h3>辨证论治</h3>
-<p>辨证论治是中医的第二大支柱。"辨证"即通过分析症状和体征，辨别疾病的<strong>病因</strong>（什么原因引起的）、<strong>病位</strong>（在哪个脏腑经络）、<strong>病性</strong>（寒热虚实）、<strong>病势</strong>（疾病的发展趋势），最后归纳为一个"证候"（证型）。"论治"即根据辨证结果制定治疗原则和方法。这体现了中医<strong>"同病异治、异病同治"</strong>的思维：同样的病在不同阶段可能是不同的证，不同的病在同一个阶段可能属于同一个证。</p>
+        <h3>《黄帝内经》的理论基石</h3>
+        <p>《黄帝内经》之所以能成为中医理论的源头，关键在于它建立了一套完整的认知框架。这套框架的核心可以概括为三个基本原理：</p>
 
-<h2 class="section-subtitle">12.4 《黄帝内经》核心篇章摘要</h2>
+        <ol class="steps-list">
+          <li><strong>天人合一的整体观：</strong>人体不是孤立存在的，而是与自然环境（四季气候、昼夜节律、地理方位）和社会环境（情志变化、生活方式）紧密相连的整体。《素问·宝命全形论》说："人以天地之气生，四时之法成。"这意味着理解健康必须理解人与自然的关系。</li>
+          <li><strong>阴阳五行的分类法：</strong>用阴阳来概括事物的对立统一关系（寒热、表里、虚实），用五行来描述事物之间的生克制化关系（木火土金水的相生相克）。这两套分类系统构成了中医分析一切生理病理现象的工具。</li>
+          <li><strong>动态平衡的健康观：</strong>健康不是某种固定状态，而是阴阳、气血、脏腑之间不断调整达到的动态平衡。《素问·生气通天论》说："阴平阳秘，精神乃治。"一旦平衡被打破，就会发生疾病。</li>
+        </ol>
 
-<table class="data-table">
-<thead><tr><th>篇名</th><th>所属</th><th>核心议题</th><th>关键理论贡献</th></tr></thead>
-<tbody>
-<tr><td><strong>上古天真论</strong></td><td>素问</td><td>养生的最高境界</td><td>提出"恬淡虚无，真气从之"的养生总纲，系统论述四阶段养生法</td></tr>
-<tr><td><strong>四气调神大论</strong></td><td>素问</td><td>四季养生法则</td><td>春生夏长秋收冬藏的生命节律，"治未病"思想的源头</td></tr>
-<tr><td><strong>生气通天论</strong></td><td>素问</td><td>人与自然之气相通</td><td>"阳气者，若天与日"——阳气为生命之本的论述</td></tr>
-<tr><td><strong>金匮真言论</strong></td><td>素问</td><td>阴阳五行与脏腑对应</td><td>系统建立五行-五脏-五季-五色-五味对应关系</td></tr>
-<tr><td><strong>阴阳应象大论</strong></td><td>素问</td><td>阴阳学说的深化</td><td>"阴平阳秘，精神乃治"——健康标准的定义；"治病必求于本"</td></tr>
-<tr><td><strong>灵兰秘典论</strong></td><td>素问</td><td>十二脏功能类比</td><td>以官职比喻脏腑：心为君主之官、肺为相傅之官等</td></tr>
-<tr><td><strong>六节藏象论</strong></td><td>素问</td><td>藏象学说总论</td><td>系统描述五脏藏精、六腑传化的基本功能</td></tr>
-<tr><td><strong>九针十二原</strong></td><td>灵枢</td><td>针刺基本技法</td><td>九种针具的用途，十二原穴的定位与治疗</td></tr>
-<tr><td><strong>经脉</strong></td><td>灵枢</td><td>十二经脉循行</td><td>系统描述手三阴三阳、足三阴三阳经脉的走向与交接</td></tr>
-<tr><td><strong>营卫生会</strong></td><td>灵枢</td><td>营卫生血的生成与运行</td><td>"人受气于谷，谷入于胃……营在脉中，卫在脉外"</td></tr>
-</tbody>
-</table>
+        <div class="chart-container" id="chart-tcm-lineage"></div>
+        <script>
+        (function() {
+          var chart = echarts.init(document.getElementById('chart-tcm-lineage'));
+          chart.setOption({
+            backgroundColor: 'transparent',
+            tooltip: {},
+            series: [{
+              type: 'tree',
+              data: [{
+                name: '黄帝内经',
+                children: [
+                  {
+                    name: '《素问》九卷',
+                    children: [
+                      { name: '阴阳五行' },
+                      { name: '藏象学说' },
+                      { name: '病因病机' },
+                      { name: '诊法治则' },
+                      { name: '养生预防' }
+                    ]
+                  },
+                  {
+                    name: '《灵枢》九卷',
+                    children: [
+                      { name: '十二经脉' },
+                      { name: '奇经八脉' },
+                      { name: '腧穴理论' },
+                      { name: '针刺技法' },
+                      { name: '营卫气血' }
+                    ]
+                  },
+                  {
+                    name: '后世发展',
+                    children: [
+                      { name: '张仲景\n伤寒杂病论' },
+                      { name: '王叔和\n脉经' },
+                      { name: '皇甫谧\n针灸甲乙经' },
+                      { name: '孙思邈\n千金方' }
+                    ]
+                  }
+                ]
+              }],
+              left: '5%', top: '10%', bottom: '10%', right: '5%',
+              layout: 'radial',
+              symbol: 'circle',
+              symbolSize: 20,
+              initialTreeDepth: 2,
+              label: { color: '#2C2C2C', fontSize: 12, fontFamily: "'Noto Sans SC', sans-serif" },
+              leafLabel: { color: '#666666', fontSize: 11, fontFamily: "'Noto Sans SC', sans-serif" },
+              lineStyle: { color: '#D4C5A9', width: 1.5 },
+              emphasis: { focus: 'descendant' }
+            }]
+          });
+          window.addEventListener('resize', function() { chart.resize(); });
+        })();
+        </script>
 
-<h2 class="section-subtitle">12.5 中医理论发展的历史脉络</h2>
-<div class="chart-container" id="chart-tcm-timeline"></div>
+        <h3>《黄帝内经》的历史地位</h3>
+        <p>在中国医学史上，《黄帝内经》的地位类似于《易经》在中国哲学史上的地位——它是整个学科的"元典"。后世所有的中医理论创新，无论多么激进，都必须在某种程度上回应《黄帝内经》提出的问题。即使是明清时期温病学派的崛起，也没有否定内经的基本框架，而是在其基础上针对新的疾病类型（温热病）进行了补充和发展。</p>
+      </section>
 
-<h2 class="section-subtitle">12.6 《黄帝内经》的实践指导价值</h2>
-<p>虽然《黄帝内经》是一部两千多年前的著作，但其理论至今仍有极强的实践指导意义：</p>
+      <!-- 段落4：实践应用 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">四、在现代生活中的应用</h2>
 
-<ol class="steps-list">
-<li><strong>预防为主的健康观</strong>——"上工治未病"，强调在疾病尚未发生之前就通过调养生活方式来维护健康，这一理念与现代预防医学完全吻合。</li>
-<li><strong>因时因地因人制宜的治疗原则</strong>——强调个体化治疗，反对千篇一律的"标准化方案"，这与现代精准医疗的方向一致。</li>
-<li><strong>身心一体的医学模式</strong>——情志致病理论揭示情绪与内脏的直接联系，在现代心身医学中得到大量验证。</li>
-</ol>
+        <div class="case-box">
+          <div class="case-title"><i class="fas fa-heartbeat"></i> 案例：《上古天真论》的养生智慧</div>
+          <div class="case-body">
+            <p>《素问·上古天真论》开篇即提出了中医养生的最高原则："恬淡虚无，真气从之；精神内守，病安从来？"这段话翻译成现代语言就是：当一个人内心平静、欲望淡泊的时候，体内的真气（生命力）就会顺畅运行；当精神保持内敛、不向外过度消耗的时候，疾病就无从侵入。</p>
+            <p>这与现代医学的研究高度吻合：长期压力会导致皮质醇水平升高，抑制免疫功能；过度消费信息会导致注意力分散和认知疲劳。古人用"恬淡虚无"四个字概括的道理，现代科学用神经内分泌免疫网络来解释。</p>
+          </div>
+        </div>
 
-<div class="tip-box">
-  <div class="tip-title">💡 阅读《黄帝内经》的建议</div>
-  <div class="tip-body">初学者建议先读王洪图主编的《黄帝内经素问讲解》或郭霭春的《黄帝内经灵枢注证发微》，这两个版本注解详实、语言通顺。避免直接读古文原文，因为《内经》的术语体系与日常语义差异很大。建议配合现代教材《中医基础理论》（全国高等中医药院校规划教材）对照阅读，建立理论框架后再回到原著深化理解。</div>
-</div>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 内经养生法在日常中的应用</div>
+          <div class="tip-body">
+            <p>《黄帝内经》提出的养生原则可以直接应用于现代生活：<br>
+            <strong>顺应四时：</strong>春天早睡早起以应生发之气，夏天晚睡早起以应盛长之气，秋天早睡早起以应收敛之气，冬天早卧晚起以应闭藏之气。<br>
+            <strong>饮食有节：</strong>不过饥过饱，不偏食偏嗜。《素问》强调"五谷为养，五果为助，五畜为益，五菜为充"，与现代营养学的均衡饮食理念一致。<br>
+            <strong>起居有常：</strong>保持规律的作息时间，不熬夜，不过度劳累。</p>
+          </div>
+        </div>
+      </section>
 
-<div class="grid-2" style="margin-top:20px;">
-  <div class="data-card"><div class="value">162</div><div class="label">篇（素问+灵枢各81篇）</div></div>
-  <div class="data-card"><div class="value">~2300年</div><div class="label">成书至今的历史跨度</div></div>
-</div>
+      <!-- 段落5：延伸阅读 -->
+      <section class="chapter-section chapter-extensions">
+        <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
-</main>
-<footer class="page-footer">
-  <a class="nav-prev" href="11-yinyang-summary.html"><i class="fas fa-arrow-left"></i> 十一、阴阳五行学习路径</a>
-  <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
-  <span class="page-info">12 / 31</span>
-  <a class="nav-next" href="13-tcm-yinyang-health.html">十三、阴阳平衡与中医健康观 <i class="fas fa-arrow-right"></i></a>
-</footer>
-<script src="common/js/echarts.inline.js"></script>
-<script src="common/js/navigation.js"></script>
-<script>
-var chart = echarts.init(document.getElementById('chart-tcm-timeline'));
-chart.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'item' },
-  series: [{
-    type: 'timeline',
-    axisType: 'category',
-    label: { show: true, color: '#e2e8f0' },
-    lineStyle: { color: '#06b6d4', width: 2 },
-    checkpointStyle: { color: '#06b6d4', borderWidth: 2 },
-    handleStyle: { color: '#06b6d4', borderColor: '#06b6d4', size: 12 },
-    data: [
-      { value: '前475', name: '战国初期\n《黄帝内经》开始编撰', itemStyle: { color: '#06b6d4' } },
-      { value: '前200', name: '西汉\n《素问》《灵枢》基本定型', itemStyle: { color: '#8b5cf6' } },
-      { value: '200', name: '东汉\n张仲景著《伤寒杂病论》\n发展六经辨证体系', itemStyle: { color: '#8b5cf6' } },
-      { value: '300', name: '晋代\n王叔和编《脉经》\n第一部脉学专著', itemStyle: { color: '#10b981' } },
-      { value: '600', name: '唐代\n孙思邈著《千金方》\n确立"大医精诚"伦理标准', itemStyle: { color: '#10b981' } },
-      { value: '1000', name: '宋代\n官方校正医书\n《太平惠民和剂局方》问世', itemStyle: { color: '#f59e0b' } },
-      { value: '1100', name: '金元四大家\n寒凉派/攻下派/滋阴派/补土派\n学术争鸣高峰期', itemStyle: { color: '#f59e0b' } },
-      { value: '1600', name: '明代\n李时珍著《本草纲目》\n药物学集大成', itemStyle: { color: '#ef4444' } },
-      { value: '1700', name: '清代\n温病学派成熟\n叶天士/吴鞠通建立卫气营血辨证', itemStyle: { color: '#ef4444' } },
-      { value: '2000', name: '近现代\n中西医结合\n循证医学方法引入中医研究', itemStyle: { color: '#ec4899' } }
-    ]
-  }]
-});
-window.addEventListener('resize', function() { chart.resize(); });
-</script>
+        <h3>跨章节关联</h3>
+        <div class="cross-ref-grid">
+          <a href="13-tcm-yinyang-health.html" class="cross-ref-card">
+            <div class="cross-ref-icon">☯</div>
+            <div class="cross-ref-info"><strong>阴阳平衡与健康</strong><span>内经的阴阳理论在健康领域的具体应用</span></div>
+          </a>
+          <a href="14-tcm-zangfu.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🫀</div>
+            <div class="cross-ref-info"><strong>藏象学说</strong><span>内经中脏腑理论的系统化发展</span></div>
+          </a>
+          <a href="15-tcm-jingluo.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🔗</div>
+            <div class="cross-ref-info"><strong>经络理论</strong><span>灵枢篇的核心内容及其针灸应用</span></div>
+          </a>
+        </div>
+
+        <div class="reflection-questions">
+          <h3><i class="fas fa-question-circle"></i> 思考题</h3>
+          <ol>
+            <li>《黄帝内经》以"黄帝问岐伯"的对话形式呈现，这种文体选择反映了中国古代知识传播的什么特点？</li>
+            <li>"天人合一"的整体观在现代医学越来越精细化的趋势下，是否仍然具有指导价值？为什么？</li>
+            <li>《素问》偏理论、《灵枢》偏技术的分工模式，对你理解理论与实践的关系有什么启发？</li>
+          </ol>
+        </div>
+
+        <div class="further-reading">
+          <h3><i class="fas fa-book-open"></i> 进一步阅读</h3>
+          <ul>
+            <li>《黄帝内经素问校注》王洪图，人民卫生出版社</li>
+            <li>《灵枢经校注》郭霭春，人民卫生出版社</li>
+            <li>《内经知要》李中梓，人民卫生出版社</li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="11-yinyang-summary.html"><i class="fas fa-arrow-left"></i> 阴阳五行学习路径</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">12 / 31</span>
+    <a class="nav-next" href="13-tcm-yinyang-health.html">阴阳平衡与健康 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
+      });
+    });
+  </script>
 </body>
 </html>

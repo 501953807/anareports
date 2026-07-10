@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>三、文王演周易 — 中华古典学术理论全景书</title>
-  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -176,53 +176,19 @@
       <section class="chapter-section">
         <h2 class="section-subtitle">三、深入理解</h2>
 
-        <h3>《周易》的结构层次</h3>
-        <div class="chart-container" id="chart-zhouyi-structure"></div>
-        <script>
-        (function() {
-          var chart = echarts.init(document.getElementById('chart-zhouyi-structure'));
-          chart.setOption({
-            backgroundColor: 'transparent',
-            tooltip: {},
-            series: [{
-              type: 'sunburst',
-              data: [
-                {
-                  name: '周易',
-                  itemStyle: { color: '#B8860B' },
-                  children: [
-                    {
-                      name: '卦辞（64条）',
-                      itemStyle: { color: '#d4a843' },
-                      value: 64
-                    },
-                    {
-                      name: '爻辞（384条）',
-                      itemStyle: { color: '#8B6914' },
-                      value: 384
-                    },
-                    {
-                      name: '用九',
-                      itemStyle: { color: '#a07828' },
-                      value: 1
-                    },
-                    {
-                      name: '用六',
-                      itemStyle: { color: '#7a5c1e' },
-                      value: 1
-                    }
-                  ]
-                }
-              ],
-              label: { color: '#2C2C2C', fontSize: 12 },
-              emphasis: { focus: 'descendant' }
-            })
-          });
-          window.addEventListener('resize', function() { chart.resize(); });
-        })();
-        </script>
+        <h3>六十四卦的逻辑组织原则</h3>
+        <p>六十四卦并非随意排列，而是遵循着严密的逻辑结构。《&#129541;&#129537;》的卦序有几个重要特征：</p>
 
-        <p>《周易》的核心结构由四个层次组成：六十四卦卦象是最外层的情境框架，卦辞是对每个情境总体特征的概括，爻辞则深入到情境内部的六个发展阶段，而"用九""用六"是乾、坤两卦特有的变化规律总结。</p>
+        <p><strong>首尾对称：</strong>乾（天）与坤（地）作为开篇，代表宇宙中最基本的两种力量——创造与承载。既济（水火相交，事已完成）与未济（水火不交，事未完成）作为终章，暗示万事万物的循环永无止境。</p>
+
+        <p><strong>错综关系：</strong>相邻两卦通常互为"错卦"（六爻全部相反）或"综卦"（上下颠倒）。错卦体现对立统一，综卦体现视角转换。这种编排方式反映了中国古典思维中对立面的相互依存关系。</p>
+
+        <p><strong>二进制逻辑：</strong>每一卦的六个爻位可以看作一个六位二进制数。阳爻为1，阴爻为0，六十四卦恰好覆盖了从000000到111111的所有组合。莱布尼茨在发明二进制时曾惊叹于八卦与他的数学发现之间的巧合。</p>
+
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 文王演周易的历史意义</div>
+          <div class="tip-body">文王的伟大贡献不在于创造了新符号，而在于将八个静态的自然象征，扩展为六十四种动态的人生情境。这种从"分类"到"过程"的思维跃迁，是中国古典学术最核心的方法论创新。</div>
+        </div>
       </section>
 
       <!-- 段落4：实践应用 -->
@@ -259,7 +225,7 @@
               <span>六十四卦的数理基础来自河图洛书</span>
             </div>
           </a>
-          <a href="../道家理论/24-daodejing.html" class="cross-ref-card">
+          <a href="24-daodejing.html" class="cross-ref-card">
             <div class="cross-ref-icon">道</div>
             <div class="cross-ref-info">
               <strong>道德经核心思想</strong>
@@ -294,15 +260,8 @@
     <span class="page-info">3 / 31</span>
     <a class="nav-next" href="04-bagua-xiangshu.html">八卦象数体系 <i class="fas fa-arrow-right"></i></a>
   </footer>
-  <script src="../common/js/echarts.inline.js"></script>
-  <script src="../common/js/navigation.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggleBtn = document.querySelector('.nav-toggle');
-      if (toggleBtn) toggleBtn.addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.toggle('open');
-      });
-    });
-  </script>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
 </body>
 </html>

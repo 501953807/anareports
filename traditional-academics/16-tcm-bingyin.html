@@ -1,234 +1,263 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第十六章：病因病机与辨证论治 — 中华古典学术理论全景书</title>
-<link rel="stylesheet" href="common/css/book.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>十六、病因与辨证论治 — 中华古典学术理论全景书</title>
+  <link rel="stylesheet" href="common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="top-nav">
-  <div class="nav-left"><a href="index.html" class="nav-book-name"><i class="fas fa-book"></i> 古典学术书</a><span class="nav-divider">/</span><span class="nav-chapter-title">十六、病因病机与辨证论治</span></div>
-  <div class="nav-right"><button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button><a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a></div>
-</nav>
-<aside class="sidebar">
-  <div class="sidebar-header"><h3>中华古典学术理论</h3><button class="sidebar-close" aria-label="Close sidebar" onclick="AnaNav.toggleSidebar()"><i class="fas fa-times"></i></button></div>
-  <nav class="toc"><ul class="toc-list">
-    <li class="toc-chapter">第一部分：儒家学说体系</li>
-    <li><a href="01-confucius-overview.html">一、孔子与儒家思想概览</a></li>
-    <li><a href="02-sishu.html">二、四书五经与儒家经典</a></li>
-    <li><a href="03-mencius.html">三、孟子与性善论</a></li>
-    <li><a href="04-xunzi.html">四、荀子与礼法并重</a></li>
-    <li class="toc-chapter">第二部分：道家与佛学</li>
-    <li><a href="05-laozi.html">五、道德经与道家哲学</a></li>
-    <li><a href="06-zhuangzi.html">六、庄子与逍遥哲学</a></li>
-    <li><a href="07-foxue-intro.html">七、佛学传入与中国化</a></li>
-    <li><a href="08-weishi.html">八、唯识宗与华严宗</a></li>
-    <li><a href="09-chanzong.html">九、禅宗与明心见性</a></li>
-    <li class="toc-chapter">第三部分：中医基础理论</li>
-    <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
-    <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与中医健康观</a></li>
-    <li><a href="14-tcm-zangfu.html">十四、藏象学说与五脏六腑</a></li>
-    <li><a href="15-tcm-jingluo.html">十五、经络系统与针灸理论</a></li>
-    <li><a href="16-tcm-bingyin.html">十六、病因病机与辨证论治</a></li>
-    <li><a href="17-tcm-summary.html">十七、中医理论学习路径</a></li>
-    <li class="toc-chapter">第四部分：易经与术数</li>
-    <li><a href="18-yijing-overview.html">十八、易经概览与六十四卦</a></li>
-    <li><a href="19-yijing-xiangshu.html">十九、象数易学与卦象推演</a></li>
-    <li><a href="20-yijing-lixue.html">二十、义理易学与宋明理学</a></li>
-    <li><a href="21-yijing-application.html">二十一、易经在各领域的应用</a></li>
-    <li><a href="22-yijing-summary.html">二十二、易经学习路径与陷阱防范</a></li>
-    <li class="toc-chapter">第五部分：兵法战略</li>
-    <li><a href="23-artofwar-overview.html">二十三、孙子兵法与兵家思想</a></li>
-    <li><a href="24-sixtao.html">二十四、吴子与司马法</a></li>
-    <li><a href="25-wujingzongyao.html">二十五、武经七书与其他兵法</a></li>
-    <li><a href="26-history-bingfa.html">二十六、历代兵法战例分析</a></li>
-    <li><a href="27-bingfa-summary.html">二十七、兵家思想现代应用</a></li>
-    <li class="toc-divider"></li>
-    <li><a href="index.html"><i class="fas fa-arrow-left"></i> 返回目录</a></li>
-  </ul></nav>
-</aside>
-<main class="content">
-<h1 class="section-title">十六、病因病机与辨证论治</h1>
-<p class="data-note" style="font-size:15px;margin-bottom:20px;">如果说阴阳藏象是中医的理论框架，那么病因病机和辨证论治就是中医的临床方法论。理解了"什么导致疾病"（病因）、"疾病怎样发展"（病机）、"如何判断疾病类型"（辨证），才能最终做到"正确地治疗疾病"（论治）。这是中医从理论走向实践的关键桥梁。</p>
+  <nav class="top-nav">
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <div class="nav-left">
+      <a class="nav-book-name" href="index.html">&#128220; 中华古典学术理论全景书</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">十六、病因与辨证论治</span>
+    </div>
+    <div class="nav-right">
+      <a class="nav-btn" href="15-tcm-jingluo.html"><i class="fas fa-arrow-left"></i> 前一章</a>
+      <a class="nav-btn" href="17-tcm-summary.html">后一章 <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </nav>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>中华古典学术理论</h3>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="toc">
+      <ul class="toc-list">
+        <li class="toc-chapter">第一部分 八卦</li>
+        <li><a href="01-bagua-origin.html">一、八卦起源与演变概述</a></li>
+        <li><a href="02-fuxi-shennong.html">二、伏羲画卦与上古传说</a></li>
+        <li><a href="03-zhouyi-wenwang.html">三、文王演周易</a></li>
+        <li><a href="04-bagua-xiangshu.html">四、八卦象数体系</a></li>
+        <li><a href="05-bagua-summary.html">五、八卦学习路径</a></li>
+        <li class="toc-chapter">第二部分 阴阳五行</li>
+        <li><a href="06-yinyang-benyuan.html">六、阴阳概念本源</a></li>
+        <li><a href="07-yinyang-wuxing-classics.html">七、经典文本中的阴阳五行</a></li>
+        <li><a href="08-wuxing-theory.html">八、五行理论基础</a></li>
+        <li><a href="09-wuxing-cycles.html">九、五行生克乘侮</a></li>
+        <li><a href="10-yinyang-wuxing-synthesis.html">十、阴阳五行综合体系</a></li>
+        <li><a href="11-yinyang-summary.html">十一、阴阳五行学习路径</a></li>
+        <li class="toc-chapter">第三部分 中医基础理论</li>
+        <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
+        <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与健康</a></li>
+        <li><a href="14-tcm-zangfu.html">十四、藏象学说</a></li>
+        <li><a href="15-tcm-jingluo.html">十五、经络理论</a></li>
+        <li><a href="16-tcm-bingyin.html" class="active">十六、病因与辨证论治</a></li>
+        <li><a href="17-tcm-summary.html">十七、中医学习路径</a></li>
+        <li class="toc-chapter">第四部分 易经体系</li>
+        <li><a href="18-yijing-overview.html">十八、易经体系总论</a></li>
+        <li><a href="19-yijing-hexagrams.html">十九、六十四卦详解</a></li>
+        <li><a href="20-yijing-text-analysis.html">二十、卦爻辞解读方法</a></li>
+        <li><a href="21-yijing-commentary.html">二十一、十翼与传注体系</a></li>
+        <li><a href="22-yijing-summary.html">二十二、易经学习路径</a></li>
+        <li class="toc-chapter">第五部分 道家理论</li>
+        <li><a href="23-daoism-origins.html">二十三、道家学派起源</a></li>
+        <li><a href="24-daodejing.html">二十四、道德经核心思想</a></li>
+        <li><a href="25-zhuangzi.html">二十五、庄子哲学</a></li>
+        <li><a href="26-daoism-gongfu.html">二十六、道家修养工夫</a></li>
+        <li><a href="27-daoism-summary.html">二十七、道家学习路径</a></li>
+        <li class="toc-chapter">第六部分 儒家理论</li>
+        <li><a href="28-rujia-origins.html">二十八、儒家学派起源</a></li>
+        <li><a href="29-mengzi.html">二十九、孟子性善与仁政</a></li>
+        <li><a href="30-songming-lixue.html">三十、宋明理学</a></li>
+        <li><a href="31-rujia-summary.html">三十一、儒家学习路径</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="content">
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第三部分 中医基础理论</span>
+        <h1 class="section-title">十六、病因与辨证论治</h1>
+        <p class="chapter-intro">从"为什么会生病"到"如何正确治疗"——中医临床方法论的核心</p>
+      </header>
 
-<h2 class="section-subtitle">16.1 病因学说：外感与内伤</h2>
+      <!-- 段落1：故事引入 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">一、从一则感冒故事说起</h2>
+        <p>小明和小华同时感冒了。小明的症状是：怕冷重、发热轻、无汗、流清鼻涕、咳嗽痰白稀；小华的症状则是：发热重、怕冷轻、有汗、流黄稠鼻涕、咽喉肿痛、咳嗽痰黄稠。两人都是"感冒"，但中医给他们的诊断完全不同——小明是"风寒感冒"，小华是"风热感冒"。因此，小明喝的是生姜红糖水（辛温解表），小华喝的是银翘散（辛凉解表）。</p>
+        <p>这个故事揭示了中医最核心的思维特征：<strong>"同病异治"</strong>——同样的疾病名称下，因为病因、体质、季节不同，治疗方法可以完全不同。这与西医"感冒就用感冒药"的思路有着根本区别。</p>
+      </section>
 
-<h3>六淫（外感病因）</h3>
-<p>六淫是指风、寒、暑、湿、燥、火六种外在致病因素。正常情况下它们是自然气候的变化（称"六气"），但当气候异常变化或人体正气不足时，六气就会变成致病的六淫。</p>
+      <!-- 段落2：概念解析 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">二、核心概念详解</h2>
 
-<table class="data-table">
-<thead><tr><th>邪气</th><th>性质</th><th>致病特点</th><th>常见症状</th><th>代表方药</th></tr></thead>
-<tbody>
-<tr><td><strong>风邪</strong></td><td>阳邪，善行数变<br>百病之长</td><td>发病迅速、游走不定、易袭阳位（头面肌表）</td><td>恶风发热、汗出、头痛、肢体游走性疼痛、荨麻疹</td><td>桂枝汤、荆防败毒散</td></tr>
-<tr><td><strong>寒邪</strong></td><td>阴邪，凝滞收引</td><td>使气血凝滞不通、经脉收缩拘急</td><td>恶寒发热、无汗、身痛剧烈、四肢厥冷、腹痛腹泻</td><td>麻黄汤、附子理中丸</td></tr>
-<tr><td><strong>暑邪</strong></td><td>阳邪，升散耗气</td><td>只发生于夏季，耗气伤津，多夹湿</td><td>高热大汗、口渴乏力、烦闷尿少、甚则昏迷</td><td>清暑益气汤、十滴水</td></tr>
-<tr><td><strong>湿邪</strong></td><td>阴邪，重浊黏滞</td><td>易阻遏气机、病程缠绵难愈、易伤下部</td><td>头重如裹、肢体困重、腹胀便溏、水肿、带下</td><td>藿香正气散、五苓散</td></tr>
-<tr><td><strong>燥邪</strong></td><td>阳邪（温燥）或阴邪（凉燥）</td><td>易伤肺阴，燥胜则干</td><td>口干咽燥、鼻干出血、干咳少痰、皮肤干燥、便秘</td><td>桑杏汤、清燥救肺汤</td></tr>
-<tr><td><strong>火（热）邪</strong></td><td>阳邪，炎上急迫</td><td>易生风动血、易伤津耗气、易生疮肿</td><td>高热烦躁、面红目赤、出血（吐血衄血）、痈疽疮疡</td><td>白虎汤、黄连解毒汤</td></tr>
-</tbody>
-</table>
+        <h3>病因：外感与内伤</h3>
+        <p>中医将致病因素分为两大类：来自外界的"六淫"和来自内在的"七情"。</p>
 
-<h3>七情（内伤情志病因）</h3>
-<p>七情是人体正常的情绪反应，但<strong>突然、强烈或长期持久的情志刺激</strong>超过了人体调节能力，就会导致脏腑气血功能紊乱而发病。</p>
+        <h4>六淫（外感病因）</h4>
+        <table class="data-table">
+          <thead><tr><th>邪气</th><th>性质</th><th>致病特点</th><th>常见症状</th></tr></thead>
+          <tbody>
+            <tr><td><strong>风</strong></td><td>阳邪，善行数变</td><td>发病迅速、游走不定</td><td>恶风发热、头痛、荨麻疹</td></tr>
+            <tr><td><strong>寒</strong></td><td>阴邪，凝滞收引</td><td>气血凝滞不通</td><td>恶寒无汗、身痛剧烈</td></tr>
+            <tr><td><strong>暑</strong></td><td>阳邪，升散耗气</td><td>只发生于夏季，耗气伤津</td><td>高热大汗、口渴乏力</td></tr>
+            <tr><td><strong>湿</strong></td><td>阴邪，重浊黏滞</td><td>病程缠绵难愈</td><td>头重如裹、肢体困重、便溏</td></tr>
+            <tr><td><strong>燥</strong></td><td>易伤肺阴</td><td>燥胜则干</td><td>口干咽燥、干咳少痰、皮肤干燥</td></tr>
+            <tr><td><strong>火</strong></td><td>阳邪，炎上急迫</td><td>易生风动血</td><td>高热烦躁、面红目赤、出血</td></tr>
+          </tbody>
+        </table>
 
-<table class="data-table">
-<thead><tr><th>情志</th><th>气机影响</th><th>损伤脏腑</th><th>临床表现</th></tr></thead>
-<tbody>
-<tr><td><strong>怒</strong></td><td>怒则气上</td><td>肝</td><td>头痛眩晕、面红目赤、呕血、甚则昏厥（高血压/中风前兆）</td></tr>
-<tr><td><strong>喜</strong></td><td>喜则气缓</td><td>心</td><td>心神涣散、注意力不集中、心悸失眠（暴喜伤心）</td></tr>
-<tr><td><strong>忧</strong></td><td>忧则气郁</td><td>肺/脾</td><td>胸闷气短、食欲不振、倦怠乏力（长期忧虑→免疫功能下降）</td></tr>
-<tr><td><strong>思</strong></td><td>思则气结</td><td>脾</td><td>脘腹胀满、食欲减退、便溏消瘦（过度思虑→消化功能紊乱）</td></tr>
-<tr><td><strong>悲</strong></td><td>悲则气消</td><td>肺</td><td>气短声低、神疲乏力、意志消沉（过度悲伤→心肺功能受损）</td></tr>
-<tr><td><strong>恐</strong></td><td>恐则气下</td><td>肾</td><td>遗精滑泄、二便失禁、腰膝酸软（恐惧→肾气不固）</td></tr>
-<tr><td><strong>惊</strong></td><td>惊则气乱</td><td>心</td><td>心慌失措、失眠多梦、甚则神志错乱（突发惊吓→心气紊乱）</td></tr>
-</tbody>
-</table>
+        <h4>七情（内伤情志病因）</h4>
+        <table class="data-table">
+          <thead><tr><th>情志</th><th>气机影响</th><th>损伤脏腑</th><th>临床表现</th></tr></thead>
+          <tbody>
+            <tr><td><strong>怒</strong></td><td>怒则气上</td><td>肝</td><td>头痛眩晕、面红目赤、呕血</td></tr>
+            <tr><td><strong>喜</strong></td><td>喜则气缓</td><td>心</td><td>心神涣散、心悸失眠</td></tr>
+            <tr><td><strong>忧</strong></td><td>忧则气郁</td><td>肺/脾</td><td>胸闷气短、食欲不振</td></tr>
+            <tr><td><strong>思</strong></td><td>思则气结</td><td>脾</td><td>脘腹胀满、食欲减退</td></tr>
+            <tr><td><strong>悲</strong></td><td>悲则气消</td><td>肺</td><td>气短声低、神疲乏力</td></tr>
+            <tr><td><strong>恐</strong></td><td>恐则气下</td><td>肾</td><td>遗精滑泄、腰膝酸软</td></tr>
+          </tbody>
+        </table>
 
-<h2 class="section-subtitle">16.2 病机：疾病发生发展的内在机制</h2>
-<p>病机即疾病发生、发展和变化的机理。中医病机的核心可归结为三个方面：</p>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心理解要点</div>
+          <div class="tip-body">六淫原本是正常的气候变化（六气），只有当气候异常或人体正气不足时，才变成致病的六淫。七情原本是正常的情绪反应，只有当刺激过于强烈或持久、超出调节能力时，才会导致疾病。这说明中医认为：致病的关键不在于外部因素本身，而在于内外因素的失衡关系。</div>
+        </div>
 
-<ol class="steps-list">
-<li><strong>正邪斗争</strong>——疾病的发生本质上是人体正气与外来邪气之间斗争的结果。"正气存内，邪不可干"（正气充足则不易生病），"邪之所凑，其气必虚"（生病之处必有正气不足）。治疗的关键不在于"消灭邪气"，而在于"扶正祛邪"——增强自身抵抗力同时清除致病因素。</li>
-<li><strong>阴阳失调</strong>——疾病的发生归根到底是阴阳平衡被打破。"阳胜则热"（实热证）、"阴胜则寒"（实寒证）、"阳虚则寒"（虚寒证）、"阴虚则热"（虚热证）。所有的病都可以用这四个基本病机来归纳。</li>
-<li><strong>气血失常</strong>——气有推动、温煦、防御、固摄、气化五大功能；血有濡养全身的作用。气滞（气运行不畅）、气逆（气上升太过）、气虚（气的功能减弱）、血虚（血的量不足）、血瘀（血运行受阻）、出血（血不循经）等构成了气血失常的基本类型。</li>
-</ol>
+        <h3>三大辨证体系</h3>
+        <p>中医诊断疾病的方法主要有三种辨证体系，它们各有侧重、互为补充：</p>
 
-<h2 class="section-subtitle">16.3 辨证论治：三大辨证体系</h2>
+        <ol class="steps-list">
+          <li><strong>八纲辨证（总纲）：</strong>把所有疾病归纳为阴、阳、表、里、寒、热、虚、实八个纲领。其中阴阳为总纲，其余七纲可分为三组——表里定病位深浅，寒热定疾病性质，虚实定邪正盛衰。</li>
+          <li><strong>脏腑辨证（定位）：</strong>在八纲基础上进一步确定病变的具体脏腑。比如同样是"热证"，可能是心火亢盛、肝火上炎、肺热壅盛等不同的脏腑定位。</li>
+          <li><strong>六经辨证（动态）：</strong>源于张仲景《伤寒论》，将外感病的发展过程归纳为太阳→阳明→少阳→太阴→少阴→厥阴六个阶段，适用于外感寒邪所致疾病。</li>
+        </ol>
 
-<h3>八纲辨证</h3>
-<p>八纲是最基本的辨证方法，把所有疾病归纳为<strong>阴、阳、表、里、寒、热、虚、实</strong>八个纲领。其中阴阳为总纲，其余七纲可分为三组：</p>
+        <div class="illustration-svg">
+          <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Three diagnostic systems as concentric layers -->
+            <rect x="20" y="20" width="220" height="120" rx="6" fill="none" stroke="#B8860B" stroke-width="1.5"/>
+            <text x="130" y="45" text-anchor="middle" fill="#B8860B" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">八纲辨证</text>
+            <text x="130" y="65" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">总纲：阴阳表里寒热虚实</text>
+            <line x1="40" y1="75" x2="220" y2="75" stroke="#E8E6E1" stroke-width="1"/>
+            <text x="40" y="93" fill="#2C2C2C" font-size="10" font-family="'Noto Sans SC', sans-serif">阴阳 → 总纲</text>
+            <text x="40" y="109" fill="#2C2C2C" font-size="10" font-family="'Noto Sans SC', sans-serif">表里 → 病位</text>
+            <text x="40" y="125" fill="#2C2C2C" font-size="10" font-family="'Noto Sans SC', sans-serif">寒热虚实 → 性质与盛衰</text>
+            <rect x="260" y="20" width="220" height="120" rx="6" fill="none" stroke="#1A5276" stroke-width="1.5"/>
+            <text x="370" y="45" text-anchor="middle" fill="#1A5276" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">脏腑辨证</text>
+            <text x="370" y="65" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">定位：心肝脾肺肾</text>
+            <line x1="280" y1="75" x2="460" y2="75" stroke="#E8E6E1" stroke-width="1"/>
+            <text x="280" y="93" fill="#2C2C2C" font-size="10" font-family="'Noto Sans SC', sans-serif">心：心火亢盛/心血虚</text>
+            <text x="280" y="109" fill="#2C2C2C" font-size="10" font-family="'Noto Sans SC', sans-serif">肝：肝气郁结/肝阳上亢</text>
+            <text x="280" y="125" fill="#2C2C2C" font-size="10" font-family="'Noto Sans SC', sans-serif">脾/肺/肾各有证型</text>
+            <!-- Arrow between them -->
+            <text x="245" y="85" text-anchor="middle" fill="#B8860B" font-size="16" font-weight="700" font-family="'Noto Sans SC', sans-serif">→</text>
+            <text x="245" y="105" text-anchor="middle" fill="#666666" font-size="9" font-family="'Noto Sans SC', sans-serif">深化</text>
+          </svg>
+          <figcaption class="illustration-caption">图十六-1 辨证体系关系 — 八纲为总纲定方向，脏腑辨证精确到具体脏腑</figcaption>
+        </div>
+      </section>
 
-<table class="data-table">
-<thead><tr><th>八纲</th><th>定性</th><th>含义</th><th>举例</th></tr></thead>
-<tbody>
-<tr><td><strong>阴 / 阳</strong></td><td>总纲</td><td>阳证：亢奋、温热、表实；阴证：抑制、寒凉、里虚</td><td>阳证=发热口渴、舌红苔黄；阴证=畏寒肢冷、舌淡苔白</td></tr>
-<tr><td><strong>表 / 里</strong></td><td>病位深浅</td><td>表证：病在皮毛肌腠（外感初期）；里证：病在脏腑（疾病深入）</td><td>表证=恶寒发热并见；里证=但热不寒或但寒不热</td></tr>
-<tr><td><strong>寒 / 热</strong></td><td>疾病性质</td><td>寒证：阴盛或阳虚；热证：阳盛或阴虚</td><td>寒证=喜温恶寒、口不渴；热证=喜冷饮、口渴烦躁</td></tr>
-<tr><td><strong>虚 / 实</strong></td><td>邪正盛衰</td><td>虚证：正气不足（气血阴阳亏虚）；实证：邪气盛实（六淫、痰饮、瘀血等）</td><td>虚证=声低气怯、脉细弱；实证=声高气粗、脉有力</td></tr>
-</tbody>
-</table>
+      <!-- 段落3：深入理解 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">三、深入理解</h2>
 
-<h3>脏腑辨证</h3>
-<p>脏腑辨证是在八纲辨证基础上进一步确定病变的具体脏腑。每种脏腑都有其特定的证型。以肝病为例：</p>
-<ul style="color:var(--text2);font-size:13px;line-height:2;padding-left:20px;">
-<li>肝气郁结→胁肋胀痛、情绪抑郁、胸胁胀满（逍遥散）</li>
-<li>肝火上炎→头痛目赤、急躁易怒、口苦（龙胆泻肝汤）</li>
-<li>肝阳上亢→头晕耳鸣、面红目赤、腰膝酸软（天麻钩藤饮）</li>
-<li>肝血不足→眩晕眼花、手足震颤、月经量少（补肝汤）</li>
-</ul>
+        <h3>病机的三个核心</h3>
+        <ol class="steps-list">
+          <li><strong>正邪斗争：</strong>"正气存内，邪不可干"——生病的本质是正气不足。治疗的关键不是消灭邪气，而是扶正祛邪。</li>
+          <li><strong>阴阳失调：</strong>所有疾病都可以归结为四个基本病机：阳胜则热（实热）、阴胜则寒（实寒）、阳虚则寒（虚寒）、阴虚则热（虚热）。</li>
+          <li><strong>气血失常：</strong>气滞、气逆、气虚、血虚、血瘀、出血——这是病理变化的直接表现。</li>
+        </ol>
 
-<h3>六经辨证</h3>
-<p>六经辨证源于张仲景《伤寒论》，将外感病的发展过程归纳为六个阶段，适用于外感寒邪所致疾病：</p>
-<ul style="color:var(--text2);font-size:13px;line-height:2;padding-left:20px;">
-<li>太阳病（表证）→恶寒发热、头项强痛（麻黄汤/桂枝汤）</li>
-<li>阳明病（里热实证）→大热大汗大渴脉洪大（白虎汤/承气汤）</li>
-<li>少阳病（半表半里）→寒热往来、胸胁苦满（小柴胡汤）</li>
-<li>太阴病（脾虚寒湿）→腹满吐利、食不下（理中丸）</li>
-<li>少阴病（心肾虚衰）→脉微细、但欲寐（四逆汤/黄连阿胶汤）</li>
-<li>厥阴病（寒热错杂）→消渴、气上撞心、心中疼热（乌梅丸）</li>
-</ul>
+        <h3>中医诊断四步法：望闻问切</h3>
+        <p>中医诊断的核心方法合称"四诊"，是一个从外到内、从现象到本质的推理过程：</p>
 
-<div class="chart-container" id="chart-diagnosis-tree"></div>
+        <table class="data-table">
+          <thead><tr><th>诊法</th><th>观察内容</th><th>关键信息</th></tr></thead>
+          <tbody>
+            <tr><td><strong>望诊</strong></td><td>神色形态、舌象（舌质+舌苔）、面色五色</td><td>舌淡=虚寒，舌红=热，苔厚=病重；面色青=寒/痛，赤=热，黄=湿/虚</td></tr>
+            <tr><td><strong>闻诊</strong></td><td>听声音（言语高低、呼吸强弱）、嗅气味</td><td>声洪亮=实证热证，声低微=虚证寒证</td></tr>
+            <tr><td><strong>问诊</strong></td><td>十问歌：寒热汗、头身便、饮食胸腹、聋渴旧病因</td><td>最收集信息丰富的环节</td></tr>
+            <tr><td><strong>切诊</strong></td><td>脉诊（28种脉象）+按诊（触摸肌肤脘腹）</td><td>浮脉主表，沉脉主里，迟脉主寒，数脉主热</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-<h2 class="section-subtitle">16.4 中医诊断四步法：望闻问切</h2>
-<p>中医诊断的核心方法可以概括为四个字——"望闻问切"，合称"四诊"。这四步不是简单的检查程序，而是一个从外到内、从现象到本质的推理过程。</p>
+      <!-- 段落4：实践应用 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">四、在现代生活中的应用</h2>
 
-<ol class="steps-list">
-<li><strong>望诊</strong>——观察患者的神色形态、舌象（舌质+舌苔）。舌诊是望诊中最具中医特色的方法。舌质颜色（淡白=虚寒，红=热，紫暗=瘀血），舌苔厚薄（薄=病轻，厚=病重），舌苔颜色（白=寒，黄=热），舌体形态（胖大有齿痕=脾虚湿盛，瘦薄=阴虚）。此外还观察面色（五色主病：青主寒/痛/瘀，赤主热，黄主湿/虚，白主虚/寒，黑主肾虚/瘀血）。</li>
-<li><strong>闻诊</strong>——听声音（言语高低、呼吸强弱、咳嗽特点）和嗅气味（口气、汗味、痰涕气味）。声音洪亮多属实证热证；声音低微多属虚证寒证。口气臭秽多为胃热；痰味腥臭多为肺痈。</li>
-<li><strong>问诊</strong>——询问患者自觉症状和相关病史。中医问诊有"十问歌"："一问寒热二问汗，三问头身四问便，五问饮食六胸腹，七聋八渴俱当辨，九问旧病十问因，再兼服药参机变。"这是最收集信息最丰富的环节。</li>
-<li><strong>切诊</strong>——包括脉诊和按诊。脉诊是中医诊断的核心技术之一。28种常用脉象各有其临床意义：浮脉主表证，沉脉主里证，迟脉主寒证，数脉主热证，虚脉主虚证，实脉主实证。按诊则是触摸患者的肌肤、脘腹等部位，判断冷热、软硬、压痛等情况。</li>
-</ol>
+        <div class="case-box">
+          <div class="case-title"><i class="fas fa-heartbeat"></i> 案例：辨证的思维在日常中的应用</div>
+          <div class="case-body">
+            <p>一位上班族经常感到胃胀、食欲不振、大便稀溏。如果按西医思路，可能会诊断为"功能性消化不良"，开一些促消化药。但中医会进一步辨证：如果伴有舌淡胖苔白、脉沉迟，则判断为"脾胃虚寒"，用理中丸温中健脾；如果伴有口苦、舌红苔黄腻、脉滑数，则判断为"脾胃湿热"，用甘露消毒丹清热化湿。两种完全不同的"消化不良"，用了完全不同的方药——这就是辨证论治的精髓。</p>
+          </div>
+        </div>
 
-<div class="card warning">
-<strong>⚠️ 重要提醒：</strong>四诊合参是中医诊断的基本要求。任何单一的诊断方法都不足以做出准确判断。临床上常有"同症异证"或"同证异症"的情况，必须综合分析所有信息才能得出准确的辨证结论。切勿仅凭一两个症状就自行用药。
-</div>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 自我保健：常用穴位按摩速查</div>
+          <div class="tip-body">
+            <p><strong>合谷穴</strong>（手背虎口处）：止痛、感冒<br>
+            <strong>足三里</strong>（膝盖下三寸）：健脾和胃、增强免疫<br>
+            <strong>内关穴</strong>（腕横纹上两寸）：宁心安神、缓解恶心<br>
+            <strong>涌泉穴</strong>（足底前部凹陷处）：补肾安神、改善睡眠</p>
+          </div>
+        </div>
+      </section>
 
-</main>
-<footer class="page-footer">
-  <a class="nav-prev" href="15-tcm-jingluo.html"><i class="fas fa-arrow-left"></i> 十五、经络系统与针灸理论</a>
-  <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
-  <span class="page-info">16 / 31</span>
-  <a class="nav-next" href="17-tcm-summary.html">十七、中医理论学习路径 <i class="fas fa-arrow-right"></i></a>
-</footer>
-<script src="common/js/echarts.inline.js"></script>
-<script src="common/js/navigation.js"></script>
-<script>
-var chart = echarts.init(document.getElementById('chart-diagnosis-tree'));
-chart.setOption({
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'item', triggerOn: 'mousemove' },
-  series: [{
-    type: 'tree',
-    data: [{ name: '中医辨证分型' }],
-    top: '5%', left: '18%', bottom: '5%', right: '20%',
-    symbolSize: 10,
-    orient: 'LR',
-    label: { show: true, position: 'inside', color: '#e2e8f0', fontSize: 10 },
-    leaves: { label: { position: 'right', color: '#e2e8f0', fontSize: 10 } },
-    itemStyle: { color: '#06b6d4', borderWidth: 2 },
-    lineStyle: { color: '#1e293b', width: 1.5 },
-    emphasis: {
-      itemStyle: { color: '#8b5cf6', borderWidth: 3 },
-      lineStyle: { color: '#8b5cf6' }
-    },
-    data: [{
-      name: '中医辨证',
-      children: [
-        {
-          name: '八纲辨证',
-          children: [
-            { name: '表证', children: [
-              { name: '表寒证' }, { name: '表热证' }, { name: '表虚证' }
-            ]},
-            { name: '里证', children: [
-              { name: '里寒证', children: [
-                { name: '实寒（寒邪直中）' }, { name: '虚寒（阳虚内寒）' }
-              ]},
-              { name: '里热证', children: [
-                { name: '实热（火热炽盛）' }, { name: '虚热（阴虚内热）' }
-              ]},
-              { name: '里实证' }, { name: '里虚证', children: [
-                { name: '气虚' }, { name: '血虚' }, { name: '阴虚' }, { name: '阳虚' }
-              ]}
-            ]}
-          ]
-        },
-        {
-          name: '脏腑辨证',
-          children: [
-            { name: '心病辨证', children: [
-              { name: '心气虚' }, { name: '心血虚' }, { name: '心阴虚' }, { name: '心阳虚' }, { name: '心火亢盛' }, { name: '痰迷心窍' }
-            ]},
-            { name: '肝病辨证', children: [
-              { name: '肝气郁结' }, { name: '肝火上炎' }, { name: '肝阳上亢' }, { name: '肝血不足' }, { name: '肝风内动' }
-            ]},
-            { name: '脾病辨证', children: [
-              { name: '脾气虚' }, { name: '脾阳虚' }, { name: '中气下陷' }, { name: '脾不统血' }, { name: '寒湿困脾' }, { name: '湿热蕴脾' }
-            ]},
-            { name: '肺病辨证', children: [
-              { name: '肺气虚' }, { name: '肺阴虚' }, { name: '风寒束肺' }, { name: '风热犯肺' }, { name: '痰热壅肺' }, { name: '痰湿阻肺' }
-            ]},
-            { name: '肾病辨证', children: [
-              { name: '肾阴虚' }, { name: '肾阳虚' }, { name: '肾气不固' }, { name: '肾精不足' }, { name: '肾不纳气' }
-            ]}
-          ]
-        },
-        {
-          name: '六经辨证',
-          children: [
-            { name: '太阳病' }, { name: '阳明病' }, { name: '少阳病' },
-            { name: '太阴病' }, { name: '少阴病' }, { name: '厥阴病' }
-          ]
-        }
-      ]
-    }]
-  }]
-});
-window.addEventListener('resize', function() { chart.resize(); });
-</script>
+      <!-- 段落5：延伸阅读 -->
+      <section class="chapter-section chapter-extensions">
+        <h2 class="section-subtitle">五、延伸阅读与思考</h2>
+
+        <h3>跨章节关联</h3>
+        <div class="cross-ref-grid">
+          <a href="13-tcm-yinyang-health.html" class="cross-ref-card">
+            <div class="cross-ref-icon">☯</div>
+            <div class="cross-ref-info"><strong>阴阳平衡</strong><span>阴阳失调是所有疾病的根本病机</span></div>
+          </a>
+          <a href="14-tcm-zangfu.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🫀</div>
+            <div class="cross-ref-info"><strong>藏象学说</strong><span>脏腑辨证以五脏六腑功能为基础</span></div>
+          </a>
+          <a href="17-tcm-summary.html" class="cross-ref-card">
+            <div class="cross-ref-icon">📚</div>
+            <div class="cross-ref-info"><strong>中医学习路径</strong><span>辨证论治是中医学习的核心技能</span></div>
+          </a>
+        </div>
+
+        <div class="reflection-questions">
+          <h3><i class="fas fa-question-circle"></i> 思考题</h3>
+          <ol>
+            <li>小明和小华同患感冒却用了完全不同的治疗方法，这种"同病异治"的思维模式对现代精准医疗有什么启发？</li>
+            <li>中医强调"四诊合参"——不能只看一个症状就下结论。这种综合诊断方法与西医的"化验指标"诊断有什么本质区别？</li>
+            <li>"正气存内，邪不可干"——生病的根本原因是正气不足。这个观点对你理解健康和疾病预防有什么新的启示？</li>
+          </ol>
+        </div>
+
+        <div class="further-reading">
+          <h3><i class="fas fa-book-open"></i> 进一步阅读</h3>
+          <ul>
+            <li>《中医基础理论》全国高等中医药院校规划教材</li>
+            <li>《伤寒论》刘渡舟讲解本，人民卫生出版社</li>
+            <li>《温病条辨》吴鞠通，人民卫生出版社</li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="page-footer">
+    <a class="nav-prev" href="15-tcm-jingluo.html"><i class="fas fa-arrow-left"></i> 经络理论</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">16 / 31</span>
+    <a class="nav-next" href="17-tcm-summary.html">中医学习路径 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
+      });
+    });
+  </script>
 </body>
 </html>

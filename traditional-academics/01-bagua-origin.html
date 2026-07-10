@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>一、八卦起源与演变概述 — 中华古典学术理论全景书</title>
-  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -69,14 +69,20 @@
     </nav>
   </aside>
   <main class="content">
-    <header class="chapter-header">
-      <span class="chapter-part">第一部分 八卦</span>
-      <h1 class="section-title">一、八卦起源与演变概述</h1>
-      <p class="chapter-intro">八卦符号系统的起源、构成原理及其在中国古典学术中的核心地位</p>
-    </header>
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第一部分 八卦</span>
+        <h1 class="section-title">一、八卦起源与演变概述</h1>
+        <p class="chapter-intro">八卦符号系统的起源、构成原理及其在中国古典学术中的核心地位</p>
+      </header>
 
     <h2 class="section-subtitle">一、从一则历史故事说起</h2>
     <p>公元前11世纪，商朝最后一位君主纣王在羑里囚禁了西伯侯姬昌。七年的幽禁之中，姬昌没有愤懑消沉，而是将毕生所学倾注于对古老八卦的推演之中。当他重出羑里时，八卦已从八个简单的自然象征，扩展为一个描述万事万物变化规律的宏大系统——六十四卦。这个故事虽然讲述的是文王的功绩，但它引出了八卦这个符号系统的根本问题：它从何而来？又是如何演变的？</p>
+  </section>
+
+  <!-- 段落2：概念解析 -->
+  <section class="chapter-section">
+    <h2 class="section-subtitle">二、核心概念详解</h2>
 
     <h2 class="section-subtitle">二、核心概念详解</h2>
 
@@ -192,9 +198,13 @@
       <div class="tip-title"><i class="fas fa-lightbulb"></i> 先天与后天的关系</div>
       <div class="tip-body">先天八卦讲"体"（本体、静态结构），后天八卦讲"用"（应用、动态变化）。理解这一点，就能明白为什么宋代以后的易学家普遍认为：先天是体，后天是用；先天是本，后天是末。二者缺一不可。</div>
     </div>
+  </section>
 
+  <!-- 段落3：深入理解 -->
+  <section class="chapter-section">
     <h2 class="section-subtitle">三、深入理解</h2>
 
+    <h3>八卦思想的演化历程</h3>
     <p>八卦的思想经历了漫长的演化过程：</p>
 
     <ol class="steps-list">
@@ -207,6 +217,13 @@
     </ol>
 
     <p>八卦思想蕴含以下几个核心哲学命题，它们构成了中国古典思维的底层逻辑：</p>
+  </section>
+
+  <!-- 段落4：实践应用 -->
+  <section class="chapter-section">
+    <h2 class="section-subtitle">四、在现代生活中的应用</h2>
+
+    <p>虽然八卦产生于数千年前的史前文明，但其思维方式在现代依然具有深刻的启示意义：</p>
 
     <div class="data-card">
       <div class="data-card-title"><i class="fas fa-star"></i> 命题一：象数思维</div>
@@ -274,7 +291,10 @@
       <li><strong>商业决策：</strong>现代管理学借鉴八卦的辩证思维，在分析市场局势时同时考虑对立统一的多个维度（供给与需求、竞争与合作、内部与外部），形成更加全面的战略判断。</li>
       <li><strong>心理学应用：</strong>荣格心理学中的"共时性"概念与八卦的象征思维有异曲同工之妙。当代认知科学也在研究人类如何像八卦系统一样，用有限的原型来理解和组织无限的经验。</li>
     </ul>
+  </section>
 
+  <!-- 段落5：延伸阅读 -->
+  <section class="chapter-section chapter-extensions">
     <h2 class="section-subtitle">五、延伸阅读与思考</h2>
     <div class="cross-ref-grid">
       <a href="02-fuxi-shennong.html" class="cross-ref-card">
@@ -336,22 +356,16 @@
         <li>《易图明辨》胡渭，中华书局</li>
       </ul>
     </div>
+  </section>
+    </article>
   </main>
   <footer class="page-footer">
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
     <span class="page-info">1 / 31</span>
     <a class="nav-next" href="02-fuxi-shennong.html">伏羲画卦与上古传说 <i class="fas fa-arrow-right"></i></a>
   </footer>
-  <script src="../common/js/echarts.inline.js"></script>
-  <script src="../common/js/navigation.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggleBtn = document.querySelector('.nav-toggle');
-      if (toggleBtn) toggleBtn.addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.toggle('open');
-      });
-    });
-  </script>
-  <script src="../common/js/theme-toggle.js"></script>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
 </body>
 </html>

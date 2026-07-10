@@ -3,284 +3,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>二十八、儒家学派起源与孔子 -- 中华古典学术理论全景书</title>
-  <link rel="stylesheet" href="../common/css/book.css">
+  <title>二十八、儒家学派起源 — 中华古典学术理论全景书</title>
+  <link rel="stylesheet" href="common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="top-nav">
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="window.AnaNav.toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
     <div class="nav-left">
-      <a class="nav-book-name" href="index.html">&#x1F4DC; 中华古典学术理论全景书</a>
-      <span class="nav-divider">|</span>
-      <span class="nav-chapter-title">第二十八章 儒家学派起源与孔子</span>
+      <a class="nav-book-name" href="index.html">&#128220; 中华古典学术理论全景书</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">二十八、儒家学派起源</span>
     </div>
     <div class="nav-right">
-      <a class="nav-btn" href="25-zhuangzi.html">&#x25C0; 上一页</a>
-      <a class="nav-btn" href="29-mengzi.html">下一页 &#x25B6;</a>
+      <a class="nav-btn" href="27-daoism-summary.html"><i class="fas fa-arrow-left"></i> 前一章</a>
+      <a class="nav-btn" href="29-mengzi.html">后一章 <i class="fas fa-arrow-right"></i></a>
     </div>
   </nav>
-
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-header">
       <h3>中华古典学术理论</h3>
-      <button class="sidebar-close" aria-label="Close sidebar" onclick="this.parentElement.nextElementSibling.classList.toggle('open')"><i class="fas fa-times"></i></button>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
     </div>
     <nav class="toc">
       <ul class="toc-list">
         <li class="toc-chapter">第一部分 八卦</li>
-        <li><a href="../01-bagua-origin.html">01 八卦起源与演变概述</a></li>
-        <li><a href="../02-fuxi-shennong.html">02 伏羲画卦与上古传说</a></li>
-        <li><a href="../03-zhouyi-wenwang.html">03 文王演周易</a></li>
-        <li><a href="../04-bagua-xiangshu.html">04 八卦象数体系</a></li>
-        <li><a href="../05-bagua-summary.html">05 八卦学习路径</a></li>
+        <li><a href="01-bagua-origin.html">一、八卦起源与演变概述</a></li>
+        <li><a href="02-fuxi-shennong.html">二、伏羲画卦与上古传说</a></li>
+        <li><a href="03-zhouyi-wenwang.html">三、文王演周易</a></li>
+        <li><a href="04-bagua-xiangshu.html">四、八卦象数体系</a></li>
+        <li><a href="05-bagua-summary.html">五、八卦学习路径</a></li>
         <li class="toc-chapter">第二部分 阴阳五行</li>
-        <li><a href="06-yinyang-benyuan.html">06 阴阳本源论</a></li>
-        <li><a href="07-yinyang-wuxing-classics.html">07 阴阳五行经典</a></li>
-        <li><a href="08-wuxing-theory.html">08 五行学说</a></li>
+        <li><a href="06-yinyang-benyuan.html">六、阴阳概念本源</a></li>
+        <li><a href="07-yinyang-wuxing-classics.html">七、经典文本中的阴阳五行</a></li>
+        <li><a href="08-wuxing-theory.html">八、五行理论基础</a></li>
+        <li><a href="09-wuxing-cycles.html">九、五行生克乘侮</a></li>
+        <li><a href="10-yinyang-wuxing-synthesis.html">十、阴阳五行综合体系</a></li>
+        <li><a href="11-yinyang-summary.html">十一、阴阳五行学习路径</a></li>
         <li class="toc-chapter">第三部分 中医基础理论</li>
-        <li><a href="12-tcm-neijing.html">12 黄帝内经与中医理论源头</a></li>
-        <li><a href="13-tcm-yinyang-health.html">13 阴阳平衡与中医健康观</a></li>
-        <li><a href="14-tcm-zangfu.html">14 藏象学说与五脏六腑</a></li>
-        <li><a href="15-tcm-jingluo.html">15 经络系统与针灸理论</a></li>
-        <li><a href="16-tcm-bingyin.html">16 病因病机与辨证论治</a></li>
-        <li><a href="17-tcm-summary.html">17 中医理论学习路径</a></li>
+        <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
+        <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与健康</a></li>
+        <li><a href="14-tcm-zangfu.html">十四、藏象学说</a></li>
+        <li><a href="15-tcm-jingluo.html">十五、经络理论</a></li>
+        <li><a href="16-tcm-bingyin.html">十六、病因与辨证论治</a></li>
+        <li><a href="17-tcm-summary.html">十七、中医学习路径</a></li>
         <li class="toc-chapter">第四部分 易经体系</li>
-        <li><a href="18-yijing-overview.html">18 易经概述</a></li>
-        <li><a href="19-yijing-hexagrams.html">19 六十四卦详解</a></li>
-        <li><a href="20-yijing-text-analysis.html">20 易经文本分析</a></li>
-        <li><a href="21-yijing-commentary.html">21 易经历代注释</a></li>
-        <li><a href="22-yijing-summary.html">22 易学学习路径</a></li>
+        <li><a href="18-yijing-overview.html">十八、易经体系总论</a></li>
+        <li><a href="19-yijing-hexagrams.html">十九、六十四卦详解</a></li>
+        <li><a href="20-yijing-text-analysis.html">二十、卦爻辞解读方法</a></li>
+        <li><a href="21-yijing-commentary.html">二十一、十翼与传注体系</a></li>
+        <li><a href="22-yijing-summary.html">二十二、易经学习路径</a></li>
         <li class="toc-chapter">第五部分 道家理论</li>
-        <li><a href="../23-daojia-overview.html">23 道家与道教概述</a></li>
-        <li><a href="../24-laizi.html">24 老子与道德经</a></li>
-        <li><a href="../25-zhuangzi.html">25 庄子与自由之说</a></li>
-        <li><a href="../26-huanglai.html">26 黄老思想与黄帝之说</a></li>
-        <li><a href="../27-daoism-summary.html">27 道学学习路径</a></li>
+        <li><a href="23-daoism-origins.html">二十三、道家学派起源</a></li>
+        <li><a href="24-daodejing.html">二十四、道德经核心思想</a></li>
+        <li><a href="25-zhuangzi.html">二十五、庄子哲学</a></li>
+        <li><a href="26-daoism-gongfu.html">二十六、道家修养工夫</a></li>
+        <li><a href="27-daoism-summary.html">二十七、道家学习路径</a></li>
         <li class="toc-chapter">第六部分 儒家理论</li>
-        <li><a href="28-rujia-origins.html">28 儒家学派起源与孔子</a></li>
-        <li><a href="29-mengzi.html">29 孟子性善与仁政</a></li>
-        <li><a href="30-songming-lixue.html">30 宋明理学发展</a></li>
-        <li><a href="31-rujia-summary.html">31 儒家学习路径</a></li>
+        <li><a href="28-rujia-origins.html" class="active">二十八、儒家学派起源</a></li>
+        <li><a href="29-mengzi.html">二十九、孟子性善与仁政</a></li>
+        <li><a href="30-songming-lixue.html">三十、宋明理学</a></li>
+        <li><a href="31-rujia-summary.html">三十一、儒家学习路径</a></li>
       </ul>
     </nav>
   </aside>
-
   <main class="content">
-    <h1 class="section-title">二十八、儒家学派起源与孔子</h1>
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第六部分 儒家理论</span>
+        <h1 class="section-title">二十八、儒家学派起源</h1>
+        <p class="chapter-intro">从"知其不可而为之"到"至圣先师"——孔子如何在中国最动荡的时代提出最温暖的人文理想</p>
+      </header>
 
-    <p>儒家学派是中国历史上影响最为深远的学术传统，其创始人孔子被尊为"至圣先师"，在中国乃至整个东亚文化圈享有无可替代的地位。本章将从孔子的生平经历、《论语》的成书过程以及儒家的核心概念体系三个维度，全面梳理儒家学派的起源。</p>
+      <!-- 段落1：故事引入 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">一、从一则"丧家之犬"的故事说起</h2>
+        <p>孔子周游列国来到楚国，隐者接舆从他车前走过，唱道："凤兮凤兮，何德之衰！往者不可谏，来者犹可追。已而已而，今之从政者殆而！"意思是：凤凰啊凤凰，你的德行为什么越来越衰微了？过去的已经无法挽回，未来的还来得及追求。算了吧算了吧，现在的从政者太危险了！</p>
+        <p>这句话和道家隐者的嘲讽有异曲同工——都是对孔子"知其不可而为之"的不解甚至讥讽。但孔子听完之后，没有像隐者那样转身离去，而是主动上前想要和接舆交谈。这个细节揭示了一个根本区别：道家选择退出，儒家选择坚持。孔子的坎坷人生塑造了他的思想——早年贫寒使他体恤百姓，中年从政使他深知制度之重要，周游列国的挫败使他回归教育，将政治理想转化为文化传承。</p>
+      </section>
 
-    <h2 class="section-subtitle">一、孔子生平：从鲁国陬邑到周游列国</h2>
+      <!-- 段落2：概念解析 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">二、核心概念详解</h2>
 
-    <p>孔子（公元前551年--前479年），名丘，字仲尼，春秋时期鲁国陬邑（今山东曲阜）人。他的祖先是宋国的贵族，后因避祸迁往鲁国。父亲叔梁纥是鲁国著名的武士，在孔子幼年时便已去世，使孔子自幼便家境贫寒。</p>
+        <h3>孔子生平大事年表</h3>
+        <p>孔子（公元前551年—前479年），名丘，字仲尼，春秋时期鲁国陬邑（今山东曲阜）人。祖先是宋国贵族，后因避祸迁往鲁国。父亲叔梁纥是鲁国著名武士，孔子幼年时便已去世。</p>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="tl-year">公元前551年</div>
-        <div class="tl-desc">孔子生于鲁国陬邑，三岁时父亡，由母亲颜征在抚养长大。虽处困境，但幼年的孔子即表现出对礼仪的浓厚兴趣，常陈设俎豆，设礼乐于小儿游戏之中。</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">十五岁（前536年）</div>
-        <div class="tl-desc">孔子立志向学，"十有五而志于学"。他开始广泛学习古代文化典籍，尤其潜心于《诗经》《尚书》，为日后成为文化传承者奠定基础。</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">三十岁（前521年）</div>
-        <div class="tl-desc">孔子"三十而立"，形成自己独立的思想体系并开始收徒讲学。他开创了私人教育的先河，打破了"学在官府"的传统格局，使教育走向民间。</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">五十岁（前501年）</div>
-        <div class="tl-desc">鲁定公任命孔子为中都宰，此后逐步升任司空、大司寇。孔子在政治舞台上一展抱负，辅佐鲁国实现了短期的繁荣稳定。</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">五十五至六十八岁（前497--前484年）</div>
-        <div class="tl-desc">孔子率弟子周游列国十四年，先后到过卫、曹、宋、郑、陈、蔡、楚等国，试图推行自己的政治主张，但终因不合诸侯们的功利需求而未果。</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">七十三岁（前479年）</div>
-        <div class="tl-desc">孔子卒，葬于鲁城北泗水之畔。据记载，孔子去世时鲁哀公亲撰诔文悼念，弟子们为之服丧三年，如同父子之别。</div>
-      </div>
-    </div>
+        <table class="data-table">
+          <thead><tr><th>年龄</th><th>年份</th><th>重大事件</th></tr></thead>
+          <tbody>
+            <tr><td>0岁</td><td>前551年</td><td>生于鲁国陬邑，三岁时父亡，由母亲颜征在抚养长大。幼年的孔子常陈设俎豆，设礼乐于小儿游戏之中</td></tr>
+            <tr><td>15岁</td><td>前536年</td><td>"十有五而志于学"——开始广泛学习古代文化典籍，尤其潜心于《诗经》《尚书></strong></td></tr>
+            <tr><td>30岁</td><td>前521年</td><td>"三十而立"——形成独立思想体系，开始收徒讲学，开创私人教育先河</td></tr>
+            <tr><td>50岁</td><td>前501年</td><td>鲁定公任命孔子为中都宰，后升司空、大司寇，在政治上一展抱负</td></tr>
+            <tr><td>55-68岁</td><td>前497-前484年</td><td>率弟子周游列国十四年，终因不合诸侯功利需求而未果</td></tr>
+            <tr><td>73岁</td><td>前479年</td><td>卒，葬于鲁城北泗水之畔。鲁哀公亲撰诔文悼念</td></tr>
+          </tbody>
+        </table>
 
-    <div class="tip-box">
-      <div class="tip-title">&#x1F4A1; 核心洞察</div>
-      <div class="tip-body">孔子的生平经历深刻塑造了他的思想：早年贫寒使他体恤底层百姓；中年从政使他深知制度之重要；周游列国的挫败使他最终回归教育，将政治理想转化为文化传承。可以说，没有孔子的坎坷人生，就没有儒家思想的博大精深。</div>
-    </div>
+        <h3>五常：儒家五大核心概念</h3>
+        <table class="data-table">
+          <thead><tr><th>概念</th><th>含义</th><th>原文表述</th><th>实践原则</th></tr></thead>
+          <tbody>
+            <tr><td><strong>仁</strong></td><td>爱人——从亲亲之情出发，推己及人</td><td>己所不欲，勿施于人</td><td>同理心与恻隐之心</td></tr>
+            <tr><td><strong>义</strong></td><td>正当——行为的道德义务</td><td>君子喻于义，小人喻于利</td><td>超越功利的道德判断</td></tr>
+            <tr><td><strong>礼</strong></td><td>秩序——社会规范和行为准则</td><td>克己复礼为仁</td><td>以礼仪约束自我</td></tr>
+            <tr><td><strong>智</strong></td><td>明智——辨别是非善恶的能力</td><td>知者不惑</td><td>认知与道德判断的统一</td></tr>
+            <tr><td><strong>信</strong></td><td>诚信——人际交往的信任基础</td><td>人而无信，不知其可也</td><td>言必信，行必果</td></tr>
+          </tbody>
+        </table>
 
-    <h2 class="section-subtitle">二、《论语》的成书与结构</h2>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心理解要点</div>
+          <div class="tip-body"><strong>仁是儒家的最高范畴</strong>，但它不是抽象的教条，而是从家庭亲情（孝悌）出发，逐步扩展到社会的实践过程。孔子说"己所不欲，勿施于人"——这就是仁的黄金法则，与西方"己所欲施于人"不同，儒家的恕道更强调从"不伤害"的角度出发，体现了深刻的自我克制精神。</div>
+        </div>
 
-    <p>《论语》并非孔子本人所著，而是由其弟子及再传弟子记录编纂而成。它记录了孔子及其弟子的言行，是研究儒家思想最原始、最核心的文献。</p>
+        <h3>《论语》二十篇概览</h3>
+        <p>《论语》并非孔子本人所著，而是由其弟子及再传弟子记录编纂而成。共二十篇，汉代流传有《鲁论》《齐论》《古论》三个版本，东汉郑玄以《鲁论》为主参考其他版本编纂成注，成为后世通行本。</p>
+        <table class="data-table">
+          <thead><tr><th>篇目</th><th>核心主题</th><th>经典语录</th></tr></thead>
+          <tbody>
+            <tr><td><strong>学而第一</strong></td><td>学习的意义与方法</td><td>"学而时习之，不亦说乎？"</td></tr>
+            <tr><td><strong>为政第二</strong></td><td>德治与礼治</td><td>"为政以德，譬如北辰。"</td></tr>
+            <tr><td><strong>八佾第三</strong></td><td>礼乐制度的规范</td><td>"人而不仁，如礼何？"</td></tr>
+            <tr><td><strong>里仁第四</strong></td><td>仁德的修养与实践</td><td>"里仁为美。"</td></tr>
+            <tr><td><strong>颜渊第十二</strong></td><td>仁的理论与实践</td><td>"克己复礼为仁。"</td></tr>
+            <tr><td><strong>子路第十三</strong></td><td>治国理政</td><td>"其身正，不令而行。"</td></tr>
+            <tr><td><strong>阳货第十七</strong></td><td>人性与教育</td><td>"性相近也，习相远也。"</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <p>《论语》共二十篇，各篇均有独立的标题，一般取首句中的两三个字作为篇名。汉代流传的《论语》有《鲁论》《齐论》《古论》三个版本。东汉末年，郑玄以《鲁论》文本为主，参考《齐论》《古论》，编纂成注，此版本即为后世通行的《论语》底本。</p>
+      <!-- 段落3：深入理解 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">三、深入理解</h2>
 
-    <table class="data-table">
-      <thead>
-        <tr><th>篇目</th><th>核心主题</th><th>经典语录</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>学而第一</td><td>学习的意义与方法</td><td>"学而时习之，不亦说乎？"</td></tr>
-        <tr><td>为政第二</td><td>德治与礼治</td><td>"为政以德，譬如北辰。"</td></tr>
-        <tr><td>八佾第三</td><td>礼乐制度的规范</td><td>"人而不仁，如礼何？"</td></tr>
-        <tr><td>里仁第四</td><td>仁德的修养与实践</td><td>"里仁为美。"</td></tr>
-        <tr><td>公冶长第五</td><td>评价人物与识人之道</td><td>"听其言而观其行。"</td></tr>
-        <tr><td>雍也第六</td><td>中庸与才德</td><td>"知之者不如好之者。"</td></tr>
-        <tr><td>述而第七</td><td>孔子自述其志</td><td>"发愤忘食，乐以忘忧。"</td></tr>
-        <tr><td>泰伯第八</td><td>君子品格与社会责任</td><td>"士不可以不弘毅。"</td></tr>
-        <tr><td>子罕第九</td><td>天性与不可得而见</td><td>"吾少也贱，故多能鄙事。"</td></tr>
-        <tr><td>乡党第十</td><td>孔子日常生活与礼仪</td><td>"食不厌精，脍不厌细。"</td></tr>
-        <tr><td>先进第十一</td><td>弟子与师生关系</td><td>"由也喭。"</td></tr>
-        <tr><td>颜渊第十二</td><td>仁的理论与实践</td><td>"克己复礼为仁。"</td></tr>
-        <tr><td>子路第十三</td><td>治国理政</td><td>"其身正，不令而行。"</td></tr>
-        <tr><td>宪问第十四</td><td>士人的责任</td><td>"仁者必有勇。"</td></tr>
-        <tr><td>卫灵公第十五</td><td>处世之道</td><td>"工欲善其事，必先利其器。"</td></tr>
-        <tr><td>季氏第十六</td><td>家族与国家治理</td><td>"不患寡而患不均。"</td></tr>
-        <tr><td>阳货第十七</td><td>人性与教育的关系</td><td>"性相近也，习相远也。"</td></tr>
-        <tr><td>微子第十八</td><td>隐逸之士的态度</td><td>"君子之仕也，行其义也。"</td></tr>
-        <tr><td>子张第十九</td><td>弟子对孔子的评价</td><td>"夫子温良恭俭让。"</td></tr>
-        <tr><td>尧曰第二十</td><td>尧舜禹汤的治国之道</td><td>"君子惠而不费。"</td></tr>
-      </tbody>
-    </table>
+        <h3>孔子在教育史上的五大贡献</h3>
+        <ol class="steps-list">
+          <li><strong>有教无类：</strong>打破贵族垄断教育的局面，不论出身贫富地域，只要有心向学皆可成为学生。这一理念极大推动了文化的向下扩散。</li>
+          <li><strong>因材施教：</strong>针对不同学生的特点采取不同的教学方法。同样的问题问仁和义，孔子对颜回、子路、冉有不同的回答。</li>
+          <li><strong>启发式教学：</strong>"不愤不启，不悱不发"——在学生思考到一定程度时再给予点拨，而非简单灌输。</li>
+          <li><strong>学思结合：</strong>"学而不思则罔，思而不学则殆"——学习和思考相辅相成，只学不思会迷失方向，只思不学会陷入空想。</li>
+          <li><strong>六艺教育：</strong>礼、乐、射、御、书、数，要求学生全面发展，既重道德修养又重实际技能。</li>
+        </ol>
 
-    <h2 class="section-subtitle">三、儒家核心概念：仁、义、礼、智、信</h2>
+        <h3>孔子七十二贤弟子</h3>
+        <p>孔子门下相传有三千弟子，其中贤人七十二。以下列出其中最杰出的几位：</p>
+        <table class="data-table">
+          <thead><tr><th>弟子</th><th>字号</th><th>特长</th><th>历史贡献</th></tr></thead>
+          <tbody>
+            <tr><td><strong>颜回（子渊）</strong></td><td>德行第一</td><td>安贫乐道，孔子最得意的弟子，"一箪食，一瓢饮，在陋巷"而不改其乐</td></tr>
+            <tr><td><strong>仲由（子路）</strong></td><td>政事</td><td>勇于任事，性格刚直，后在卫国内乱中从容就义，体现"结缨而死"的君子风范</td></tr>
+            <tr><td><strong>端木赐（子贡）</strong></td><td>言语</td><td>善于外交辞令，曾任鲁卫两国相，经商富甲天下，是最成功的外交家</td></tr>
+            <tr><td><strong>曾参（子舆）</strong></td><td>德行</td><td>以孝著称，提出"吾日三省吾身"，被认为是《大学》作者，被尊为"宗圣"</td></tr>
+            <tr><td><strong>卜商（子夏）</strong></td><td>文学</td><td>擅长经学，后在西河讲学，对《诗经》《春秋》的传播贡献巨大</td></tr>
+          </tbody>
+        </table>
 
-    <p>儒家学说的五大核心概念构成了中国传统伦理价值体系的基石，被称为"五常"。</p>
+        <div class="illustration-svg">
+          <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Confucian concept network -->
+            <text x="250" y="18" text-anchor="middle" fill="#B8860B" font-size="13" font-weight="600" font-family="'Noto Sans SC', sans-serif">儒家核心概念网络</text>
+            <!-- Center: 仁 -->
+            <circle cx="250" cy="130" r="40" fill="rgba(184,134,11,0.1)" stroke="#B8860B" stroke-width="2"/>
+            <text x="250" y="126" text-anchor="middle" fill="#B8860B" font-size="16" font-weight="700" font-family="'Noto Serif SC', serif">仁</text>
+            <text x="250" y="146" text-anchor="middle" fill="#B8860B" font-size="11" font-family="'Noto Sans SC', sans-serif">核心·爱人</text>
+            <!-- 义 -->
+            <rect x="340" y="50" width="100" height="45" rx="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+            <text x="390" y="77" text-anchor="middle" fill="#dc2626" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">义</text>
+            <line x1="290" y1="110" x2="350" y2="75" stroke="#E8E6E1" stroke-width="1.5"/>
+            <!-- 礼 -->
+            <rect x="380" y="140" width="100" height="45" rx="6" fill="none" stroke="#1A5276" stroke-width="1.5"/>
+            <text x="430" y="167" text-anchor="middle" fill="#1A5276" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">礼</text>
+            <line x1="290" y1="135" x2="380" y2="155" stroke="#E8E6E1" stroke-width="1.5"/>
+            <!-- 智 -->
+            <rect x="340" y="210" width="100" height="45" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+            <text x="390" y="237" text-anchor="middle" fill="#059669" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">智</text>
+            <line x1="290" y1="155" x2="350" y2="215" stroke="#E8E6E1" stroke-width="1.5"/>
+            <!-- 信 -->
+            <rect x="60" y="50" width="100" height="45" rx="6" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+            <text x="110" y="77" text-anchor="middle" fill="#7c3aed" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">信</text>
+            <line x1="210" y1="110" x2="160" y2="75" stroke="#E8E6E1" stroke-width="1.5"/>
+            <!-- 孝 -->
+            <rect x="20" y="140" width="100" height="45" rx="6" fill="none" stroke="#06b6d4" stroke-width="1.5"/>
+            <text x="70" y="167" text-anchor="middle" fill="#06b6d4" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">孝</text>
+            <line x1="210" y1="140" x2="120" y2="155" stroke="#E8E6E1" stroke-width="1.5"/>
+            <!-- 忠恕 -->
+            <rect x="60" y="210" width="100" height="45" rx="6" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="110" y="237" text-anchor="middle" fill="#2C2C2C" font-size="12" font-weight="700" font-family="'Noto Serif SC', serif">忠 · 恕</text>
+            <line x1="210" y1="155" x2="160" y2="215" stroke="#E8E6E1" stroke-width="1.5"/>
+            <!-- Bottom label -->
+            <text x="250" y="255" text-anchor="middle" fill="#666666" font-size="10" font-family="'Noto Sans SC', sans-serif">仁为核心，五常并立，向外扩展至孝、忠、恕等具体德行</text>
+          </svg>
+          <figcaption class="illustration-caption">图二十八-1 儒家核心概念网络 — 仁为核心，义礼智信为五常，向外扩展至孝、忠、恕等具体德行</figcaption>
+        </div>
+      </section>
 
-    <div class="grid-2">
-      <div class="card highlight">
-        <h3 style="font-size:15px;color:var(--cyan);margin-bottom:8px;">&#x2764; 仁 (Ren) -- 爱人</h3>
-        <p style="font-size:13px;color:var(--text2);">"仁"是孔子思想的最高范畴。仁者爱人，从亲亲之情出发，推己及人，最终达到"泛爱众"的境界。孔子说"己所不欲，勿施于人"，这就是仁的实践原则。</p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:15px;color:var(--orange);margin-bottom:8px;">&#x2694; 义 (Yi) -- 正当</h3>
-        <p style="font-size:13px;color:var(--text2);">"义"指行为的正当性和道德义务。君子喻于义，小人喻于利。义是对利的超越，是判断行为是否合理的道德标准。</p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:15px;color:var(--purple);margin-bottom:8px;">&#x1F3F5; 礼 (Li) -- 秩序</h3>
-        <p style="font-size:13px;color:var(--text2);">"礼"是社会秩序和行为规范。孔子强调"克己复礼"，认为只有通过礼仪制度来约束自己，才能实现社会的和谐与有序。</p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:15px;color:var(--green);margin-bottom:8px;">&#x1F4CA; 智 (Zhi) -- 明智</h3>
-        <p style="font-size:13px;color:var(--text2);">"智"即知识和判断力。知者不惑，智者能够辨别是非善恶。智既是认知的能力，也是道德判断的智慧。</p>
-      </div>
-      <div class="card" style="grid-column: span 2;">
-        <h3 style="font-size:15px;color:var(--gold);margin-bottom:8px;">&#x2B50; 信 (Xin) -- 诚信</h3>
-        <p style="font-size:13px;color:var(--text2);">"信"是人与人之间最基本的信任关系。孔子强调"人而无信，不知其可也"，认为诚信不仅是个人品德，更是社会交往的基础。在大国关系中，信约同样重要，所谓"言必信，行必果"。</p>
-      </div>
-    </div>
+      <!-- 段落4：实践应用 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">四、在现代生活中的应用</h2>
 
-    <h2 class="section-subtitle">四、孔子主要弟子及其成就</h2>
+        <div class="case-box">
+          <div class="case-title"><i class="fas fa-school"></i> 案例：孔子教育理念的现代价值</div>
+          <div class="case-body">
+            <p>孔子的"有教无类"打破了贵族垄断教育的局面，这一理念与现代"教育公平"思想高度一致。他的"因材施教"正是当代个性化教育的先驱——同样的问题问仁和义，孔子对不同弟子的回答截然不同。他的"启发式教学"（不愤不启，不悱不发）与苏格拉底的"产婆术"异曲同工，都强调在学生思考到临界点时给予点拨。<br>
+            在现代企业管理中，"其身正，不令而行"提醒领导者以身作则比任何规章制度都有效；"己所不欲，勿施于人"则是商业伦理中最基本的黄金法则。</p>
+          </div>
+        </div>
 
-    <p>孔子门下相传有三千弟子，其中贤人七十二。以下表格列出其中最杰出的几位：</p>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 学习提示</div>
+          <div class="tip-body">理解儒家思想最重要的是不要将其视为抽象的哲学体系，而是一种生活方式和处世态度。《论语》中的每一句话都是孔子在实际生活中给出的具体建议。学习《论语》时，应当结合当时的历史情境和现代生活经验，体会其中的智慧。</div>
+        </div>
+      </section>
 
-    <table class="data-table">
-      <thead>
-        <tr><th>弟子</th><th>字号</th><th>特长</th><th>历史贡献</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>颜回</td><td>子渊</td><td>德行第一</td><td>安贫乐道，孔子最得意的弟子，"一箪食，一瓢饮，在陋巷"而不改其乐，二十二岁早逝。</td></tr>
-        <tr><td>仲由</td><td>子路</td><td>政事</td><td>勇于任事，性格刚直，后在卫国内乱中从容就义，体现了"结缨而死"的君子风范。</td></tr>
-        <tr><td>端木赐</td><td>子贡</td><td>言语</td><td>善于外交辞令，曾任鲁、卫两国相，经商富甲天下，是孔子弟子中最 successful 的外交家。</td></tr>
-        <tr><td>冉耕</td><td>伯牛</td><td>德行</td><td>以德行著称，不幸患恶疾，孔子亲自探望时感叹"命矣夫"。</td></tr>
-        <tr><td>宰予</td><td>子我</td><td>言语</td><td>擅长言辞但昼寝懒惰，被孔子批评"朽木不可雕也"，但在外交场合颇有建树。</td></tr>
-        <tr><td>冉求</td><td>子有</td><td>政事</td><td>多才多艺，善于治理国家，曾任季氏家臣，在军事和政治上均有所成就。</td></tr>
-        <tr><td>言偃</td><td>子游</td><td>文学</td><td>精通礼乐，在武城任职时以礼乐教化百姓，孔子闻弦歌之声而笑曰："割鸡焉用牛刀？"</td></tr>
-        <tr><td>卜商</td><td>子夏</td><td>文学</td><td>擅长经学，后在西河讲学，培养了许多人才，对《诗经》《春秋》的传播贡献巨大。</td></tr>
-        <tr><td>曾参</td><td>子舆</td><td>德行</td><td>以孝著称，提出"吾日三省吾身"，被认为是《大学》的作者，被尊为"宗圣"。</td></tr>
-      </tbody>
-    </table>
+      <!-- 段落5：延伸阅读 -->
+      <section class="chapter-section chapter-extensions">
+        <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
-    <div class="chart-container" id="chart-rujia-concepts"></div>
+        <h3>跨章节关联</h3>
+        <div class="cross-ref-grid">
+          <a href="29-mengzi.html" class="cross-ref-card">
+            <div class="cross-ref-icon">📖</div>
+            <div class="cross-ref-info"><strong>孟子性善与仁政</strong><span>孟子继承并发展了孔子的思想</span></div>
+          </a>
+          <a href="23-daoism-origins.html" class="cross-ref-card">
+            <div class="cross-ref-icon">☯</div>
+            <div class="cross-ref-info"><strong>道家学派起源</strong><span>儒道互补——两种截然不同的人生选择</span></div>
+          </a>
+          <a href="30-songming-lixue.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🏛</div>
+            <div class="cross-ref-info"><strong>宋明理学</strong><span>儒家思想的哲学化巅峰</span></div>
+          </a>
+        </div>
 
-    <h2 class="section-subtitle">五、孔子在教育史上的贡献</h2>
+        <div class="reflection-questions">
+          <h3><i class="fas fa-question-circle"></i> 思考题</h3>
+          <ol>
+            <li>接舆唱"往者不可谏，来者犹可追"劝孔子退出政治，孔子却主动上前想和他交谈。这种"坚持"和"退出"的选择分别对应什么样的人生道路？在现代社会，你更认同哪一种？</li>
+            <li>孔子说"己所不欲，勿施于人"——这是儒家的黄金法则。它与西方"己所欲施于人"有什么不同？为什么儒家的恕道更强调从"不伤害"的角度出发？</li>
+            <li>孔子开创了"有教无类"的教育理念，打破了贵族垄断。在教育资源仍然不均衡的今天，孔子的教育思想有什么新的启示？</li>
+          </ol>
+        </div>
 
-    <p>孔子被公认为中国教育史上第一位伟大的教育家。他提出的教育理念和实践，至今仍然具有重要的启示意义：</p>
-
-    <ol class="steps-list">
-      <li><strong>有教无类</strong>：打破贵族垄断教育的局面，不论出身贫富、地域南北，只要有心向学，皆可成为孔子的学生。这一理念极大地推动了文化的向下扩散。</li>
-      <li><strong>因材施教</strong>：针对不同学生的特点采取不同的教学方法。比如同样的问题问仁和义，孔子对颜回、子路、冉有不同的回答，体现了对学生个体差异的尊重。</li>
-      <li><strong>启发式教学</strong>："不愤不启，不悱不发"，强调在学生思考到一定程度时再给予点拨，而不是简单灌输。这种教学方式培养了学生独立思考的能力。</li>
-      <li><strong>学思结合</strong>："学而不思则罔，思而不学则殆"，强调学习和思考必须相辅相成。只学习不思考会迷失方向，只思考不学习则会陷入空想。</li>
-      <li><strong>六艺教育</strong>：礼、乐、射、御、书、数，孔子要求学生全面发展，既注重道德修养，又重视实际技能，构建了完整的课程体系。</li>
-    </ol>
-
-    <div class="chart-container" id="chart-kongzi-life"></div>
-
-    <div class="tip-box">
-      <div class="tip-title">&#x1F4A1; 学习提示</div>
-      <div class="tip-body">理解儒家思想，最重要的是不要将其视为抽象的哲学体系，而是一种生活方式和处世态度。《论语》中的每一句话都是孔子在实际生活中给出的具体建议。学习《论语》时，应当结合当时的历史情境和现代生活经验，体会其中的智慧。</div>
-    </div>
+        <div class="further-reading">
+          <h3><i class="fas fa-book-open"></i> 进一步阅读</h3>
+          <ul>
+            <li>《论语译注》杨伯峻，中华书局</li>
+            <li>《论语集释》程树德，中华书局</li>
+            <li>《孔子传》李零，三联书店</li>
+            <li>《中国哲学史·儒家部分》冯友兰，人民出版社</li>
+          </ul>
+        </div>
+      </section>
+    </article>
   </main>
-
   <footer class="page-footer">
-    <a class="nav-prev" href="22-yijing-summary.html"><i class="fas fa-arrow-left"></i> 二十二、易学学习路径</a>
+    <a class="nav-prev" href="27-daoism-summary.html"><i class="fas fa-arrow-left"></i> 道家学习路径</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
     <span class="page-info">28 / 31</span>
-    <a class="nav-next" href="29-mengzi.html">二十九、孟子性善与仁政 <i class="fas fa-arrow-right"></i></a>
+    <a class="nav-next" href="29-mengzi.html">孟子性善与仁政 <i class="fas fa-arrow-right"></i></a>
   </footer>
-
-  <script src="../common/js/echarts.inline.js"></script>
-  <script src="../common/js/navigation.js"></script>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Concept relationship chart
-      var c1 = echarts.init(document.getElementById('chart-rujia-concepts'));
-      c1.setOption({
-        tooltip: {},
-        animationDurationUpdate: 1500,
-        animationDelayUpdate: function(idx) { return idx * 100; },
-        series: [{
-          type: 'graph',
-          layout: 'force',
-          roam: true,
-          label: { position: 'inside', fontSize: 12, color: '#e2e8f0' },
-          force: { repulsion: 250, edgeLength: 80 },
-          edges: [
-            { source: '仁', target: '礼' }, { source: '仁', target: '义' },
-            { source: '仁', target: '智' }, { source: '仁', target: '信' },
-            { source: '礼', target: '乐' }, { source: '义', target: '忠' },
-            { source: '智', target: '勇' }, { source: '信', target: '孝' },
-            { source: '忠', target: '恕' }, { source: '孝', target: '悌' },
-            { source: '仁', target: '忠' }, { source: '礼', target: '法' }
-          ],
-          categories: [
-            { name: '五常' }, { name: '美德延伸' }, { name: '关系准则' }
-          ],
-          data: [
-            { name: '仁', symbolSize: 60, category: 0, itemStyle: { color: '#eab308' } },
-            { name: '义', symbolSize: 50, category: 0, itemStyle: { color: '#f59e0b' } },
-            { name: '礼', symbolSize: 50, category: 0, itemStyle: { color: '#06b6d4' } },
-            { name: '智', symbolSize: 50, category: 0, itemStyle: { color: '#8b5cf6' } },
-            { name: '信', symbolSize: 50, category: 0, itemStyle: { color: '#10b981' } },
-            { name: '忠', symbolSize: 40, category: 1, itemStyle: { color: '#ef4444' } },
-            { name: '孝', symbolSize: 40, category: 1, itemStyle: { color: '#ec4899' } },
-            { name: '恕', symbolSize: 38, category: 1, itemStyle: { color: '#a855f7' } },
-            { name: '乐', symbolSize: 38, category: 1, itemStyle: { color: '#22d3ee' } },
-            { name: '勇', symbolSize: 35, category: 1, itemStyle: { color: '#34d399' } },
-            { name: '悌', symbolSize: 35, category: 2, itemStyle: { color: '#fb923c' } },
-            { name: '法', symbolSize: 35, category: 2, itemStyle: { color: '#f87171' } }
-          ]
-        }]
+      var toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
       });
-
-      // Confucius life timeline
-      var c2 = echarts.init(document.getElementById('chart-kongzi-life'));
-      c2.setOption({
-        backgroundColor: 'transparent',
-        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        grid: { left: '10%', right: '10%', bottom: '10%', top: '15%' },
-        xAxis: { type: 'category', data: ['15志学','30而立','40不惑','50知天命','55周游','68返鲁','73卒'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-        yAxis: { type: 'value', name: '影响力', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-        series: [{
-          name: '影响力', type: 'line', smooth: true,
-          data: [10, 20, 35, 50, 45, 55, 60],
-          areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(234,179,8,0.3)' }, { offset: 1, color: 'rgba(234,179,8,0.02)' }]) },
-          lineStyle: { color: '#eab308', width: 2 },
-          itemStyle: { color: '#eab308' }
-        }]
-      });
-
-      window.addEventListener('resize', function() { c1.resize(); c2.resize(); });
     });
   </script>
 </body>

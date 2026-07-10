@@ -3,329 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三十一、儒家学习路径 -- 中华古典学术理论全景书</title>
-  <link rel="stylesheet" href="../common/css/book.css">
+  <title>三十一、儒家学习路径 — 中华古典学术理论全景书</title>
+  <link rel="stylesheet" href="common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="top-nav">
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="window.AnaNav.toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
     <div class="nav-left">
-      <a class="nav-book-name" href="index.html">&#x1F4DC; 中华古典学术理论全景书</a>
-      <span class="nav-divider">|</span>
-      <span class="nav-chapter-title">第三十一章 儒家学习路径</span>
+      <a class="nav-book-name" href="index.html">&#128220; 中华古典学术理论全景书</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">三十一、儒家学习路径</span>
     </div>
     <div class="nav-right">
-      <a class="nav-btn" href="30-songming-lixue.html">&#x25C0; 上一页</a>
+      <a class="nav-btn" href="30-songming-lixue.html"><i class="fas fa-arrow-left"></i> 前一章</a>
     </div>
   </nav>
-
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-header">
       <h3>中华古典学术理论</h3>
-      <button class="sidebar-close" aria-label="Close sidebar" onclick="this.parentElement.nextElementSibling.classList.toggle('open')"><i class="fas fa-times"></i></button>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
     </div>
     <nav class="toc">
       <ul class="toc-list">
         <li class="toc-chapter">第一部分 八卦</li>
-        <li><a href="../01-bagua-origin.html">01 八卦起源与演变概述</a></li>
-        <li><a href="../02-fuxi-shennong.html">02 伏羲画卦与上古传说</a></li>
-        <li><a href="../03-zhouyi-wenwang.html">03 文王演周易</a></li>
-        <li><a href="../04-bagua-xiangshu.html">04 八卦象数体系</a></li>
-        <li><a href="../05-bagua-summary.html">05 八卦学习路径</a></li>
+        <li><a href="01-bagua-origin.html">一、八卦起源与演变概述</a></li>
+        <li><a href="02-fuxi-shennong.html">二、伏羲画卦与上古传说</a></li>
+        <li><a href="03-zhouyi-wenwang.html">三、文王演周易</a></li>
+        <li><a href="04-bagua-xiangshu.html">四、八卦象数体系</a></li>
+        <li><a href="05-bagua-summary.html">五、八卦学习路径</a></li>
         <li class="toc-chapter">第二部分 阴阳五行</li>
-        <li><a href="../06-yinyang-wuxing-overview.html">06 阴阳五行概述</a></li>
-        <li><a href="../07-yinyang-theory.html">07 阴阳理论</a></li>
-        <li><a href="../08-wuxing-theory.html">08 五行学说</a></li>
-        <li><a href="../09-yinyang-wuxing-applications.html">09 阴阳五行的应用</a></li>
-        <li><a href="../10-gan-zhi.html">10 天干地支</a></li>
-        <li><a href="../11-wuxing-summary.html">11 阴阳五行学习路径</a></li>
+        <li><a href="06-yinyang-benyuan.html">六、阴阳概念本源</a></li>
+        <li><a href="07-yinyang-wuxing-classics.html">七、经典文本中的阴阳五行</a></li>
+        <li><a href="08-wuxing-theory.html">八、五行理论基础</a></li>
+        <li><a href="09-wuxing-cycles.html">九、五行生克乘侮</a></li>
+        <li><a href="10-yinyang-wuxing-synthesis.html">十、阴阳五行综合体系</a></li>
+        <li><a href="11-yinyang-summary.html">十一、阴阳五行学习路径</a></li>
         <li class="toc-chapter">第三部分 中医基础理论</li>
-        <li><a href="../12-zhongyi-overview.html">12 中医概述</a></li>
-        <li><a href="../13-zang-xiang.html">13 八脏五腑理论</a></li>
-        <li><a href="../14-jing-luo.html">14 经络理论</a></li>
-        <li><a href="../15-bing-yin-bian-zheng.html">15 病因与辨证论治</a></li>
-        <li><a href="../16-zhen-jiu.html">16 针灸理论与操作</a></li>
-        <li><a href="../17-zhongyi-summary.html">17 中医学路径</a></li>
+        <li><a href="12-tcm-neijing.html">十二、黄帝内经与中医理论源头</a></li>
+        <li><a href="13-tcm-yinyang-health.html">十三、阴阳平衡与健康</a></li>
+        <li><a href="14-tcm-zangfu.html">十四、藏象学说</a></li>
+        <li><a href="15-tcm-jingluo.html">十五、经络理论</a></li>
+        <li><a href="16-tcm-bingyin.html">十六、病因与辨证论治</a></li>
+        <li><a href="17-tcm-summary.html">十七、中医学习路径</a></li>
         <li class="toc-chapter">第四部分 易经体系</li>
-        <li><a href="../18-yijing-overview.html">18 易经概述</a></li>
-        <li><a href="../19-gua-ci-structure.html">19 六十四卦结构与缩卦</a></li>
-        <li><a href="../20-yijing-philosophy.html">20 易经哲学思想</a></li>
-        <li><a href="../21-yijing-divination.html">21 易经占卜方法</a></li>
-        <li><a href="../22-yijing-summary.html">22 易学学习路径</a></li>
+        <li><a href="18-yijing-overview.html">十八、易经体系总论</a></li>
+        <li><a href="19-yijing-hexagrams.html">十九、六十四卦详解</a></li>
+        <li><a href="20-yijing-text-analysis.html">二十、卦爻辞解读方法</a></li>
+        <li><a href="21-yijing-commentary.html">二十一、十翼与传注体系</a></li>
+        <li><a href="22-yijing-summary.html">二十二、易经学习路径</a></li>
         <li class="toc-chapter">第五部分 道家理论</li>
-        <li><a href="../23-daojia-overview.html">23 道家与道教概述</a></li>
-        <li><a href="../24-laizi.html">24 老子与道德经</a></li>
-        <li><a href="../25-zhuangzi.html">25 庄子与自由之说</a></li>
-        <li><a href="../26-huanglai.html">26 黄老思想与黄帝之说</a></li>
-        <li><a href="../27-daoism-summary.html">27 道学学习路径</a></li>
+        <li><a href="23-daoism-origins.html">二十三、道家学派起源</a></li>
+        <li><a href="24-daodejing.html">二十四、道德经核心思想</a></li>
+        <li><a href="25-zhuangzi.html">二十五、庄子哲学</a></li>
+        <li><a href="26-daoism-gongfu.html">二十六、道家修养工夫</a></li>
+        <li><a href="27-daoism-summary.html">二十七、道家学习路径</a></li>
         <li class="toc-chapter">第六部分 儒家理论</li>
-        <li><a href="28-rujia-origins.html">28 儒家学派起源与孔子</a></li>
-        <li><a href="29-mengzi.html">29 孟子性善与仁政</a></li>
-        <li><a href="30-songming-lixue.html">30 宋明理学发展</a></li>
-        <li><a href="31-rujia-summary.html">31 儒家学习路径</a></li>
+        <li><a href="28-rujia-origins.html">二十八、儒家学派起源</a></li>
+        <li><a href="29-mengzi.html">二十九、孟子性善与仁政</a></li>
+        <li><a href="30-songming-lixue.html">三十、宋明理学发展</a></li>
+        <li><a href="31-rujia-summary.html" class="active">三十一、儒家学习路径</a></li>
       </ul>
     </nav>
   </aside>
-
   <main class="content">
-    <h1 class="section-title">三十一、儒家学习路径</h1>
+    <article class="chapter">
+      <header class="chapter-header">
+        <span class="chapter-part">第六部分 儒家理论</span>
+        <h1 class="section-title">三十一、儒家学习路径</h1>
+        <p class="chapter-intro">从论语到传习录——儒家学习的三阶段路线图与终身践行的修身指南</p>
+      </header>
 
-    <p>本章作为儒家理论的收官之章，旨在整合前两章的知识成果，为读者提供一条从入门到精进的系统化学习路径。儒家思想不是一个封闭的理论体系，而是一种需要终身践行的生活方式。学习儒家，最重要的是理论修养和实践功夫并重，知行合一才是儒门正道。</p>
+      <!-- 段落1：故事引入 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">一、从一位父亲的"三省日记"说起</h2>
+        <p>一位中学教师读了《论语》之后，开始每晚睡前花十分钟写"反省日记"。第一个月，他发现自己最大的问题不是做错了什么，而是"心不在焉"——跟孩子说话时想着工作，陪父母吃饭时刷着手机，对学生讲课时分心看时间。三个月后他说："曾子说'吾日三省吾身'，我原以为是要检查自己犯了多少错。后来发现，三省的第一层是觉察——先知道自己有没有在，比知道自己做对了还是做错了更重要。"</p>
+        <p>这个故事揭示了一个常被忽略的事实：<strong>儒家的学问不是用来"研究"的，是用来"活"的。</strong>孔子不会要求你读完所有经典才开始实践——他从一开始就说"学而时习之"，学的同时就要练习。本章将为你提供一条从入门到精通的系统路线，但请记住：最好的学习方式不是读完这一章，而是现在就去践行其中的一条。</p>
+      </section>
 
-    <h2 class="section-subtitle">一、儒家经典书目推荐</h2>
+      <!-- 段落2：概念解析 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">二、核心概念详解</h2>
 
-    <p>儒家的经典浩如烟海，初学者往往无从下手。以下按由浅入深的顺序推荐核心书目：</p>
+        <h3>儒家学习三阶段</h3>
+        <ol class="steps-list">
+          <li><strong>第一阶段——入门（第1-3个月）：</strong>以《论语》为核心，每天读一段原文并联系自己的生活。推荐杨伯峻《论语译注》，先读白话译文建立理解，再读原文培养语感。同时选读《大学》和《中庸》（朱熹《四书章句集注》版本），理解儒家"三纲八目"的基本框架。这个阶段的关键是"浸泡"——让儒家的话语体系进入你的生活，而不是急于求成。</li>
+          <li><strong>第二阶段——进阶（第4-12个月）：</strong>精读《孟子》和《诗经》《尚书》，同时开始阅读理学和心学的原始文献：《近思录》（朱熹、吕祖谦编，汇集北宋四子的精华言论）和《传习录》（王阳明及其弟子记录）。这个阶段的目标是理解儒家思想的内部多样性——它不是单一的声音，而是一场持续两千五百年的对话。</li>
+          <li><strong>第三阶段——精通（1年以上持续积累）：</strong>深入研读《四书章句集注》（朱熹）和《读通鉴论》（王夫之），向前溯源至《易经》《礼记》，向后追踪至清代朴学（顾炎武、戴震）。同时开始将儒家思想与其他传统（道家、佛教）进行比较阅读，形成独立的判断。</li>
+        </ol>
 
-    <table class="data-table">
-      <thead>
-        <tr><th>阶段</th><th>书目</th><th>作者/编撰者</th><th>学习重点</th><th>推荐版本</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>入门</td><td>《论语》</td><td>孔子弟子及再传弟子</td><td>选取经典段落反复诵读，不必贪多求全。每天读一段，结合自己的生活去体会。</td><td>杨伯峻《论语译注》</td></tr>
-        <tr><td>入门</td><td>《大学》</td><td>曾子及其门人</td><td>理解"三纲八目"：明明德、亲民、止于至善；格物致知诚意正心修身齐家治国平天下。</td><td>朱熹《四书章句集注》</td></tr>
-        <tr><td>入门</td><td>《中庸》</td><td>子思</td><td>理解"中和"思想和诚的哲学，这是儒家形而上学的核心。</td><td>朱熹《四书章句集注》</td></tr>
-        <tr><td>进阶</td><td>《孟子》</td><td>孟子及其弟子</td><td>重点研读《梁惠王》《公孙丑》《告子》各篇，理解性善论与仁政学的系统论证。</td><td>杨伯峻《孟子译注》</td></tr>
-        <tr><td>进阶</td><td>《诗经》</td><td>周公、召公等</td><td>了解"兴观群怨"的诗教传统，体会儒家以诗化育人心的教育智慧。</td><td>余冠英《诗经选译》</td></tr>
-        <tr><td>进阶</td><td>《尚书》</td><td>上古史官</td><td>理解虞舜禹汤文武的治国传统，感受儒家"道统"的历史根基。</td><td>顾颉刚《尚书校释译论》</td></tr>
-        <tr><td>深入</td><td>《近思录》</td><td>朱熹、吕祖谦</td><td>理学入门必读，汇集北宋四子（周敦颐、张载、二程）的精华言论。</td><td>邓艾民《近思录译注》</td></tr>
-        <tr><td>深入</td><td>《传习录》</td><td>王阳明及其弟子</td><td>心学巅峰之作，理解"致良知""知行合一""心即理"的核心教义。</td><td>陈荣捷《传习录详注集评》</td></tr>
-        <tr><td>精深</td><td>《四书章句集注》</td><td>朱熹</td><td>理学注解的最高成就，是理解宋明理学的钥匙。</td><td>中华书局点校本</td></tr>
-        <tr><td>精深</td><td>《读通鉴论》</td><td>王夫之</td><td>明末清初大儒对历史的哲学反思，体现了理学向实学的转型。</td><td>中华书局点校本</td></tr>
-      </tbody>
-    </table>
+        <div class="chart-container" id="chart-rujia-radar"></div>
+        <script>
+        (function() {
+          var chart = echarts.init(document.getElementById('chart-rujia-radar'));
+          chart.setOption({
+            backgroundColor: 'transparent',
+            tooltip: {},
+            legend: { bottom: '5%', data: ['入门阶段', '进阶阶段', '精通阶段'], textStyle: { color: '#666666', fontSize: 10 } },
+            radar: {
+              indicator: [
+                { name: '经典阅读', max: 100 },
+                { name: '历史认知', max: 100 },
+                { name: '义理理解', max: 100 },
+                { name: '躬身实践', max: 100 },
+                { name: '教学传承', max: 100 },
+                { name: '经世致用', max: 100 }
+              ],
+              shape: 'polygon',
+              splitNumber: 4,
+              axisName: { color: '#666666', fontSize: 11, fontFamily: "'Noto Sans SC', sans-serif" }
+            },
+            series: [{
+              type: 'radar',
+              data: [
+                {
+                  value: [40, 15, 20, 30, 5, 10],
+                  name: '入门阶段',
+                  areaStyle: { color: 'rgba(184,134,11,0.15)' },
+                  lineStyle: { color: '#B8860B', type: 'dashed' }
+                },
+                {
+                  value: [75, 55, 60, 50, 30, 40],
+                  name: '进阶阶段',
+                  areaStyle: { color: 'rgba(26,82,118,0.15)' },
+                  lineStyle: { color: '#1A5276' }
+                },
+                {
+                  value: [100, 85, 95, 90, 75, 85],
+                  name: '精通阶段',
+                  areaStyle: { color: 'rgba(5,150,105,0.15)' },
+                  lineStyle: { color: '#059669', type: 'dotted' }
+                }
+              ]
+            }]
+          });
+          window.addEventListener('resize', function() { chart.resize(); });
+        })();
+        </script>
 
-    <div class="tip-box">
-      <div class="tip-title">&#x1F4A1; 阅读建议</div>
-      <div class="tip-body">初学者千万不要一上来就啃《四书章句集注》或《读通鉴论》。按照"论语 -> 大学中庸 -> 孟子 -> 近思录/传习录"的顺序循序渐进，才能打好基础。每天坚持读一段，比一次读一整章更有效。</div>
-    </div>
+        <h3>推荐书目</h3>
+        <table class="data-table">
+          <thead><tr><th>阶段</th><th>书名</th><th>作者/编撰者</th><th>学习重点</th><th>推荐版本</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>入门</strong></td><td>《论语》</td><td>孔子弟子及再传弟子</td><td>选取经典段落反复诵读，不必贪多求全</td><td>杨伯峻《论语译注》</td></tr>
+            <tr><td>《大学》</td><td>曾子及其门人</td><td>理解"三纲八目"的修养框架</td><td>朱熹《四书章句集注》</td></tr>
+            <tr><td>《中庸》</td><td>子思</td><td>理解"中和"思想和诚的哲学</td><td>朱熹《四书章句集注》</td></tr>
+            <tr><td rowspan="3"><strong>进阶</strong></td><td>《孟子》</td><td>孟子及其弟子</td><td>重点研读《梁惠王》《告子》篇</td><td>杨伯峻《孟子译注》</td></tr>
+            <tr><td>《近思录》</td><td>朱熹、吕祖谦</td><td>理学入门必读，汇集北宋四子精华</td><td>邓艾民《近思录译注》</td></tr>
+            <tr><td>《传习录》</td><td>王阳明及其弟子</td><td>心学巅峰之作，理解"致良知"</td><td>陈荣捷《传习录详注集评》</td></tr>
+            <tr><td rowspan="2"><strong>精通</strong></td><td>《四书章句集注》</td><td>朱熹</td><td>理学注解的最高成就</td><td>中华书局点校本</td></tr>
+            <tr><td>《读通鉴论》</td><td>王夫之</td><td>理学向实学的转型</td><td>中华书局点校本</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <h2 class="section-subtitle">二、儒家修身实践：每日三省</h2>
+      <!-- 段落3：深入理解 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">三、深入理解</h2>
 
-    <p>儒家不是仅供研究的学问，它要求每个人在生活中去践行。以下是儒家修身的三个层次：</p>
+        <h3>儒家知识体系结构</h3>
+        <p>儒家学问不是单一的知识体系，而是由经典阅读、历史认知、义理理解、躬身实践四大支柱构成的整体。下图展示了儒家核心知识模块之间的逻辑关系：</p>
 
-    <ol class="steps-list">
-      <li><strong>每日反思（省察）</strong>：曾子曰"吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？"每晚睡前花十分钟回顾一天中的言行，检查自己是否做到了忠、信、习这三个方面的基本要求。可以准备一个日记本，记录每天的"反省日记"。</li>
-      <li><strong>读经日课（涵养）</strong>：每天至少诵读一段经典原文。不是现代文的翻译，而是原文。通过反复诵读原文，培养语感，在潜移默化中体悟圣贤的精神境界。朱熹说"读书百遍，其义自见"，就是这个道理。</li>
-      <li><strong>礼仪实践（践履）</strong>：儒家讲究"礼"不仅仅是知识，更是一种身体记忆。在日常生活中践行礼仪——对父母孝，对兄弟悌，对朋友信，对工作敬。每一个行为都是一次修炼。可以从最简单的"晨起整衣冠"做起，体会正衣冠即是正心性的道理。</li>
-    </ol>
+        <div class="illustration-svg">
+          <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Central hub: 儒家 -->
+            <circle cx="250" cy="130" r="35" fill="rgba(184,134,11,0.1)" stroke="#B8860B" stroke-width="2"/>
+            <text x="250" y="126" text-anchor="middle" fill="#B8860B" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">儒家</text>
+            <text x="250" y="144" text-anchor="middle" fill="#B8860B" font-size="14" font-weight="700" font-family="'Noto Serif SC', serif">学问</text>
+            <!-- Four pillars around center -->
+            <rect x="30" y="20" width="120" height="55" rx="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+            <text x="90" y="42" text-anchor="middle" fill="#2C2C2C" font-size="11" font-weight="600" font-family="'Noto Sans SC', sans-serif">经典阅读</text>
+            <text x="90" y="58" text-anchor="middle" fill="#666666" font-size="9" font-family="'Noto Sans SC', sans-serif">四书·五经·近思录</text>
+            <line x1="150" y1="48" x2="215" y2="110" stroke="#E8E6E1" stroke-width="1.5"/>
 
-    <h2 class="section-subtitle">三、儒家知识体系总览</h2>
+            <rect x="350" y="20" width="120" height="55" rx="6" fill="none" stroke="#1A5276" stroke-width="1.5"/>
+            <text x="410" y="42" text-anchor="middle" fill="#2C2C2C" font-size="11" font-weight="600" font-family="'Noto Sans SC', sans-serif">历史认知</text>
+            <text x="410" y="58" text-anchor="middle" fill="#666666" font-size="9" font-family="'Noto Sans SC', sans-serif">春秋·尚书·通鉴</text>
+            <line x1="350" y1="48" x2="285" y2="110" stroke="#E8E6E1" stroke-width="1.5"/>
 
-    <p>以下三幅图表从不同角度呈现儒家思想的知识结构，帮助学习者建立全局观。</p>
+            <rect x="30" y="175" width="120" height="55" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+            <text x="90" y="197" text-anchor="middle" fill="#2C2C2C" font-size="11" font-weight="600" font-family="'Noto Sans SC', sans-serif">义理理解</text>
+            <text x="90" y="213" text-anchor="middle" fill="#666666" font-size="9" font-family="'Noto Sans SC', sans-serif">理学·心学·朴学</text>
+            <line x1="150" y1="198" x2="215" y2="150" stroke="#E8E6E1" stroke-width="1.5"/>
 
-    <div class="chart-container" id="chart-rujia-radial"></div>
+            <rect x="350" y="175" width="120" height="55" rx="6" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+            <text x="410" y="197" text-anchor="middle" fill="#2C2C2C" font-size="11" font-weight="600" font-family="'Noto Sans SC', sans-serif">躬身实践</text>
+            <text x="410" y="213" text-anchor="middle" fill="#666666" font-size="9" font-family="'Noto Sans SC', sans-serif">三省·礼仪·经世</text>
+            <line x1="350" y1="198" x2="285" y2="150" stroke="#E8E6E1" stroke-width="1.5"/>
+          </svg>
+          <figcaption class="illustration-caption">图三十一-1 儒家学问体系 — 经典阅读、历史认知、义理理解、躬身实践四大支柱</figcaption>
+        </div>
 
-    <div class="chart-container" id="chart-rujia-mastery"></div>
+        <h3>常见陷阱与误区</h3>
+        <table class="data-table">
+          <thead><tr><th>常见误区</th><th>真相</th><th>正确做法</th></tr></thead>
+          <tbody>
+            <tr><td>"礼教僵化"</td><td>将礼的形式当作目的，忽视了礼背后的仁义精神。孔子批评"礼云礼云，玉帛云乎哉"</td><td>先理解"仁"的本质再实践"礼"的形式</td></tr>
+            <tr><td>"过度形式化"</td><td>把儒学变成繁琐仪式，忘记了核心是修身养性。程颐说"洒扫应对便是形而上者"</td><td>在日常小事中体悟大道，而非追求繁文缛节</td></tr>
+            <tr><td>"脱离现实"</td><td>沉溺抽象讨论，对现实问题毫无帮助。孔子最讨厌"巧言令色"的人</td><td>学以致用，经世济民才是儒学的终极目标</td></tr>
+            <tr><td>"教条主义"</td><td>将古人语录当作不可质疑的绝对真理。孔子说"温故而知新"</td><td>在回顾中获得新的理解，与时偕行</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <div class="chart-container" id="chart-rujia-history"></div>
+      <!-- 段落4：实践应用 -->
+      <section class="chapter-section">
+        <h2 class="section-subtitle">四、在现代生活中的应用</h2>
 
-    <h2 class="section-subtitle">四、常见陷阱与误区</h2>
+        <h3>儒家修身三步法</h3>
+        <ol class="steps-list">
+          <li><strong>每日反思（省察）：</strong>曾子曰"吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？"每晚睡前花十分钟回顾一天中的言行，检查自己是否做到了忠、信、习。可以准备一个日记本，记录每天的"反省日记"。</li>
+          <li><strong>读经日课（涵养）：</strong>每天至少诵读一段经典原文——不是现代文的翻译，而是原文。通过反复诵读原文，培养语感，在潜移默化中体悟圣贤的精神境界。朱熹说"读书百遍，其义自见"。</li>
+          <li><strong>礼仪实践（践履）：</strong>儒家讲究"礼"不仅仅是知识，更是一种身体记忆。在日常生活中践行礼仪——对父母孝，对兄弟悌，对朋友信，对工作敬。每一个行为都是一次修炼。</li>
+        </ol>
 
-    <p>在学习儒家思想的过程中，有几种常见的陷阱需要警惕：</p>
+        <div class="tip-box">
+          <div class="tip-title"><i class="fas fa-lightbulb"></i> 阅读建议</div>
+          <div class="tip-body">初学者千万不要一上来就啃《四书章句集注》或《读通鉴论》。按照"<strong>论语 → 大学中庸 → 孟子 → 近思录/传习录</strong>"的顺序循序渐进，才能打好基础。每天坚持读一段，比一次读一整章更有效。</div>
+        </div>
+      </section>
 
-    <div class="grid-2">
-      <div class="card danger">
-        <h3 style="font-size:14px;color:var(--red);margin-bottom:6px;">&#x26A0; 礼教僵化</h3>
-        <p style="font-size:13px;color:var(--text2);">将礼的形式当作目的，忽视了礼背后的仁义精神。孔子批评"礼云礼云，玉帛云乎哉"——礼难道仅仅是玉帛这些仪式吗？过分注重形式，会导致虚伪和做作，这正是鲁迅在《狂人日记》中批判的"吃人礼教"的根源。</p>
-      </div>
-      <div class="card danger">
-        <h3 style="font-size:14px;color:var(--red);margin-bottom:6px;">&#x26A0; 过度形式化</h3>
-        <p style="font-size:13px;color:var(--text2);">把儒学变成了一套繁琐的仪式和规矩，忘记了它的核心是修身养性、安人安邦的大道。程颐说："洒扫应对便是形而上者"——日常小事就是大道的体现。大道不在远方，就在日用常行之间。</p>
-      </div>
-      <div class="card warning">
-        <h3 style="font-size:14px;color:var(--orange);margin-bottom:6px;">&#x26A0; 脱离现实</h3>
-        <p style="font-size:13px;color:var(--text2);">沉溺于抽象的哲理讨论，对现实问题毫无帮助。孔子最讨厌的就是"巧言令色"的人，强调学以致用，"学而优则仕"。儒家学问的最终目的是经世济民，不是纸上谈兵。</p>
-      </div>
-      <div class="card warning">
-        <h3 style="font-size:14px;color:var(--orange);margin-bottom:6px;">&#x26A0; 教条主义</h3>
-        <p style="font-size:13px;color:var(--text2);">将古人语录当作不可质疑的绝对真理，丧失了独立思考的能力。孔子本人就说"温故而知新"——在回顾旧知识中获得新的理解。真正的儒家精神是变通的，所谓"与时偕行"。</p>
-      </div>
-    </div>
+      <!-- 段落5：延伸阅读 -->
+      <section class="chapter-section chapter-extensions">
+        <h2 class="section-subtitle">五、结语与思考</h2>
 
-    <h2 class="section-subtitle">五、结语：儒学的现代意义</h2>
+        <h3>跨章节关联</h3>
+        <div class="cross-ref-grid">
+          <a href="27-daoism-summary.html" class="cross-ref-card">
+            <div class="cross-ref-icon">📚</div>
+            <div class="cross-ref-info"><strong>道家学习路径</strong><span>儒道互补是中国人的精神双翼</span></div>
+          </a>
+          <a href="28-rujia-origins.html" class="cross-ref-card">
+            <div class="cross-ref-icon">📖</div>
+            <div class="cross-ref-info"><strong>儒家学派起源</strong><span>回到孔子的时代重新出发</span></div>
+          </a>
+          <a href="30-songming-lixue.html" class="cross-ref-card">
+            <div class="cross-ref-icon">🏛</div>
+            <div class="cross-ref-info"><strong>宋明理学</strong><span>理学的核心经典在此列出</span></div>
+          </a>
+        </div>
 
-    <p>两千五百多年过去了，孔子从鲁国陬邑走来的脚步依然回响在我们这个时代。儒家思想之所以能跨越千年而不衰，不是因为它是某种僵死的教条，而是因为它触及了人类生存中最根本的问题——人应该如何与自己相处、与他人相处、与世界相处。</p>
+        <div class="reflection-questions">
+          <h3><i class="fas fa-question-circle"></i> 思考题</h3>
+          <ol>
+            <li>儒家说"吾生也有涯，而知也无涯"——生命有限而知识无限。与道家主张"减法"不同，儒家主张"加法"——不断学习和积累。你认为这两种路径各有什么优劣？在现代社会，一个人应该如何平衡"学得多"和"活得深"？</li>
+            <li>四个常见陷阱中，哪一个最容易在你身上出现？你是如何识别并避免它的？</li>
+            <li>儒家修身强调"每日三省"——每天反思自己的行为。在你的生活中，有没有一种"反思"的方式能帮你持续成长？那种方式是什么样的？</li>
+          </ol>
+        </div>
 
-    <p>在快节奏的现代生活中，儒家提醒我们"修身"的重要性；在全球化的多元社会中，儒家提供了"和而不同"的智慧；在功利主义盛行的时代，儒家坚守"义利之辨"的道德底线；在面对生态危机时，儒家的"天人合一"观念正在重新焕发出前所未有的现实意义。</p>
+        <div class="further-reading">
+          <h3><i class="fas fa-book-open"></i> 进一步阅读</h3>
+          <ul>
+            <li>《论语译注》杨伯峻，中华书局</li>
+            <li>《四书章句集注》朱熹，中华书局</li>
+            <li>《传习录详注集评》陈荣捷，台湾学生书局</li>
+            <li>《儒家思想新论》杜维明，三联书店</li>
+          </ul>
+        </div>
 
-    <div class="case-box">
-      <div class="case-title">&#x1F3DB; 最后的思考：何为君子？</div>
-      <div class="case-body">
-        <p>孔子对"君子"的定义，或许就是儒学留给我们的最佳答案。君子不是圣人，不需要完美无瑕，但需要在每一天、每一件小事上不断地自我完善。</p>
-        <p style="text-align:center;font-size:14px;margin:16px 0;line-height:2;">
-          "君子求诸己，小人求诸己"<br>
-          "君子坦荡荡，小人长戚戚"<br>
-          "君子和而不同，小人同而不和"<br>
-          "君子喻于义，小人喻于利"
-        </p>
-        <p>成为君子不是一个终点，而是一段永无止境的旅程。这也是为什么儒学需要每一个时代的人用自己的生命去实践、去诠释、去传承。这本小书所做的，不过是为你点亮第一盏灯。</p>
-      </div>
-    </div>
-
-    <div class="tip-box" style="text-align:center;border-color:var(--gold);">
-      <div class="tip-title" style="text-align:center;">&#x2B50; 全书完 -- 感谢您的阅读</div>
-      <div class="tip-body" style="text-align:center;">
-        中华古典学术理论全景书 · 六大理论体系 · 三十一章节 · 30+图表<br>
-        回到<a href="index.html" style="color:var(--gold);font-weight:600;">封面目录</a>或<a href="../27-daoism-summary.html" style="color:var(--gold);font-weight:600;">第五部分</a>
-      </div>
-    </div>
+        <div class="case-box">
+          <div class="case-title"><i class="fas fa-star"></i> 最后的思考：何为君子？</div>
+          <div class="case-body">
+            <p>孔子对"君子"的定义，或许就是儒学留给我们的最佳答案。君子不是圣人，不需要完美无瑕，但需要在每一天、每一件小事上不断地自我完善。</p>
+            <p style="text-align:center;font-size:14px;margin:16px 0;line-height:2;">
+              "君子求诸己，小人求诸人"<br>
+              "君子坦荡荡，小人长戚戚"<br>
+              "君子和而不同，小人同而不和"<br>
+              "君子喻于义，小人喻于利"
+            </p>
+            <p>成为君子不是一个终点，而是一段永无止境的旅程。这也是为什么儒学需要每一个时代的人用自己的生命去实践、去诠释、去传承。<strong>这本小书所做的，不过是为你点亮第一盏灯。</strong></p>
+          </div>
+        </div>
+      </section>
+    </article>
   </main>
-
   <footer class="page-footer">
-    <a class="nav-prev" href="30-songming-lixue.html"><i class="fas fa-arrow-left"></i> 三十、宋明理学发展</a>
+    <a class="nav-prev" href="30-songming-lixue.html"><i class="fas fa-arrow-left"></i> 宋明理学发展</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
     <span class="page-info">31 / 31</span>
   </footer>
-
-  <script src="../common/js/echarts.inline.js"></script>
-  <script src="../common/js/navigation.js"></script>
+  <script src="common/js/echarts.inline.js"></script>
+  <script src="common/js/navigation.js"></script>
+  <script src="common/js/theme-toggle.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 儒家知识体系径向图
-      var c1 = echarts.init(document.getElementById('chart-rujia-radial'));
-      c1.setOption({
-        backgroundColor: 'transparent',
-        tooltip: {},
-        series: [{
-          type: 'tree',
-          data: [{
-            name: '儒家',
-            children: [
-              {
-                name: '先秦儒家',
-                children: [
-                  { name: '孔子\n仁义礼智信' },
-                  { name: '孟子\n性善仁政' },
-                  { name: '荀子\n性恶礼法' },
-                  { name: '子思\n中庸' }
-                ]
-              },
-              {
-                name: '汉唐经学',
-                children: [
-                  { name: '董仲舒\n天人感应' },
-                  { name: '郑玄\n注疏' },
-                  { name: '孔颖达\n正义' }
-                ]
-              },
-              {
-                name: '宋明理学',
-                children: [
-                  { name: '程朱理学\n格物穷理' },
-                  { name: '陆王心学\n致良知' },
-                  { name: '张载\n气学' },
-                  { name: '周敦颐\n太极' }
-                ]
-              },
-              {
-                name: '清代朴学',
-                children: [
-                  { name: '顾炎武\n经世致用' },
-                  { name: '王夫之\n读通鉴论' },
-                  { name: '戴震\n考据' }
-                ]
-              },
-              {
-                name: '核心经典',
-                children: [
-                  { name: '四书\n论语大学孟子中庸' },
-                  { name: '五经\n诗书礼易春秋' }
-                ]
-              }
-            ]
-          }],
-          left: '5%', top: '5%', bottom: '5%', right: '5%',
-          layout: 'radial',
-          symbol: 'circle',
-          symbolSize: 24,
-          initialTreeDepth: -1,
-          label: { color: '#e2e8f0', fontSize: 11, fontFamily: 'Noto Sans SC' },
-          leafLabel: { color: '#94a3b8', fontSize: 10 },
-          lineStyle: { color: '#1e2a3a', width: 1.5 },
-          emphasis: { focus: 'descendant' }
-        }]
+      var toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
       });
-
-      // 儒家知识掌握雷达图
-      var c2 = echarts.init(document.getElementById('chart-rujia-mastery'));
-      c2.setOption({
-        backgroundColor: 'transparent',
-        tooltip: {},
-        legend: { data: ['入门', '进阶', '精通'], textStyle: { color: '#94a3b8' }, bottom: 0 },
-        radar: {
-          indicator: [
-            { name: '经典阅读', max: 100 },
-            { name: '历史认知', max: 100 },
-            { name: '义理理解', max: 100 },
-            { name: '躬身实践', max: 100 },
-            { name: '教学传承', max: 100 },
-            { name: '经世致用', max: 100 }
-          ],
-          shape: 'polygon',
-          splitNumber: 4,
-          axisName: { color: '#e2e8f0', fontSize: 12 },
-          splitLine: { lineStyle: { color: '#1e2a3a' } },
-          axisLine: { lineStyle: { color: '#1e2a3a' } }
-        },
-        series: [{
-          type: 'radar',
-          data: [
-            {
-              value: [60, 40, 35, 30, 15, 20],
-              name: '入门',
-              areaStyle: { color: 'rgba(16,185,129,0.15)' },
-              lineStyle: { color: '#10b981', width: 2 },
-              itemStyle: { color: '#10b981' }
-            },
-            {
-              value: [80, 65, 60, 50, 35, 45],
-              name: '进阶',
-              areaStyle: { color: 'rgba(6,182,212,0.15)' },
-              lineStyle: { color: '#06b6d4', width: 2 },
-              itemStyle: { color: '#06b6d4' }
-            },
-            {
-              value: [100, 90, 95, 90, 80, 85],
-              name: '精通',
-              areaStyle: { color: 'rgba(234,179,8,0.15)' },
-              lineStyle: { color: '#eab308', width: 2 },
-              itemStyle: { color: '#eab308' }
-            }
-          ]
-        }]
-      });
-
-      // 儒家发展历史时间线
-      var c3 = echarts.init(document.getElementById('chart-rujia-history'));
-      c3.setOption({
-        backgroundColor: 'transparent',
-        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        legend: { data: ['传播广度', '理论深度', '政治影响'], textStyle: { color: '#94a3b8' }, top: 0 },
-        grid: { left: '3%', right: '10%', bottom: '3%', containLabel: true },
-        xAxis: { type: 'category', data: ['春秋', '战国', '秦汉', '魏晋', '隋唐', '宋', '元明', '清', '近现代'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-        yAxis: { type: 'value', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-        series: [
-          {
-            name: '传播广度', type: 'line', data: [10, 30, 55, 40, 50, 75, 95, 90, 85],
-            smooth: true, lineStyle: { color: '#eab308', width: 2 }, itemStyle: { color: '#eab308' },
-            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(234,179,8,0.25)' }, { offset: 1, color: 'rgba(234,179,8,0.02)' }]) }
-          },
-          {
-            name: '理论深度', type: 'line', data: [20, 40, 45, 35, 40, 85, 90, 75, 80],
-            smooth: true, lineStyle: { color: '#06b6d4', width: 2 }, itemStyle: { color: '#06b6d4' },
-            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(6,182,212,0.25)' }, { offset: 1, color: 'rgba(6,182,212,0.02)' }]) }
-          },
-          {
-            name: '政治影响', type: 'line', data: [5, 10, 60, 30, 45, 80, 95, 90, 50],
-            smooth: true, lineStyle: { color: '#8b5cf6', width: 2 }, itemStyle: { color: '#8b5cf6' },
-            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(139,92,246,0.25)' }, { offset: 1, color: 'rgba(139,92,246,0.02)' }]) }
-          }
-        ]
-      });
-
-      window.addEventListener('resize', function() { c1.resize(); c2.resize(); c3.resize(); });
     });
   </script>
 </body>
