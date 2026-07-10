@@ -10,20 +10,26 @@
 </head>
 <body>
   <nav class="top-nav">
+    <button class="nav-toggle nav-toc-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
     <div class="nav-left">
-      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> 创作者经济AI</a>
+      <a class="nav-book-name" href="index.html"><i class="fas fa-book"></i> 全球创作者经济AI时代个人变现与版权保护全景书</a>
       <span class="nav-divider">/</span>
       <span class="nav-chapter-title">十六、法律救济途径</span>
     </div>
     <div class="nav-right">
-      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
       <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+      <a class="nav-btn" href="15-evidence-collection.html">前一章 <i class="fas fa-arrow-left"></i></a>
+      <a class="nav-btn" href="17-platform-takedowns.html">后一章 <i class="fas fa-arrow-right"></i></a>
     </div>
   </nav>
 
   <aside class="sidebar">
-    <h3><i class="fas fa-list"></i> 目录</h3>
-    <ul class="toc-list">
+    <div class="sidebar-header">
+      <h3>创作者经济 AI 时代</h3>
+      <button class="sidebar-close" aria-label="Close sidebar" onclick="document.querySelector('.sidebar').classList.toggle('open')"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="toc">
+      <ul class="toc-list">
       <li class="toc-chapter">第一部分 AI时代创作者经济全景</li>
       <li><a href="01-ai-creator-economy.html">一、AI时代创作者经济全景</a></li>
       <li><a href="02-creator-types-ai.html">二、AI赋能下的创作者类型</a></li>
@@ -208,7 +214,7 @@
   </main>
 
   <footer class="page-footer">
-    <a class="nav-prev" href="15-evidence-collection.html"><i class="fas fa-arrow-up"></i> 侵权取证与证据保全</a>
+    <a class="nav-prev" href="15-evidence-collection.html"><i class="fas fa-arrow-left"></i> 侵权取证与证据保全</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
     <span class="page-info">16 / 31</span>
     <a class="nav-next" href="17-platform-takedowns.html">平台投诉与下架机制 <i class="fas fa-arrow-right"></i></a>
