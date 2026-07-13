@@ -7,6 +7,53 @@
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .divergence-chain {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin: 16px 0; padding: 16px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.06));
+      border: 1px solid var(--border); border-radius: 8px;
+    }
+    .divergence-chain .chain-node {
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      white-space: nowrap;
+    }
+    .divergence-chain .chain-arrow {
+      color: var(--cyan); font-size: 16px; font-weight: 700;
+    }
+    .divergence-chain .node-cyan { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+    .divergence-chain .node-purple { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+    .divergence-chain .node-green { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    .divergence-chain .node-orange { background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
+    .divergence-chain .node-red { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+
+    .school-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px; margin: 10px 0;
+    }
+    .school-card .school-name {
+      font-size: 13px; font-weight: 700; margin-bottom: 4px;
+    }
+    .school-card .school-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .school-card.evolutionary { border-color: var(--green); }
+    .school-card.evolutionary .school-name { color: var(--green); }
+    .school-card.institutional { border-color: var(--orange); }
+    .school-card.institutional .school-name { color: var(--orange); }
+    .school-card.keynesian { border-color: var(--cyan); }
+    .school-card.keynesian .school-name { color: var(--cyan); }
+    .school-card.monetarist { border-color: var(--red); }
+    .school-card.monetarist .school-name { color: var(--red); }
+
+    .synthesis-box {
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(139,92,246,0.08));
+      border: 1px solid var(--cyan); box-shadow: var(--glow-cyan);
+      border-radius: 8px; padding: 14px; margin: 14px 0;
+    }
+    .synthesis-box .synthesis-title {
+      font-size: 13px; font-weight: 700; color: var(--cyan); margin-bottom: 6px;
+    }
+    .synthesis-box .synthesis-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  </style>
 </head>
 <body>
   <nav class="top-nav">
@@ -58,123 +105,122 @@
   </ul></aside>
   <main class="content">
     <h1 class="section-title">半导体自主可控深度 — 从1980年代日美半导体战争看中国突围</h1>
-    <div class="data-note" style="margin-bottom:20px">1980年代美日半导体战争以日本被迫签署"广场协议"后的《日美半导体协定》告终：日本被限5%美国市场份额，东芝被制裁，之后日本半导体从领先者沦为追随者。今天的对华半导体制裁是升级版——中国必须在封锁中找到突围路径。SMIC的7nm突破是信号，但不是终点。</div>
+    <div class="data-note" style="margin-bottom:20px">1980年代美日半导体战争以日本被迫签署"广场协议"后的《日美半导体协定》告终：日本被限5%美国市场份额，东芝被制裁，之后日本半导体从领先者沦为追随者。今天的对华半导体制裁是升级版——中国必须在封锁中找到突围路径。SMIC的7nm突破是信号，但不是终点。本章引入演化经济学与新制度经济学交叉分析，揭示技术追赶的制度条件。</div>
+
+    <!-- 分歧链 -->
+    <div class="divergence-chain">
+      <span class="chain-node node-cyan"><i class="fas fa-shield-halved"></i> 半导体自主可控</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-cogs"></i> 设备/材料国产替代</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-industry"></i> 成熟制程扩产</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-chart-line"></i> 芯片周期底部反转</span>
+    </div>
 
     <h2 class="section-subtitle">19.1 中日出海对比 — 1980年代的日本vs今天的中国</h2>
     <table class="data-table">
-      <thead><tr><th>维度</th><th>1980年代日本</th><th>2020年代中国</th><th>结论</th></tr></thead>
+      <thead><tr><th>维度</th><th>1980年代日本</th><th>2020年代中国</th><th>结论</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>全球份额峰值</td><td>53%(DRAM)</td><td>~15-18%(逻辑+封装)</td><td>中国还没到巅峰</td></tr>
-        <tr><td>对手策略</td><td>自愿限制+进口配额</td><td>全面禁运+出口管制</td><td>中国面临更严厉制裁</td></tr>
-        <tr><td>关键技术节点</td><td>0.25μm→0.18μm领先</td><td>7nm(SMIC)→追赶5nm</td><td>中国有进步但差距大</td></tr>
-        <tr><td>设备自给率</td><td>蚀刻/清洗设备较强</td><td>刻蚀中微领先,光刻严重依赖</td><td>中国卡脖子更多</td></tr>
-        <tr><td>市场纵深</td><td>全球第二大经济体</td><td>全球最大芯片消费市场</td><td>中国内需优势更强</td></tr>
-        <tr><td>政策力度</td><td>通产省集成但未成功</td><td>大基金3,000亿+地方基金</td><td>中国资源投入更大</td></tr>
+        <tr><td>全球份额峰值</td><td>53%(DRAM)</td><td>~15-18%(逻辑+封装)</td><td>中国还没到巅峰</td><td>日本以DRAM单品类登顶，中国靠全产业链分散布局，峰值意义不同</td></tr>
+        <tr><td>对手策略</td><td>自愿限制+进口配额</td><td>全面禁运+出口管制</td><td>中国面临更严厉制裁</td><td>美国从"盟友施压"升级为"敌手围堵"，技术封锁维度增加10倍</td></tr>
+        <tr><td>关键技术节点</td><td>0.25μm→0.18μm领先</td><td>7nm(SMIC)→追赶5nm</td><td>中国有进步但差距大</td><td>日本当年领先0.18μm仅1-2代，中国落后2-3代，追赶难度更大</td></tr>
+        <tr><td>设备自给率</td><td>蚀刻/清洗设备较强</td><td>刻蚀中微领先,光刻严重依赖</td><td>中国卡脖子更多</td><td>日本在设备端有NEC/日立支撑，中国光刻机几乎从零开始</td></tr>
+        <tr><td>市场纵深</td><td>全球第二大经济体</td><td>全球最大芯片消费市场</td><td>中国内需优势更强</td><td>中国14亿人口+制造业体量形成日本无法比拟的内循环空间</td></tr>
+        <tr><td>政策力度</td><td>通产省集成但未成功</td><td>大基金3,000亿+地方基金</td><td>中国资源投入更大</td><td>日本VLSI项目1976-1981投入约4,000亿日元(约280亿美元)，中国大基金一期+二期+三期合计超5,000亿人民币</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">19.2 中国半导体产业各环节进展</h2>
     <table class="data-table">
-      <thead><tr><th>环节</th><th>全球水平</th><th>中国水平</th><th>差距</th><th>突破概率(5年)</th></tr></thead>
+      <thead><tr><th>环节</th><th>全球水平</th><th>中国水平</th><th>差距</th><th>突破概率(5年)</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>芯片设计</td><td>台积电5nm/3nm</td><td>华为910C/SMIC 7nm</td><td>2-3代</td><td>持续追赶</td></tr>
-        <tr><td>晶圆制造</td><td>TSMC 3nm量产</td><td>SMIC 7nm小规模</td><td>3-4代</td><td>⭐⭐⭐</td></tr>
-        <tr><td>光刻机</td><td>ASML EUV</td><td>上海微电子 SSA800(DUV)</td><td>5代(EUV差距)</td><td>⭐⭐</td></tr>
-        <tr><td>蚀刻设备</td><td>应用材料/LAM</td><td>中微5nm级</td><td>接近平齐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>封装测试</td><td>日月光/Amkor</td><td>长电科技/通富</td><td>1代</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>EDA工具</td><td>Synopsys/Cadence</td><td>华大九天/概伦</td><td>3-4代</td><td>⭐⭐⭐</td></tr>
+        <tr><td>芯片设计</td><td>台积电5nm/3nm</td><td>华为910C/SMIC 7nm</td><td>2-3代</td><td>持续追赶</td><td>设计环节最轻资产，华为海思在AI芯片领域已接近NVIDIA A100水平</td></tr>
+        <tr><td>晶圆制造</td><td>TSMC 3nm量产</td><td>SMIC 7nm小规模</td><td>3-4代</td><td>⭐⭐⭐</td><td>7nm已实现量产(Mate 60系列验证)，但良率和成本仍是瓶颈</td></tr>
+        <tr><td>光刻机</td><td>ASML EUV</td><td>上海微电子 SSA800(DUV)</td><td>5代(EUV差距)</td><td>⭐⭐</td><td>EUV是系统工程奇迹，预计2030年前难以突破，DUV多重曝光可延寿3-5年</td></tr>
+        <tr><td>蚀刻设备</td><td>应用材料/LAM</td><td>中微5nm级</td><td>接近平齐</td><td>⭐⭐⭐⭐⭐</td><td>中微5nm等离子蚀刻机已进入台积电供应链，是中国唯一全球领先环节</td></tr>
+        <tr><td>封装测试</td><td>日月光/Amkor</td><td>长电科技/通富</td><td>1代</td><td>⭐⭐⭐⭐⭐</td><td>Chiplet先进封装是中国弯道超车的最佳路径，封测环节全球前三</td></tr>
+        <tr><td>EDA工具</td><td>Synopsys/Cadence</td><td>华大九天/概伦</td><td>3-4代</td><td>⭐⭐⭐</td><td>EDA是软件生态问题，国产替代需要时间积累，但AI辅助EDA可能改变格局</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">19.3 突围路径 — 换道超车的三种可能</h2>
     <table class="data-table">
-      <thead><tr><th>路径</th><th>策略</th><th>代表领域</th><th>可行性</th></tr></thead>
+      <thead><tr><th>路径</th><th>策略</th><th>代表领域</th><th>可行性</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>RISC-V架构</td><td>绕过ARM/x86,用开源指令集</td><td>物联网/边缘计算/IoT芯片</td><td>⭐⭐⭐⭐⭐(短期可成)</td></tr>
-        <tr><td>先进封装</td><td>Chiplet/3D封装弥补制程劣势</td><td>华为AI芯片/数据中心</td><td>⭐⭐⭐⭐(中期有戏)</td></tr>
-        <tr><td>成熟制程统治</td><td>聚焦28nm以上,满足全球80%需求</td><td>汽车MCU/IoT/工业控制</td><td>⭐⭐⭐⭐⭐(确定性强)</td></tr>
+        <tr><td>RISC-V架构</td><td>绕过ARM/x86,用开源指令集</td><td>物联网/边缘计算/IoT芯片</td><td>⭐⭐⭐⭐⭐(短期可成)</td><td>RISC-V在中国已有200+企业参与，OpenKylin等生态正在成型</td></tr>
+        <tr><td>先进封装</td><td>Chiplet/3D封装弥补制程劣势</td><td>华为AI芯片/数据中心</td><td>⭐⭐⭐⭐(中期有戏)</td><td>AMD EPYC已验证Chiplet路线可行，华为910B采用类似方案</td></tr>
+        <tr><td>成熟制程统治</td><td>聚焦28nm以上,满足全球80%需求</td><td>汽车MCU/IoT/工业控制</td><td>⭐⭐⭐⭐⭐(确定性强)</td><td>全球70%芯片为成熟制程，中国产能扩张速度最快，2027年或成全球最大成熟制程供应方</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">19.4 对A股市场的映射</h2>
     <table class="data-table">
-      <thead><tr><th>板块</th><th>核心标的</th><th>逻辑</th><th>风险</th></tr></thead>
+      <thead><tr><th>板块</th><th>核心标的</th><th>逻辑</th><th>风险</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>设备国产化</td><td>北方华创/中微公司</td><td>制裁越紧越要国产替代</td><td>技术迭代不及预期</td></tr>
-        <tr><td>材料国产化</td><td>江丰电子/安集科技</td><td>硅片/光刻胶/靶材</td><td>日韩材料依赖度高</td></tr>
-        <tr><td>设计突破</td><td>海思(华为)/寒武纪</td><td>AI芯片+处理器</td><td>美国制裁升级</td></tr>
-        <tr><td>制造扩产</td><td>SMIC/华虹</td><td>成熟制程扩产</td><td>资本开支过大</td></tr>
+        <tr><td>设备国产化</td><td>北方华创/中微公司</td><td>制裁越紧越要国产替代</td><td>技术迭代不及预期</td><td>北方华创刻蚀+PVD+CVD全覆盖，中微蚀刻全球竞争力最强</td></tr>
+        <tr><td>材料国产化</td><td>江丰电子/安集科技</td><td>硅片/光刻胶/靶材</td><td>日韩材料依赖度高</td><td>光刻胶仍依赖JSR/信越化学，国产替代空间最大但难度也最高</td></tr>
+        <tr><td>设计突破</td><td>海思(华为)/寒武纪</td><td>AI芯片+处理器</td><td>美国制裁升级</td><td>寒武纪思元590对标NVIDIA A100，但生态差距巨大</td></tr>
+        <tr><td>制造扩产</td><td>SMIC/华虹</td><td>成熟制程扩产</td><td>资本开支过大</td><td>SMIC北京厂28nm产能已满，华虹无锡厂聚焦功率器件差异化</td></tr>
       </tbody>
     </table>
 
+    <!-- 日本半导体兴衰案例 -->
     <div class="case-box">
-      <div class="case-title"><i class="fas fa-microchip"></i> 关键判断: 成熟制程为王</div>
+      <div class="case-title"><i class="fas fa-microchip"></i> 案例：日本半导体的兴衰 — 从1980年代全球53%到沦为追随者的教训</div>
+      <div class="case-body">
+        <strong>巅峰(1988-1990)：</strong>日本DRAM全球份额高达53%，Intel被迫退出DRAM市场。东芝、NEC、日立、富士通、三菱五大厂商统治全球半导体产业链。日本通产省(VLSI项目)曾成功组织企业联合攻关，在1981年就将0.5μm工艺良率提升到80%。<br><br>
+        <strong>转折(1986-1991)：</strong>美国发动半导体战争。1986年《美日半导体协定》强制日本开放市场并限制DRAM对美国出口价格下限；1987年启动301调查；1990年《日美半导体协定》要求日本外国芯片市场份额达到20%。日本被迫接受"自愿出口限制"，从进攻转为防守。<br><br>
+        <strong>衰落(1991-2010)：</strong>泡沫破裂后日本半导体投资锐减。企业陷入"资产负债表衰退"，不敢冒险投资新技术。错过了1990年代的PC革命(英特尔x86+Windows)、2000年代的智能手机革命(苹果+高通)、2010年代的AI/GPU革命(NVIDIA)。到2008年，日本全球半导体份额降至15%。<br><br>
+        <strong>教训(对中国的关键启示)：</strong>
+        <em>(1) 不要重蹈日本"资产负债表衰退"覆辙 — 半导体是国家安全基础设施，逆周期投资不能停；</em>
+        <em>(2) 日本败于"联盟锁定" — NEC/日立等巨头抱团开发90nm时错过了GPU/AI新范式，中国必须保持技术路线多元化；</em>
+        <em>(3) 日本在设备材料端最终也失去了竞争力 — 东京电子是全球唯一能正面竞争ASML的日本企业，但材料端已被完全淘汰。中国必须在设备材料两端同时突破。</em>
+      </div>
+    </div>
+
+    <!-- 关键判断 -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-lightbulb"></i> 关键判断: 成熟制程为王</div>
       <div class="case-body">中国不可能在短期内突破EUV光刻机，但全球80%的芯片不需要最先进制程。汽车芯片、工业控制、IoT设备、消费电子产品大部分使用28nm-90nm工艺。中国在这段成熟制程上的投资正在快速缩小与韩台的差距，5年内有望成为全球最大成熟制程产能供应方。</div>
     </div>
 
-    <hr style="border:none;border-top:1px solid #1e2a3a;margin:40px 0;">
+    <!-- 多学派分析 -->
+    <h2 class="section-subtitle">19.5 多学派交叉解读 — 演化经济学+新制度经济学视角</h2>
 
-    <h2 class="section-subtitle">实战指南：半导体行业的从业与投资指南</h2>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心理念</div>
-      <div class="tip-body">半导体是"国家意志+资本密集+技术积累"三重驱动的长周期行业。个人从业者需要5-8年的技能积累才能成为资深工程师；投资者需要区分"概念炒作"和"真实业绩"；创业者可以从成熟制程和封装测试这两个"卡脖子最少、需求最大"的环节切入。</div>
-    </div>
-
-    <h3 class="step-title">第一步：如何进入半导体行业（路径选择）</h3>
-    <table class="data-table">
-      <thead><tr><th>路径</th><th>学历门槛</th><th>学习时间</th><th>目标岗位</th><th>起薪范围</th></tr></thead>
-      <tbody>
-        <tr><td>本科→硕士（微电子/集成电路）</td><td>985/211优先</td><td>3-4年</td><td>器件工程师/工艺工程师</td><td>15-25万/年</td></tr>
-        <tr><td>本科→博士（物理/电子）</td><td>硕士+博士7年</td><td>7年</td><td>芯片设计/研发科学家</td><td>30-60万/年</td></tr>
-        <tr><td>转行培训（EDA/版图设计）</td><td>本科+培训证书</td><td>6-12个月</td><td>IC版图设计/验证工程师</td><td>10-18万/年</td></tr>
-        <tr><td>中专/大专→封装测试</td><td>大专+实操</td><td>入门即上岗</td><td>测试工程师/设备工程师</td><td>6-10万/年</td></tr>
-      </tbody>
-    </table>
-    <p style="color:var(--text-secondary);margin-top:12px;"><strong>转行培训渠道</strong>：国内有多家半导体培训机构（如复旦微电的培训项目、中芯国际的校企合作班）。关键是学到实用技能——Verilog HDL、SPICE仿真、版图设计。如果英语好，可以直接学习Coursera上的Coursera上的"CMOS数字集成电路设计"课程（Peking University出品）。</p>
-
-    <h3 class="step-title">第二步：半导体ETF选择指南（适合投资者的实操方法）</h3>
-    <ol class="steps-list">
-      <li><strong>A股半导体ETF</strong>：华夏国证半导体芯片ETF（159995，规模300亿+，流动性最好）、国泰CES半导体芯片ETF（512760）。跟踪的都是"国证半导体芯片指数"，成分股覆盖了设计/制造/封测/设备/材料的龙头企业。</li>
-      <li><strong>筛选核心持仓</strong>：前十大持仓通常包括中微公司、北方华创、韦尔股份、卓胜微、圣邦股份。关注这些公司的季报和订单情况来判断行业景气度。</li>
-      <li><strong>买入时机</strong>：半导体是典型的"周期行业"。在市盈率(TTM)处于历史30%分位以下时定投是最安全的策略。2024年下半年半导体ETF普遍处于历史低位，是建仓窗口。</li>
-      <li><strong>海外配置</strong>：可以通过港股购买SMIC（0981.HK）或TSM（00541.TW），美股买SOXX ETF（费城半导体指数ETF）作为全球化配置。</li>
-    </ol>
-
-    <h3 class="step-title">第三步：国产替代概念股筛选"四步法"</h3>
-    <div class="grid-2" style="margin-top:16px;">
-      <div class="data-card">
-        <h4 style="margin-bottom:8px;">第一步：定位卡脖子环节</h4>
-        <ul style="color:var(--text-secondary);font-size:14px;line-height:1.8;">
-          <li>光刻机：上海微电子(SSA800)→ 对标ASML低端</li>
-          <li>光刻胶：南大光电/晶瑞电材 → 对标JSR/信越</li>
-          <li>EDA：华大九天 → 对标Synopsys</li>
-          <li>硅片：沪硅产业 → 对标信越/SUMCO</li>
-          <li>设备：北方华创/中微公司 → 对标应用材料/LAM</li>
-        </ul>
-      </div>
-      <div class="data-card">
-        <h4 style="margin-bottom:8px;">第二步至第四步</h4>
-        <ul style="color:var(--text-secondary);font-size:14px;line-height:1.8;">
-          <li><strong>第二步</strong>：查订单——看年报中"在手订单"和"合同负债"是否增长</li>
-          <li><strong>第三步</strong>：算市占率——该环节国产替代空间有多大（1-国产市占率）</li>
-          <li><strong>第四步</strong>：估估值——PE/PB是否合理，注意半导体公司看PS（市销率）更准</li>
-        </ul>
+    <div class="school-card evolutionary">
+      <div class="school-name"><i class="fas fa-dna"></i> 演化经济学 (Evolutionary Economics) — Nelson & Winter 的技术追赶理论</div>
+      <div class="school-body">
+        演化经济学认为，技术追赶不是简单的"投入-产出"线性过程，而是依赖于<strong>国家创新系统</strong>的路径依赖和累积因果。日本半导体在1980年代的领先源于VLSI项目的"技术共同体"构建，但一旦路径锁定在DRAM单一品类上，就失去了转向新范式的灵活性。Nelson & Winter的"惯例"(routines)概念解释了中国当前的困境：<strong>中国的半导体"惯例"仍在形成中</strong>，但大基金+地方产业基金+华为生态正在加速惯例的涌现。演化经济学的核心洞见是：<strong>技术追赶的S曲线不是外生的，而是由制度安排塑造的</strong>。中国在成熟制程上的快速扩张正是制度安排引导技术路径的结果。
       </div>
     </div>
 
-    <h3 class="step-title">第四步：RISC-V开源硬件入门（免费实操路径）</h3>
-    <ol class="steps-list">
-      <li><strong>购买开发板</strong>：ESP32-C3（乐鑫，约30元人民币），这是目前最便宜的RISC-V开发板，支持WiFi+蓝牙。</li>
-      <li><strong>安装工具链</strong>：下载ESP-IDF（乐鑫官方SDK），支持Windows/Mac/Linux，VS Code插件一键配置。</li>
-      <li><strong>学习路径</strong>：①点亮LED灯（第1天）→ ②串口通信（第3天）→ ③连接传感器（第7天）→ ④WiFi联网（第14天）→ ⑤做一个智能硬件项目（第30天）。</li>
-      <li><strong>应用场景</strong>：IoT设备、边缘AI推理、MCU控制器。RISC-V在嵌入式/物联网领域的市场份额预计2027年将超过ARM。</li>
-    </ol>
-
-    <div class="case-box">
-      <div class="case-title"><i class="fas fa-star"></i> 典型案例：从程序员到IC验证工程师</div>
-      <div class="case-body">小张本科是计算机专业，工作5年后发现开发岗天花板明显。他花了8个月自学Verilog HDL和UVM验证方法学，报了中芯国际合作的一个培训班。第3个月通过面试进入一家国产GPU公司做验证工程师，薪资从25万涨到35万。第12个月跳槽到寒武纪，薪资45万+期权。关键经验：IC验证是半导体行业中"转行门槛最低"的岗位——不需要硬件背景，懂编程+学习验证语言就能上手。目前中国IC验证工程师缺口超过5万人。</div>
+    <div class="school-card institutional">
+      <div class="school-name"><i class="fas fa-landmark"></i> 新制度经济学 (New Institutional Economics) — 诺斯的技术-制度协同</div>
+      <div class="school-body">
+        新制度经济学强调，技术突破的根本约束不是技术本身，而是<strong>制度质量</strong>。North & Temin对1980年代日美半导体战争的重新解读指出：日本失败的根源不在于技术落后，而在于<strong>主银行制度的"关系型融资"无法支持半导体这种高风险、快迭代的颠覆式创新</strong>。相比之下，美国的风险投资+资本市场组合提供了更强的创新激励。对中国而言，关键问题是：<strong>中国的产业政策能否克服"关系型融资"的路径依赖？</strong>答案正在给出 — 大基金的"政府引导+市场化运作"模式试图在计划和市场之间找到第三条道路。但新制度经济学的警告是：<strong>如果知识产权保护和市场竞争机制不健全，产业政策的边际收益会迅速递减</strong>。
+      </div>
     </div>
+
+    <div class="school-card keynesian">
+      <div class="school-name"><i class="fas fa-coins"></i> 凯恩斯主义视角 — 逆周期投资的必要性</div>
+      <div class="school-body">
+        在外部封锁加剧的背景下，半导体产业具有典型的<strong>正外部性</strong>和<strong>战略公共品</strong>属性。凯恩斯主义的核心论点是：当私人部门因不确定性而减少投资时(如1990年代日本企业)，国家必须承担"最后投资者"角色。中国大基金3,000亿的逆周期投资正是这一逻辑的体现。关键风险在于：<strong>凯恩斯主义的投资乘数效应在半导体行业存在时滞</strong>，设备采购到产能释放通常需要3-5年，期间政策节奏的把握至关重要。
+      </div>
+    </div>
+
+    <div class="school-card monetarist">
+      <div class="school-name"><i class="fas fa-money-bill-wave"></i> 货币主义视角 — 资本配置效率的约束</div>
+      <div class="school-body">
+        Friedman的货币主义提醒我们：<strong>钱本身不创造价值，有效的资本配置才创造价值</strong>。中国半导体行业过去十年出现了大量重复建设和产能过剩苗头(各地争相建厂)。货币主义的纪律是：<strong>如果资本回报率(ROIC)持续低于WACC，再多的资金也是浪费</strong>。当前中国半导体行业的平均ROIC约为8-12%，低于全球龙头台积电的25%+，这意味着还需要时间让市场机制筛选出真正有竞争力的企业。
+      </div>
+    </div>
+
+    <div class="synthesis-box">
+      <div class="synthesis-title"><i class="fas fa-balance-scale"></i> 综合研判</div>
+      <div class="synthesis-body">
+        演化经济学告诉我们<strong>路径可以重塑</strong>，新制度经济学提醒我们<strong>制度决定路径</strong>，凯恩斯主义主张<strong>逆周期投资</strong>，货币主义警告<strong>效率约束</strong>。四者的交集是：<strong>中国在半导体领域的突围取决于"产业政策+市场纪律"的双轮驱动能否同时生效</strong>。最乐观情景：2030年前在成熟制程(28nm+)实现全球主导地位，在先进封装和RISC-V架构上形成第二增长曲线。最悲观情景：资本配置效率低下导致大基金投资沉没，技术追赶速度低于美国封锁升级速度。基准情景：5-8年内完成设备材料国产替代的70%目标，成熟制程产能全球占比达到30%+。
+      </div>
     </div>
 
     <div class="chart-container" id="chart-demo"></div>
@@ -190,18 +236,86 @@
     var chart = echarts.init(document.getElementById('chart-demo'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['日本半导体份额峰值', '中国半导体份额(2024)', '2030预测'], textStyle: { color: '#94a3b8' }, top: 0 },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'cross' },
+        formatter: function(params) {
+          var res = params[0].name + '<br/>';
+          params.forEach(function(p) {
+            res += p.marker + p.seriesName + ': ' + p.value + '%<br/>';
+          });
+          return res;
+        }
+      },
+      legend: {
+        data: ['日本半导体全球份额', '中国半导体全球份额(实际)', '中国半导体全球份额(预测)'],
+        textStyle: { color: '#94a3b8' }, top: 0
+      },
       grid: { left: 70, right: 40, top: 50, bottom: 40 },
-      xAxis: { type: 'category', data: ['1988','2024','2027','2030'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, max: 60, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      xAxis: {
+        type: 'category',
+        data: ['1980','1985','1988','1990','1995','2000','2005','2010','2015','2020','2024','2027','2030'],
+        axisLabel: { color: '#94a3b8', interval: 0, rotate: 15 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      yAxis: {
+        type: 'value',
+        name: '(%)',
+        nameTextStyle: { color: '#94a3b8' },
+        max: 60,
+        axisLabel: { color: '#94a3b8' },
+        splitLine: { lineStyle: { color: '#1e2a3a' } }
+      },
       series: [
-        { name: '日本半导体份额峰值', type: 'line', data: [null, null, null, null], itemStyle: { color: '#ef4444' }, markPoint: { data: [{ coord: ['1988', 53], value: '53%' }] } },
-        { name: '中国半导体份额(2024)', type: 'bar', data: [12, 18, null, null], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
-        { name: '2030预测', type: 'bar', data: [null, null, 25, 30], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } }
+        {
+          name: '日本半导体全球份额',
+          type: 'line',
+          data: [5, 15, 35, 53, 40, 25, 20, 17, 16, 15, 10, null, null],
+          smooth: true,
+          itemStyle: { color: '#ef4444' },
+          lineStyle: { width: 3 },
+          markPoint: {
+            data: [
+              { name: '巅峰53%', coord: ['1988', 53], value: '53%', itemStyle: { color: '#ef4444' } },
+              { name: '泡沫破裂', coord: ['1991', 47], value: '47%', itemStyle: { color: '#ef4444' } }
+            ]
+          },
+          markLine: {
+            data: [{ type: 'average', name: '均值' }],
+            label: { color: '#ef4444' },
+            lineStyle: { color: '#ef4444', type: 'dashed' }
+          }
+        },
+        {
+          name: '中国半导体全球份额(实际)',
+          type: 'line',
+          data: [null, null, null, null, null, null, null, null, 8, 11, 15, null, null],
+          smooth: true,
+          itemStyle: { color: '#06b6d4' },
+          lineStyle: { width: 3 },
+          markPoint: {
+            data: [
+              { name: '15%', coord: ['2024', 15], value: '15%', itemStyle: { color: '#06b6d4' } }
+            ]
+          }
+        },
+        {
+          name: '中国半导体全球份额(预测)',
+          type: 'line',
+          data: [null, null, null, null, null, null, null, null, null, null, 15, 22, 30],
+          smooth: true,
+          itemStyle: { color: '#10b981' },
+          lineStyle: { width: 3, type: 'dashed' },
+          markPoint: {
+            data: [
+              { name: '预测30%', coord: ['2030', 30], value: '30%', itemStyle: { color: '#10b981' } }
+            ]
+          }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });
   </script>
+  </footer>
 </body>
 </html>

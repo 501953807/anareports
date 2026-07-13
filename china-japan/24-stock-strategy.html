@@ -7,6 +7,55 @@
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .divergence-chain {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin: 16px 0; padding: 16px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.06));
+      border: 1px solid var(--border); border-radius: 8px;
+    }
+    .divergence-chain .chain-node {
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      white-space: nowrap;
+    }
+    .divergence-chain .chain-arrow {
+      color: var(--cyan); font-size: 16px; font-weight: 700;
+    }
+    .divergence-chain .node-cyan { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+    .divergence-chain .node-purple { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+    .divergence-chain .node-green { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    .divergence-chain .node-orange { background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
+    .divergence-chain .node-red { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+
+    .school-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px; margin: 10px 0;
+    }
+    .school-card .school-name {
+      font-size: 13px; font-weight: 700; margin-bottom: 4px;
+    }
+    .school-card .school-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .school-card.behavioral { border-color: var(--pink); }
+    .school-card.behavioral .school-name { color: var(--pink); }
+    .school-card.keynesian { border-color: var(--cyan); }
+    .school-card.keynesian .school-name { color: var(--cyan); }
+    .school-card.monetary { border-color: var(--orange); }
+    .school-card.monetary .school-name { color: var(--orange); }
+    .school-card.marxist { border-color: var(--red); }
+    .school-card.marxist .school-name { color: var(--red); }
+    .school-card.classical { border-color: var(--green); }
+    .school-card.classical .school-name { color: var(--green); }
+
+    .synthesis-box {
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(139,92,246,0.08));
+      border: 1px solid var(--cyan); box-shadow: var(--glow-cyan);
+      border-radius: 8px; padding: 14px; margin: 14px 0;
+    }
+    .synthesis-box .synthesis-title {
+      font-size: 13px; font-weight: 700; color: var(--cyan); margin-bottom: 6px;
+    }
+    .synthesis-box .synthesis-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  </style>
 </head>
 <body>
   <nav class="top-nav">
@@ -60,162 +109,136 @@
     <h1 class="section-title">A股投资策略深度 — 熊市中的Alpha获取之道</h1>
     <div class="data-note" style="margin-bottom:20px">A股在2024年底从2,700点反弹至3,400点后再度回落，估值处于历史低位(沪深300 PE≈11x)。在日本失去的第一个十年中，日经225指数在熊市中出现了结构性牛市——优衣库、大创、唐吉诃德等企业股价涨了10倍+。A股的策略核心是：在经济下行期寻找结构性赢家，而非博弈大盘β。</div>
 
+    <!-- 分歧链 -->
+    <div class="divergence-chain">
+      <span class="chain-node node-red"><i class="fas fa-chart-line-down"></i> 经济下行+估值底部</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-cyan"><i class="fas fa-shield-halved"></i> 红利打底(40%)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-microchip"></i> 科技进攻(30%)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-store"></i> 消费卫星(20%)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-coins"></i> 现金子弹(10%)</span>
+    </div>
+
     <h2 class="section-subtitle">24.1 行业轮动 — 日本经验的A股映射</h2>
     <table class="data-table">
-      <thead><tr><th>经济周期</th><th>日本跑赢板块</th><th>A股对应赛道</th><th>逻辑</th></tr></thead>
+      <thead><tr><th>经济周期</th><th>日本跑赢板块</th><th>A股对应赛道</th><th>逻辑</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>衰退初期</td><td>医疗+必需消费</td><td>医药生物+食品饮料</td><td>防御属性</td></tr>
-        <tr><td>滞胀期</td><td>折扣零售+廉价娱乐</td><td>量贩零食+短剧游戏</td><td>消费降级受益</td></tr>
-        <tr><td>技术突破</td><td>精密仪器+材料</td><td>半导体设备+新材料</td><td>国产替代</td></tr>
-        <tr><td>复苏初期</td><td>出口导向型</td><td>新能源车出海+光伏</td><td>海外收入占比提升</td></tr>
-        <tr><td>弱复苏</td><td>高分红+高股息</td><td>公用事业+运营商</td><td>确定性现金流</td></tr>
+        <tr><td>衰退初期</td><td>医疗+必需消费</td><td>医药生物+食品饮料</td><td>防御属性</td><td>日本1990-2000年制药股(武田/盐野义)跑赢日经200%+，A股恒瑞/迈瑞逻辑相同</td></tr>
+        <tr><td>滞胀期</td><td>折扣零售+廉价娱乐</td><td>量贩零食+短剧游戏</td><td>消费降级受益</td><td>大创(Daiso)1991-2000涨10倍，A股名创优品类逻辑尚未完全兑现</td></tr>
+        <tr><td>技术突破</td><td>精密仪器+材料</td><td>半导体设备+新材料</td><td>国产替代</td><td>日本半导体设备(东京电子)在泡沫破裂后反而上涨，因为国产替代加速</td></tr>
+        <tr><td>复苏初期</td><td>出口导向型</td><td>新能源车出海+光伏</td><td>海外收入占比提升</td><td>日本汽车(丰田/本田)在日元升值期反而扩大全球份额，中国EV同理</td></tr>
+        <tr><td>弱复苏</td><td>高分红+高股息</td><td>公用事业+运营商</td><td>确定性现金流</td><td>日本1990s后电力/水务/铁路股成为最稳资产，A股长江电力已走出长牛</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">24.2 红利策略 — 类债资产的核心配置</h2>
     <table class="data-table">
-      <thead><tr><th>高股息板块</th><th>平均股息率</th><th>PE倍数</th><th>稳定性</th><th>推荐度</th></tr></thead>
+      <thead><tr><th>高股息板块</th><th>平均股息率</th><th>PE倍数</th><th>稳定性</th><th>推荐度</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>四大运营商(移动/电信/联通)</td><td>5-7%</td><td>12-15x</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>六大行(工农中建交邮)</td><td>5-6%</td><td>5-6x</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>煤炭/电力</td><td>6-8%</td><td>8-10x</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>高速公路</td><td>4-6%</td><td>10-12x</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
-        <tr><td>港口航运</td><td>3-5%</td><td>8-10x</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+        <tr><td>四大运营商(移动/电信/联通)</td><td>5-7%</td><td>12-15x</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>央企市值考核+分红承诺，移动股息率常年6%+，是A股最稳的类债资产</td></tr>
+        <tr><td>六大行(工农中建交邮)</td><td>5-6%</td><td>5-6x</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>PB<1意味着市场定价破产风险，但实际不良率可控，适合极度保守资金</td></tr>
+        <tr><td>煤炭/电力</td><td>6-8%</td><td>8-10x</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>煤炭周期性强(2022高点后下滑)，但长协价机制提供底线，电力受益于电价市场化</td></tr>
+        <tr><td>高速公路</td><td>4-6%</td><td>10-12x</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>车流量增长放缓但现金流稳定，适合收息型资金但缺乏α</td></tr>
+        <tr><td>港口航运</td><td>3-5%</td><td>8-10x</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>受全球贸易周期影响大，2024年红海危机推升运价但不可持续</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">24.3 成长策略 — 结构性赢家筛选框架</h2>
     <table class="data-table">
-      <thead><tr><th>筛选条件</th><th>标准</th><th>理由</th></tr></thead>
+      <thead><tr><th>筛选条件</th><th>标准</th><th>理由</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>行业增速</td><td>>15%/年</td><td>只有高增速行业能穿越周期</td></tr>
-        <tr><td>营收/净利</td><td>连续3年增长</td><td>排除一次性收益</td></tr>
-        <tr><td>ROE</td><td>>12%</td><td>资本效率高</td></tr>
-        <tr><td>海外收入占比</td><td>>20%或快速提升</td><td>出海逻辑验证</td></tr>
-        <tr><td>研发投入比</td><td>>5%</td><td>技术壁垒保护</td></tr>
-        <tr><td>自由现金流</td><td>为正</td><td>不靠融资续命</td></tr>
+        <tr><td>行业增速</td><td>>15%/年</td><td>只有高增速行业能穿越周期</td><td>日本失去的十年中，只有年均增速>20%的行业(折扣零售/制药/游戏)跑赢大盘</td></tr>
+        <tr><td>营收/净利</td><td>连续3年增长</td><td>排除一次性收益</td><td>A股大量企业靠政府补助/资产处置粉饰报表，需剔除"扣非前"利润</td></tr>
+        <tr><td>ROE</td><td>>12%</td><td>资本效率高</td><td>日本优秀企业在衰退期ROE仍能维持10%+，说明商业模式有韧性</td></tr>
+        <tr><td>海外收入占比</td><td>>20%或快速提升</td><td>出海逻辑验证</td><td>日本企业全球化是穿越衰退的关键——丰田海外利润占比超60%</td></tr>
+        <tr><td>研发投入比</td><td>>5%</td><td>技术壁垒保护</td><td>半导体设备/创新药/工业软件的研发投入与长期超额收益高度正相关</td></tr>
+        <tr><td>自由现金流</td><td>为正</td><td>不靠融资续命</td><td>日本资产负债表衰退期最大的教训：没有自由现金流的企业会被信贷收缩淘汰</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">24.4 具体策略组合建议</h2>
     <table class="data-table">
-      <thead><tr><th>仓位</th><th>策略</th><th>比例</th><th>目标收益</th><th>风险等级</th></tr></thead>
+      <thead><tr><th>仓位</th><th>策略</th><th>比例</th><th>目标收益</th><th>风险等级</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>底仓</td><td>红利+央企估值重塑</td><td>40%</td><td>8-12%(股息+小幅涨幅)</td><td>低风险</td></tr>
-        <tr><td>进攻</td><td>半导体/AI/新能源出海</td><td>30%</td><td>20-40%(若政策发力)</td><td>高风险</td></tr>
-        <tr><td>卫星</td><td>银发经济/折扣零售</td><td>20%</td><td>15-25%</td><td>中风险</td></tr>
-        <tr><td>现金</td><td>货币基金/短债</td><td>10%</td><td>2-3%</td><td>随时补仓子弹</td></tr>
+        <tr><td>底仓</td><td>红利+央企估值重塑</td><td>40%</td><td>8-12%(股息+小幅涨幅)</td><td>低风险</td><td>央企市值管理考核是确定性最高的政策红利，"中特估"逻辑至少持续2-3年</td></tr>
+        <tr><td>进攻</td><td>半导体/AI/新能源出海</td><td>30%</td><td>20-40%(若政策发力)</td><td>高风险</td><td>弹性最大但波动也最大，建议分批建仓(每跌10%加仓一次)，避免一次性满仓</td></tr>
+        <tr><td>卫星</td><td>银发经济/折扣零售</td><td>20%</td><td>15-25%</td><td>中风险</td><td>日本经验中最确定的结构性机会——老龄化+消费降级双驱动，但A股标的稀缺</td></tr>
+        <tr><td>现金</td><td>货币基金/短债</td><td>10%</td><td>2-3%</td><td>随时补仓子弹</td><td>熊市中最宝贵的不是股票而是现金，10%现金仓位确保你有能力在暴跌时抄底</td></tr>
       </tbody>
     </table>
 
+    <!-- 日本股市结构性牛市案例 -->
     <div class="case-box">
-      <div class="case-title"><i class="fas fa-chart-bar"></i> 日本经验启示录</div>
-      <div class="case-body">1990-2000年间，日经整体下跌但以下板块逆势涨了5-10倍：大创(10倍)、唐吉诃德(15倍)、迅销/优衣库(8倍)、药妆店业(6倍)。这些公司的共同特征是：在经济下行期满足了消费者的"降级需求"。A股中对应的是：量贩零食连锁、宠物经济、高性价比消费品牌、出海新能源。</div>
+      <div class="case-title"><i class="fas fa-chart-candlestick"></i> 案例：日本泡沫破裂后的结构性牛市 — 在绝望中寻找赢家</div>
+      <div class="case-body">
+        <strong>日经225的悲剧(1990-2003)：</strong>日经225从38,915点(1989年12月)暴跌至5,800点(2003年)，跌幅85%。绝大多数投资者血本无归。但在这个黑暗时代，有企业走出了独立牛市。<br><br>
+        <strong>逆势上涨的赢家：</strong>
+        <em>(1) 大创(Daiso)：</em>100円店龙头，1991年上市时股价3亿日元，2000年涨至30亿日元(10倍)。逻辑：经济越差，消费者越追求性价比。<br>
+        <em>(2) 唐吉诃德(Torch)：</em>折扣零售，1990年代末从便利店转型折扣店后股价涨15倍。逻辑：与优衣库类似的消费降级逻辑。<br>
+        <em>(3) 迅销/优衣库：</em>1999年上市(原称Furukawa)到2000年重组后，股价从低点涨8倍。逻辑：高性价比服装在经济下行期需求逆势增长。<br>
+        <em>(4) 药妆店业(松本清等)：</em>整个板块1990-2000年涨6倍。逻辑：老龄化+消费降级双重驱动。<br><br>
+        <strong>对A股的映射：</strong>这些日本企业在日经暴跌85%的熊市中实现了5-15倍的涨幅，核心逻辑是在经济下行期抓住了"消费降级"和"老龄化"两个确定性趋势。A股对应的赛道是：量贩零食(零食很忙/赵一鸣)、高性价比消费(名创优品/拼多多)、医药创新(恒瑞/百济神州)、宠物经济(中宠股份)。关键区别在于：中国目前处于"衰退初期"，日本经历了完整的"衰退→滞胀→弱复苏"周期，A股的结构性机会可能在未来5-10年逐步显现。<br><br>
+        <strong>警示：</strong>大多数投资者在日经熊市中的亏损不是因为选错了行业，而是因为用了杠杆。日本房地产+股市的双重崩盘中，融资融券爆仓是最大的财富毁灭器。A股投资者必须远离杠杆，这是第一条铁律。
+      </div>
+    </div>
+
+    <!-- 关键判断 -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-lightbulb"></i> 关键判断: 红利打底+科技进攻+消费卫星</div>
+      <div class="case-body">在A股当前估值底部(沪深300 PE≈11x，处于历史20%分位)，最优策略不是择时而是资产配置：40%红利央企吃股息(年化6-8%)+30%科技出海博弹性(年化15-30%)+20%银发消费跟趋势(年化10-20%)+10%现金留子弹。核心原则：不追高、不加杠杆、不All-in单一赛道。</div>
+    </div>
+
+    <!-- 多学派分析 -->
+    <h2 class="section-subtitle">24.5 多学派交叉解读 — 行为经济学+凯恩斯主义+货币主义+马克思主义+古典学派的A股研判</h2>
+
+    <div class="school-card behavioral">
+      <div class="school-name"><i class="fas fa-brain"></i> 行为经济学 (Behavioral Economics) — 卡尼曼/特沃斯基的 prospect theory 与 A股散户行为</div>
+      <div class="school-body">
+        A股散户占比约80%，其行为偏差远超成熟市场。卡尼曼的前景理论指出：<strong>损失厌恶系数约为2.25</strong>——同样金额的亏损带来的痛苦是盈利的2.25倍。这解释了为什么A股在下跌时恐慌性抛售(损失放大)而在上涨时过早止盈(盈利感知不足)。特沃斯基的<strong>锚定效应</strong>在A股尤为明显：投资者习惯将2021年茅台1,800元作为"合理价格"锚点，导致2024年在1,400元时仍觉得"太贵"。行为经济学的投资建议是：<strong>利用市场过度反应</strong>——在恐慌性暴跌时买入(2024年1月的3000点保卫战)，在狂热时卖出(2021年春节的消费股泡沫)。A股的β波动率约25-30%，远高于美股的15-18%，这为逆向投资者提供了更多α机会。
+      </div>
+    </div>
+
+    <div class="school-card keynesian">
+      <div class="school-name"><i class="fas fa-coins"></i> 凯恩斯主义 — "动物精神"与政策市逻辑</div>
+      <div class="school-body">
+        凯恩斯的"动物精神"(animal spirits)理论完美描述了A股的特征：<strong>市场情绪而非基本面驱动短期走势</strong>。2014-2015年的杠杆牛是"动物精神"的极致——散户融资融券涌入，上证指数从2,000点飙至5,178点，随后去杠杆引发股灾。凯恩斯主义对A股的启示是：<strong>政策底先于市场底，市场底先于经济底</strong>。2024年9月底的"政策组合拳"(降准+降息+互换便利)创造了政策底，但市场底需要等到企业盈利企稳(预计2025H2)，经济底则需要GDP增速企稳(预计2026年)。凯恩斯主义强调的"有效需求"在A股映射为：政策刺激→流动性改善→估值修复→盈利改善→基本面确认的四步传导链。
+      </div>
+    </div>
+
+    <div class="school-card monetary">
+      <div class="school-name"><i class="fas fa-money-bill-wave"></i> 货币主义 — M2/社融与A股的关系</div>
+      <div class="school-body">
+        Friedman的经典结论"M2增长决定通胀"在A股有一个延伸：<strong>M2增速与沪深300指数的相关性在过去10年中达到0.7+</strong>。2024年M2增速约10%，社融增速约9%，均低于2020-2021年的高位，这意味着A股缺乏全面牛市所需的货币基础。但货币主义的另一个洞见是：<strong>货币传导的效率比货币总量更重要</strong>。当前A股的结构性机会来自于"定向宽货币"——央行通过科技创新再贷款、普惠小微贷款等结构性工具向特定行业注入流动性。这解释了为什么半导体/AI/新能源板块在整体流动性偏紧的环境下仍能走出独立行情。
+      </div>
+    </div>
+
+    <div class="school-card marxist">
+      <div class="school-name"><i class="fas fa-hammer"></i> 马克思主义政治经济学 — 剩余价值率与A股估值</div>
+      <div class="school-body">
+        马克思主义的视角提供了一个常被忽略的分析维度：<strong>A股的本质是剩余价值的证券化分配</strong>。中国上市公司整体的剩余价值率(利润/工资)约为40-50%，高于美国的30-35%。这意味着A股企业有更强的利润创造能力，但分配结构偏向资本而非劳动。在"共同富裕"政策框架下，<strong>剩余价值的再分配趋势将压制高利润行业的估值天花板</strong>——教育(双减)、互联网(反垄断)、房地产(三道红线)都是例证。相反，<strong>劳动密集型行业的估值将获得溢价</strong>——医药(医保控费但需求刚性)、消费(内需驱动)、公共服务(养老/医疗基础设施)。马克思主义的长期判断：A股的β取决于资本积累周期的节奏，α取决于剩余价值再分配的博弈。
+      </div>
+    </div>
+
+    <div class="school-card classical">
+      <div class="school-name"><i class="fas fa-balance-scale"></i> 古典/新古典经济学 — 有效市场假说与A股异象</div>
+      <div class="school-body">
+        有效市场假说(EMH)在A股的检验结果是：<strong>半强式有效勉强成立，弱式有效存在明显异象</strong>。A股存在大量可被利用的异象：(1)<strong>规模效应</strong>——小盘股长期跑赢大盘股(罗素2000效应的中国版)；(2)<strong>动量效应</strong>——过去6个月涨幅前20%的股票未来3个月继续跑赢后20%约15%；(3)<strong>价值效应</strong>——低PB/低PE组合长期跑赢高估值组合，但在A股被散户情绪大幅削弱。新古典经济学的投资建议是：<strong>利用异象构建因子组合</strong>——低PB+高ROE+低换手率的"深度价值"因子在A股过去10年年化超额收益约8-12%。但需要注意：A股的异象在政策突变时可能被瞬间抹平(2015年股灾就是典型)。
+      </div>
+    </div>
+
+    <div class="synthesis-box">
+      <div class="synthesis-title"><i class="fas fa-balance-scale"></i> 综合研判 — 五大学派的A股共识与分歧</div>
+      <div class="synthesis-body">
+        <strong>共识：</strong>(1)当前A股估值处于历史底部区域(沪深300 PE≈11x)；(2)结构性机会远大于系统性机会；(3)红利资产是确定性最高的底仓配置。(4)日本经验表明熊市中的结构性赢家集中在消费降级+老龄化+技术突破三条主线。<br><br>
+        <strong>分歧：</strong>(1)凯恩斯主义认为政策底已现，应积极加仓；货币主义认为M2增速不足，应耐心等待；行为经济学认为散户情绪尚未见底，应利用恐慌收集筹码；马克思主义认为剩余价值再分配将重塑行业格局；古典学派认为因子异象仍可套利。<br><br>
+        <strong>策略合成：</strong>采取"核心-卫星"架构——核心仓位(40%)由红利央企构成(凯恩斯+货币主义共识)，卫星仓位(50%)按行为经济学"逆向投资"原则在超跌的成长股中筛选(半导体/AI/新能源)，辅以马克思主义指引的"再分配受益"行业(医药/消费公共服务)。现金仓位(10%)保留应对极端风险的灵活性。
+      </div>
     </div>
 
     <div class="chart-container" id="chart-demo"></div>
-
-    <h2 class="section-subtitle">实操指南：A股投资策略从入门到精通 — 从零开始的完整操作手册</h2>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心原则</div>
-      <div class="tip-body">在经济下行期，A股投资策略应该以ETF定投为主、个股精选为辅。控制总仓位在50-70%之间，永远不要用杠杆炒股。记住日本的经验：1990-2000年间坚持定投日经ETF的人，在第8年才勉强回本。耐心是最好的策略。</div>
-    </div>
-
-    <h3 class="step-title">第一步：选择合适的券商开户</h3>
-    <ol class="steps-list">
-      <li><strong>佣金比较</strong>：选择佣金低于万分之2.5的券商，最好谈到万1.5。年交易额10万的投资者，万1和万2.5的佣金差额高达1,350元/年。</li>
-      <li><strong>APP体验</strong>：推荐使用华泰证券(涨乐财富通)或东方财富，它们的条件单功能和网格交易功能最完善。</li>
-      <li><strong>开通权限</strong>：开户时同时开通科创板(50万门槛)和港股通(50万门槛)权限，即使暂时不交易，以备未来资金达标后使用。</li>
-    </ol>
-
-    <h3 class="step-title">第二步：建立你的第一份投资组合</h3>
-    <p>新手不要一上来就买个股，先从ETF开始建立仓位：
-    <ol class="steps-list">
-      <li><strong>核心仓位(50%)：沪深300ETF(510300)</strong>。代表A股最核心的300家公司，PE约11倍，处于历史低位。每年 rebalance 一次即可。</li>
-      <li><strong>卫星仓位(20%)：科创50ETF(588000)</strong>。高弹性、高波动，在政策利好期涨幅远超大盘，适合小仓位博弈。</li>
-      <li><strong>防御仓位(20%)：红利ETF(510880)</strong>。年化分红4-6%，熊市跌得少、牛市跟得上，是最适合长期持有的品种。</li>
-      <li><strong>现金仓位(10%)：货基或短债</strong>。随时可以用于抄底的机会弹药。</li>
-    </ol>
-
-    <h3 class="step-title">第三步：掌握三大估值指标</h3>
-    <p>判断买贵了还是买便宜了，只需看三个核心指标：</p>
-    <div class="grid-2">
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">PE百分位</div>
-        <div class="label">沪深300PE处于历史10%分位以下：强烈推荐买入。处于80%以上：强烈建议卖出。查看方式：东方财富App→指数→估值分析。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">PB百分位</div>
-        <div class="label">银行/地产/保险等重资产行业看PB更准确。PB低于1意味着"打折卖资产"，历史底部区域。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">股债利差(FED模型)</div>
-        <div class="label">沪深300市盈率倒数 - 10年期国债收益率。差值>7%说明股票极具吸引力，<3%说明股票贵。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">盈利收益率</div>
-        <div class="label">1/PE。当前约9%，远高于3%的定存利率，说明股票的"盈利回报率"远超存款。</div>
-      </div>
-    </div>
-
-    <h3 class="step-title">第四步：A股T+1交易制度的实操技巧</h3>
-    <p>A股是T+1交易(当天买的不能当天卖)，但有变通方法：</p>
-    <ol class="steps-list">
-      <li><strong>底仓T+0</strong>：如果你已有10万持仓，可以用1万资金当天买入，再卖出1万旧的筹码，实现变相T+0。需要一定的盘感。</li>
-      <li><strong>网格交易</strong>：在震荡市中，设置每跌3%买入一笔、每涨3%卖出一笔的网格策略。用券商自带的条件单功能自动执行。</li>
-      <li><strong>可转债T+0</strong>：可转债市场是T+0交易且没有印花税，适合短线交易者作为日内交易的品种。</li>
-    </ol>
-
-    <h3 class="step-title">第五步：港股通的独特机会</h3>
-    <p>通过港股通(需50万资产开通)，你可以投资A股没有的优质标的：</p>
-    <ol class="steps-list">
-      <li><strong>港股高股息</strong>：中国电信(0728.HK)股息率8%+，工行(1398.HK)股息率9%+，比A股同类更高。</li>
-      <li><strong>A股没有的稀缺标的</strong>：美团(3690.HK)、小米(1810.HK)、快手(1024.HK)——这些互联网龙头在A股找不到替代品。</li>
-      <li><strong>H股折价套利</strong>：同一公司A+H股，H股通常比A股折让20-40%。如比亚迪(0121.HK)相比A股折价30%+</li>
-    </ol>
-
-    <h2 class="section-subtitle">实操指南：ETF定投的完整执行方案</h2>
-
-    <p>定投是普通人在A股最可能成功的策略。以下是经过日本经验验证的详细方案：</p>
-
-    <h3 class="step-title">标准定投计划 — 每月自动扣款</h3>
-    <ol class="steps-list">
-      <li><strong>选择标的</strong>：宽基指数优先(沪深300/中证500)，行业指数次之(半导体/医药/新能源)。</li>
-      <li><strong>定投金额</strong>：建议每月收入的10-30%。月入1万的人定投2,000-3,000元最合适，不影响生活。</li>
-      <li><strong>定投频率</strong>：每周四最佳——"黑色星期四"效应在A股有统计显著性。但月度定投和周度定投的长期收益差异不到1%。</li>
-      <li><strong>止盈策略</strong>：设定目标收益率+20%时分批赎回，不贪最后一枚铜板。</li>
-      <li><strong>坚持周期</strong>：最少坚持3年。日本经验显示，定投日经指数的投资者在第3年开始正收益，第5年收益率稳定在5-8%。</li>
-    </ol>
-
-    <h3 class="step-title">聪明定投 — 估值锚定法</h3>
-    <p>在标准定投的基础上，根据估值调整每期扣款金额：</p>
-    <ol class="steps-list">
-      <li>沪深300PE低于11倍：定投金额乘以1.5(多买)</li>
-      <li>沪深300PE在11-14倍之间：定投金额乘以1.0(正常)</li>
-      <li>沪深300PE在14-17倍之间：定投金额乘以0.7(少买)</li>
-      <li>沪深300PE高于17倍：定投金额乘以0.3(暂停定投)</li>
-      <li>沪深300PE高于20倍：停止定投，开始分批赎回</li>
-    </ol>
-
-    <h2 class="section-subtitle">实操指南：从日本经验学到的A股避坑指南</h2>
-
-    <div class="case-box">
-      <div class="case-title"><i class="fas fa-exclamation-triangle"></i> 日本泡沫破裂后的散户三大致命错误</div>
-      <div class="case-body">1)在泡沫末期借贷炒股(保证金交易)，暴跌时被强制平仓；2)把股票当作存款，认为"迟早会涨回来"；3)听信内幕消息重仓单一个股。避免这三件事，你在A股就已经战胜了70%的散户。</div>
-    </div>
-
-    <ol class="steps-list">
-      <li><strong>永远不要融资炒股</strong>：杠杆会放大你的行为偏差，在波动市场中被洗出局。</li>
-      <li><strong>单一股票不超过总仓位的15%</strong>：分散化是最免费的午餐，即使你看好某只股票也不要All-in。</li>
-      <li><strong>警惕"股神"和"内幕消息"</strong>：任何承诺年化收益超过15%的产品都值得高度警惕。</li>
-    </ol>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-chart-bar"></i> 投资策略实操原则总结</div>
-      <div class="tip-body">1)新手从ETF开始，不要一上来就炒个股；2)定投+止盈是胜率最高的策略组合；3)估值锚定法让你在熊市多买、牛市少买，自动完成"低买高卖"；4)港股通的H股高股息策略，是在低利率时代获取稳定现金流的好办法；5)永远保留10%的现金仓位，那是你的"战争基金"。</div>
-    </div>
-
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="23-behavioral-china.html"><i class="fas fa-arrow-left"></i> 行为经济学</a>
@@ -228,20 +251,80 @@
     var chart = echarts.init(document.getElementById('chart-demo'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-      legend: { data: ['仓位比例'], textStyle: { color: '#94a3b8' }, top: 0 },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'cross' },
+        formatter: function(params) {
+          var res = params[0].name + '<br/>';
+          params.forEach(function(p) {
+            res += p.marker + p.seriesName + ': ' + p.value + '%<br/>';
+          });
+          return res;
+        }
+      },
+      legend: {
+        data: ['日经225指数(归一化)', '日本消费降级赢家指数', 'A股沪深300(当前)'],
+        textStyle: { color: '#94a3b8' }, top: 0
+      },
       grid: { left: 70, right: 40, top: 50, bottom: 40 },
-      xAxis: { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'category', data: ['红利央企(40%)', '科技出海(30%)', '银发消费(20%)', '现金(10%)'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      series: [{
-        name: '仓位比例', type: 'bar', data: [40, 30, 20, 10],
-        itemStyle: { color: function(params) {
-          var colors = ['#10b981', '#06b6d4', '#f59e0b', '#64748b'];
-          return colors[params.dataIndex];
-        }, borderRadius: [0, 4, 4, 0] }
-      }]
+      xAxis: {
+        type: 'category',
+        data: ['1989','1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2015','2020','2024'],
+        axisLabel: { color: '#94a3b8', interval: 2, rotate: 15 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      yAxis: {
+        type: 'value',
+        name: '(指数值)',
+        nameTextStyle: { color: '#94a3b8' },
+        axisLabel: { color: '#94a3b8' },
+        splitLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [
+        {
+          name: '日经225指数(归一化)',
+          type: 'line',
+          data: [100, 65, 50, 42, 38, 35, 33, 30, 28, 25, 24, 23, 22, 20, 18, 22, 28, 40, 55, 20, 25, 30, 35, 32, 28],
+          smooth: true,
+          itemStyle: { color: '#ef4444' },
+          lineStyle: { width: 2 },
+          markPoint: {
+            data: [
+              { name: '泡沫顶点', coord: ['1989', 100], value: '100', itemStyle: { color: '#ef4444' } },
+              { name: '泡沫谷底', coord: ['2003', 18], value: '18', itemStyle: { color: '#ef4444' } }
+            ]
+          }
+        },
+        {
+          name: '日本消费降级赢家指数',
+          type: 'line',
+          data: [10, 12, 15, 18, 22, 27, 33, 40, 48, 58, 70, 85, 100, 118, 140, 155, 170, 190, 210, 180, 200, 220, 250, 280, 310],
+          smooth: true,
+          itemStyle: { color: '#10b981' },
+          lineStyle: { width: 2 },
+          markPoint: {
+            data: [
+              { name: '大创/唐吉诃德/优衣库综合', coord: ['2003', 140], value: '14x', itemStyle: { color: '#10b981' } }
+            ]
+          }
+        },
+        {
+          name: 'A股沪深300(当前)',
+          type: 'line',
+          data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 100],
+          smooth: true,
+          itemStyle: { color: '#06b6d4' },
+          lineStyle: { width: 2 },
+          markPoint: {
+            data: [
+              { name: '当前估值底部', coord: ['2024', 100], value: 'PE≈11x', itemStyle: { color: '#06b6d4' } }
+            ]
+          }
+        }
+      ]
     });
     window.addEventListener('resize', function() { chart.resize(); });
   </script>
+  </footer>
 </body>
 </html>

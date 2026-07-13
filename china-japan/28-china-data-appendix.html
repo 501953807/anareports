@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .school-view { padding: 12px 16px; margin-bottom: 12px; border-radius: 4px; }
+    .school-view p { margin: 6px 0 0; }
+    .divergence-chain { padding: 14px 18px; margin-bottom: 20px; border-radius: 6px; }
+    .divergence-chain p { margin: 0 0 8px; }
+  </style>
 </head>
 <body>
   <nav class="top-nav">
@@ -58,161 +64,141 @@
   </ul></aside>
   <main class="content">
     <h1 class="section-title">附录A：中国宏观经济数据表</h1>
-    <div class="data-note" style="margin-bottom:20px">本附录汇集了本书涉及的所有核心宏观经济数据，包括GDP、CPI/PPI、失业率、进出口、货币供应、房价、债务等关键指标。数据来源：国家统计局、中国人民银行、Wind、IMF。</div>
+    <div class="data-note" style="margin-bottom:20px">本附录汇集了本书涉及的所有核心宏观经济数据，包括GDP、CPI/PPI、失业率、进出口、货币供应、房价、债务等关键指标。数据来源：国家统计局、中国人民银行、Wind、IMF。所有数据均为公开统计口径，部分2024年为初步核算值。</div>
 
-    <h2 class="section-subtitle">A.1 GDP与经济增长</h2>
-    <table class="data-table">
-      <thead><tr><th>年份</th><th>GDP(万亿元)</th><th>增速(%)</th><th>人均GDP(元)</th><th>一产占比</th><th>二产占比</th><th>三产占比</th></tr></thead>
-      <tbody>
-        <tr><td>2015</td><td>68.9</td><td>6.9</td><td>49,976</td><td>8.9%</td><td>39.5%</td><td>51.6%</td></tr>
-        <tr><td>2016</td><td>74.6</td><td>6.7</td><td>53,980</td><td>8.6%</td><td>39.6%</td><td>51.8%</td></tr>
-        <tr><td>2017</td><td>83.2</td><td>6.8</td><td>59,660</td><td>7.9%</td><td>40.5%</td><td>51.6%</td></tr>
-        <tr><td>2018</td><td>91.9</td><td>6.7</td><td>64,644</td><td>7.2%</td><td>40.7%</td><td>52.1%</td></tr>
-        <tr><td>2019</td><td>98.7</td><td>6.0</td><td>70,103</td><td>7.1%</td><td>39.0%</td><td>53.9%</td></tr>
-        <tr><td>2020</td><td>101.4</td><td>2.2</td><td>70,892</td><td>7.7%</td><td>37.8%</td><td>54.5%</td></tr>
-        <tr><td>2021</td><td>114.9</td><td>8.4</td><td>80,976</td><td>7.3%</td><td>39.4%</td><td>53.3%</td></tr>
-        <tr><td>2022</td><td>121.0</td><td>3.0</td><td>85,698</td><td>7.3%</td><td>39.9%</td><td>52.8%</td></tr>
-        <tr><td>2023</td><td>126.1</td><td>5.2</td><td>89,358</td><td>7.1%</td><td>38.3%</td><td>54.6%</td></tr>
-        <tr><td>2024</td><td>134.0</td><td>5.0</td><td>94,470</td><td>6.8%</td><td>37.5%</td><td>55.7%</td></tr>
-      </tbody>
-    </table>
+    <h2 class="section-subtitle">🔬 数据背后的学派解读：如何正确阅读宏观经济数据</h2>
 
-    <h2 class="section-subtitle">A.2 价格与就业</h2>
-    <table class="data-table">
-      <thead><tr><th>年份</th><th>CPI同比(%)</th><th>PPI同比(%)</th><th>城镇调查失业率(%)</th><th>16-24岁失业率</th><th>PMI</th></tr></thead>
-      <tbody>
-        <tr><td>2018</td><td>+1.9</td><td>+3.5</td><td>3.8</td><td>—</td><td>50.1</td></tr>
-        <tr><td>2019</td><td>+2.9</td><td>-0.3</td><td>3.6</td><td>—</td><td>49.6</td></tr>
-        <tr><td>2020</td><td>+2.5</td><td>-1.8</td><td>3.6</td><td>14.3</td><td>50.3</td></tr>
-        <tr><td>2021</td><td>+0.9</td><td>+4.1</td><td>3.9</td><td>14.6</td><td>50.3</td></tr>
-        <tr><td>2022</td><td>+2.0</td><td>-0.3</td><td>4.0</td><td>17.0</td><td>49.7</td></tr>
-        <tr><td>2023</td><td>+0.2</td><td>-3.0</td><td>4.0</td><td>14.9</td><td>49.5</td></tr>
-        <tr><td>2024</td><td>+0.3</td><td>-1.8</td><td>3.9-4.0</td><td>14.5</td><td>49.3-50.2</td></tr>
-      </tbody>
-    </table>
-
-    <h2 class="section-subtitle">A.3 国际贸易与外汇</h2>
-    <table class="data-table">
-      <thead><tr><th>年份</th><th>出口(万亿元)</th><th>进口(万亿元)</th><th>顺差(万亿元)</th><th>外汇储备(万亿美元)</th><th>FDI净流入</th></tr></thead>
-      <tbody>
-        <tr><td>2018</td><td>16.4</td><td>14.1</td><td>2.3</td><td>3.01</td><td>$1,363亿</td></tr>
-        <tr><td>2019</td><td>17.2</td><td>14.3</td><td>2.9</td><td>3.10</td><td>$1,412亿</td></tr>
-        <tr><td>2020</td><td>17.9</td><td>14.2</td><td>3.7</td><td>3.22</td><td>$1,444亿</td></tr>
-        <tr><td>2021</td><td>21.7</td><td>17.4</td><td>4.3</td><td>3.25</td><td>$1,736亿</td></tr>
-        <tr><td>2022</td><td>23.9</td><td>18.1</td><td>5.8</td><td>3.18</td><td>$1,543亿</td></tr>
-        <tr><td>2023</td><td>22.4</td><td>16.8</td><td>5.6</td><td>3.22</td><td>$1,107亿</td></tr>
-        <tr><td>2024</td><td>24.9</td><td>18.0</td><td>6.9</td><td>3.20</td><td>约$1,000亿</td></tr>
-      </tbody>
-    </table>
-
-    <h2 class="section-subtitle">A.4 货币与信用</h2>
-    <table class="data-table">
-      <thead><tr><th>年份</th><th>M2(万亿元)</th><th>M2增速</th><th>社融存量(万亿)</th><th>新增人民币贷款(万亿)</th></tr></thead>
-      <tbody>
-        <tr><td>2020</td><td>218</td><td>10.1%</td><td>288</td><td>17.2</td></tr>
-        <tr><td>2021</td><td>238</td><td>9.0%</td><td>314</td><td>19.9</td></tr>
-        <tr><td>2022</td><td>274</td><td>11.8%</td><td>340</td><td>21.3</td></tr>
-        <tr><td>2023</td><td>292</td><td>9.7%</td><td>378</td><td>22.7</td></tr>
-        <tr><td>2024</td><td>310+</td><td>7.5-8.0%</td><td>400+</td><td>19-20(偏弱)</td></tr>
-      </tbody>
-    </table>
-
-    <h2 class="section-subtitle">A.5 房地产关键指标</h2>
-    <table class="data-table">
-      <thead><tr><th>年份</th><th>商品房销售额(万亿)</th><th>销售面积(亿m²)</th><th>房地产开发投资(万亿)</th><th>70城房价指数同比</th></tr></thead>
-      <tbody>
-        <tr><td>2020</td><td>17.4</td><td>17.6</td><td>14.1</td><td>+4.9%</td></tr>
-        <tr><td>2021</td><td>18.2(峰值)</td><td>18.2</td><td>14.8(峰值)</td><td>+1.8%</td></tr>
-        <tr><td>2022</td><td>13.3</td><td>13.6</td><td>13.3</td><td>-1.7%</td></tr>
-        <tr><td>2023</td><td>10.1</td><td>11.2</td><td>11.0</td><td>-6.5%</td></tr>
-        <tr><td>2024</td><td>8.5</td><td>9.8</td><td>9.5</td><td>-10%+</td></tr>
-      </tbody>
-    </table>
-
-    <div class="chart-container" id="chart-demo"></div>
-
-    <h2 class="section-subtitle">实操指南：如何读懂中国宏观经济数据 — 投资者的数据素养课</h2>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心原则</div>
-      <div class="tip-body">数据本身没有意义，数据之间的关系才有意义。投资者不需要成为统计学家，但必须掌握"读数据、找信号、做决策"的基本功。本节教你如何用宏观数据辅助投资决策，而不是被数据牵着鼻子走。</div>
+    <div class="school-view" style="background:rgba(6,182,212,0.06);border-left:3px solid #06b6d4;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#06b6d4"><i class="fas fa-coins"></i> 货币主义视角：M2增速与通胀/通缩的关系</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">弗里德曼的名言"通胀始终且处处是一种货币现象"在中国当前语境下呈现出悖论：M2从2020年的218万亿飙升至2024年的310万亿（+42%），CPI却从2.5%跌至0.3%。货币主义的回应是：货币流通速度(V)在急剧下降——钱从实体经济中"蒸发"了，堆积在银行体系内空转。这就是为什么中国出现了"宽货币+紧信用"的罕见组合。数据解读的关键不在于M2总量，而在于<strong>M2-GDP剪刀差</strong>——当M2增速持续高于GDP增速，差额就是"货币沉淀"，预示着未来的通胀压力或资产价格重估。</p>
     </div>
 
-    <h3 class="step-title">第一步：每月必看的数据发布日历</h3>
-    <p>中国的重要宏观经济数据按月发布，养成看日历的习惯，以下是每月必须关注的发布时间点和数据：</p>
-    <ol class="steps-list">
-      <li><strong>每月1-15日：PMI(采购经理指数)</strong>。由中采(民间版)和中物联(官方版)分别发布。PMI>50表示经济扩张，<50表示收缩。重点看新订单分项——它领先GDP约1-2个季度。</li>
-      <li><strong>每月15日前后：CPI和PPI</strong>。CPI反映消费端通胀，PPI反映生产端通缩/通胀。最关键的指标是"CPI-PPI剪刀差"——如果PPI持续为负而CPI为正，说明制造业利润在压缩，股市中的制造业板块要回避。</li>
-      <li><strong>每月15日左右：新增贷款和社会融资</strong>。社融增量是股市的前瞻指标。如果单月社融低于3,000亿说明流动性收紧，股市通常会下跌3-5%。</li>
-      <li><strong>每月15-20日：工业增加值和固定资产投资</strong>。工业增加值同比增速>6%说明制造业景气，<4%说明偏弱。</li>
-      <li><strong>每月20-25日：进出口数据</strong>。出口增速>10%对A股有利好，<0%则说明外需疲软。</li>
-    </ol>
+    <div class="school-view" style="background:rgba(245,158,11,0.06);border-left:3px solid #f59e0b;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#f59e0b"><i class="fas fa-chart-line"></i> 凯恩斯主义视角：PPI连续负增长的含义</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">PPI连续两年负增长（2022:-0.3%, 2023:-3.0%, 2024:-1.8%）是凯恩斯主义"有效需求不足"的典型症状。PPI反映的是工业品出厂价格，其持续下跌意味着企业利润被压缩→裁员降薪→消费萎缩→进一步压低PPI的正向螺旋。但凯恩斯主义的政策处方是明确的：在私人部门去杠杆时，政府必须成为"最后的借款人"。2024年特别国债增发、地方专项债提速——这正是凯恩斯主义逆周期调节的中国版实践。数据解读的关键指标：<strong>PPI-CPI剪刀差</strong>（2023年为-2.8个百分点），差距越大说明企业端压力越重。</p>
+    </div>
 
-    <h3 class="step-title">第二步：哪些数据对股市影响最大？</h3>
-    <p>不是所有宏观数据都对股市有直接影响。以下是经过回测验证的"股市敏感指标"排序：</p>
-    <div class="grid-2">
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">社融增量(M1-M2增速差)</div>
-        <div class="label">M1增速-M2增速的差值为正时，说明企业资金活跃度高，股市通常在接下来3个月上涨。反之则为危险信号。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">PPI同比</div>
-        <div class="label">PPI回升预示企业利润改善，利好周期股(有色/化工/建材)。PPI为负时回避周期板块。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">10年期国债收益率</div>
-        <div class="label">收益率上行利好银行(息差扩大)利空成长股(贴现率升高)。收益率快速攀升时减仓科技股。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">城镇调查失业率</div>
-        <div class="label">失业率>5%触发政策宽松预期，利好股市。但失业率本身恶化说明基本面差，短期会拖累市场。</div>
+    <div class="school-view" style="background:rgba(139,92,246,0.06);border-left:3px solid #8b5cf6;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#8b5cf6"><i class="fas fa-balance-scale"></i> 明斯基金融不稳定假说：从"对冲性融资"到"庞氏融资"</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">海曼·明斯基的理论完美解释了中国的债务累积路径：2008-2015年（对冲性融资——现金流覆盖本息）→2015-2020年（投机性融资——借新还旧）→2020-至今（庞氏融资——现金流不足以覆盖利息，需靠资产升值来偿债）。房地产就是最大的"庞氏融资"载体：开发商靠不断拿地→地价上涨→抵押获取更多贷款→继续拿地。当房价预期逆转，整个链条瞬间崩塌。数据中的关键信号：<strong>社融存量增速与M2增速的背离</strong>——2024年M2增速7.5-8.0%，社融增速却持续低于M2，说明新增货币没有转化为实体融资需求。</p>
+    </div>
+
+    <h2 class="section-subtitle">A.1 GDP与经济增长 — 完整数据表</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>GDP(万亿元)</th><th>增速(%)</th><th>人均GDP(元)</th><th>一产占比</th><th>二产占比</th><th>三产占比</th><th>日本对标(年份)</th></tr></thead>
+      <tbody>
+        <tr><td>2015</td><td>68.9</td><td>6.9</td><td>49,976</td><td>8.9%</td><td>39.5%</td><td>51.6%</td><td>日本1990:GDP增速5.0%,三产59%</td></tr>
+        <tr><td>2016</td><td>74.6</td><td>6.7</td><td>53,980</td><td>8.6%</td><td>39.6%</td><td>51.8%</td><td>日本1991:GDP增速-0.1%</td></tr>
+        <tr><td>2017</td><td>83.2</td><td>6.8</td><td>59,660</td><td>7.9%</td><td>40.5%</td><td>51.6%</td><td>日本1992:GDP增速-0.5%</td></tr>
+        <tr><td>2018</td><td>91.9</td><td>6.7</td><td>64,644</td><td>7.2%</td><td>40.7%</td><td>52.1%</td><td>日本1993:GDP增速-1.1%</td></tr>
+        <tr><td>2019</td><td>98.7</td><td>6.0</td><td>70,103</td><td>7.1%</td><td>39.0%</td><td>53.9%</td><td>日本1994:GDP增速1.5%</td></tr>
+        <tr><td>2020</td><td>101.4</td><td>2.2</td><td>70,892</td><td>7.7%</td><td>37.8%</td><td>54.5%</td><td>日本1995:GDP增速-0.8%</td></tr>
+        <tr><td>2021</td><td>114.9</td><td>8.4</td><td>80,976</td><td>7.3%</td><td>39.4%</td><td>53.3%</td><td>日本1996:GDP增速2.0%</td></tr>
+        <tr><td>2022</td><td>121.0</td><td>3.0</td><td>85,698</td><td>7.3%</td><td>39.9%</td><td>52.8%</td><td>日本1998:GDP增速-1.4%</td></tr>
+        <tr><td>2023</td><td>126.1</td><td>5.2</td><td>89,358</td><td>7.1%</td><td>38.3%</td><td>54.6%</td><td>日本2000:GDP增速0.5%</td></tr>
+        <tr><td>2024</td><td>134.0</td><td>5.0</td><td>94,470</td><td>6.8%</td><td>37.5%</td><td>55.7%</td><td>日本2003:GDP增速2.0%</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">A.2 价格与就业 — 完整数据表</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>CPI同比(%)</th><th>PPI同比(%)</th><th>城镇调查失业率(%)</th><th>16-24岁失业率</th><th>PMI</th><th>行为经济学解读</th></tr></thead>
+      <tbody>
+        <tr><td>2018</td><td>+1.9</td><td>+3.5</td><td>3.8</td><td>—</td><td>50.1</td><td>乐观期:PMI刚过荣枯线</td></tr>
+        <tr><td>2019</td><td>+2.9</td><td>-0.3</td><td>3.6</td><td>—</td><td>49.6</td><td>PPI转负预示需求走弱</td></tr>
+        <tr><td>2020</td><td>+2.5</td><td>-1.8</td><td>3.6</td><td>14.3</td><td>50.3</td><td>疫情冲击:青年失业率首次披露</td></tr>
+        <tr><td>2021</td><td>+0.9</td><td>+4.1</td><td>3.9</td><td>14.6</td><td>50.3</td><td>PPI反弹(大宗商品牛市),CPI低迷(消费疲软)</td></tr>
+        <tr><td>2022</td><td>+2.0</td><td>-0.3</td><td>4.0</td><td>17.0</td><td>49.7</td><td>16-24岁失业率破17%:青年焦虑高峰</td></tr>
+        <tr><td>2023</td><td>+0.2</td><td>-3.0</td><td>4.0</td><td>14.9</td><td>49.5</td><td>CPI接近零:通缩信号初现</td></tr>
+        <tr><td>2024</td><td>+0.3</td><td>-1.8</td><td>3.9-4.0</td><td>14.5</td><td>49.3-50.2</td><td>PPI-CPI剪刀差:企业利润持续承压</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">A.3 国际贸易与外汇 — 完整数据表</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>出口(万亿元)</th><th>进口(万亿元)</th><th>顺差(万亿元)</th><th>外汇储备(万亿美元)</th><th>FDI净流入</th><th>日本对标</th></tr></thead>
+      <tbody>
+        <tr><td>2018</td><td>16.4</td><td>14.1</td><td>2.3</td><td>3.01</td><td>$1,363亿</td><td>日本1987:顺差占GDP2.5%</td></tr>
+        <tr><td>2019</td><td>17.2</td><td>14.3</td><td>2.9</td><td>3.10</td><td>$1,412亿</td><td>日本1990:顺差占GDP3.8%</td></tr>
+        <tr><td>2020</td><td>17.9</td><td>14.2</td><td>3.7</td><td>3.22</td><td>$1,444亿</td><td>日本1993:顺差占GDP3.5%</td></tr>
+        <tr><td>2021</td><td>21.7</td><td>17.4</td><td>4.3</td><td>3.25</td><td>$1,736亿</td><td>日本1986:顺差占GDP3.2%(广场协议前)</td></tr>
+        <tr><td>2022</td><td>23.9</td><td>18.1</td><td>5.8</td><td>3.18</td><td>$1,543亿</td><td>日本1988:顺差占GDP4.0%(巅峰)</td></tr>
+        <tr><td>2023</td><td>22.4</td><td>16.8</td><td>5.6</td><td>3.22</td><td>$1,107亿</td><td>日本1991:FDI开始净流出</td></tr>
+        <tr><td>2024</td><td>24.9</td><td>18.0</td><td>6.9</td><td>3.20</td><td>约$1,000亿</td><td>日本1995:FDI净流出加速</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">A.4 货币与信用 — 完整数据表</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>M2(万亿元)</th><th>M2增速</th><th>社融存量(万亿)</th><th>新增人民币贷款(万亿)</th><th>M2/GDP比值</th></tr></thead>
+      <tbody>
+        <tr><td>2020</td><td>218</td><td>10.1%</td><td>288</td><td>17.2</td><td>215%</td></tr>
+        <tr><td>2021</td><td>238</td><td>9.0%</td><td>314</td><td>19.9</td><td>207%</td></tr>
+        <tr><td>2022</td><td>274</td><td>11.8%</td><td>340</td><td>21.3</td><td>226%</td></tr>
+        <tr><td>2023</td><td>292</td><td>9.7%</td><td>378</td><td>22.7</td><td>231%</td></tr>
+        <tr><td>2024</td><td>310+</td><td>7.5-8.0%</td><td>400+</td><td>19-20(偏弱)</td><td>230%+</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">A.5 房地产关键指标 — 完整数据表</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>商品房销售额(万亿)</th><th>销售面积(亿m²)</th><th>房地产开发投资(万亿)</th><th>70城房价指数同比</th><th>销售额/ GDP</th></tr></thead>
+      <tbody>
+        <tr><td>2020</td><td>17.4</td><td>17.6</td><td>14.1</td><td>+4.9%</td><td>17.2%</td></tr>
+        <tr><td>2021</td><td>18.2(峰值)</td><td>18.2</td><td>14.8(峰值)</td><td>+1.8%</td><td>15.8%</td></tr>
+        <tr><td>2022</td><td>13.3</td><td>13.6</td><td>13.3</td><td>-1.7%</td><td>11.0%</td></tr>
+        <tr><td>2023</td><td>10.1</td><td>11.2</td><td>11.0</td><td>-6.5%</td><td>8.0%</td></tr>
+        <tr><td>2024</td><td>8.5</td><td>9.8</td><td>9.5</td><td>-10%+</td><td>6.3%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-building"></i> 案例：房地产销售额从18.2万亿跌至8.5万亿 — 日本经验的镜像</div>
+      <div class="case-body">
+        <p>中国商品房销售额从2021年峰值18.2万亿元，到2024年跌至8.5万亿元，跌幅达<strong>53%</strong>。这一跌幅与日本1990-1994年房地产交易额的跌幅（-55%）几乎完全一致。</p>
+        <p><strong>关键区别：</strong>日本的房地产下滑是"一次性冲击"（1990-1994年完成），之后逐步企稳；而中国的房地产下滑仍在持续（2021-2024），且范围更广——不仅是一线城市，二三线城市的跌幅同样剧烈。这意味着中国的"资产负债表衰退"可能比日本更持久。</p>
+        <p><strong>数据透视：</strong>房地产销售额占GDP比重从15.8%(2021)降至6.3%(2024)，降幅近10个百分点。考虑到房地产产业链（建筑、建材、家居、金融）占GDP的25-30%，这意味着中国GDP实际上被"隐性压缩"了约5-7个百分点——这与日本1990-2003年名义GDP零增长的结果高度吻合。</p>
       </div>
     </div>
 
-    <h3 class="step-title">第三步：房地产数据的投资翻译</h3>
-    <p>房地产数据占中国GDP直接贡献约7%但间接影响超过25%。以下是翻译方法：</p>
-    <ol class="steps-list">
-      <li><strong>商品房销售额同比下降</strong>：意味着钢铁、水泥、家电、家居全部受影响。回避周期性建材股。</li>
-      <li><strong>房地产开发投资增速转正</strong>：说明政策底出现，基建、建材、银行板块将迎来反弹。</li>
-      <li><strong>70城新房价格指数环比</strong>：如果连续三个月环比上涨，说明楼市企稳，房地产ETF可以考虑。</li>
-      <li><strong>百强房企销售额增速</strong>：领先股市房地产板块约1-2个季度，是最有用的先行指标。</li>
-    </ol>
+    <h2 class="section-subtitle">A.6 债务结构 — 关键数据补充</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>宏观杠杆率(总债务/GDP)</th><th>居民部门</th><th>企业部门</th><th>政府部门</th><th>日本对标</th></tr></thead>
+      <tbody>
+        <tr><td>2020</td><td>270%</td><td>62%</td><td>165%</td><td>43%</td><td>日本1990:240%(企业部门泡沫期)</td></tr>
+        <tr><td>2021</td><td>285%</td><td>63%</td><td>168%</td><td>54%</td><td>日本1992:290%(企业部门开始去杠杆)</td></tr>
+        <tr><td>2022</td><td>295%</td><td>64%</td><td>167%</td><td>64%</td><td>日本1995:320%(政府开始接盘)</td></tr>
+        <tr><td>2023</td><td>305%</td><td>64%</td><td>165%</td><td>76%</td><td>日本1998:350%(住专问题爆发)</td></tr>
+        <tr><td>2024</td><td>310%+</td><td>63-64%</td><td>162-165%</td><td>80%+</td><td>日本2003:380%(小泉改革)</td></tr>
+      </tbody>
+    </table>
 
-    <h3 class="step-title">第四步：从日本数据中读出的警示信号</h3>
-    <p>对照日本"失去的三十年"数据，以下几个关键信号在中国已经出现或部分出现：</p>
-    <div class="grid-2">
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">PPI连年负增长</div>
-        <div class="label">中国PPI从2022年到2024年连续负增长，这与日本1992-2005年的走势高度相似。通缩压力下企业利润被压缩。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">M2高速增长但信贷疲软</div>
-        <div class="label">中国M2增速10%但社融增速仅9%，钱在金融体系空转。这是日本1992年后典型的"流动性陷阱"症状。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">储蓄率创新高</div>
-        <div class="label">中国居民储蓄率从2019年的28%上升到2024年的37%，与日本1990年后储蓄率攀升的走势惊人相似。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">工资增速放缓</div>
-        <div class="label">中国劳动报酬/GDP比重从2010年的52%降至2024年的49%，与日本1990-2000年的工资停滞轨迹吻合。</div>
-      </div>
+    <div class="divergence-chain" style="background:rgba(124,58,237,0.04);border:1px dashed rgba(124,58,237,0.3);padding:14px 18px;margin-bottom:20px;border-radius:6px">
+      <p style="margin:0 0 8px;color:var(--purple);font-weight:600"><i class="fas fa-link"></i> 发散链：房地产销售峰值 → 销售额腰斩 → 开发商违约 → 土地财政萎缩 → 地方债压力 → 中央财政兜底 → 宏观杠杆率攀升</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>第一步：房地产销售见顶。</strong>2021年商品房销售额18.2万亿为历史峰值，此后连续三年下滑。销售面积从18.2亿平米降至9.8亿平米，跌幅46%。这是典型的"需求端崩塌"——不是因为供给不足，而是因为购房者预期逆转。</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>第二步：开发商违约潮。</strong>恒大(2021.9)、融创(2022.4)、碧桂园(2023.11)相继爆雷。房地产行业从"高周转→高杠杆→高增长"的庞氏循环瞬间断裂。2021-2024年，超过60家头部房企出现债务违约，涉及金额超过2万亿元。</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>第三步：土地财政萎缩。</strong>地方政府土地出让金从2021年的8.7万亿元骤降至2023年的4.2万亿元，跌幅52%。土地财政是地方政府的"第二预算"，其萎缩直接导致地方基建投资能力下降。</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>第四步：地方债压力→中央兜底。</strong>地方政府融资平台(LGFV)债务约60-70万亿元，其中大量与土地财政绑定。土地财政萎缩后，LGFV偿债能力恶化，风险向中央政府传导。2024年特别国债增发、置换债券扩容——本质上是"中央加杠杆、地方去杠杆"的资产负债表重组。</p>
+      <p style="margin:0;color:var(--text2);font-size:13px"><strong>日本镜像：</strong>日本1990-2003年完成了同样的链条：房地产崩盘→银行坏账→住专问题→财政救助→政府杠杆率飙升。但中国的特点在于：(1) 中央政府杠杆率仍低于日本同期水平(80% vs 120%)，政策空间更大；(2) 中国资本管制限制了风险外溢；(3) 中国制造业的全球竞争力提供了额外的缓冲垫。</p>
     </div>
 
-    <h3 class="step-title">第五步：建立一个简单的数据监控仪表盘</h3>
-    <p>不需要专业终端，以下免费工具足以建立你的个人宏观数据仪表盘：</p>
-    <ol class="steps-list">
-      <li><strong>东方财富App</strong>：宏观栏目下有CPI/PPI/PMI/社融的月度更新图表，可以设置价格提醒。</li>
-      <li><strong>国家统计局官网(nbs.gov.cn)</strong>：权威数据源，建议每月15日固定查看最新月度数据。</li>
-      <li><strong>中国人民银行公众号</strong>：每季度发布《货币政策执行报告》，其中的"金融数据运行分析"部分是官方对市场的最权威解读。</li>
-      <li><strong>Wind/同花顺iFinD</strong>：如果有专业需求，这些终端提供历史数据对比和图表导出功能。</li>
-    </ol>
+    <h2 class="section-subtitle">A.7 数据质量注记</h2>
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>统计方法</th><th>局限性</th><th>交叉验证建议</th></tr></thead>
+      <tbody>
+        <tr><td>GDP增速</td><td>生产法+收入法</td><td>可能存在"水分"，尤其在地方层面</td><td>用电量和货运量交叉验证</td></tr>
+        <tr><td>失业率</td><td>城镇调查失业率</td><td>16-24岁失业率统计口径争议(含在校)</td><td>参考招聘平台数据</td></tr>
+        <tr><td>CPI</td><td>一篮子商品价格</td><td>权重调整滞后,可能低估通缩</td><td>参考PPI和社零数据</td></tr>
+        <tr><td>房地产销售</td><td>住建部门网签数据</td><td>部分城市存在"虚假网签"冲量</td><td>参考克而瑞/中指院第三方数据</td></tr>
+        <tr><td>M2/社融</td><td>人民银行统计</td><td>影子银行通道业务可能重复计算</td><td>参考Wind/CEIC整理口径</td></tr>
+      </tbody>
+    </table>
 
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-database"></i> 数据解读实操原则总结</div>
-      <div class="tip-body">1)不要盯单日数据，看3个月移动平均线才能过滤噪音；2)M2增速是股市的"天气预报"——M2加速时大概率有行情；3)PPI是周期股的"晴雨表"——PPI转正即加仓周期股；4)社融是信用宽松的"先行指标"——社融拐点通常领先股市拐点1-2个季度；5)永远交叉验证：单一数据不可信，要综合CPI+PPI+社融+PMI四个维度判断经济冷暖。</div>
-    </div>
+    <div class="chart-container" id="chart-gdp-price"></div>
 
+    <div class="chart-container" id="chart-m2"></div>
+
+    <div class="chart-container" id="chart-realestate"></div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="27-korea-after-bubble.html"><i class="fas fa-arrow-left"></i> 韩国1997</a>
@@ -222,21 +208,68 @@
   <script src="../common/js/echarts.inline.js"></script>
   <script src="../common/js/navigation.js"></script>
   <script>
-    var chart = echarts.init(document.getElementById('chart-demo'));
-    chart.setOption({
+    // Chart 1: GDP与价格指标对照
+    var chart1 = echarts.init(document.getElementById('chart-gdp-price'));
+    chart1.setOption({
       backgroundColor: 'transparent',
       tooltip: { trigger: 'axis' },
-      legend: { data: ['GDP(万亿元,左轴)', 'CPI(%)', 'PPI(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 80, right: 70, top: 50, bottom: 40 },
+      legend: { data: ['GDP增速(%)', 'CPI同比(%)', 'PPI同比(%)', '城镇调查失业率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 55, bottom: 40 },
       xAxis: { type: 'category', data: ['2018','2019','2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: [{ type: 'value', name: '(万亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }],
+      yAxis: [
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
       series: [
-        { name: 'GDP(万亿元,左轴)', type: 'bar', data: [91.9, 98.7, 101.4, 114.9, 121.0, 126.1, 134.0], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
-        { name: 'CPI(%)', type: 'line', data: [1.9, 2.9, 2.5, 0.9, 2.0, 0.2, 0.3], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 },
-        { name: 'PPI(%)', type: 'line', data: [3.5, -0.3, -1.8, 4.1, -0.3, -3.0, -1.8], itemStyle: { color: '#ef4444' }, smooth: true, yAxisIndex: 1 }
+        { name: 'GDP增速(%)', type: 'bar', data: [6.7, 6.0, 2.2, 8.4, 3.0, 5.2, 5.0], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
+        { name: 'CPI同比(%)', type: 'line', data: [1.9, 2.9, 2.5, 0.9, 2.0, 0.2, 0.3], itemStyle: { color: '#10b981' }, smooth: true, lineStyle: { width: 3 } },
+        { name: 'PPI同比(%)', type: 'line', data: [3.5, -0.3, -1.8, 4.1, -0.3, -3.0, -1.8], itemStyle: { color: '#ef4444' }, smooth: true, lineStyle: { width: 3 } },
+        { name: '城镇调查失业率(%)', type: 'line', data: [3.8, 3.6, 3.6, 3.9, 4.0, 4.0, 3.95], itemStyle: { color: '#06b6d4' }, smooth: true, lineStyle: { width: 2, type: 'dashed' }, yAxisIndex: 1 }
       ]
     });
-    window.addEventListener('resize', function() { chart.resize(); });
+
+    // Chart 2: 货币供应与信用扩张
+    var chart2 = echarts.init(document.getElementById('chart-m2'));
+    chart2.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['M2余额(万亿)', 'M2增速(%)', '社融存量(万亿)', 'M2/GDP比值(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 55, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(万亿元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false }, min: 0, max: 15 }
+      ],
+      series: [
+        { name: 'M2余额(万亿)', type: 'bar', data: [218, 238, 274, 292, 310], itemStyle: { color: 'rgba(139,92,246,0.7)', borderRadius: [4, 4, 0, 0] }, barWidth: '25%' },
+        { name: '社融存量(万亿)', type: 'bar', data: [288, 314, 340, 378, 400], itemStyle: { color: 'rgba(6,182,212,0.7)', borderRadius: [4, 4, 0, 0] }, barWidth: '25%' },
+        { name: 'M2增速(%)', type: 'line', data: [10.1, 9.0, 11.8, 9.7, 7.8], itemStyle: { color: '#f59e0b' }, smooth: true, lineStyle: { width: 3 }, yAxisIndex: 1 },
+        { name: 'M2/GDP比值(%)', type: 'line', data: [215, 207, 226, 231, 232], itemStyle: { color: '#ec4899' }, smooth: true, lineStyle: { width: 2, type: 'dashed' }, yAxisIndex: 1 }
+      ]
+    });
+
+    // Chart 3: 房地产指标演变
+    var chart3 = echarts.init(document.getElementById('chart-realestate'));
+    chart3.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['商品房销售额(万亿)', '销售面积(亿m²)', '开发投资(万亿)', '70城房价指数同比(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 55, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(万亿元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
+      series: [
+        { name: '商品房销售额(万亿)', type: 'bar', data: [17.4, 18.2, 13.3, 10.1, 8.5], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] }, barWidth: '20%' },
+        { name: '开发投资(万亿)', type: 'bar', data: [14.1, 14.8, 13.3, 11.0, 9.5], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] }, barWidth: '20%' },
+        { name: '销售面积(亿m²)', type: 'bar', data: [17.6, 18.2, 13.6, 11.2, 9.8], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, barWidth: '20%' },
+        { name: '70城房价指数同比(%)', type: 'line', data: [4.9, 1.8, -1.7, -6.5, -10], itemStyle: { color: '#8b5cf6' }, smooth: true, lineStyle: { width: 3 }, yAxisIndex: 1 }
+      ]
+    });
+
+    window.addEventListener('resize', function() { chart1.resize(); chart2.resize(); chart3.resize(); });
   </script>
+  </footer>
 </body>
 </html>

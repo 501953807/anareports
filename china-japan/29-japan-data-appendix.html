@@ -3,10 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>日本数据附录 — 中日经济周期对比书</title>
+  <title>日本数据附录 — 中日经济书</title>
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .divergence-chain {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin: 16px 0; padding: 16px;
+      background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(245,158,11,0.06));
+      border: 1px solid var(--border); border-radius: 8px;
+    }
+    .divergence-chain .chain-node {
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      white-space: nowrap;
+    }
+    .divergence-chain .chain-arrow {
+      color: var(--orange); font-size: 16px; font-weight: 700;
+    }
+    .divergence-chain .node-red { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+    .divergence-chain .node-orange { background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
+    .divergence-chain .node-purple { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+    .divergence-chain .node-cyan { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+    .divergence-chain .node-green { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+
+    .school-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px; margin: 10px 0;
+    }
+    .school-card .school-name {
+      font-size: 13px; font-weight: 700; margin-bottom: 4px;
+    }
+    .school-card .school-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .school-card.monetarist { border-color: var(--orange); }
+    .school-card.monetarist .school-name { color: var(--orange); }
+    .school-card.post_keynesian { border-color: var(--red); }
+    .school-card.post_keynesian .school-name { color: var(--red); }
+    .school-card.new_institutional { border-color: var(--purple); }
+    .school-card.new_institutional .school-name { color: var(--purple); }
+    .school-card.austrian { border-color: var(--cyan); }
+    .school-card.austrian .school-name { color: var(--cyan); }
+    .school-card.classical { border-color: var(--green); }
+    .school-card.classical .school-name { color: var(--green); }
+
+    .synthesis-box {
+      background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(245,158,11,0.08));
+      border: 1px solid var(--orange); box-shadow: var(--glow-orange);
+      border-radius: 8px; padding: 14px; margin: 14px 0;
+    }
+    .synthesis-box .synthesis-title {
+      font-size: 13px; font-weight: 700; color: var(--orange); margin-bottom: 6px;
+    }
+    .synthesis-box .synthesis-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  </style>
 </head>
 <body>
   <nav class="top-nav">
@@ -57,126 +106,208 @@
     <li><a href="../pharma/index.html"><i class="fas fa-arrow-right"></i> 返回医药产业书</a></li>
   </ul></aside>
   <main class="content">
-    <h1 class="section-title">附录B：日本失去的三十年数据附录</h1>
-    <div class="data-note" style="margin-bottom:20px">日本1990-2024年关键宏观经济数据，完整记录泡沫形成、破裂、工资停滞、行业兴衰全过程。</div>
+    <h1 class="section-title">附录B：日本失去的三十年 — 完整数据附录与多学派复盘</h1>
+    <div class="data-note" style="margin-bottom:20px">本附录汇集了日本1980-2024年关键宏观经济数据的完整序列，涵盖泡沫形成、破裂、工资停滞、人口老龄化、行业兴衰全过程。数据来源：日本内阁府、统计局、央行、厚生劳动省、国土交通省。本书最后一章，以数据为证，为三十年的经济变迁画上句号。</div>
 
-    <h2 class="section-subtitle">29.1 日本GDP与增速</h2>
+    <!-- 分歧链 -->
+    <div class="divergence-chain">
+      <span class="chain-node node-red"><i class="fas fa-fire"></i> 泡沫膨胀(1986-1990)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-bolt"></i> 泡沫破裂(1990-1992)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-hourglass-half"></i> 失去的十年(1993-2003)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-cyan"><i class="fas fa-sync-alt"></i> 安倍经济学(2013-2020)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-flag-checkered"></i> 新常态(2020-至今)</span>
+    </div>
+
+    <h2 class="section-subtitle">29.1 日本GDP与宏观增长 — 1980-2024完整序列</h2>
     <table class="data-table">
-      <thead><tr><th>年份</th><th>GDP(万亿日元)</th><th>实际增速</th><th>名义增速</th></tr></thead>
+      <thead><tr><th>年份</th><th>GDP(万亿日元)</th><th>实际增速</th><th>名义增速</th><th>名义GDP/全球</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>1990</td><td>544</td><td>2.0%</td><td>8.5%</td></tr>
-        <tr><td>1995</td><td>557</td><td>-0.3%</td><td>1.2%</td></tr>
-        <tr><td>2000</td><td>494</td><td>0.5%</td><td>-2.8%</td></tr>
-        <tr><td>2005</td><td>482</td><td>2.3%</td><td>0.8%</td></tr>
-        <tr><td>2010</td><td>523</td><td>1.5%</td><td>0.3%</td></tr>
-        <tr><td>2015</td><td>481</td><td>1.7%</td><td>0.5%</td></tr>
-        <tr><td>2020</td><td>504</td><td>-0.3%</td><td>-1.2%</td></tr>
-        <tr><td>2024</td><td>563</td><td>1.9%</td><td>5.2%</td></tr>
+        <tr><td>1980</td><td>317</td><td>4.3%</td><td>10.2%</td><td>9.5%</td><td>石油危机后复苏，日本经济重返高速增长</td></tr>
+        <tr><td>1985</td><td>441</td><td>3.8%</td><td>12.5%</td><td>11.2%</td><td>广场协议前夜，日元低估推动出口爆炸式增长</td></tr>
+        <tr><td>1987</td><td>495</td><td>4.5%</td><td>14.0%</td><td>12.8%</td><td>泡沫萌芽期，股市+地价同步飙升</td></tr>
+        <tr><td>1989</td><td>525</td><td>4.8%</td><td>15.2%</td><td>14.5%</td><td>泡沫顶峰，日经38,915点，GDP占全球15%</td></tr>
+        <tr><td>1991</td><td>530</td><td>1.0%</td><td>3.2%</td><td>13.0%</td><td>泡沫破裂第一年，增速断崖式下跌</td></tr>
+        <tr><td>1993</td><td>532</td><td>-1.0%</td><td>-2.5%</td><td>11.5%</td><td>首次负增长，进入长期停滞</td></tr>
+        <tr><td>1995</td><td>557</td><td>-0.3%</td><td>1.2%</td><td>10.2%</td><td>阪神大地震冲击，但亚洲金融危机尚未波及</td></tr>
+        <tr><td>2000</td><td>494</td><td>0.5%</td><td>-2.8%</td><td>7.8%</td><td>通缩确认，名义GDP开始萎缩(通缩螺旋)</td></tr>
+        <tr><td>2005</td><td>482</td><td>2.3%</td><td>0.8%</td><td>6.5%</td><td>小泉结构改革期，IT泡沫破灭后的短暂复苏</td></tr>
+        <tr><td>2010</td><td>523</td><td>1.5%</td><td>0.3%</td><td>6.0%</td><td>雷曼冲击后复苏乏力，中国GDP超过日本</td></tr>
+        <tr><td>2012</td><td>515</td><td>-0.5%</td><td>-2.0%</td><td>5.5%</td><td>安倍上台前夜，经济再次陷入衰退</td></tr>
+        <tr><td>2015</td><td>481</td><td>1.7%</td><td>0.5%</td><td>5.8%</td><td>安倍经济学第一阶段效果显现</td></tr>
+        <tr><td>2019</td><td>544</td><td>0.3%</td><td>1.5%</td><td>5.0%</td><td>消费税上调至10%，短暂衰退</td></tr>
+        <tr><td>2020</td><td>504</td><td>-0.3%</td><td>-1.2%</td><td>4.5%</td><td>疫情冲击，但比中国/美国轻微</td></tr>
+        <tr><td>2022</td><td>538</td><td>-0.1%</td><td>2.5%</td><td>4.2%</td><td>通胀回归(40年最高)，日元贬值至150+</td></tr>
+        <tr><td>2024</td><td>563</td><td>1.9%</td><td>5.2%</td><td>4.0%</td><td>首次正通胀+工资上涨，"失去三十年"似乎终结</td></tr>
       </tbody>
     </table>
 
-    <h2 class="section-subtitle">29.2 日本工资与就业</h2>
+    <h2 class="section-subtitle">29.2 工资、就业与人口 — 停滞的国民生活</h2>
     <table class="data-table">
-      <thead><tr><th>年份</th><th>平均年薪(万日元)</th><th>失业率</th><th>非正规雇佣占比</th></tr></thead>
+      <thead><tr><th>年份</th><th>平均年薪(万日元)</th><th>失业率</th><th>非正规雇佣占比</th><th>65岁以上人口占比</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>1990</td><td>398</td><td>2.1%</td><td>20%</td></tr>
-        <tr><td>2000</td><td>377</td><td>4.7%</td><td>30%</td></tr>
-        <tr><td>2010</td><td>414</td><td>5.1%</td><td>35%</td></tr>
-        <tr><td>2020</td><td>466</td><td>2.8%</td><td>37%</td></tr>
-        <tr><td>2024</td><td>480</td><td>2.6%</td><td>38%</td></tr>
+        <tr><td>1985</td><td>293</td><td>2.0%</td><td>12%</td><td>9.1%</td><td>终身雇佣制黄金期，老龄化尚未显现</td></tr>
+        <tr><td>1990</td><td>398</td><td>2.1%</td><td>15%</td><td>12.1%</td><td>泡沫顶峰，工资名义增长强劲(实际增速仅1%)</td></tr>
+        <tr><td>1995</td><td>376</td><td>2.6%</td><td>18%</td><td>14.6%</td><td>工资开始下降，老龄化加速</td></tr>
+        <tr><td>2000</td><td>377</td><td>4.7%</td><td>23%</td><td>17.4%</td><td>失业率达泡沫后峰值，非正规雇佣激增</td></tr>
+        <tr><td>2005</td><td>391</td><td>4.2%</td><td>27%</td><td>20.7%</td><td>小泉改革后失业率改善，但工资仍停滞</td></tr>
+        <tr><td>2010</td><td>414</td><td>5.1%</td><td>30%</td><td>23.0%</td><td>雷曼后失业率创战后最高，老龄化突破1/4</td></tr>
+        <tr><td>2015</td><td>426</td><td>3.4%</td><td>33%</td><td>26.4%</td><td>安倍经济学压低失业率，但工资增速仍微弱</td></tr>
+        <tr><td>2020</td><td>466</td><td>2.8%</td><td>36%</td><td>28.7%</td><td>疫情冲击下失业率反降(就业减少)，老龄化近30%</td></tr>
+        <tr><td>2023</td><td>476</td><td>2.6%</td><td>37%</td><td>29.1%</td><td>工资终于跟上通胀，但非正规雇佣占比持续攀升</td></tr>
+        <tr><td>2024</td><td>480</td><td>2.6%</td><td>38%</td><td>29.4%</td><td>春斗工资涨幅4.5%(30年最高)，但结构转型未完成</td></tr>
       </tbody>
     </table>
 
-    <h2 class="section-subtitle">29.3 日本资产价格</h2>
+    <h2 class="section-subtitle">29.3 资产价格 — 从巅峰到深渊</h2>
     <table class="data-table">
-      <thead><tr><th>指标</th><th>1990峰值</th><th>2024</th><th>变化</th></tr></thead>
+      <thead><tr><th>指标</th><th>1990峰值</th><th>2003谷底</th><th>2024</th><th>峰值跌幅</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>东京地价指数</td><td>100</td><td>45</td><td>-55%</td></tr>
-        <tr><td>日经225指数</td><td>38,915</td><td>39,000</td><td>≈持平</td></tr>
-        <tr><td>房价/收入比(东京)</td><td>13.1</td><td>8.5</td><td>-35%</td></tr>
+        <tr><td>日经225指数</td><td>38,915</td><td>5,800</td><td>39,000</td><td>-85%</td><td>2024年重回泡沫顶点，但成分结构已完全不同(金融+出口占比下降)</td></tr>
+        <tr><td>东京地价指数</td><td>100</td><td>30</td><td>45</td><td>-70%</td><td>东京商业用地价格跌幅超90%，住宅区跌幅60-70%，恢复缓慢</td></tr>
+        <tr><td>大阪地价指数</td><td>100</td><td>22</td><td>38</td><td>-78%</td><td>大阪跌幅更深，因为商业地产泡沫更严重</td></tr>
+        <tr><td>房价/收入比(东京)</td><td>13.1</td><td>5.2</td><td>8.5</td><td>-60%</td><td>东京房价收入比从"离谱"回到"可接受"，但仍高于纽约/伦敦</td></tr>
+        <tr><td>房价/租金比(东京)</td><td>45x</td><td>25x</td><td>30x</td><td>-33%</td><td>租金收益率从2%回升至3.3%，对长期投资者仍有吸引力</td></tr>
+        <tr><td>M2/名义GDP</td><td>0.85</td><td>1.10</td><td>1.45</td><td>+71%</td><td>央行资产负债表膨胀，货币化程度远超中美</td></tr>
       </tbody>
     </table>
+
+    <h2 class="section-subtitle">29.4 货币与财政政策 — 从宽松到零利率</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>政策利率</th><th>M2增速</th><th>财政赤字率</th><th>政府债务/GDP</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>1989</td><td>5.0%</td><td>13.5%</td><td>-1.5%</td><td>58%</td><td>日本银行激进加息刺破泡沫，从5%到60天内部署</td></tr>
+        <tr><td>1991</td><td>3.25%</td><td>10.2%</td><td>-3.2%</td><td>65%</td><td>首次出现财政赤字，但规模尚可控</td></tr>
+        <tr><td>1995</td><td>0.5%</td><td>5.8%</td><td>-5.8%</td><td>80%</td><td>接近零利率，大规模财政刺激启动</td></tr>
+        <tr><td>2000</td><td>0.15%</td><td>2.0%</td><td>-5.0%</td><td>110%</td><td>短暂加息后再次转向零利率</td></tr>
+        <tr><td>2006</td><td>0.25%</td><td>1.5%</td><td>-4.5%</td><td>150%</td><td>首次脱离零利率，但很快被雷曼逆转</td></tr>
+        <tr><td>2013</td><td>-0.1%</td><td>8.0%</td><td>-6.0%</td><td>190%</td><td>安倍经济学"三支箭"：零利率+QQE+财政刺激</td></tr>
+        <tr><td>2020</td><td>-0.1%</td><td>10.5%</td><td>-10.5%</td><td>220%</td><td>疫情应对：无限量QE+现金给付，赤字率创纪录</td></tr>
+        <tr><td>2023</td><td>+0.1%(转正!)</td><td>4.5%</td><td>-4.0%</td><td>256%</td><td>16年来首次加息，标志着超宽松时代的终结</td></tr>
+        <tr><td>2024</td><td>+0.1-0.3%</td><td>4.0%</td><td>-3.0%</td><td>260%+</td><td>债务/GDP全球最高，但90%由国内持有</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">29.5 通胀与通缩 — 价格螺旋的三十年</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>CPI同比(%)</th><th>核心CPI(%)</th><th>GDP平减指数</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>1985</td><td>+2.8</td><td>+2.5</td><td>+5.2</td><td>广场协议后温和通胀</td></tr>
+        <tr><td>1990</td><td>+2.9</td><td>+2.6</td><td>+8.0</td><td>泡沫期通胀抬头</td></tr>
+        <tr><td>1995</td><td>-0.1</td><td>-0.3</td><td>+1.5</td><td>首次通缩，但短暂</td></tr>
+        <tr><td>2000</td><td>-0.4</td><td>-0.6</td><td>-3.0</td><td>通缩固化，企业开始降价竞争</td></tr>
+        <tr><td>2005</td><td>+0.0</td><td>-0.2</td><td>+0.5</td><td>零通胀临界点</td></tr>
+        <tr><td>2010</td><td>+0.3</td><td>+0.1</td><td>-1.5</td><td>通缩阴影笼罩</td></tr>
+        <tr><td>2015</td><td>+0.8</td><td>+0.6</td><td>-0.5</td><td>安倍经济学推高通胀目标</td></tr>
+        <tr><td>2022</td><td>+2.5</td><td>+2.3</td><td>+2.0</td><td>40年来首次持续超2%通胀</td></tr>
+        <tr><td>2023</td><td>+3.3</td><td>+3.0</td><td>+3.5</td><td>输入型通胀(日元贬值+能源)</td></tr>
+        <tr><td>2024</td><td>+2.5</td><td>+2.2</td><td>+3.0</td><td>通胀回落但仍高于2%目标</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">29.6 产业结构变迁 — 从制造强国到服务转型</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>制造业/GDP</th><th>IT/电子/GDP</th><th>服务业/GDP</th><th>出口依存度</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>1990</td><td>23.5%</td><td>5.2%</td><td>52.0%</td><td>12.5%</td><td>制造业巅峰，电子产业统治全球</td></tr>
+        <tr><td>2000</td><td>20.1%</td><td>4.0%</td><td>65.0%</td><td>10.8%</td><td>制造业空心化开始，IT泡沫破灭</td></tr>
+        <tr><td>2010</td><td>18.5%</td><td>3.5%</td><td>68.0%</td><td>16.0%</td><td>雷曼冲击后出口反弹(日元贬值)</td></tr>
+        <tr><td>2020</td><td>18.0%</td><td>4.2%</td><td>70.0%</td><td>17.5%</td><td>疫情后出口恢复，半导体设备崛起</td></tr>
+        <tr><td>2024</td><td>18.8%</td><td>4.8%</td><td>70.5%</td><td>18.0%</td><td>制造业回流政策见效，半导体设备全球第三</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">29.7 对外贸易与汇率 — 日元贬值的得与失</h2>
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>美元兑日元</th><th>贸易顺差(亿日元)</th><th>对外净资产</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>1985</td><td>240</td><td>3.5万亿</td><td>$500亿</td><td>广场协议前，日元严重低估</td></tr>
+        <tr><td>1988</td><td>150</td><td>6.2万亿</td><td>$2,000亿</td><td>日元升值但出口竞争力未损</td></tr>
+        <tr><td>1995</td><td>90</td><td>10.5万亿</td><td>$4,500亿</td><td>日元极度升值，出口企业海外建厂潮</td></tr>
+        <tr><td>2000</td><td>108</td><td>7.8万亿</td><td>$5,000亿</td><td>日元反弹，对外净资产创纪录</td></tr>
+        <tr><td>2011</td><td>76</td><td>18.5万亿</td><td>$3.5万亿</td><td>东日本大地震+欧债危机，日元避险属性</td></tr>
+        <tr><td>2022</td><td>145</td><td>2.5万亿(逆差!)</td><td>$3.0万亿</td><td>首次年度贸易逆差(能源进口激增)</td></tr>
+        <tr><td>2024</td><td>140-155</td><td>3.0万亿</td><td>$2.8万亿</td><td>日元贬值但对外净资产缩水(资产价格调整)</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 日本失去三十年案例 -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-hourglass-start"></i> 案例：日本失去三十年的三个阶段与每个阶段的赢家</div>
+      <div class="case-body">
+        <strong>第一阶段 — 资产负债表衰退(1990-2003)：</strong><br>
+        辜朝明定义的"企业集体还债"时期。企业从利润最大化转向债务最小化，即使利率为零也不借钱投资。日经从38,915跌至5,800。但此阶段仍有赢家：大创(10倍)、唐吉诃德(15倍)、优衣库(8倍)、药妆店(6倍)——全部围绕"消费降级"主题。<br><br>
+        <strong>第二阶段 — 安倍经济学(2013-2019)：</strong><br>
+        三支箭(QQE+财政刺激+结构性改革)让日经从5,800反弹至28,000。但实体经济改善有限：工资增速仍为0.5%/年，通胀目标2%从未真正达成。安倍经济学本质上是"金融繁荣+实体停滞"的组合。<br><br>
+        <strong>第三阶段 — 新常态(2020-至今)：</strong><br>
+        疫情后全球供应链重构+日元贬值+AI革命，日本半导体设备(东京电子)和机器人产业迎来新机遇。2024年春斗工资涨幅4.5%，30年来最高。日本似乎终于走出了"失去"的叙事，但260%的政府债务/GDP仍然是悬在头顶的达摩克利斯之剑。
+      </div>
+    </div>
+
+    <!-- 关键判断 -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-chart-bar"></i> 关键判断: 日本数据的三个核心教训</div>
+      <div class="case-body">
+        <em>(1) 泡沫破裂后的"资产负债表衰退"是财富毁灭的最大机制</em>——企业还债而非投资，居民储蓄而非消费，形成自我强化的通缩螺旋。中国目前正处于这一阶段的早期信号(居民储蓄率上升，企业投资意愿下降)。<br><br>
+        <em>(2) 工资停滞比GDP下滑更致命</em>——日本1990-2010年平均年薪从398万降至377万(实际购买力下降更多)，消费长期萎靡。中国2024年工资增速仅3-4%，远低于2010-2019年的8-10%，同样的风险正在显现。<br><br>
+        <em>(3) 日元贬值是双刃剑</em>——1995年90日元时出口企业海外转移产能，2024年150日元时贸易首次出现逆差。日元贬值在制造业空心化后不再是优势，反而推高进口成本。中国人民币若大幅贬值，同样面临"产业空心化+输入型通胀"的双重风险。
+      </div>
+    </div>
+
+    <!-- 多学派分析 -->
+    <h2 class="section-subtitle">29.8 多学派交叉解读 — 日本失去三十年的五大学派复盘</h2>
+
+    <div class="school-card monetarist">
+      <div class="school-name"><i class="fas fa-money-bill-wave"></i> 货币主义 (Monetarism) — Milton Friedman: "通货膨胀始终且 everywhere 是一种货币现象"</div>
+      <div class="school-body">
+        货币主义对日本泡沫破裂的解释聚焦于<strong>货币供应的急剧收缩</strong>。1990-1993年，日本M2增速从10%+骤降至2%以下，而央行在1989-1990年将利率从2%快速拉升至6%，人为刺破了资产泡沫。Friedman式的批评是：<strong>日本银行在1989年的加息速度太快，没有给市场足够的调整时间</strong>。更关键的是，1990-2003年期间，尽管央行将利率降至零，但M2增速仍然低迷(1-2%)，说明<strong>货币传导机制已经断裂</strong>——银行不愿放贷(不良贷款堆积)，企业不愿借款(资产负债表衰退)，居民不愿消费(通缩预期)。货币主义的处方是：<strong>央行必须直接购买资产(而非仅降低利率)来扩大基础货币</strong>，这正是2013年安倍经济学QQE的逻辑。但货币主义也警告：如果货币供给增长没有实体经济支撑，只会产生通胀(2022-2024年的现实)。
+      </div>
+    </div>
+
+    <div class="school-card post_keynesian">
+      <div class="school-name"><i class="fas fa-balance-scale"></i> 后凯恩斯主义/明斯基 (Post-Keynesian / Minsky) — 金融不稳定假说</div>
+      <div class="school-body">
+        Hyman Minsky的金融不稳定假说是理解日本泡沫最精准的理论框架。Minsky区分了三种融资形态：<strong>对冲性融资</strong>(现金流覆盖本息)、<strong>投机性融资</strong>(现金流仅覆盖利息)、<strong>庞氏融资</strong>(现金流连利息都无法覆盖，需借新还旧)。1980年代末的日本经济中，房地产和金融部门大量存在庞氏融资——地价永远上涨的信念支撑着不断加杠杆。当1990年地价开始下跌，庞氏融资链条断裂，<strong>"明斯基时刻"</strong>到来。Minsky的深刻洞见是：<strong>稳定本身就孕育不稳定</strong>——长期的经济繁荣(日本1960-1989年的"奇迹增长")会鼓励越来越激进的融资行为，最终导致系统性崩溃。后凯恩斯主义的教训是：<strong>金融监管必须逆周期</strong>——在繁荣期收紧杠杆，在衰退期提供流动性。日本的问题不在于没有做对，而在于<strong>反应太慢</strong>：1990年泡沫破裂后，央行花了5年才将利率降至零，又花了10年才承认资产负债表衰退。
+      </div>
+    </div>
+
+    <div class="school-card new_institutional">
+      <div class="school-name"><i class="fas fa-university"></i> 新制度经济学 — North: 制度僵化与路径依赖</div>
+      <div class="school-body">
+        Douglass North的制度变迁理论解释了日本为何"失去"的不是经济周期，而是<strong>制度适应能力</strong>。日本战后成功的关键制度——主银行制、终身雇佣、年功序列、交叉持股——在1990年后变成了阻碍创新的枷锁。North指出：<strong>当外部技术环境发生根本变化(互联网革命、全球化深化)时，既有制度会产生"路径依赖"，使得改革成本越来越高</strong>。日本的具体表现：(1)主银行制下，银行不愿让僵尸企业倒闭(因为不良贷款暴露)，导致资源错配持续30年；(2)终身雇佣制使企业不敢裁员，但也无力招聘新员工，劳动力市场僵化；(3)年功序列制压制了年轻人才晋升，创新活力下降。相比之下，美国在同一时期通过风险投资+硅谷模式完成了技术范式转换。North的处方是：<strong>制度改革必须趁早</strong>——日本如果在1995年就进行银行体系改革和劳动力市场灵活化，损失可能减半。但既得利益集团(银行家、大企业高管、政治家)阻挠了改革，形成了"制度锁定"。
+      </div>
+    </div>
+
+    <div class="school-card austrian">
+      <div class="school-name"><i class="fas fa-search-dollar"></i> 奥地利学派 (Austrian School) — Hayek: 人为低利率扭曲了资本结构</div>
+      <div class="school-body">
+        Hayek的利率理论为日本泡沫提供了另一个解释视角。<strong>日本银行在1980年代中后期的低利率政策(以及广场协议后的进一步宽松)扭曲了相对价格信号</strong>，导致资本被错误配置到房地产和股市等非生产性领域。Hayek认为，<strong>泡沫不是"意外"，而是人为干预利率的必然结果</strong>。当1989年日本银行突然加息到6%时，资本结构中的"不当投资"(malinvestment)集中暴露，引发连锁清算。奥地利学派的独特贡献在于：<strong>它反对任何形式的"救助"</strong>——日本政府在1990年代试图用财政刺激和银行救助来延缓清算，但这只是"推迟了必要的痛苦"，让僵尸企业和僵尸贷款延续了30年。Hayek式的处方是：<strong>让市场完成清算，然后从废墟上重建</strong>。但奥地利学派的局限在于它低估了社会成本——30年的失业和工资停滞对日本社会的伤害是真实的，"创造性破坏"的"创造"部分并没有如期到来。
+      </div>
+    </div>
+
+    <div class="school-card classical">
+      <div class="school-name"><i class="fas fa-chart-pie"></i> 古典/新古典经济学 — 理性预期与市场出清</div>
+      <div class="school-body">
+        新古典经济学对日本失去三十年的解释聚焦于<strong>供给侧的结构性问题</strong>。RBC(实际经济周期)理论认为，日本的经济停滞不是需求不足，而是<strong>全要素生产率(TFP)增速放缓</strong>的结果。数据显示：日本TFP增速从1980年代的1.5%降至1990年代的0.5%，2000年代接近零。原因包括：(1)IT革命中日本错过了软件/互联网范式(相比美国)；(2)服务业生产率统计失真(护理/零售等行业的效率提升难以量化)；(3)人口老龄化导致劳动力供给收缩。新古典的处方是：<strong>结构性改革——放松管制、促进竞争、鼓励移民、提升女性劳动参与率</strong>。小泉结构改革(2001-2006)部分执行了这一处方(银行重组、邮政民营化)，但力度不够。2020年代日本开始放宽移民政策和鼓励女性就业，TFP增速有所回升(0.8-1.0%)，但能否重现1980年代的增长奇迹已不现实——<strong>一个老龄化社会的增长上限就是其劳动力增长率</strong>。
+      </div>
+    </div>
+
+    <div class="synthesis-box">
+      <div class="synthesis-title"><i class="fas fa-gem"></i> 综合研判 — 五大学派对中国的启示</div>
+      <div class="synthesis-body">
+        <strong>货币主义</strong>提醒：中国必须避免1990年代日本式的货币紧缩——当前M2增速已从10%+降至7-8%，需要警惕信用收缩。<br>
+        <strong>明斯基</strong>警告：中国房地产部门的"庞氏融资"特征正在显现(恒大/碧桂园违约)，需要逆周期金融监管。<br>
+        <strong>新制度经济学</strong>指出：中国的主银行制(国有银行)和终身雇佣制(国企)同样存在"制度锁定"风险，需要主动改革而非被动等待危机推动。<br>
+        <strong>奥地利学派</strong>强调：让市场完成房地产和僵尸企业的清算，而不是用"保交楼"和"隐性担保"无限期拖延。<br>
+        <strong>古典/新古典</strong>提醒：中国TFP增速已从2010年代的5%+降至2024年的2-3%，供给侧改革(教育、医疗、户籍)比需求侧刺激更重要。<br><br>
+        <strong>五大学派的交集结论</strong>：日本失去三十年的核心教训不是"泡沫破裂"本身，而是<strong>政策反应太慢+制度改革滞后+既得利益阻挠</strong>。中国目前处于类似1992-1995年的日本——资产价格开始调整，但政策层仍在犹豫是否需要进行彻底的结构性改革。窗口期大约还有3-5年。
+      </div>
+    </div>
 
     <div class="chart-container" id="chart-jp"></div>
-
-    <h2 class="section-subtitle">实操指南：从日本数据中读懂中国经济的相似与不同</h2>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-lightbulb"></i> 核心判断</div>
-      <div class="tip-body">日本"失去的三十年"不是一段失败的历史，而是一份珍贵的预警报告。对照日本数据和中国当前数据，我们可以精准定位中国正处于什么样的经济周期位置，并据此制定投资策略。</div>
-    </div>
-
-    <h3 class="step-title">第一步：中日数据对标 — 你目前在哪一个"日本年份"？</h3>
-    <p>将中国2024年数据与日本不同年份对比，可以发现中国目前大致对应日本1993-1996年的状态：</p>
-    <table class="data-table">
-      <thead><tr><th>指标</th><th>中国2024</th><th>日本对应年份</th><th>日本当年数据</th><th>差距</th></tr></thead>
-      <tbody>
-        <tr><td>GDP增速</td><td>5.0%</td><td>1994</td><td>3.0%</td><td>中国增速仍高于日本</td></tr>
-        <tr><td>PPI增速</td><td>-1.8%</td><td>1993</td><td>-2.5%</td><td>非常接近，通缩压力显现</td></tr>
-        <tr><td>失业率</td><td>4.0%</td><td>1995</td><td>2.8%</td><td>中国因统计口径不同</td></tr>
-        <tr><td>青年失业</td><td>14.5%</td><td>1993</td><td>2.4%(统计口径不同)</td><td>中国青年失业压力更大</td></tr>
-        <tr><td>M2增速</td><td>8.0%</td><td>1993</td><td>7.0%</td><td>货币供应量偏高</td></tr>
-        <tr><td>房价收入比(东京)</td><td>20-30x</td><td>1990</td><td>13.1x(峰值)</td><td>中国泡沫程度更高</td></tr>
-        <tr><td>居民储蓄率</td><td>37%</td><td>1993</td><td>20%</td><td>中国储蓄率翻倍</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="step-title">第二步：从日本工资停滞中学到的职业发展策略</h3>
-    <p>日本1990年平均年薪398万日元，到2024年仅480万日元，34年的实际涨幅不到20%(扣除通胀后几乎为零)。中国劳动年龄人口已开始萎缩，工资增速面临下行压力。职业发展策略：</p>
-    <ol class="steps-list">
-      <li><strong>避开工资停滞行业</strong>：日本的夕阳行业(百货/传统媒体/纸质出版/房地产相关)在30年内几乎没有涨薪。对应中国：传统商超、纸媒、传统房地产开发、部分公务员岗位。</li>
-      <li><strong>拥抱日本在"失去"期间涨薪的行业</strong>：医疗护理(+80%)、软件IT(+120%)、物流服务(+45%)、食品制造(+25%)。对应的中国：养老护理、AI/云计算、快递物流、食品饮料。</li>
-      <li><strong>非正规雇佣的应对</strong>：日本非正规雇佣占比从1990年的20%升至2024年的38%。解决路径：考取职业资格证书、学习数字化技能、转向合同制员工较多的IT行业。</li>
-    </ol>
-
-    <h3 class="step-title">第三步：日本资产价格的启示 — 股市还能不能涨？</h3>
-    <p>一个惊人的事实：日经225在1990年38,915点，到2024年重新回到39,000点——34年原地踏步。但如果你仔细看成分，你会发现这39,000点完全是由新一代企业构成的，1990年的大部分成分股已经消失了：</p>
-    <ol class="steps-list">
-      <li><strong>消失的行业</strong>：1990年日经成分股中60%的行业在2024年已不复存在(地产商/造纸/化纤/传统机械)。</li>
-      <li><strong>新增的行业</strong>：2024年日经成分股中40%是1990年不存在的行业(软件/零售/半导体材料/游戏)。</li>
-      <li><strong>对A股的映射</strong>：上证指数3,000点徘徊了8年，但上证50的成分股已经换了几茬。关键不是"指数涨没涨"，而是"你有没有持有对的成分股"。</li>
-    </ol>
-
-    <h3 class="step-title">第四步：日本经验下的个人资产配置方案</h3>
-    <p>在日本"失去的三十年"中，以下资产配置策略的年化收益各不相同：</p>
-    <div class="grid-2">
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">日经225指数(全持有)</div>
-        <div class="label">年化收益≈0%。持有30年不赚不亏，但期间最大回撤-80%，绝大多数人拿不住。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">日本国债</div>
-        <div class="label">年化收益3-5%(1990-2000)→1-2%(2000-2012)→0%(2012后)。收益率随央行降息持续下行。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">美元债券/海外资产</div>
-        <div class="label">日元升值期(1990-1995)收益好，贬值期(1995-2012)收益差。汇率对冲很重要。</div>
-      </div>
-      <div class="data-card" style="border:1px solid var(--surface2); border-radius:8px; padding:16px;">
-        <div class="value">精选个股(优衣库/唐吉诃德)</div>
-        <div class="label">年化收益15-25%。经济下行期的"消费降级赢家"创造了超级回报。</div>
-      </div>
-    </div>
-
-    <h3 class="step-title">第五步：对中国投资者的五条日本经验教训</h3>
-    <ol class="steps-list">
-      <li><strong>不要All-in房地产</strong>：日本泡沫破裂时，家庭财富的70%绑定在房地产上，30年无法翻身。建议房地产占家庭总资产不超过40%。</li>
-      <li><strong>不要相信"这次不一样"</strong>：在1990年的日本，所有人都坚信"东京的地价不会跌"。历史证明，没有任何资产会只涨不跌。</li>
-      <li><strong>分散化投资是唯一的解药</strong>：在低增长时代，单纯持有本国股票不够，必须配置海外资产(美股QDII/港股/A+H)。</li>
-      <li><strong>关注"消费降级"概念股</strong>：优衣库、大创、唐吉诃德在日经225整体横盘时创造了10倍回报。</li>
-      <li><strong>降低预期，拉长周期</strong>：日本经验表明，在低增长时代年化8%的收益已经很好了。把目标从"翻倍"调整为"跑赢通胀+稳定分红"。</li>
-    </ol>
-
-    <div class="case-box">
-      <div class="case-title"><i class="fas fa-scroll"></i> 日本人的"储蓄神话"是如何被打破的</div>
-      <div class="case-body">1990年日本人平均储蓄率20%，到2015年升至15%(名义下降但实际增加因为收入停滞)。银行定期存款余额在2020年创下1,800万亿日元的历史新高。日本人不投资是因为"不敢"——经历过泡沫破裂的人对风险极度厌恶。这提醒中国人：如果你的预防性储蓄已经超过了30%的收入，是时候重新审视投资策略了——把钱存银行的长期亏损速度比你想象的更快。</div>
-    </div>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-mirror"></i> 日本数据实操原则总结</div>
-      <div class="tip-body">1)中国2024年大致对应日本1993-1996年，但我们有更大的内需和更完整的产业链，衰退曲线会更平缓；2)日本股市34年原地踏步的背后是成分股的完全换血——选对个股比盯指数重要；3)在低增长时代，年化8%已是优秀成绩，降低预期才能做出理性决策；4)分散到海外(美股/港股)是对冲单一国家风险的最有效手段；5)永远不要因为"这次不一样"而忽视历史规律。</div>
-    </div>
-
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="28-china-data-appendix.html"><i class="fas fa-arrow-left"></i> 中国数据</a>
@@ -189,18 +320,88 @@
     var chart = echarts.init(document.getElementById('chart-jp'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['日经225指数', '东京地价指数', '失业率(%)×100'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
-      xAxis: { type: 'category', data: ['1990','1995','2000','2005','2010','2015','2020','2024'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: [{ type: 'value', name: '(点/指数)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }],
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'cross' },
+        formatter: function(params) {
+          var res = params[0].name + '<br/>';
+          params.forEach(function(p) {
+            if (p.value != null) {
+              res += p.marker + p.seriesName + ': ' + p.value + (p.seriesName.includes('债务') ? '%' : p.seriesName.includes('失业率') ? '%' : '');
+            }
+          });
+          return res;
+        }
+      },
+      legend: {
+        data: ['GDP(万亿日元,左轴)', '政府债务/GDP(%)', '失业率(%)', 'CPI同比(%)'],
+        textStyle: { color: '#94a3b8' }, top: 0
+      },
+      grid: { left: 80, right: 70, top: 55, bottom: 50 },
+      xAxis: {
+        type: 'category',
+        data: ['1985','1987','1989','1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],
+        axisLabel: { color: '#94a3b8', interval: 2, rotate: 15 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      yAxis: [
+        { type: 'value', name: '(万亿日元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, min: 0, max: 300, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, min: -5, max: 10, splitLine: { show: false } }
+      ],
       series: [
-        { name: '日经225指数', type: 'line', data: [38915, 20000, 18000, 10500, 9000, 18000, 18000, 39000], itemStyle: { color: '#06b6d4' }, smooth: true },
-        { name: '东京地价指数', type: 'line', data: [100, 75, 60, 50, 55, 60, 50, 45], itemStyle: { color: '#ef4444' }, smooth: true },
-        { name: '失业率(%)×100', type: 'bar', data: [210, 300, 470, 380, 510, 380, 280, 260], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 1 }
+        {
+          name: 'GDP(万亿日元,左轴)',
+          type: 'bar',
+          data: [441,465,495,525,528,530,532,533,538,545,548,550,548,494,496,498,495,498,495,482,485,490,488,523,535,530,538,540,545,481,490,500,508,515,504,510,520,538,550,563],
+          itemStyle: { color: 'rgba(6,182,212,0.5)', borderRadius: [2, 2, 0, 0] }
+        },
+        {
+          name: '政府债务/GDP(%)',
+          type: 'line',
+          data: [55,58,60,63,66,70,73,76,80,83,86,90,93,96,100,105,110,115,120,125,130,135,140,150,160,170,180,185,190,195,200,205,210,215,220,225,235,248,260],
+          smooth: true,
+          itemStyle: { color: '#ef4444' },
+          lineStyle: { width: 2 },
+          yAxisIndex: 1,
+          markPoint: {
+            data: [
+              { name: '260%', coord: ['2024', 260], value: '260%', itemStyle: { color: '#ef4444' } }
+            ]
+          }
+        },
+        {
+          name: '失业率(%)',
+          type: 'line',
+          data: [2.0,2.0,2.0,2.1,2.2,2.1,2.2,2.4,2.6,2.3,2.1,2.2,2.5,4.7,4.1,3.9,4.0,3.9,4.2,3.9,3.7,4.0,5.1,5.1,4.4,4.3,4.2,3.8,3.4,3.0,2.8,2.7,2.6,2.8,2.6,2.6,2.6,2.6],
+          smooth: true,
+          itemStyle: { color: '#f59e0b' },
+          lineStyle: { width: 2 },
+          markPoint: {
+            data: [
+              { name: '峰值5.1%', coord: ['2010', 5.1], value: '5.1%', itemStyle: { color: '#f59e0b' } }
+            ]
+          }
+        },
+        {
+          name: 'CPI同比(%)',
+          type: 'line',
+          data: [2.8,2.5,4.5,2.9,-0.3,-1.2,-0.7,-0.4,-0.1,0.2,0.0,0.2,0.2,-0.4,0.2,0.1,0.0,0.2,0.0,0.4,0.8,0.9,0.2,0.3,0.8,0.2,1.2,0.9,0.5,0.2,0.5,0.3,0.2,-0.3,0.9,2.5,3.3,2.5],
+          smooth: true,
+          itemStyle: { color: '#8b5cf6' },
+          lineStyle: { width: 2 },
+          yAxisIndex: 2,
+          markArea: {
+            data: [{
+              style: { color: 'rgba(239,68,68,0.05)' },
+              yAxis: [-0.5, 0]
+            }]
+          }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });
   </script>
+  </footer>
 </body>
 </html>
