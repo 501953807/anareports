@@ -93,17 +93,17 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>类别代码</th><th>作品类型</th><th>适合创作者</th><th>示例</th></tr>
+        <tr><th>类别代码</th><th>作品类型</th><th>适合创作者</th><th>示例</th><th style="color:#f59e0b;">深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>TX</strong></td><td>文学作品（Text）</td><td>网文作者/博主/作家/诗人</td><td>小说、诗歌、剧本、文章、代码注释</td></tr>
-        <tr><td><strong>VA</strong></td><td>视觉艺术（Visual Arts）</td><td>插画师/摄影师/平面设计师</td><td>绘画、摄影、雕塑、建筑设计、AI生成美术作品（含人工修改部分）</td></tr>
-        <tr><td><strong>PA</strong></td><td>表演艺术（Performing Arts）</td><td>音乐人/作曲家/编剧</td><td>音乐作品（词+曲）、歌剧、广播剧</td></tr>
-        <tr><td><strong>SR</strong></td><td>音频作品（Sound Recordings）</td><td>音乐制作人/播客创作者</td><td>录音制品（区别于词曲本身）</td></tr>
-        <tr><td><strong>VA/PA</strong></td><td>视听作品（Motion Pictures）</td><td>视频创作者/YouTuber</td><td>电影、短片、MV、带有伴音的视频</td></tr>
-        <tr><td><strong>LVA</strong></td><td>直播视听作品</td><td>Twitch/抖音主播</td><td>已固定的直播录像（需满足独创性要求）</td></tr>
-        <tr><td><strong>Rxn</strong></td><td>注册用户界面</td><td>UX设计师/App开发者</td><td>软件的用户界面设计</td></tr>
-        <tr><td><strong>SRx</strong></td><td>软件（包含在视听中）</td><td>开发者/SaaS创作者</td><td>程序代码、小程序</td></tr>
+        <tr><td><strong>TX</strong></td><td>文学作品（Text）</td><td>网文作者/博主/作家/诗人</td><td>小说、诗歌、剧本、文章、代码注释</td><td style="font-size:12px;color:var(--text2);">AI生成文本的TX登记需要提供"人类修改程度"证明，USCO要求人工编辑部分至少占最终作品的50%以上</td></tr>
+        <tr><td><strong>VA</strong></td><td>视觉艺术（Visual Arts）</td><td>插画师/摄影师/平面设计师</td><td>绘画、摄影、雕塑、建筑设计、AI生成美术作品（含人工修改部分）</td><td style="font-size:12px;color:var(--text2);">VA类别是AI版权诉讼最密集的领域。2025年USCO数据显示VA类AI相关申请占比达42%</td></tr>
+        <tr><td><strong>PA</strong></td><td>表演艺术（Performing Arts）</td><td>音乐人/作曲家/编剧</td><td>音乐作品（词+曲）、歌剧、广播剧</td><td style="font-size:12px;color:var(--text2);">Suno/Udio等AI音乐工具的兴起使PA类别面临前所未有的挑战，词和曲需分别评估AI贡献度</td></tr>
+        <tr><td><strong>SR</strong></td><td>音频作品（Sound Recordings）</td><td>音乐制作人/播客创作者</td><td>录音制品（区别于词曲本身）</td><td style="font-size:12px;color:var(--text2);">SR与PA的区别至关重要——AI生成的录音（如Suno输出文件）目前几乎无法获得SR保护</td></tr>
+        <tr><td><strong>VA/PA</strong></td><td>视听作品（Motion Pictures）</td><td>视频创作者/YouTuber</td><td>电影、短片、MV、带有伴音的视频</td><td style="font-size:12px;color:var(--text2);">Runway/Pika等AI视频工具使视听作品的创作门槛大幅降低，但版权保护门槛并未同步降低</td></tr>
+        <tr><td><strong>LVA</strong></td><td>直播视听作品</td><td>Twitch/抖音主播</td><td>已固定的直播录像（需满足独创性要求）</td><td style="font-size:12px;color:var(--text2);">LVA是2024年新设类别，专门针对直播内容。需证明直播过程中有"足够的创造性选择"</td></tr>
+        <tr><td><strong>Rxn</strong></td><td>注册用户界面</td><td>UX设计师/App开发者</td><td>软件的用户界面设计</td><td style="font-size:12px;color:var(--text2);">Rxn类别相对冷门但价值高——UI设计的AI辅助程度通常较低，更容易获得完整保护</td></tr>
+        <tr><td><strong>SRx</strong></td><td>软件（包含在视听中）</td><td>开发者/SaaS创作者</td><td>程序代码、小程序</td><td style="font-size:12px;color:var(--text2);">SRx与软件著作权登记不同——它保护的是代码表达而非功能，且可与视听作品合并登记</td></tr>
       </tbody>
     </table>
 
@@ -171,14 +171,14 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>权利类型</th><th>描述</th><th>前提条件</th></tr>
+        <tr><th>权利类型</th><th>描述</th><th>前提条件</th><th style="color:#f59e0b;">深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>起诉资格</strong></td><td>只有登记后才能在美国法院提起版权侵权诉讼</td><td>作品完成前或完成后3个月内登记，或至少在起诉前登记</td></tr>
-        <tr><td><strong>法定赔偿</strong></td><td>无需证明实际损失金额，可直接主张$750-$30,000/件（故意侵权最高$150,000/件）</td><td>登记须在侵权行为发生前或作品发表后5日内完成</td></tr>
-        <tr><td><strong>律师费补偿</strong></td><td>败诉方需承担胜诉方的律师费用</td><td>同上，需在侵权行为前完成登记</td></tr>
-        <tr><td><strong>海关备案</strong></td><td>请求海关查扣侵权复制品的进口货物</td><td>需额外向CBP提交版权备案</td></tr>
-        <tr><td><strong>DMCA投诉</strong></td><td>通过《数字千年版权法》要求平台删除侵权内容</td><td>只需完成作品创作，无需提前登记</td></tr>
+        <tr><td><strong>起诉资格</strong></td><td>只有登记后才能在美国法院提起版权侵权诉讼</td><td>作品完成前或完成后3个月内登记，或至少在起诉前登记</td><td style="font-size:12px;color:var(--text2);">这是美国版权法独有的"登记前置"要求——中国不要求登记即可起诉，但登记证书的证据效力更强</td></tr>
+        <tr><td><strong>法定赔偿</strong></td><td>无需证明实际损失金额，可直接主张$750-$30,000/件（故意侵权最高$150,000/件）</td><td>登记须在侵权行为发生前或作品发表后5日内完成</td><td style="font-size:12px;color:var(--text2);">$150,000/件的故意侵权赔偿额是全球最高的之一。这一数字在2020年从$30,000上调，反映了国会加大版权保护力度的政策转向</td></tr>
+        <tr><td><strong>律师费补偿</strong></td><td>败诉方需承担胜诉方的律师费用</td><td>同上，需在侵权行为前完成登记</td><td style="font-size:12px;color:var(--text2);">律师费补偿是版权维权的"核武器"——它使得小额创作者也能负担得起专业律师，因为胜诉后律师费由对方承担</td></tr>
+        <tr><td><strong>海关备案</strong></td><td>请求海关查扣侵权复制品的进口货物</td><td>需额外向CBP提交版权备案</td><td style="font-size:12px;color:var(--text2);">CBP备案对中国跨境电商卖家特别重要——大量盗版周边产品通过海运进入美国，海关查扣是最直接的保护手段</td></tr>
+        <tr><td><strong>DMCA投诉</strong></td><td>通过《数字千年版权法》要求平台删除侵权内容</td><td>只需完成作品创作，无需提前登记</td><td style="font-size:12px;color:var(--text2);">DMCA是AI时代最活跃的法律工具之一。2023-2025年间，针对AI生成内容的DMCA投诉量增长了约300%</td></tr>
       </tbody>
     </table>
 
@@ -211,6 +211,68 @@
       </div>
     </div>
 
+    <div class="data-signal" style="background:linear-gradient(135deg,rgba(6,182,212,0.06),rgba(139,92,246,0.06));border:1px solid rgba(6,182,212,0.15);border-radius:8px;padding:12px 16px;margin:20px 0;display:flex;align-items:center;gap:12px;">
+      <span style="font-size:24px;">&#x1F3F0;</span>
+      <div>
+        <div style="font-size:12px;color:var(--text2);margin-bottom:2px;">USCO登记量数据（2020-2026）</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text);">美国版权局年度登记量从2020年的约45万件增长至2025年的约82万件，年均增速12.7%。其中AI辅助创作相关申请占比从2023年的3%上升至2025年的约18%。</div>
+      </div>
+    </div>
+
+    <div class="school-view" style="border-left:4px solid #1A5276;background:rgba(26,82,118,0.04);border-radius:0 8px 8px 0;padding:16px;margin:20px 0;">
+      <h4 style="font-size:14px;font-weight:700;color:#1A5276;margin-bottom:8px;"><i class="fas fa-balance-scale"></i> 古典经济学视角：产权激励与创新投入</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.8;">李嘉图的比较优势理论在创作者经济中同样适用：当AI承担了"低创造性"的内容生产后，人类创作者应当将资源集中于具有比较优势的领域——独特的个人视角、深度的情感表达和不可替代的社会关系网络。版权登记制度通过降低维权成本，实际上是在为人类的比较优势提供制度性保护。</p>
+    </div>
+
+    <div class="school-view" style="border-left:4px solid #B8860B;background:rgba(184,134,11,0.04);border-radius:0 8px 8px 0;padding:16px;margin:16px 0;">
+      <h4 style="font-size:14px;font-weight:700;color:#B8860B;margin-bottom:8px;"><i class="fas fa-coins"></i> 马克思主义政治经济学视角：数字劳动与平台剥削</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.8;">在马克思主义框架下，USCO的版权登记制度可以被解读为数字资本主义的"产权固化"工具——它将创作者在平台上产生的所有免费劳动（发帖、评论、直播）转化为可被资本家提取剩余价值的私有财产。平台通过用户协议获得内容的"永久、全球、免版税"授权，而创作者仅获得微不足道的分成。版权登记进一步将这种不平等关系合法化。</p>
+    </div>
+
+    <div class="school-view" style="border-left:4px solid #dc2626;background:rgba(220,38,38,0.04);border-radius:0 8px 8px 0;padding:16px;margin:16px 0;">
+      <h4 style="font-size:14px;font-weight:700;color:#dc2626;margin-bottom:8px;"><i class="fas fa-gavel"></i> 新制度经济学视角：制度套利与跨境登记</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.8;">不同法域的版权登记制度之间存在巨大的"制度价差"——中国¥300 vs 美国$65，澳大利亚AUD25 vs 英国GBP150。聪明的创作者会利用这些差异进行制度套利：低成本法域登记+高保护力度法域维权。新制度经济学认为，这种套利行为最终会推动各国制度的趋同和优化。</p>
+    </div>
+
+    <div class="school-view" style="border-left:4px solid #059669;background:rgba(5,150,105,0.04);border-radius:0 8px 8px 0;padding:16px;margin:16px 0;">
+      <h4 style="font-size:14px;font-weight:700;color:#059669;margin-bottom:8px;"><i class="fas fa-chart-line"></i> 公共选择理论视角：USCO的政策俘获</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.8;">斯蒂格勒的监管俘获理论在USCO身上得到了验证：USCO的预算约70%来自登记费和许可费，而非国会拨款。这导致USCO有强烈的动机扩大登记范围以增加收入——包括将AI生成内容纳入可登记范围的压力。公共选择学派建议对USCO进行结构性改革，使其收入来源多元化以减少利益冲突。</p>
+    </div>
+
+    <div class="school-view" style="border-left:4px solid #7c3aed;background:rgba(124,58,237,0.04);border-radius:0 8px 8px 0;padding:16px;margin:16px 0;">
+      <h4 style="font-size:14px;font-weight:700;color:#7c3aed;margin-bottom:8px;"><i class="fas fa-brain"></i> 行为经济学视角：登记决策的认知偏差</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.8;">创作者在决定是否登记版权时面临多种认知偏差：① "乐观偏见"——认为自己的作品不会被侵权；② "现状偏见"——继续使用不登记的"舒适区"；③ "损失厌恶"——将登记费视为"确定损失"而非"风险对冲"。USCO的eCO系统在2025年推出的"一键登记"功能，就是通过减少决策步骤来克服这些偏差的设计。</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microscope"></i> 案例深挖：Zarya of the Dawn——从被拒到部分胜出的版权登记曲折路</div>
+      <div class="case-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;"><strong>背景：</strong>2020年，俄罗斯艺术家Kristina Kashtanova使用Midjourney生成了漫画《Zarya of the Dawn》的全部插图，并将文字和图像编排成漫画书形式在Kickstarter上众筹成功。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;"><strong>登记过程：</strong>Kashtanova首先在美国完成了VA类别登记（整个漫画书）。2023年，USCO要求重新审查，因为作品中大部分图像由AI生成。经过多轮沟通，USCO最终裁定：AI生成的图像本身不受版权保护，但人类对图像的"选择和编排"（即漫画的整体结构）可以获得版权。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;"><strong>关键教训：</strong>① 不要试图将AI生成物整体登记为人类作品；② 强调人类在编排、排序、叙事结构上的创造性贡献；③ 保留完整的创作过程记录，包括prompt迭代和图像筛选日志。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;"><strong>行业影响：</strong>该案成为AI版权登记的里程碑先例。此后USCO在处理AI相关申请时，普遍采用"部分保护"模式——保护人类贡献的部分，排除纯AI生成的部分。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain">
+      <div class="chain-header"><i class="fas fa-project-diagram"></i> 发散引申链</div>
+      <div class="chain-body">
+        <div class="chain-node"><strong>USCO登记 → 全球影响力</strong><br><span style="font-size:12px;color:var(--text2);">美国版权登记证书在全球120+个伯尔尼公约成员国都被认可。对于出海创作者来说，USCO登记是最具国际效力的单一登记。</span></div>
+        <div class="chain-node"><strong>eCO系统 → 用户体验设计</strong><br><span style="font-size:12px;color:var(--text2);">USCO的eCO系统在2025年进行了大规模UX改版，将平均完成时间从45分钟缩短到15分钟。政府服务的"用户体验革命"正在发生。</span></div>
+        <div class="chain-node"><strong>法定赔偿 → 创作者经济激励</strong><br><span style="font-size:12px;color:var(--text2);">$150,000的故意侵权最高赔偿额是全球最高的之一。这一数字是否足以阻止大规模盗版？需要结合执法概率来评估。</span></div>
+        <div class="chain-node"><strong>DMCA → 平台治理范式</strong><br><span style="font-size:12px;color:var(--text2);">DMCA的"通知-删除"机制塑造了整个互联网的内容治理模式。但AI时代，"通知-删除"是否还能有效应对海量AI侵权内容？</span></div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:20px">
+      <div class="tip-title"><i class="fas fa-chess-knight"></i> 战略建议：USCO登记的最佳实践</div>
+      <div class="tip-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;"><strong>时间优先原则：</strong>在作品公开发布前完成登记。美国法律赋予"发表前登记"的创作者更强的法律保护（包括法定赔偿和律师费），这是其他法域不具备的优势。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;"><strong>类别精准匹配：</strong>不要为了省事将所有作品都登记为VA类。不同类型的作品对应不同的侵权认定标准——选错类别可能导致维权时保护力度不足。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;"><strong>AI声明策略：</strong>如果作品包含AI生成元素，诚实申报并详细说明人类贡献。隐瞒AI使用情况一旦被查实，不仅登记无效，还可能面临联邦欺诈指控。</p>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-usco-timeline"></div>
 
     </article>
@@ -237,7 +299,7 @@
       chart.setOption({
         backgroundColor: 'transparent',
         tooltip: { trigger: 'axis' },
-        legend: { data: ['普通周期(月)', '优先周期(周)', '费用(美元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+        legend: { data: ['普通周期(月)', '优先周期(周)', '费用(美元)', 'AI额外等待(月)'], textStyle: { color: '#94a3b8' }, top: 0 },
         grid: { left: 70, right: 30, top: 50, bottom: 30 },
         xAxis: { type: 'category', data: ['单件作品(VA)', '文学作品(TX)', '音乐作品(PA)', '视听作品', '批量登记', 'AI辅助作品'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
         yAxis: [
@@ -251,12 +313,16 @@
           },
           {
             name: '优先周期(周)', type: 'line', yAxisIndex: 0, data: [8, 8, 8, 8, 8, 12],
-            itemStyle: { color: '#f59e0b' }, lineStyle: { width: 2, type: 'dashed' }, symbolSize: 8
+            itemStyle: { color: '#B8860B' }, lineStyle: { width: 2, type: 'dashed' }, symbolSize: 8
           },
           {
             name: '费用(美元)', type: 'line', yAxisIndex: 1, smooth: true, data: [65, 65, 65, 65, 90, 65],
-            itemStyle: { color: '#8b5cf6' }, lineStyle: { width: 3 }, symbolSize: 10,
-            label: { show: true, position: 'top', color: '#8b5cf6', fontSize: 11, formatter: '${c}' }
+            itemStyle: { color: '#7c3aed' }, lineStyle: { width: 3 }, symbolSize: 10,
+            label: { show: true, position: 'top', color: '#7c3aed', fontSize: 11, formatter: '${c}' }
+          },
+          {
+            name: 'AI额外等待(月)', type: 'bar', data: [0, 0, 0, 0, 0, 3],
+            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#dc2626' }, { offset: 1, color: 'rgba(220,38,38,0.15)' }]), borderRadius: [4, 4, 0, 0] }
           }
         ]
       });

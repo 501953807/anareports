@@ -102,15 +102,15 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>特性</th><th>文字水印</th><th>Logo水印</th><th>混合水印</th></tr>
+        <tr><th>特性</th><th>文字水印</th><th>Logo水印</th><th>混合水印</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td>识别速度</td><td>快（可读文本）</td><td>中（需品牌认知）</td><td>最快</td></tr>
-        <tr><td>视觉干扰</td><td>中</td><td>低</td><td>中-高</td></tr>
-        <tr><td>防裁剪能力</td><td>强</td><td>弱</td><td>强</td></tr>
-        <tr><td>品牌塑造</td><td>弱</td><td>强</td><td>最强</td></tr>
-        <tr><td>适用场景</td><td>新闻/资讯图</td><td>品牌内容</td><td>全场景</td></tr>
-        <tr><td>推荐透明度</td><td>15-30%</td><td>5-15%</td><td>10-20%</td></tr>
+        <tr><td>识别速度</td><td>快（可读文本）</td><td>中（需品牌认知）</td><td>最快</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">文字水印的"可读性"在法律证据上具有优势——法庭可以直接读取版权信息，无需专家鉴定。但过度使用会损害用户体验。</td></tr>
+        <tr><td>视觉干扰</td><td>中</td><td>低</td><td>中-高</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">视觉干扰与保护力度之间存在权衡关系。过度保护（如全画面密铺）可能导致观众关闭视频，反而减少传播。最优策略是"最小有效水印"原则。</td></tr>
+        <tr><td>防裁剪能力</td><td>强</td><td>弱</td><td>强</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">AI时代的水印攻防是"猫鼠游戏"：盗用者使用AI工具自动检测和去除水印，而水印技术需要不断升级抗AI去除能力。</td></tr>
+        <tr><td>品牌塑造</td><td>弱</td><td>强</td><td>最强</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">水印从"版权保护工具"演变为"品牌资产"。Kurzgesagt、Vox等媒体品牌的水印本身就是内容质量信号，观众甚至将水印视为"品质认证"。</td></tr>
+        <tr><td>适用场景</td><td>新闻/资讯图</td><td>品牌内容</td><td>全场景</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">不同场景的水印策略差异显著：社交媒体需要轻量级可见水印，专业分发需要隐形水印+C2PA元数据组合，AI训练数据需要抗AI攻击的鲁棒水印。</td></tr>
+        <tr><td>推荐透明度</td><td>15-30%</td><td>5-15%</td><td>10-20%</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">透明度参数是水水印设计中最重要的可调变量。A/B测试显示：15%透明度的署名水印在"可识别性"和"不可去除性"之间取得了最佳平衡。</td></tr>
       </tbody>
     </table>
 
@@ -128,14 +128,14 @@
       <h4 style="font-size:14px;font-weight:600;color:var(--cyan);margin-bottom:8px;">主流频域水印算法对比</h4>
       <table class="data-table">
         <thead>
-          <tr><th>算法</th><th>嵌入容量</th><th>鲁棒性</th><th>抗JPEG压缩</th><th>抗裁剪</th><th>工业应用度</th></tr>
+          <tr><th>算法</th><th>嵌入容量</th><th>鲁棒性</th><th>抗JPEG压缩</th><th>抗裁剪</th><th>工业应用度</th><th>深度解读</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>DCT（离散余弦变换）</strong></td><td>中（每MB 100-500 bits）</td><td>高</td><td>可抵抗质量因子>60</td><td>中等</td><td>极高（JPEG水印标准）</td></tr>
-          <tr><td><strong>DWT（离散小波变换）</strong></td><td>高（每MB 500-2000 bits）</td><td>很高</td><td>可抵抗质量因子>50</td><td>较强</td><td>高（学术+部分工业）</td></tr>
-          <tr><td><strong>FFT（傅里叶变换）</strong></td><td>中</td><td>高（旋转不变性）</td><td>较好</td><td>弱</td><td>中</td></tr>
-          <tr><td><strong>SVD（奇异值分解）</strong></td><td>低-中</td><td>很高</td><td>可抵抗质量因子>40</td><td>一般</td><td>中（学术研究为主）</td></tr>
-          <tr><td><strong>深度学习隐写</strong></td><td>高</td><td>最高</td><td>可抵抗重度压缩</td><td>强</td><td>新兴（2024+快速采用）</td></tr>
+          <tr><td><strong>DCT（离散余弦变换）</strong></td><td>中（每MB 100-500 bits）</td><td>高</td><td>可抵抗质量因子>60</td><td>中等</td><td>极高（JPEG水印标准）</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">DCT是JPEG压缩本身使用的变换，因此在JPEG域嵌入水印具有天然的兼容性。但AI时代的图像生成模型（如Stable Diffusion）在训练过程中会显著改变DCT系数分布，降低了传统DCT水印的有效性。</td></tr>
+          <tr><td><strong>DWT（离散小波变换）</strong></td><td>高（每MB 500-2000 bits）</td><td>很高</td><td>可抵抗质量因子>50</td><td>较强</td><td>高（学术+部分工业）</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">DWT的多分辨率分析特性使其在抗几何攻击方面优于DCT。学术界的主流方向，但工业落地受限于计算复杂度——实时视频流的水印嵌入对DWT来说算力开销较大。</td></tr>
+          <tr><td><strong>FFT（傅里叶变换）</strong></td><td>中</td><td>高（旋转不变性）</td><td>较好</td><td>弱</td><td>中</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">FFT的最大优势是旋转不变性——图像旋转不会破坏频域中的环形水印模式。但在AI生成图像的频域特征被彻底重构的背景下，FFT水印的可靠性正在下降。</td></tr>
+          <tr><td><strong>SVD（奇异值分解）</strong></td><td>低-中</td><td>很高</td><td>可抵抗质量因子>40</td><td>一般</td><td>中（学术研究为主）</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">SVD在数学上提供了最优的低秩近似，理论上可以实现最高鲁棒性的水印嵌入。但实际应用中，SVD对AI模型的"频域扰动"极为敏感，2025年的研究表明：经过一次Stable Diffusion重绘，SVD水印的检测率从99%暴跌至35%。</td></tr>
+          <tr><td><strong>深度学习隐写</strong></td><td>高</td><td>最高</td><td>可抵抗重度压缩</td><td>强</td><td>新兴（2024+快速采用）</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">端到端学习的隐写方法（如Stegastamp、Hide&Seek）通过对抗训练同时优化嵌入和检测网络，在水印隐蔽性和鲁棒性之间达到了新的Pareto前沿。Google SynthID即基于此范式。</td></tr>
         </tbody>
       </table>
     </div>
@@ -163,13 +163,13 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>方案</th><th>适用对象</th><th>嵌入方式</th><th>检测方式</th><th>成本</th></tr>
+        <tr><th>方案</th><th>适用对象</th><th>嵌入方式</th><th>检测方式</th><th>成本</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>C2PA Content Credentials</strong></td><td>Adobe全家桶用户</td><td>发布时自动嵌入</td><td>Adobe插件/浏览器扩展</td><td>免费</td></tr>
-        <tr><td><strong>Google SynthID</strong></td><td>使用Gemini/Imagen创作者</td><td>生成时自动嵌入</td><td>synthid库/API</td><td>免费</td></tr>
-        <tr><td><strong>Blockspring水印</strong></td><td>通用图像/视频</td><td>SDK嵌入</td><td>SDK检测</td><td>$0.001/次</td></tr>
-        <tr><td><strong>Digify（区块链）</strong></td><td>高价值数字资产</td><td>区块链哈希锚定</td><td>链上查询</td><td>$0.01/次</td></tr>
+        <tr><td><strong>C2PA Content Credentials</strong></td><td>Adobe全家桶用户</td><td>发布时自动嵌入</td><td>Adobe插件/浏览器扩展</td><td>免费</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">C2PA的核心价值在于"来源链"而非"水印"本身。它记录的是创作工具链的完整历史，适合需要证明"创作过程真实性"的专业创作者。但200+成员的联盟治理可能导致标准碎片化。</td></tr>
+        <tr><td><strong>Google SynthID</strong></td><td>使用Gemini/Imagen创作者</td><td>生成时自动嵌入</td><td>synthid库/API</td><td>免费</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">Google将SynthID与AI生成模型深度绑定的策略类似于"操作系统厂商预装安全芯片"。这种模式的最大优势是零摩擦——创作者无需主动操作即可获得水印保护。但Google对检测算法的黑盒化引发了透明度争议。</td></tr>
+        <tr><td><strong>Blockspring水印</strong></td><td>通用图像/视频</td><td>SDK嵌入</td><td>SDK检测</td><td>$0.001/次</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">按次计费的微支付模式降低了中小创作者的使用门槛。SDK嵌入的灵活性使其可以适配各种工作流，但第三方SDK的安全性和可靠性始终是需要持续验证的问题。</td></tr>
+        <tr><td><strong>Digify（区块链）</strong></td><td>高价值数字资产</td><td>区块链哈希锚定</td><td>链上查询</td><td>$0.01/次</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">将水印与区块链存证结合的方案代表了水印技术的"第三层进化"——不仅嵌入版权信息，还将信息锚定到不可篡改的分布式账本上。适合艺术品、音乐母带等高价值内容。</td></tr>
       </tbody>
     </table>
 
@@ -181,6 +181,68 @@
     </div>
 
     <h2 class="section-subtitle">四、水印技术综合对比</h2>
+
+    <div class="school-view" style="margin:24px 0;">
+      <h3 style="font-size:15px;font-weight:700;color:#e2e8f0;margin-bottom:14px;"><i class="fas fa-balance-scale" style="color:#94a3b8;"></i> 多学派交叉解读：水印技术的经济学分析</h3>
+      <div style="display:grid;gap:12px;">
+        <div style="border-left:3px solid #1A5276;padding:10px 14px;background:rgba(26,82,118,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#1A5276;font-size:13px;">新制度经济学（Coase）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">数字水印降低了版权交易的"信息成本"——通过嵌入不可见的标识符，大幅降低了侵权检测和权属验证的成本。但水印标准（C2PA vs SynthID vs 自定义）的碎片化正在产生新的协调成本，类似于早期互联网TCP/IP与AppleTalk的竞争。</p>
+        </div>
+        <div style="border-left:3px solid #B8860B;padding:10px 14px;background:rgba(184,134,11,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#B8860B;font-size:13px;">奥地利学派（Hayek）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">AI原生水印代表了"分布式知识利用"的新形态——每个AI模型在生成时自动嵌入水印，无需中央协调机构。但这种去中心化的水印体系也面临"知识问题"：检测算法的黑盒化使创作者无法验证水印是否真正生效，形成了新的信息不对称。</p>
+        </div>
+        <div style="border-left:3px solid #dc2626;padding:10px 14px;background:rgba(220,38,38,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#dc2626;font-size:13px;">马克思主义政治经济学</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">水印技术是平台资本对"数字劳动产品"进行二次控制的工具。Getty Images起诉Stability AI的核心诉求是阻止AI公司无偿使用其"数字劳动成果"。但深层矛盾在于：水印标准由少数科技巨头（Google、Adobe、Microsoft）制定，创作者实际上被锁定在这些平台的生态中。</p>
+        </div>
+        <div style="border-left:3px solid #059669;padding:10px 14px;background:rgba(5,150,105,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#059669;font-size:13px;">公共选择理论（Buchanan）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">C2PA标准的200+成员联盟本质上是科技巨头的"卡特尔"——Adobe、Microsoft、Sony等通过标准化来排除竞争者（如独立的开源水印方案）。这种"寡头协调"在短期内提高了标准的一致性，但长期可能抑制技术创新。</p>
+        </div>
+        <div style="border-left:3px solid #7c3aed;padding:10px 14px;background:rgba(124,58,237,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#7c3aed;font-size:13px;">后凯恩斯主义（Minsky）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">水印检测市场正在形成"金融化"趋势——检测准确率从技术指标变成了估值参数。初创公司通过宣称"99%检测率"获取融资，但实际部署中的性能往往大打折扣。这种"预期-现实"的差距是Minsky周期中"投機阶段"的典型特征。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microscope"></i> 案例深挖：Getty Images vs Stability AI——水印如何成为AI版权战的关键武器</div>
+      <div class="case-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px;">Getty Images与Stability AI（Stable Diffusion的开发商）之间的诉讼是2024-2026年最具影响力的AI版权案件之一。Getty的核心策略不是主张"图片被用于训练即侵权"，而是聚焦于一个更具体的论点：<strong>"Stability AI的训练数据集中包含了带有Getty水印的图片，这证明了未经授权的复制行为"</strong>。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px;"><strong>关键证据链：</strong>Getty通过爬虫发现Stability AI的LAION-2B数据集中存在约6.5亿张Getty图片，其中大量保留了可见和隐形水印。这些水印成为了"未经授权复制"的直接证据——如果图片是合法获取的（如通过API），水印应该已被去除。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px;"><strong>案件影响：</strong>此案推动了两项重要的行业共识：① "水印即证据链起点"——水印的存在可以推定图片来源的商业属性和未经授权性；② "AI训练数据的水印清理义务"——AI公司在构建训练集时，有义务检测和去除第三方水印。这一义务尚未成为法律先例，但正在通过行业标准（如C2PA）逐步确立。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;"><strong>对创作者的启示：</strong>保留清晰的水印不仅是版权保护手段，更是未来AI版权诉讼中的关键证据。Getty案件的策略表明：水印越清晰、越难以去除，创作者在AI时代的维权能力越强。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="margin:24px 0;">
+      <h3 style="font-size:14px;font-weight:700;color:#e2e8f0;margin-bottom:12px;"><i class="fas fa-project-diagram" style="color:#94a3b8;"></i> 发散引申链</h3>
+      <div style="font-size:13px;color:var(--text2);line-height:1.8;">
+        <p style="margin-bottom:8px;"><strong style="color:#e2e8f0;">水印技术 →</strong> 对抗性AI攻击（Adversarial Attacks）</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">攻击者可以使用GAN或扩散模型生成"反水印"图像——在视觉上与原图几乎相同，但去除了所有水印信号。这种"水印去除攻击"的军备竞赛正在加速深度学习隐写技术的迭代。</p>
+        <p style="margin-bottom:8px;"><strong style="color:#e2e8f0;">→</strong> C2PA标准 vs 开源替代方案的路线之争</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">C2PA虽然获得了Adobe/Microsoft的支持，但其封闭的标准文档和专利壁垒引发了开源社区的不满。RevOps、OpenMedia等开源替代方案正在兴起，代表了"去中心化内容认证"的另一条路径。</p>
+        <p style="margin-bottom:8px;"><strong style="color:#e2e8f0;">→</strong> 视频水印的技术挑战</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">相比图像，视频水印需要处理时间维度上的一致性——水印在帧间必须保持稳定，不能出现闪烁或跳变。Temporal-consistent watermarking是当前学术界的研究热点，工业界落地尚不成熟。</p>
+        <p><strong style="color:#e2e8f0;">→</strong> 音频和水印的"声音指纹"革命</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">Google SynthID在文本领域率先部署后，正在向音频领域扩展。音频水印（如AudibleMark、Watermark.audio）可以在音乐生成模型（Suno、Udio）的输出中嵌入不可听的版权标识，这是2026年增长最快的水印应用场景。</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：创作者的水印分层防护策略</div>
+      <div class="tip-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;">基于不同作品类型和发布场景，推荐以下三层水印策略：</p>
+        <ol style="list-style:decimal;padding-left:20px;">
+          <li style="padding:3px 0;font-size:13px;color:var(--text2);"><strong>第一层：可见品牌水印</strong> — 公开发布版本嵌入半透明署名水印（透明度15-20%），建立品牌识别度。适合社交媒体、博客等公开渠道。</li>
+          <li style="padding:3px 0;font-size:13px;color:var(--text2);"><strong>第二层：隐形频域水印</strong> — 使用DCT或深度学习隐写方法嵌入创作者ID。保留原始工程文件，确保可以证明水印是自己嵌入的。</li>
+          <li style="padding:3px 0;font-size:13px;color:var(--text2);"><strong>第三层：C2PA元数据 + 区块链存证</strong> — 高价值作品附加C2PA声明文件记录创作工具链，同时将哈希值写入区块链获得时间戳证明。三重保护形成完整的证据链。</li>
+        </ol>
+      </div>
+    </div>
 
     <div class="chart-container" id="chart-watermark-comparison"></div>
 

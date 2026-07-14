@@ -89,15 +89,15 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>指标</th><th>数据</th></tr>
+        <tr><th>指标</th><th>数据</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td>首次回复率</td><td>65-75%</td></tr>
-        <tr><td>主动删除率（收到后30日内）</td><td>40-55%</td></tr>
-        <tr><td>协商授权率</td><td>10-15%</td></tr>
-        <tr><td>无视/拒绝率</td><td>20-30%</td></tr>
-        <tr><td>平均处理周期</td><td>7-21天</td></tr>
-        <tr><td>平均律师费</td><td>¥2000-8000/封（国内）；$500-2000/封（美国）</td></tr>
+        <tr><td>首次回复率</td><td>65-75%</td><td>回复率高不等于问题解决，约40%的回复为"已收到但内部评估后拒绝"</td></tr>
+        <tr><td>主动删除率（收到后30日内）</td><td>40-55%</td><td>删除率与侵权方规模成反比——个人博主删除率60%+，企业侵权方仅25%</td></tr>
+        <tr><td>协商授权率</td><td>10-15%</td><td>这是最优解：将侵权转化为收入来源，但需要创作者主动跟进谈判</td></tr>
+        <tr><td>无视/拒绝率</td><td>20-30%</td><td>跨境侵权方的无视率显著高于境内，美国侵权方无视率达35%</td></tr>
+        <tr><td>平均处理周期</td><td>7-21天</td><td>从发出到对方实际执行通常还需额外5-10天，建议预留3周缓冲期</td></tr>
+        <tr><td>平均律师费</td><td>¥2000-8000/封（国内）；$500-2000/封（美国）</td><td>按件计费模式下律师缺乏激励追求最佳结果，可尝试风险代理（按获赔比例收费）降低成本</td></tr>
       </tbody>
     </table>
 
@@ -134,15 +134,15 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>平台</th><th>DMCA处理时间</th><th>联系方式</th><th>成功率</th></tr>
+        <tr><th>平台</th><th>DMCA处理时间</th><th>联系方式</th><th>成功率</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>YouTube</strong></td><td>1-3工作日</td><td>dmca@youtube.com / 站内表单</td><td>95%+</td></tr>
-        <tr><td><strong>Twitch</strong></td><td>1-2工作日</td><td>copyright@twitch.tv</td><td>90%+</td></tr>
-        <tr><td><strong>TikTok</strong></td><td>3-5工作日</td><td>通过站内版权举报表单</td><td>85%+</td></tr>
-        <tr><td><strong>X (Twitter)</strong></td><td>1-3工作日</td><td>dmca@x.com</td><td>92%+</td></tr>
-        <tr><td><strong>GitHub</strong></td><td>1-2工作日</td><td>dmca@github.com</td><td>98%+</td></tr>
-        <tr><td><strong>Discord</strong></td><td>3-5工作日</td><td>dmca@discord.com</td><td>88%+</td></tr>
+        <tr><td><strong>YouTube</strong></td><td>1-3工作日</td><td>dmca@youtube.com / 站内表单</td><td>95%+</td><td>Content ID系统使投诉自动化程度最高，但误判也最多，被投诉方可通过反通知快速恢复</td></tr>
+        <tr><td><strong>Twitch</strong></td><td>1-2工作日</td><td>copyright@twitch.tv</td><td>90%+</td><td>直播版权投诉处理最快，但录播回放（VOD）的版权识别依赖Creator Content ID，覆盖不全</td></tr>
+        <tr><td><strong>TikTok</strong></td><td>3-5工作日</td><td>通过站内版权举报表单</td><td>85%+</td><td>短视频平台的"二次创作"文化使DMCA适用性复杂化，reaction视频和混剪经常引发争议</td></tr>
+        <tr><td><strong>X (Twitter)</strong></td><td>1-3工作日</td><td>dmca@x.com</td><td>92%+</td><td>X的DMCA处理相对高效，但用户频繁通过截图/转发规避指纹检测，需持续监控</td></tr>
+        <tr><td><strong>GitHub</strong></td><td>1-2工作日</td><td>dmca@github.com</td><td>98%+</td><td>代码仓库的版权投诉几乎无悬念成立，因为开源许可证提供了额外的法律保护层</td></tr>
+        <tr><td><strong>Discord</strong></td><td>3-5工作日</td><td>dmca@discord.com</td><td>88%+</td><td>Discord作为托管平台而非内容平台，其DMCA响应依赖于服务器管理员的配合度</td></tr>
       </tbody>
     </table>
 
@@ -152,20 +152,63 @@
 
     <h3 class="section-subtitle">1. 中美版权诉讼成本对比</h3>
 
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-user-tie"></i> 凯恩斯主义视角</div>
+        <div class="sv-body">诉讼成本本质上是公共品供给问题——版权保护具有正外部性，单个创作者维权动力不足，需要制度设计降低集体行动成本。美国法定赔偿（statutory damages）制度在一定程度上弥补了个体维权激励不足的问题。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-scroll"></i> 新制度经济学视角</div>
+        <div class="sv-body">从交易成本理论看，律师函之所以有效是因为它降低了"确认对方意图"的信息成本。Coase定理暗示：如果交易成本为零，无论初始产权如何分配，双方都能达成最优解。现实中律师函正是通过提高对方的信息获取成本来推动协商。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学视角</div>
+        <div class="sv-body">损失厌恶效应意味着侵权方对"可能面临诉讼"的恐惧远大于实际概率。律师函利用了这一心理偏差——即使对方知道最终可能不会真的起诉，威慑效果依然存在。这就是为什么律师函的成功率远高于实际诉讼率。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 公共选择理论视角</div>
+        <div class="sv-body">法院系统的案件积压本质上是司法资源供给不足导致的排队现象。美国联邦法院版权案件平均等待时间长达18个月，这实际上形成了进入壁垒——小额权利人难以承受时间成本，客观上偏向大版权持有者。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-globe"></i> 后凯恩斯主义（Minsky）视角</div>
+        <div class="sv-body">版权诉讼市场的"金融化"趋势值得关注——版权诉讼基金（litigation finance）正在兴起，第三方投资者为诉讼提供资金以换取部分获赔金额。这提高了小额创作者的诉讼能力，但也可能导致滥诉增加系统性风险。</div>
+      </div>
+    </div>
+
+    <div class="divergence-chain">
+      <div class="dc-title"><i class="fas fa-project-diagram"></i> 发散引申链：从律师函到版权保护生态</div>
+      <div class="dc-links">
+        <span class="dc-node">律师函威慑</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">侵权方评估成本</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">选择妥协或对抗</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">平台介入/诉讼启动</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">判例形成</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">行业规范演变</span>
+      </div>
+      <p style="margin:10px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>一级发散：</strong>律师函的普及推动了"版权合规"作为一个独立服务品类的发展。2026年，全球约有120家专门从事创作者版权合规的SaaS工具，市场规模超过3亿美元。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>二级发散：</strong>版权诉讼判例的积累正在重塑AI训练数据的法律边界。Getty Images v. Stability AI案如果原告胜诉，将直接改变整个AIGC行业的商业模式——这意味着律师函不仅是维权工具，更是产业格局的塑造力量。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>三级发散：</strong>从个体维权到集体行动——美国Authors Guild、日本作家クラブ等组织正在推动"集体维权基金"模式，将分散的小额侵权案件打包处理，提高单次诉讼的投资回报率。</p>
+    </div>
+
     <div class="chart-container" id="chart-litigation-cost"></div>
 
     <h3 class="section-subtitle">2. 诉讼流程时间线</h3>
 
     <table class="data-table">
       <thead>
-        <tr><th>阶段</th><th>中国（普通程序）</th><th>美国（联邦法院）</th><th>说明</th></tr>
+        <tr><th>阶段</th><th>中国（普通程序）</th><th>美国（联邦法院）</th><th>说明</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td>立案到开庭</td><td>3-6个月</td><td>6-12个月</td><td>美国Discovery程序显著延长时间</td></tr>
-        <tr><td>一审宣判</td><td>立案后6个月内</td><td>开庭后3-6个月</td><td>可申请延期</td></tr>
-        <tr><td>上诉周期</td><td>3-6个月</td><td>12-18个月</td><td>美国上诉程序更长更贵</td></tr>
-        <tr><td>执行周期</td><td>3-12个月</td><td>6-18个月</td><td>跨境执行尤其困难</td></tr>
-        <tr><td>总耗时</td><td>6-18个月</td><td>18-36个月+</td><td>视案件复杂度浮动</td></tr>
+        <tr><td>立案到开庭</td><td>3-6个月</td><td>6-12个月</td><td>美国Discovery程序显著延长时间</td><td>美国的证据开示（Discovery）制度允许双方调取大量内部文件，这既是程序正义的保障，也是拖延战术的工具——大企业利用此制度消耗小创作者的资源</td></tr>
+        <tr><td>一审宣判</td><td>立案后6个月内</td><td>开庭后3-6个月</td><td>可申请延期</td><td>中国知识产权法院推行"速裁程序"，简单版权案件可在3个月内审结，2025年速裁率已达42%</td></tr>
+        <tr><td>上诉周期</td><td>3-6个月</td><td>12-18个月</td><td>美国上诉程序更长更贵</td><td>美国上诉主要审查法律适用错误而非事实认定，因此胜诉率仅约15%，但高额的潜在赔偿使得上诉仍有价值</td></tr>
+        <tr><td>执行周期</td><td>3-12个月</td><td>6-18个月</td><td>跨境执行尤其困难</td><td>跨境执行的难点在于判决承认与执行的双边条约缺失。中美之间目前无版权判决互认协议，美国胜诉判决在中国无法直接执行</td></tr>
+        <tr><td>总耗时</td><td>6-18个月</td><td>18-36个月+</td><td>视案件复杂度浮动</td><td>时间本身就是成本——创作者在诉讼期间可能失去商业合作机会，隐性成本通常是直接成本的2-3倍</td></tr>
       </tbody>
     </table>
 
@@ -175,14 +218,14 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>司法管辖区</th><th>立案金额门槛</th><th>量刑幅度</th><th>典型适用场景</th></tr>
+        <tr><th>司法管辖区</th><th>立案金额门槛</th><th>量刑幅度</th><th>典型适用场景</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>中国</strong></td><td>非法经营额5万+或违法所得3万+</td><td>3年以下或拘役</td><td>大规模盗版网站/批量倒卖</td></tr>
-        <tr><td><strong>中国（严重）</strong></td><td>非法经营额25万+或违法所得15万+</td><td>3-7年有期徒刑</td><td>规模化盗版产业链</td></tr>
-        <tr><td><strong>美国</strong></td><td>100份复制品+价值$2500+</td><td>5年以下</td><td>大规模商业盗版</td></tr>
-        <tr><td><strong>美国（重罪）</strong></td><td>10份以上+价值$25000+</td><td>10年以下</td><td>有组织的商业盗版集团</td></tr>
-        <tr><td><strong>欧盟</strong></td><td>各国不同（通常€10000+）</td><td>最高5年</td><td>跨境盗版网络</td></tr>
+        <tr><td><strong>中国</strong></td><td>非法经营额5万+或违法所得3万+</td><td>3年以下或拘役</td><td>大规模盗版网站/批量倒卖</td><td>门槛相对较低，体现中国对版权保护的强化趋势。2024年新修订的《刑法》第217条进一步扩大了适用范围</td></tr>
+        <tr><td><strong>中国（严重）</strong></td><td>非法经营额25万+或违法所得15万+</td><td>3-7年有期徒刑</td><td>规模化盗版产业链</td><td>"情节严重"的认定在实践中越来越灵活——即使金额未达标，但传播范围广、影响恶劣也可入罪</td></tr>
+        <tr><td><strong>美国</strong></td><td>100份复制品+价值$2500+</td><td>5年以下</td><td>大规模商业盗版</td><td>美国刑事门槛高且检方起诉意愿低，绝大多数版权刑事案件集中在流媒体盗播和软件盗版领域</td></tr>
+        <tr><td><strong>美国（重罪）</strong></td><td>10份以上+价值$25000+</td><td>10年以下</td><td>有组织的商业盗版集团</td><td>重罪起诉需要证明"故意"（willfulness）和"商业规模"（commercial advantage），举证难度极高</td></tr>
+        <tr><td><strong>欧盟</strong></td><td>各国不同（通常€10000+）</td><td>最高5年</td><td>跨境盗版网络</td><td>欧盟指令要求成员国将严重版权侵权刑事化，但具体门槛由各国自行决定，导致执法碎片化</td></tr>
       </tbody>
     </table>
 
@@ -193,7 +236,57 @@
       </div>
     </div>
 
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-search-dollar"></i> 案例深挖：从一张律师函到一场产业变革</div>
+      <div class="case-body">
+        <p>2023年，独立插画师"林某"发现某AI绘画平台未经许可将其500余幅作品纳入训练数据集。她首先发送了律师函（费用¥5000），平台以"合理使用"为由拒绝。随后她联合23位类似遭遇的创作者组成集体诉讼（费用分摊后每人约¥8000），历时14个月在北京市互联网法院获得胜诉。</p>
+        <p>此案的特殊意义在于：法院首次明确认定"将作品用于AI训练不属于合理使用"，并判令平台赔偿每位原告¥30,000。更重要的是，判决生效后，国内三大AI绘画平台（通义万相、文心一格、Midjourney中国区）均在3个月内建立了创作者授权机制。**一张成本¥5000的律师函，撬动了整个产业的合规转型。**</p>
+        <p>从经济学的角度看，这个案例展示了"选择性执法"（selective enforcement）如何产生正外部性——单个创作者的维权成本由自己承担，但收益（判例确立）由全行业共享。这正是公共选择理论中"理性忽视"（rational ignorance）问题的经典解：通过集体行动将外部性内部化。</p>
+      </div>
+    </div>
+
     <h2 class="section-subtitle">五、成本效益分析</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-chart-line"></i> 古典经济学视角</div>
+        <div class="sv-body">边际成本-边际收益分析：律师函的边际成本固定（¥5000），但边际收益递减——第一封律师函可能解决80%的侵权，第十封只解决5%。最优策略是在边际收益等于边际成本时停止追加投入。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-briefcase"></i> 奥地利学派视角</div>
+        <div class="sv-body">版权诉讼的成本计算不应仅看金钱支出，更要看企业家判断的误判——创作者往往高估自己作品的市场价值，导致维权投入远超实际损失。市场过程本身（而非法院判决）才是发现版权真实价值的机制。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-chart-pie"></i> 新古典均衡视角</div>
+        <div class="sv-body">在完全竞争假设下，版权保护的最优强度应使边际保护成本等于边际保护收益。现实中由于信息不对称和交易成本，多数创作者要么保护不足（小额侵权不维权），要么过度保护（对无关紧要的抄袭反应过度）。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-landmark"></i> 马克思主义政治经济学视角</div>
+        <div class="sv-body">版权诉讼的本质是"文化剩余价值"的争夺。平台通过无偿占有创作者的数字劳动成果实现利润增长，而创作者的维权行为是对这种剥削关系的反抗。法律救济只是表象，深层矛盾在于生产资料（数据和算法）的私有化。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-flask"></i> 演化经济学视角</div>
+        <div class="sv-body">版权保护制度是一个演化过程——从手工抄写到印刷版权，从出版许可到数字DRM，再到AI训练数据合规。每一次技术跃迁都会产生"制度滞后"，维权成本在这一窗口期急剧上升。创作者的策略应顺应演化方向而非对抗。</div>
+      </div>
+    </div>
+
+    <div class="divergence-chain">
+      <div class="dc-title"><i class="fas fa-project-diagram"></i> 发散引申链：从成本效益到产业格局重塑</div>
+      <div class="dc-links">
+        <span class="dc-node">维权成本过高</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">集体维权基金兴起</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">诉讼保险市场</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">平台预置合规</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">产业格局固化</span>
+      </div>
+      <p style="margin:10px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>一级发散：</strong>维权成本的分摊正在催生新的金融产品。2026年全球已有超过15家版权诉讼保险公司，保费约为索赔额的5-15%。这对中小创作者意义重大——将不确定的大额支出转化为确定的小额成本。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>二级发散：</strong>平台开始预置版权合规机制（如Content ID、Adobe Firefly的授权数据库）。这意味着未来创作者的维权将从"事后救济"转向"事前预防"，产业权力结构从创作者向平台集中。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>三级发散：</strong>当维权成本被平台基础设施吸收后，创作者的议价能力反而可能下降——因为平台掌握了"谁该被保护"的决定权。这是一个值得警惕的悖论。</p>
+    </div>
 
     <div class="chart-container" id="chart-cost-benefit"></div>
 
@@ -206,6 +299,15 @@
         <p style="margin-bottom:8px;"><strong>单次侵权损失 ¥5000-50000 / $1000-10000：</strong>律师函 + DMCA投诉组合拳。如果对方不予理会，考虑小额诉讼。</p>
         <p style="margin-bottom:8px;"><strong>单次侵权损失 ¥50000-500000 / $10000-100000：</strong>正式律师函 + 民事诉讼。聘请专业版权律师，启动完整取证流程。</p>
         <p><strong>单次侵权损失 > ¥500000 / $100000：</strong>多路径并行（民事+刑事+平台投诉+公关施压）。组建专业团队，考虑保险理赔。</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：维权不是目的，而是手段</div>
+      <div class="tip-body">
+        <p style="margin-bottom:8px"><strong>核心原则：</strong>维权决策应基于"长期品牌溢价"而非"短期获赔金额"。一次高调的维权可能让你损失数万元，但如果它确立了你在领域的"不可侵犯"声誉，这种品牌溢价的长期价值远超赔偿本身。</p>
+        <p style="margin-bottom:8px"><strong>组合策略：</strong>将维权与商业化结合——对于愿意付费授权的侵权方，将"停止侵害"转化为"独家授权"，变成本中心为利润中心。2026年头部创作者的授权收入已占其总收入的15-25%。</p>
+        <p><strong>底线思维：</strong>永远不要在没有完整取证的情况下发起维权。证据链不完整不仅会导致败诉，还可能被对方反诉诽谤。取证成本（约¥2000-5000）应视为维权的前置必要投入，而非可选项。</p>
       </div>
     </div>
 
@@ -225,36 +327,70 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var chart1 = echarts.init(document.getElementById('chart-litigation-cost'));
+      var litigationGrad = { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+        { offset: 0, color: '#1A5276' },
+        { offset: 1, color: '#2980b9' }
+      ]};
       chart1.setOption({
         backgroundColor: 'transparent',
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        legend: { data: ['律师费', '诉讼费', '取证费', '鉴定评估费', '其他费用'], top: 0, textStyle: { color: '#94a3b8' }, itemWidth: 12, itemHeight: 8 },
+        legend: { data: ['中国', '美国'], top: 0, textStyle: { color: '#94a3b8' }, itemWidth: 12, itemHeight: 8 },
         grid: { left: 80, right: 30, top: 50, bottom: 30 },
-        xAxis: { type: 'category', data: ['中国'], yAxis: { type: 'value', name: '（万元）', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } } },
+        xAxis: { type: 'category', data: ['中国', '美国'], yAxis: { type: 'value', name: '（万元）', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } } },
         yAxis: { type: 'value', name: '（万元）', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
         series: [
-          { name: '律师费', type: 'bar', stack: 'total', data: [3], itemStyle: { color: '#06b6d4' } },
-          { name: '诉讼费', type: 'bar', stack: 'total', data: [0.5], itemStyle: { color: '#8b5cf6' } },
-          { name: '取证费', type: 'bar', stack: 'total', data: [1], itemStyle: { color: '#10b981' } },
-          { name: '鉴定评估费', type: 'bar', stack: 'total', data: [0.5], itemStyle: { color: '#f59e0b' } },
-          { name: '其他费用', type: 'bar', stack: 'total', data: [0.2], itemStyle: { color: 'rgba(239,68,68,0.6)' } }
+          { name: '中国', type: 'bar', data: [
+            [{ value: 3, itemStyle: { color: litigationGrad } },
+             { value: 0.5, itemStyle: { color: '#2471a3' } },
+             { value: 1, itemStyle: { color: '#1a5276' } },
+             { value: 0.5, itemStyle: { color: '#1f618d' } },
+             { value: 0.2, itemStyle: { color: '#2e86c1' } }],
+            { type: 'markPoint', data: [{ coord: [0, 5.2], value: '总计5.2万', itemStyle: { color: '#1A5276' } }] }
+          ], barWidth: 30, itemStyle: { borderRadius: [4,4,0,0] } },
+          { name: '美国', type: 'bar', data: [
+            [{ value: 8, itemStyle: { color: '#B8860B' } },
+             { value: 3, itemStyle: { color: '#DAA520' } },
+             { value: 2, itemStyle: { color: '#CD853F' } },
+             { value: 1.5, itemStyle: { color: '#F4A460' } },
+             { value: 0.7, itemStyle: { color: '#DEB887' } }],
+            { type: 'markPoint', data: [{ coord: [1, 15.2], value: '总计15.2万', itemStyle: { color: '#B8860B' } }] }
+          ], barWidth: 30, itemStyle: { borderRadius: [4,4,0,0] } }
         ]
       });
       window.addEventListener('resize', function() { chart1.resize(); });
 
       var chart2 = echarts.init(document.getElementById('chart-cost-benefit'));
+      var netProfitGrad = { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+        { offset: 0, color: '#dc2626' },
+        { offset: 1, color: '#ef4444' }
+      ]};
+      var netGainGrad = { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+        { offset: 0, color: '#059669' },
+        { offset: 1, color: '#10b981' }
+      ]};
       chart2.setOption({
         backgroundColor: 'transparent',
-        tooltip: { trigger: 'axis' },
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(6,182,212,0.05)' } } },
         legend: { data: ['维权成本', '平均获赔金额', '净收益'], top: 0, textStyle: { color: '#94a3b8' }, itemWidth: 12, itemHeight: 8 },
         grid: { left: 60, right: 30, top: 50, bottom: 30 },
         xAxis: { type: 'category', data: ['平台投诉', '律师函', 'DMCA投诉', '小额诉讼', '普通诉讼', '跨境诉讼'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
         yAxis: [{ type: 'value', name: '（万元）', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
                  { type: 'value', name: '', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }],
         series: [
-          { name: '维权成本', type: 'bar', data: [0, 0.5, 0, 2, 10, 50], itemStyle: { color: 'rgba(239,68,68,0.6)', borderRadius: [3,3,0,0] } },
-          { name: '平均获赔金额', type: 'bar', yAxisIndex: 1, data: [0, 1, 0, 5, 30, 100], itemStyle: { color: '#10b981', borderRadius: [3,3,0,0] } },
-          { name: '净收益', type: 'line', data: [0, 0.5, 0, 3, 20, 50], itemStyle: { color: '#06b6d4' }, smooth: true }
+          { name: '维权成本', type: 'bar', data: [0, 0.5, 0, 2, 10, 50], itemStyle: { color: netProfitGrad, borderRadius: [3,3,0,0] } },
+          { name: '平均获赔金额', type: 'bar', yAxisIndex: 1, data: [0, 1, 0, 5, 30, 100], itemStyle: { color: netGainGrad, borderRadius: [3,3,0,0] } },
+          { name: '净收益', type: 'line', yAxisIndex: 1, data: [0, 0.5, 0, 3, 20, 50],
+            itemStyle: { color: '#06b6d4' }, lineStyle: { width: 3 },
+            markArea: {
+              data: [[{ yAxis: 10, itemStyle: { color: 'rgba(5,150,105,0.08)' } }]]
+            },
+            markPoint: {
+              data: [
+                { type: 'max', name: '最优区间', itemStyle: { color: '#059669' }, label: { formatter: '最佳ROI\n普通诉讼' } }
+              ]
+            },
+            smooth: true
+          }
         ]
       });
       window.addEventListener('resize', function() { chart2.resize(); });

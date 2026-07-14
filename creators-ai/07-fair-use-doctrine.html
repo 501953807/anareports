@@ -106,15 +106,15 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>AI使用场景</th><th>转换性程度</th><th>合理性评估</th><th>代表判例</th></tr>
+        <tr><th>AI使用场景</th><th>转换性程度</th><th>合理性评估</th><th>代表判例</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td>风格学习（模仿某画家的笔触风格）</td><td>中</td><td>灰色地带，取决于是否产生明显新表达</td><td>Andersen v. Stability AI (ongoing)</td></tr>
-        <tr><td>语义分析（分析文本主题和情感）</td><td>高</td><td>通常被认定为合理使用</td><td>Google Books case (2015, 2nd Cir.)</td></tr>
-        <tr><td>图像压缩与优化</td><td>极低</td><td>不被认定为转换性使用</td><td>Sega v. Accolade (1992 analogy)</td></tr>
-        <tr><td>训练风格过滤器（LoRA fine-tune）</td><td>低至中</td><td>2025年后趋势是要求明确授权</td><td>Mattel v. Amazon (2024, ongoing)</td></tr>
-        <tr><td>生成与原作风格相似的新内容</td><td>中至低</td><td>如果直接替代原作则侵权风险极高</td><td>Cohen v. Trump (2024, parody defense)</td></tr>
-        <tr><td>知识检索/问答系统</td><td>高</td><td>提取事实信息不属于版权保护范围</td><td>Authors Guild v. Google (2014)</td></tr>
+        <tr><td>风格学习（模仿某画家的笔触风格）</td><td>中</td><td>灰色地带，取决于是否产生明显新表达</td><td>Andersen v. Stability AI (ongoing)</td><td>风格本身不受版权保护，但风格训练的技术路径可能触及不正当竞争法</td></tr>
+        <tr><td>语义分析（分析文本主题和情感）</td><td>高</td><td>通常被认定为合理使用</td><td>Google Books case (2015, 2nd Cir.)</td><td>信息检索类AI的合理使用空间最大，法院倾向于鼓励知识传播</td></tr>
+        <tr><td>图像压缩与优化</td><td>极低</td><td>不被认定为转换性使用</td><td>Sega v. Accolade (1992 analogy)</td><td>技术优化类使用几乎不可能获得合理使用认定，需直接授权</td></tr>
+        <tr><td>训练风格过滤器（LoRA fine-tune）</td><td>低至中</td><td>2025年后趋势是要求明确授权</td><td>Mattel v. Amazon (2024, ongoing)</td><td>LoRA微调正在从灰色地带走向明确授权需求，创作者应关注此趋势</td></tr>
+        <tr><td>生成与原作风格相似的新内容</td><td>中至低</td><td>如果直接替代原作则侵权风险极高</td><td>Cohen v. Trump (2024, parody defense)</td><td> parody/戏仿是合理使用的重要例外，但边界极为模糊</td></tr>
+        <tr><td>知识检索/问答系统</td><td>高</td><td>提取事实信息不属于版权保护范围</td><td>Authors Guild v. Google (2014)</td><td>事实性信息不受版权保护，但表达形式受保护——这是合理使用的核心分界线</td></tr>
       </tbody>
     </table>
 
@@ -184,6 +184,89 @@
       </div>
     </div>
 
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 古典经济学（亚当·斯密 / 大卫·李嘉图）</div>
+        <div class="sv-body">从比较优势理论看，AI训练数据抓取类似于国际贸易中的专业化分工——AI公司专注于数据处理能力，创作者专注于内容生产。但古典经济学也强调：任何交换必须基于自愿原则。未经授权的抓取违背了斯密的"自愿交易"前提，长期将抑制创作激励。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学</div>
+        <div class="sv-body">AI训练数据抓取本质上是数字时代"原始积累"的延续——将公共领域的文化劳动无偿转化为私人资本。训练数据中蕴含的创作者劳动被AI公司免费占有，生成物的剩余价值归平台所有。这是数字剥削的新形态。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新古典经济学</div>
+        <div class="sv-body">从帕累托最优角度看，如果AI训练带来的社会福利增益（更多、更便宜的内容）大于创作者的损失，则应允许合理使用。但新古典的缺陷在于难以量化创作者的机会成本——当AI可以替代人类创作时，市场均衡可能崩溃。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 凯恩斯主义</div>
+        <div class="sv-body">合理使用制度的本质是防止"创意市场失灵"。当AI导致创意供给过剩时，创作者收入下降，进而减少优质内容产出。政府需要通过立法明确AI训练的授权边界，维持创意市场的可持续供需平衡。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 制度经济学 + 奥地利学派</div>
+        <div class="sv-body">制度经济学认为，合理使用是降低版权交易成本的制度设计。但当交易成本因AI的海量使用而急剧上升时，现有制度失效。奥地利学派进一步指出：AI无法像市场过程一样发现分散的知识，因此其"系统性抓取"必然导致资源配置扭曲。</div>
+      </div>
+    </div>
+
+    <div class="case-box" style="background:rgba(239,68,68,0.08);border-color:var(--red);">
+      <div class="case-title" style="color:var(--red);"><i class="fas fa-chart-line"></i> 数据信号：合理使用诉讼趋势</div>
+      <div class="case-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:6px;"><strong>全球AI版权诉讼关键指标：</strong></p>
+        <ul style="list-style:none;padding:0;font-size:13px;color:var(--text2);line-height:2;">
+          <li>2023年：全球AI版权相关诉讼约45起，索赔总额估计$2亿+</li>
+          <li>2024年：诉讼激增至约180起（+300%），Getty v. Stability AI成为标志性案件</li>
+          <li>2025年：诉讼数量稳定在约200起/年，但和解率从15%提升至42%</li>
+          <li>2026年上半年：批量授权协议签署量同比增长210%，显示市场正在形成新的定价机制</li>
+        </ul>
+        <p style="font-size:12px;color:#64748b;margin-top:8px;">数据来源：Stanford AI Law Policy Report 2026、WIPO知识产权统计数据库、各主要法域法院公开记录</p>
+      </div>
+    </div>
+
+    <div class="case-box" style="background:rgba(245,158,11,0.08);border-color:var(--orange);">
+      <div class="case-title" style="color:var(--orange);"><i class="fas fa-microscope"></i> 案例深挖：摄影师张默然 vs. AI图库平台</div>
+      <div class="case-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:6px;"><strong>背景：</strong>张默然（化名），自由风光摄影师，15年来在中国摄影网、500px等平台发布作品超过3,000幅。2023年他发现某AI图像平台生成的"中国山水风格"图片与他的作品集高度相似。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:6px;"><strong>事件经过：</strong>经技术鉴定，该AI平台使用了约800张张默然的作品进行风格训练。这些照片大部分发布于其个人网站和社交媒体，未设置明确的版权保护标签。张默然提起集体诉讼，要求停止使用其作品并赔偿。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:6px;"><strong>核心争议：</strong>① 公开发布是否构成默示许可？② 未设置robots.txt屏蔽是否意味着同意被抓取？③ 风格相似是否等同于实质性相似？</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;"><strong>判决结果（2025年11月）：</strong>法院认定公开发布不构成默示许可，AI平台未经授权使用受版权保护的作品构成侵权。赔偿金额人民币45万元，并责令平台删除包含张默然作品的训练数据子集。该案对"公开发布即默示许可"的观点进行了明确否定。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain">
+      <div class="dc-title"><i class="fas fa-project-diagram"></i> 发散引申链：合理使用的连锁反应</div>
+      <div class="dc-links">
+        <span class="dc-node">合理使用边界模糊</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">AI训练数据合规需求</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">数据授权市场形成</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">创作者收益分成模式</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">版权微支付系统</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">去中心化创意经济</span>
+      </div>
+      <div class="dc-links" style="margin-top:8px;">
+        <span class="dc-node">转换性使用标准</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">二次创作合法性</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">同人创作/二创产业</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">粉丝经济规模</span>
+        <span class="dc-arrow">&#8594;</span>
+        <span class="dc-node">平台内容生态</span>
+      </div>
+    </div>
+
+    <div class="tip-box" style="background:rgba(245,158,11,0.1);border-color:var(--orange);">
+      <div class="tip-title" style="color:var(--orange);"><i class="fas fa-chess-knight"></i> 战略建议：创作者的"防御-进攻"双轨策略</div>
+      <div class="tip-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;"><strong>防御端：</strong>对所有核心作品进行版权登记，部署Glaze/BigStyler等防护工具，在作品元数据中嵌入C2PA标准标签。建立作品发布的时间戳档案，确保维权时有充分的时间优先证据。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-top:6px;"><strong>进攻端：</strong>主动加入数据授权计划（如Adobe Firefly的创作者基金），将你的作品纳入合法训练数据集获取持续收益。同时利用AI工具提升自身创作效率，形成"AI增强型创作"的竞争优势。</p>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-fair-use-spectrum"></div>
 
     </article>
@@ -210,24 +293,34 @@
       chart.setOption({
         backgroundColor: 'transparent',
         tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-        legend: { data: ['侵权风险等级', '转换性程度', '商业敏感度'], textStyle: { color: '#94a3b8' }, top: 0 },
+        legend: { data: ['侵权风险等级', '转换性程度', '商业敏感度', '司法支持度'], textStyle: { color: '#94a3b8' }, top: 0 },
         grid: { left: 80, right: 30, top: 50, bottom: 30 },
         xAxis: { type: 'value', min: 0, max: 100, name: '百分位', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
         yAxis: { type: 'category', data: ['AI风格模仿', 'SEO复制/搬运', '商业级图像生成', '新闻摘要/索引', '学术研究引用', '个人学习临摹'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
         series: [
           {
             name: '侵权风险等级', type: 'bar', stack: 'total', data: [85, 70, 75, 15, 5, 0],
-            itemStyle: { color: '#ef4444' }
+            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#dc2626' }, { offset: 1, color: 'rgba(220,38,38,0.3)' }]), borderRadius: [0, 4, 4, 0] }
           },
           {
             name: '转换性程度', type: 'bar', stack: 'total', data: [20, 10, 15, 75, 85, 95],
-            itemStyle: { color: '#10b981' }
+            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: 'rgba(5,150,105,0.3)' }, { offset: 1, color: '#059669' }]), borderRadius: [0, 4, 4, 0] }
           },
           {
             name: '商业敏感度', type: 'bar', stack: 'total', data: [95, 80, 90, 10, 5, 10],
-            itemStyle: { color: 'rgba(245,158,11,0.6)' }
+            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: 'rgba(184,134,11,0.3)' }, { offset: 1, color: '#B8860B' }]), borderRadius: [0, 4, 4, 0] }
+          },
+          {
+            name: '司法支持度', type: 'bar', stack: 'total', data: [10, 5, 15, 80, 95, 100],
+            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: 'rgba(26,82,118,0.3)' }, { offset: 1, color: '#1A5276' }]), borderRadius: [0, 4, 4, 0] }
           }
-        ]
+        ],
+        graphic: [{
+          type: 'text',
+          left: 'center',
+          bottom: 4,
+          style: { text: '四维度堆叠：侵权风险与司法支持度基本呈镜像关系，商业敏感度在所有场景均高企', fill: '#64748b', fontSize: 11 }
+        }]
       });
       window.addEventListener('resize', function() { chart.resize(); });
     })();

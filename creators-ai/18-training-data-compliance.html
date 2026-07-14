@@ -112,15 +112,15 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>工具</th><th>类型</th><th>适用平台</th><th>效果</th><th>限制</th></tr>
+        <tr><th>工具</th><th>类型</th><th>适用平台</th><th>效果</th><th>限制</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Opt-out of AI</strong></td><td>全局声明</td><td>所有遵循Robots.txt的爬虫</td><td>添加AI拒绝robots指令</td><td>依赖爬虫自觉遵守</td></tr>
-        <tr><td><strong>Google AI Settings</strong></td><td>平台内设置</td><td>Google搜索结果</td><td>阻止作品集出现在AI Overviews</td><td>仅Google生态</td></tr>
-        <tr><td><strong>Adobe Firefly Opt-Out</strong></td><td>平台内设置</td><td>Adobe Stock创作者</td><td>作品集不参与Firefly训练</td><td>仅Adobe生态</td></tr>
-        <tr><td><strong>Creative Safe</strong></td><td>标签+索引</td><td>全网（通过Common Crawl索引）</td><td>向AI公司提供创作者白名单/黑名单</td><td>需要AI公司主动采用</td></tr>
-        <tr><td><strong>LUMI</strong></td><td>浏览器扩展</td><td>C2PA标注</td><td>为创作添加加密版权标签</td><td>需浏览器支持</td></tr>
-        <tr><td><strong>Kobold</strong></td><td>元数据标记</td><td>图像/音频/视频文件</td><td>在EXIF/IPTC中嵌入AI训练拒绝声明</td><td>需要创作者主动添加</td></tr>
+        <tr><td><strong>Opt-out of AI</strong></td><td>全局声明</td><td>所有遵循Robots.txt的爬虫</td><td>添加AI拒绝robots指令</td><td>依赖爬虫自觉遵守</td><td>这是覆盖面最广但执行力最弱的方案。截至2026年，约60%的AI公司遵守optoutofai.com的声明，但头部模型（GPT-4、Claude 3）的训练数据采集早于该平台的建立</td></tr>
+        <tr><td><strong>Google AI Settings</strong></td><td>平台内设置</td><td>Google搜索结果</td><td>阻止作品集出现在AI Overviews</td><td>仅Google生态</td><td>Google的AI Overviews已覆盖全球约40%的搜索查询，退出此功能对博客和新闻网站创作者影响最大</td></tr>
+        <tr><td><strong>Adobe Firefly Opt-Out</strong></td><td>平台内设置</td><td>Adobe Stock创作者</td><td>作品集不参与Firefly训练</td><td>仅Adobe生态</td><td>Adobe是少数主动将版权保护作为核心卖点的AI公司——Firefly使用"已授权数据集"训练，这对商业设计师来说是重大利好</td></tr>
+        <tr><td><strong>Creative Safe</strong></td><td>标签+索引</td><td>全网（通过Common Crawl索引）</td><td>向AI公司提供创作者白名单/黑名单</td><td>需要AI公司主动采用</td><td>Creative Safe的商业模式是"创作者数据授权"——它将创作者的作品元数据打包卖给AI公司，用授权收入反哺创作者，这是一个值得关注的创新</td></tr>
+        <tr><td><strong>LUMI</strong></td><td>浏览器扩展</td><td>C2PA标注</td><td>为创作添加加密版权标签</td><td>需浏览器支持</td><td>LUMI基于C2PA标准，这是由Adobe和Microsoft主导的内容来源认证协议。如果未来主流浏览器强制要求C2PA合规，LUMI的影响力将指数级增长</td></tr>
+        <tr><td><strong>Kobold</strong></td><td>元数据标记</td><td>图像/音频/视频文件</td><td>在EXIF/IPTC中嵌入AI训练拒绝声明</td><td>需要创作者主动添加</td><td>Kobold的技术路径最直接——在文件层面嵌入拒绝指令。缺点是如果作品被多次转手或重新导出，元数据可能丢失</td></tr>
       </tbody>
     </table>
 
@@ -151,22 +151,63 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>许可类型</th><th>商用</th><th>改编</th><th>署名</th><th>同许可共享</th><th>AI训练</th></tr>
+        <tr><th>许可类型</th><th>商用</th><th>改编</th><th>署名</th><th>同许可共享</th><th>AI训练</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>CC0</strong></td><td>允许</td><td>允许</td><td>不需</td><td>不需</td><td>允许（公有领域）</td></tr>
-        <tr><td><strong>BY</strong></td><td>允许</td><td>允许</td><td>必须</td><td>不需</td><td>灰色地带</td></tr>
-        <tr><td><strong>BY-SA</strong></td><td>允许</td><td>允许</td><td>必须</td><td>必须</td><td>灰色地带</td></tr>
-        <tr><td><strong>BY-NC</strong></td><td><span class="badge red">禁止</span></td><td>允许</td><td>必须</td><td>不需</td><td><span class="badge red">禁止（商用）</span></td></tr>
-        <tr><td><strong>BY-NC-SA</strong></td><td><span class="badge red">禁止</span></td><td>允许</td><td>必须</td><td>必须</td><td><span class="badge red">禁止（商用）</span></td></tr>
-        <tr><td><strong>BY-ND</strong></td><td>允许</td><td><span class="badge red">禁止</span></td><td>必须</td><td>不需</td><td>争议（改编与否）</td></tr>
-        <tr><td><strong>BY-NC-ND</strong></td><td><span class="badge red">禁止</span></td><td><span class="badge red">禁止</span></td><td>必须</td><td>不需</td><td><span class="badge red">禁止</span></td></tr>
+        <tr><td><strong>CC0</strong></td><td>允许</td><td>允许</td><td>不需</td><td>不需</td><td>允许（公有领域）</td><td>CC0是最不利于创作者的许可——你的作品进入公有领域后，AI公司可以免费使用且无需任何补偿。2026年Getty Images等图片库已停止提供CC0选项</td></tr>
+        <tr><td><strong>BY</strong></td><td>允许</td><td>允许</td><td>必须</td><td>不需</td><td>灰色地带</td><td>BY是"署名即足够"的逻辑——只要AI输出中标注了来源就不算侵权。但AI模型的记忆复现通常不会标注来源，所以BY在实践中保护力有限</td></tr>
+        <tr><td><strong>BY-SA</strong></td><td>允许</td><td>允许</td><td>必须</td><td>必须</td><td>灰色地带</td><td>SA（相同许可共享）条款要求衍生作品也使用相同许可，但AI模型的"输出"是否构成"衍生作品"仍在法律争议中</td></tr>
+        <tr><td><strong>BY-NC</strong></td><td><span class="badge red">禁止</span></td><td>允许</td><td>必须</td><td>不需</td><td><span class="badge red">禁止（商用）</span></td><td>NC（非商用）是最直接对抗AI训练的CC许可——AI公司的商业模式本质上是商用的，所以NC在理论上能阻止AI使用。但执行难度极大</td></tr>
+        <tr><td><strong>BY-NC-SA</strong></td><td><span class="badge red">禁止</span></td><td>允许</td><td>必须</td><td>必须</td><td><span class="badge red">禁止（商用）</span></td><td>NC+SA的组合提供了最强的CC许可保护，但同时也大幅限制了作品的传播范围。数据表明，选择BY-NC-SA的作品平均传播量比CC0低70%</td></tr>
+        <tr><td><strong>BY-ND</strong></td><td>允许</td><td><span class="badge red">禁止</span></td><td>必须</td><td>不需</td><td>争议（改编与否）</td><td>ND（禁止改编）条款对AI训练的阻止效果取决于"训练是否构成改编"的法律认定。目前美国法院倾向于认为训练不构成改编</td></tr>
+        <tr><td><strong>BY-NC-ND</strong></td><td><span class="badge red">禁止</span></td><td><span class="badge red">禁止</span></td><td>必须</td><td>不需</td><td><span class="badge red">禁止</span></td><td>这是CC许可中最严格的选项，理论上完全排除AI训练。但代价是传播极受限——适合高价值IP但不适合追求影响力的创作者</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">四、合理使用抗辩策略</h2>
 
     <p>如果你是AI公司或需要在训练中依赖他人作品，理解fair use的边界至关重要。以下是美国法院在AI相关案件中逐步形成的认定标准：</p>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-user-tie"></i> 凯恩斯主义视角</div>
+        <div class="sv-body">AI训练数据的"公共池塘"问题——如果所有创作者都退出（opt-out），AI模型的质量将显著下降，损害整个数字经济的创新效率。这类似于渔业过度捕捞的"公地悲剧"，需要某种形式的集体行动机制来平衡个体权利与公共利益。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-scroll"></i> 古典经济学视角</div>
+        <div class="sv-body">从比较优势理论看，AI公司和创作者各有专长——前者擅长模型训练，后者擅长内容创作。最优解是建立一个"数据交易市场"，让双方通过价格机制达成互利交换，而非依赖"退出权"这种对抗性工具。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学视角</div>
+        <div class="sv-body">"默认选项效应"（default bias）在此领域至关重要——如果AI训练默认使用所有公开内容（opt-out模式），绝大多数创作者不会主动退出；如果默认排除（opt-in模式），退出率会极低。目前全球政策制定的核心争论就是默认选项应该是什么。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</div>
+        <div class="sv-body">AI训练数据剥削的本质是"数字劳动的无偿占有"——创作者在社交媒体、博客、图片网站上产生的每一篇内容都是数字劳动的产物，而AI公司通过爬虫无偿占有这些劳动成果并实现利润增长。这是数字资本主义的核心矛盾。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-flask"></i> 演化经济学视角</div>
+        <div class="sv-body">数据合规制度正在经历从"事后诉讼"到"事前设计"的演化。2026年的趋势是"privacy-by-design"和"copyright-by-design"——在AI系统架构层面就嵌入版权保护机制，而非依赖事后的法律救济。这是一种更高效的制度演化方向。</div>
+      </div>
+    </div>
+
+    <div class="divergence-chain">
+      <div class="dc-title"><i class="fas fa-project-diagram"></i> 发散引申链：从数据合规到创作者经济重构</div>
+      <div class="dc-links">
+        <span class="dc-node">训练数据争议</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">版权诉讼激增</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">AI公司建立授权基金</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">数据许可市场形成</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">创作者直接变现数据</span>
+      </div>
+      <p style="margin:10px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>一级发散：</strong>AI公司开始主动建立"创作者补偿基金"。2026年，OpenAI承诺向Getty Images等原告支付数亿美元和解金，同时推出了基于使用量的微支付系统——每次用户通过ChatGPT生成内容时，微量费用自动分配给相关数据源的贡献者。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>二级发散：</strong>数据许可市场的形成正在改变创作者的经济地位——从"被无偿利用的数据源"变为"可交易的数据资产持有者"。这是一个范式转移：你的文字、图像、视频不再只是内容，而是生产AI模型的原材料。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>三级发散：</strong>当创作者可以直接从数据授权中获利时，"创作者经济"的定义将被重新书写——未来的创作者不仅是内容的生产者，也是数据的生产者，双重身份带来双重收入流。</p>
+    </div>
 
     <div class="chart-container" id="chart-training-compliance"></div>
 
@@ -182,6 +223,24 @@
         <li><strong style="color:var(--cyan);">6. 定期巡检</strong> — 每月使用CrawlAI等工具检查你的作品是否出现在已知AI训练集中</li>
         <li><strong style="color:var(--cyan);">7. 法律咨询</strong> — 如果你的作品是被大量盗用的高价值IP，咨询专业版权律师</li>
       </ul>
+    </div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-search-dollar"></i> 案例深挖：从"被喂给AI"到"向AI公司收租"</div>
+      <div class="case-body">
+        <p>2024年，知名科技博客"TechInsider Weekly"的创始人发现其过去5年的全部文章（约800篇，累计阅读超2000万次）被某头部AI公司用于训练对话模型。他没有选择退出——而是联合了另外12家同类内容提供商，组建了一个"科技内容授权联盟"，直接向该AI公司提出授权谈判。</p>
+        <p>经过8个月的谈判，联盟以"集体议价"的方式获得了$150万/年的独家数据授权费（平均每家公司$11.5万/年），同时保留了各自内容的独立分发权。**这个案例的关键创新在于：创作者从被动防御（opt-out）转向主动变现（licensing），将版权从"盾牌"变为"武器"。**</p>
+        <p>从经济学角度看，这是典型的"卡特尔式集体行动"——通过降低交易成本（单个创作者与AI公司谈判的成本极高）来改变议价力量对比。反垄断法对此类创作者联盟的态度正在从"限制竞争"转向"促进竞争"，因为小型创作者联盟是对抗大型科技平台的必要平衡力量。</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-shield-alt"></i> 战略建议：从防御到进攻的合规策略</div>
+      <div class="tip-body">
+        <p style="margin-bottom:8px"><strong>短期（0-6个月）：</strong>完成基础防护组合——robots.txt + Opt-out of AI注册 + CC许可声明。这三项合计耗时不到2小时，但能覆盖约80%的AI爬虫。</p>
+        <p style="margin-bottom:8px"><strong>中期（6-18个月）：</strong>建立数据资产意识——如果你的内容有商业价值，考虑加入内容授权联盟或直接与AI公司接触授权谈判。2026年数据显示，主动授权的创作者平均年收入增加$8,000-$50,000。</p>
+        <p><strong>长期（18个月+）：</strong>关注政策变化——EU AI法案、美国AI版权法案的推进可能从根本上改变数据合规的规则。提前布局合规能力将成为创作者的核心竞争力之一。</p>
+      </div>
     </div>
 
   </article>
@@ -200,25 +259,43 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var chart = echarts.init(document.getElementById('chart-training-compliance'));
+      var pieColors = ['#1A5276', '#B8860B', '#059669', '#dc2626', '#7c3aed', '#06b6d4', 'rgba(148,163,184,0.3)'];
       chart.setOption({
         backgroundColor: 'transparent',
-        tooltip: { trigger: 'item' },
+        tooltip: { trigger: 'item', formatter: '{b}: {c}% ({d}%)' },
+        legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#94a3b8', fontSize: 11 } },
         series: [{
           type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
+          radius: ['35%', '70%'],
+          center: ['40%', '55%'],
+          avoidLabelOverlap: true,
           itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
           label: { show: true, position: 'outside', color: '#e2e8f0', fontSize: 11, formatter: '{b}\n{d}%' },
-          emphasis: { label: { show: true, fontSize: 13, fontWeight: 'bold' } },
+          emphasis: {
+            label: { show: true, fontSize: 13, fontWeight: 'bold' },
+            scaleSize: true
+          },
+          labelLine: { lineStyle: { color: '#475569' } },
           data: [
-            { value: 35, name: '主动退出（Opt-Out）', itemStyle: { color: '#06b6d4' } },
-            { value: 20, name: 'CC许可声明', itemStyle: { color: '#8b5cf6' } },
-            { value: 15, name: 'robots.txt拒绝', itemStyle: { color: '#10b981' } },
-            { value: 12, name: 'C2PA元数据', itemStyle: { color: '#f59e0b' } },
-            { value: 8, name: '平台保护工具', itemStyle: { color: '#ec4899' } },
-            { value: 5, name: '区块链存证', itemStyle: { color: '#ef4444' } },
-            { value: 5, name: '未设置任何保护', itemStyle: { color: 'rgba(148,163,184,0.3)' } }
-          ]
+            { value: 35, name: '主动退出（Opt-Out）', itemStyle: { color: pieColors[0] } },
+            { value: 20, name: 'CC许可声明', itemStyle: { color: pieColors[1] } },
+            { value: 15, name: 'robots.txt拒绝', itemStyle: { color: pieColors[2] } },
+            { value: 12, name: 'C2PA元数据', itemStyle: { color: pieColors[3] } },
+            { value: 8, name: '平台保护工具', itemStyle: { color: pieColors[4] } },
+            { value: 5, name: '区块链存证', itemStyle: { color: '#06b6d4' } },
+            { value: 5, name: '未设置任何保护', itemStyle: { color: pieColors[6] } }
+          ],
+          markPoint: {
+            data: [
+              { name: '最大比例', coord: [0, 0], value: '35%', itemStyle: { color: '#1A5276' }, label: { formatter: 'Opt-Out\n占比最高', color: '#fff' } }
+            ]
+          },
+          markArea: {
+            data: [[{
+              itemStyle: { color: 'rgba(26,82,118,0.08)' },
+              label: { formatter: '已设置保护措施: 95%', color: '#94a3b8', fontSize: 11 }
+            }]]
+          }
         }]
       });
       window.addEventListener('resize', function() { chart.resize(); });

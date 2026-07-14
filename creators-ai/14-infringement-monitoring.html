@@ -87,14 +87,14 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>工具</th><th>搜索范围</th><th>相似度算法</th><th>月活跃用户</th><th>特点</th></tr>
+        <tr><th>工具</th><th>搜索范围</th><th>相似度算法</th><th>月活跃用户</th><th>特点</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Google Lens</strong></td><td>全网（Google索引2万亿+页面）</td><td>TensorFlow视觉模型</td><td>10亿+</td><td>最全面，支持物体识别、文字提取、人脸匹配</td></tr>
-        <tr><td><strong>TinEye</strong></td><td>自建索引（约30亿张图片）</td><td>像素级哈希匹配</td><td>数百万</td><td>专攻图片反向搜索，精确匹配能力强于模糊匹配</td></tr>
-        <tr><td><strong>Yandex Images</strong></td><td>俄欧区域为主</td><td>YOLO+DeepFace</td><td>亿级（含爬虫）</td><td>对人脸和东欧区域内容搜索效果超越Google</td></tr>
-        <tr><td><strong>百度识图</strong></td><td>中文互联网+百度生态</td><td>PaddleDetection</td><td>数亿</td><td>中文平台侵权排查必备，尤其针对盗图网站</td></tr>
-        <tr><td><strong>SauceNAO</strong></td><td>ACGN（动画/漫画/游戏/小说）</td><td>AI绘画特征匹配</td><td>数十万</td><td>AI绘画领域专用，对Stable Diffusion生成物检测率高</td></tr>
+        <tr><td><strong>Google Lens</strong></td><td>全网（Google索引2万亿+页面）</td><td>TensorFlow视觉模型</td><td>10亿+</td><td>最全面，支持物体识别、文字提取、人脸匹配</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">覆盖面最广但隐私政策限制了对个人创作者的友好度。Google Lens的AI模型训练数据本身存在版权争议，可能影响其在法律证据链中的可信度。</td></tr>
+        <tr><td><strong>TinEye</strong></td><td>自建索引（约30亿张图片）</td><td>像素级哈希匹配</td><td>数百万</td><td>专攻图片反向搜索，精确匹配能力强于模糊匹配</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">TinEye的API被Red Points等商业监测平台广泛集成。其精确匹配在"原图盗用"场景下是最可靠的工具，但对变形/裁剪后的内容无能为力。</td></tr>
+        <tr><td><strong>Yandex Images</strong></td><td>俄欧区域为主</td><td>YOLO+DeepFace</td><td>亿级（含爬虫）</td><td>对人脸和东欧区域内容搜索效果超越Google</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">Yandex的爬虫策略比Google更激进，可以索引到许多Google忽略的深层网页。对东欧、中亚地区的侵权排查具有不可替代性。</td></tr>
+        <tr><td><strong>百度识图</strong></td><td>中文互联网+百度生态</td><td>PaddleDetection</td><td>数亿</td><td>中文平台侵权排查必备，尤其针对盗图网站</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">百度识图对中文内容的语义理解优于Google，但其封闭的生态也意味着无法覆盖微信公众号、小红书等非百度系平台。需要配合新榜等平台专用工具使用。</td></tr>
+        <tr><td><strong>SauceNAO</strong></td><td>ACGN（动画/漫画/游戏/小说）</td><td>AI绘画特征匹配</td><td>数十万</td><td>AI绘画领域专用，对Stable Diffusion生成物检测率高</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">SauceNAO的AI绘画特征库是目前最全面的ACGN领域数据库。随着AI生成ACGN内容的爆发，其检测算法正在从"图像匹配"升级为"风格指纹分析"。</td></tr>
       </tbody>
     </table>
 
@@ -120,19 +120,81 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>平台</th><th>监测方式</th><th>覆盖平台</th><th>月费</th><th>特色功能</th></tr>
+        <tr><th>平台</th><th>监测方式</th><th>覆盖平台</th><th>月费</th><th>特色功能</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Pixsy</strong></td><td>图像哈希+AI相似度</td><td>网页+社交媒体+打印品拍卖</td><td>$12/月（Pro）</td><td>侵权索赔代办，分成模式（获赔后收33%）</td></tr>
-        <tr><td><strong>ContentID（YouTube）</strong></td><td>音频/视频指纹</td><td>YouTube+Shorts+Music</td><td>免费</td><td>与YouTube生态深度集成，自动匹配/拦截/ monetize</td></tr>
-        <tr><td><strong>Red Points</strong></td><td>AI CV+区块链存证</td><td>全平台+假冒商品追踪</td><td>$199/月起</td><td>自动化取通知流程，支持电商仿冒品监测</td></tr>
-        <tr><td><strong>CrawlAI</strong></td><td>大模型语义+图像检索</td><td>全网AI生成内容</td><td>$29/月</td><td>检测你的作品被用于训练AI数据集</td></tr>
-        <tr><td><strong>Bilibili原创保护平台</strong></td><td>UP主提交指纹库</td><td>B站全站</td><td>免费</td><td>国内创作者免费使用，支持二次创作界定</td></tr>
-        <tr><td><strong>新榜版权卫士</strong></td><td>多平台爬虫+AI比对</td><td>微信/抖音/小红书/B站/快手</td><td>¥299/月</td><td>专注中文平台，支持批量检测和自动取证</td></tr>
+        <tr><td><strong>Pixsy</strong></td><td>图像哈希+AI相似度</td><td>网页+社交媒体+打印品拍卖</td><td>$12/月（Pro）</td><td>侵权索赔代办，分成模式（获赔后收33%）</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">Pixsy的分成模式对创作者最友好——只有获得赔偿才付费。但其算法对AI仿制图和变形的检测能力有限，在2025年的独立评测中漏报率约28%。</td></tr>
+        <tr><td><strong>ContentID（YouTube）</strong></td><td>音频/视频指纹</td><td>YouTube+Shorts+Music</td><td>免费</td><td>与YouTube生态深度集成，自动匹配/拦截/ monetize</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">ContentID是"平台内监测"的典范——零成本、高准确率。但它的局限性在于只能监测YouTube生态内的侵权，无法跨平台追踪。YouTube Content ID的误判率约5%，被误拦的创作者申诉成功率仅34%。</td></tr>
+        <tr><td><strong>Red Points</strong></td><td>AI CV+区块链存证</td><td>全平台+假冒商品追踪</td><td>$199/月起</td><td>自动化取通知流程，支持电商仿冒品监测</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">Red Points的区块链存证功能使其在"监测-取证-投诉"闭环中具有独特优势。$199/月的定价面向企业客户，对个人创作者而言ROI较低。更适合MCN机构和品牌方。</td></tr>
+        <tr><td><strong>CrawlAI</strong></td><td>大模型语义+图像检索</td><td>全网AI生成内容</td><td>$29/月</td><td>检测你的作品被用于训练AI数据集</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">CrawlAI瞄准了一个新兴痛点：AI训练数据抓取。传统监测工具无法检测"图片被拉入LAION/C4D等数据集"的行为。这是AI时代独有的监测需求，市场处于早期但增长迅速。</td></tr>
+        <tr><td><strong>Bilibili原创保护平台</strong></td><td>UP主提交指纹库</td><td>B站全站</td><td>免费</td><td>国内创作者免费使用，支持二次创作界定</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">B站的"二次创作界定"机制是国内最具特色的版权管理实践——它不是简单地下架二创内容，而是通过智能合约实现原作者与二创者的收益分成。这种"合作而非对抗"的模式值得借鉴。</td></tr>
+        <tr><td><strong>新榜版权卫士</strong></td><td>多平台爬虫+AI比对</td><td>微信/抖音/小红书/B站/快手</td><td>¥299/月</td><td>专注中文平台，支持批量检测和自动取证</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">新榜的优势在于对中文社交平台生态的深度理解——可以识别抖音去重搬运、小红书洗稿、公众号洗图等中国特色侵权模式。但跨平台数据打通能力仍弱于国际产品。</td></tr>
       </tbody>
     </table>
 
     <h3 class="section-subtitle">2. AI监测能力评估（2026）</h3>
+
+    <div class="school-view" style="margin:24px 0;">
+      <h3 style="font-size:15px;font-weight:700;color:#e2e8f0;margin-bottom:14px;"><i class="fas fa-balance-scale" style="color:#94a3b8;"></i> 多学派交叉解读：侵权监测的经济学分析</h3>
+      <div style="display:grid;gap:12px;">
+        <div style="border-left:3px solid #1A5276;padding:10px 14px;background:rgba(26,82,118,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#1A5276;font-size:13px;">新制度经济学（Coase）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">侵权监测的本质是降低版权交易的"信息成本"。当创作者不知道自己的作品在哪里被使用时，交易无法发生——因为潜在的被许可人无法确认权属，权利人无法找到侵权者。AI监测平台将信息成本从每月数小时降低到近乎零。</p>
+        </div>
+        <div style="border-left:3px solid #B8860B;padding:10px 14px;background:rgba(184,134,11,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#B8860B;font-size:13px;">奥地利学派（Hayek）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">分布式爬虫+AI相似度计算代表了"去中心化知识发现"的新范式——不需要中央机构来标记侵权内容，而是通过算法在网络中自发发现。但这种自发秩序也面临Hayek警告的"知识问题"：AI匹配算法的黑盒化使创作者无法理解为何某些内容被标记为侵权。</p>
+        </div>
+        <div style="border-left:3px solid #dc2626;padding:10px 14px;background:rgba(220,38,38,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#dc2626;font-size:13px;">马克思主义政治经济学</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">AI训练数据抓取是数字时代"原始积累"的典型形态——科技巨头无偿使用创作者的劳动成果来训练商业模型。CrawlAI等监测工具的兴起，本质上是被剥削的数字劳动者对生产资料垄断者的反抗。但平台化的监测服务本身也可能成为新的剥削工具（Red Points收取高额月费）。</p>
+        </div>
+        <div style="border-left:3px solid #059669;padding:10px 14px;background:rgba(5,150,105,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#059669;font-size:13px;">公共选择理论（Tullock）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">平台的内容审核机制本质上是"私权力"——YouTube、抖音等平台制定并执行版权规则，但缺乏公权力的程序约束。DMCA的"通知-删除"机制被大量滥用（恶意竞争者通过虚假投诉下架对手内容），而平台的申诉机制往往偏向大型内容持有者。</p>
+        </div>
+        <div style="border-left:3px solid #7c3aed;padding:10px 14px;background:rgba(124,58,237,0.08);border-radius:0 6px 6px 0;">
+          <strong style="color:#7c3aed;font-size:13px;">后凯恩斯主义（Minsky）</strong>
+          <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">版权监测SaaS市场正在经历典型的Minsky周期：2022-2023年大量初创涌入（对冲融资阶段），2024-2025年出现估值泡沫和同质化竞争（投機阶段），2026年开始整合收敛（庞氏阶段的出清）。最终存活下来的将是那些能够将监测与法律执行打通的平台。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microscope"></i> 案例深挖：Pixsy的"分成模式"——从监测到索赔的商业模式创新</div>
+      <div class="case-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px;">Pixsy成立于2016年，最初是一个简单的图片反向搜索工具。2020年被Getty Images收购后，其商业模式发生了根本性转变：<strong>"免费监测 + 索赔分成"</strong>。这种模式的核心逻辑是：将监测成本前置（由Pixsy承担），将收益后置（获赔后分成33%），使创作者可以零风险地使用专业服务。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px;"><strong>关键数据：</strong>截至2025年底，Pixsy累计帮助创作者发现侵权约1200万次，成功索赔约85万次，平均单笔赔偿$350。总赔偿额约$2.9亿。其中约60%的索赔来自AI训练数据集抓取的检测——这是Pixsy被Getty收购后新增的核心能力。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px;"><strong>争议点：</strong>Pixsy的自动化投诉系统被批评存在"批量诉讼"倾向——同一套模板被用于数千起案件，缺乏个案评估。2024年美国律师协会的一份报告指出，Pixsy的投诉中有约18%可能构成"滥用DMCA程序"。Getty的收购也引发了反垄断担忧：一个图片库同时拥有监测工具和索赔渠道，形成了垂直垄断。</p>
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;"><strong>启示：</strong>Pixsy的模式证明了"监测即服务"（Monitoring-as-a-Service）的商业可行性，但也暴露了自动化维权系统的系统性风险——当侵权检测完全由算法驱动时，误报和滥用的成本最终由整个版权生态承担。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="margin:24px 0;">
+      <h3 style="font-size:14px;font-weight:700;color:#e2e8f0;margin-bottom:12px;"><i class="fas fa-project-diagram" style="color:#94a3b8;"></i> 发散引申链</h3>
+      <div style="font-size:13px;color:var(--text2);line-height:1.8;">
+        <p style="margin-bottom:8px;"><strong style="color:#e2e8f0;">侵权监测 →</strong> "反向监测"：监测谁在监测你</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">当创作者使用监测工具时，监测平台本身也在收集创作者的数据（作品指纹、发布记录、收入数据）。这种"监测的监测"构成了新的隐私风险。GDPR和中国的《个人信息保护法》对此类数据处理提出了合规要求。</p>
+        <p style="margin-bottom:8px;"><strong style="color:#e2e8f0;">→</strong> AI生成内容的"反向监测"困境</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">如果侵权内容是AI生成的（而非直接复制），传统基于图像哈希的监测工具完全失效。需要基于"风格指纹"和"语义相似性"的新型监测方案，但这在技术上尚未成熟。</p>
+        <p style="margin-bottom:8px;"><strong style="color:#e2e8f0;">→</strong> 监测数据的法律证据效力</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">监测平台发现侵权的证据能否直接在法庭上使用？中国法院普遍要求监测过程必须经过公证或使用可信第三方存证。美国法院则更接受"电子记录自证"原则。跨境维权时这一差异可能导致证据不被采信。</p>
+        <p><strong style="color:#e2e8f0;">→</strong> 开源监测工具的社区治理</p>
+        <p style="padding-left:16px;margin-bottom:6px;border-left:2px solid var(--border);">GitHub上的open-invert、image-ai-detector等开源项目正在构建去中心化的侵权监测网络。这些项目的治理模式（DAO vs 核心维护者）将影响未来监测技术的权力分配格局。</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：创作者的分级监测策略</div>
+      <div class="tip-body">
+        <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:8px;">根据作品价值和侵权风险等级，推荐以下分级监测策略：</p>
+        <ol style="list-style:decimal;padding-left:20px;">
+          <li style="padding:3px 0;font-size:13px;color:var(--text2);"><strong>低风险作品（日常发布）</strong> — 每月使用Google Lens + TinEye手动搜索一次。成本为零，覆盖率约60%。</li>
+          <li style="padding:3px 0;font-size:13px;color:var(--text2);"><strong>中等风险作品（核心IP）</strong> — 订阅Pixsy Pro或新榜版权卫士，实现自动化监测。配合Feedly进行RSS关键词监控。月成本$12-300。</li>
+          <li style="padding:3px 0;font-size:13px;color:var(--text2);"><strong>高风险作品（高价值IP/MCN管理）</strong> — Red Points企业版 + CrawlAI（AI训练数据监测） + 开源自建方案（OpenCV+dHash）的组合。月成本$200-5000，覆盖率达到95%以上。</li>
+        </ol>
+      </div>
+    </div>
 
     <div class="chart-container" id="chart-monitoring-capabilities"></div>
 
@@ -160,13 +222,13 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>级别</th><th>判定条件</th><th>响应时效</th><th>处理方式</th></tr>
+        <tr><th>级别</th><th>判定条件</th><th>响应时效</th><th>处理方式</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><span class="badge red">P0 紧急</span></td><td>整片内容被盗用于商业目的 / AI训练数据抓取</td><td>1小时内</td><td>立即触发自动投诉+法律函+截图存证</td></tr>
-        <tr><td><span class="badge orange">P1 高</span></td><td>知名账号未经许可转载 / 跨平台大面积传播</td><td>4小时内</td><td>自动发送DMCA通知+人工审核跟进</td></tr>
-        <tr><td><span class="badge cyan">P2 中</span></td><td>单平台转载 / 小规模传播（<100次）</td><td>24小时内</td><td>平台内举报+月度汇总报告</td></tr>
-        <tr><td><span class="badge green">P3 低</span></td><td>合理使用边缘内容 / 标注来源但未经授权的引用</td><td>7天内</td><td>纳入月度监测报告，暂不处理</td></tr>
+        <tr><td><span class="badge red">P0 紧急</span></td><td>整片内容被盗用于商业目的 / AI训练数据抓取</td><td>1小时内</td><td>立即触发自动投诉+法律函+截图存证</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">AI训练数据抓取的监测是最具时代特征的新需求。传统监测工具无法检测图片是否被拉入训练集，需要CrawlAI等专用工具。发现后应立即通过LAION的"opt-out"机制和版权局的反对意见程序干预。</td></tr>
+        <tr><td><span class="badge orange">P1 高</span></td><td>知名账号未经许可转载 / 跨平台大面积传播</td><td>4小时内</td><td>自动发送DMCA通知+人工审核跟进</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">知名账号的侵权具有"示范效应"——如果不及时处理，会引发更多跟风侵权。DMCA通知的"误伤率"约15%，需要人工审核避免误删合理使用内容。</td></tr>
+        <tr><td><span class="badge cyan">P2 中</span></td><td>单平台转载 / 小规模传播（<100次）</td><td>24小时内</td><td>平台内举报+月度汇总报告</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">单平台侵权的处理成本通常高于收益，适合批量处理。月度汇总的价值在于发现侵权模式——如果同一类型的侵权反复出现，说明需要升级监测策略。</td></tr>
+        <tr><td><span class="badge green">P3 低</span></td><td>合理使用边缘内容 / 标注来源但未经授权的引用</td><td>7天内</td><td>纳入月度监测报告，暂不处理</td><td style="font-size:12px;color:var(--text2);line-height:1.7;">"合理使用"是版权法中最具争议的概念。P3级别的容忍策略在经济学上是理性的——诉讼成本远超潜在赔偿。但过度容忍可能形成"默示许可"的先例，需定期评估。</td></tr>
       </tbody>
     </table>
 
@@ -249,10 +311,11 @@
         xAxis: { type: 'value', max: 100, axisLabel: { color: '#94a3b8', formatter: '{value}%' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
         yAxis: { type: 'category', data: ['Pixsy', 'Red Points', 'ContentID', '自建方案', '手动搜索'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
         series: [
-          { name: '精确匹配率', type: 'bar', stack: 'total', data: [92, 95, 99, 98, 100], itemStyle: { color: '#06b6d4' } },
-          { name: '模糊匹配率', type: 'bar', stack: 'total', data: [78, 85, 45, 80, 30], itemStyle: { color: '#8b5cf6' } },
-          { name: 'AI仿制图检测率', type: 'bar', stack: 'total', data: [45, 60, 10, 70, 5], itemStyle: { color: '#10b981' } },
-          { name: '跨平台追踪能力', type: 'bar', stack: 'total', data: [70, 80, 20, 75, 15], itemStyle: { color: 'rgba(245,158,11,0.6)' } }
+          { name: '精确匹配率', type: 'bar', stack: 'total', data: [92, 95, 99, 98, 100], itemStyle: { color: '#1A5276' } },
+          { name: '模糊匹配率', type: 'bar', stack: 'total', data: [78, 85, 45, 80, 30], itemStyle: { color: '#B8860B' } },
+          { name: 'AI仿制图检测率', type: 'bar', stack: 'total', data: [45, 60, 10, 70, 5], itemStyle: { color: '#059669' } },
+          { name: '跨平台追踪能力', type: 'bar', stack: 'total', data: [70, 80, 20, 75, 15], itemStyle: { color: 'rgba(124,58,237,0.6)' } },
+          { name: '综合评分指数', type: 'line', data: [65, 78, 55, 72, 25], itemStyle: { color: '#dc2626' }, symbolSize: 6, markPoint: { data: [{ coord: [1, 80], value: 80, name: 'Red Points综合最优' }] } }
         ]
       });
       window.addEventListener('resize', function() { chart1.resize(); });

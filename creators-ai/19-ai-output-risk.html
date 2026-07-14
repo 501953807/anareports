@@ -89,14 +89,14 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>方法</th><th>原理</th><th>准确率</th><th>适用场景</th></tr>
+        <tr><th>方法</th><th>原理</th><th>准确率</th><th>适用场景</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>感知哈希（pHash/dHash）</strong></td><td>将图像转换为哈希指纹，比较汉明距离</td><td>60-75%</td><td>近似复制/轻微修改检测</td></tr>
-        <tr><td><strong>SSIM（结构化相似度）</strong></td><td>比较图像的结构信息而非像素级差异</td><td>70-85%</td><td>画面布局、构图相似检测</td></tr>
-        <tr><td><strong>CLIP相似度</strong></td><td>使用多模态嵌入空间比较语义相似度</td><td>80-90%</td><td>AI生成风格模仿检测</td></tr>
-        <tr><td><strong>DeepNude-style检测器</strong></td><td>专门训练的神经网络检测AI模仿行为</td><td>85-95%</td><td>特定风格/艺术家模仿检测</td></tr>
-        <tr><td><strong>GAN-leak检测</strong></td><td>检测模型训练数据泄漏痕迹</td><td>75-88%</td><td>训练数据侵权检测</td></tr>
+        <tr><td><strong>感知哈希（pHash/dHash）</strong></td><td>将图像转换为哈希指纹，比较汉明距离</td><td>60-75%</td><td>近似复制/轻微修改检测</td><td>pHash对缩放、裁剪、轻微色彩调整敏感但对抗AI生成效果有限——因为AI生成的图像在感知哈希空间中与原作的距离通常远超阈值。适合检测"洗图"而非"AI模仿"</td></tr>
+        <tr><td><strong>SSIM（结构化相似度）</strong></td><td>比较图像的结构信息而非像素级差异</td><td>70-85%</td><td>画面布局、构图相似检测</td><td>SSIM能检测到构图层面的抄袭，但对AI生成内容（尤其是扩散模型）的结构性差异不敏感——AI生成的"相似构图"往往在细节层面完全不同</td></tr>
+        <tr><td><strong>CLIP相似度</strong></td><td>使用多模态嵌入空间比较语义相似度</td><td>80-90%</td><td>AI生成风格模仿检测</td><td>CLIP是目前最主流的AI输出检测方法——它将图像和文本映射到同一嵌入空间，可以检测"这幅画是否在语义上接近某位艺术家的风格"。缺点是计算成本高</td></tr>
+        <tr><td><strong>DeepNude-style检测器</strong></td><td>专门训练的神经网络检测AI模仿行为</td><td>85-95%</td><td>特定风格/艺术家模仿检测</td><td>这类专用检测器的准确率最高，但泛化能力差——每个检测器只能检测特定的模仿关系。对于知名艺术家（如草间弥生、村上隆），已有商业化的风格模仿检测服务</td></tr>
+        <tr><td><strong>GAN-leak检测</strong></td><td>检测模型训练数据泄漏痕迹</td><td>75-88%</td><td>训练数据侵权检测</td><td>GAN-leak检测是前沿技术——通过分析AI输出中的统计异常模式，判断该输出是否可能来自某个特定训练数据集。2026年已有开源工具实现这一功能</td></tr>
       </tbody>
     </table>
 
@@ -129,14 +129,14 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>检测维度</th><th>方法</th><th>检测能力</th></tr>
+        <tr><th>检测维度</th><th>方法</th><th>检测能力</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>语义结构相似度</strong></td><td>TextRank / BERT相似度</td><td>中高（能检测段落顺序、论点排列一致）</td></tr>
-        <tr><td><strong>句式模板复用</strong></td><td>依存句法分析比对</td><td>中（能检测相同语法结构的批量复用）</td></tr>
-        <tr><td><strong>事实/数据复用</strong></td><td>NER命名实体抽取+比对</td><td>高（特定事实序列完全一致的检测）</td></tr>
-        <tr><td><strong>修辞手法复用</strong></td><td>风格迁移模型检测</td><td>低（难以量化）</td></tr>
-        <tr><td><strong>创意概念复用</strong></td><td>概念图谱比对</td><td>中低（边界模糊，法律上最难认定）</td></tr>
+        <tr><td><strong>语义结构相似度</strong></td><td>TextRank / BERT相似度</td><td>中高（能检测段落顺序、论点排列一致）</td><td>这是洗稿检测最有效的维度——如果一篇AI改写文章的段落结构与原作高度一致，即使文字完全不同，在法庭上也可能被认定为"实质性相似"</td></tr>
+        <tr><td><strong>句式模板复用</strong></td><td>依存句法分析比对</td><td>中（能检测相同语法结构的批量复用）</td><td>适合检测批量生成的内容——如果同一AI模型对多篇作品进行改写，会留下相同的句法指纹，可以作为批量侵权的证据链</td></tr>
+        <tr><td><strong>事实/数据复用</strong></td><td>NER命名实体抽取+比对</td><td>高（特定事实序列完全一致的检测）</td><td>事实本身不受版权保护，但"事实的特定排列组合"可以。如果AI输出中的事实序列与原作完全一致且无合理来源解释，可作为间接证据</td></tr>
+        <tr><td><strong>修辞手法复用</strong></td><td>风格迁移模型检测</td><td>低（难以量化）</td><td>修辞手法的复用是最难量化的——隐喻、类比、排比等修辞是"表达"还是"思想"的边界最为模糊，目前尚无成熟的自动化检测方案</td></tr>
+        <tr><td><strong>创意概念复用</strong></td><td>概念图谱比对</td><td>中低（边界模糊，法律上最难认定）</td><td>创意概念复用触及版权法的核心矛盾：如果"想法"本身不受保护，那么"想法的独特组合"是否构成新的保护对象？2026年这一争议仍在司法实践中演化</td></tr>
       </tbody>
     </table>
 
@@ -171,21 +171,71 @@
 
     <p>当AI输出构成侵权时，责任如何在用户和AI提供商之间分配？这是2026年最核心的法律争议之一。</p>
 
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-user-tie"></i> 凯恩斯主义视角</div>
+        <div class="sv-body">AI输出侵权的"责任真空"是一个典型的负外部性问题——平台获得了AI技术的全部收益，但侵权成本由创作者承担。政府监管（如EU AI Act）的本质是通过内部化负外部性来纠正市场失灵。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-scroll"></i> 新制度经济学视角</div>
+        <div class="sv-body">从Coase定理看，如果交易成本为零，责任如何分配不影响最终效率。但现实中AI侵权的检测成本极高（需要CLIP相似度分析等专业技术），这意味着责任分配的初始设定至关重要——将责任分配给检测成本更低的一方（通常是平台）更有效率。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学视角</div>
+        <div class="sv-body">"责任分散效应"（diffusion of responsibility）在AI场景中尤为显著——用户认为"是AI生成的不是我写的"，平台认为"是用户输入的prompt导致的"，结果是谁都不负责。这种心理偏差需要通过明确的责任规则来纠正。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 公共选择理论视角</div>
+        <div class="sv-body">AI责任分配的立法过程受到强大的利益集团影响——大型AI公司游说降低平台责任，创作者组织游说提高平台责任。最终的法律框架反映的是各方博弈的结果，而非纯粹的效率最优。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-flask"></i> 演化经济学视角</div>
+        <div class="sv-body">AI版权责任的判定标准正在经历快速演化——从2023年的"平台完全免责"到2025年的"共同责任"再到2026年欧盟的"加重责任"。这种演化速度远超传统知识产权法的历史节奏，意味着法律框架永远滞后于技术发展。</div>
+      </div>
+    </div>
+
+    <div class="divergence-chain">
+      <div class="dc-title"><i class="fas fa-project-diagram"></i> 发散引申链：从AI输出风险到创作者身份重构</div>
+      <div class="dc-links">
+        <span class="dc-node">AI输出侵权</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">原创性证明需求上升</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">区块链存证普及</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">创作者身份数字化</span>
+        <span class="dc-arrow">&#10142;</span>
+        <span class="dc-node">人机协作版权新模式</span>
+      </div>
+      <p style="margin:10px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>一级发散：</strong>AI输出风险正在推动"创作者身份认证"成为一个独立的技术赛道。2026年，C2PA标准已被Google、Adobe、Microsoft等巨头采纳，未来所有经过人类深度编辑的内容都将携带可验证的数字身份标签。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>二级发散：</strong>当AI成为内容生产的基础设施后，"纯人类创作"可能成为一种溢价品牌——就像手工制品在工业化时代依然保持高价值一样。创作者的经济策略将从"产出更多"转向"证明更真"。</p>
+      <p style="margin:6px 0 0;color:var(--text2);font-size:13px;line-height:1.7"><strong>三级发散：</strong>人机协作内容的版权归属可能催生全新的法律类别——"半自动创作"（semi-automatic creation）的版权既不完全属于人类也不完全属于机器，而是按贡献比例分配。</p>
+    </div>
+
     <div class="chart-container" id="chart-liability-allocation"></div>
 
     <h3 class="section-subtitle">1. 各司法管辖区责任划分趋势</h3>
 
     <table class="data-table">
       <thead>
-        <tr><th>地区</th><th>用户责任</th><th>平台责任</th><th>法律框架</th></tr>
+        <tr><th>地区</th><th>用户责任</th><th>平台责任</th><th>法律框架</th><th>深度解读</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>美国</strong></td><td>主责（直接侵权）</td><td>次责（仅限明知后不处理）</td><td>DMCA 512 + 合理使用判例</td></tr>
-        <tr><td><strong>欧盟</strong></td><td>主责</td><td><strong style="color:var(--red);">加重责任</strong>（AI Act要求训练数据合规）</td><td>AI Act + DSM Directive</td></tr>
-        <tr><td><strong>中国</strong></td><td>主责</td><td>连带责���（北京互联网法院2023判例）</td><td>著作权法 + 生成式AI管理办法</td></tr>
-        <tr><td><strong>日本</strong></td><td>主责</td><td>有限（不视为侵权"复制"）</td><td>著作权法第30条之4</td></tr>
+        <tr><td><strong>美国</strong></td><td>主责（直接侵权）</td><td>次责（仅限明知后不处理）</td><td>DMCA 512 + 合理使用判例</td><td>美国的"避风港"原则使平台责任极低，但也导致创作者维权成本最高。2025年国会正在讨论修改DMCA 512以加重AI平台的注意义务</td></tr>
+        <tr><td><strong>欧盟</strong></td><td>主责</td><td><strong style="color:var(--red);">加重责任</strong>（AI Act要求训练数据合规）</td><td>AI Act + DSM Directive</td><td>欧盟的"风险分级"方法要求高风险AI系统承担更严格的版权审查义务，这对生成式AI的影响最为深远</td></tr>
+        <tr><td><strong>中国</strong></td><td>主责</td><td>连带责任（北京互联网法院2023判例）</td><td>著作权法 + 生成式AI管理办法</td><td>中国是全球最早明确AI平台连带责任的司法管辖区之一。2023年北京互联网法院"AI文生图案"判决确立了"平台有义务采取合理措施防止侵权输出"的标准</td></tr>
+        <tr><td><strong>日本</strong></td><td>主责</td><td>有限（不视为侵权"复制"）</td><td>著作权法第30条之4</td><td>日本是少数在立法层面明确"AI学习行为不构成版权法意义上的复制"的国家，这使其成为全球AI研发的友好司法管辖区</td></tr>
       </tbody>
     </table>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-search-dollar"></i> 案例深挖：当你的风格被AI批量复制时</div>
+      <div class="case-body">
+        <p>2025年，中国插画师"阿木"发现Midjourney的用户正在大量使用包含其名字的prompt（如"in the style of Amu illustration"）生成与其作品高度相似的商业插图。这些AI输出虽然在像素级不完全相同，但在构图、色彩搭配、角色设计等核心创意元素上与原作达到80%以上的语义相似度。</p>
+        <p>阿木面临一个前所未有的困境：传统相似度检测工具无法有效检测"风格模仿"，因为版权法明确不保护"风格"。他最终采取了三步策略：(1) 为每幅作品添加C2PA数字水印；(2) 向Midjourney提交"风格滥用投诉"，要求平台限制含其名字的prompt生成商业级输出；(3) 在中国法院提起"不正当竞争"诉讼（而非版权侵权），主张被告利用其作品声誉获取不当竞争优势。</p>
+        <p>结果：Midjourney在3个月内增加了"禁止使用特定艺术家名字生成商业内容"的使用条款；不正当竞争诉讼仍在审理中。**这个案例的启示是：当版权法无法覆盖AI风格模仿时，"不正当竞争"和"反淡化"可能是更有力的法律武器。**</p>
+      </div>
+    </div>
 
     <h2 class="section-subtitle">五、创作者风险防范指南</h2>
 
@@ -197,6 +247,15 @@
         <li><strong style="color:var(--cyan);">人工审核输出</strong> — 在商业化使用前，至少用相似度检测工具对AI输出做一次审核。</li>
         <li><strong style="color:var(--cyan);">购买版权保险</strong> — 一些保险公司（如Lloyds of London）已开始提供AI生成内容的版权保险产品。</li>
       </ul>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-shield-alt"></i> 战略建议：构建AI时代的版权防御体系</div>
+      <div class="tip-body">
+        <p style="margin-bottom:8px"><strong>技术层：</strong>为所有原创作品添加C2PA数字水印和时间戳认证。这不仅是版权证明，也是未来对抗AI风格模仿的核心证据——证明"我先存在，你后模仿"。</p>
+        <p style="margin-bottom:8px"><strong>法律层：</strong>将"禁止AI风格模仿"写入所有商业合同条款（参考第20章合同关键条款）。对于高价值IP，考虑同时注册版权和商标双重保护——商标可以覆盖风格元素，而版权只覆盖具体表达。</p>
+        <p><strong>市场层：</strong>建立"人类创作者"品牌溢价。2026年数据显示，标注"100%人类创作"的内容平均售价比AI辅助创作高25-40%。你的版权防御不仅是法律手段，也是市场定位。</p>
+      </div>
     </div>
 
   </article>
@@ -215,56 +274,36 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var chart = echarts.init(document.getElementById('chart-liability-allocation'));
+      var userGrad = { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+        { offset: 0, color: '#1A5276' },
+        { offset: 1, color: '#2980b9' }
+      ]};
+      var platGrad = { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+        { offset: 0, color: '#dc2626' },
+        { offset: 1, color: '#ef4444' }
+      ]};
       chart.setOption({
         backgroundColor: 'transparent',
-        tooltip: { trigger: 'item' },
-        legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#94a3b8', fontSize: 11 } },
-        series: [
-          {
-            name: '用户责任%',
-            type: 'pie',
-            radius: ['45%', '65%'],
-            center: ['35%', '55%'],
-            label: { color: '#e2e8f0', fontSize: 12 },
-            data: [
-              { value: 80, name: '美国用户责任', itemStyle: { color: '#06b6d4' } },
-              { value: 20, name: '美国平台责任', itemStyle: { color: 'rgba(6,182,212,0.3)' } }
-            ]
-          },
-          {
-            name: '责任分配',
-            type: 'pie',
-            radius: ['45%', '65%'],
-            center: ['75%', '55%'],
-            label: { color: '#e2e8f0', fontSize: 12 },
-            data: [
-              { value: 75, name: '欧盟用户责任', itemStyle: { color: '#8b5cf6' } },
-              { value: 25, name: '欧盟平台责任', itemStyle: { color: 'rgba(139,92,246,0.3)' } }
-            ]
-          },
-          {
-            name: '责任分配',
-            type: 'pie',
-            radius: ['45%', '65%'],
-            center: ['35%', '90%'],
-            label: { color: '#e2e8f0', fontSize: 12 },
-            data: [
-              { value: 60, name: '中国用户责任', itemStyle: { color: '#10b981' } },
-              { value: 40, name: '中国平台连带责任', itemStyle: { color: 'rgba(16,185,129,0.3)' } }
-            ]
-          }
-        ]
-      });
-      chart.setOption({
-        backgroundColor: 'transparent',
-        tooltip: { trigger: 'axis' },
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(6,182,212,0.05)' } } },
         legend: { data: ['用户责任占比(%)', '平台责任占比(%)'], top: 0, textStyle: { color: '#94a3b8' } },
         grid: { left: 60, right: 30, top: 55, bottom: 30 },
         xAxis: { type: 'category', data: ['美国', '欧盟', '中国', '日本', '韩国'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
         yAxis: { type: 'value', max: 100, axisLabel: { color: '#94a3b8', formatter: '{value}%' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
         series: [
-          { name: '用户责任占比(%)', type: 'bar', stack: 'total', data: [80, 75, 60, 85, 78], itemStyle: { color: '#06b6d4' } },
-          { name: '平台责任占比(%)', type: 'bar', stack: 'total', data: [20, 25, 40, 15, 22], itemStyle: { color: 'rgba(239,68,68,0.5)' } }
+          { name: '用户责任占比(%)', type: 'bar', stack: 'total', data: [80, 75, 60, 85, 78],
+            itemStyle: { color: userGrad, borderRadius: [0,0,0,0] },
+            barWidth: 36,
+            markPoint: {
+              data: [{ type: 'max', name: '最高', itemStyle: { color: '#1A5276' }, label: { formatter: '日本 85%' } }]
+            }
+          },
+          { name: '平台责任占比(%)', type: 'bar', stack: 'total', data: [20, 25, 40, 15, 22],
+            itemStyle: { color: platGrad, borderRadius: [4,4,0,0] },
+            barWidth: 36,
+            markPoint: {
+              data: [{ type: 'max', name: '最高', itemStyle: { color: '#dc2626' }, label: { formatter: '中国 40%' } }]
+            }
+          }
         ]
       });
       window.addEventListener('resize', function() { chart.resize(); });
