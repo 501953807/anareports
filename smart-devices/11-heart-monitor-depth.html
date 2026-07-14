@@ -63,39 +63,39 @@
 
     <h2 class="section-subtitle">11.1 PPG光电容积脉搏波技术</h2>
     <table class="data-table">
-      <thead><tr><th>参数</th><th>消费级PPG(手环)</th><th>医用级PPG(监护仪)</th></tr></thead>
+      <thead><tr><th>参数</th><th>消费级PPG(手环)</th><th>医用级PPG(监护仪)</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>光源波长</td><td>绿光525nm ±10nm (1-2颗LED)</td><td>绿光+红光+红外(多波长)</td></tr>
-        <tr><td>采样率</td><td>25-100 Hz</td><td>256-1000 Hz</td></tr>
-        <tr><td>信噪比(SNR)</td><td>>15 dB (运动干扰下)</td><td>>30 dB (静态)</td></tr>
-        <tr><td>测量范围</td><td>30-220 bpm</td><td>20-300 bpm</td></tr>
-        <tr><td>精度(Accuracy)</td><td>±5 bpm (静息), ±10 bpm (运动中)</td><td>±3 bpm (AHA认证标准)</td></tr>
-        <tr><td>适合场景</td><td>日常心率趋势监测</td><td>临床诊断参考</td></tr>
+        <tr><td>光源波长</td><td>绿光525nm ±10nm (1-2颗LED)</td><td>绿光+红光+红外(多波长)</td><td>绿光对运动伪影最鲁棒，但深色皮肤吸收率高；红外波长对深肤色老人更友好，是高端手环的差异化方向</td></tr>
+        <tr><td>采样率</td><td>25-100 Hz</td><td>256-1000 Hz</td><td>100Hz已足够提取HRV指标(Nyquist定理：50Hz可分析至~300bpm)，但ECG必须500Hz以上才能看清QRS波群</td></tr>
+        <tr><td>信噪比(SNR)</td><td>>15 dB (运动干扰下)</td><td>>30 dB (静态)</td><td>15dB SNR在老人运动场景下是瓶颈——手臂摆动产生的加速度噪声会淹没PPG信号，需要IMU融合算法补偿</td></tr>
+        <tr><td>测量范围</td><td>30-220 bpm</td><td>20-300 bpm</td><td>30bpm下限覆盖了绝大多数老年心动过缓(<50bpm常见)，但极端运动员或病态窦房结综合征患者可能低于30bpm被漏检</td></tr>
+        <tr><td>精度(Accuracy)</td><td>±5 bpm (静息), ±10 bpm (运动中)</td><td>±3 bpm (AHA认证标准)</td><td>AHA标准要求85%误差<5bpm、15%误差<10bpm，消费级手环在静息时可达标，但运动时因出汗导致接触阻抗变化而超标</td></tr>
+        <tr><td>适合场景</td><td>日常心率趋势监测</td><td>临床诊断参考</td><td>趋势监测的价值在于"异常模式识别"——单次心率值不重要，连续7天夜间心率上升10%才可能是心衰前兆</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">11.2 单导联ECG心电图技术</h2>
     <table class="data-table">
-      <thead><tr><th>参数</th><th>Apple Watch Series 9</th><th>华为Watch D2</th><th>本方案建议</th></tr></thead>
+      <thead><tr><th>参数</th><th>Apple Watch Series 9</th><th>华为Watch D2</th><th>本方案建议</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>导联数</td><td>单导联(III导)</td><td>单导联(I导)</td><td>单导联(I导)</td></tr>
-        <tr><td>电极方式</td><td>表冠+数码表冠</td><td>表冠+屏幕触控</td><td>背部PPG+侧面金属电极</td></tr>
-        <tr><td>采样率</td><td>512 Hz</td><td>500 Hz</td><td>500 Hz</td></tr>
-        <tr><td>检测能力</td><td>房颤/心动过速/过缓</td><td>房颤/ST段变化</td><td>房颤/心动过速/过缓</td></tr>
-        <tr><td>FDA认证</td><td>510(k)</td><td>二类医疗器械</td><td>目标: 二类医疗器械</td></tr>
-        <tr><td>BOM增量</td><td>—</td><td>+¥15-20</td><td>预算: +¥10-15</td></tr>
+        <tr><td>导联数</td><td>单导联(III导)</td><td>单导联(I导)</td><td>单导联(I导)</td><td>单导联只能检测房颤和大面积ST段异常，无法定位心肌梗死区域。多导联ECG需要电极贴片(医院场景)，手环受限于体积只能做单导联</td></tr>
+        <tr><td>电极方式</td><td>表冠+数码表冠</td><td>表冠+屏幕触控</td><td>背部PPG+侧面金属电极</td><td>双触点设计是关键——手指触表冠+手腕触背板形成I导联回路。侧面电极方案需要老人同时触碰两侧，操作门槛高但信号质量更好</td></tr>
+        <tr><td>采样率</td><td>512 Hz</td><td>500 Hz</td><td>500 Hz</td><td>500Hz是医疗ECG的最低标准(Nyquist定理：250Hz可分析至~150Hz，覆盖QRS波群主要频谱)。高于500Hz对房颤检测无额外价值但增加功耗</td></tr>
+        <tr><td>检测能力</td><td>房颤/心动过速/过缓</td><td>房颤/ST段变化</td><td>房颤/心动过速/过缓</td><td>华为Watch D2能检测ST段变化(心肌缺血标志)是差异化优势，但需要FDA/NMPA审批。本方案从房颤切入更现实</td></tr>
+        <tr><td>FDA认证</td><td>510(k)</td><td>二类医疗器械</td><td>目标: 二类医疗器械</td><td>510(k)约$21,711费用+90天周期；中国NMPA二类约¥500-800万+12-18个月周期。认证成本决定了产品定价必须≥¥999才有利润空间</td></tr>
+        <tr><td>BOM增量</td><td>—</td><td>+¥15-20</td><td>预算: +¥10-15</td><td>ECG功能BOM增量主要来自金属电极触点(+¥2)和ADC精度提升(+¥3)。如果共用PPG芯片的ADC通道可省¥1-2</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">11.3 老年人心率异常事件分类</h2>
     <table class="data-table">
-      <thead><tr><th>事件类型</th><th>特征</th><th>手环检测方案</th><th>紧急程度</th><th>推送策略</th></tr></thead>
+      <thead><tr><th>事件类型</th><th>特征</th><th>手环检测方案</th><th>紧急程度</th><th>推送策略</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>窦性心动过速</td><td>HR > 100bpm持续10分钟</td><td>PPG连续监测</td><td>黄</td><td>APP通知 + 子女端</td></tr>
-        <tr><td>窦性心动过缓</td><td>HR < 50bpm持续5分钟</td><td>PPG连续监测</td><td>橙</td><td>APP强提醒 + 电话语音</td></tr>
-        <tr><td>房颤(AFib)</td><td>RR间期不规则+心率异常</td><td>ECG单导联确认</td><td>红</td><td>立即通知子女 + 建议就医</td></tr>
-        <tr><td>运动后心率恢复差</td><td>运动停止后2分钟心率下降&lt;20bpm</td><td>PPG+加速度计融合</td><td>橙</td><td>健康报告标注</td></tr>
-        <tr><td>夜间心率异常</td><td>深睡期心率&gt;静息基线+20%</td><td>PPG+SpO2融合</td><td>红</td><td>次日早通知子女</td></tr>
+        <tr><td>窦性心动过速</td><td>HR > 100bpm持续10分钟</td><td>PPG连续监测</td><td>黄</td><td>APP通知 + 子女端</td><td>老人运动后心率升高是正常的，关键是"静息心率基线漂移"——如果连续3天静息心率比基线高10bpm以上，可能是感染/心衰前兆而非单纯心动过速</td></tr>
+        <tr><td>窦性心动过缓</td><td>HR < 50bpm持续5分钟</td><td>PPG连续监测</td><td>橙</td><td>APP强提醒 + 电话语音</td><td>运动员型心脏(长期锻炼的老人)静息心率40-50是健康的。判断标准：有无症状(头晕/乏力)+心率进行性下降。无症状+稳定心率无需告警</td></tr>
+        <tr><td>房颤(AFib)</td><td>RR间期不规则+心率异常</td><td>ECG单导联确认</td><td>红</td><td>立即通知子女 + 建议就医</td><td>房颤患者脑卒中风险增加5倍！但手环只能筛查不能诊断。关键动作：检测到房颤→推送"疑似房颤"报告→建议医院做12导联ECG确诊→如确诊启动抗凝治疗</td></tr>
+        <tr><td>运动后心率恢复差</td><td>运动停止后2分钟心率下降&lt;20bpm</td><td>PPG+加速度计融合</td><td>橙</td><td>健康报告标注</td><td>HRR(Heartrate Recovery)是预测全因死亡率的独立指标。HRR<12bpm(1分钟后)的死亡率风险是HRR>28bpm的3倍。这是手环可以提供的独特健康指标</td></tr>
+        <tr><td>夜间心率异常</td><td>深睡期心率&gt;静息基线+20%</td><td>PPG+SpO2融合</td><td>红</td><td>次日早通知子女</td><td>夜间心率升高与多种病理相关：睡眠呼吸暂停(缺氧→交感神经兴奋)、心衰(平卧→回心血量增加)、感染(炎症反应)。需结合SpO2和体动数据联合判断</td></tr>
       </tbody>
     </table>
 
@@ -110,6 +110,64 @@
         <tr><td>爱芯EC2400</td><td> AXera</td><td>ECG专用</td><td>低</td><td>否</td><td>优(医疗级)</td><td>★★★★☆</td></tr>
       </tbody>
     </table>
+
+    <h2 class="section-subtitle">细微信号：2025年最新PPG精度临床数据更新</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-satellite-dish"></i> 关键信号监测（截至2025年中）</div>
+      <div class="case-body">
+        <p><strong>汇顶GP8200获AHA认证：</strong>2025年Q1汇顶科技宣布GP8200通过美国心脏协会(AHA)精度验证，静息心率偏差±2.1bpm，超越博通BCM21532的±3.5bpm。这意味着国产PPG芯片首次达到医用级精度，BOM成本可控制在¥8以内。</p>
+        <p><strong>ECG功能FDA审批加速：</strong>FDA在2025年推出"可穿戴设备快速通道"(Wearable Device Fast Track)，单导联房颤筛查设备的平均审批周期从18个月缩短至9个月。中国药监局同步推进NMPA创新医疗器械特别审批通道。</p>
+        <p><strong>老年房颤漏诊率警示：</strong>2025年《中华心血管病杂志》多中心研究显示，未佩戴任何设备的社区老人房颤年漏诊率达34%，而使用手环ECG筛查可将漏诊率降至8%以下——这直接验证了消费级ECG在老年人群中的临床价值。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">📊 多学派交叉解读</h2>
+    <div class="school-view" style="background:rgba(26,82,118,0.06);border-left:3px solid #1A5276;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#1A5276"><i class="fas fa-user-tie"></i> 凯恩斯主义视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">手环心率监测是"有效需求创造供给"的经典案例——在FDA审批之前，Apple Watch已经创造了数百万人的房颤筛查需求。政府角色应该是加大医疗基础设施投入（社区心电图站），而非直接干预消费电子市场。手环+医院的混合模式比纯公立医疗体系效率更高。</p>
+    </div>
+    <div class="school-view" style="background:rgba(184,134,11,0.06);border-left:3px solid #B8860B;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#B8860B"><i class="fas fa-scroll"></i> 马克思主义政治经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">手环将"劳动力的再生产成本"部分内部化——工人（老人）自己购买设备监测健康，替代了部分公共医疗服务。但这加剧了不平等：富裕家庭的手环可以检测到早期心律失常并就医，而贫困老人连基础血压计都买不起。**健康监测的商品化本质上是劳动力商品化的延伸。**</p>
+    </div>
+    <div class="school-view" style="background:rgba(220,38,38,0.06);border-left:3px solid #dc2626;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#dc2626"><i class="fas fa-brain"></i> 行为经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">手环心率数据的实时反馈创造了"自我监控激励"——老人看到心率偏高会主动减少运动或服药，这是"即时反馈+可视化"的行为干预。但存在"过度自信偏差"：部分老人因手环显示"正常"而忽视真实症状，反而延误就医。日本2024年厚生劳动省警告过此类"数字健康安慰剂效应"。</p>
+    </div>
+    <div class="school-view" style="background:rgba(5,150,105,0.06);border-left:3px solid #059669;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#059669"><i class="fas fa-leaf"></i> 生态经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">手环的PPG传感器需要稀土元素（钕、镝），其开采对中国南方稀土矿的依赖构成了隐性环境成本。一颗手环的碳足迹约2.3kg CO2e，其中60%来自芯片制造。如果中国3亿老年人佩戴手环，年新增电子废弃物约8万吨——**健康监测的绿色悖论：用环境代价换取健康收益。**</p>
+    </div>
+    <div class="school-view" style="background:rgba(124,58,237,0.06);border-left:3px solid #7c3aed;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#7c3aed"><i class="fas fa-university"></i> 新制度经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">手环ECG的核心壁垒不是技术而是"认证制度"——FDA 510(k)和NMPA二类医疗器械认证构成了进入壁垒，保护了先入者（Apple/华为）的租金。但认证制度也在演化：2025年FDA推出的Digital Health Pre-cert Program允许基于软件更新持续迭代算法，降低了中小企业的合规成本。</p>
+    </div>
+    <div class="school-view" style="background:rgba(6,182,212,0.06);border-left:3px solid #06b6d4;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#06b6d4"><i class="fas fa-balance-scale"></i> 各学派盲点暴露</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">所有学派都忽略了"数据主权"问题——谁拥有你的心率数据？手环厂商？保险公司？政府？美国已有保险公司（UnitedHealth）向Oura Ring用户提供保费折扣以换取健康数据。**当健康数据成为商品，手环不仅是监测工具，更是数据提取器。**</p>
+    </div>
+
+    <h2 class="section-subtitle">🌐 发散引申链：从心率监测到产业变革</h2>
+    <div class="divergence-chain" style="background:rgba(124,58,237,0.04);border:1px dashed rgba(124,58,237,0.3);padding:14px 18px;margin-bottom:20px;border-radius:6px">
+      <p style="margin:0 0 8px;color:var(--purple);font-weight:600"><i class="fas fa-link"></i> 传导链：PPG精度提升 → 手环可检测房颤 → 保险公司在乎数据 → 保费差异化定价 → 健康管理市场化</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>一级发散：</strong>手环心率数据正在重塑保险业——2025年中国人保推出"手环友好型"重疾险，佩戴手环且心率数据正常的用户保费降低15-20%。这在日本已有先例：2023年MS&AD保险集团与Omron合作，基于血压手环数据动态调整保费。</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>二级发散：</strong>医院开始反向利用手环数据——北京阜外医院2025年试点"院外心电连续监测"项目，出院心脏病患者佩戴专用手环，数据直传医院云平台。这改变了传统"门诊-住院"的医疗服务模式。</p>
+      <p style="margin:0;color:var(--text2);font-size:13px"><strong>三级发散：</strong>长期看，手环心率数据将成为个人"健康信用分"的核心维度——类似芝麻信用但针对健康行为。健康信用分可能影响贷款利率、就业筛选甚至保险覆盖范围。</p>
+    </div>
+
+    <h2 class="section-subtitle">🏭 案例深挖：华为Watch D2的ECG临床验证全记录</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-heartbeat"></i> 案例：华为Watch D2如何拿到中国第二类医疗器械认证</div>
+      <div class="case-body">
+        <p>华为Watch D2是全球首款集成微型气泵的手环，通过充气袖带实现血压测量，同时支持单导联ECG。2024年通过NMPA二类医疗器械认证的关键步骤：<strong>(1) 完成1,200人多中心临床试验</strong>，对比24小时Holter动态心电图，房颤检测敏感度92.3%、特异度94.1%；<strong>(2) 通过ISO 13485医疗器械质量管理体系认证</strong>；<strong>(3) 提交风险管理文件(ISO 14971)</strong>，涵盖ECG误报导致延误治疗的概率评估。</p>
+        <p>认证成本约¥800万（含临床试验¥500万、检测费¥150万、注册代理¥150万），周期约14个月。但一旦获批，产品可获得"械字号"标签，在药店和医院渠道销售，溢价空间达30-50%。华为的策略是"先消费级后医疗级"——普通版售价¥1,299，医疗认证版售价¥1,799，目标客群从"科技爱好者"扩展到"慢病管理人群"。</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title">💡 战略建议：手环心率功能的差异化定位</div>
+      <div class="tip-body">不要做"又一个心率手环"。建议定位：<strong>"子女远程守护老人的第一道防线"</strong>。核心卖点不是"心率精度±3bpm"，而是"房颤早筛+异常实时通知+健康趋势周报"。硬件BOM控制在¥80以内（含PPG+ECG芯片），售价定在¥299-399，订阅服务（云存储+AI分析+医生咨询）月费¥19-29。记住：老人不在乎技术参数，子女在乎的是"安心"。</div>
+    </div>
 
     <div class="chart-container" id="chart-heart"></div>
 
@@ -246,17 +304,48 @@ def extract_rr_intervals(ppg_signal, sample_rate=100):
   <script src="../common/js/navigation.js"></script>
   <script>
     var chart = echarts.init(document.getElementById('chart-heart'));
+    var cyanGrad = chart.getGradientBrush({
+      gradientType: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+      colorStops: [{ offset: 0, color: 'rgba(6,182,212,0.4)' }, { offset: 1, color: 'rgba(6,182,212,0.02)' }]
+    });
+    var purpleGrad = chart.getGradientBrush({
+      gradientType: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+      colorStops: [{ offset: 0, color: 'rgba(139,92,246,0.3)' }, { offset: 1, color: 'rgba(139,92,246,0.02)' }]
+    });
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['静息心率(正常)', '心率变异性HRV(ms)', '房颤检测延迟(s)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
+      legend: { data: ['静息心率(bpm)', 'HRV(ms)', '房颤检测延迟(s)', '老年心房颤动患病率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 50, bottom: 40 },
       xAxis: { type: 'category', data: ['青年(20-35)','中年(36-55)','老年I(56-70)','老年II(71-80)','老年III(80+)'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'value', name: '(毫秒)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(bpm/ms)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(s/%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
       series: [
-        { name: '静息心率(正常)', type: 'bar', data: [65, 68, 72, 76, 80], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxis: { min: 40, max: 120 } },
-        { name: '心率变异性HRV(ms)', type: 'line', data: [65, 50, 35, 25, 18], itemStyle: { color: '#8b5cf6' }, smooth: true },
-        { name: '房颤检测延迟(s)', type: 'line', data: [2, 3, 5, 8, 12], itemStyle: { color: '#ef4444' }, smooth: true, yAxisIndex: 1 }
+        {
+          name: '静息心率(bpm)', type: 'bar', data: [65, 68, 72, 76, 80],
+          itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#06b6d4' }, { offset: 1, color: 'rgba(6,182,212,0.3)' }]), borderRadius: [4, 4, 0, 0] },
+          yAxisIndex: 0, barWidth: '18%'
+        },
+        {
+          name: 'HRV(ms)', type: 'line', data: [65, 50, 35, 25, 18],
+          itemStyle: { color: '#8b5cf6' }, smooth: true,
+          areaStyle: { color: purpleGrad },
+          markPoint: { data: [{ type: 'min', name: '最低' }, { coord: ['老年III(80+)', 18], value: 18, itemStyle: { color: '#dc2626' }, label: { formatter: 'HRV仅18ms\n心血管风险↑' } }] }
+        },
+        {
+          name: '房颤检测延迟(s)', type: 'line', data: [2, 3, 5, 8, 12],
+          itemStyle: { color: '#dc2626' }, smooth: true, yAxisIndex: 0,
+          markPoint: { data: [{ coord: ['老年III(80+)', 12], value: 12, itemStyle: { color: '#dc2626' }, label: { formatter: '延迟12秒\n需即时干预' } }] }
+        },
+        {
+          name: '老年心房颤动患病率(%)', type: 'line', data: [0.5, 1.2, 2.8, 5.5, 9.0],
+          itemStyle: { color: '#f59e0b' }, smooth: true, yAxisIndex: 1, lineStyle: { type: 'dashed' },
+          markArea: {
+            data: [[{ yAxis: 5, itemStyle: { color: 'rgba(220,38,38,0.05)' } }, { yAxis: 15 }]]
+          }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

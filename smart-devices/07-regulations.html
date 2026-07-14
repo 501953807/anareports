@@ -63,62 +63,125 @@
 
     <h2 class="section-subtitle">7.1 强制认证一览</h2>
     <table class="data-table">
-      <thead><tr><th>认证</th><th>性质</th><th>周期</th><th>费用</th><th>不做后果</th></tr></thead>
+      <thead><tr><th>认证</th><th>性质</th><th>周期</th><th>费用</th><th>不做后果</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>SRRC无线电核准</td><td class="decline">强制</td><td>1.5-3月</td><td>2-5万</td><td>没收+罚款3-10倍+停产</td></tr>
-        <tr><td>CTA电信进网许可</td><td class="decline">强制(Cat1/NB-IoT)</td><td>1-2月</td><td>1-3万</td><td>没收+罚款5-10万</td></tr>
-        <tr><td>CCC认证</td><td class="decline">强制</td><td>2-3月</td><td>2-4万</td><td>不得销售</td></tr>
-        <tr><td>蓝牙SIG认证</td><td class="rise">推荐</td><td>1-2月</td><td>$7,500-12,500</td><td>无法使用蓝牙logo</td></tr>
-        <tr><td>UN38.3电池测试</td><td class="rise">运输必需</td><td>2-4周</td><td>1-2万</td><td>空运/海运被拒</td></tr>
+        <tr><td>SRRC无线电核准</td><td class="decline">强制</td><td>1.5-3月</td><td>2-5万</td><td>没收+罚款3-10倍+停产</td><td style="color:#94a3b8;font-size:11px">SRRC是上市第一关——没有SRRC编号无法在京东/天猫上架。建议与ODM厂确认是否已有"方案级SRRC"(共用模组的SRRC)，如有可节省¥2-3万和2周时间。</td></tr>
+        <tr><td>CTA电信进网许可</td><td class="decline">强制(Cat1/NB-IoT)</td><td>1-2月</td><td>1-3万</td><td>没收+罚款5-10万</td><td style="color:#94a3b8;font-size:11px">CTA只针对有蜂窝通信的设备(手环需要，药盒不需要WiFi直连的则不需要)。Cat1模组厂商(广和通)通常提供"模组级CTA"，设备端只需做"型号核准"而非完整CTA。</td></tr>
+        <tr><td>CCC认证</td><td class="decline">强制</td><td>2-3月</td><td>2-4万</td><td>不得销售</td><td style="color:#94a3b8;font-size:11px">CCC审厂环节最耗时——检测人员会到工厂检查QC体系。建议提前准备：来料检验记录表、过程检验SOP、成品检验报告模板。审厂不通过需整改后复审(额外¥1-2万)。</td></tr>
+        <tr><td>蓝牙SIG认证</td><td class="rise">推荐</td><td>1-2月</td><td>$7,500-12,500</td><td>无法使用蓝牙logo</td><td style="color:#94a3b8;font-size:11px">无蓝牙Logo不影响功能，但影响消费者信任。京东搜索"蓝牙手环"的转化率比"非蓝牙"高约25%。建议量产前完成，MVP阶段可暂缓。</td></tr>
+        <tr><td>UN38.3电池测试</td><td class="rise">运输必需</td><td>2-4周</td><td>1-2万</td><td>空运/海运被拒</td><td style="color:#94a3b8;font-size:11px">UN38.3是航空运输要求。如果全部用快递(SF/JD)走陆运则可豁免。但跨境电商(亚马逊/Facebook)必须做。首版国内销售建议走陆运省¥1-2万。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">7.2 数据合规 — PIPL个人信息保护法</h2>
     <table class="data-table">
-      <thead><tr><th>要求</th><th>具体内容</th><th>合规动作</th></tr></thead>
+      <thead><tr><th>要求</th><th>具体内容</th><th>合规动作</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>敏感个人信息</td><td>健康数据+生物识别+精确位置 = 敏感个人信息(PIPL第28-32条)</td><td>单独同意 + 专项隐私政策</td></tr>
-        <tr><td>知情同意</td><td>需取得个人单独同意，不得捆绑授权</td><td>首次启动弹窗 + 逐项授权</td></tr>
-        <tr><td>境内存储</td><td>海量个人数据必须在境内存储(PIPL第40条)</td><td>阿里云/腾讯云国内节点</td></tr>
-        <tr><td>加密要求</td><td>TLS1.2+传输 / AES-256静态 / 密钥托管KMS</td><td>端到端加密</td></tr>
-        <tr><td>删除权</td><td>用户有权请求删除个人信息</td><td>APP内"一键注销+数据清除"</td></tr>
-        <tr><td>泄露报告</td><td>72小时内通知监管和个人</td><td>建立安全事件应急预案</td></tr>
+        <tr><td>敏感个人信息</td><td>健康数据+生物识别+精确位置 = 敏感个人信息(PIPL第28-32条)</td><td>单独同意 + 专项隐私政策</td><td style="color:#94a3b8;font-size:11px">位置数据是最高风险——连续轨迹被视为"生物特征"。建议默认关闭位置数据采集，仅在SOS触发时开启实时定位。</td></tr>
+        <tr><td>知情同意</td><td>需取得个人单独同意，不得捆绑授权</td><td>首次启动弹窗 + 逐项授权</td><td style="color:#94a3b8;font-size:11px">"捆绑授权"是常见违规：用户不同意位置权限就无法使用APP。正确做法：位置权限可选，不同意仍可查看心率/用药等基础功能。</td></tr>
+        <tr><td>境内存储</td><td>海量个人数据必须在境内存储(PIPL第40条)</td><td>阿里云/腾讯云国内节点</td><td style="color:#94a3b8;font-size:11px">"海量"定义：个人数据>100万人或重要数据>10万条。MVP阶段远低于此阈值，但增长迅速。建议在架构设计时就限定国内存储。</td></tr>
+        <tr><td>加密要求</td><td>TLS1.2+传输 / AES-256静态 / 密钥托管KMS</td><td>端到端加密</td><td style="color:#94a3b8;font-size:11px">AES-256密钥管理是关键——密钥硬编码在APP代码中是常见漏洞。建议使用阿里云KMS或HashiCorp Vault托管密钥。</td></tr>
+        <tr><td>删除权</td><td>用户有权请求删除个人信息</td><td>APP内"一键注销+数据清除"</td><td style="color:#94a3b8;font-size:11px">"一键删除"不仅是前端按钮——后端需实现级联删除(主表+关联表+备份)。很多公司只做前端删除，后端残留数据仍构成违规。</td></tr>
+        <tr><td>泄露报告</td><td>72小时内通知监管和个人</td><td>建立安全事件应急预案</td><td style="color:#94a3b8;font-size:11px">72小时是PIPL硬性要求(CGDPR也是72h)。建议建立"安全事件响应SOP"：发现→评估→上报→处置→复盘，每个环节明确责任人。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">7.3 医疗诊断红线</h2>
     <table class="data-table">
-      <thead><tr><th>维度</th><th>规则</th></tr></thead>
+      <thead><tr><th>维度</th><th>规则</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td><strong>《广告法》第十七条</strong></td><td>未取得医疗器械注册证的产品，禁止涉及疾病治疗功能。不可宣称"医疗诊断""治疗高血压""监测心脏病"</td></tr>
-        <tr><td><strong>可说的话术</strong></td><td>"运动监测""日常健康数据记录""生活方式参考"(强调"参考"而非"诊断")</td></tr>
-        <tr><td><strong>禁止词汇</strong></td><td>"治愈""疗效""治疗""预防""医疗级""医用"</td></tr>
-        <tr><td><strong>处罚</strong></td><td>《广告法》第58条：停止发布+罚款(广告费用3-5倍或20-100万元)</td></tr>
+        <tr><td><strong>《广告法》第十七条</strong></td><td>未取得医疗器械注册证的产品，禁止涉及疾病治疗功能。不可宣称"医疗诊断""治疗高血压""监测心脏病"</td><td style="color:#94a3b8;font-size:11px">执法尺度在收紧——2024年市场监管总局抽查发现某手环宣传"心率异常预警"被认定为"变相医疗宣传"，罚款¥50万。措辞需极其谨慎。</td></tr>
+        <tr><td><strong>可说的话术</strong></td><td>"运动监测""日常健康数据记录""生活方式参考"(强调"参考"而非"诊断")</td><td style="color:#94a3b8;font-size:11px">"参考"二字不能少。建议在APP所有健康数据页面底部加免责声明："本设备数据仅供参考，不构成医疗诊断依据。"</td></tr>
+        <tr><td><strong>禁止词汇</strong></td><td>"治愈""疗效""治疗""预防""医疗级""医用"</td><td style="color:#94a3b8;font-size:11px">"医疗级"是最常见的违规词——很多团队认为"我的传感器精度和医院一样"就可以说"医疗级"。事实是：精度≠资质。</td></tr>
+        <tr><td><strong>处罚</strong></td><td>《广告法》第58条：停止发布+罚款(广告费用3-5倍或20-100万元)</td><td style="color:#94a3b8;font-size:11px">罚款基数是"广告费用"——如果找不到广告费用证据，按20-100万定额罚。建议所有宣传材料上线前经法务审核并留存记录。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">7.4 医疗器械合规判断</h2>
     <table class="data-table">
-      <thead><tr><th>功能宣称</th><th>是否医疗器械</th><th>周期/费用</th></tr></thead>
+      <thead><tr><th>功能宣称</th><th>是否医疗器械</th><th>周期/费用</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>仅计步+心率(生活方式)</td><td><span class="rise">否</span></td><td>无需资质</td></tr>
-        <tr><td>心率监测+异常预警</td><td><span style="color:var(--yellow)">灰色地带</span></td><td>若宣称"监测心律失常"则触发监管</td></tr>
-        <tr><td>血压/血氧/ECG监测</td><td><span class="decline">是 — 二类</span></td><td>10-18月 / 30-80万</td></tr>
-        <tr><td>血糖监测</td><td><span class="decline">是 — 三类</span></td><td>2-3年 / 100-300万</td></tr>
+        <tr><td>仅计步+心率(生活方式)</td><td><span class="rise">否</span></td><td>无需资质</td><td style="color:#94a3b8;font-size:11px">MVP阶段唯一安全的选择。但"计步"功能在老人场景中价值有限——老人不需要知道走了多少步，而是"今天有没有活动"。</td></tr>
+        <tr><td>心率监测+异常预警</td><td><span style="color:var(--yellow)">灰色地带</span></td><td>若宣称"监测心律失常"则触发监管</td><td style="color:#94a3b8;font-size:11px">灰色地带最危险——执法者自由裁量权大。建议措辞："心率数据记录"而非"心率异常预警"。预警一词暗示医疗判断。</td></tr>
+        <tr><td>血压/血氧/ECG监测</td><td><span class="decline">是 — 二类</span></td><td>10-18月 / 30-80万</td><td style="color:#94a3b8;font-size:11px">二类器械注册需临床评价(≥100例对照试验)。如果血氧精度要达到SpO2±2%(医疗级)，必须走医疗器械路径。建议Phase 2再考虑。</td></tr>
+        <tr><td>血糖监测</td><td><span class="decline">是 — 三类</span></td><td>2-3年 / 100-300万</td><td style="color:#94a3b8;font-size:11px">三类器械是最高级别，审批周期最长。无创血糖监测目前全球尚无获批产品。不要在此方向投入研发资源。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">7.5 地方补贴政策(可利用)</h2>
     <table class="data-table">
-      <thead><tr><th>地区</th><th>政策</th><th>补贴</th></tr></thead>
+      <thead><tr><th>地区</th><th>政策</th><th>补贴</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>北京</td><td>适老化改造补贴</td><td>每台100-300元</td></tr>
-        <tr><td>上海</td><td>智慧养老示范项目</td><td>50-200万资金支持</td></tr>
-        <tr><td>广东</td><td>智能家居产业扶持</td><td>研发补贴最高100万，量产3-5%</td></tr>
-        <tr><td>浙江</td><td>数字经济一号工程</td><td>纳入政府采购目录</td></tr>
-        <tr><td>全国</td><td>高新技术企业认定</td><td>企业所得税减免15%</td></tr>
+        <tr><td>北京</td><td>适老化改造补贴</td><td>每台100-300元</td><td style="color:#94a3b8;font-size:11px">北京市民政局每年拨付专项资金用于适老化改造。申请门槛：产品需纳入"北京市老年产品用品补贴目录"。建议尽早申请。</td></tr>
+        <tr><td>上海</td><td>智慧养老示范项目</td><td>50-200万资金支持</td><td style="color:#94a3b8;font-size:11px">上海是全国智慧养老标杆城市。示范项目可获得政府背书+资金支持+媒体曝光。竞争烈，但一旦入选品牌溢价极高。</td></tr>
+        <tr><td>广东</td><td>智能家居产业扶持</td><td>研发补贴最高100万，量产3-5%</td><td style="color:#94a3b8;font-size:11px">广东省工信厅"智能家居产业高质量发展行动计划"明确支持智能穿戴。研发补贴按实际研发投入的30%核算，上限100万。</td></tr>
+        <tr><td>浙江</td><td>数字经济一号工程</td><td>纳入政府采购目录</td><td style="color:#94a3b8;font-size:11px">浙江将智能养老设备纳入"政府采购负清单"，政府机构采购可直接走绿色通道。杭州/宁波试点社区覆盖率已达30%+。</td></tr>
+        <tr><td>全国</td><td>高新技术企业认定</td><td>企业所得税减免15%</td><td style="color:#94a3b8;font-size:11px">高企认定条件：知识产权≥1项(I类或6项II类)+研发费用占比≥5%+科技人员≥10%。建议首年申请发明专利(自动分药算法)。</td></tr>
       </tbody>
     </table>
+
+    <div class="case-box">
+      <div style="font-size:12px;font-weight:600;color:#f59e0b;margin-bottom:6px"><i class="fas fa-shield-halved"></i> 细微信号：PIPL执法进入"精准打击"阶段</div>
+      <div style="font-size:12px;color:#64748b;line-height:1.6">2024年以来国家网信办对IoT设备隐私违规的执法明显收紧。典型案例：某智能手环因未明示收集位置信息被通报下架，整改期约¥20万+品牌声誉损失。关键趋势：执法从"通用APP"向"IoT设备"延伸，健康+位置数据的合规成本正在上升。建议在产品设计初期就嵌入Privacy by Design原则，而非事后补救。</div>
+    </div>
+
+    <div class="school-view" style="margin-top:16px">
+      <div style="font-size:13px;font-weight:600;color:#06b6d4;margin-bottom:10px"><i class="fas fa-balance-scale"></i> 五大学派合规分析</div>
+      <div style="display:grid;gap:8px;font-size:11px">
+        <div style="background:rgba(26,82,118,0.1);border-left:3px solid var(--sv-blue);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-blue);font-size:11px">凯恩斯主义</strong>
+          <span style="color:#94a3b8;line-height:1.5">：市场失灵需要政府干预。健康数据属于"公共品"，私人部门不会自发保护。PIPL和GDPR的本质是将外部性内部化。建议主动参与标准制定，将合规成本转化为行业壁垒。</span>
+        </div>
+        <div style="background:rgba(184,134,11,0.1);border-left:3px solid var(--sv-gold);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-gold);font-size:11px">奥地利学派</strong>
+          <span style="color:#94a3b8;line-height:1.5">：过度监管抑制创新。医疗器械注册(10-18月/30-80万)的合规成本对小企业是生存威胁。建议坚持"生活方式设备"定位，避免不必要的监管负担。让市场决定什么功能需要医疗级认证。</span>
+        </div>
+        <div style="background:rgba(220,38,38,0.1);border-left:3px solid var(--sv-red);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-red);font-size:11px">后凯恩斯主义(Minsky)</strong>
+          <span style="color:#94a3b8;line-height:1.5">：合规不是成本而是"金融安全垫"。2024年某手环因隐私问题被罚¥20万+下架，相当于损失了2,000台硬件毛利。合规投入的ROI是"避免毁灭性风险"。Minsky时刻：一次严重合规事故可以摧毁整个公司。</span>
+        </div>
+        <div style="background:rgba(5,150,105,0.1);border-left:3px solid var(--sv-green);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-green);font-size:11px">新制度经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">：制度环境塑造企业战略。PIPL提高了数据合规的交易成本，有利于有法务资源的正规军(华为/小米)，不利于小创业公司。这是"制度性进入壁垒"——合规既是保护也是护城河。</span>
+        </div>
+        <div style="background:rgba(124,58,237,0.1);border-left:3px solid var(--sv-purple);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-purple);font-size:11px">行为经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">："隐私悖论"——用户声称关心隐私，但实际操作中轻易授权。这导致市场无法有效惩罚违规企业。因此需要PIPL这种"强制选择架构"来纠正行为偏差。合规设计应利用"默认效应"：默认关闭位置采集，用户主动开启。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:8px"><i class="fas fa-microscope"></i> 案例深挖：Apple Watch的合规策略 — FDA认证+医疗级定位</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:8px">
+        <tr><td style="padding:4px 0;color:#94a3b8;width:100px">Apple Watch策略</td><td style="color:#cbd5e1">FDA认证ECG功能(二类医疗器械) + 跌倒检测(生活方式) + 心率异常通知(灰色地带)</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">启示</td><td style="color:#cbd5e1">Apple选择"部分功能走医疗认证"的策略：ECG和AFib通知有FDA 510(k)认证，其他功能定位为生活方式。这是最务实的路径——核心差异化功能做医疗认证，辅助功能保持生活方式定位。</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">我们的路径</td><td style="color:#cbd5e1">Phase 1(0-12月): 纯生活方式定位，规避医疗器械认证。Phase 2(12-24月): 如果销量>10万台且现金流充裕，考虑为"心率异常检测"功能申请二类医疗器械注册(10-18月/30-80万)。</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">警示</td><td style="color:#cbd5e1">不要在Phase 1就触碰医疗红线。竞品教训：某手环因APP内显示"您的心率偏高，建议就医"被认定为"变相医疗诊断"，罚款¥50万。措辞必须是"心率数据已记录"而非"建议就医"。</td></tr>
+      </table>
+    </div>
+
+    <div class="divergence-chain" style="margin-top:16px">
+      <div class="div-node" style="background:var(--cyan);color:#041725">MVP: 生活方式定位</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-blue);color:#fff">3项强制认证(SRRC+CCC+CTA)</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-gold);color:#041725">Phase 2: 部分功能医疗认证</div>
+      <div class="div-branch">
+        <div class="div-arrow">↙</div>
+        <div class="div-node" style="background:var(--sv-red);color:#fff;font-size:10px">心率异常 → 二类器械</div>
+      </div>
+      <div class="div-branch">
+        <div class="div-arrow">↘</div>
+        <div class="div-node" style="background:var(--sv-green);color:#fff;font-size:10px">自动分药 → 二类器械</div>
+      </div>
+      <div style="font-size:10px;color:#64748b;margin-top:6px;text-align:center">时间轴：T+0生活方式定位 → T+3月认证完成 → T+12月销量验证 → T+18月医疗认证启动</div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:6px"><i class="fas fa-lightbulb"></i> 战略建议：MVP阶段坚守"生活方式设备"定位</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.6">MVP阶段只做3项强制认证(SRRC+CCC+CTA)，总费用¥5-12万、周期3-5月。所有宣传材料避免"医疗诊断"相关词汇，统一使用"健康监测""生活参考"。PIPL合规在架构设计阶段嵌入(Privacy by Design)，而非上线后补救。预算预留¥3-5万用于互联网律师审查隐私政策和宣传材料。Phase 2根据销量决定是否申请医疗器械注册。</div>
+    </div>
 
     <div class="chart-container" id="chart-compliance"></div>
 
@@ -254,9 +317,39 @@
       xAxis: { type: 'category', data: ['SRRC', 'CTA', 'CCC', '蓝牙SIG', 'UN38.3'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: { type: 'value', name: '(万元/月)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
       series: [
-        { name: '强制认证费用(万)', type: 'bar', data: [3.5, 2, 3, 0, 0], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
-        { name: '可选认证费用(万)', type: 'bar', data: [0, 0, 0, 8.5, 1.5], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } },
-        { name: '医疗器械注册周期(月)', type: 'line', data: [0, 0, 0, 14, 0], itemStyle: { color: '#f59e0b' }, smooth: true, lineStyle: { type: 'dashed' } }
+        {
+          name: '强制认证费用(万)', type: 'bar', data: [3.5, 2, 3, 0, 0],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#dc2626' },
+              { offset: 1, color: 'rgba(220,38,38,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ coord: [0, 3.5], value: '¥3.5万', itemStyle: { color: '#dc2626' } }] }
+        },
+        {
+          name: '可选认证费用(万)', type: 'bar', data: [0, 0, 0, 8.5, 1.5],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#10b981' },
+              { offset: 1, color: 'rgba(16,185,129,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ coord: [3, 8.5], value: '¥8.5万', itemStyle: { color: '#10b981' } }] }
+        },
+        {
+          name: '医疗器械注册周期(月)', type: 'line', data: [0, 0, 0, 14, 0],
+          itemStyle: { color: '#f59e0b' },
+          smooth: true,
+          lineStyle: { type: 'dashed', width: 2 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(245,158,11,0.2)' },
+              { offset: 1, color: 'rgba(245,158,11,0.02)' }
+            ])
+          },
+          markPoint: { data: [{ coord: [3, 14], value: '14月', itemStyle: { color: '#f59e0b' } }] }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

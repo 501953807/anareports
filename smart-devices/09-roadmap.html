@@ -63,52 +63,115 @@
 
     <h2 class="section-subtitle">9.1 手环ODM开发全流程</h2>
     <table class="data-table">
-      <thead><tr><th>阶段</th><th>时间</th><th>关键任务</th><th>交付物</th></tr></thead>
+      <thead><tr><th>阶段</th><th>时间</th><th>关键任务</th><th>交付物</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td><strong>Phase 1</strong></td><td>2周</td><td>需求评审：功能清单/定位精度/续航目标/IP67防水/SIM卡方案</td><td>PRD文档</td></tr>
-        <tr><td><strong>Phase 2</strong></td><td>2-3周</td><td>ODM方案选型：润科/杰理现有方案，评估MCU+定位+传感器+屏幕</td><td>方案选型报告</td></tr>
-        <tr><td><strong>Phase 3</strong></td><td>3-4周</td><td>ID/MD设计：适老化设计(大字体/大图标/实体SOS/硅胶表带/防拆卸表扣)</td><td>3D渲染图+结构图</td></tr>
-        <tr><td><strong>Phase 4</strong></td><td>3-4周</td><td>开模+手板验证：3D打印→防水测试→跌落测试(1米)</td><td>功能手板x10+</td></tr>
-        <tr><td><strong>Phase 5</strong></td><td>2-3周</td><td>EVT试产：工程验证测试(功能/射频/电池续航)</td><td>EVT报告</td></tr>
-        <tr><td><strong>Phase 6</strong></td><td>2-3周</td><td>DVT设计验证：高低温(-10~50°C)/盐雾/老化测试</td><td>DVT报告</td></tr>
-        <tr><td><strong>Phase 7</strong></td><td>2周</td><td>PVT小批量 → MP量产</td><td>量产出货</td></tr>
+        <tr><td><strong>Phase 1</strong></td><td>2周</td><td>需求评审：功能清单/定位精度/续航目标/IP67防水/SIM卡方案</td><td>PRD文档</td><td style="color:#94a3b8;font-size:11px">需求评审是"不可逆决策"的起点——一旦开模就无法热更新。建议PRD冻结后任何变更走CR(Change Request)流程，避免范围蔓延(Scope Creep)。</td></tr>
+        <tr><td><strong>Phase 2</strong></td><td>2-3周</td><td>ODM方案选型：润科/杰理现有方案，评估MCU+定位+传感器+屏幕</td><td>方案选型报告</td><td style="color:#94a3b8;font-size:11px">选方案本质是"技术债务"决策——杰理便宜但技术债务高(固件bug多)，润科贵但稳定。建议选润科，节省后期调试时间约2-3周。</td></tr>
+        <tr><td><strong>Phase 3</strong></td><td>3-4周</td><td>ID/MD设计：适老化设计(大字体/大图标/实体SOS/硅胶表带/防拆卸表扣)</td><td>3D渲染图+结构图</td><td style="color:#94a3b8;font-size:11px">ID(工业设计)决定"好不好看"，MD(机械设计)决定"好不好用"。老人对"大按钮"的需求远超年轻人预期——按钮尺寸应≥15mm直径。</td></tr>
+        <tr><td><strong>Phase 4</strong></td><td>3-4周</td><td>开模+手板验证：3D打印→防水测试→跌落测试(1米)</td><td>功能手板x10+</td><td style="color:#94a3b8;font-size:11px">3D打印手板只能验证外观和基本功能，不能验证量产一致性。建议同时做"软模"(铝模)手板约¥5,000-10,000，更接近量产品质。</td></tr>
+        <tr><td><strong>Phase 5</strong></td><td>2-3周</td><td>EVT试产：工程验证测试(功能/射频/电池续航)</td><td>EVT报告</td><td style="color:#94a3b8;font-size:11px">EVT是第一个"可量产"节点。目标：10台样机全部通过自测用例。如果通过率<80%，说明设计有系统性问题，需回退到DVT前重新设计。</td></tr>
+        <tr><td><strong>Phase 6</strong></td><td>2-3周</td><td>DVT设计验证：高低温(-10~50°C)/盐雾/老化测试</td><td>DVT报告</td><td style="color:#94a3b8;font-size:11px">DVT是最关键的可靠性节点。北方冬季(-10°C)锂电容量衰减40%是常见坑，需在算法层做低温补偿。盐雾测试针对沿海城市用户。</td></tr>
+        <tr><td><strong>Phase 7</strong></td><td>2周</td><td>PVT小批量 → MP量产</td><td>量产出货</td><td style="color:#94a3b8;font-size:11px">PVT良率目标≥95%。低于此值说明产线工艺不稳定，不建议直接转MP。建议PVT产100台，良率≥95%再启动MP。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">9.2 药盒ODM开发全流程</h2>
     <table class="data-table">
-      <thead><tr><th>阶段</th><th>时间</th><th>关键任务</th><th>交付物</th></tr></thead>
+      <thead><tr><th>阶段</th><th>时间</th><th>关键任务</th><th>交付物</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td><strong>Phase 1</strong></td><td>2周</td><td>需求评审：药盒容量/分药机构方案/WiFi+BLE/续航目标</td><td>PRD文档</td></tr>
-        <tr><td><strong>Phase 2</strong></td><td>2-3周</td><td>ODM方案选型：ESP32-C3 + 步进电机分药 + 红外/光电检测</td><td>方案选型报告</td></tr>
-        <tr><td><strong>Phase 3</strong></td><td>3-4周</td><td>结构设计：食品级塑料药仓/防儿童锁/语音喇叭/LED指示</td><td>3D结构图</td></tr>
-        <tr><td><strong>Phase 4</strong></td><td>3-4周</td><td>开模+手板：3D打印验证分药机构可靠性(目标>10,000次循环)</td><td>功能手板x10+</td></tr>
-        <tr><td><strong>Phase 5</strong></td><td>4-6周</td><td>EVT/DVT/PVT：可靠性验证+小批量</td><td>量产出货</td></tr>
+        <tr><td><strong>Phase 1</strong></td><td>2周</td><td>需求评审：药盒容量/分药机构方案/WiFi+BLE/续航目标</td><td>PRD文档</td><td style="color:#94a3b8;font-size:11px">药盒PRD核心矛盾：容量vs体积。老人一次吃5-8粒药，但药盒不能太大(老人手部力量弱)。建议设计"可拆卸药仓"——每次取出一格用药，用完放回。</td></tr>
+        <tr><td><strong>Phase 2</strong></td><td>2-3周</td><td>ODM方案选型：ESP32-C3 + 步进电机分药 + 红外/光电检测</td><td>方案选型报告</td><td style="color:#94a3b8;font-size:11px">ESP32-C3是WiFi+BLE二合一SoC，比单独WiFi+BLE方案省¥5-8 BOM。但WiFi在老人家庭中可能不稳定(老旧路由器)，需同时支持蓝牙直连手机。</td></tr>
+        <tr><td><strong>Phase 3</strong></td><td>3-4周</td><td>结构设计：食品级塑料药仓/防儿童锁/语音喇叭/LED指示</td><td>3D结构图</td><td style="color:#94a3b8;font-size:11px">防儿童锁是合规要求——GB 15241-2019要求药品包装具有"儿童难以打开但老人可操作"的设计。建议用"按压+旋转"双动作解锁。</td></tr>
+        <tr><td><strong>Phase 4</strong></td><td>3-4周</td><td>开模+手板：3D打印验证分药机构可靠性(目标>10,000次循环)</td><td>功能手板x10+</td><td style="color:#94a3b8;font-size:11px">10,000次循环≈每天4次×约7年。实际寿命目标应≥20,000次(每天4次×约14年)，但3D打印验证成本限制在此。量产件需做加速老化测试。</td></tr>
+        <tr><td><strong>Phase 5</strong></td><td>4-6周</td><td>EVT/DVT/PVT：可靠性验证+小批量</td><td>量产出货</td><td style="color:#94a3b8;font-size:11px">药盒比手环多一个"机械可靠性"维度——步进电机寿命、药仓磨损、齿轮间隙。建议EVT阶段就做"连续出药1,000次无故障"测试。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">9.3 整体并行实施路线图</h2>
     <table class="data-table">
-      <thead><tr><th>阶段</th><th>时间</th><th>手环</th><th>药盒</th><th>APP</th><th>里程碑</th></tr></thead>
+      <thead><tr><th>阶段</th><th>时间</th><th>手环</th><th>药盒</th><th>APP</th><th>里程碑</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td><strong>M1-M2</strong></td><td>第1-2月</td><td>需求评审+ODM选型</td><td>需求评审+ODM选型</td><td>产品原型+UI设计</td><td>完成PRD文档和设计稿</td></tr>
-        <tr><td><strong>M3-M4</strong></td><td>第3-4月</td><td>ID设计+开模+EVT</td><td>结构设计+开模+EVT</td><td>APP MVP开发(定位+SOS+心率)</td><td>手环/药盒手板验证通过</td></tr>
-        <tr><td><strong>M5-M6</strong></td><td>第5-6月</td><td>DVT+PVT+小批量</td><td>DVT+PVT+小批量</td><td>APP标准版(用药提醒+家属共享)</td><td>硬件送测+APP内测</td></tr>
-        <tr><td><strong>M7-M8</strong></td><td>第7-8月</td><td>量产+上市</td><td>量产+上市</td><td>APP正式上线+微信小程序</td><td>双产品同步上市</td></tr>
+        <tr><td><strong>M1-M2</strong></td><td>第1-2月</td><td>需求评审+ODM选型</td><td>需求评审+ODM选型</td><td>产品原型+UI设计</td><td>完成PRD文档和设计稿</td><td style="color:#94a3b8;font-size:11px">M1-M2是"信息密度最高"的阶段——需要同时做硬件和软件的PRD。建议PM全职投入，CTO每周参与评审确保技术可行性。</td></tr>
+        <tr><td><strong>M3-M4</strong></td><td>第3-4月</td><td>ID设计+开模+EVT</td><td>结构设计+开模+EVT</td><td>APP MVP开发(定位+SOS+心率)</td><td>手环/药盒手板验证通过</td><td style="color:#94a3b8;font-size:11px">M3-M4是"资金消耗最快"的阶段——模具费+首样BOM+团队工资。建议准备¥30-50万现金储备。手板验证不通过需预留2周返工时间。</td></tr>
+        <tr><td><strong>M5-M6</strong></td><td>第5-6月</td><td>DVT+PVT+小批量</td><td>DVT+PVT+小批量</td><td>APP标准版(用药提醒+家属共享)</td><td>硬件送测+APP内测</td><td style="color:#94a3b8;font-size:11px">M5-M6是"认证并行期"——SRRC/CCC送测与DVT/PVT同步进行。认证不通过则无法上市，是最长路径。建议提前预约检测机构排期。</td></tr>
+        <tr><td><strong>M7-M8</strong></td><td>第7-8月</td><td>量产+上市</td><td>量产+上市</td><td>APP正式上线+微信小程序</td><td>双产品同步上市</td><td style="color:#94a3b8;font-size:11px">M7-M8是"Go-Live冲刺期"——硬件量产+APP上架+营销预热三线并行。建议M6末启动"预售"(¥99定金抵¥200)，验证市场需求并回笼部分资金。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">9.4 认证时间线(与开发并行)</h2>
     <table class="data-table">
-      <thead><tr><th>认证</th><th>开始时间</th><th>周期</th><th>完成时间</th><th>备注</th></tr></thead>
+      <thead><tr><th>认证</th><th>开始时间</th><th>周期</th><th>完成时间</th><th>备注</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>SRRC无线电核准</td><td>M3(提交样品)</td><td>1.5-3月</td><td>M5-M6</td><td>与EVT/DVT并行</td></tr>
-        <tr><td>CTA电信进网</td><td>M4(提交样品)</td><td>1-2月</td><td>M5-M6</td><td>需SRRC证书</td></tr>
-        <tr><td>CCC认证</td><td>M4(提交样品)</td><td>2-3月</td><td>M6-M7</td><td>与DVT并行</td></tr>
-        <tr><td>蓝牙SIG</td><td>M5(申请)</td><td>1-2月</td><td>M6-M7</td><td>可选但推荐</td></tr>
-        <tr><td>UN38.3电池</td><td>M5(提交电池)</td><td>2-4周</td><td>M6</td><td>量产前完成</td></tr>
+        <tr><td>SRRC无线电核准</td><td>M3(提交样品)</td><td>1.5-3月</td><td>M5-M6</td><td>与EVT/DVT并行</td><td style="color:#94a3b8;font-size:11px">SRRC是最长认证路径之一。建议M3初就向泰尔实验室预约排期(通常2-3周等待期)。加急通道可缩至3周(华测检测)。</td></tr>
+        <tr><td>CTA电信进网</td><td>M4(提交样品)</td><td>1-2月</td><td>M5-M6</td><td>需SRRC证书</td><td style="color:#94a3b8;font-size:11px">CTA依赖SRRC证书——必须先拿到SRRC才能申请CTA。这是串行依赖，建议SRRC一拿到立即提交CTA样品。</td></tr>
+        <tr><td>CCC认证</td><td>M4(提交样品)</td><td>2-3月</td><td>M6-M7</td><td>与DVT并行</td><td style="color:#94a3b8;font-size:11px">CCC审厂最耗时——检测人员到工厂检查QC体系。建议M2就开始准备QC体系文件(来料检验表、过程检验SOP)。</td></tr>
+        <tr><td>蓝牙SIG</td><td>M5(申请)</td><td>1-2月</td><td>M6-M7</td><td>可选但推荐</td><td style="color:#94a3b8;font-size:11px">蓝牙SIG认证$7,500-12,500但可暂缓。MVP阶段无蓝牙Logo不影响功能，等销量>5,000台后再补。</td></tr>
+        <tr><td>UN38.3电池</td><td>M5(提交电池)</td><td>2-4周</td><td>M6</td><td>量产前完成</td><td style="color:#94a3b8;font-size:11px">UN38.3仅影响运输方式。如果全部走陆运(SF/JD)则可豁免。跨境电商必须做。首版国内销售建议走陆运省¥1-2万。</td></tr>
       </tbody>
     </table>
+
+    <div class="case-box">
+      <div style="font-size:12px;font-weight:600;color:#f59e0b;margin-bottom:6px"><i class="fas fa-clock"></i> 细微信号：8个月窗口期正在被压缩至6个月</div>
+      <div style="font-size:12px;color:#64748b;line-height:1.6">随着ODM公模方案成熟和微信生态IoT能力增强，行业平均上市周期已从2022年的12个月压缩至2026年的6-8个月。小米/华为等巨头从立项到上市最快仅需4个月(利用现有公模+APP模板)。我们的8个月路线图中，每延迟1个月意味着约¥10-15万的额外成本(团队工资+云服务)和¥50-100万的收入损失(假设年销5万台×单价¥400×1/12)。</div>
+    </div>
+
+    <div class="school-view" style="margin-top:16px">
+      <div style="font-size:13px;font-weight:600;color:#06b6d4;margin-bottom:10px"><i class="fas fa-balance-scale"></i> 五大学派项目管理分析</div>
+      <div style="display:grid;gap:8px;font-size:11px">
+        <div style="background:rgba(26,82,118,0.1);border-left:3px solid var(--sv-blue);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-blue);font-size:11px">凯恩斯主义</strong>
+          <span style="color:#94a3b8;line-height:1.5">：政府应推动"适老化智能设备快速审批通道"，将SRRC/CCC认证周期从3-5月压缩至1-2月。参考医疗器械"优先审批"制度，对养老相关产品给予认证绿色通道。</span>
+        </div>
+        <div style="background:rgba(184,134,11,0.1);border-left:3px solid var(--sv-gold);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-gold);font-size:11px">奥地利学派</strong>
+          <span style="color:#94a3b8;line-height:1.5">：市场自发形成"快迭代"节奏——8个月路线图的本质是"最小可行时间"。不要追求完美，追求"足够好+足够快"。先上线再优化，用真实用户数据指导迭代方向。</span>
+        </div>
+        <div style="background:rgba(220,38,38,0.1);border-left:3px solid var(--sv-red);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-red);font-size:11px">后凯恩斯主义(Minsky)</strong>
+          <span style="color:#94a3b8;line-height:1.5">：项目管理的最大风险是"现金流断裂"——M3-M4资金消耗最快但收入为零。建议准备6个月运营资金(¥60-80万)，确保即使产品延期也能撑到M8。Minsky时刻：当现金<¥20万时触发融资预案。</span>
+        </div>
+        <div style="background:rgba(5,150,105,0.1);border-left:3px solid var(--sv-green);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-green);font-size:11px">新制度经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">：Jira+甘特图是一套"治理制度"——降低团队协作的交易成本。但制度本身有成本(每周站会1小时×6人=6小时/周)。MVP阶段用飞书/Excel替代Jira可省¥3,000/年。</span>
+        </div>
+        <div style="background:rgba(124,58,237,0.1);border-left:3px solid var(--sv-purple);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-purple);font-size:11px">行为经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">："规划谬误"(Planning Fallacy)导致8个月路线图实际上通常需要10-12个月。所有硬件团队都低估了模具返工次数(平均1.5次)和认证排队时间(平均+2周)。建议在排期中加入20%缓冲。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:8px"><i class="fas fa-microscope"></i> 案例深挖：Peloton的"慢" — 为什么8个月不够？</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:8px">
+        <tr><td style="padding:4px 0;color:#94a3b8;width:100px">Peloton教训</td><td style="color:#cbd5e1">Peloton从概念到上市用了18个月(远超我们的8个月)，但上市后3年才实现盈利。核心原因：硬件质量不达标导致早期退货率高达15%(行业平均3%)</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">对我们的启示</td><td style="color:#cbd5e1">①8个月可以上市，但质量风险高。建议在DVT阶段额外增加1周"用户可用性测试"(邀请10位老人试用)，避免上市后大规模退货。②质量问题的隐性成本远高于延期成本——退货物流¥30/件×15%退货率=每台多花¥60</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">关键决策点</td><td style="color:#cbd5e1">如果DVT良率<90%，宁可推迟1个月上市也不要强行MP。良品率从90%提升到95%可减少5倍售后成本</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">建议调整</td><td style="color:#cbd5e1">原8个月路线图中，M5-M6的DVT阶段从3周延长至4周，增加1周"老人可用性测试"。总周期从8个月→9个月，但退货率从15%降至5%以下</td></tr>
+      </table>
+    </div>
+
+    <div class="divergence-chain" style="margin-top:16px">
+      <div class="div-node" style="background:var(--cyan);color:#041725">M1-M2 需求冻结</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-blue);color:#fff">M3-M4 开模+EVT</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-gold);color:#041725">M5-M6 DVT+认证</div>
+      <div class="div-branch">
+        <div class="div-arrow">↙</div>
+        <div class="div-node" style="background:var(--sv-red);color:#fff;font-size:10px">良率<90% → 返工+1月</div>
+      </div>
+      <div class="div-branch">
+        <div class="div-arrow">↘</div>
+        <div class="div-node" style="background:var(--sv-green);color:#fff;font-size:10px">良率≥95% → 准时MP</div>
+      </div>
+      <div style="font-size:10px;color:#64748b;margin-top:6px;text-align:center">关键路径：需求冻结→开模(不可逆)→EVT→DVT→认证→PVT→MP。任何一环延迟都会推后上市时间。</div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:6px"><i class="fas fa-lightbulb"></i> 战略建议：8个月路线图 + 20%缓冲 = 实际10个月</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.6">8个月是理论最优路径，实际执行中建议预留20%缓冲(约2个月)。关键策略：(1)M1-M2严格冻结PRD，之后任何变更走CR流程；(2)M3-M4同步启动SRRC认证预约(提前锁定检测机构排期)；(3)M5-M6 DVT阶段增加1周老人可用性测试；(4)M7-M8如认证未全部完成，可先上"不含认证编号"的预售版，认证到手后发正式版。总预算控制在¥120-194万内。</div>
+    </div>
 
     <div class="chart-container" id="chart-roadmap"></div>
 
@@ -251,11 +314,47 @@
       },
       series: [{
         type: 'radar',
+        symbolSize: 6,
         data: [
-          { value: [70, 85, 40, 90, 75, 80], name: '手环开发', itemStyle: { color: '#5a8ec4' } },
-          { value: [75, 75, 45, 90, 70, 85], name: '药盒开发', itemStyle: { color: '#5cb88a' } },
-          { value: [80, 80, 35, 85, 85, 75], name: 'APP开发', itemStyle: { color: '#8b5cf6' } },
-          { value: [60, 70, 50, 60, 65, 90], name: '认证周期', itemStyle: { color: '#d4a843' } }
+          {
+            value: [70, 85, 40, 90, 75, 80],
+            name: '手环开发',
+            itemStyle: { color: '#06b6d4' },
+            lineStyle: { width: 2 },
+            areaStyle: { color: 'rgba(6,182,212,0.1)' }
+          },
+          {
+            value: [75, 75, 45, 90, 70, 85],
+            name: '药盒开发',
+            itemStyle: { color: '#10b981' },
+            lineStyle: { width: 2 },
+            areaStyle: { color: 'rgba(16,185,129,0.1)' }
+          },
+          {
+            value: [80, 80, 35, 85, 85, 75],
+            name: 'APP开发',
+            itemStyle: { color: '#8b5cf6' },
+            lineStyle: { width: 2 },
+            areaStyle: { color: 'rgba(139,92,246,0.1)' },
+            markPoint: {
+              data: [
+                { coord: [4, 85], value: '并行85', itemStyle: { color: '#8b5cf6' } },
+                { coord: [4, 85], value: '确定85', itemStyle: { color: '#8b5cf6' } }
+              ]
+            }
+          },
+          {
+            value: [60, 70, 50, 60, 65, 90],
+            name: '认证周期',
+            itemStyle: { color: '#f59e0b' },
+            lineStyle: { width: 2, type: 'dashed' },
+            areaStyle: { color: 'rgba(245,158,11,0.08)' },
+            markPoint: {
+              data: [
+                { coord: [5, 90], value: '成本90', itemStyle: { color: '#f59e0b' } }
+              ]
+            }
+          }
         ]
       }]
     });

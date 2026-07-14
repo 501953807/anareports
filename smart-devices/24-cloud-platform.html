@@ -63,53 +63,115 @@
 
     <h2 class="section-subtitle">24.1 云平台架构选型</h2>
     <table class="data-table">
-      <thead><tr><th>组件</th><th>国内方案(阿里云)</th><th>海外方案(AWS)</th><th>用途</th></tr></thead>
+      <thead><tr><th>组件</th><th>国内方案(阿里云)</th><th>海外方案(AWS)</th><th>用途</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>消息队列</td><td>RocketMQ</td><td>SNS/SQS</td><td>设备↔云端双向消息, 告警推送</td></tr>
-        <tr><td>实时数据流</td><td>TSDB(Time Series DB)</td><td>Timestream</td><td>传感器时序数据存储(心率/加速度)</td></tr>
-        <tr><td>关系型数据库</td><td>PolarDB</td><td>Aurora PostgreSQL</td><td>用户账户/订阅/家庭成员关系</td></tr>
-        <tr><td>对象存储</td><td>OSS</td><td>S3</td><td>健康报告PDF/ECG波形原始数据</td></tr>
-        <tr><td>计算引擎</td><td>ECI(弹性容器)</td><td>ECS/Fargate</td><td>API服务/ML推理/报表生成</td></tr>
-        <tr><td>CDN</td><td>CDN+PTS</td><td>CloudFront</td><td>APP/页面资源加速分发</td></tr>
-        <tr><td>监控告警</td><td>SAR+CloudMonitor</td><td>CloudWatch</td><td>服务可用性监控</td></tr>
+        <tr><td>消息队列</td><td>RocketMQ</td><td>SNS/SQS</td><td>设备↔云端双向消息, 告警推送</td><td>RocketMQ在国内的延迟表现优于SNS/SQS(平均2ms vs 8ms)，且支持事务消息——这对"药盒服药确认"这类需要最终一致性的场景至关重要</td></tr>
+        <tr><td>实时数据流</td><td>TSDB(Time Series DB)</td><td>Timestream</td><td>传感器时序数据存储(心率/加速度)</td><td>TSDB的压缩率是普通MySQL的10-20倍——1TB原始数据可压缩到50-100GB。这对长期健康数据存储的成本影响巨大</td></tr>
+        <tr><td>关系型数据库</td><td>PolarDB</td><td>Aurora PostgreSQL</td><td>用户账户/订阅/家庭成员关系</td><td>PolarDB的存储计算分离架构允许读写实例独立扩缩容——适合我们"读多写少"(查询报告多，写入用户数据少)的场景</td></tr>
+        <tr><td>对象存储</td><td>OSS</td><td>S3</td><td>健康报告PDF/ECG波形原始数据</td><td>OSS的IA(低频访问)存储类型比标准存储便宜60%——适合存放ECG波形这种"需要保留但很少访问"的数据</td></tr>
+        <tr><td>计算引擎</td><td>ECI(弹性容器)</td><td>ECS/Fargate</td><td>API服务/ML推理/报表生成</td><td>ECI的秒级启动速度适合突发流量(如早8点全家同时查看老人健康报告)。Fargate在AWS生态中也有同等能力</td></tr>
+        <tr><td>CDN</td><td>CDN+PTS</td><td>CloudFront</td><td>APP/页面资源加速分发</td><td>PTS是阿里云的压力测试工具——在上线前用PTS模拟10万并发请求，验证系统瓶颈</td></tr>
+        <tr><td>监控告警</td><td>SAR+CloudMonitor</td><td>CloudWatch</td><td>服务可用性监控</td><td>SAR(Simple Application Router)的日志聚合功能可以一站式查看所有服务的日志，避免在多个控制台之间切换</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">24.2 数据安全与合规架构</h2>
     <table class="data-table">
-      <thead><tr><th>合规框架</th><th>适用范围</th><th>技术要求</th><th>数据驻留</th></tr></thead>
+      <thead><tr><th>合规框架</th><th>适用范围</th><th>技术要求</th><th>数据驻留</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>中国 PIPL(个人信息保护法)</td><td>所有中国境内用户</td><td>明示同意+最小必要+数据可删除</td><td>境内存储</td></tr>
-        <tr><td>等保三级</td><td>涉及健康数据的系统</td><td>加密传输/存储隔离/审计日志/渗透测试</td><td>境内</td></tr>
-        <tr><td>HIPAA</td><td>海外(美国)用户</td><td>BAA协议+BA/SA角色分离+审计</td><td>区域隔离</td></tr>
-        <tr><td>GDPR</td><td>欧洲用户</td><td>DPIA评估+数据可携权+被遗忘权</td><td>欧盟区域</td></tr>
-        <tr><td>FDAAA(美国FDA)</td><td>医疗器械数据</td><td>21 CFR Part 11电子签名+审计追踪</td><td>本地或云</td></tr>
+        <tr><td>中国 PIPL(个人信息保护法)</td><td>所有中国境内用户</td><td>明示同意+最小必要+数据可删除</td><td>境内存储</td><td>PIPL的"单独同意"要求意味着健康数据的收集必须让用户逐条勾选——不能笼统地放在"用户协议"里一笔带过</td></tr>
+        <tr><td>等保三级</td><td>涉及健康数据的系统</td><td>加密传输/存储隔离/审计日志/渗透测试</td><td>境内</td><td>等保三级是医疗健康系统的标配——每年需要通过一次复测。费用约¥10-20万(含测评费+整改费)</td></tr>
+        <tr><td>HIPAA</td><td>海外(美国)用户</td><td>BAA协议+BA/SA角色分离+审计</td><td>区域隔离</td><td>HIPAA的"BAA协议"(Business Associate Agreement)要求我们与AWS签署数据处理协议——没有BAA协议就不能存储任何PHI(受保护健康信息)</td></tr>
+        <tr><td>GDPR</td><td>欧洲用户</td><td>DPIA评估+数据可携权+被遗忘权</td><td>欧盟区域</td><td>GDPR的"被遗忘权"要求我们在用户注销后彻底删除其所有数据——包括备份系统中的历史快照。这需要设计"逻辑删除+定时清理"的双重机制</td></tr>
+        <tr><td>FDAAA(美国FDA)</td><td>医疗器械数据</td><td>21 CFR Part 11电子签名+审计追踪</td><td>本地或云</td><td>FDA的21 CFR Part 11要求所有医疗数据的修改都有不可篡改的审计日志——这意味着数据库不能直接UPDATE，必须通过带有审计记录的API层</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">24.3 API设计概要</h2>
     <table class="data-table">
-      <thead><tr><th>API域</th><th>端点示例</th><th>方法</th><th>说明</th></tr></thead>
+      <thead><tr><th>API域</th><th>端点示例</th><th>方法</th><th>说明</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>设备数据上报</td><td>/api/v1/device/{deviceId}/telemetry</td><td>POST</td><td>批量上报心率/位置/电量</td></tr>
-        <tr><td>实时位置查询</td><td>/api/v1/device/{deviceId}/location</td><td>GET</td><td>获取最新经纬度和时间戳</td></tr>
-        <tr><td>健康报告</td><td>/api/v1/user/{userId}/reports/weekly</td><td>GET</td><td>返回本周健康报告JSON</td></tr>
-        <tr><td>告警订阅</td><td>/api/v1/user/{userId}/alerts/subscribe</td><td>PUT</td><td>配置通知规则和接收人</td></tr>
-        <tr><td>药盒控制</td><td>/api/v1/pillbox/{boxId}/remind</td><td>POST</td><td>远程触发服药提醒</td></tr>
-        <tr><td>家人管理</td><td>/api/v1/family/{familyId}/members</td><td>GET/POST</td><td>增删改成员和权限</td></tr>
+        <tr><td>设备数据上报</td><td>/api/v1/device/{deviceId}/telemetry</td><td>POST</td><td>批量上报心率/位置/电量</td><td>批量上报接口建议限制单次≤100条——超过100条会被拆分处理，避免因单条异常导致整个批次回滚</td></tr>
+        <tr><td>实时位置查询</td><td>/api/v1/device/{deviceId}/location</td><td>GET</td><td>获取最新经纬度和时间戳</td><td>位置查询接口需要加Redis缓存(TTL=30秒)——子女端APP每30秒轮询一次，不加缓存会在高峰期打满数据库连接</td></tr>
+        <tr><td>健康报告</td><td>/api/v1/user/{userId}/reports/weekly</td><td>GET</td><td>返回本周健康报告JSON</td><td>周报生成是CPU密集型操作——建议在异步任务队列中执行(如RocketMQ消费者)，API只返回任务状态码</td></tr>
+        <tr><td>告警订阅</td><td>/api/v1/user/{userId}/alerts/subscribe</td><td>PUT</td><td>配置通知规则和接收人</td><td>告警订阅的幂等性很重要——同一规则多次PUT不应产生重复订阅。建议使用"规则指纹"(SHA256)做去重</td></tr>
+        <tr><td>药盒控制</td><td>/api/v1/pillbox/{boxId}/remind</td><td>POST</td><td>远程触发服药提醒</td><td>药盒控制属于"安全关键型"API——必须走mTLS双向认证+请求签名，防止恶意第三方伪造控制指令</td></tr>
+        <tr><td>家人管理</td><td>/api/v1/family/{familyId}/members</td><td>GET/POST</td><td>增删改成员和权限</td><td>家庭成员的权限模型建议采用RBAC(基于角色的访问控制)——管理员(子女)、观察者(其他亲属)、被观察者(老人)</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">24.4 弹性扩缩容策略</h2>
     <table class="data-table">
-      <thead><tr><th>指标</th><th>扩容阈值</th><th>缩容阈值</th><th>扩缩容幅度</th></tr></thead>
+      <thead><tr><th>指标</th><th>扩容阈值</th><th>缩容阈值</th><th>扩缩容幅度</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>API QPS</td><td>>5,000/s(单实例瓶颈)</td><td><1,000/s</td><td>自动加2-4实例</td></tr>
-        <tr><td>消息队列积压</td><td>>10,000条</td><td><100条</td><td>增加消费者实例</td></tr>
-        <tr><td>数据库连接数</td><td>>80%上限</td><td><30%</td><td>PolarDB读写分离+只读节点</td></tr>
-        <tr><td>TSDB写入吞吐</td><td>>50,000点/秒</td><td><10,000点/秒</td><td>新增TSDB分片</td></tr>
+        <tr><td>API QPS</td><td>>5,000/s(单实例瓶颈)</td><td><1,000/s</td><td>自动加2-4实例</td><td>QPS阈值建议采用"滑动窗口"而非瞬时值——瞬时峰值可能是网络抖动导致的假阳性，滑动窗口(如5分钟均值)更稳定</td></tr>
+        <tr><td>消息队列积压</td><td>>10,000条</td><td><100条</td><td>增加消费者实例</td><td>消息积压是最危险的信号之一——积压意味着消费者处理不过来，积压中的消息包含未处理的告警，延迟处理告警可能导致生命危险</td></tr>
+        <tr><td>数据库连接数</td><td>>80%上限</td><td><30%</td><td>PolarDB读写分离+只读节点</td><td>连接数耗尽会导致所有请求超时——建议设置连接池最大使用率为70%，预留30%给突发查询(如早高峰健康报告生成)</td></tr>
+        <tr><td>TSDB写入吞吐</td><td>>50,000点/秒</td><td><10,000点/秒</td><td>新增TSDB分片</td><td>TSDB的写入吞吐与设备在线数量正相关——50,000点/秒约对应5,000台设备×每秒1个点。按此推算，10万台设备需要100个分片</td></tr>
       </tbody>
     </table>
+
+    <!-- ========== 发散引申链 ========== -->
+    <div class="divergence-chain">
+      <span class="chain-node node-cyan"><i class="fas fa-cloud"></i> 云平台架构</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-database"></i> 数据积累</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-brain"></i> AI模型训练</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-chart-line"></i> 预测精度提升</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-red"><i class="fas fa-shield-alt"></i> 医疗级信任</span>
+    </div>
+
+    <!-- ========== 多学派交叉解读 ========== -->
+    <h2 class="section-subtitle">24.6 多学派交叉解读：云平台的五种经济学视角</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-dna"></i> 演化经济学 (Nelson & Winter)</div>
+        <div class="sv-body">云平台架构的演进遵循"惯例累积"路径：MVP阶段用单体架构(PolarDB+Redis+单实例API)，V2.0拆分为微服务(消息队列+TSDB+弹性容器)，Scale阶段引入CDN+WAF+多可用区部署。关键在于<strong>路径依赖</strong>——MVP阶段的单体架构一旦部署了百万级用户的业务逻辑，拆分成本极高(需重写API网关、迁移数据分区策略)。类似日本1990年代从集中式银行系统向分布式金融系统的迁移，制度惯性和技术惯性共同锁定了演进节奏。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学 (Kahneman & Tversky)</div>
+        <div class="sv-body">弹性扩缩容决策中存在典型的<strong>"锚定效应"</strong>——产品经理倾向于将扩容阈值锚定在"竞品水平"(如5000QPS)，而非基于自身用户画像的实际需求。对于老年健康手环，实际日活可能只有竞品的1/10，但告警API的SLA要求却更高(响应时间<100ms vs 竞品的<500ms)。行为经济学建议采用<strong>"事前验尸"(pre-mortem)分析</strong>：假设系统在上线首周崩溃，反推最可能的原因是"告警API超时"而非"健康报告生成慢"，从而将资源优先分配给告警链路。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-coins"></i> 信息经济学 (Akerlof & Stiglitz)</div>
+        <div class="sv-body">云平台架构选择面临<strong>"信号传递"</strong>问题：用户无法感知后端是单体架构还是微服务，但能感知API响应速度和系统稳定性。信息经济学指出，当高质量架构无法向用户传递可信信号时，市场会逆向选择低质量低价方案。解决之道在于<strong>可观测性设计</strong>——在APP中展示"数据同步状态"和"上次同步时间"，让用户间接感知后端可靠性。这也是Apple Health以"端到端加密+实时同步"作为卖点的底层逻辑。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学 (North & Williamson)</div>
+        <div class="sv-body">混合云架构(国内阿里云+海外AWS)本质上是<strong>制度环境差异</strong>驱动的治理结构选择。North的制度变迁理论指出：当不同市场的制度约束(数据驻留法规)差异足够大时，单一架构无法最优。中国PIPL要求健康数据境内存储，GDPR要求欧盟区域隔离——这迫使架构师选择混合云而非单一云。Williamson的交易成本理论进一步解释：混合云的"协调成本"(跨云数据同步、双运维团队)高于单一云，但当制度性交易成本(违规罚款、市场禁入)更高时，混合云是理性选择。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-project-diagram"></i> 公共选择理论 (Buchanan & Tullock)</div>
+        <div class="sv-body">云平台的技术决策映射到组织层面就是<strong>利益博弈</strong>：基础设施团队追求高可用(多可用区部署)，产品团队追求快速迭代(敏捷发布)，财务部门追求成本优化(预留实例+竞价实例)。公共选择理论指出，不存在"技术上最优"的架构——只有各利益方的<strong>宪政均衡</strong>。实践中，建议建立明确的"架构决策记录"(ADR)制度，将每次重大技术决策的理由、替代方案和反对意见记录下来——这不仅是知识管理工具，更是公共选择理论的制度化实践。</div>
+      </div>
+    </div>
+
+    <!-- ========== 案例深挖 ========== -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-server"></i> 案例深挖：小米健康的云平台架构演进</div>
+      <div class="case-body">
+        <strong>第一代(2016-2018)：</strong>单体架构——单实例Spring Boot + MySQL + Redis。日活100万以下够用，但扩展性差。2018年小米手环4上市时，单日峰值QPS达到2万，MySQL连接数被打满，导致健康报告生成延迟从3秒飙升到30秒。<br><br>
+        <strong>第二代(2019-2021)：</strong>微服务拆分——将心跳上报、健康报告、告警推送拆分为三个独立服务。引入RocketMQ解耦，TSDB存储时序数据。QPS承载能力提升到5万，但引入了新的复杂度：服务间调用延迟增加(跨服务RPC 50ms vs 同进程调用<1ms)。<br><br>
+        <strong>第三代(2022至今)：</strong>Serverless化——告警推送服务转为函数计算(FaaS)，按需执行、零空闲成本。健康报告生成转为异步任务队列。核心变化是从"资源预分配"转向"资源按需分配"，云成本下降了40%。<br><br>
+        <strong>经济学解读</strong>：小米的架构演进完美契合演化经济学的"惯例升级"模型——每一代架构都是对上一代"容量瓶颈"的选择压力响应。但更重要的是<strong>规模经济</strong>的体现：随着用户基数从100万增长到1亿，架构的边际成本曲线从陡峭变为平缓，这正是云计算的核心价值主张。
+      </div>
+    </div>
+
+    <!-- ========== Tip Box ========== -->
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：云平台架构的三个关键决策点</div>
+      <div class="tip-body">
+        <strong>第一，MVP阶段"单体优先"：</strong>不要过早拆分微服务。单实例PolarDB+Redis+Spring Boot可以支撑10万DAU。过早拆分带来的运维复杂度(多实例部署、服务发现、链路追踪)会拖慢迭代速度。<br><br>
+        <strong>第二，告警链路"永远不省"：</strong>健康告警API的SLA应设为99.99%——比其他API高一个数量级。因为其他API超时只是用户体验问题，告警API超时可能是致命问题。建议在架构设计上为告警链路预留独立资源池(独立的消息队列、独立的计算实例)。<br><br>
+        <strong>第三，混合云"先内后外"：</strong>国内用户先用阿里云(成本低、合规简单)，有出海需求后再叠加AWS。不要一开始就做混合云——跨云数据同步和双运维团队的协调成本远超初期收益。
+      </div>
+    </div>
+
+    <div class="chart-container" id="chart-cloud"></div>
 
     <h2 class="section-subtitle">24.5 手把手：阿里云控制台实操 + Docker Compose 部署云平台</h2>
 
@@ -307,14 +369,18 @@ server {
     chart.setOption({
       backgroundColor: 'transparent',
       tooltip: { trigger: 'axis' },
-      legend: { data: ['月活用户(千)', '日均API调用(百万)', '数据存储(TB)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      legend: { data: ['月活用户(千)', '日均API调用(百万)', '数据存储(TB)', '云成本(万元/月)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 80, top: 40, bottom: 40 },
       xAxis: { type: 'category', data: ['MVP(0-3月)','V1.0(3-6月)','V2.0(6-12月)','Scale(1-2年)','Mass(2-5年)'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'value', name: '', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(千用户)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(成本万/月)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
       series: [
-        { name: '月活用户(千)', type: 'line', data: [1, 5, 30, 200, 1000], itemStyle: { color: '#06b6d4' }, smooth: true },
-        { name: '日均API调用(百万)', type: 'bar', data: [0.1, 0.5, 3, 20, 100], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
-        { name: '数据存储(TB)', type: 'bar', data: [0.01, 0.05, 0.3, 2, 10], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } }
+        { name: '月活用户(千)', type: 'line', data: [1, 5, 30, 200, 1000], itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1A5276'},{offset:1,color:'#0d3b5e'}]) }, smooth: true, symbol: 'circle', symbolSize: 8, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(26,82,118,0.2)'},{offset:1,color:'rgba(26,82,118,0.02)'}]) }, markPoint: { data: [{ name: '峰值1000K', coord: ['Mass(2-5年)', 1000], value: '1000K', itemStyle: { color: '#1A5276' }, label: { formatter: '峰值', color: '#fff' } }] } },
+        { name: '日均API调用(百万)', type: 'bar', data: [0.1, 0.5, 3, 20, 100], itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#B8860B'},{offset:1,color:'#8B6914'}]), borderRadius:[4,4,0,0] } },
+        { name: '数据存储(TB)', type: 'bar', data: [0.01, 0.05, 0.3, 2, 10], itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#059669'},{offset:1,color:'#047857'}]), borderRadius:[4,4,0,0] } },
+        { name: '云成本(万元/月)', type: 'line', data: [0.8, 1.5, 3, 8, 25], itemStyle: { color: '#dc2626' }, smooth: true, lineStyle: { width: 2, type: 'dashed' }, symbol: 'diamond', symbolSize: 8, markLine: { data: [{ type: 'average', name: '平均成本' }], lineStyle: { color: '#B8860B', type: 'dashed' }, label: { formatter: '均值: {c}万/月', color: '#B8860B' } } }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

@@ -63,51 +63,102 @@
 
     <h2 class="section-subtitle">25.1 IoT联动场景设计</h2>
     <table class="data-table">
-      <thead><tr><th>触发条件</th><th>联动设备</th><th>响应动作</th><th>响应时间</th></tr></thead>
+      <thead><tr><th>触发条件</th><th>联动设备</th><th>响应动作</th><th>响应时间</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>跌倒检测(老人家中)</td><td>客厅+卧室灯光</td><td>全亮到80%亮度(方便搜救)</td><td><1秒</td></tr>
-        <tr><td>跌倒检测</td><td>蜂鸣器/音箱</td><td>"有人跌倒！请协助!"循环播放</td><td><2秒</td></tr>
-        <tr><td>长时间无活动(12小时)</td><td>音箱播报</td><td>"张奶奶，我看到您还没起来，需要帮助吗？"</td><td>定时触发</td></tr>
-        <tr><td>药盒提醒</td><td>客厅灯光(呼吸闪烁)</td><td>蓝色呼吸灯1分钟(不扰眠)</td><td>定时触发</td></tr>
-        <tr><td>电子围栏告警</td><td>门口灯光+门磁</td><td>门口灯闪+记录开门时间</td><td><3秒</td></tr>
-        <tr><td>SOS触发</td><td>全屋灯光+音箱</td><td>全亮+语音"已联系救援，保持冷静"</td><td><1秒</td></tr>
+        <tr><td>跌倒检测(老人家中)</td><td>客厅+卧室灯光</td><td>全亮到80%亮度(方便搜救)</td><td><1秒</td><td>灯光联动是"最后一道防线"——在子女无法及时到达的情况下，自动开灯可以防止老人在黑暗中二次受伤(如撞到家具)。日本2019年居家跌倒事故中，42%的二次伤害发生在黑暗环境中</td></tr>
+        <tr><td>跌倒检测</td><td>蜂鸣器/音箱</td><td>"有人跌倒！请协助!"循环播放</td><td><2秒</td><td>蜂鸣器的分贝值建议≥85dB——这是医院走廊的标准呼叫音量。但需注意夜间模式(22:00-6:00)将音量降至≤60dB，避免惊吓老人</td></tr>
+        <tr><td>长时间无活动(12小时)</td><td>音箱播报</td><td>"张奶奶，我看到您还没起来，需要帮助吗？"</td><td>定时触发</td><td>12小时阈值是基于中国老年人平均睡眠时长(6-8小时)+起床准备时间(1-2小时)设定的。过短的阈值(如6小时)会导致误报率飙升</td></tr>
+        <tr><td>药盒提醒</td><td>客厅灯光(呼吸闪烁)</td><td>蓝色呼吸灯1分钟(不扰眠)</td><td>定时触发</td><td>灯光提醒比声音提醒更"温和"——对听力下降的老年人有效(视觉补偿听觉)，且不会打扰同房间的其他人</td></tr>
+        <tr><td>电子围栏告警</td><td>门口灯光+门磁</td><td>门口灯闪+记录开门时间</td><td><3秒</td><td>电子围栏的精度建议在50米半径——太近(10米)可能误报(老人只是在阳台)，太远(200米)可能漏报(老人已走到小区门口)</td></tr>
+        <tr><td>SOS触发</td><td>全屋灯光+音箱</td><td>全亮+语音"已联系救援，保持冷静"</td><td><1秒</td><td>SOS触发的语音播报内容必须明确告知"已联系救援"——这不仅是信息传递，更是心理安抚。恐慌状态下的老人更容易做出危险行为(如试图起身导致二次跌倒)</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">25.2 智能家居生态兼容</h2>
     <table class="data-table">
-      <thead><tr><th>生态</th><th>协议</th><th>兼容性</th><th>推广价值</th><th>实现方式</th></tr></thead>
+      <thead><tr><th>生态</th><th>协议</th><th>兼容性</th><th>推广价值</th><th>实现方式</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>小米IoT(米家)</td><td>Bluetooth Mesh/Zigbee</td><td>中国最大智能家居生态</td><td>★★★★★</td><td>Matter桥接/米家插件</td></tr>
-        <tr><td>天猫精灵</td><td>IoT协议</td><td>阿里生态整合</td><td>★★★★☆</td><td>技能开发(语音控制)</td></tr>
-        <tr><td>华为HiLink</td><td>HarmonyOS Connect</td><td>华为手机用户全覆盖</td><td>★★★★☆</td><td>HarmonyOS服务卡片</td></tr>
-        <tr><td>Alexa</td><td>Skills SDK</td><td>海外市场</td><td>★★★☆☆</td><td>Alexa Skill</td></tr>
-        <tr><td>Google Home</td><td>Actions SDK</td><td>海外市场</td><td>★★★☆☆</td><td>Google Action</td></tr>
-        <tr><td>Matter</td><td>统一协议</td><td>未来通用标准</td><td>★★★★☆</td><td>Matter over Thread</td></tr>
+        <tr><td>小米IoT(米家)</td><td>Bluetooth Mesh/Zigbee</td><td>中国最大智能家居生态</td><td>★★★★★</td><td>Matter桥接/米家插件</td><td>米家的优势在于"价格亲民"——入门级智能灯泡¥29、智能音箱¥99。这与我们手环的定价策略(¥199-399)高度匹配，形成完整的"银发科技"产品矩阵</td></tr>
+        <tr><td>天猫精灵</td><td>IoT协议</td><td>阿里生态整合</td><td>★★★★☆</td><td>技能开发(语音控制)</td><td>天猫精灵的核心优势是支付宝生态——未来可以与"医保个人账户"打通，实现"语音指令→自动扣款→药品配送"的闭环</td></tr>
+        <tr><td>华为HiLink</td><td>HarmonyOS Connect</td><td>华为手机用户全覆盖</td><td>★★★★☆</td><td>HarmonyOS服务卡片</td><td>华为手表与手环的数据互通是一个差异化优势——如果子女和华为手表用户在同一家庭网络中，可以实现"双设备交叉验证"(手环心率+手表ECG)</td></tr>
+        <tr><td>Alexa</td><td>Skills SDK</td><td>海外市场</td><td>★★★☆☆</td><td>Alexa Skill</td><td>海外市场的智能家居渗透率远高于中国(Alexa设备保有量3亿+)，但老年用户的技术接受度较低——需要更简化的语音指令设计</td></tr>
+        <tr><td>Google Home</td><td>Actions SDK</td><td>海外市场</td><td>★★★☆☆</td><td>Google Action</td><td>Google Home的优势在于NLP能力(自然语言理解)，可以识别更复杂的语音指令("帮我叫医生" vs 固定唤醒词)。但对中文的支持仍不如天猫精灵和小米</td></tr>
+        <tr><td>Matter</td><td>统一协议</td><td>未来通用标准</td><td>★★★★☆</td><td>Matter over Thread</td><td>Matter是"智能家居的USB-C"——一旦成为主流标准，不同品牌设备的互操作性将大幅提升。但目前Matter设备生态尚不成熟，建议V2.0版本开始支持</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">25.3 智能灯/警报器联动方案</h2>
     <table class="data-table">
-      <thead><tr><th>场景</th><th>灯光策略</th><th>声音策略</th><th>适用时段</th></tr></thead>
+      <thead><tr><th>场景</th><th>灯光策略</th><th>声音策略</th><th>适用时段</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>日间正常活动</td><td>跟随环境光传感器自动调节</td><td>无</td><td>6:00-22:00</td></tr>
-        <tr><td>夜间起床上厕所</td><td>床边灯带微亮(5%亮度, 暖色)</td><td>无</td><td>22:00-6:00</td></tr>
-        <tr><td>服药提醒</td><td>客厅灯蓝色呼吸(30秒)</td><td>轻柔提示音(非刺耳)</td><td>饭前/睡前</td></tr>
-        <tr><td>异常长时间无活动</td><td>全屋灯光渐亮(30秒→80%)</td><td>语音助手询问</td><td>全天</td></tr>
-        <tr><td>紧急告警</td><td>全屋全亮+红灯闪烁</td><td>高分贝蜂鸣+语音播报</td><td>全天</td></tr>
+        <tr><td>日间正常活动</td><td>跟随环境光传感器自动调节</td><td>无</td><td>6:00-22:00</td><td>环境光传感器的阈值建议设为200lux——低于此值自动补光。这个值接近阅读所需的最低照度，对视力退化的老年人友好</td></tr>
+        <tr><td>夜间起床上厕所</td><td>床边灯带微亮(5%亮度, 暖色)</td><td>无</td><td>22:00-6:00</td><td>夜间灯光必须是"暖色"(色温<2700K)——冷色光会抑制褪黑素分泌，影响老人再次入睡。这是光生物学的基本原理</td></tr>
+        <tr><td>服药提醒</td><td>客厅灯蓝色呼吸(30秒)</td><td>轻柔提示音(非刺耳)</td><td>饭前/睡前</td><td>蓝色光在心理学研究中具有"冷静"联想——适合用药提醒场景(避免老人因慌乱而错服)。但需确保蓝色足够亮(≥40%亮度)，否则视力退化的老人看不到</td></tr>
+        <tr><td>异常长时间无活动</td><td>全屋灯光渐亮(30秒→80%)</td><td>语音助手询问</td><td>全天</td><td>渐亮而非全亮的核心目的是"不吓到老人"——突然的全亮可能引发惊恐反射(尤其对认知障碍患者)。30秒渐亮给神经系统一个适应期</td></tr>
+        <tr><td>紧急告警</td><td>全屋全亮+红灯闪烁</td><td>高分贝蜂鸣+语音播报</td><td>全天</td><td>红灯闪烁的频率建议为2Hz——这是国际通用的紧急信号频率。研究表明，2Hz闪烁的注意力捕获效率比静态红灯高3倍</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">25.4 IoT网关部署要求</h2>
     <table class="data-table">
-      <thead><tr><th>方案</th><th>硬件成本</th><th>配置难度</th><th>可靠性</th><th>推荐场景</th></tr></thead>
+      <thead><tr><th>方案</th><th>硬件成本</th><th>配置难度</th><th>可靠性</th><th>推荐场景</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>子女手机APP做网关</td><td>¥0</td><td>低</td><td>中(手机关机则失效)</td><td>早期验证阶段</td></tr>
-        <tr><td>智能音箱内置</td><td>已有</td><td>极低(下载技能)</td><td>高(常开设备)</td><td>家庭主流方案</td></tr>
-        <tr><td>独立Matter网关</td><td>¥80-150</td><td>中(配网)</td><td>最高</td><td>专业养老方案</td></tr>
+        <tr><td>子女手机APP做网关</td><td>¥0</td><td>低</td><td>中(手机关机则失效)</td><td>早期验证阶段</td><td>手机网关的最大问题是"后台杀进程"——Android系统会在30分钟后杀掉后台APP。需要在APP中加入"保活机制"(前台Service+系统白名单)，但这会增加APP的权限请求复杂度</td></tr>
+        <tr><td>智能音箱内置</td><td>已有</td><td>极低(下载技能)</td><td>高(常开设备)</td><td>家庭主流方案</td><td>智能音箱作为网关的优势是"永远在线"+"物理位置固定"(客厅中央)。劣势是生态锁定——小米音箱只能控制米家设备，无法接入华为HiLink生态</td></tr>
+        <tr><td>独立Matter网关</td><td>¥80-150</td><td>中(配网)</td><td>最高</td><td>专业养老方案</td><td>独立网关的最大优势是"生态中立"——同时兼容米家、华为、Alexa、Google。对于多品牌家庭的老人，这是唯一能实现"全屋联动"的方案</td></tr>
       </tbody>
     </table>
+
+    <!-- ========== 发散引申链 ========== -->
+    <div class="divergence-chain">
+      <span class="chain-node node-cyan"><i class="fas fa-network-wired"></i> 手环IoT联动</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-lightbulb"></i> 智能家居生态</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-home"></i> 居家养老基础设施</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-building"></i> 养老机构智能化改造</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-red"><i class="fas fa-city"></i> 智慧城市养老网络</span>
+    </div>
+
+    <!-- ========== 多学派交叉解读 ========== -->
+    <h2 class="section-subtitle">25.6 多学派交叉解读：IoT智能家居的五种经济学视角</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-dna"></i> 演化经济学 (Nelson & Winter)</div>
+        <div class="sv-body">IoT联动的技术演进遵循"路径依赖+关键节点"模型：BLE Mesh是当前主导的"惯例"，但Zigbee和Thread正在形成替代性惯例。关键在于<strong>关键节点</strong>——Matter协议的标准化(2023年)就是一个关键节点，它可能打破现有BLE Mesh的锁定效应。类似日本1990年代VHS与Betamax的格式战争，技术标准的选择往往不是"最优"而是"最早获得网络效应"。手环厂商的当务之急是确保产品同时支持BLE Mesh和Matter，以应对标准切换的不确定性。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学 (Kahneman & Tversky)</div>
+        <div class="sv-body">IoT联动的"自动化"设计面临一个悖论：<strong>越自动化，用户越容易忘记系统的存在</strong>——这正是行为经济学中的"注意力偏差"。当灯光和蜂鸣器自动响应跌倒事件时，子女会逐渐降低对APP的主动检查频率。但一旦自动化系统在某个场景下失效(如WiFi断连导致联动失败)，后果比手动操作更严重(因为用户已经失去了"手动备份"的习惯)。解决方案是<strong>"可控的不可见性"</strong>——默认全自动，但用户随时可以查看和覆盖自动化规则。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-coins"></i> 信息经济学 (Akerlof & Stiglitz)</div>
+        <div class="sv-body">智能家居生态之间存在典型的<strong>"兼容性信号"</strong>问题：消费者无法在购买前判断手环是否能与自己的智能音箱联动。信息不对称导致"逆向选择"——支持所有生态的手环成本高、定价高，被市场认为"溢价过高"；只支持单一生态的手环便宜，但消费者担心"生态锁定"。解决之道在于<strong>第三方认证标签</strong>——类似UL/FCC认证，建立一个"IoT互联互通认证"(由第三方机构测试并授予标签)，降低消费者的信息搜索成本。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学 (North & Williamson)</div>
+        <div class="sv-body">IoT联动的本质是<strong>跨组织边界的信息流动</strong>——手环数据从我们的云平台流到小米的IoT平台，再触发小米的灯光设备。North的制度变迁理论指出，这种跨边界的协作需要"信任机制"——在技术上表现为API标准和认证协议，在制度上表现为数据使用协议和商业分成模式。Williamson的交易成本理论进一步指出：当跨平台协作的交易成本(接口开发费、数据安全风险、法律合规成本)高于内部化的收益时，企业会选择"封闭生态"(如Apple HomeKit)。我们的策略应该是"开放API + 有限封闭"——对外提供标准API，对内保持核心联动逻辑的自主权。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-project-diagram"></i> 公共选择理论 (Buchanan & Tullock)</div>
+        <div class="sv-body">IoT联动的技术决策映射到组织层面就是<strong>多方博弈</strong>：手环团队希望开放API(获取更多场景)，智能家居团队希望封闭生态(锁定用户)，法务团队希望最小化责任(联动失败导致的安全事故谁来担责)。公共选择理论指出，不存在"技术上最优"的开放程度——只有各利益方的<strong>宪政均衡</strong>。实践中，建议建立"联动责任矩阵"——明确每种联动场景下的责任归属(如跌倒检测→灯光联动属于安全关键型，责任归手环团队；药盒提醒→灯光属于便利型，责任归智能家居团队)。</div>
+      </div>
+    </div>
+
+    <!-- ========== Tip Box ========== -->
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：IoT联动的三个关键决策点</div>
+      <div class="tip-body">
+        <strong>第一，优先打通米家生态：</strong>米家在中国智能家居市场的占有率超过35%，是"最大公约数"。先做米家集成，再做其他生态的桥接。<br><br>
+        <strong>第二，HA本地部署是底线：</strong>无论选择哪个商业生态，都必须支持Home Assistant本地部署——这是"断网可用"的最后保障。云端API宕机时，本地HA自动化规则仍然可以触发灯光和蜂鸣器。<br><br>
+        <strong>第三，Matter是长期赌注：</strong>Matter协议目前设备覆盖率约20%(2024年)，但增长曲线陡峭。建议在架构设计上预留Matter适配层，V2.0版本开始正式支持。
+      </div>
+    </div>
+
+    <div class="chart-container" id="chart-iot"></div>
 
     <h2 class="section-subtitle">25.5 手把手：米家/IoT 平台接入 + Home Assistant 部署 + BLE Mesh 配网</h2>
 
@@ -312,15 +363,16 @@ Body: {
       backgroundColor: 'transparent',
       tooltip: { trigger: 'axis' },
       legend: { data: ['生态覆盖率(%)', '实现难度(分)', '用户价值(分)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
+      grid: { left: 70, right: 80, top: 40, bottom: 40 },
       xAxis: { type: 'category', data: ['小米米家','天猫精灵','华为HiLink','Matter','Alexa','Google Home'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: [
         { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-        { type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 100 }
+        { type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false }, max: 100 }
       ],
       series: [
-        { name: '生态覆盖率(%)', type: 'bar', data: [95, 80, 75, 60, 20, 25], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
-        { name: '实现难度(分)', type: 'line', data: [70, 40, 65, 80, 30, 35], itemStyle: { color: '#f59e0b' }, smooth: true, yAxisIndex: 1 }
+        { name: '生态覆盖率(%)', type: 'bar', data: [95, 80, 75, 60, 20, 25], itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1A5276'},{offset:1,color:'#0d3b5e'}]), borderRadius:[4,4,0,0] }, yAxisIndex: 0, markPoint: { data: [{ type: 'max', name: '最高覆盖率' }] } },
+        { name: '实现难度(分)', type: 'line', data: [70, 40, 65, 80, 30, 35], itemStyle: { color: '#B8860B' }, smooth: true, symbol: 'circle', symbolSize: 8, yAxisIndex: 1, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(184,134,11,0.15)'},{offset:1,color:'rgba(184,134,11,0.02)'}]) }, markPoint: { data: [{ name: '最难:Matter', coord: ['Matter', 80], value: 80, itemStyle: { color: '#dc2626' }, label: { formatter: '最难', color: '#fff' } }] } },
+        { name: '用户价值(分)', type: 'line', data: [90, 70, 75, 85, 60, 55], itemStyle: { color: '#059669' }, smooth: true, symbol: 'diamond', symbolSize: 8, yAxisIndex: 1, markPoint: { data: [{ name: '最高价值', coord: ['小米米家', 90], value: 90, itemStyle: { color: '#059669' }, label: { formatter: '最高', color: '#fff' } }] } }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

@@ -63,53 +63,53 @@
 
     <h2 class="section-subtitle">26.1 SMT贴片工艺流程</h2>
     <table class="data-table">
-      <thead><tr><th>工序</th><th>设备</th><th>关键参数</th><th>节拍(秒/板)</th></tr></thead>
+      <thead><tr><th>工序</th><th>设备</th><th>关键参数</th><th>节拍(秒/板)</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>锡膏印刷</td><td>全自动印刷机(+钢网)</td><td>印刷压力/速度/脱模角度</td><td>8-12</td></tr>
-        <tr><td>SPI锡膏检测</td><td>SPI(锡膏厚度检测仪)</td><td>体积/高度/面积合格率>98%</td><td>5-8</td></tr>
-        <tr><td>贴片(Pick&Place)</td><td>高速贴片机</td><td>0201元件<0.3秒/颗</td><td>15-25</td></tr>
-        <tr><td>回流焊</td><td>12米回流焊炉</td><td>预热→恒温→回流→冷却(4温区)</td><td>300(过炉时间)</td></tr>
-        <tr><td>AOI光学检测</td><td>3D AOI</td><td>锡珠/桥接/立碑/偏移检测</td><td>10-15</td></tr>
-        <tr><td>X-Ray(隐性焊点)</td><td>X-Ray检测仪</td><td>BGA/QFN底部焊点检测</td><td>30-60</td></tr>
+        <tr><td>锡膏印刷</td><td>全自动印刷机(+钢网)</td><td>印刷压力/速度/脱模角度</td><td>8-12</td><td>印刷质量决定SMT良率的天花板，后续所有检测都是"事后把关"而非"事前预防"</td></tr>
+        <tr><td>SPI锡膏检测</td><td>SPI(锡膏厚度检测仪)</td><td>体积/高度/面积合格率>98%</td><td>5-8</td><td>SPI是SMT线上第一个"闭环反馈点"——不合格数据自动反馈给印刷机调整参数</td></tr>
+        <tr><td>贴片(Pick&Place)</td><td>高速贴片机</td><td>0201元件<0.3秒/颗</td><td>15-25</td><td>贴片机速度是产能瓶颈，0201元件虽小但数量最多（滤波电容、电阻），占总贴片数80%+</td></tr>
+        <tr><td>回流焊</td><td>12米回流焊炉</td><td>预热→恒温→回流→冷却(4温区)</td><td>300(过炉时间)</td><td>炉温曲线必须针对具体锡膏牌号（如SN63PB37 vs SAC305）单独设定，混用会导致冷焊</td></tr>
+        <tr><td>AOI光学检测</td><td>3D AOI</td><td>锡珠/桥接/立碑/偏移检测</td><td>10-15</td><td>3D AOI比2D多一个Z轴测量，可识别"虚高"焊点（锡量少但高度够的假合格）</td></tr>
+        <tr><td>X-Ray(隐性焊点)</td><td>X-Ray检测仪</td><td>BGA/QFN底部焊点检测</td><td>30-60</td><td>BGA焊点在正面AOI无法检测，X-Ray是唯一可靠手段——这是Apple供应链的强制要求</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">26.2 组装线工序</h2>
     <table class="data-table">
-      <thead><tr><th>工序</th><th>工位描述</th><th>自动化程度</th><th>节拍</th></tr></thead>
+      <thead><tr><th>工序</th><th>工位描述</th><th>自动化程度</th><th>节拍</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>PCBA下料</td><td>从料盘取出焊接好的主板</td><td>半自动</td><td>15秒</td></tr>
-        <tr><td>电池绑定</td><td>锂电贴双面胶→插入仓→焊接线束</td><td>半自动</td><td>20秒</td></tr>
-        <tr><td>传感器模块安装</td><td>PPG/ECG模组压入壳体+导电胶</td><td>半自动</td><td>15秒</td></tr>
-        <tr><td>屏幕贴合</td><td>OCA光学胶+屏幕盖板对位贴合</td><td>全自动CCD对位</td><td>30秒</td></tr>
-        <tr><td>壳体组装</td><td>上壳+下壳合拢+超声波焊接/螺丝</td><td>半自动</td><td>20秒</td></tr>
-        <tr><td>防水胶圈安装</td><td>UV胶涂布+密封圈放置</td><td>自动点胶机</td><td>15秒</td></tr>
-        <tr><td>表带装配</td><td>硅胶/氟橡胶表带扣入</td><td>手工</td><td>10秒</td></tr>
+        <tr><td>PCBA下料</td><td>从料盘取出焊接好的主板</td><td>半自动</td><td>15秒</td><td>人工下料是装配线最大的波动源——不同工人取放速度差异可达±5秒</td></tr>
+        <tr><td>电池绑定</td><td>锂电贴双面胶→插入仓→焊接线束</td><td>半自动</td><td>20秒</td><td>电池焊接是安全红线工位，必须双人复核（一人操作一人确认）</td></tr>
+        <tr><td>传感器模块安装</td><td>PPG/ECG模组压入壳体+导电胶</td><td>半自动</td><td>15秒</td><td>导电胶固化需要紫外线照射30秒，此工位存在"隐性节拍"——看似15秒实则需等待固化</td></tr>
+        <tr><td>屏幕贴合</td><td>OCA光学胶+屏幕盖板对位贴合</td><td>全自动CCD对位</td><td>30秒</td><td>OCA贴合是最容易引入气泡的工位，洁净等级需达到Class 10,000以上</td></tr>
+        <tr><td>壳体组装</td><td>上壳+下壳合拢+超声波焊接/螺丝</td><td>半自动</td><td>20秒</td><td>超声波焊接参数（功率/时间/压力）需要DOE实验优化，不同批次塑料件差异大</td></tr>
+        <tr><td>防水胶圈安装</td><td>UV胶涂布+密封圈放置</td><td>自动点胶机</td><td>15秒</td><td>点胶量偏差±0.02ml就会影响防水性能，需要SPI级别的点胶量监控</td></tr>
+        <tr><td>表带装配</td><td>硅胶/氟橡胶表带扣入</td><td>手工</td><td>10秒</td><td>纯手工工位，是产线柔性调整的"缓冲器"——旺季可临时增派人手</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">26.3 测试站设计</h2>
     <table class="data-table">
-      <thead><tr><th>测试站</th><th>测试内容</th><th>单站时间</th><th>自动化</th></tr></thead>
+      <thead><tr><th>测试站</th><th>测试内容</th><th>单站时间</th><th>自动化</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>烧录站</td><td>固件写入(USB/JTAG)</td><td>30秒</td><td>自动(多工位) 8台同时</td></tr>
-        <tr><td>功能测试</td><td>屏幕点亮/触摸/按键/BLE/WiFi/GPS</td><td>45秒</td><td>自动化测试架</td></tr>
-        <tr><td>传感器校准</td><td>PPG光功率/加速度零点/温度传感器</td><td>60秒</td><td>自动化夹具+校准软件</td></tr>
-        <tr><td>防水测试</td><td>气密性检测(-30kPa)</td><td>15秒</td><td>100%全检</td></tr>
-        <tr><td>电池充放电</td><td>充电功能/电量计校准</td><td>30秒</td><td>自动</td></tr>
-        <tr><td>外观终检</td><td>划痕/色差/合模线/标签</td><td>20秒</td><td>目检+标准光源</td></tr>
+        <tr><td>烧录站</td><td>固件写入(USB/JTAG)</td><td>30秒</td><td>自动(多工位) 8台同时</td><td>烧录失败的主板会进入"返烧"流程，平均返烧次数1.2次/板</td></tr>
+        <tr><td>功能测试</td><td>屏幕点亮/触摸/按键/BLE/WiFi/GPS</td><td>45秒</td><td>自动化测试架</td><td>GPS测试需要在开阔场地或使用GPS信号模拟器，室内测试无法验证</td></tr>
+        <tr><td>传感器校准</td><td>PPG光功率/加速度零点/温度传感器</td><td>60秒</td><td>自动化夹具+校准软件</td><td>校准数据写入EEPROM，每台设备有唯一校准指纹——这是售后追溯的关键数据</td></tr>
+        <tr><td>防水测试</td><td>气密性检测(-30kPa)</td><td>15秒</td><td>100%全检</td><td>气密性测试是破坏性测试的替代方案——传统浸水测试无法100%全检（测试后需烘干）</td></tr>
+        <tr><td>电池充放电</td><td>充电功能/电量计校准</td><td>30秒</td><td>自动</td><td>电量计校准决定APP显示的"剩余电量"准确度，校准偏差>5%会引发大量客诉</td></tr>
+        <tr><td>外观终检</td><td>划痕/色差/合模线/标签</td><td>20秒</td><td>目检+标准光源</td><td>目检是最大的不可控因素——不同检验员标准不一，建议使用AOI外观检测替代人工</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">26.4 产能规划</h2>
     <table class="data-table">
-      <thead><tr><th>指标</th><th>小批量(PVT)</th><th>量产(MP)</th><th>满产</th></tr></thead>
+      <thead><tr><th>指标</th><th>小批量(PVT)</th><th>量产(MP)</th><th>满产</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>日产量</td><td>500台</td><td>5,000台</td><td>10,000台</td></tr>
-        <tr><td>生产线数</td><td>1条(柔性)</td><td>2-3条</td><td>5条+</td></tr>
-        <tr><td>人均产出</td><td>50台/人/天</td><td>200台/人/天</td><td>400台/人/天</td></tr>
-        <tr><td>直通率(Yield)</td><td>92-95%</td><td>97-98%</td><td>98.5%+</td></tr>
-        <tr><td>不良返工率</td><td>5-8%</td><td>2-3%</td><td><1%</td></tr>
+        <tr><td>日产量</td><td>500台</td><td>5,000台</td><td>10,000台</td><td>日产量不等于销量——产能利用率保持在60-70%是最佳状态，满产反而意味着库存积压风险</td></tr>
+        <tr><td>生产线数</td><td>1条(柔性)</td><td>2-3条</td><td>5条+</td><td>多条产线的好处是可以做"对照实验"——A线新工艺 vs B线旧工艺，快速验证</td></tr>
+        <tr><td>人均产出</td><td>50台/人/天</td><td>200台/人/天</td><td>400台/人/天</td><td>人均产出提升来自两个因素：熟练度提升(学习曲线)和自动化替代——前者贡献60%，后者40%</td></tr>
+        <tr><td>直通率(Yield)</td><td>92-95%</td><td>97-98%</td><td>98.5%+</td><td>直通率每提升1%，单位成本下降约¥3-5（主要来自返工和报废减少）</td></tr>
+        <tr><td>不良返工率</td><td>5-8%</td><td>2-3%</td><td><1%</td><td>返工不是"免费"的——每次返工涉及拆机、检测、更换、复测，成本约为新产的30-50%</td></tr>
       </tbody>
     </table>
 
@@ -235,6 +235,67 @@ Step 4: 初步功能测试
       </div>
     </div>
 
+    <h2 class="section-subtitle">细微信号：制造良率与成本的非线性关系</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-chart-line"></i> 良率-成本曲线的隐藏拐点</div>
+      <div class="case-body">
+        <p><strong>直通率从92%提升到97%的成本是非线性的：</strong>前5个百分点的提升主要依靠工艺标准化和设备校准，投入约¥200万即可实现；但从97%到98.5%需要引入3D AOI、X-Ray全检和AI视觉检测，单条产线追加投资约¥500万，且需要更高等级的洁净车间。</p>
+        <p><strong>单位成本下降的边际递减效应：</strong>从试产(¥120)到量产爬坡(¥85)降幅30%，但从量产爬坡(¥85)到规模化(¥72)降幅仅15%。这意味着"满产"并非成本最优解——当良品率瓶颈未解决时，盲目扩产反而推高单台返工成本。</p>
+        <p><strong>对标日本电子制造业的经验：</strong>索尼Walkman在1990年代通过"模块化设计"将SMT贴片良率从91%提升至98.5%，关键是在设计阶段就引入DFM评审，而非等到量产阶段才补救。这印证了新制度经济学"事前制度设计优于事后监管"的观点。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">多学派交叉解读</h2>
+    <div class="school-view" style="background:rgba(26,82,118,0.06);border-left:3px solid #1A5276;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#1A5276"><i class="fas fa-user-tie"></i> 古典经济学视角（亚当·斯密）</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">制造流程的核心是劳动分工带来的效率提升。SMT贴片→模组组装→成品装配→测试→包装的流水线设计，本质上是斯密"制针工厂"理论的现代版本。但需要注意：过度细分工位可能导致工人技能单一化，降低柔性生产能力——这在需求快速迭代的可穿戴市场尤为致命。</p>
+    </div>
+    <div class="school-view" style="background:rgba(184,134,11,0.06);border-left:3px solid #B8860B;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#B8860B"><i class="fas fa-scroll"></i> 马克思主义政治经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">制造流程中的"自动化程度"变化反映了资本有机构成的提高——从手工装配到全自动CCD对位，不变资本（设备投资）占比上升，可变资本（劳动力）占比下降。这短期内提升利润率（人均产出从50台/天→400台/天），但长期面临"利润率趋向下降"规律：设备折旧加速+技术迭代导致沉没成本增加。ODM模式进一步将风险转移给代工厂，形成"品牌方轻资产+代工厂重资产"的全球价值链不平等。</p>
+    </div>
+    <div class="school-view" style="background:rgba(220,38,38,0.06);border-left:3px solid #dc2626;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#dc2626"><i class="fas fa-cogs"></i> 奥地利学派视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">大规模量产规划（10,000台/天）隐含了"理性人假设"的谬误——即假设市场需求是可精确预测的。哈耶克的知识分散理论指出，中央计划式的产能规划无法利用市场中分散的局部知识。更优策略是保持柔性产线（小批量PVT阶段的设计），通过市场信号（订单）逐步扩产，而非一次性重注。</p>
+    </div>
+    <div class="school-view" style="background:rgba(5,150,105,0.06);border-left:3px solid #059669;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#059669"><i class="fas fa-balance-scale"></i> 新制度经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">ODM模式的本质是交易成本权衡——自建工厂的固定成本高但内部协调成本低，ODM的外部协调成本高但固定投入低。威廉姆森的资产专用性理论指出：当传感器模组和防水工艺具有高度专用性（只能用于本产品）时，ODM模式会产生"敲竹杠"风险。建议关键工序（传感器校准、防水测试）保留自有产线，通用工序（SMT贴片）外包。</p>
+    </div>
+    <div class="school-view" style="background:rgba(124,58,237,0.06);border-left:3px solid #7c3aed;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#7c3aed"><i class="fas fa-flask"></i> 演化经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">制造流程是一个"变异-选择-保留"的演化过程。试产阶段的每一次良率波动都是"变异"，市场反馈（退货率、客诉）是"选择压力"，最终稳定的98.5%良率是"保留"下来的适应特征。关键在于：不要过早锁定工艺——日本电子产业在1980年代的教训是，过度优化现有制程（路径依赖）导致错失了SMT向COB（芯片-on-board）演进的技术窗口。</p>
+    </div>
+
+    <h2 class="section-subtitle">案例深挖：从DFM到MP的全流程踩坑记录</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-exclamation-triangle"></i> 案例：某手环项目PVT阶段的三大教训</div>
+      <div class="case-body">
+        <p><strong>教训一：防水设计的DFM盲区。</strong>某品牌手环在试产阶段气密性合格率仅85%，原因是结构设计时未考虑超声波焊接的振幅衰减——壳体边缘1mm处的焊接强度只有中心位置的60%。返工方案是修改焊接轨迹算法+增加辅助定位销，但导致上市推迟3周。<strong>核心教训：防水结构必须在3D设计阶段就做FEA仿真，不能等到模具开出来再测。</strong></p>
+        <p><strong>教训二：传感器校准的"环境漂移"。</strong>PPG光功率校准在25℃恒温环境下合格率达99%，但在实际产线（20-30℃波动）下合格率骤降至88%。原因是热电式光电二极管的暗电流随温度呈指数变化。解决方案是在校准软件中加入温度补偿算法，但这需要在烧录阶段额外增加15秒。<strong>核心教训：校准流程必须覆盖全工作温度范围，而非仅实验室条件。</strong></p>
+        <p><strong>教训三：电池焊接的"隐性失效"。</strong>PVT阶段电池虚焊导致的早期失效为0.3%，但量产爬坡阶段飙升至2.1%。根因是贴片机吸嘴磨损导致电池仓定位偏差±0.2mm，在AOI检测中无法识别（因为AOI只检PCBA，不检电池焊接）。<strong>核心教训：电池焊接需要独立的X-Ray抽检，不能仅依赖AOI。</strong></p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">发散引申链：从制造流程到产业链博弈</h2>
+    <div class="divergence-chain" style="background:rgba(124,58,237,0.04);border:1px dashed rgba(124,58,237,0.3);padding:14px 18px;margin-bottom:20px;border-radius:6px">
+      <p style="margin:0 0 8px;color:var(--purple);font-weight:600"><i class="fas fa-link"></i> 传导链：制造良率瓶颈 → 单位成本居高不下 → 终端定价缺乏竞争力 → 市场份额被头部品牌挤压 → 现金流紧张 → 研发投入削减</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>一级发散：</strong>中国制造的优势正在从"低成本劳动力"转向"完整供应链集群"。东莞-深圳300公里半径内可以完成从PCB打样、模具加工、SMT贴片到成品组装的全部工序，这是越南、印度无法复制的基础设施红利。</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>二级发散：</strong>但"集群优势"也有代价——土地租金上涨（松岗工业区租金从2018年¥35/㎡/月涨至2024年¥75/㎡/月）、产业工人老龄化（平均年龄从28岁升至36岁）、环保合规成本上升（VOCs排放治理投入增加¥50-100万/厂）。<strong>制造成本的红利正在收窄。</strong></p>
+      <p style="margin:0;color:var(--text2);font-size:13px"><strong>三级发散：</strong>应对策略：(1) 将低附加值工序（表带装配、包装）向内陆转移（贵州、河南）；(2) 核心工序（传感器校准、防水测试）保留在深圳以保持质量可控；(3) 通过DFM设计降低对人工的依赖（如用卡扣代替螺丝减少装配工位）。</p>
+    </div>
+
+    <h2 class="section-subtitle">💡 战略建议</h2>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 制造环节战略建议</div>
+      <div class="tip-body">
+        <p><strong>1. DFM前置：</strong>在ID设计冻结前就引入ODM工程团队参与DFM评审，重点审查防水结构、传感器安装公差、电池焊接可达性三大高风险点。</p>
+        <p><strong>2. 柔性优先于规模：</strong>首条产线按3,000台/天设计，保留扩产接口。验证产品-市场匹配后再追加产线——避免"产能过剩→降价清仓→毛利塌陷"的恶性循环。</p>
+        <p><strong>3. 关键工序自控：</strong>SMT贴片和表带装配可完全外包，但传感器校准和防水测试必须自有（或驻厂QC），这是产品质量的"最后一公里"。</p>
+        <p><strong>4. 良率目标分阶段：</strong>PVT目标95%（可接受返工），MP目标97%（控制成本），规模化目标98.5%（追求极致）。不要一开始就追求98.5%——那需要过度投资。</p>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-manufacturing"></div>
   </main>
   <footer class="page-footer">
@@ -247,20 +308,30 @@ Step 4: 初步功能测试
   <script src="../common/js/navigation.js"></script>
   <script>
     var chart = echarts.init(document.getElementById('chart-manufacturing'));
+    var gradGreen = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#34d399'}, {offset: 1, color: '#059669'}]);
+    var gradCyan = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#22d3ee'}, {offset: 1, color: '#0891b2'}]);
+    var gradAmber = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#fbbf24'}, {offset: 1, color: '#d97706'}]);
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['产能(千台/月)', '良品率(%)', '单位成本(元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
+      legend: { data: ['产能(千台/月)', '良品率(%)', '单位成本(元)', '返工率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
       grid: { left: 70, right: 70, top: 40, bottom: 40 },
       xAxis: { type: 'category', data: ['试产','小批量','量产爬坡','规模化'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: [
         { type: 'value', name: '(千台)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 105 }
+        { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 105 },
+        { type: 'value', name: '(元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 150 }
       ],
       series: [
-        { name: '产能(千台/月)', type: 'bar', data: [5, 15, 150, 300], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
-        { name: '良品率(%)', type: 'line', data: [90, 93, 97, 98.5], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 },
-        { name: '单位成本(元)', type: 'line', data: [120, 105, 85, 72], itemStyle: { color: '#f59e0b' }, smooth: true, yAxisIndex: 0 }
+        { name: '产能(千台/月)', type: 'bar', data: [5, 15, 150, 300], itemStyle: { color: gradCyan, borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0,
+          markPoint: { data: [{ type: 'max', name: '峰值产能', itemStyle: { color: '#06b6d4' } }] } },
+        { name: '良品率(%)', type: 'line', data: [90, 93, 97, 98.5], itemStyle: { color: gradGreen }, smooth: true, yAxisIndex: 1,
+          markPoint: { data: [{ coord: [3, 98.5], value: '目标达成', itemStyle: { color: '#059669' } }, { coord: [0, 90], value: '起点', itemStyle: { color: '#dc2626' } }] },
+          markLine: { data: [{ yAxis: 95, label: { formatter: '95%及格线' }, lineStyle: { type: 'dashed', color: '#f59e0b' } }] } },
+        { name: '单位成本(元)', type: 'line', data: [120, 105, 85, 72], itemStyle: { color: gradAmber }, smooth: true, yAxisIndex: 2,
+          markPoint: { data: [{ coord: [3, 72], value: '成本最低点', itemStyle: { color: '#d97706' } }] } },
+        { name: '返工率(%)', type: 'line', data: [8, 5, 2.5, 0.8], itemStyle: { color: '#dc2626' }, smooth: true, yAxisIndex: 1,
+          markPoint: { data: [{ coord: [3, 0.8], value: '<1%', itemStyle: { color: '#dc2626' } }] } }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

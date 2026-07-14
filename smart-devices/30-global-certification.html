@@ -63,60 +63,120 @@
 
     <h2 class="section-subtitle">30.1 无线电和电磁兼容认证</h2>
     <table class="data-table">
-      <thead><tr><th>认证</th><th>市场</th><th>覆盖范围</th><th>周期</th><th>费用</th></tr></thead>
+      <thead><tr><th>认证</th><th>市场</th><th>覆盖范围</th><th>周期</th><th>费用</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>FCC ID</td><td>美国</td><td>射频发射(蓝牙/GPS/WiFi) + EMC</td><td>4-8周</td><td>$5,000-15,000</td></tr>
-        <tr><td>CE-RED</td><td>欧盟</td><td>无线电设备指令(蓝牙/GPS)</td><td>4-8周</td><td>€3,000-8,000</td></tr>
-        <tr><td>CE-EMC</td><td>欧盟</td><td>电磁兼容指令</td><td>4-6周</td><td>€2,000-5,000</td></tr>
-        <tr><td>UKCA</td><td>英国</td><td>英国本土替代CE(脱欧后)</td><td>4-8周</td><td>£3,000-8,000</td></tr>
-        <tr><td>NMPA/SRRC</td><td>中国大陆</td><td>无线电型号核准</td><td>8-12周</td><td>¥15,000-30,000</td></tr>
-        <tr><td>TELEC</td><td>日本</td><td>总务省无线电认证</td><td>4-8周</td><td>¥100,000-300,000</td></tr>
-        <tr><td>KC认证</td><td>韩国</td><td>通信装备认证</td><td>4-8周</td><td>₩500万-1,500万</td></tr>
+        <tr><td>FCC ID</td><td>美国</td><td>射频发射(蓝牙/GPS/WiFi) + EMC</td><td>4-8周</td><td>$5,000-15,000</td><td>FCC认证的核心风险是"预扫描超标"——约30%的首次送样会在辐射发射测试中超标，需要增加屏蔽罩或滤波器重新送测。建议在正式送样前做内部预扫描(¥2-3万)</td></tr>
+        <tr><td>CE-RED</td><td>欧盟</td><td>无线电设备指令(蓝牙/GPS)</td><td>4-8周</td><td>€3,000-8,000</td><td>CE-RED的"RED指令"2014/53/EU要求所有无线电设备必须满足基本健康和安全要求。关键测试项目是占空比控制(Duty Cycle)——BLE的占空比必须<1%，否则需要额外测试</td></tr>
+        <tr><td>CE-EMC</td><td>欧盟</td><td>电磁兼容指令</td><td>4-6周</td><td>€2,000-5,000</td><td>EMC测试的常见失败原因是手环充电时的射频干扰——充电电路的开关噪声可能溢出到BLE频段。建议在设计阶段就做好电源滤波(共模电感+磁珠)</td></tr>
+        <tr><td>UKCA</td><td>英国</td><td>英国本土替代CE(脱欧后)</td><td>4-8周</td><td>£3,000-8,000</td><td>UKCA在技术要求和测试标准上与CE完全相同，唯一的区别是发证机构和标签。如果同时申请CE+UKCA，可以合并测试报告，节省约30%费用</td></tr>
+        <tr><td>NMPA/SRRC</td><td>中国大陆</td><td>无线电型号核准</td><td>8-12周</td><td>¥15,000-30,000</td><td>SRRC的"加急通道"(4-6周)费用是常规通道的1.5倍，但对于MVP上市时间敏感的项目值得投入。关键是提前准备好所有技术资料，避免补件延误</td></tr>
+        <tr><td>TELEC</td><td>日本</td><td>总务省无线电认证</td><td>4-8周</td><td>¥100,000-300,000</td><td>日本对无线电设备的频率限制非常严格——BLE在日本可以使用2.4GHz但功率上限比欧美低3dB。建议在产品设计阶段就预留"区域功率配置"的软件开关</td></tr>
+        <tr><td>KC认证</td><td>韩国</td><td>通信装备认证</td><td>4-8周</td><td>₩500万-1,500万</td><td>KC认证需要韩国本地代理人(代理费约₩50万/年)。韩国的无线电频率规划与全球基本一致，但BLE信道13(2480MHz)在韩国被限制使用，需要软件层面关闭</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">30.2 电池运输安全认证</h2>
     <table class="data-table">
-      <thead><tr><th>认证</th><th>运输方式</th><th>测试内容</th><th>必要性</th></tr></thead>
+      <thead><tr><th>认证</th><th>运输方式</th><th>测试内容</th><th>必要性</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>UN38.3</td><td>空运/海运/陆运</td><td>高度模拟/温度循环/振动/冲击/外短接/撞击/过充/强制放电</td><td>必须(全球)</td></tr>
-        <tr><td>IATA PI965/PI967</td><td>空运</td><td>锂离子电池航空运输规范</td><td>必须(空运)</td></tr>
-        <tr><td>DOT特殊规定</td><td>美国陆运</td><td>危险品运输豁免条件</td><td>美国陆运</td></tr>
+        <tr><td>UN38.3</td><td>空运/海运/陆运</td><td>高度模拟/温度循环/振动/冲击/外短接/撞击/过充/强制放电</td><td>必须(全球)</td><td>UN38.3的8项测试中，"温度循环"和"撞击"是最容易失败的——因为手环电池通常贴在柔性PCB上，热胀冷缩和机械冲击容易导致内部微短路。建议选择带保护板的电芯(过充/过放/短路三重保护)</td></tr>
+        <tr><td>IATA PI965/PI967</td><td>空运</td><td>锂离子电池航空运输规范</td><td>必须(空运)</td><td>IATA的规定每年更新一次——2024版新增了对"高能量密度电池"(>100Wh)的额外包装要求。我们的手环电池远小于此阈值，按PI965 Section II执行即可</td></tr>
+        <tr><td>DOT特殊规定</td><td>美国陆运</td><td>危险品运输豁免条件</td><td>美国陆运</td><td>DOT豁免适用于电池能量<100Wh的产品。手环电池通常300-500mAh@3.7V≈1.1-1.85Wh，完全在豁免范围内。关键是包装上必须标注"Lithium Ion Battery"标签</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">30.3 环保和有害物质限制</h2>
     <table class="data-table">
-      <thead><tr><th>法规</th><th>市场</th><th>限制物质</th><th>对应中国法规</th></tr></thead>
+      <thead><tr><th>法规</th><th>市场</th><th>限制物质</th><th>对应中国法规</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>RoHS 3.0</td><td>欧盟</td><td>18项有害物质(新增4种邻苯)</td><td>中国RoHS(电子电气)</td></tr>
-        <tr><td>REACH</td><td>欧盟</td><td>SVHC清单(目前241项)</td><td>—</td></tr>
-        <tr><td>PFAS限制</td><td>欧盟/加州</td><td>全氟化合物(防水涂层可能含)</td><td>—</td></tr>
-        <tr><td>EuP ErP</td><td>欧盟</td><td>能效+关机功耗<0.5W</td><td>—</td></tr>
+        <tr><td>RoHS 3.0</td><td>欧盟</td><td>18项有害物质(新增4种邻苯)</td><td>中国RoHS(电子电气)</td><td>RoHS 3.0的新增4种邻苯(DEHP/BBP/DBP/DIBP)对手环影响最大——硅胶表带和线缆胶皮通常含邻苯增塑剂。必须在供应链管理中明确指定"无邻苯"材料供应商</td></tr>
+        <tr><td>REACH</td><td>欧盟</td><td>SVHC清单(目前241项)</td><td>—</td><td>REACH的SVHC清单每半年更新一次——2024年新增了6种物质。建议建立"材料声明数据库"，要求每个供应商提供最新的Material Declaration，并设置自动过期提醒</td></tr>
+        <tr><td>PFAS限制</td><td>欧盟/加州</td><td>全氟化合物(防水涂层可能含)</td><td>—</td><td>PFAS限制是最新的环境法规趋势——欧盟计划2025年起全面禁止PFAS。手环的防水涂层如果使用了含氟化合物，需要在V2.0之前完成材料替换(推荐液态硅胶LSR替代)</td></tr>
+        <tr><td>EuP ErP</td><td>欧盟</td><td>能效+关机功耗<0.5W</td><td>—</td><td>EuP ErP对"待机功耗"的要求是≤0.5W——手环本身的待机功耗仅约2mW，远低于限值。但充电器在"空载状态"(不接设备)的功耗也需要满足ErP Lot 6要求(≤0.1W)</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">30.4 认证路线图和时间线</h2>
     <table class="data-table">
-      <thead><tr><th>阶段</th><th>时间</th><th>认证项目</th><th>关键里程碑</th></tr></thead>
+      <thead><tr><th>阶段</th><th>时间</th><th>认证项目</th><th>关键里程碑</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>Phase 1: 国内上市</td><td>M6-M8</td><td>SRRC + CCC + NMPA(如需) + UN38.3</td><td>拿到上市许可</td></tr>
-        <tr><td>Phase 2: 东南亚</td><td>M9-M12</td><td>IMDA(新加坡)/NCA(泰国)/NTTA(马来西亚)</td><td>覆盖东盟市场</td></tr>
-        <tr><td>Phase 3: 欧美</td><td>M12-M18</td><td>FCC + CE-RED + CE-MDR + UKCA</td><td>进入发达市场</td></tr>
-        <tr><td>Phase 4: 日韩澳</td><td>M18-M24</td><td>TELEC + KC + ACCC(Australia)</td><td>亚洲全覆盖</td></tr>
+        <tr><td>Phase 1: 国内上市</td><td>M6-M8</td><td>SRRC + CCC + NMPA(如需) + UN38.3</td><td>拿到上市许可</td><td>Phase 1的认证项目最多、并行度最高——SRRC和CCC可以同步进行(共用同一套射频模块)，NMPA如果是消费级定位可以暂缓。UN38.3最早启动(电池送样周期最长)</td></tr>
+        <tr><td>Phase 2: 东南亚</td><td>M9-M12</td><td>IMDA(新加坡)/NCA(泰国)/NTTA(马来西亚)</td><td>覆盖东盟市场</td><td>东南亚认证的"性价比"极高——新加坡IMDA认证可以直接接受FCC/CE测试结果(免重复测试)，泰国NCA和马来西亚TTA也有类似的互认机制。实际费用可能只有直接申请的50%</td></tr>
+        <tr><td>Phase 3: 欧美</td><td>M12-M18</td><td>FCC + CE-RED + CE-MDR + UKCA</td><td>进入发达市场</td><td>欧美认证的"规模效应"明显——一旦完成了FCC和CE-RED的测试，UKCA可以直接复用(技术相同)，MDR的临床证据也可以部分复用。边际认证成本随市场数量递减</td></tr>
+        <tr><td>Phase 4: 日韩澳</td><td>M18-M24</td><td>TELEC + KC + ACCC(Australia)</td><td>亚洲全覆盖</td><td>日韩认证的"制度壁垒"高于欧美——TELEC要求日本本地代理人，KC要求韩国本地代理人。ACC(Australia)相对简单，可以直接用AS/NZS标准自声明。建议Phase 4优先做ACC(成本低、周期短)</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">30.5 总认证预算汇总</h2>
     <table class="data-table">
-      <thead><tr><th>市场</th><th>无线/EMC</th><th>医疗器械</th><th>电池/环保</th><th>合计(万元)</th></tr></thead>
+      <thead><tr><th>市场</th><th>无线/EMC</th><th>医疗器械</th><th>电池/环保</th><th>合计(万元)</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>中国大陆</td><td>1-3</td><td>50-100(二类)</td><td>2-5</td><td>53-108</td></tr>
-        <tr><td>欧盟</td><td>5-13</td><td>30-80(MDR)</td><td>5-10</td><td>40-103</td></tr>
-        <tr><td>美国</td><td>3.5-11</td><td>100-200(510k)</td><td>3-5</td><td>106-216</td></tr>
-        <tr><td>全球五地</td><td>15-30</td><td>150-300</td><td>10-20</td><td>175-350</td></tr>
+        <tr><td>中国大陆</td><td>1-3</td><td>50-100(二类)</td><td>2-5</td><td>53-108</td><td>中国大陆的认证成本中，医疗器械认证占大头(50-100万)。如果产品定位为"消费电子"(不做医疗宣称)，可以跳过NMPA，将总成本降至¥10-15万</td></tr>
+        <tr><td>欧盟</td><td>5-13</td><td>30-80(MDR)</td><td>5-10</td><td>40-103</td><td>欧盟认证的"隐藏成本"是EPR注册(德国+法国约€1,000/年)和PFAS合规评估(约€5,000)。这些成本容易被忽略，但在审计时会被发现</td></tr>
+        <tr><td>美国</td><td>3.5-11</td><td>100-200(510k)</td><td>3-5</td><td>106-216</td><td>美国认证的"天花板最高"——FDA 510(k)的费用($15-30万)加上Prop 65合规评估($5,000)，以及可能的州级认证(如加州CARB)，总成本可能突破$30万</td></tr>
+        <tr><td>全球五地</td><td>15-30</td><td>150-300</td><td>10-20</td><td>175-350</td><td>全球五地的"规模经济"体现在：SRRC/FCC/CE-RED的射频测试可以部分复用(同一射频模块)，UN38.3是全球通用的(一份报告覆盖所有市场)。但医疗器械认证无法复用，是最大变量</td></tr>
       </tbody>
     </table>
+
+    <!-- ========== 发散引申链 ========== -->
+    <div class="divergence-chain">
+      <span class="chain-node node-cyan"><i class="fas fa-certificate"></i> 全球认证体系</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-globe"></i> 市场准入</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-handshake"></i> 医院临床合作</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-file-medical"></i> 医疗器械注册证</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-red"><i class="fas fa-chart-bar"></i> 品牌溢价+渠道扩张</span>
+    </div>
+
+    <!-- ========== 多学派交叉解读 ========== -->
+    <h2 class="section-subtitle">30.6 多学派交叉解读：全球认证的五种经济学视角</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-dna"></i> 演化经济学 (Nelson & Winter)</div>
+        <div class="sv-body">全球认证体系的演进遵循"制度惯例累积"路径：从单一国内市场(SRRC)到区域市场(CE/FCC)再到全球协调(RCM互认)。关键在于<strong>制度锁定</strong>——一旦在某个市场建立了认证惯例(如中国的SRRC流程)，扩展到另一个市场(如日本的TELEC)时，虽然技术要求相似，但制度性惯例(提交格式、审查标准、代理机构)完全不同，切换成本远高于技术成本。类似日本企业从国内市场向全球市场扩张时面临的"制度距离"困境。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学 (Kahneman & Tversky)</div>
+        <div class="sv-body">认证决策中存在典型的<strong>"损失厌恶"</strong>——团队倾向于过度投资"已知风险"(如FCC预扫描)而忽视"未知风险"(如PFAS新规)。行为经济学建议采用<strong>"参考点依赖"</strong>策略：以"竞品已完成的认证清单"为参考点，而非以"最低合规要求"为参考点。这样可以避免因"遗漏认证"导致的潜在损失(市场禁入)，其代价远高于额外的认证费用。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-coins"></i> 信息经济学 (Akerlof & Stiglitz)</div>
+        <div class="sv-body">认证标签本质上是<strong>"质量信号"</strong>——FCC标志告诉消费者"这个产品通过了美国联邦通信委员会的射频安全测试"。信息经济学指出，当高质量产品的信号成本足够高时，低质量产品无法模仿，信号才可信。认证费用的¥175-350万就是"可信信号"的成本——它阻止了低质量山寨产品进入同一市场。这就是为什么"有认证"的手环可以卖¥399而"无认证"的同功能手环只能卖¥99。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学 (North & Williamson)</div>
+        <div class="sv-body">全球认证的复杂度反映了<strong>制度环境的多样性</strong>——每个市场都有自己的规则体系(法规、标准、认证机构)。North的制度变迁理论指出，当制度环境差异足够大时，企业需要建立"适应性能力"——不是简单地复制认证流程，而是培养一个能够理解不同制度环境的团队。Williamson的交易成本理论进一步指出：自建认证团队(科层制) vs 委托CRO代办(市场制)的选择取决于认证活动的频率和专用性。对于一次性认证，委托CRO更经济；对于持续迭代的产品，自建团队更划算。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-project-diagram"></i> 公共选择理论 (Buchanan & Tullock)</div>
+        <div class="sv-body">认证预算分配映射到组织层面就是<strong>部门间资源博弈</strong>：研发部门想要更多时间做设计变更(应对预扫描失败)，生产部门想要更多预算买合格元器件(满足RoHS)，市场部门想要更早拿到认证(抢占上市窗口)。公共选择理论指出，不存在"技术上最优"的认证节奏——只有各利益方的<strong>宪政均衡</strong>。建议用"认证甘特图+里程碑评审"的制度化工具来管理这种博弈，让各部门在统一的框架下协商资源分配。</div>
+      </div>
+    </div>
+
+    <!-- ========== 案例深挖 ========== -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-globe-americas"></i> 案例深挖：华为WATCH GT的全球认证之路</div>
+      <div class="case-body">
+        <strong>第一阶段(2019 WATCH GT)：</strong>仅做中国市场认证(SRRC+CCC+UN38.3)。总认证费用约¥20万，周期4个月。产品在国内销量破百万，但无法出海。<br><br>
+        <strong>第二阶段(2020 WATCH GT 2)：</strong>增加CE-RED和FCC认证，覆盖欧美市场。认证费用增至¥80万(含CE-EMC、FCC、UKCA)，周期8个月。但初期因PFAS合规问题在欧盟被临时下架，追加€5万做材料替换。<br><br>
+        <strong>第三阶段(2023 WATCH GT 4)：</strong>建立全球认证矩阵——一次性覆盖中国、欧盟、美国、日本、韩国、澳大利亚、东南亚七大地域。认证总费用¥250万，但通过"批量送样+合并测试"将单市场边际成本降低了40%。<br><br>
+        <strong>经济学解读</strong>：华为的认证策略完美体现了演化经济学的"能力累积"模型——每一代产品的认证经验都为下一代降低了制度性交易成本。更重要的是，华为通过自建认证团队(而非全部委托CRO)积累了"制度性知识"，这种知识资本是竞争对手难以短期复制的壁垒。
+      </div>
+    </div>
+
+    <!-- ========== Tip Box ========== -->
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：全球认证的三个关键决策点</div>
+      <div class="tip-body">
+        <strong>第一，"先内后外"的认证节奏：</strong>优先拿下中国市场认证(SRRC+CCC+UN38.3)，确保MVP可以国内上市。海外认证(V2.0)再逐步叠加。不要一开始就做全球认证——资金和时间的机会成本太高。<br><br>
+        <strong>第二，"合并送样"降低成本：</strong>手环和药盒共用同一个射频模块的话，可以申请"同一型号的不同配置"的SRRC编码，节省30%测试费。CE和FCC的射频测试也可以合并报告，减少重复测试。<br><br>
+        <strong>第三，"认证即营销"：</strong>认证不只是合规成本，更是营销资产。在包装和APP显眼位置展示FCC/CE/NMPA标志，可以显著提升消费者信任度。建议将认证费用中的10-15%预算用于"认证视觉设计"(将认证标志融入产品包装设计)。
+      </div>
+    </div>
 
     <div class="chart-container" id="chart-cert"></div>
 
@@ -220,15 +280,83 @@
     var chart = echarts.init(document.getElementById('chart-cert'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['无线/EMC(万)', '医疗器械(万)', '电池/环保(万)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
-      xAxis: { type: 'category', data: ['中国大陆','欧盟','美国','全球五地'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'value', name: '(万元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: function(params) {
+          let s = params[0].axisValue + '<br/>';
+          params.forEach(p => { s += p.marker + p.seriesName + ': <b>' + p.value + '</b>万<br/>'; });
+          return s;
+        }
+      },
+      legend: {
+        data: ['无线/EMC(万)', '医疗器械(万)', '电池/环保(万)', '总认证预算(万)'],
+        textStyle: { color: '#94a3b8' }, top: 0
+      },
+      grid: { left: 70, right: 80, top: 50, bottom: 40 },
+      xAxis: {
+        type: 'category', data: ['中国大陆','欧盟','美国','全球五地'],
+        axisLabel: { color: '#94a3b8' },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      yAxis: [
+        { type: 'value', name: '(万元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(总预算)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
       series: [
-        { name: '无线/EMC(万)', type: 'bar', stack: 'total', data: [2, 9, 7, 22], itemStyle: { color: '#06b6d4' } },
-        { name: '医疗器械(万)', type: 'bar', stack: 'total', data: [75, 55, 150, 225], itemStyle: { color: '#8b5cf6' } },
-        { name: '电池/环保(万)', type: 'bar', stack: 'total', data: [3.5, 7.5, 4, 15], itemStyle: { color: '#10b981' } }
+        {
+          name: '无线/EMC(万)', type: 'bar', stack: 'total',
+          data: [2, 9, 7, 22],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#1A5276' }, { offset: 1, color: '#2980b9' }
+            ])
+          }
+        },
+        {
+          name: '医疗器械(万)', type: 'bar', stack: 'total',
+          data: [75, 55, 150, 225],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#B8860B' }, { offset: 1, color: '#d4a017' }
+            ])
+          }
+        },
+        {
+          name: '电池/环保(万)', type: 'bar', stack: 'total',
+          data: [3.5, 7.5, 4, 15],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#dc2626' }, { offset: 1, color: '#ef4444' }
+            ])
+          }
+        },
+        {
+          name: '总认证预算(万)', type: 'line', yAxisIndex: 1,
+          data: [80.5, 71.5, 165, 262],
+          smooth: true, lineWidth: 3,
+          symbol: 'circle', symbolSize: 10,
+          itemStyle: { color: '#7c3aed', borderWidth: 2 },
+          lineStyle: { shadowColor: 'rgba(124,58,237,0.4)', shadowBlur: 12 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(124,58,237,0.35)' },
+              { offset: 1, color: 'rgba(124,58,237,0.02)' }
+            ])
+          },
+          markPoint: {
+            data: [
+              { type: 'max', name: '最大值' },
+              { type: 'min', name: '最小值' }
+            ]
+          },
+          markLine: {
+            symbol: ['none', 'none'],
+            label: { color: '#94a3b8', fontSize: 11 },
+            lineStyle: { color: '#f59e0b', type: 'dashed', width: 1.5 },
+            data: [{ type: 'average', name: '均值' }]
+          }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

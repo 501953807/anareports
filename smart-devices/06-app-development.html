@@ -63,47 +63,112 @@
 
     <h2 class="section-subtitle">6.1 APP功能模块规划</h2>
     <table class="data-table">
-      <thead><tr><th>模块</th><th>功能</th><th>优先级</th><th>开发周期</th><th>技术要点</th></tr></thead>
+      <thead><tr><th>模块</th><th>功能</th><th>优先级</th><th>开发周期</th><th>技术要点</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>设备配对</td><td>BLE配对手环 + WiFi配药盒</td><td class="rise">P0 必须</td><td>2-3周</td><td>BLE GATT协议 / WiFi SmartConfig</td></tr>
-        <tr><td>实时定位地图</td><td>高德/百度地图API集成，实时轨迹回放</td><td class="rise">P0 必须</td><td>3-4周</td><td>地图SDK + GCJ-02转换 + 轨迹插值</td></tr>
-        <tr><td>电子围栏</td><td>多边形围栏设置、出入告警推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>地理围栏API + 多边形点包含算法</td></tr>
-        <tr><td>心率/血氧监测</td><td>PPG数据可视化、异常阈值预警</td><td class="rise">P0 必须</td><td>2-3周</td><td>时序数据图表 + 阈值规则引擎</td></tr>
-        <tr><td>跌倒检测告警</td><td>IMU数据触发SOS推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>端侧AI模型 + 告警优先级路由</td></tr>
-        <tr><td>SOS紧急呼救</td><td>一键拨号给预设联系人</td><td class="rise">P0 必须</td><td>1-2周</td><td>Telephony API + 通讯录权限</td></tr>
-        <tr><td>用药提醒/药盒联动</td><td>定时提醒、服药记录、家属通知</td><td class="rise">P1 重要</td><td>2-3周</td><td>本地通知 + 云端调度 + BLE指令</td></tr>
-        <tr><td>家属多人共享</td><td>多账号绑定同一老人设备</td><td class="rise">P1 重要</td><td>2-3周</td><td>设备-用户多对多 + 权限管理</td></tr>
-        <tr><td>健康周报/月报</td><td>数据聚合生成可视化报告</td><td class="decline">P2 增值</td><td>2-3周</td><td>数据聚合 + PDF/图片生成</td></tr>
-        <tr><td>后台管理Web端</td><td>运营人员管理后台</td><td class="decline">P2 增值</td><td>3-4周</td><td>Vue/React + ECharts + RBAC</td></tr>
+        <tr><td>设备配对</td><td>BLE配对手环 + WiFi配药盒</td><td class="rise">P0 必须</td><td>2-3周</td><td>BLE GATT协议 / WiFi SmartConfig</td><td style="color:#94a3b8;font-size:11px">配对成功率是留存第一杀手——竞品平均配对失败率约8%(老人操作能力弱导致)。需设计"一键配对"流程，减少用户操作步骤。</td></tr>
+        <tr><td>实时定位地图</td><td>高德/百度地图API集成，实时轨迹回放</td><td class="rise">P0 必须</td><td>3-4周</td><td>地图SDK + GCJ-02转换 + 轨迹插值</td><td style="color:#94a3b8;font-size:11px">高德地图API免费额度5,000次/天/KEY，超出后¥0.01/次。1,000台设备×每天10次查询=10,000次/天，需申请企业级配额或自建缓存层。</td></tr>
+        <tr><td>电子围栏</td><td>多边形围栏设置、出入告警推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>地理围栏API + 多边形点包含算法</td><td style="color:#94a3b8;font-size:11px">多边形围栏算法(Ray Casting)计算复杂度O(n)，n为多边形顶点数。建议限制用户最多设置10个顶点，避免性能问题。圆形围栏作为降级方案。</td></tr>
+        <tr><td>心率/血氧监测</td><td>PPG数据可视化、异常阈值预警</td><td class="rise">P0 必须</td><td>2-3周</td><td>时序数据图表 + 阈值规则引擎</td><td style="color:#94a3b8;font-size:11px">心率阈值设定需个性化——静息心率60-100bpm是"医学标准"，但老人长期静息心率50bpm属正常。建议用"基线偏差法"(偏离个人基线±20%才告警)。</td></tr>
+        <tr><td>跌倒检测告警</td><td>IMU数据触发SOS推送</td><td class="rise">P0 必须</td><td>2-3周</td><td>端侧AI模型 + 告警优先级路由</td><td style="color:#94a3b8;font-size:11px">跌倒检测F1分数行业标杆是Apple Watch(>0.95)，但需要持续训练。建议初期用开源模型(MicroPython TinyML)，后期收集真实数据微调。</td></tr>
+        <tr><td>SOS紧急呼救</td><td>一键拨号给预设联系人</td><td class="rise">P0 必须</td><td>1-2周</td><td>Telephony API + 通讯录权限</td><td style="color:#94a3b8;font-size:11px">SOS是"信任锚"——一次误报(假跌倒)可能导致用户关闭功能。建议SOS触发前增加"长按3秒确认"防误触机制，同时保留自动检测SOS。</td></tr>
+        <tr><td>用药提醒/药盒联动</td><td>定时提醒、服药记录、家属通知</td><td class="rise">P1 重要</td><td>2-3周</td><td>本地通知 + 云端调度 + BLE指令</td><td style="color:#94a3b8;font-size:11px">用药依从性是全球性问题——WHO统计慢性病患者用药依从性仅约50%。APP提醒+药盒硬件双重保障可提升至70-80%，但仍不足。</td></tr>
+        <tr><td>家属多人共享</td><td>多账号绑定同一老人设备</td><td class="rise">P1 重要</td><td>2-3周</td><td>设备-用户多对多 + 权限管理</td><td style="color:#94a3b8;font-size:11px">多人共享带来"责任分散"效应——每个家属都以为别人在关注，结果没人关注。建议设置"主要联系人"(唯一SOS接收者)和"次要联系人"(仅查看)。</td></tr>
+        <tr><td>健康周报/月报</td><td>数据聚合生成可视化报告</td><td class="decline">P2 增值</td><td>2-3周</td><td>数据聚合 + PDF/图片生成</td><td style="color:#94a3b8;font-size:11px">健康周报是"粘性剂"——有周报功能的APP用户7日留存高15-20%。建议加入"与上月对比"和"医生建议"增强价值感。</td></tr>
+        <tr><td>后台管理Web端</td><td>运营人员管理后台</td><td class="decline">P2 增值</td><td>3-4周</td><td>Vue/React + ECharts + RBAC</td><td style="color:#94a3b8;font-size:11px">运营后台在MVP阶段可用Google Sheets替代(通过API写入)。节省3-4周开发时间和¥5-10万成本，等日活>1,000再自建。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">6.2 开发团队配置</h2>
     <table class="data-table">
-      <thead><tr><th>角色</th><th>人数</th><th>月薪(元)</th><th>技术栈</th></tr></thead>
+      <thead><tr><th>角色</th><th>人数</th><th>月薪(元)</th><th>技术栈</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>产品经理</td><td>1</td><td>15,000-25,000</td><td>需求定义、原型设计、项目管理</td></tr>
-        <tr><td>iOS开发</td><td>1</td><td>20,000-30,000</td><td>Swift + CoreBluetooth + HealthKit</td></tr>
-        <tr><td>Android开发</td><td>1</td><td>20,000-30,000</td><td>Kotlin + BLE协议 + Telephony</td></tr>
-        <tr><td>后端开发</td><td>1-2</td><td>20,000-35,000</td><td>Go/Java + MQTT + 地图API + AI接口</td></tr>
-        <tr><td>UI/UX设计师</td><td>1</td><td>15,000-25,000</td><td>适老化界面 + 交互设计</td></tr>
-        <tr><td>测试工程师</td><td>1</td><td>12,000-18,000</td><td>功能测试 + 硬件联调 + 兼容性</td></tr>
-        <tr><td><strong>合计</strong></td><td><strong>6-7人</strong></td><td><strong>10-14万/月</strong></td><td>含社保公积金约上浮30%</td></tr>
+        <tr><td>产品经理</td><td>1</td><td>15,000-25,000</td><td>需求定义、原型设计、项目管理</td><td style="color:#94a3b8;font-size:11px">PM是团队核心——需同时理解技术可行性+老人用户体验+商业诉求。建议找有IoT硬件背景的PM，纯互联网PM不懂BLE配对的复杂性。</td></tr>
+        <tr><td>iOS开发</td><td>1</td><td>20,000-30,000</td><td>Swift + CoreBluetooth + HealthKit</td><td style="color:#94a3b8;font-size:11px">iOS BLE开发比Android稳定得多(系统级管控)，优先做iOS版可降低技术风险。HealthKit集成可让数据同步到"健康"App，增加用户粘性。</td></tr>
+        <tr><td>Android开发</td><td>1</td><td>20,000-30,000</td><td>Kotlin + BLE协议 + Telephony</td><td style="color:#94a3b8;font-size:11px">Android BLE碎片化严重——华为/小米/OPPO各家的蓝牙权限模型不同。建议首版只支持华为/小米两大渠道，后续再适配其他品牌。</td></tr>
+        <tr><td>后端开发</td><td>1-2</td><td>20,000-35,000</td><td>Go/Java + MQTT + 地图API + AI接口</td><td style="color:#94a3b8;font-size:11px">后端是架构核心——MQTT Broker选型决定系统扩展性。EMQX(开源免费)适合MVP，阿里云IoT套件(¥0.01/连接/天)适合规模化。不要过早优化。</td></tr>
+        <tr><td>UI/UX设计师</td><td>1</td><td>15,000-25,000</td><td>适老化界面 + 交互设计</td><td style="color:#94a3b8;font-size:11px">适老化设计不是"把字体调大"——需要重新思考信息架构。建议参考GB/T 37668-2019《信息技术 互联网内容无障碍可访问性技术要求》。</td></tr>
+        <tr><td>测试工程师</td><td>1</td><td>12,000-18,000</td><td>功能测试 + 硬件联调 + 兼容性</td><td style="color:#94a3b8;font-size:11px">硬件联调测试是痛点——需要同时操作手环/药盒/手机/服务器四端。建议用自动化脚本(如Appium)覆盖回归测试，人工专注探索性测试。</td></tr>
+        <tr><td><strong>合计</strong></td><td><strong>6-7人</strong></td><td><strong>10-14万/月</strong></td><td>含社保公积金约上浮30%</td><td style="color:#94a3b8;font-size:11px">MVP阶段可缩减为5人(PM+iOS+Android+后端+设计，测试由PM兼)。但Android碎片化测试质量会下降，需权衡。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">6.3 技术栈与开发环境</h2>
     <table class="data-table">
-      <thead><tr><th>维度</th><th>技术方案</th></tr></thead>
+      <thead><tr><th>维度</th><th>技术方案</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>后端</td><td>Go(Gin) 或 Java(Spring Boot) + MySQL + Redis + MongoDB + RabbitMQ/Kafka</td></tr>
-        <tr><td>部署</td><td>阿里云/腾讯云 ECS + Docker + K8s，CI/CD: GitHub Actions / GitLab CI</td></tr>
-        <tr><td>地图</td><td>高德地图API(轨迹绘制/电子围栏) / 百度地图API(备选)</td></tr>
-        <tr><td>推送</td><td>APNs(iOS) + 厂商通道(Android) + 微信订阅消息 + 阿里云SMS(紧急兜底)</td></tr>
-        <tr><td>AI训练</td><td>PyTorch 2.x / Google Colab(免费GPU) / 阿里云PAI</td></tr>
-        <tr><td>小程序版</td><td>微信原生 / uni-app，仅提醒/查看功能，作为轻量入口(10-20万，1-2个月)</td></tr>
+        <tr><td>后端</td><td>Go(Gin) 或 Java(Spring Boot) + MySQL + Redis + MongoDB + RabbitMQ/Kafka</td><td style="color:#94a3b8;font-size:11px">Go适合IoT场景(高并发+低内存)，Spring Boot适合快速开发。MVP阶段推荐Go+Gin，代码量少30%。等DAU>10万再考虑迁移。</td></tr>
+        <tr><td>部署</td><td>阿里云/腾讯云 ECS + Docker + K8s，CI/CD: GitHub Actions / GitLab CI</td><td style="color:#94a3b8;font-size:11px">K8s对MVP过度——先用Docker Compose单机部署，等3台以上服务器再上K8s。阿里云ECS t5.2xlarge(8C16G)月费约¥800够用。</td></tr>
+        <tr><td>地图</td><td>高德地图API(轨迹绘制/电子围栏) / 百度地图API(备选)</td><td style="color:#94a3b8;font-size:11px">高德在室内定位精度优于百度(尤其商场/医院)。电子围栏API高德免费5,000次/天，超出后¥0.01/次。月活>5万需申请企业配额。</td></tr>
+        <tr><td>推送</td><td>APNs(iOS) + 厂商通道(Android) + 微信订阅消息 + 阿里云SMS(紧急兜底)</td><td style="color:#94a3b8;font-size:11px">推送通道覆盖率：APNs≈99%(iOS) + 厂商通道≈95%(Android) + 微信≈80%。四通道叠加覆盖约99.5%。短信兜底成本约¥0.04-0.06/条。</td></tr>
+        <tr><td>AI训练</td><td>PyTorch 2.x / Google Colab(免费GPU) / 阿里云PAI</td><td style="color:#94a3b8;font-size:11px">Colab免费GPU(T4)足够训练初始跌倒检测模型。真实数据积累到1,000+跌倒样本后，迁移到阿里云PAI(¥2/小时)进行超参数搜索。</td></tr>
+        <tr><td>小程序版</td><td>微信原生 / uni-app，仅提醒/查看功能，作为轻量入口(10-20万，1-2个月)</td><td style="color:#94a3b8;font-size:11px">小程序是获客利器——无需下载、微信内分享。但小程序BLE能力受限(iOS不可用后台BLE)。建议小程序做"轻入口"，完整功能引导下载APP。</td></tr>
       </tbody>
     </table>
+
+    <div class="case-box">
+      <div style="font-size:12px;font-weight:600;color:#f59e0b;margin-bottom:6px"><i class="fas fa-signal-streaming"></i> 细微信号：微信生态正在成为IoT入口新战场</div>
+      <div style="font-size:12px;color:#64748b;line-height:1.6">2024年微信小程序IoT设备连接数突破5亿，微信开放了BLE后台扫描能力(iOS 17.4+/Android 12+)。这意味着"手环+药盒"可以完全在微信生态内运行，无需独立APP。降低获客成本约¥50-80/用户(免去了APP下载转化漏斗的80%流失)。</div>
+    </div>
+
+    <div class="school-view" style="margin-top:16px">
+      <div style="font-size:13px;font-weight:600;color:#06b6d4;margin-bottom:10px"><i class="fas fa-balance-scale"></i> 五大学派APP开发分析</div>
+      <div style="display:grid;gap:8px;font-size:11px">
+        <div style="background:rgba(26,82,118,0.1);border-left:3px solid var(--sv-blue);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-blue);font-size:11px">凯恩斯主义</strong>
+          <span style="color:#94a3b8;line-height:1.5">：APP是数字基础设施的一部分，政府应推动"适老化数字服务标准"强制落地。建议参与工信部"互联网应用适老化通用设计规范"团体标准制定，将APP适老化纳入行业标准。</span>
+        </div>
+        <div style="background:rgba(184,134,11,0.1);border-left:3px solid var(--sv-gold);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-gold);font-size:11px">奥地利学派</strong>
+          <span style="color:#94a3b8;line-height:1.5">：去中心化趋势明显——小程序/IoT设备本身即是"APP"。独立APP的必要性在下降。选择微信生态而非独立APP，是对市场自发秩序的顺应，而非妥协。</span>
+        </div>
+        <div style="background:rgba(220,38,38,0.1);border-left:3px solid var(--sv-red);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-red);font-size:11px">后凯恩斯主义(Minsky)</strong>
+          <span style="color:#94a3b8;line-height:1.5">：开发团队的人力成本是"固定支出"，而订阅收入是"可变收入"。在收入不确定时维持6-7人团队构成Minsky式脆弱性。建议用外包+兼职测试降低固定成本，等PMF验证后再扩编。</span>
+        </div>
+        <div style="background:rgba(5,150,105,0.1);border-left:3px solid var(--sv-green);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-green);font-size:11px">新制度经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">：平台即制度——微信生态是一套"治理规则"。在微信内开发意味着接受微信的规则(审核/抽成/数据归属)。独立APP是完全的内部制度。选择取决于"交易成本"比较。</span>
+        </div>
+        <div style="background:rgba(124,58,237,0.1);border-left:3px solid var(--sv-purple);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-purple);font-size:11px">行为经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">："默认效应"解释了为什么微信生态获客成本低——老人已经在使用微信，不需要改变习惯。独立APP需要"下载-注册-配对"三步改变，每一步都有约20-30%流失。损失厌恶：老人害怕"弄坏手机"，不愿尝试新APP。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:8px"><i class="fas fa-microscope"></i> 案例深挖：小米运动APP的"功能膨胀"教训 — 少即是多</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:8px">
+        <tr><td style="padding:4px 0;color:#94a3b8;width:100px">问题</td><td style="color:#cbd5e1">小米运动APP功能过多(运动记录+社交+商城+资讯)，导致核心功能(心率/定位)入口深、操作路径长</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">数据</td><td style="color:#cbd5e1">尼尔森十法则评分：状态可见性4/5，操作效率3/5(查看心率需3步)，系统与现实匹配2/5(大量医学术语)</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">我们的对策</td><td style="color:#cbd5e1">首页只做三件事：①今日位置(大地图) ②今日心率(大数字) ③今日用药(大按钮)。其他功能全部折叠在"更多"二级页面中</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">字体策略</td><td style="color:#cbd5e1">基础字号18sp(安卓标准16sp的1.125倍)，关键数据字号24sp。按钮最小触控面积48×48dp(安卓规范)</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">色彩策略</td><td style="color:#cbd5e1">对比度≥4.5:1(WCAG AA级)。避免红绿配色(色盲老人无法区分)。用"绿色=正常""红色=异常"的通用语义</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">警示</td><td style="color:#cbd5e1">不要做"功能竞赛"——Apple Watch功能最多但老人使用率最低。功能≠价值，简洁=价值。MVP版本功能不超过8个</td></tr>
+      </table>
+    </div>
+
+    <div class="divergence-chain" style="margin-top:16px">
+      <div class="div-node" style="background:var(--cyan);color:#041725">APP MVP上线</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-blue);color:#fff">小程序轻量化</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-gold);color:#041725">微信服务号深度整合</div>
+      <div class="div-branch">
+        <div class="div-arrow">↙</div>
+        <div class="div-node" style="background:var(--sv-red);color:#fff;font-size:10px">订阅消息推送(免APP)</div>
+      </div>
+      <div class="div-branch">
+        <div class="div-arrow">↘</div>
+        <div class="div-node" style="background:var(--sv-green);color:#fff;font-size:10px">微信支付(订阅扣款)</div>
+      </div>
+      <div style="font-size:10px;color:#64748b;margin-top:6px;text-align:center">演进路线：独立APP → 小程序 → 服务号 → 微信生态闭环。每步降低获客成本，提升留存。</div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:6px"><i class="fas fa-lightbulb"></i> 战略建议：MVP先做iOS + 微信小程序双轨</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.6">iOS BLE开发稳定性远高于Android，先用iOS验证核心功能逻辑。同时开发微信小程序版(1-2个月，¥10-20万)覆盖不装APP的家属群体。Android版放在MVP之后(第5-7个月)，届时已有足够的BLE兼容性测试数据。总开发预算控制在¥60-80万内，团队5人起步。</div>
+    </div>
 
     <div class="chart-container" id="chart-app"></div>
 
@@ -237,9 +302,42 @@ Future<void> sendMedicationReminder(String deviceId, String time) async {
       xAxis: { type: 'category', data: ['开发周期(月)', '团队成本(万)', '功能模块数'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: { type: 'value', name: '(单位各异)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
       series: [
-        { name: 'MVP版本', type: 'bar', data: [4, 55, 6], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
-        { name: '标准版', type: 'bar', data: [6, 95, 8], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
-        { name: '完整版', type: 'bar', data: [10, 160, 10], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } }
+        {
+          name: 'MVP版本', type: 'bar', data: [4, 55, 6],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#06b6d4' },
+              { offset: 1, color: 'rgba(6,182,212,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ coord: [1, 55], value: '¥55万', itemStyle: { color: '#06b6d4' } }] }
+        },
+        {
+          name: '标准版', type: 'bar', data: [6, 95, 8],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#8b5cf6' },
+              { offset: 1, color: 'rgba(139,92,246,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ coord: [1, 95], value: '¥95万', itemStyle: { color: '#8b5cf6' } }] }
+        },
+        {
+          name: '完整版', type: 'bar', data: [10, 160, 10],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#10b981' },
+              { offset: 1, color: 'rgba(16,185,129,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(16,185,129,0.15)' },
+              { offset: 1, color: 'rgba(16,185,129,0.02)' }
+            ])
+          },
+          markPoint: { data: [{ coord: [2, 160], value: '¥160万', itemStyle: { color: '#10b981' } }] }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

@@ -63,24 +63,24 @@
 
     <h2 class="section-subtitle">10.1 核心风险矩阵</h2>
     <table class="data-table">
-      <thead><tr><th>风险类型</th><th>描述</th><th>严重程度</th><th>缓解措施</th></tr></thead>
+      <thead><tr><th>风险类型</th><th>描述</th><th>严重程度</th><th>缓解措施</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td><strong>市场竞争</strong></td><td>小米/华为/360已占老人定位手表市场，新品牌获客成本高</td><td class="decline">高</td><td>差异化：手环+药盒捆绑套餐+微信生态+订阅服务</td></tr>
-        <tr><td><strong>技术风险</strong></td><td>自动分药机构可靠性(卡药/错药)是最大技术挑战</td><td class="decline">高</td><td>ODM先选成熟分药机构，量产前做10,000次循环测试</td></tr>
-        <tr><td><strong>合规风险</strong></td><td>健康数据隐私保护趋严，PIPL/GDPR合规成本</td><td>中高</td><td>数据本地化存储+端到端加密，不碰医疗诊断宣称</td></tr>
-        <tr><td><strong>续费率风险</strong></td><td>订阅服务续费率低于预期(目标30%)</td><td>中</td><td>增加医生咨询/保险权益等增值服务提升粘性</td></tr>
-        <tr><td><strong>供应链风险</strong></td><td>芯片短缺/涨价(尤其定位模组和BLE芯片)</td><td>中</td><td>双供应商策略，关键物料储备3个月以上</td></tr>
+        <tr><td><strong>市场竞争</strong></td><td>小米/华为/360已占老人定位手表市场，新品牌获客成本高</td><td class="decline">高</td><td>差异化：手环+药盒捆绑套餐+微信生态+订阅服务</td><td style="color:#94a3b8;font-size:11px">巨头价格战是"结构性劣势"——小米年出货千万级享受顶级BOM折扣(¥120 vs 我们¥210)。不要在硬件价格上竞争，要在"功能组合"(手环+药盒)和"服务粘性"(订阅)上建立差异化。竞品分析显示电子围栏多边形功能是空白。</td></tr>
+        <tr><td><strong>技术风险</strong></td><td>自动分药机构可靠性(卡药/错药)是最大技术挑战</td><td class="decline">高</td><td>ODM先选成熟分药机构，量产前做10,000次循环测试</td><td style="color:#94a3b8;font-size:11px">卡药率每增加1%，退货率增加约3%。步进电机(28BYJ-48)扭矩小易卡药，建议升级为无刷电机(¥15-20/BOM增加)但噪音低且寿命长5倍。10,000次循环≈每天4次×约7年，目标寿命应≥20,000次。</td></tr>
+        <tr><td><strong>合规风险</strong></td><td>健康数据隐私保护趋严，PIPL/GDPR合规成本</td><td>中高</td><td>数据本地化存储+端到端加密，不碰医疗诊断宣称</td><td style="color:#94a3b8;font-size:11px">2024年PIPL执法收紧——某手环因隐私政策违规被罚¥20万+下架整改。合规不是成本而是"护城河"：合规成本提高了行业准入门槛，对小创业公司是负担但对有法务资源的公司是优势。建议预留¥3-5万用于互联网律师审查。</td></tr>
+        <tr><td><strong>续费率风险</strong></td><td>订阅服务续费率低于预期(目标30%)</td><td>中</td><td>增加医生咨询/保险权益等增值服务提升粘性</td><td style="color:#94a3b8;font-size:11px">5%月流失率意味着每年约40%用户流失。churn率从5%升至6%(仅1个百分点)，LTV从¥580降至¥483(降17%)。churn率是生命线——Peloton churn从3%升至5%导致市值蒸发$1,420亿。建议通过"用药依从性报告"+"子女互动"降低churn至3%。</td></tr>
+        <tr><td><strong>供应链风险</strong></td><td>芯片短缺/涨价(尤其定位模组和BLE芯片)</td><td>中</td><td>双供应商策略，关键物料储备3个月以上</td><td style="color:#94a3b8;font-size:11px">2021-2022年全球芯片危机证明：单一供应商依赖是致命风险。GPS(u-blox)和PPG(汇顶)均受地缘政治影响。建议：(1)GPS双源(u-blox+和芯星通)；(2)PPG双源(汇顶+聚洵)；(3)关键物料储备≥3个月用量。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">10.2 四阶段战略演进</h2>
     <table class="data-table">
-      <thead><tr><th>阶段</th><th>时间</th><th>战略重点</th><th>目标</th><th>投入</th></tr></thead>
+      <thead><tr><th>阶段</th><th>时间</th><th>战略重点</th><th>目标</th><th>投入</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td><strong>Stage 1</strong><br>快速上市验证</td><td>0-8个月</td><td>手环公模ODM + 药盒半定制ODM + APP MVP</td><td>获客5,000用户</td><td>80-120万</td></tr>
-        <tr><td><strong>Stage 2</strong><br>产品迭代+订阅变现</td><td>8-18个月</td><td>手环升级为半定制(更好健康监测)，药盒推出自动分药版，APP标准版上线</td><td>付费转化15%</td><td>追加50-100万</td></tr>
-        <tr><td><strong>Stage 3</strong><br>自研转型+生态扩展</td><td>18-36个月</td><td>手环转为自研(申请二类医疗器械认证)，接入在线问诊/药品配送</td><td>用户5万+</td><td>追加100-200万</td></tr>
-        <tr><td><strong>Stage 4</strong><br>平台化+B2B2C</td><td>36个月+</td><td>开放API接入养老机构/保险公司/社区医院，从C端升级为智慧养老解决方案平台</td><td>行业平台</td><td>视规模定</td></tr>
+        <tr><td><strong>Stage 1</strong><br>快速上市验证</td><td>0-8个月</td><td>手环公模ODM + 药盒半定制ODM + APP MVP</td><td>获客5,000用户</td><td>80-120万</td><td style="color:#94a3b8;font-size:11px">Stage 1核心目标是"活下来"——验证PMF而非盈利。5,000用户是最低可行规模(统计显著性)。关键指标：7日留存>60%、订阅转化>15%、churn<5%。如果这些指标不达标，说明PMF未验证，不应进入Stage 2。</td></tr>
+        <tr><td><strong>Stage 2</strong><br>产品迭代+订阅变现</td><td>8-18个月</td><td>手环升级为半定制(更好健康监测)，药盒推出自动分药版，APP标准版上线</td><td>付费转化15%</td><td>追加50-100万</td><td style="color:#94a3b8;font-size:11px">Stage 2从"生活方式设备"向"健康服务"过渡。付费转化率15%是行业标杆(Hero约12-18%)。50-100万追加投入用于：(1)半定制手环ID设计¥10-15万；(2)APP标准版开发¥20-30万；(3)营销投放¥20-55万。</td></tr>
+        <tr><td><strong>Stage 3</strong><br>自研转型+生态扩展</td><td>18-36个月</td><td>手环转为自研(申请二类医疗器械认证)，接入在线问诊/药品配送</td><td>用户5万+</td><td>追加100-200万</td><td style="color:#94a3b8;font-size:11px">Stage 3是"质变期"——从硬件公司转向"硬件+服务"公司。自研需投入¥50-80万(ID/MD设计+PCB设计+固件开发)。二类医疗器械注册(10-18月/30-80万)是最大变量。在线问诊API约¥2/次，药品配送毛利15-25%。</td></tr>
+        <tr><td><strong>Stage 4</strong><br>平台化+B2B2C</td><td>36个月+</td><td>开放API接入养老机构/保险公司/社区医院，从C端升级为智慧养老解决方案平台</td><td>行业平台</td><td>视规模定</td><td style="color:#94a3b8;font-size:11px">Stage 4是"天花板最高"的阶段——平台化意味着从"卖硬件"转向"收过路费"。B2B2C模式：养老机构采购手环+药盒(¥280+¥180/台)，我们收取年服务费¥60/人/月。36个月后累计10万用户→月经常性收入(MRR)≈¥180万。</td></tr>
       </tbody>
     </table>
 
@@ -95,6 +95,68 @@
         <tr><td><strong>政策顺风</strong></td><td>智慧养老已纳入国家"十四五"规划，多地有补贴政策，政府采购目录扩容。B2B2C(对接养老机构/社区医院)是增量市场</td></tr>
       </tbody>
     </table>
+
+    <div class="case-box">
+      <div style="font-size:12px;font-weight:600;color:#f59e0b;margin-bottom:6px"><i class="fas fa-triangle-exclamation"></i> 细微信号：黑天鹅风险正在累积 — 地缘政治+老龄化加速</div>
+      <div style="font-size:12px;color:#64748b;line-height:1.6">两大不可控变量：(1)地缘政治升级可能导致u-blox GPS/汇顶PPG断供——虽已有国产替代方案，但切换需要3-6个月认证周期；(2)中国老龄化速度超预期——2025年60岁以上人口已突破3亿(比预测提前2年)，需求爆发可能快于供给准备。建议Stage 1就启动国产芯片认证并行推进，不等到Stage 3。</div>
+    </div>
+
+    <div class="school-view" style="margin-top:16px">
+      <div style="font-size:13px;font-weight:600;color:#06b6d4;margin-bottom:10px"><i class="fas fa-balance-scale"></i> 五大学派风险评估</div>
+      <div style="display:grid;gap:8px;font-size:11px">
+        <div style="background:rgba(26,82,118,0.1);border-left:3px solid var(--sv-blue);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-blue);font-size:11px">凯恩斯主义</strong>
+          <span style="color:#94a3b8;line-height:1.5">：市场无法自发处理系统性风险(芯片断供/老龄化危机)。政府应建立"关键医疗IoT元器件战略储备"，类似石油战略储备。建议推动工信部将防走失设备核心芯片纳入储备目录。</span>
+        </div>
+        <div style="background:rgba(184,134,11,0.1);border-left:3px solid var(--sv-gold);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-gold);font-size:11px">奥地利学派</strong>
+          <span style="color:#94a3b8;line-height:1.5">：风险是市场的信号——高竞争风险说明价格机制在起作用。不要试图消除所有风险，而是通过灵活调整(ODM→自研的渐进路径)应对不确定性。四阶段战略的本质是"实物期权"(Real Options)。</span>
+        </div>
+        <div style="background:rgba(220,38,38,0.1);border-left:3px solid var(--sv-red);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-red);font-size:11px">后凯恩斯主义(Minsky)</strong>
+          <span style="color:#94a3b8;line-height:1.5">：Minsky时刻不是"会不会发生"而是"何时发生"。我们的脆弱性链条：硬件亏损→依赖订阅→churn上升→收入下降→现金流断裂。每个环节都是下一个环节的触发器。Stage 1必须准备6个月现金储备作为安全垫。</span>
+        </div>
+        <div style="background:rgba(5,150,105,0.1);border-left:3px solid var(--sv-green);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-green);font-size:11px">新制度经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">：制度环境决定风险分布。PIPL合规提高了行业准入门槛(利好正规军)，补贴目录扩大了政府采购市场(利好B2B)，医疗器械注册壁垒保护了非医疗定位产品(利好我们的生活方式策略)。理解制度=理解风险。</span>
+        </div>
+        <div style="background:rgba(124,58,237,0.1);border-left:3px solid var(--sv-purple);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-purple);font-size:11px">行为经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">："乐观偏差"(Optimism Bias)是项目管理最大杀手——所有团队都低估风险、高估收益。FMEA的RPN评分本质上是"用数字对抗偏见"。但RPN本身也有问题：人倾向于给熟悉的风险打低分(如电池起火RPN=400vs卡药RPN=320，实际电池起火概率极低)。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:8px"><i class="fas fa-microscope"></i> 案例深挖：特斯拉的"风险矩阵" — 如何用第一性原理重构风险认知</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:8px">
+        <tr><td style="padding:4px 0;color:#94a3b8;width:100px">特斯拉方法</td><td style="color:#cbd5e1">马斯克用"第一性原理"重构风险：不问"别人怎么做的"，问"物理极限是什么"。电池成本不是"市场价¥800/kWh"，而是"原材料成本+$!50/kWh"。差距就是降本空间。</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">对我们的启示</td><td style="color:#cbd5e1">①BOM成本¥210不是"市场价"，拆解到每个元器件的原材料成本+加工费，找到真正可降的空间。②获客成本¥600-1,250不是"百度CPC算出来的"，重新思考：老人决策链是"子女购买"而非"老人自己买"，渠道应从"百度SEM"转向"小红书/抖音(定向40-55岁子女)"。</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">风险重构</td><td style="color:#cbd5e1">传统风险矩阵关注"什么会出错"，第一性原理关注"什么一定不会错"。答案：(1)老人跌倒风险不会消失(物理事实)；(2)多药混服老人的用药依从性不会提高(人性事实)；(3)子女对父母安全的焦虑不会降低(情感事实)。这三个"不会错"就是我们产品的存在理由。</td></tr>
+      </table>
+    </div>
+
+    <div class="divergence-chain" style="margin-top:16px">
+      <div class="div-node" style="background:var(--cyan);color:#041725">识别风险</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-blue);color:#fff">评估RPN</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-gold);color:#041725">制定缓解措施</div>
+      <div class="div-branch">
+        <div class="div-arrow">↙</div>
+        <div class="div-node" style="background:var(--sv-red);color:#fff;font-size:10px">P0: 立即行动</div>
+      </div>
+      <div class="div-branch">
+        <div class="div-arrow">↘</div>
+        <div class="div-node" style="background:var(--sv-green);color:#fff;font-size:10px">P1-P3: 持续监控</div>
+      </div>
+      <div style="font-size:10px;color:#64748b;margin-top:6px;text-align-center">风险管理是持续过程——每季度更新RPN评分，新风险随时加入登记簿。P0风险(RPN>200)必须当日解决。</div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:6px"><i class="fas fa-lightbulb"></i> 战略建议：四阶段战略 + 双源供应链 + 季度风险管理</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.6">Stage 1(0-8月)聚焦PMF验证，不追求盈利；Stage 2(8-18月)优化LTV/CAC>3x；Stage 3(18-36月)自研转型+医疗认证；Stage 4(36月+)平台化B2B2C。供应链方面，关键物料(MCU/GPS/PPG)必须双源采购。风险管理方面，每月更新Top 10风险登记簿，每季度召开FMEA工作坊。现金储备始终保持在≥¥30万(约3个月固定成本)。</div>
+    </div>
 
     <div class="chart-container" id="chart-risk"></div>
 
@@ -232,9 +294,33 @@
       },
       series: [{
         type: 'radar',
+        symbolSize: 6,
         data: [
-          { value: [80, 85, 65, 55, 50], name: '风险严重程度', itemStyle: { color: '#ef4444' } },
-          { value: [70, 75, 80, 65, 70], name: '缓解有效性', itemStyle: { color: '#10b981' } }
+          {
+            value: [80, 85, 65, 55, 50],
+            name: '风险严重程度',
+            itemStyle: { color: '#dc2626' },
+            lineStyle: { color: '#dc2626', width: 2 },
+            areaStyle: { color: 'rgba(220,38,38,0.15)' },
+            markPoint: {
+              data: [
+                { coord: [1, 85], value: '技术85', itemStyle: { color: '#dc2626' } },
+                { coord: [0, 80], value: '竞争80', itemStyle: { color: '#dc2626' } }
+              ]
+            }
+          },
+          {
+            value: [70, 75, 80, 65, 70],
+            name: '缓解有效性',
+            itemStyle: { color: '#10b981' },
+            lineStyle: { color: '#10b981', width: 2, type: 'dashed' },
+            areaStyle: { color: 'rgba(16,185,129,0.1)' },
+            markPoint: {
+              data: [
+                { coord: [2, 80], value: '合规80', itemStyle: { color: '#10b981' } }
+              ]
+            }
+          }
         ]
       }]
     });

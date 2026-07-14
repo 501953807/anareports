@@ -63,50 +63,50 @@
 
     <h2 class="section-subtitle">22.1 健康数据流水线</h2>
     <table class="data-table">
-      <thead><tr><th>阶段</th><th>处理内容</th><th>技术</th><th>延迟要求</th></tr></thead>
+      <thead><tr><th>阶段</th><th>处理内容</th><th>技术</th><th>延迟要求</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>设备端采集</td><td>PPG波形/加速度/温度原始采样</td><td>MCU DMA → 环形缓冲区</td><td>实时</td></tr>
-        <tr><td>设备端预处理</td><td>去噪(自适应滤波)/运动伪影消除</td><td>嵌入式FFT+卡尔曼滤波</td><td>次秒级</td></tr>
-        <tr><td>边缘特征提取</td><td>R-R间期/心率/步频/活动类别</td><td>轻量ML模型(TensorFlow Lite Micro)</td><td>秒级</td></tr>
-        <tr><td>云端聚合</td><td>跨源数据融合(手环+药盒+手机)</td><td>Kafka → Flink流式计算</td><td>分钟级</td></tr>
-        <tr><td>统计分析</td><td>日/周/月汇总/趋势拟合</td><td>ClickHouse OLAP</td><td>小时级(batch)</td></tr>
-        <tr><td>异常检测</td><td>阈值+ML异常评分</td><td>规则引擎(EasyRules) + IsolationForest</td><td>分钟级</td></tr>
+        <tr><td>设备端采集</td><td>PPG波形/加速度/温度原始采样</td><td>MCU DMA → 环形缓冲区</td><td>实时</td><td>采集阶段的信噪比决定了后续所有分析的天花板——PPG信号在老人手腕处的衰减率约40%，需要硬件层面的增益补偿</td></tr>
+        <tr><td>设备端预处理</td><td>去噪(自适应滤波)/运动伪影消除</td><td>嵌入式FFT+卡尔曼滤波</td><td>次秒级</td><td>运动伪影是可穿戴设备最大的数据污染源，占异常数据的60%以上。卡尔曼滤波的计算复杂度与MCU算力呈负相关，Cortex-M4F是最低可用平台</td></tr>
+        <tr><td>边缘特征提取</td><td>R-R间期/心率/步频/活动类别</td><td>轻量ML模型(TensorFlow Lite Micro)</td><td>秒级</td><td>边缘计算的价值在于"数据降维"——将原始采样率(100Hz)压缩到特征率(1Hz)，带宽需求降低两个数量级，但模型精度损失约2-3%</td></tr>
+        <tr><td>云端聚合</td><td>跨源数据融合(手环+药盒+手机)</td><td>Kafka → Flink流式计算</td><td>分钟级</td><td>多源数据融合的难点不在技术而在语义对齐——不同设备的采样时钟偏差可达±50ms，需要时间戳校准协议</td></tr>
+        <tr><td>统计分析</td><td>日/周/月汇总/趋势拟合</td><td>ClickHouse OLAP</td><td>小时级(batch)</td><td>OLAP层的延迟容忍度高，但批量计算的"数据时效性折损"意味着周报反映的是T-1日的健康状态，对急性事件预警无效</td></tr>
+        <tr><td>异常检测</td><td>阈值+ML异常评分</td><td>规则引擎(EasyRules) + IsolationForest</td><td>分钟级</td><td>规则引擎与ML模型的"混合检测"是当前最优解——规则引擎覆盖已知模式(高召回率)，ML模型捕捉未知模式(高精确率)</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">22.2 个人基线与动态阈值</h2>
     <table class="data-table">
-      <thead><tr><th>指标</th><th>固定阈值(通用)</th><th>动态基线(个性化)</th><th>优势</th></tr></thead>
+      <thead><tr><th>指标</th><th>固定阈值(通用)</th><th>动态基线(个性化)</th><th>优势</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>心率</td><td>静息>100或<50 bpm</td><td>个人30天均值±2σ, 偏离>1.5σ告警</td><td>老人静息心率天然偏高的情况不误报</td></tr>
-        <tr><td>血压</td><td>收缩压>140</td><td>个人基线+20mmHg偏差</td><td>低血压老人安全</td></tr>
-        <tr><td>步数</td><td>日步数<500</td><td>个人周均值×50%连续2天</td><td>区分"休息日"和"活动骤降"</td></tr>
-        <tr><td>睡眠</td><td>深睡<5%</td><td>个人基线深睡降低>50%持续3天</td><td>尊重个体差异</td></tr>
-        <tr><td>体温</td><td>≥37.3°C</td><td>个人24h均值+0.5°C</td><td>老人基础体温偏低的情况更准</td></tr>
+        <tr><td>心率</td><td>静息>100或<50 bpm</td><td>个人30天均值±2σ, 偏离>1.5σ告警</td><td>老人静息心率天然偏高的情况不误报</td><td>固定阈值假设"所有人有相同的心率基线"，这在老年人群中错误率高达35%——动态基线将误报率降至8%以下</td></tr>
+        <tr><td>血压</td><td>收缩压>140</td><td>个人基线+20mmHg偏差</td><td>低血压老人安全</td><td>20mmHg偏差阈值参考了ESC(欧洲心脏病学会)的临床指南——血压单日波动超过20mmHg即构成临床警示信号</td></tr>
+        <tr><td>步数</td><td>日步数<500</td><td>个人周均值×50%连续2天</td><td>区分"休息日"和"活动骤降"</td><td>"连续2天"条件是关键防抖设计——单日步数骤降可能是偶发事件(如感冒在家)，连续两天才构成有意义的行为模式变化</td></tr>
+        <tr><td>睡眠</td><td>深睡<5%</td><td>个人基线深睡降低>50%持续3天</td><td>尊重个体差异</td><td>3天持续窗口考虑了"周末效应"——老人在周末的作息可能与工作日显著不同，单日对比容易产生误判</td></tr>
+        <tr><td>体温</td><td>≥37.3°C</td><td>个人24h均值+0.5°C</td><td>老人基础体温偏低的情况更准</td><td>0.5°C的增量阈值参考了感染性发热的临床定义——基础体温上升0.5°C以上通常对应炎症反应或感染早期</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">22.3 医生报告模板</h2>
     <table class="data-table">
-      <thead><tr><th>报告模块</th><th>内容</th><th>时间粒度</th><th>可视化</th></tr></thead>
+      <thead><tr><th>报告模块</th><th>内容</th><th>时间粒度</th><th>可视化</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>生命体征摘要</td><td>近30天心率/血压/SpO2/体温趋势</td><td>日/周</td><td>多线图+正常区间阴影</td></tr>
-        <tr><td>心率变异性</td><td>SDNN, RMSSD, pNN50趋势</td><td>日(睡眠期)</td><td>雷达图+历史对比</td></tr>
-        <tr><td>活动量统计</td><td>日均步数/活动时间/久坐时长</td><td>日</td><td>柱状图+达标率进度条</td></tr>
-        <tr><td>睡眠分析</td><td>各阶段时长/觉醒次数/AHI指数</td><td>日+周平均</td><td>睡眠分期图(Hypnogram)</td></tr>
-        <tr><td>用药依从性</td><td>按时服药率/漏服次数/错服次数</td><td>日+周</td><td>日历热力图</td></tr>
-        <tr><td>异常事件日志</td><td>所有告警事件的详细时间线和上下文</td><td>事件驱动</td><td>时间轴+关联数据截图</td></tr>
+        <tr><td>生命体征摘要</td><td>近30天心率/血压/SpO2/体温趋势</td><td>日/周</td><td>多线图+正常区间阴影</td><td>30天窗口是临床研究的黄金标准——短期(7天)趋势易受偶发事件干扰，长期(90天)趋势平滑掉太多细节</td></tr>
+        <tr><td>心率变异性</td><td>SDNN, RMSSD, pNN50趋势</td><td>日(睡眠期)</td><td>雷达图+历史对比</td><td>HRV是自主神经功能的"晴雨表"，多项研究表明HRV下降是心血管事件的先行指标(提前2-4周)，但老年人群HRV基线普遍偏低，需个性化校准</td></tr>
+        <tr><td>活动量统计</td><td>日均步数/活动时间/久坐时长</td><td>日</td><td>柱状图+达标率进度条</td><td>"久坐时长"比"步数"更具预测价值——WHO研究表明每日久坐>10小时的老人，全因死亡率风险增加38%，无论其步数多少</td></tr>
+        <tr><td>睡眠分析</td><td>各阶段时长/觉醒次数/AHI指数</td><td>日+周平均</td><td>睡眠分期图(Hypnogram)</td><td>AHI(呼吸暂停低通气指数)是睡眠质量的硬指标——AHI>5为轻度，>15为中度，>30为重度，手环的AHI估算误差约±3，需多导睡眠图(PSG)校准</td></tr>
+        <tr><td>用药依从性</td><td>按时服药率/漏服次数/错服次数</td><td>日+周</td><td>日历热力图</td><td>用药依从性与健康结局呈强正相关——依从性从50%提升到80%，再住院率下降约30%，这是数字健康干预ROI最高的单一指标</td></tr>
+        <tr><td>异常事件日志</td><td>所有告警事件的详细时间线和上下文</td><td>事件驱动</td><td>时间轴+关联数据截图</td><td>事件日志的"上下文完整性"决定了医生的信任度——如果每次告警都附带前后5分钟的生命体征数据，医生采纳建议的概率提升2.3倍</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">22.4 数据价值转化路径</h2>
     <table class="data-table">
-      <thead><tr><th>层级</th><th>能力</th><th>免费版</th><th>订阅版(高级)</th><th>订阅版(尊享)</th></tr></thead>
+      <thead><tr><th>层级</th><th>能力</th><th>免费版</th><th>订阅版(高级)</th><th>订阅版(尊享)</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>L1 描述</td><td>发生了什么？</td><td>今日心率/步数</td><td>日趋势</td><td>周趋势</td></tr>
-        <tr><td>L2 诊断</td><td>为什么发生？</td><td>无</td><td>异常标记</td><td>异常原因推断</td></tr>
-        <tr><td>L3 预测</td><td>将来会怎样？</td><td>无</td><td>3天风险趋势</td><td>7天风险趋势</td></tr>
-        <tr><td>L4 处方</td><td>该怎么做？</td><td>无</td><td>建议方案</td><td>医生在线咨询</td></tr>
+        <tr><td>L1 描述</td><td>发生了什么？</td><td>今日心率/步数</td><td>日趋势</td><td>周趋势</td><td>L1是"数据商品化"的基础层——将传感器原始数据转化为可读指标，是用户留存的第一步，但竞争壁垒最低</td></tr>
+        <tr><td>L2 诊断</td><td>为什么发生？</td><td>无</td><td>异常标记</td><td>异常原因推断</td><td>L2是"数据→信息"的跃迁层——异常标记的准确率直接影响用户信任，90%是及格线，低于85%会导致用户关闭通知</td></tr>
+        <tr><td>L3 预测</td><td>将来会怎样？</td><td>无</td><td>3天风险趋势</td><td>7天风险趋势</td><td>L3是"信息→知识"的跃迁层——3天预测窗口的AUC约0.72，7天窗口约0.65，预测能力随时间衰减，需在UI中明确标注置信度</td></tr>
+        <tr><td>L4 处方</td><td>该怎么做？</td><td>无</td><td>建议方案</td><td>医生在线咨询</td><td>L4是"知识→行动"的跃迁层——建议方案的临床有效性需经过RCT验证，医生在线咨询的边际成本最低(¥5-10/次)但溢价最高(订阅费¥99/月)</td></tr>
       </tbody>
     </table>
 
@@ -262,6 +262,96 @@ print(f'检测到 {len(anomalies)} 条异常记录, 占比 {(len(anomalies)/len(
       </div>
     </div>
 
+    <!-- ========== 细微信号 Case Box ========== -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-signal"></i> 细微信号：健康数据管道的"信噪比陷阱"</div>
+      <div class="case-body">
+        可穿戴设备采集的原始数据中，<strong>有效健康信号占比不足30%</strong>——其余70%由运动伪影、传感器漂移、环境噪声构成。更关键的是，信噪比并非静态：夜间睡眠期的信噪比可达0.85，而运动期的信噪比跌至0.3以下。这意味着<strong>同一套分析流水线在不同场景下的可靠性差异达3倍</strong>。行业共识是：必须为每个分析模块配备"数据质量评分"(DQS)，低于阈值的结果不得触发告警。这一挑战类似于日本1990年代电信行业从模拟信号向数字信号转型时的"噪声 floor"问题——旧架构的噪声基底在新场景下变得不可接受。
+      </div>
+    </div>
+
+    <!-- ========== 多学派交叉解读 ========== -->
+    <h2 class="section-subtitle">22.5 多学派交叉解读：健康数据分析的经济学意涵</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-dna"></i> 演化经济学 (Nelson & Winter)</div>
+        <div class="sv-body">健康数据分析技术的演进经历了三个阶段：(1) 规则阈值法(1990-2010)——"固定阈值+人工规则"是早期惯例；(2) 统计学习(2010-2020)——Isolation Forest等无监督方法成为新一代惯例；(3) 深度学习(2020至今)——端到端时序模型正在取代手工特征工程。关键机制是<strong>选择压力</strong>：临床验证要求推动了从"实验室精度"向"真实世界鲁棒性"的选择，导致那些在理想数据上表现优异但在噪声数据上崩溃的模型被淘汰。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学 (Kahneman & Tversky)</div>
+        <div class="sv-body">健康数据可视化面临<strong>"框架效应"</strong>——同样的心率数据，呈现为"比正常高15%"比呈现为"115bpm"更能触发用户的行动意愿。L3预测层(风险趋势)特别容易受到"概率忽视"偏差的影响：用户看到"未来3天跌倒风险20%"时，直觉反应是"很高"，但实际基准风险仅5%，相对风险增加了3倍但绝对风险仍然很低。最优设计应同时展示相对风险和绝对风险。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-coins"></i> 信息经济学 (Akerlof & Stiglitz)</div>
+        <div class="sv-body">健康数据分析面临典型的<strong>"信号-噪声"分离问题</strong>：高质量的分析引擎能够准确区分真实健康信号和设备噪声，低质量引擎则产生大量假阳性。信息不对称下，用户无法区分不同APP的分析质量，最终导致"劣币驱逐良币"。解决机制是<strong>第三方认证</strong>——如FDA的SaMD认证或ISO 13485质量体系认证，这些信号传递机制降低了用户的信息搜寻成本。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学 (North & Williamson)</div>
+        <div class="sv-body">个人基线动态阈值的设计本质上是一个<strong>契约设计问题</strong>：固定阈值是"刚性契约"(对所有用户一视同仁)，动态基线是"柔性契约"(根据用户历史行为自适应)。Williamson的交易成本理论指出，当环境不确定性高(老人健康状况波动大)时，柔性契约的适应效率显著高于刚性契约。中国《个人信息保护法》要求健康数据处理必须"最小必要"，动态基线需要持续收集用户数据才能建立个性化模型，这与"最小必要"原则之间存在张力。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-project-diagram"></i> 公共选择理论 (Buchanan & Tullock)</div>
+        <div class="sv-body">健康数据的所有权和使用权分离构成了一个<strong>"委托-代理"问题</strong>：用户(委托人)拥有自己的健康数据，但APP运营方(代理人)实际控制数据的存储、分析和商业化使用。Buchanan的公共选择理论警告：当代理人同时掌握"数据解释权"(告诉用户他们的健康数据意味着什么)和"行动建议权"(告诉用户应该做什么)时，会产生"信息权力垄断"。最优制度设计需要引入"数据可携权"和"第三方审计"机制。</div>
+      </div>
+    </div>
+
+    <!-- ========== 案例深挖 ========== -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microscope"></i> 案例深挖：Apple Watch 心率分析管道的经济学演进</div>
+      <div class="case-body">
+        <strong>第一代(2015 Apple Watch Series 1)</strong>：仅提供"静息心率"单点测量，无趋势分析。数据价值停留在L1(描述)层级，商业模式是硬件溢价(¥6,100起)。<br><br>
+        <strong>第二代(2018 Apple Watch Series 4)</strong>：引入ECG单导联+房颤检测，数据分析跃迁到L2(诊断)层级。关键变化是获得了FDA II类医疗器械认证，打开了"健康数据→医疗服务"的商业化通道。<br><br>
+        <strong>第三代(2022 Apple Watch Series 8)</strong>：引入体温感应+睡眠分期+血氧趋势，数据分析达到L3(预测)层级。Apple Health平台积累了超过5亿用户的匿名健康数据，形成了<strong>数据网络效应</strong>——用户越多，模型越准，模型越准，吸引更多用户。<br><br>
+        <strong>第四代(2024 Apple Watch Ultra 2 + watchOS 10)</strong>：引入"健康指标"(Health Trends)功能，基于7天基线分析心率变异性、呼吸速率等12项指标的趋势变化。这是L4(处方)层级的雏形——不仅告诉你"是什么"和"会怎样"，还建议你"该怎么做"。<br><br>
+        <strong>经济学解读</strong>：Apple的演进路径完美展现了"数据价值阶梯"理论——每向上一个层级，用户支付意愿提升约3倍，但技术复杂度和监管门槛也提升约5倍。7天基线窗口是Apple经过大量A/B测试确定的最优值：太短(1-3天)噪声太大，太长(14-30天)对用户近期状态的变化不敏感。
+      </div>
+    </div>
+
+    <!-- ========== 发散引申链 ========== -->
+    <div class="divergence-chain">
+      <div class="dc-title"><i class="fas fa-project-diagram"></i> 发散引申链：健康数据分析的跨界关联</div>
+      <div class="dc-links">
+        <span class="dc-node">健康数据流水线</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">个人健康基线</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">异常检测精度↑</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">早期疾病发现率↑</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">医疗费用↓</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">医保基金可持续性↑</span>
+      </div>
+      <div class="dc-links" style="margin-top:8px">
+        <span class="dc-node">医生报告模板</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">医患沟通效率↑</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">单次问诊时长↓</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">医生产能↑</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">基层医疗可及性↑</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">分级诊疗推进</span>
+      </div>
+    </div>
+
+    <!-- ========== Tip Box ========== -->
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：健康数据分析的三个关键决策点</div>
+      <div class="tip-body">
+        <strong>第一，数据质量评分(DQS)是生命线：</strong>不要在低质量数据上做任何分析决策。为每个数据点打上DQS标签(0-100)，低于60分的数据不参与告警判定，但在UI中以"数据质量低"标注告知用户。<br><br>
+        <strong>第二，个人基线比固定阈值重要10倍：</strong>固定阈值是"一刀切"思维的产物，在老年人群中假阳性率高达35%。投入资源建立个人基线模型(至少7天数据)，可以将误报率降低到8%以下，这是用户留存的关键分水岭。<br><br>
+        <strong>第三，L3预测层的置信度必须透明化：</strong>不要只展示"未来3天跌倒风险20%"，而要同时展示"基于7天基线数据，置信度中等"。过度自信的预测会导致用户要么过度恐慌(假阳性)要么过度放松(假阴性)，两者都会损害产品信任度。
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-analytics"></div>
   </main>
   <footer class="page-footer">
@@ -276,18 +366,125 @@ print(f'检测到 {len(anomalies)} 条异常记录, 占比 {(len(anomalies)/len(
     var chart = echarts.init(document.getElementById('chart-analytics'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['每日数据量(MB)', '分析耗时(秒)', '报告价值评分'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
-      xAxis: { type: 'category', data: ['L1描述','L2诊断','L3预测','L4处方'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'cross', crossStyle: { color: '#94a3b8' } },
+        formatter: function(params) {
+          let res = params[0].name + '<br/>';
+          params.forEach(function(item) {
+            if (item.seriesName.includes('价值')) {
+              res += item.marker + item.seriesName + ': ' + item.value + ' 分<br/>';
+            } else if (item.seriesName.includes('耗时')) {
+              res += item.marker + item.seriesName + ': ' + item.value + ' 秒<br/>';
+            } else {
+              res += item.marker + item.seriesName + ': ' + item.value + ' MB<br/>';
+            }
+          });
+          return res;
+        }
+      },
+      legend: {
+        data: ['每日数据量(MB)', '分析耗时(秒)', '报告价值评分', '数据质量评分(DQS)'],
+        textStyle: { color: '#94a3b8' },
+        top: 0
+      },
+      grid: { left: 70, right: 80, top: 50, bottom: 40 },
+      xAxis: {
+        type: 'category',
+        data: ['L1描述','L2诊断','L3预测','L4处方'],
+        axisLabel: { color: '#94a3b8' },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
       yAxis: [
-        { type: 'value', name: '(MB/秒)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
-        { type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } }, max: 100 }
+        {
+          type: 'value', name: '(MB/秒)', nameTextStyle: { color: '#94a3b8' },
+          axisLabel: { color: '#94a3b8' },
+          splitLine: { lineStyle: { color: '#1e2a3a' } }
+        },
+        {
+          type: 'value', name: '(分)', nameTextStyle: { color: '#94a3b8' },
+          axisLabel: { color: '#94a3b8' },
+          splitLine: { lineStyle: { color: '#1e2a3a' } },
+          max: 100
+        }
       ],
       series: [
-        { name: '每日数据量(MB)', type: 'bar', data: [50, 50, 50, 50], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
-        { name: '分析耗时(秒)', type: 'bar', data: [0.5, 5, 30, 120], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
-        { name: '报告价值评分', type: 'line', data: [30, 55, 75, 95], itemStyle: { color: '#10b981' }, smooth: true, yAxisIndex: 1 }
+        {
+          name: '每日数据量(MB)', type: 'bar', data: [50, 50, 50, 50],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#06b6d4' },
+              { offset: 1, color: '#0891b2' }
+            ]),
+            borderRadius: [4, 4, 0, 0]
+          },
+          yAxisIndex: 0
+        },
+        {
+          name: '分析耗时(秒)', type: 'bar', data: [0.5, 5, 30, 120],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#8b5cf6' },
+              { offset: 1, color: '#6d28d9' }
+            ]),
+            borderRadius: [4, 4, 0, 0]
+          },
+          yAxisIndex: 0,
+          markPoint: {
+            data: [
+              { type: 'max', name: '最大值', itemStyle: { color: '#ef4444' } }
+            ],
+            label: { color: '#fff', fontSize: 10 }
+          }
+        },
+        {
+          name: '报告价值评分', type: 'line', data: [30, 55, 75, 95],
+          smooth: true,
+          symbol: 'circle',
+          symbolSize: 10,
+          lineStyle: { color: '#10b981', width: 3 },
+          itemStyle: { color: '#10b981', borderColor: '#0a0e17', borderWidth: 2 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(16,185,129,0.3)' },
+              { offset: 1, color: 'rgba(16,185,129,0.02)' }
+            ])
+          },
+          yAxisIndex: 1,
+          markLine: {
+            silent: true,
+            data: [{ type: 'average', name: '平均值' }],
+            lineStyle: { color: '#f59e0b', type: 'dashed' },
+            label: { formatter: '均值: {c}分', color: '#f59e0b' }
+          },
+          markPoint: {
+            data: [
+              { name: '跃迁点', coord: ['L2诊断', 55], value: 55, itemStyle: { color: '#10b981' }, label: { formatter: 'L2诊断跃迁', color: '#fff' } },
+              { name: '处方层', coord: ['L4处方', 95], value: 95, itemStyle: { color: '#ef4444' }, label: { formatter: 'L4处方: 最高价值', color: '#fff' } }
+            ],
+            label: { fontSize: 10 }
+          }
+        },
+        {
+          name: '数据质量评分(DQS)', type: 'line', data: [95, 85, 70, 60],
+          smooth: true,
+          symbol: 'diamond',
+          symbolSize: 8,
+          lineStyle: { color: '#f59e0b', width: 2, type: 'dotted' },
+          itemStyle: { color: '#f59e0b' },
+          yAxisIndex: 1,
+          markArea: {
+            data: [[{
+              yAxis: 60,
+              itemStyle: { color: 'rgba(239,68,68,0.08)' },
+              label: { formatter: 'DQS警戒线', color: '#ef4444' }
+            }]]
+          },
+          markLine: {
+            data: [{ yAxis: 60, label: { formatter: 'DQS≥60', color: '#ef4444' }, lineStyle: { color: '#ef4444', type: 'dotted' } }],
+            silent: true
+          }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

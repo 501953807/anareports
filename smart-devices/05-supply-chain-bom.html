@@ -63,67 +63,131 @@
 
     <h2 class="section-subtitle">5.1 ODM/方案商选型</h2>
     <table class="data-table">
-      <thead><tr><th>厂商</th><th>地点</th><th>专长</th><th>MOQ</th><th>开发周期</th><th>预估费用</th></tr></thead>
+      <thead><tr><th>厂商</th><th>地点</th><th>专长</th><th>MOQ</th><th>开发周期</th><th>预估费用</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>华勤技术</td><td>上海/深圳</td><td>智能手表/手环ODM龙头</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td></tr>
-        <tr><td>龙旗科技</td><td>上海/深圳</td><td>智能穿戴ODM</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td></tr>
-        <tr><td>天珑移动</td><td>深圳</td><td>海外智能穿戴ODM</td><td>3,000-5,000台</td><td>3-6个月</td><td>30-80万</td></tr>
-        <tr><td><strong>润科技术(推荐)</strong></td><td>深圳</td><td>智能手环/手表方案</td><td>1,000-3,000台</td><td>2-4个月</td><td>10-30万</td></tr>
-        <tr><td><strong>杰理科技(推荐)</strong></td><td>深圳</td><td>低价位方案商</td><td>500-1,000台</td><td>1-3个月</td><td>5-15万</td></tr>
+        <tr><td>华勤技术</td><td>上海/深圳</td><td>智能手表/手环ODM龙头</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td><td style="color:#94a3b8;font-size:11px">华勤是华为/小米的核心ODM，但对我们的3,000台首单兴趣有限——大客户对中小客户存在"服务歧视"。被冷落的风险高。</td></tr>
+        <tr><td>龙旗科技</td><td>上海/深圳</td><td>智能穿戴ODM</td><td>5,000-10,000台</td><td>3-6个月</td><td>50-100万</td><td style="color:#94a3b8;font-size:11px">龙旗2023年营收1,200亿，规模太大。小订单会被分配到初级团队，方案质量难以保证。建议NDA签署后再接触。</td></tr>
+        <tr><td>天珑移动</td><td>深圳</td><td>海外智能穿戴ODM</td><td>3,000-5,000台</td><td>3-6个月</td><td>30-80万</td><td style="color:#94a3b8;font-size:11px">天珑海外经验强(非洲/东南亚)，但国内渠道弱。如果目标市场包含出海，天珑是优选；纯国内市场则不推荐。</td></tr>
+        <tr><td><strong>润科技术(推荐)</strong></td><td>深圳</td><td>智能手环/手表方案</td><td>1,000-3,000台</td><td>2-4个月</td><td>10-30万</td><td style="color:#94a3b8;font-size:11px">润科专注中小品牌ODM，对3,000台首单有真实合作意愿。2-4个月开发周期适合MVP快速验证。建议优先接触。</td></tr>
+        <tr><td><strong>杰理科技(推荐)</strong></td><td>深圳</td><td>低价位方案商</td><td>500-1,000台</td><td>1-3个月</td><td>5-15万</td><td style="color:#94a3b8;font-size:11px">杰理以超低BOM闻名(蓝牙SoC自研)，但品控口碑一般。适合极早期概念验证，不建议作为量产供应商。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">5.2 智能手环BOM — 模块化归类(中等配置)</h2>
     <table class="data-table">
-      <thead><tr><th>模块</th><th>物料</th><th>成本(元)</th><th>供应商</th><th>10K批量折扣</th></tr></thead>
+      <thead><tr><th>模块</th><th>物料</th><th>成本(元)</th><th>供应商</th><th>10K批量折扣</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td rowspan="2">通信</td><td>Cat1模组(广和通L610-CM)</td><td>28-38</td><td>广和通</td><td>-20%</td></tr>
-        <tr><td>BLE SoC(nRF52810)</td><td>15-20</td><td>Nordic</td><td>-15%</td></tr>
-        <tr><td rowspan="2">定位</td><td>GPS/北斗(u-blox NEO-M9N)</td><td>65-90</td><td>u-blox(瑞士)</td><td>-15%</td></tr>
-        <tr><td>国产GPS(和芯星通UGN-7345)</td><td>25-40</td><td>和芯星通(国产)</td><td>-25%</td></tr>
-        <tr><td rowspan="2">健康监测</td><td>PPG/SpO2(汇顶GT3x)</td><td>40-60</td><td>汇顶(国产)</td><td>-20%</td></tr>
-        <tr><td>IMU(InvenSense ICM-42670)</td><td>25-35</td><td>InvenSense(TDK)</td><td>-15%</td></tr>
-        <tr><td rowspan="2">交互</td><td>1.14寸 IPS(ST7789)</td><td>8-15</td><td>天马/深天马</td><td>-10%</td></tr>
-        <tr><td>音频(喇叭+麦克风)</td><td>5-8</td><td>国产</td><td>-15%</td></tr>
-        <tr><td rowspan="2">主控+存储</td><td>MCU(兆易GD32E230)</td><td>7-12</td><td>兆易创新</td><td>-20%</td></tr>
-        <tr><td>Flash(W25Q64 8MB)</td><td>2-3</td><td>华邦</td><td>-10%</td></tr>
-        <tr><td rowspan="2">电源</td><td>锂电池(350mAh)</td><td>5-10</td><td>德赛/欣旺达</td><td>-15%</td></tr>
-        <tr><td>充电管理(IP5306)</td><td>2-4</td><td>智融科技</td><td>-20%</td></tr>
-        <tr><td rowspan="2">结构</td><td>外壳+表带(亲肤硅胶+PC+ABS)</td><td>8-15</td><td>国内模具厂</td><td>-10%</td></tr>
-        <tr><td>PCB+其他(4层FR-4)</td><td>10-16</td><td>深南电路</td><td>-15%</td></tr>
-        <tr><td colspan="2">组装测试(SMT+烧录+全检)</td><td>8-12</td><td>ODM厂</td><td>—</td></tr>
-        <tr><td colspan="2"><strong>合计BOM(国产GPS方案)</strong></td><td><strong>~188-268元</strong></td><td colspan="2">10K批量 → ~150-215元</td></tr>
+        <tr><td rowspan="2">通信</td><td>Cat1模组(广和通L610-CM)</td><td>28-38</td><td>广和通</td><td>-20%</td><td style="color:#94a3b8;font-size:11px">Cat1模组价格从2022年的¥60暴跌至¥28，是"4G退网+NB-IoT覆盖不足"政策推动的结果。窗口期可能只有1-2年。</td></tr>
+        <tr><td>BLE SoC(nRF52810)</td><td>15-20</td><td>Nordic</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">Nordic nRF52810生态成熟但价格偏高。国产替代Beken BK3431(¥8-12)性能接近，但蓝牙SIG认证需要额外¥5万。</td></tr>
+        <tr><td rowspan="2">定位</td><td>GPS/北斗(u-blox NEO-M9N)</td><td>65-90</td><td>u-blox(瑞士)</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">u-blox是精度标杆，但地缘政治风险——瑞士非欧盟成员国，供应链可能受多重制裁影响。建议备份国产方案。</td></tr>
+        <tr><td>国产GPS(和芯星通UGN-7345)</td><td>25-40</td><td>和芯星通(国产)</td><td>-25%</td><td style="color:#94a3b8;font-size:11px">和芯星通是中信博旗下，北斗三号芯片国内最强。精度略逊u-blox约1-2米，但对防走失场景完全够用。</td></tr>
+        <tr><td rowspan="2">健康监测</td><td>PPG/SpO2(汇顶GT3x)</td><td>40-60</td><td>汇顶(国产)</td><td>-20%</td><td style="color:#94a3b8;font-size:11px">汇顶GT3x在国产PPG中精度第一，与华为WATCH同方案。但2023年汇顶被美国BIS列入实体清单，未来供应有风险。</td></tr>
+        <tr><td>IMU(InvenSense ICM-42670)</td><td>25-35</td><td>InvenSense(TDK)</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">跌倒检测核心传感器。ICM-42670的DMP数字运动处理器可将跌倒识别算法放在芯片内运行，降低MCU功耗30%。</td></tr>
+        <tr><td rowspan="2">交互</td><td>1.14寸 IPS(ST7789)</td><td>8-15</td><td>天马/深天马</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">ST7789驱动芯片是最成熟的低成本方案。天马屏在亮度和视角上优于深天马，老人户外可读性更好。</td></tr>
+        <tr><td>音频(喇叭+麦克风)</td><td>5-8</td><td>国产</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">老人语音通话清晰度比音质更重要。选麦克风时关注SNR(信噪比)>60dB的型号，避免嘈杂环境听不清。</td></tr>
+        <tr><td rowspan="2">主控+存储</td><td>MCU(兆易GD32E230)</td><td>7-12</td><td>兆易创新</td><td>-20%</td><td style="color:#94a3b8;font-size:11px">兆易GD32是STM32的最佳国产替代。ARM Cortex-M3内核，性价比极高。但需注意：STM32固件库不能直接移植。</td></tr>
+        <tr><td>Flash(W25Q64 8MB)</td><td>2-3</td><td>华邦</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">8MB Flash足够存储固件+地图数据+健康历史。价格极低(¥2-3)，不是成本优化重点。</td></tr>
+        <tr><td rowspan="2">电源</td><td>锂电池(350mAh)</td><td>5-10</td><td>德赛/欣旺达</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">350mAh对应7天续航(典型使用)。注意：低温(-10°C)下锂电容量衰减40%，北方冬季需做低温补偿算法。</td></tr>
+        <tr><td>充电管理(IP5306)</td><td>2-4</td><td>智融科技</td><td>-20%</td><td style="color:#94a3b8;font-size:11px">IP5306支持PD快充，但老人可能不会用Type-C。考虑磁吸充电接口(增加¥2-3成本)提升易用性。</td></tr>
+        <tr><td rowspan="2">结构</td><td>外壳+表带(亲肤硅胶+PC+ABS)</td><td>8-15</td><td>国内模具厂</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">亲肤硅胶表带过敏率约2%(行业平均)。建议提供"硅胶+尼龙"双表带套装，降低过敏投诉。</td></tr>
+        <tr><td>PCB+其他(4层FR-4)</td><td>10-16</td><td>深南电路</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">深南电路是国内PCB龙头，但起订量大(≥500片)。3,000片首单建议用兴森快捷(起订量50片)。</td></tr>
+        <tr><td colspan="2">组装测试(SMT+烧录+全检)</td><td>8-12</td><td>ODM厂</td><td>—</td><td style="color:#94a3b8;font-size:11px">SMT加工费含¥3-5/板的编程费。全检(每板功能测试)增加¥2-3/板。10K批量可谈至¥8/板全包。</td></tr>
+        <tr><td colspan="2"><strong>合计BOM(国产GPS方案)</strong></td><td><strong>~188-268元</strong></td><td colspan="3">10K批量 → ~150-215元。关键变量：GPS方案选择决定±¥40差异</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">5.3 智能药盒BOM — 自动分药版</h2>
     <table class="data-table">
-      <thead><tr><th>模块</th><th>物料</th><th>成本(元)</th><th>供应商</th><th>10K批量折扣</th></tr></thead>
+      <thead><tr><th>模块</th><th>物料</th><th>成本(元)</th><th>供应商</th><th>10K批量折扣</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td rowspan="2">主控+通信</td><td>WiFi+BLE SoC(乐鑫ESP32-C3)</td><td>30-45</td><td>乐鑫(国产)</td><td>-15%</td></tr>
-        <tr><td>Flash(W25Q32)</td><td>2-3</td><td>华邦</td><td>-10%</td></tr>
-        <tr><td rowspan="2">分药机构</td><td>步进电机+驱动(28BYJ-48)</td><td>5-9</td><td>国产</td><td>-20%</td></tr>
-        <tr><td>旋转药仓+导轨(PETG)</td><td>8-15</td><td>国内塑胶厂</td><td>-10%</td></tr>
-        <tr><td rowspan="2">检测</td><td>光电+到位检测</td><td>3-5</td><td>国产</td><td>-15%</td></tr>
-        <tr><td>空仓检测(ITRB2800E)</td><td>3-5</td><td>国产</td><td>-15%</td></tr>
-        <tr><td rowspan="2">交互</td><td>语音TTS+喇叭(SYN5300)</td><td>12-22</td><td>国产</td><td>-15%</td></tr>
-        <tr><td>OLED(SSD1306 0.96寸)</td><td>8-15</td><td>国产</td><td>-10%</td></tr>
-        <tr><td rowspan="2">结构+电源</td><td>外壳(食品级阻燃ABS)</td><td>10-20</td><td>国内模具厂</td><td>-10%</td></tr>
-        <tr><td>PCB + 锂电池(2500mAh) + 充电管理</td><td>13-24</td><td>德赛/智融</td><td>-15%</td></tr>
-        <tr><td colspan="2">组装测试+包装</td><td>10-15</td><td>ODM厂</td><td>—</td></tr>
-        <tr><td colspan="2"><strong>合计BOM(自动分药版)</strong></td><td><strong>~102-171元</strong></td><td colspan="2">10K批量 → ~82-137元</td></tr>
+        <tr><td rowspan="2">主控+通信</td><td>WiFi+BLE SoC(乐鑫ESP32-C3)</td><td>30-45</td><td>乐鑫(国产)</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">ESP32-C3是IoT领域最成熟的国产SoC，社区资源丰富。但WiFi在老人家庭中可能不稳定(老旧路由器)，建议同时支持蓝牙直连手机。</td></tr>
+        <tr><td>Flash(W25Q32)</td><td>2-3</td><td>华邦</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">药盒不需要太多存储，W25Q32(4MB)足够。价格极低，不是成本优化重点。</td></tr>
+        <tr><td rowspan="2">分药机构</td><td>步进电机+驱动(28BYJ-48)</td><td>5-9</td><td>国产</td><td>-20%</td><td style="color:#94a3b8;font-size:11px">28BYJ-48是入门级步进电机，扭矩小但噪音大(约45dB)。老人夜间用药时噪音可能影响睡眠。建议升级到无刷电机(¥15-20)。</td></tr>
+        <tr><td>旋转药仓+导轨(PETG)</td><td>8-15</td><td>国内塑胶厂</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">PETG食品级材料，但耐磨性差。旋转药仓的齿轮磨损是主要失效模式，预计寿命约2年(每天4次用药)。</td></tr>
+        <tr><td rowspan="2">检测</td><td>光电+到位检测</td><td>3-5</td><td>国产</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">光电传感器用于检测药仓是否转动到位。精度要求不高，但抗干扰能力要测试——强光下可能误判。</td></tr>
+        <tr><td>空仓检测(ITRB2800E)</td><td>3-5</td><td>国产</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">红外反射式传感器，检测药格是否为空。漏检率约5%——药片颜色太深(如黑色胶囊)可能导致误判。</td></tr>
+        <tr><td rowspan="2">交互</td><td>语音TTS+喇叭(SYN5300)</td><td>12-22</td><td>国产</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">SYN5300是TTS芯片，发音清晰但音色机械。建议加入"情感化语音"(如"爷爷，该吃药啦~")提升老人接受度。</td></tr>
+        <tr><td>OLED(SSD1306 0.96寸)</td><td>8-15</td><td>国产</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">OLED对比度高、可视角度好，但长时间显示固定画面会"烧屏"。药盒界面变化少，建议改用IPS LCD。</td></tr>
+        <tr><td rowspan="2">结构+电源</td><td>外壳(食品级阻燃ABS)</td><td>10-20</td><td>国内模具厂</td><td>-10%</td><td style="color:#94a3b8;font-size:11px">食品级ABS是合规要求(GB 4806)。阻燃等级需达到V-0。模具费约¥3-5万(一次性)。</td></tr>
+        <tr><td>PCB + 锂电池(2500mAh) + 充电管理</td><td>13-24</td><td>德赛/智融</td><td>-15%</td><td style="color:#94a3b8;font-size:11px">药盒不需要频繁充电(待机约7天)，2500mAh够用。但锂电池体积较大，影响药盒内部空间利用率。</td></tr>
+        <tr><td colspan="2">组装测试+包装</td><td>10-15</td><td>ODM厂</td><td>—</td><td style="color:#94a3b8;font-size:11px">自动分药机构增加了组装复杂度，SMT后还需手工装配药仓。预计人工成本比手环高¥3-5/台。</td></tr>
+        <tr><td colspan="2"><strong>合计BOM(自动分药版)</strong></td><td><strong>~102-171元</strong></td><td colspan="3">10K批量 → ~82-137元。关键变量：步进电机升级无刷电机增加¥10-15 BOM</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">5.4 成本与定价全景</h2>
     <table class="data-table">
-      <thead><tr><th>产品</th><th>BOM成本</th><th>零售价</th><th>渠道价</th><th>单台毛利</th><th>毛利率</th></tr></thead>
+      <thead><tr><th>产品</th><th>BOM成本</th><th>零售价</th><th>渠道价</th><th>单台毛利</th><th>毛利率</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>智能手环(中档)</td><td>~188-230元</td><td>299-499元</td><td>180-250元</td><td>~70-150元</td><td>30-45%</td></tr>
-        <tr><td>智能药盒(自动分药)</td><td>~102-171元</td><td>299-499元</td><td>180-300元</td><td>~80-200元</td><td>30-50%</td></tr>
-        <tr><td>智能药盒(提醒型)</td><td>~30-50元</td><td>99-199元</td><td>60-120元</td><td>~40-80元</td><td>40-55%</td></tr>
+        <tr><td>智能手环(中档)</td><td>~188-230元</td><td>299-499元</td><td>180-250元</td><td>~70-150元</td><td>30-45%</td><td style="color:#94a3b8;font-size:11px">手环毛利率30-45%看似健康，但扣除营销(15%)+物流(5%)+售后(3%)后净利率仅7-22%。订阅转化率低则可能亏损。</td></tr>
+        <tr><td>智能药盒(自动分药)</td><td>~102-171元</td><td>299-499元</td><td>180-300元</td><td>~80-200元</td><td>30-50%</td><td style="color:#94a3b8;font-size:11px">自动分药药盒毛利率最高(30-50%)，因为市场空白溢价。但初期销量低(<5,000台/年)，无法享受规模折扣，实际毛利率可能低于表列。</td></tr>
+        <tr><td>智能药盒(提醒型)</td><td>~30-50元</td><td>99-199元</td><td>60-120元</td><td>~40-80元</td><td>40-55%</td><td style="color:#94a3b8;font-size:11px">提醒型药盒毛利率最高(40-55%)，但竞争最激烈。白牌压价到¥50以下，利润空间被严重压缩。不建议作为主力产品线。</td></tr>
       </tbody>
     </table>
+
+    <div class="case-box">
+      <div style="font-size:12px;font-weight:600;color:#f59e0b;margin-bottom:6px"><i class="fas fa-chart-line"></i> 细微信号：Cat1模组价格进入"成本洼地"</div>
+      <div style="font-size:12px;color:#64748b;line-height:1.6">Cat1模组从2022年¥60降至2026年¥28，降幅53%。驱动因素：(1)4G退网政策迫使NB-IoT无法完全替代；(2)广和通/芯讯单月出货超百万片，规模效应显现。但窗口期有限——RedCap技术预计2027年量产，Cat1将被逐步淘汰。建议锁定1-2年Cat1供应协议，同时启动RedCap预研。</div>
+    </div>
+
+    <div class="school-view" style="margin-top:16px">
+      <div style="font-size:13px;font-weight:600;color:#06b6d4;margin-bottom:10px"><i class="fas fa-balance-scale"></i> 五大学派供应链分析</div>
+      <div style="display:grid;gap:8px;font-size:11px">
+        <div style="background:rgba(26,82,118,0.1);border-left:3px solid var(--sv-blue);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-blue);font-size:11px">凯恩斯主义</strong>
+          <span style="color:#94a3b8;line-height:1.5">：供应链安全是公共品，政府应建立关键元器件战略储备。GPS芯片(u-blox)和PPG传感器(汇顶)受地缘政治影响，建议工信部将防走失设备核心元器件纳入"关键信息基础设施目录"，强制要求国产替代方案。</span>
+        </div>
+        <div style="background:rgba(184,134,11,0.1);border-left:3px solid var(--sv-gold);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-gold);font-size:11px">奥地利学派</strong>
+          <span style="color:#94a3b8;line-height:1.5">：价格信号告诉我们要用国产GPS(¥25-40)而非u-blox(¥65-90)。市场不需要"最好的"GPS，只需要"够用的"。过度追求精度是资源错配。杰理科技的超低BOM策略证明了低价方案的市场需求。</span>
+        </div>
+        <div style="background:rgba(220,38,38,0.1);border-left:3px solid var(--sv-red);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-red);font-size:11px">后凯恩斯主义(Minsky)</strong>
+          <span style="color:#94a3b8;line-height:1.5">：供应链脆弱性=金融脆弱性的物理版本。单一供应商依赖(u-blox GPS/汇顶 PPG)构成"庞氏融资"风险——一旦断供整个项目崩盘。必须建立双源采购(B Dual Sourcing)，即使成本增加10%也要分散风险。</span>
+        </div>
+        <div style="background:rgba(5,150,105,0.1);border-left:3px solid var(--sv-green);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-green);font-size:11px">新制度经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">：交易成本理论指导ODM选型——杰理MOQ 500台最低，但品控风险高(隐性成本高)；华勤MOQ 5,000台高，但质量有保障。选择ODM的本质是选择"治理结构"：市场型(杰理)vs层级型(华勤)vs混合型(润科)。</span>
+        </div>
+        <div style="background:rgba(124,58,237,0.1);border-left:3px solid var(--sv-purple);padding:8px 10px;border-radius:0 6px 6px 0">
+          <strong style="color:var(--sv-purple);font-size:11px">行为经济学</strong>
+          <span style="color:#94a3b8;line-height:1.5">：采购决策中的"锚定效应"——看到u-blox ¥65-90的价格后，和芯星通¥25-40显得"太便宜了"反而引发质量怀疑。这是典型的"低价=低质"启发式偏差。需用实测数据打破认知锚定。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:8px"><i class="fas fa-microscope"></i> 案例深挖：小米手环的供应链杠杆 — 规模如何碾压BOM成本</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:8px">
+        <tr><td style="padding:4px 0;color:#94a3b8;width:100px">小米手环9 Pro BOM</td><td style="color:#cbd5e1">估计~120元(出货量极大，享受顶级折扣)</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">我们的目标BOM</td><td style="color:#cbd5e1">~188-230元(3,000台首单，折扣有限)</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">差距来源</td><td style="color:#cbd5e1">小米年出货千万级，Cat1模组可压至¥20以下(nRF52810可压至¥10以下)，GPS模组因自研算法可降低对高价芯片依赖</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">应对策略</td><td style="color:#cbd5e1">①首批接受较高BOM，通过设计优化(减少物料种类)降本；②与ODM签"阶梯报价"协议——3K台¥210，10K台¥180，30K台¥155；③关键元器件(PPG/GPS)提前锁价6个月</td></tr>
+        <tr><td style="padding:4px 0;color:#94a3b8">警示</td><td style="color:#cbd5e1">不要试图在BOM上与小米正面竞争——规模差距是结构性劣势。竞争维度应转向"功能差异化"(电子围栏+SOS联动+自动分药)而非"价格竞争"</td></tr>
+      </table>
+    </div>
+
+    <div class="divergence-chain" style="margin-top:16px">
+      <div class="div-node" style="background:var(--cyan);color:#041725">ODM公模验证</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-blue);color:#fff">3K台上市跑通</div>
+      <div class="div-arrow">→</div>
+      <div class="div-node" style="background:var(--sv-gold);color:#041725">开模定制</div>
+      <div class="div-branch">
+        <div class="div-arrow">↙</div>
+        <div class="div-node" style="background:var(--sv-red);color:#fff;font-size:10px">模具费¥8-15万(一次性)</div>
+      </div>
+      <div class="div-branch">
+        <div class="div-arrow">↘</div>
+        <div class="div-node" style="background:var(--sv-green);color:#fff;font-size:10px">BOM再降15%(规模效应)</div>
+      </div>
+      <div style="font-size:10px;color:#64748b;margin-top:6px;text-align:center">阶段1(MVP):ODM公模 ¥10-30万 → 阶段2(增长):开模 ¥20-45万 → 阶段3(规模):自建产线 ¥200-500万</div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-bottom:6px"><i class="fas fa-lightbulb"></i> 战略建议：双源采购 + 阶梯报价锁定</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.6">关键元器件(GPS/PPG/通信模组)必须双源采购，避免单点故障。与ODM签署"阶梯报价"协议：3K台按表列价格，10K台下浮15%，30K台下浮20%。同时与1-2家核心供应商签订6-12个月价格锁定协议(Cat1模组/锂电池)，对冲原材料波动风险。总供应链前期投入控制在¥15-30万内。</div>
+    </div>
 
     <div class="chart-container" id="chart-bom"></div>
 
@@ -228,9 +292,42 @@
       xAxis: { type: 'category', data: ['手环(中档)', '药盒(自动分药)', '药盒(提醒型)'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: { type: 'value', name: '(元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
       series: [
-        { name: 'BOM成本(元)', type: 'bar', data: [210, 137, 40], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } },
-        { name: '渠道价(元)', type: 'bar', data: [215, 240, 90], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } },
-        { name: '零售价(元)', type: 'bar', data: [399, 399, 149], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } }
+        {
+          name: 'BOM成本(元)', type: 'bar', data: [210, 137, 40],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#dc2626' },
+              { offset: 1, color: 'rgba(220,38,38,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ coord: [0, 210], value: '¥210', itemStyle: { color: '#dc2626' } }] }
+        },
+        {
+          name: '渠道价(元)', type: 'bar', data: [215, 240, 90],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#f59e0b' },
+              { offset: 1, color: 'rgba(245,158,11,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ coord: [1, 240], value: '¥240', itemStyle: { color: '#f59e0b' } }] }
+        },
+        {
+          name: '零售价(元)', type: 'bar', data: [399, 399, 149],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#06b6d4' },
+              { offset: 1, color: 'rgba(6,182,212,0.4)' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(6,182,212,0.15)' },
+              { offset: 1, color: 'rgba(6,182,212,0.02)' }
+            ])
+          },
+          markPoint: { data: [{ coord: [0, 399], value: '¥399', itemStyle: { color: '#06b6d4' } }] }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

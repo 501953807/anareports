@@ -63,48 +63,106 @@
 
     <h2 class="section-subtitle">13.1 多卫星定位系统对比</h2>
     <table class="data-table">
-      <thead><tr><th>系统</th><th>卫星数</th><th>城市精度</th><th>室内可用</th><th>首次定位时间</th><th>功耗</th></tr></thead>
+      <thead><tr><th>系统</th><th>卫星数</th><th>城市精度</th><th>室内可用</th><th>首次定位时间</th><th>功耗</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>GPS(美国)</td><td>31颗</td><td>3-8米</td><td>不可用</td><td>30-45秒</td><td>高</td></tr>
-        <tr><td>北斗(BDS,中国)</td><td>59颗(GEO+IGSO+MEO)</td><td>2-5米</td><td>不可用</td><td>15-25秒</td><td>中高</td></tr>
-        <tr><td>GLONASS(俄罗斯)</td><td>24颗</td><td>4-10米</td><td>不可用</td><td>30-60秒</td><td>高</td></tr>
-        <tr><td>Galileo(欧盟)</td><td>26颗</td><td>1-3米</td><td>不可用</td><td>10-20秒</td><td>中</td></tr>
-        <tr><td>融合定位(BDS+GPS+GLONASS)</td><td>—</td><td>1-3米</td><td>不可用</td><td>5-15秒</td><td>最优</td></tr>
+        <tr><td>GPS(美国)</td><td>31颗</td><td>3-8米</td><td>不可用</td><td>30-45秒</td><td>高</td><td>GPS在东亚地区卫星仰角偏低（多数卫星在南方天空），城市峡谷效应严重。这是中国老人使用GPS手环时定位漂移的主要原因</td></tr>
+        <tr><td>北斗(BDS,中国)</td><td>59颗(GEO+IGSO+MEO)</td><td>2-5米</td><td>不可用</td><td>15-25秒</td><td>中高</td><td>北斗独有的GEO+IGSO双轨道设计在中国上空卫星密度最高——北京/上海等一线城市平均可见卫星数可达20+颗，精度优于GPS。国产手环优先优化北斗是战略选择</td></tr>
+        <tr><td>GLONASS(俄罗斯)</td><td>24颗</td><td>4-10米</td><td>不可用</td><td>30-60秒</td><td>高</td><td>GLONASS在高纬度地区表现更好（轨道倾角64.8度），但中国在中低纬度地区收益有限。建议国内产品默认关闭以省电</td></tr>
+        <tr><td>Galileo(欧盟)</td><td>26颗</td><td>1-3米</td><td>不可用</td><td>10-20秒</td><td>中</td><td>Galileo的E1频段与北斗B1同频，芯片可共用接收机节省成本。但中国境内Galileo卫星可见数有限，性价比不如BDS+GPS组合</td></tr>
+        <tr><td>融合定位(BDS+GPS+GLONASS)</td><td>—</td><td>1-3米</td><td>不可用</td><td>5-15秒</td><td>最优</td><td>多系统融合不是简单叠加——需要Kalman滤波或粒子滤波算法来加权各系统信号。UBLOX的Multi-GNSS方案是目前消费级最优解</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">13.2 LBS+Wi-Fi指纹辅助定位</h2>
     <table class="data-table">
-      <thead><tr><th>技术方案</th><th>精度</th><th>定位时间</th><th>功耗</th><th>适用场景</th><th>方案成本</th></tr></thead>
+      <thead><tr><th>技术方案</th><th>精度</th><th>定位时间</th><th>功耗</th><th>适用场景</th><th>方案成本</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>基站 triangulation</td><td>50-500米</td><td>3-10秒</td><td>极低</td><td>室外快速定位</td><td>免费(集成在GPS模组)</td></tr>
-        <tr><td>Wi-Fi RTT(Round Trip)</td><td>1-3米</td><td>5-15秒</td><td>低</td><td>室内商场/小区</td><td>+¥2(需802.11mc芯片)</td></tr>
-        <tr><td>Wi-Fi指纹匹配</td><td>5-20米</td><td>2-5秒</td><td>低</td><td>城市密集区域</td><td>需本地指纹库</td></tr>
-        <tr><td>iBeacon(蓝牙信标)</td><td>1-5米</td><td>1-3秒</td><td>极低</td><td>养老院/医院室内</td><td>需部署信标设备</td></tr>
+        <tr><td>基站 triangulation</td><td>50-500米</td><td>3-10秒</td><td>极低</td><td>室外快速定位</td><td>免费(集成在GPS模组)</td><td>基站定位精度取决于运营商基站密度——一线城市约50-100米，县城200-500米，农村>1公里。但它是GPS冷启动的"救命稻草"，在电梯/地下室等GPS完全失效的场景是唯一可用方案</td></tr>
+        <tr><td>Wi-Fi RTT(Round Trip)</td><td>1-3米</td><td>5-15秒</td><td>低</td><td>室内商场/小区</td><td>+¥2(需802.11mc芯片)</td><td>802.11mc(Wi-Fi Round Trip Time)需要AP端也支持，目前中国家庭路由器支持率<5%。但在养老院/医院等可控环境部署支持802.11mc的AP后，可实现厘米级室内定位</td></tr>
+        <tr><td>Wi-Fi指纹匹配</td><td>5-20米</td><td>2-5秒</td><td>低</td><td>城市密集区域</td><td>需本地指纹库</td><td>指纹匹配的本质是"Wi-Fi信号地图"——预先采集每个位置的Wi-Fi MAC地址+RSSI向量。高德/百度地图已覆盖主要城市，但养老院/老旧小区可能没有指纹数据</td></tr>
+        <tr><td>iBeacon(蓝牙信标)</td><td>1-5米</td><td>1-3秒</td><td>极低</td><td>养老院/医院室内</td><td>需部署信标设备</td><td>iBeacon是室内定位最成熟的方案——一个蓝牙信标¥20-50，电池寿命2-3年。日本养老机构普及率已达40%，中国还在起步阶段。关键瓶颈是部署成本和运维</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">13.3 电子围栏(Geofencing)设计</h2>
     <table class="data-table">
-      <thead><tr><th>围栏类型</th><th>触发条件</th><th>报警延迟</th><th>误报率控制</th></tr></thead>
+      <thead><tr><th>围栏类型</th><th>触发条件</th><th>报警延迟</th><th>误报率控制</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>固定围栏(家园/公园)</td><td>距离>500m持续3分钟</td><td><10秒</td><td>双重确认：2次定位间隔>500m</td></tr>
-        <tr><td>移动围栏(跟随老人)</td><td>与预设联系人距离>1km</td><td><15秒</td><td>运动状态判断：步行/乘车区分</td></tr>
-        <tr><td>越界围栏(养老院)</td><td>超出围栏范围+加速度计检测到行走</td><td><5秒</td><td>排除护士陪同外出场景</td></tr>
-        <tr><td>停留超时</td><td>同一位置停留>30分钟且非 home 地址</td><td>实时计算</td><td>结合心率异常判定为"摔倒/昏迷"</td></tr>
+        <tr><td>固定围栏(家园/公园)</td><td>距离>500m持续3分钟</td><td><10秒</td><td>双重确认：2次定位间隔>500m</td><td>3分钟延迟是关键参数——太短(30秒)会在老人散步到小区门口时误报，太长(10分钟)可能错过黄金寻找时间。500米半径覆盖了大多数社区老人的日常活动范围</td></tr>
+        <tr><td>移动围栏(跟随老人)</td><td>与预设联系人距离>1km</td><td><15秒</td><td>运动状态判断：步行/乘车区分</td><td>移动围栏的难点是区分"正常出行"和"走失"——老人去菜市场(步行500m)和坐错车(乘车10km)同样触发围栏，但紧急程度完全不同。加速度计+速度阈值可以辅助判断</td></tr>
+        <tr><td>越界围栏(养老院)</td><td>超出围栏范围+加速度计检测到行走</td><td><5秒</td><td>排除护士陪同外出场景</td><td>养老院场景的围栏需要"授权机制"——护士用APP扫码解除围栏后允许老人外出，返回后自动恢复。否则每天都会有大量误报</td></tr>
+        <tr><td>停留超时</td><td>同一位置停留>30分钟且非 home 地址</td><td>实时计算</td><td>结合心率异常判定为"摔倒/昏迷"</td><td>这是最容易被忽视但最有价值的功能——老人在陌生地点突然静止不动，可能是摔倒、突发疾病或遭遇意外。结合心率骤降可大幅提升预警准确率</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">13.4 SOS紧急求助机制</h2>
     <table class="data-table">
-      <thead><tr><th>触发方式</th><th>优先级</th><th>定位精度</th><th>通知链路</th></tr></thead>
+      <thead><tr><th>触发方式</th><th>优先级</th><th>定位精度</th><th>通知链路</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>长按SOS键3秒</td><td>P0</td><td>融合定位(1-3米)</td><td>立即通知所有紧急联系人+发送实时位置</td></tr>
-        <tr><td>检测到摔倒+无响应</td><td>P0</td><td>融合定位</td><td>通知紧急联系人，1分钟未确认升级120联动</td></tr>
-        <tr><td>超出围栏</td><td>P1</td><td>GPS+LBS(5-10米)</td><td>APP推送通知子女端</td></tr>
-        <tr><td>心率异常+无运动</td><td>P0</td><td>最后已知位置</td><td>通知紧急联系人+健康报告附定位</td></tr>
+        <tr><td>长按SOS键3秒</td><td>P0</td><td>融合定位(1-3米)</td><td>立即通知所有紧急联系人+发送实时位置</td><td>SOS键需要防误触设计——3秒长按是平衡"快速触发"和"防止口袋误触"的关键。建议同时要求连续按压3次才能确认，避免老人无意中按到</td></tr>
+        <tr><td>检测到摔倒+无响应</td><td>P0</td><td>融合定位</td><td>通知紧急联系人，1分钟未确认升级120联动</td><td>摔倒检测的假阳性率是最大痛点——老人只是弯腰捡东西可能被误判为摔倒。解决方案：加速度计检测冲击(>2.5g) + 姿态变化(从站立到水平) + 后续无运动(30秒)，三重条件同时满足才触发</td></tr>
+        <tr><td>超出围栏</td><td>P1</td><td>GPS+LBS(5-10米)</td><td>APP推送通知子女端</td><td>围栏报警的"黄金处理时间"是30分钟——老人走失后前30分钟找到概率最高(80%+)，之后每过一小时下降15%。因此围栏触发后的前3条通知必须在60秒内送达</td></tr>
+        <tr><td>心率异常+无运动</td><td>P0</td><td>最后已知位置</td><td>通知紧急联系人+健康报告附定位</td><td>这是"心率+GPS"多模态融合的典型案例——单独心率异常可能是误报，但"心率异常+长时间静止+不在家"的组合预警价值极高，可能提示心梗或中风</td></tr>
       </tbody>
     </table>
+
+    <h2 class="section-subtitle">细微信号：2025年定位技术最新突破</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-satellite-dish"></i> 关键信号监测（截至2025年中）</div>
+      <div class="case-body">
+        <p><strong>北斗三号全球组网完成：</strong>2025年北斗系统在全球范围内提供开放服务，中国境内可见卫星数从BDSII的14颗提升到BDS3的20+颗。城市峡谷定位精度从8米提升到3米以内，这是手环定位精度的"硬件天花板"提升。</p>
+        <p><strong>卫星直连手机技术下沉：</strong>华为Mate 60 Pro支持北斗短报文，2025年小米15 Ultra进一步支持双向卫星通信。这意味着即使没有蜂窝网络覆盖，老人手环也能通过卫星发送位置信息——对山区/海岛老人是革命性功能。</p>
+        <p><strong>室内定位标准出台：</strong>2025年工信部发布《室内定位精度分级与测试方法》，规定Wi-Fi RTT室内定位精度等级：一级(≤1米)、二级(≤3米)、三级(≤10米)。手环产品可以标注"符合XX级室内定位标准"作为差异化卖点。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">📊 多学派交叉解读</h2>
+    <div class="school-view" style="background:rgba(26,82,118,0.06);border-left:3px solid #1A5276;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#1A5276"><i class="fas fa-user-tie"></i> 凯恩斯主义视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">GPS手环定位是"公共品私人化供给"的典型——北斗卫星系统是国家级公共基础设施，但基于它的手环定位服务是市场化产品。凯恩斯主义者会主张：政府应该像投资高铁一样投资定位基础设施(如城市级Wi-Fi指纹库)，降低企业的定位数据获取成本。</p>
+    </div>
+    <div class="school-view" style="background:rgba(184,134,11,0.06);border-left:3px solid #B8860B;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#B8860B"><i class="fas fa-scroll"></i> 马克思主义政治经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">GPS定位手环将"空间"变成了可交易的商品——老人的活动轨迹被持续采集、分析、变现。这本质上是"空间剥削"：老人无偿贡献了自己的移动数据，而手环厂商和保险公司从中获利。**定位追踪的悖论：保护老人的工具同时也是监控老人的武器。**</p>
+    </div>
+    <div class="school-view" style="background:rgba(220,38,38,0.06);border-left:3px solid #dc2626;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#dc2626"><i class="fas fa-brain"></i> 行为经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">电子围栏创造了"全景敞视"效应——老人知道自己被实时追踪，会不自觉地改变行为(不去远处、不走偏僻小路)。这种"被监视感"对认知障碍老人可能是安慰(减少游荡)，但对意识清醒的老人可能损害自主感和尊严。需要平衡"安全"和"自由"。</p>
+    </div>
+    <div class="school-view" style="background:rgba(5,150,105,0.06);border-left:3px solid #059669;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#059669"><i class="fas fa-leaf"></i> 生态经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">GPS模组的稀土依赖链：钕铁硼磁铁(北斗天线)→镝(高温稳定性)→铟(GPS芯片ITO靶材)。中国控制了全球80%的稀土加工产能，但开采过程造成严重环境污染(放射性废料)。一颗GPS手环的隐性环境成本约¥3-5，主要来自稀土开采和芯片制造。</p>
+    </div>
+    <div class="school-view" style="background:rgba(124,58,237,0.06);border-left:3px solid #7c3aed;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#7c3aed"><i class="fas fa-university"></i> 新制度经济学视角</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">GPS定位数据的产权归属是一个典型的"制度空白"问题——目前中国法律没有明确规定可穿戴设备采集的位置数据归谁所有(用户？设备厂商？平台方？)。欧盟GDPR将其归类为"特殊类别个人数据"，需要明示同意。中国《个人信息保护法》第28条也将行踪轨迹列为敏感个人信息。</p>
+    </div>
+    <div class="school-view" style="background:rgba(6,182,212,0.06);border-left:3px solid #06b6d4;padding:12px 16px;margin-bottom:12px;border-radius:4px">
+      <strong style="color:#06b6d4"><i class="fas fa-balance-scale"></i> 各学派盲点暴露</strong>
+      <p style="margin:6px 0 0;color:var(--text2)">所有学派都忽略了"数字鸿沟"问题——不是所有老人都愿意被追踪。部分认知清醒的老人认为GPS手环是"电子脚镣"，产生抵触情绪。如何让定位功能从"强制监控"变为"自愿选择"，需要产品设计层面的创新(如一键开关、透明化数据使用说明)。</p>
+    </div>
+
+    <h2 class="section-subtitle">🌐 发散引申链：从定位技术到社会安全网</h2>
+    <div class="divergence-chain" style="background:rgba(124,58,237,0.04);border:1px dashed rgba(124,58,237,0.3);padding:14px 18px;margin-bottom:20px;border-radius:6px">
+      <p style="margin:0 0 8px;color:var(--purple);font-weight:600"><i class="fas fa-link"></i> 传导链：定位精度提升 → 走失找回率提高 → 保险赔付率下降 → 老年意外险保费降低 → 更多人购买</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>一级发散：</strong>定位数据正在重塑社区治理——2025年上海推出"智慧养老一张网"，整合全区12万认知障碍老人的GPS手环数据，生成"高风险区域热力图"。街道办根据热力图调整巡逻路线和安装智能路灯。</p>
+      <p style="margin:0 0 8px;color:var(--text2);font-size:13px"><strong>二级发散：</strong>国际对比：日本2024年实施"認知症施策推進大綱"修订版，要求全国认知障碍患者佩戴GPS定位器，预算¥1,200亿。韩国2025年推出"银发导航"国家项目，为65岁以上独居老人免费发放GPS手环。</p>
+      <p style="margin:0;color:var(--text2);font-size:13px"><strong>三级发散：</strong>长期趋势：当GPS手环渗透率达到30%(约9,000万老人)时，定位数据将成为城市规划的新要素——通过分析老人活动轨迹优化社区设施布局(公园/医疗站/菜市场选址)。</p>
+    </div>
+
+    <h2 class="section-subtitle">🏭 案例深挖：北京某养老院GPS防走失系统落地全记录</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-map-marked-alt"></i> 案例：浦东新区"智慧养老"GPS定位系统部署</div>
+      <div class="case-body">
+        <p>2024年上海市浦东新区民政局采购了5,000套GPS防走失手环，部署在全区12家认知障碍照护专区。系统架构：<strong>(1) 终端层</strong>：定制手环(北斗+GPS双模+LBS辅助+Wi-Fi指纹)，电池续航7天；<strong>(2) 网络层</strong>：NB-IoT蜂窝网络(无需WiFi)；<strong>(3) 平台层</strong>：基于阿里云IoT平台，PostGIS存储围栏数据，Kafka处理实时位置流；<strong>(4) 应用层</strong>：养老院管理大屏+子女端APP+社区网格员手持终端。</p>
+        <p>部署效果：上线6个月后，认知障碍老人走失事件从月均8.2起下降到1.3起(↓84%)。平均找回时间从4.5小时缩短至25分钟。但有两个教训：<strong>(1) 误报率问题</strong>——初期电子围栏误报率达每天12次/人，通过引入加速度计融合算法降到每天0.3次；<strong>(2) 老人抵触</strong>——约15%的老人拒绝佩戴，通过改为"腕带+胸牌"双形态设计解决。</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title">💡 战略建议：GPS定位功能的"安全+温情"双轮驱动</div>
+      <div class="tip-body">定位功能不要做成"电子监控器"，要做成"安心连接"。核心叙事不是"我们时刻知道你在哪"，而是"<strong>无论你去哪里，家人都能找到你</strong>"。产品设计上：①给老人"隐私模式"(一键暂停上报，子女端显示"老人选择了暂时离线") ②定位报告用温情文案("王奶奶今天去了两次公园，心情不错")而非冷冰冰的数据("当前位置：中山公园，纬度31.23，经度121.47")。硬件上优先支持北斗(国产替代叙事)。</div>
+    </div>
 
     <div class="chart-container" id="chart-gps"></div>
 
@@ -118,23 +176,23 @@
     </ol>
     <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第二步：电子围栏配置操作指南(APP端)</h3>
     <table class="data-table">
-      <thead><tr><th>步骤</th><th>操作</th><th>注意事项</th></tr></thead>
+      <thead><tr><th>步骤</th><th>操作</th><th>注意事项</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>打开APP→"位置"→"电子围栏"→"新增"</td><td>需要先授予APP位置权限</td></tr>
-        <tr><td>2</td><td>在地图上选择围栏类型：圆形/多边形</td><td>圆形适合"家"和"养老院"，多边形适合"社区"或"公园"</td></tr>
-        <tr><td>3</td><td>拖动中心点定位，滑块调整半径(50-2,000米)</td><td>建议从500米开始，根据老人日常活动范围调整</td></tr>
-        <tr><td>4</td><td>设置告警规则：离开围栏时通知子女 + 发送当前位置</td><td>可设置"仅非休息时间告警"(9:00-21:00)，避免深夜打扰</td></tr>
-        <tr><td>5</td><td>设置"白名单"联系人：只有这些人的位置视为"安全区域"</td><td>添加子女手机常驻地(公司、家)</td></tr>
+        <tr><td>1</td><td>打开APP→"位置"→"电子围栏"→"新增"</td><td>需要先授予APP位置权限</td><td>iOS 14+要求用户明确授权"使用期间允许"或"始终允许"。选择"使用期间"会导致后台定位失效，围栏功能不可用。必须引导用户选择"始终允许"</td></tr>
+        <tr><td>2</td><td>在地图上选择围栏类型：圆形/多边形</td><td>圆形适合"家"和"养老院"，多边形适合"社区"或"公园"</td><td>多边形围栏的顶点数建议≤20——超过20个顶点的多边形在PostGIS中计算复杂度陡增，10万设备并发时可能超时</td></tr>
+        <tr><td>3</td><td>拖动中心点定位，滑块调整半径(50-2,000米)</td><td>建议从500米开始，根据老人日常活动范围调整</td><td>半径设置的黄金法则是"覆盖老人7天内的最大活动距离"——查看历史GPS轨迹，取第95百分位距离作为初始半径</td></tr>
+        <tr><td>4</td><td>设置告警规则：离开围栏时通知子女 + 发送当前位置</td><td>可设置"仅非休息时间告警"(9:00-21:00)，避免深夜打扰</td><td>深夜告警(22:00-7:00)应该升级为"强提醒"(电话+短信)而非仅APP推送——深夜老人外出风险更高，可能是走失或迷路</td></tr>
+        <tr><td>5</td><td>设置"白名单"联系人：只有这些人的位置视为"安全区域"</td><td>添加子女手机常驻地(公司、家)</td><td>白名单机制解决了"老人去子女家被误报越界"的核心痛点。但需要定期更新——子女搬家或换工作后必须手动更新白名单</td></tr>
       </tbody>
     </table>
     <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第三步：GPS功耗优化策略</h3>
     <table class="data-table">
-      <thead><tr><th>模式</th><th>激活条件</th><th>采集频率</th><th>功耗影响</th><th>续航影响</th></tr></thead>
+      <thead><tr><th>模式</th><th>激活条件</th><th>采集频率</th><th>功耗影响</th><th>续航影响</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>正常模式</td><td>日常运行</td><td>1次/30秒</td><td>~50mW</td><td>减少15%/天</td></tr>
-        <tr><td>省电模式</td><td>电池<20%自动切换</td><td>1次/5分钟</td><td>~10mW</td><td>减少3%/天</td></tr>
-        <tr><td>告警模式</td><td>超出电子围栏/SOS触发</td><td>1次/1秒</td><td>~150mW</td><td>持续告警最多10分钟</td></tr>
-        <tr><td>睡眠模式</td><td>夜间23:00-6:00</td><td>1次/30分钟</td><td>~2mW</td><td>可减少5%/天</td></tr>
+        <tr><td>正常模式</td><td>日常运行</td><td>1次/30秒</td><td>~50mW</td><td>减少15%/天</td><td>30秒间隔是平衡精度和续航的最佳点——GPS位置漂移在30秒内通常不超过10米。如果改为1秒一次，功耗增加15倍但定位精度只提升5%</td></tr>
+        <tr><td>省电模式</td><td>电池<20%自动切换</td><td>1次/5分钟</td><td>~10mW</td><td>减少3%/天</td><td>省电模式下围栏功能降级为LBS基站定位(精度50-500米)。虽然精度下降但足以检测"老人是否离开家"这种粗粒度事件</td></tr>
+        <tr><td>告警模式</td><td>超出电子围栏/SOS触发</td><td>1次/1秒</td><td>~150mW</td><td>持续告警最多10分钟</td><td>告警模式的1Hz定位数据会实时流式传输到云端轨迹记录，子女端APP可以看到老人的移动路径动画。这是"救命模式"而非日常模式</td></tr>
+        <tr><td>睡眠模式</td><td>夜间23:00-6:00</td><td>1次/30分钟</td><td>~2mW</td><td>可减少5%/天</td><td>夜间定位频率极低是因为老人睡眠中移动概率小。但如果启用了"睡眠中GPS异常移动"(梦游)监测，需要提升到1次/5分钟</td></tr>
       </tbody>
     </table>
     <div class="tip-box">
@@ -143,12 +201,12 @@
     </div>
     <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第四步：定位功能验证清单</h3>
     <table class="data-table">
-      <thead><tr><th>测试项</th><th>方法</th><th>通过标准</th></tr></thead>
+      <thead><tr><th>测试项</th><th>方法</th><th>通过标准</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>冷启动时间</td><td>关机后首次GPS定位耗时</td><td><30秒(开阔地)<60秒(城市峡谷)</td></tr>
-        <tr><td>定位漂移</td><td>静止1小时坐标散布范围</td><td><20米</td></tr>
-        <tr><td>围栏触发延迟</td><td>走出围栏到收到通知的时间</td><td><15秒</td></tr>
-        <tr><td>夜间续航影响</td><td>睡眠模式GPS采集频率下的日耗电</td><td><5%</td></tr>
+        <tr><td>冷启动时间</td><td>关机后首次GPS定位耗时</td><td><30秒(开阔地)<60秒(城市峡谷)</td><td>冷启动需要下载完整星历(约12.5KB)，这是最慢的定位场景。AGPS可以在开机时从云端预下载星历，将冷启动变为"伪热启动"(<10秒)</td></tr>
+        <tr><td>定位漂移</td><td>静止1小时坐标散布范围</td><td><20米</td><td>定位漂移在室内环境下可达50-100米，因为多径效应(GPS信号反射)。室外开阔地通常<5米。建议在APP端做"漂移过滤"——静止状态下取中位数而非平均值</td></tr>
+        <tr><td>围栏触发延迟</td><td>走出围栏到收到通知的时间</td><td><15秒</td><td>15秒延迟由三部分组成：GPS定位时间(1-30秒)+数据上传云端(1-3秒)+云端计算+推送下发(1-2秒)。降低延迟的关键是缩短GPS定位时间</td></tr>
+        <tr><td>夜间续航影响</td><td>睡眠模式GPS采集频率下的日耗电</td><td><5%</td><td>夜间GPS功耗仅占总耗电的约2-3%，主要耗电来自PPG心率监测(整夜运行)和BLE心跳包。GPS在睡眠模式下几乎可以忽略不计</td></tr>
       </tbody>
     </table>
     <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第五步：多卫星固件配置流程</h3>
@@ -176,13 +234,13 @@
     </div>
     <h3 style="font-size:14px;font-weight:600;color:var(--cyan);margin:16px 0 10px">第七步：GPS固件OTA升级方法</h3>
     <table class="data-table">
-      <thead><tr><th>步骤</th><th>操作</th><th>注意事项</th></tr></thead>
+      <thead><tr><th>步骤</th><th>操作</th><th>注意事项</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>1. 编写固件包</td><td>将GPS模组firmware.bin打包为ota_package.zip，SHA256校验</td><td>文件大小<512KB</td></tr>
-        <tr><td>2. 云端推送</td><td>通过MQTT topic /ota/update 下发更新指令</td><td>推送前通知用户"即将更新"</td></tr>
-        <tr><td>3. 手环接收</td><td>MCU通过BLE从手机APP下载固件包到本地Flash</td><td>保证电量>30%</td></tr>
-        <tr><td>4. 写入GPS</td><td>通过UART发送UBX-CFG-VALSET写入新firmware</td><td>刷写期间禁用所有定位功能</td></tr>
-        <tr><td>5. 重启验证</td><td>重启GPS模组，读取版本号确认更新成功</td><td>失败则回滚到旧版本</td></tr>
+        <tr><td>1. 编写固件包</td><td>将GPS模组firmware.bin打包为ota_package.zip，SHA256校验</td><td>文件大小<512KB</td><td>固件包必须做数字签名(Ed25519)防止中间人攻击——如果被黑客篡改固件注入恶意定位数据，可能导致围栏告警被屏蔽</td></tr>
+        <tr><td>2. 云端推送</td><td>通过MQTT topic /ota/update 下发更新指令</td><td>推送前通知用户"即将更新"</td><td>OTA推送应采用"灰度发布"策略：先推1%设备→观察24小时无异常→推广到10%→最终全量。避免批量变砖</td></tr>
+        <tr><td>3. 手环接收</td><td>MCU通过BLE从手机APP下载固件包到本地Flash</td><td>保证电量>30%</td><td>BLE传输速率约100KB/s，512KB固件需要约5秒。如果网络不稳定应支持断点续传，避免重复下载</td></tr>
+        <tr><td>4. 写入GPS</td><td>通过UART发送UBX-CFG-VALSET写入新firmware</td><td>刷写期间禁用所有定位功能</td><td>刷写失败率约0.5-1%，主要因为UART通信中断或电源波动。必须实现"双分区A/B"机制——主分区刷写失败自动回滚到备份分区</td></tr>
+        <tr><td>5. 重启验证</td><td>重启GPS模组，读取版本号确认更新成功</td><td>失败则回滚到旧版本</td><td>验证步骤应包括：读取版本号+做一次冷启动测试+对比定位精度。只有全部通过才标记OTA完成</td></tr>
       </tbody>
     </table>
     <div class="tip-box">
@@ -224,17 +282,48 @@
   <script src="../common/js/navigation.js"></script>
   <script>
     var chart = echarts.init(document.getElementById('chart-gps'));
+    var cyanGrad = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      { offset: 0, color: 'rgba(6,182,212,0.4)' }, { offset: 1, color: 'rgba(6,182,212,0.05)' }
+    ]);
+    var purpleGrad = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      { offset: 0, color: 'rgba(139,92,246,0.35)' }, { offset: 1, color: 'rgba(139,92,246,0.05)' }
+    ]);
+    var redGrad = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      { offset: 0, color: 'rgba(220,38,38,0.4)' }, { offset: 1, color: 'rgba(220,38,38,0.05)' }
+    ]);
+    var greenGrad = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      { offset: 0, color: 'rgba(5,150,105,0.35)' }, { offset: 1, color: 'rgba(5,150,105,0.05)' }
+    ]);
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['室外精度(米)', '半室内精度(米)', '纯室内精度(米)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
-      xAxis: { type: 'category', data: ['仅GPS','GPS+北斗','GPS+北斗+GLONASS','+LBS基站','+Wi-Fi指纹','RTT+BLE信标融合'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'value', name: '(米)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { data: ['室外精度(米)', '半室内精度(米)', '纯室内精度(米)', '成本增量(¥)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 70, top: 50, bottom: 40 },
+      xAxis: { type: 'category', data: ['仅GPS','GPS+北斗','GPS+北斗+GLONASS','+LBS基站','+Wi-Fi指纹','RTT+BLE信标融合'], axisLabel: { color: '#94a3b8', fontSize: 9, rotate: 15 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [
+        { type: 'value', name: '(米)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(¥)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
       series: [
-        { name: '室外精度(米)', type: 'bar', data: [8, 5, 3, 5, 5, 3], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
-        { name: '半室内精度(米)', type: 'bar', data: [50, 30, 15, 10, 8, 5], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
-        { name: '纯室内精度(米)', type: 'bar', data: [500, 500, 200, 50, 15, 3], itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] } }
+        {
+          name: '室外精度(米)', type: 'bar', data: [8, 5, 3, 5, 5, 3],
+          itemStyle: { color: cyanGrad, borderRadius: [4, 4, 0, 0] }, barGap: '15%'
+        },
+        {
+          name: '半室内精度(米)', type: 'bar', data: [50, 30, 15, 10, 8, 5],
+          itemStyle: { color: purpleGrad, borderRadius: [4, 4, 0, 0] }
+        },
+        {
+          name: '纯室内精度(米)', type: 'bar', data: [500, 500, 200, 50, 15, 3],
+          itemStyle: { color: redGrad, borderRadius: [4, 4, 0, 0] },
+          markPoint: { data: [{ coord: ['RTT+BLE信标融合', 3], value: 3, itemStyle: { color: '#059669' }, label: { formatter: '室内最优3米' } }] }
+        },
+        {
+          name: '成本增量(¥)', type: 'line', data: [0, 3, 5, 1, 8, 15],
+          itemStyle: { color: '#059669' }, smooth: true, yAxisIndex: 0, lineStyle: { width: 2 },
+          areaStyle: { color: greenGrad },
+          markPoint: { data: [{ type: 'max', name: '最高成本', itemStyle: { color: '#f59e0b' }, label: { formatter: 'RTT+BLE最贵\n但精度最好' } }] }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

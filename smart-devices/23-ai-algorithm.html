@@ -63,49 +63,49 @@
 
     <h2 class="section-subtitle">23.1 跌倒检测算法</h2>
     <table class="data-table">
-      <thead><tr><th>算法类型</th><th>输入特征</th><th>模型架构</th><th>准确率</th><th>部署位置</th><th>推理延迟</th></tr></thead>
+      <thead><tr><th>算法类型</th><th>输入特征</th><th>模型架构</th><th>准确率</th><th>部署位置</th><th>推理延迟</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>规则阈值法</td><td>加速度峰值+角速度+静止时长</td><td>if-else逻辑树</td><td>85-90%</td><td>MCU(嵌入式)</td><td><10ms</td></tr>
-        <tr><td>SVM分类器</td><td>统计特征(均值/方差/峰度)</td><td>线性SVM</td><td>90-93%</td><td>MCU/手机</td><td>50-100ms</td></tr>
-        <tr><td>随机森林</td><td>128维时序特征</td><td>100棵决策树</td><td>93-95%</td><td>手机端APP</td><td>200-500ms</td></tr>
-        <tr><td>1D-CNN</td><td>原始加速度波形(2秒窗口)</td><td>Conv1D + FC</td><td>95-97%</td><td>云端</td><td>50-100ms</td></tr>
-        <tr><td>Transformer(TS-Ticker)</td><td>多模态(加速度+PPG+ECG)</td><td>时序Transformer</td><td>97-98.5%</td><td>云端</td><td>200ms</td></tr>
+        <tr><td>规则阈值法</td><td>加速度峰值+角速度+静止时长</td><td>if-else逻辑树</td><td>85-90%</td><td>MCU(嵌入式)</td><td><10ms</td><td>规则阈值法的优势是"零训练成本"——不需要数据集、不需要标注员、不需要GPU。但它的致命缺陷是"场景脆弱性"：在客厅摔倒的检测率可能95%，在浴室(地面湿滑+跌倒姿态不同)骤降到60%。经济含义：规则法是MVP阶段的最优解，但长期会被深度学习取代。</td></tr>
+        <tr><td>SVM分类器</td><td>统计特征(均值/方差/峰度)</td><td>线性SVM</td><td>90-93%</td><td>MCU/手机</td><td>50-100ms</td><td>SVM的核心价值在于"小样本友好"——UCI-HAR数据集只有108人、约1万段数据，对SVM足够了。但SVM的特征工程高度依赖人工设计(均值/方差/峰度)，这意味着每次新增传感器(如气压计)都要重新设计特征。自动化程度低是SVM的最大瓶颈。</td></tr>
+        <tr><td>随机森林</td><td>128维时序特征</td><td>100棵决策树</td><td>93-95%</td><td>手机端APP</td><td>200-500ms</td><td>随机森林的"可解释性"是最大卖点——可以输出"哪个特征最重要"(如加速度峰值贡献了70%的判断权重)。这对医疗合规至关重要：FDA要求AI诊断系统提供"决策依据"，而深度学习是黑盒。随机森林是"可解释AI"的黄金标准。</td></tr>
+        <tr><td>1D-CNN</td><td>原始加速度波形(2秒窗口)</td><td>Conv1D + FC</td><td>95-97%</td><td>云端</td><td>50-100ms</td><td>1D-CNN的突破在于"端到端学习"——不再需要人工提取统计特征，直接从原始波形中学习判别模式。但它的代价是"数据饥渴"：需要至少10倍于SVM的训练量才能达到稳定性能。这就是为什么很多团队从SVM迁移到CNN时，发现准确率反而下降了——数据不够。</td></tr>
+        <tr><td>Transformer(TS-Ticker)</td><td>多模态(加速度+PPG+ECG)</td><td>时序Transformer</td><td>97-98.5%</td><td>云端</td><td>200ms</td><td>Transformer在时序任务上的优势是"全局注意力"——它能捕捉加速度突变和心率异常之间的跨模态关联(如跌倒时同时出现加速度峰值+心率骤升)。但它的参数量(>1M)决定了它只能跑在云端/GPU上。边缘端永远无法承载完整的Transformer。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">23.2 心律失常检测</h2>
     <table class="data-table">
-      <thead><tr><th>心律失常类型</th><th>检测信号</th><th>算法</th><th>敏感度</th><th>特异度</th></tr></thead>
+      <thead><tr><th>心律失常类型</th><th>检测信号</th><th>算法</th><th>敏感度</th><th>特异度</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>房颤(AFib)</td><td>ECG单导联 R-R间期不规则</td><td>深度学习(CNN-LSTM)</td><td>96.5%</td><td>95.2%</td></tr>
-        <tr><td>室性早搏(PVC)</td><td>ECG QRS形态异常</td><td>1D-CNN</td><td>89%</td><td>92%</td></tr>
-        <tr><td>心动过速</td><td>PPG脉率持续>100</td><td>阈值+运动融合</td><td>91%</td><td>88%</td></tr>
-        <tr><td>心动过缓</td><td>PPG脉率持续<50</td><td>阈值+夜间基线</td><td>87%</td><td>90%</td></tr>
-        <tr><td>心跳停搏</td><td>PPG信号消失+加速度无运动</td><td>信号丢失检测</td><td>94%</td><td>96%</td></tr>
+        <tr><td>房颤(AFib)</td><td>ECG单导联 R-R间期不规则</td><td>深度学习(CNN-LSTM)</td><td>96.5%</td><td>95.2%</td><td>房颤检测是AI算法中"临床价值最高"的场景——房颤患者发生卒中的风险是正常人的5倍。但单导联ECG的致命缺陷是"只能看到心房电活动的'一面'"，多导联Holter才能做完整诊断。经济含义：房颤检测的"误报成本"极低(用户多来一次医院而已)，但"漏报成本"极高(卒中致残)，因此算法设计应以"高敏感度"为第一目标。</td></tr>
+        <tr><td>室性早搏(PVC)</td><td>ECG QRS形态异常</td><td>1D-CNN</td><td>89%</td><td>92%</td><td>PVC的难点在于"形态多变"——同一个患者的PVC在不同时刻形态可能不同，而不同患者的PVC形态又可能相似。这导致CNN的泛化能力受限。解决方案是"个性化基线"：先学习用户正常心电模式，再检测偏离。这就是为什么PVC检测需要至少7天的基线数据。</td></tr>
+        <tr><td>心动过速</td><td>PPG脉率持续>100</td><td>阈值+运动融合</td><td>91%</td><td>88%</td><td>心动过速的最大干扰源是"运动"——跑步时心率轻松超过150次/分。解决思路是"运动融合"：通过加速度计判断用户是否在运动，如果运动中心率升高则标记为"生理性"而非"病理性"。这个简单的融合策略可以将误报率降低40%以上。</td></tr>
+        <tr><td>心动过缓</td><td>PPG脉率持续<50</td><td>阈值+夜间基线</td><td>87%</td><td>90%</td><td>心动过缓的检测难点是"个体差异"——运动员静息心率40次/分是正常的，但普通人的40次/分可能是病态。解决方案是"夜间基线"：连续监测用户睡眠期间的心率，建立个人基线。低于基线20%才触发告警，而不是用全局阈值。</td></tr>
+        <tr><td>心跳停搏</td><td>PPG信号消失+加速度无运动</td><td>信号丢失检测</td><td>94%</td><td>96%</td><td>心跳停搏是最"简单也最危险"的算法——它本质上是一个布尔判断(信号有/无)，不需要任何ML模型。但它的误报会直接触发SOS告警，打扰用户和家属。关键设计原则："双重确认"——PPG信号消失+加速度静止超过30秒才触发，避免手环佩戴松动导致的假阳性。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">23.3 活动识别(Activity Recognition)</h2>
     <table class="data-table">
-      <thead><tr><th>活动类别</th><th>识别特征</th><th>用途</th><th>准确度</th></tr></thead>
+      <thead><tr><th>活动类别</th><th>识别特征</th><th>用途</th><th>准确度</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>静坐/卧床</td><td>加速度<0.05g, 心率下降</td><td>久坐提醒/异常基线</td><td>95%</td></tr>
-        <tr><td>步行</td><td>周期性加速度~1Hz</td><td>步数/活动量</td><td>97%</td></tr>
-        <tr><td>跑步</td><td>周期性加速度~2-3Hz, 峰值>3g</td><td>运动强度评估</td><td>93%</td></tr>
-        <tr><td>上下楼梯</td><td>垂直加速度特征 + 气压变化</td><td>跌倒前行为分析</td><td>88%</td></tr>
-        <tr><td>跌倒</td><td>高加速度突变 + 姿态翻转 + 静止</td><td>SOS触发</td><td>96.5%</td></tr>
-        <tr><td>洗澡</td><td>水温+持续室内静止+无移动</td><td>防滑倒场景识别</td><td>80%(模糊)</td></tr>
+        <tr><td>静坐/卧床</td><td>加速度<0.05g, 心率下降</td><td>久坐提醒/异常基线</td><td>95%</td><td>静坐和卧床在传感器数据上几乎完全一样——加速度都接近零。区分它们只能靠"时长"：连续静止>2小时判定为卧床。但这也意味着"午睡"会被误判为卧床。经济含义：这个算法的错误不会造成安全事故，所以可以接受较低的精确度。</td></tr>
+        <tr><td>步行</td><td>周期性加速度~1Hz</td><td>步数/活动量</td><td>97%</td><td>步行是"最简单也最鲁棒"的活动识别——人类行走的步频天然集中在0.8-1.5Hz，与任何噪声频段都不重叠。这就是为什么最简单的"峰值计数"算法就能达到97%的准确度。不需要ML模型，规则法就够了。</td></tr>
+        <tr><td>跑步</td><td>周期性加速度~2-3Hz, 峰值>3g</td><td>运动强度评估</td><td>93%</td><td>跑步的难点在于"个体差异"——老年人跑步和年轻人跑步的加速度特征完全不同。老年人的步幅小、频率低(1-2Hz)，可能被误判为快走。解决方案是"年龄自适应阈值"：根据用户年龄动态调整跑步的判定标准。</td></tr>
+        <tr><td>上下楼梯</td><td>垂直加速度特征 + 气压变化</td><td>跌倒前行为分析</td><td>88%</td><td>上下楼梯是"最容易误判为跌倒"的活动——因为两者都涉及高度变化和加速度突变。关键区分特征是"持续性"：楼梯是周期性的(每一步都有相似的加速度模式)，而跌倒是单次事件。加入气压计可以进一步改善——楼梯的高度变化是渐进的，跌倒的瞬间变化。</td></tr>
+        <tr><td>跌倒</td><td>高加速度突变 + 姿态翻转 + 静止</td><td>SOS触发</td><td>96.5%</td><td>跌倒检测是整个算法体系的"皇冠明珠"——它直接决定了产品的安全价值。但96.5%的准确率意味着每100次跌倒中仍有3-5次漏报。对于老年照护场景，这3-5次可能是致命的。因此必须设计"多层确认"机制：手环检测到→APP二次确认→家属电话确认。</td></tr>
+        <tr><td>洗澡</td><td>水温+持续室内静止+无移动</td><td>防滑倒场景识别</td><td>80%(模糊)</td><td>洗澡识别是"最困难也最有价值"的场景——80%的浴室跌倒未被发现。但识别准确度只有80%的原因在于"特征不唯一"：在沙发上看电视和洗澡在加速度数据上几乎一样。必须依赖水温传感器(手环不一定有)或环境WiFi信号变化来辅助判断。</td></tr>
       </tbody>
     </table>
 
     <h2 class="section-subtitle">23.4 边缘-云端协同部署策略</h2>
     <table class="data-table">
-      <thead><tr><th>模型</th><th>大小</th><th>边缘部署</th><th>云端部署</th><th>协同策略</th></tr></thead>
+      <thead><tr><th>模型</th><th>大小</th><th>边缘部署</th><th>云端部署</th><th>协同策略</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>跌倒检测(紧急)</td><td>1D-CNN: ~200KB</td><td>必选(MCU)</td><td>备用复核</td><td>边缘触发→云端二次确认</td></tr>
-        <tr><td>睡眠分期</td><td>轻量RNN: ~150KB</td><td>可选(手机)</td><td>推荐(云端高精度)</td><td>边缘初筛→云端精修</td></tr>
-        <tr><td>房颤检测</td><td>ECG-CNN: ~1MB</td><td>否(MCU不够)</td><td>必选(云端GPU)</td><td>PPG触发→ECG采样→云端分析</td></tr>
-        <tr><td>活动识别</td><td>RF: ~50KB</td><td>必选(MCU)</td><td>补充训练</td><td>边缘推理+云端模型OTA更新</td></tr>
+        <tr><td>跌倒检测(紧急)</td><td>1D-CNN: ~200KB</td><td>必选(MCU)</td><td>备用复核</td><td>边缘触发→云端二次确认</td><td>跌倒检测的"边缘优先"原则是由安全需求决定的——云端依赖网络，而浴室/WiFi盲区可能无信号。边缘端必须独立完成首次判断。但边缘的误报率更高(数据量有限)，所以云端做二次确认是必要的"纠错机制"。</td></tr>
+        <tr><td>睡眠分期</td><td>轻量RNN: ~150KB</td><td>可选(手机)</td><td>推荐(云端高精度)</td><td>边缘初筛→云端精修</td><td>睡眠分期是"最适合云端处理"的场景——不需要实时响应(凌晨3点不需要立刻告警)，且云端可以跑更复杂的模型(如Transformer-based睡眠分期)。边缘端只做粗粒度判断(醒/睡)，云端做精细分期(N1/N2/N3/REM)。</td></tr>
+        <tr><td>房颤检测</td><td>ECG-CNN: ~1MB</td><td>否(MCU不够)</td><td>必选(云端GPU)</td><td>PPG触发→ECG采样→云端分析</td><td>房颤检测的"PPG触发+ECG确认"双阶段设计是成本最优解：PPG持续监测(功耗极低)作为哨兵，发现异常后再启动ECG采样(功耗高10倍)。这种"事件驱动"架构将ECG功耗降低了90%以上。</td></tr>
+        <tr><td>活动识别</td><td>RF: ~50KB</td><td>必选(MCU)</td><td>补充训练</td><td>边缘推理+云端模型OTA更新</td><td>活动识别是"边缘+云端"协同的最佳范例：边缘端用随机森林做实时分类(功耗<1mW)，云端用新数据持续训练更好的模型，然后通过OTA推送到边缘。这就是"联邦学习"的基本范式——数据不出设备，模型在云端进化。</td></tr>
       </tbody>
     </table>
 
@@ -193,12 +193,12 @@ print(f'Model size: {len(tflite_model) / 1024:.1f} KB')
 
     <h3 class="steps-heading">步骤三：模型量化与压缩</h3>
     <table class="data-table">
-      <thead><tr><th>量化方案</th><th>模型大小</th><th>推理速度</th><th>精度损失</th><th>适用场景</th></tr></thead>
+      <thead><tr><th>量化方案</th><th>模型大小</th><th>推理速度</th><th>精度损失</th><th>适用场景</th><th>深度解读</th></tr></thead>
       <tbody>
-        <tr><td>FP32(原始)</td><td>~200KB</td><td>慢(基准)</td><td>0%</td><td>云端训练/调试</td></tr>
-        <tr><td>INT8 全量化</td><td>~50KB</td><td>4x 加速</td><td>-1.5%</td><td>Cortex-M4F MCU</td></tr>
-        <tr><td>FLOAT16</td><td>~100KB</td><td>1.5x 加速</td><td>-0.3%</td><td>Cortex-A 系列手机</td></tr>
-        <tr><td>剪枝(50%权重为零)</td><td>~80KB</td><td>2x 加速</td><td>-2.0%</td><td>内存紧张场景</td></tr>
+        <tr><td>FP32(原始)</td><td>~200KB</td><td>慢(基准)</td><td>0%</td><td>云端训练/调试</td><td>FP32是"开发阶段的基准线"——它没有精度损失，但200KB的体积对Cortex-M4(通常256KB Flash)来说太奢侈了。经济含义：FP32的唯一价值在于开发和调试，永远不会出现在量产固件中。</td></tr>
+        <tr><td>INT8 全量化</td><td>~50KB</td><td>4x 加速</td><td>-1.5%</td><td>Cortex-M4F MCU</td><td>INT8是"性价比之王"——从200KB降到50KB(压缩4倍)，速度提升4倍，精度只损失1.5%。这几乎是AI硬件部署的"最优解"。但前提是训练时使用QAT(Quantization-Aware Training)，否则精度损失可能达到5-10%。</td></tr>
+        <tr><td>FLOAT16</td><td>~100KB</td><td>1.5x 加速</td><td>-0.3%</td><td>Cortex-A 系列手机</td><td>FLOAT16是"精度和体积的折衷"——压缩2倍、精度仅损失0.3%。但它只适用于带FPU(浮点单元)的处理器(Cortex-M4F/M7)。对于不带FPU的MCU(FP16需要软件模拟)，实际速度反而比FP32更慢。</td></tr>
+        <tr><td>剪枝(50%权重为零)</td><td>~80KB</td><td>2x 加速</td><td>-2.0%</td><td>内存紧张场景</td><td>剪枝的核心思想是"神经网络中存在冗余连接"——50%的权重接近零，去掉它们对精度影响有限。但剪枝后的模型需要稀疏矩阵运算库才能发挥加速效果。如果MCU没有稀疏运算硬件支持，实际加速可能只有1.2x而非理论2x。</td></tr>
       </tbody>
     </table>
     <div class="case-box" style="margin:16px 0">
@@ -269,6 +269,44 @@ void detect_fall(int16_t* imu_buffer, int length) {
       </div>
     </div>
 
+    <div class="divergence-chain">
+      <span class="chain-node node-cyan"><i class="fas fa-brain"></i> AI算法模型</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-microchip"></i> 边缘计算(MCU)</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-cloud"></i> 云端协同推理</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-satellite-dish"></i> OTA模型更新</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-red"><i class="fas fa-chart-line"></i> 算法壁垒+订阅增值</span>
+    </div>
+
+    <!-- ========== 多学派交叉解读 ========== -->
+    <h2 class="section-subtitle">23.6 多学派交叉解读：AI算法的五种经济学视角</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-dna"></i> 演化经济学 (Nelson & Winter)</div>
+        <div class="sv-body">AI算法的演进遵循"惯例累积"路径：从规则阈值法(if-else)到SVM(特征工程)到CNN(端到端学习)再到Transformer(跨模态注意力)。每一代算法都不是简单地"取代"前一代，而是"吸收"其核心能力——规则法被嵌入到MCU中做快速初筛，SVM的特征工程思路被CNN的卷积核自动学习。关键在于<strong>算法能力的路径依赖</strong>：团队在SVM阶段积累的特征工程经验，会显著影响后续CNN架构的设计选择。这就是为什么从SVM迁移到CNN时，很多团队会不自觉地保留大量手工特征——不是技术需要，而是组织惯例的惯性。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学 (Kahneman & Tversky)</div>
+        <div class="sv-body">算法选型中存在典型的<strong>"锚定效应"</strong>——团队往往以第一个能跑通的模型(SVM或随机森林)为"锚点"，后续的CNN/Transformer改进被评估为"相对于锚点的边际提升"而非"绝对价值"。这导致一个系统性偏差：过度重视精度从94%提升到96%(相对提升2%)，而忽视从85%提升到94%(相对提升9%)的更大改进空间。建议采用<strong>"参考组比较"</strong>：将每个算法方案与行业最佳实践(而非当前方案)比较，避免锚定导致的次优决策。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-coins"></i> 信息经济学 (Akerlof & Stiglitz)</div>
+        <div class="sv-body">算法准确度是一个典型的<strong>"信号"</strong>——96.5%的跌倒检测准确率告诉监管者和消费者"这个产品是安全的"。但信息经济学的核心问题是：低质量产品能否模仿这个信号？答案是"部分可以"——山寨手环可以用相同的1D-CNN架构，但使用偷工减料的数据集训练，实际准确率可能只有70%。认证和临床验证就是"信号过滤机制"——通过第三方测试排除低质量模仿者。这就是为什么"有临床验证的算法"比"标称96%准确率"更有价值。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学 (North & Williamson)</div>
+        <div class="sv-body">边缘-云端协同架构本质上是<strong>"治理结构选择"</strong>问题——North的制度变迁理论指出，当交易成本足够高时，组织会选择更复杂的治理结构。在我们的场景中：边缘端推理的交易成本是"功耗和内存限制"(MCU只有256KB Flash)，云端推理的交易成本是"网络延迟和可靠性"(浴室可能无WiFi)。最优的治理结构(边缘+云端)是对这两种交易成本的最小化。Williamson的资产专用性理论进一步指出：跌倒检测模型是"高度专用性资产"(只用于跌倒)，所以值得投入200KB的MCU内存；而活动识别是"通用资产"(可用于多个场景)，所以用50KB的随机森林就够了。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-project-diagram"></i> 公共选择理论 (Buchanan & Tullock)</div>
+        <div class="sv-body">算法开发中的资源分配映射到组织层面就是<strong>"部门间博弈"</strong>：算法团队想要更多数据标注预算，嵌入式团队想要更多Flash空间，产品团队想要更高的准确率指标，市场团队想要更快的上市时间。公共选择理论指出，不存在"技术上最优"的算法配置——只有各利益方的<strong>宪政均衡</strong>。建议用"算法路线图+里程碑评审"的制度化工具来管理这种博弈：明确每个版本的准确率目标、部署平台、上市时间，让各部门在统一的框架下协商资源分配。</div>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-ai"></div>
   </main>
   <footer class="page-footer">
@@ -283,17 +321,75 @@ void detect_fall(int16_t* imu_buffer, int length) {
     var chart = echarts.init(document.getElementById('chart-ai'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'item' },
-      legend: { data: ['准确度(%)', '模型大小(KB)', '推理延迟(ms)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
-      xAxis: { type: 'category', data: ['规则阈值','SVM','随机森林','1D-CNN','Transformer'], axisLabel: { color: '#94a3b8', fontSize: 10 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: function(params) {
+          let s = params[0].axisValue + '<br/>';
+          params.forEach(p => { s += p.marker + p.seriesName + ': <b>' + p.value + '</b><br/>'; });
+          return s;
+        }
+      },
+      legend: {
+        data: ['准确度(%)', '模型大小(KB)', '推理延迟(ms)'],
+        textStyle: { color: '#94a3b8' }, top: 0
+      },
+      grid: { left: 70, right: 80, top: 50, bottom: 40 },
+      xAxis: {
+        type: 'category', data: ['规则阈值','SVM','随机森林','1D-CNN','Transformer'],
+        axisLabel: { color: '#94a3b8', fontSize: 10 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
       yAxis: [
         { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
         { type: 'value', name: '(KB/ms)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }
       ],
       series: [
-        { name: '准确度(%)', type: 'bar', data: [88, 92, 94, 96, 98], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 0 },
-        { name: '模型大小(KB)', type: 'bar', data: [5, 10, 50, 200, 1024], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, yAxisIndex: 1 }
+        {
+          name: '准确度(%)', type: 'bar', data: [88, 92, 94, 96, 98],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#1A5276' }, { offset: 1, color: '#2980b9' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ type: 'max', name: '最高' }] },
+          yAxisIndex: 0
+        },
+        {
+          name: '模型大小(KB)', type: 'bar', data: [5, 10, 50, 200, 1024],
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#B8860B' }, { offset: 1, color: '#d4a017' }
+            ]), borderRadius: [4, 4, 0, 0]
+          },
+          markPoint: { data: [{ type: 'max', name: '最大' }] },
+          yAxisIndex: 1
+        },
+        {
+          name: '推理延迟(ms)', type: 'line', smooth: true, lineWidth: 3,
+          data: [5, 80, 350, 75, 200],
+          symbol: 'circle', symbolSize: 8,
+          itemStyle: { color: '#dc2626', borderWidth: 2 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(220,38,38,0.3)' },
+              { offset: 1, color: 'rgba(220,38,38,0.02)' }
+            ])
+          },
+          markPoint: {
+            data: [
+              { type: 'min', name: '最快' },
+              { type: 'max', name: '最慢' }
+            ]
+          },
+          markLine: {
+            symbol: ['none', 'none'],
+            label: { color: '#94a3b8', fontSize: 11 },
+            lineStyle: { color: '#f59e0b', type: 'dashed', width: 1.5 },
+            data: [{ type: 'average', name: '均值' }]
+          },
+          yAxisIndex: 1
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

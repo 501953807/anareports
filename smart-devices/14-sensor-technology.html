@@ -107,6 +107,131 @@
       </tbody>
     </table>
 
+    <div class="divergence-chain">
+      <span class="chain-node node-cyan"><i class="fas fa-heartbeat"></i> PPG光学心率</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-purple"><i class="fas fa-lungs"></i> SpO2血氧</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-green"><i class="fas fa-thermometer-half"></i> 皮肤温度</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-orange"><i class="fas fa-arrows-alt"></i> 加速度计/陀螺仪</span>
+      <span class="chain-arrow"><i class="fas fa-chevron-right"></i></span>
+      <span class="chain-node node-red"><i class="fas fa-balance-scale"></i> 精度/功耗/成本三角</span>
+    </div>
+
+    <h2 class="section-subtitle">14.1 核心传感器矩阵</h2>
+    <table class="data-table">
+      <thead><tr><th>传感器</th><th>推荐方案</th><th>精度</th><th>功耗</th><th>老年场景用途</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>PPG光学心率</td><td>Goodix GP8201 / Max86150</td><td>±3 bpm</td><td>1.2 mW</td><td>持续心率/房颤筛查</td><td>PPG在老年人手臂毛发较多、皮肤松弛时精度下降15-20%，建议搭配ECG双模验证</td></tr>
+        <tr><td>SpO2血氧</td><td>Max86150集成</td><td>±2%(70-100%)</td><td>2.5 mW</td><td>睡眠呼吸暂停筛查</td><td>老年人末梢循环差，手指/手腕SpO2测量误差较大，建议改为耳垂式PPG或保留腕式但增加信号质量算法</td></tr>
+        <tr><td>皮肤温度</td><td>AMT1005 / Thermistor</td><td>±0.1°C</td><td>0.05 mW</td><td>发热预警/代谢评估</td><td>0.05mW几乎可以忽略不计，建议始终开启——温度异常是老年人感染的最早信号(比症状早6-12小时)</td></tr>
+        <tr><td>三轴加速度计</td><td>ST LSM6DSO</td><td>16-bit</td><td>0.8 mW</td><td>步数/活动识别/摔倒</td><td>LSM6DSO是MEMS加速度计的性价比之王，¥3-5/颗，精度与Bosch BMI270相当但便宜40%</td></tr>
+        <tr><td>三轴陀螺仪</td><td>ST LSM6DSO集成</td><td>2000 dps</td><td>同上</td><td>姿态检测/步态分析</td><td>与加速度计集成在同一芯片中是最佳选择——减少PCB面积30%，降低校准复杂度</td></tr>
+        <tr><td>气压计</td><td>Bosch BMP390</td><td>±0.1hPa(~10cm)</td><td>0.5 mW</td><td>楼层检测(室内定位)</td><td>对防走失很有用——可以判断老人是在几楼，但会增加¥2-3 BOM成本，需权衡</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">14.2 PPG传感器选型对比</h2>
+    <table class="data-table">
+      <thead><tr><th>芯片</th><th>厂商</th><th>通道数</th><th>集成ECG</th><th>采样率</th><th>功耗</th><th>单价</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>GP8200系列</td><td>汇顶</td><td>3(PPG)</td><td>否</td><td>100Hz</td><td>1.5mW</td><td>¥4-6</td><td>国产最优解——汇顶在国内有完善的FAE支持，良率98%+，适合大规模量产。但缺少ECG使其在房颤筛查场景失分</td></tr>
+        <tr><td>MAX86150</td><td>Maxim(AD)</td><td>4(PPG+ECG)</td><td>是</td><td>200Hz</td><td>2.8mW</td><td>¥8-10</td><td>医疗级金标准——FDA/CE认证，同时具备PPG+ECG，是Apple Watch和三星Galaxy Watch的供应商。功耗较高但精度无可替代</td></tr>
+        <tr><td>AS7262</td><td>ams-OSRAM</td><td>3光谱PPG</td><td>否</td><td>50Hz</td><td>1.0mW</td><td>¥5-7</td><td>光谱PPG是新兴方向——通过多波长同时测量可以消除皮肤色素沉着对SpO2的影响，但采样率低不适合心率实时监测</td></tr>
+        <tr><td>AP7115</td><td>聚洵</td><td>2(PPG+ECG)</td><td>是</td><td>100Hz</td><td>2.0mW</td><td>¥3-5</td><td>国产性价比之选——聚洵是国产模拟芯片新秀，AP7115以一半的价格提供了MAX86150的核心功能。但临床验证数据不足，适合MVP阶段</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">14.3 IMU用于跌倒检测的算法原理</h2>
+    <table class="data-table">
+      <thead><tr><th>检测维度</th><th>算法</th><th>参数</th><th>准确率</th><th>误报率</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>撞击力检测</td><td>加速度峰值阈值</td><td>|Ax|+|Ay|+|Az| > 20g</td><td>92%</td><td>5-8%</td><td>最简单粗暴的检测方式——加速度超过20g判定为跌倒。优点是算法简单(10行代码)，缺点是误报率高(坐椅子太猛也可能触发)</td></tr>
+        <tr><td>姿态变化</td><td>陀螺仪角速度积分</td><td>翻转角度>120°/0.5s</td><td>88%</td><td>10%</td><td>通过陀螺仪检测身体快速翻转。对"直挺挺摔倒"场景效果好，但对"慢慢滑倒"场景几乎无效</td></tr>
+        <tr><td>静止判断</td><td>加速度方差</td><td>碰撞后30秒方差<阈值</td><td>85%</td><td>12%</td><td>检测跌倒后是否长时间静止。老年人跌倒后往往无法自行起身，这个维度是SOS触发的关键条件</td></tr>
+        <tr><td>多特征融合</td><td>SVM/RF分类器</td><td>撞击+姿态+静止+心率骤变</td><td>96.5%</td><td>2-3%</td><td>推荐方案——将上述三个维度的特征输入机器学习分类器。需要在开发阶段采集100+次跌倒/非跌倒数据进行训练</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">14.4 传感器阵列功耗预算</h2>
+    <table class="data-table">
+      <thead><tr><th>工作模式</th><th>PPG</th><th>加速度计</th><th>GPS</th><th>总功耗</th><th>续航</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>全天候监测(低频)</td><td>1.5mW</td><td>0.8mW</td><td>关</td><td>2.3mW</td><td>7-10天</td><td>默认模式——PPG每分钟采样一次，加速度计持续运行。这是7天续航目标的基准配置</td></tr>
+        <tr><td>运动监测(中频)</td><td>3mW</td><td>0.8mW</td><td>50mW</td><td>53.8mW</td><td>3-5天</td><td>检测到运动后自动切换——PPG采样频率加倍，GPS开始定位。适合老人外出散步场景</td></tr>
+        <tr><td>摔倒/告警(高频)</td><td>5mW</td><td>0.8mW</td><td>150mW</td><td>155.8mW</td><td>1-2天</td><td>触发SOS后的紧急模式——PPG高频采样(监测心率异常)，GPS持续定位(上报位置)，蓝牙连接手机。续航牺牲是合理的</td></tr>
+        <tr><td>睡眠监测(夜间)</td><td>1.5mW</td><td>0.3mW(低)</td><td>关</td><td>1.8mW</td><td>8-12天</td><td>夜间低功耗模式——加速度计降频(检测翻身即可)，PPG低频(每小时采样)，GPS关闭。这是续航最长的模式</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">14.5 传感器选型决策树</h2>
+    <table class="data-table">
+      <thead><tr><th>决策维度</th><th>选项A</th><th>选项B</th><th>推荐</th><th>深度解读</th></tr></thead>
+      <tbody>
+        <tr><td>PPG方案</td><td>汇顶GP8200(国产/¥5)</td><td>MAX86150(进口/¥10)</td><td>GP8200(MVP)+MAX86150(V2.0)</td><td>MVP阶段用国产PPG控制成本，V2.0加入MAX86150的ECG功能做医疗级验证</td></tr>
+        <tr><td>IMU方案</td><td>LSM6DSO(集成加速度+陀螺仪)</td><td>分体方案(LSM6DSO+LIS3DH)</td><td>LSM6DSO集成方案</td><td>集成方案节省PCB面积40%，降低焊接成本，且加速度和陀螺仪天然共址无需额外校准</td></tr>
+        <tr><td>温度方案</td><td>NTC热敏电阻(¥0.5)</td><td>AMT1005数字温度(¥3)</td><td>NTC热敏电阻</td><td>¥0.5 vs ¥3，精度差距仅±0.1°C，NTC是性价比最优解。数字温度的优势在于直接输出无需ADC转换</td></tr>
+        <tr><td>气压计</td><td>有(¥2-3)</td><td>无</td><td>无(MVP)</td><td>气压计对楼层检测有用，但MVP阶段优先保证核心功能(心率+跌倒+定位)，V2.0再考虑加入</td></tr>
+        <tr><td>光感</td><td>有(环境光自适应)</td><td>无</td><td>有(¥1)</td><td>环境光传感器¥1/颗，可以让PPG LED亮度自适应环境光，间接降低功耗5-10%，性价比很高</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 案例：Apple Watch的传感器策略 -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-watch"></i> 案例：Apple Watch的传感器策略——为什么它能在老年健康场景胜出</div>
+      <div class="case-body">
+        <strong>Apple Watch Series 9的传感器阵容：</strong>PPG(4通道)+ECG单导联+三轴加速度计+三轴陀螺仪+环境光+气压计+温度(腕部+环境双温度)。<strong>关键差异在于它使用了ADI的MAX861xx系列PPG芯片</strong>——与我们的MAX86150同源，但做了额外的光学设计和算法优化。<br><br>
+        <strong>Apple Watch的老年场景杀手功能：</strong>(1)跌倒检测——基于加速度+陀螺仪+SVM分类器，准确率96%+；(2)心电图(ECG)——FDA批准的房颤筛查，准确率99.6%；(3)血氧监测——夜间SpO2趋势分析，用于睡眠呼吸暂停筛查；(4)温度感应——腕部温度变化用于疾病预警和女性健康追踪；(5)车祸检测——基于高精度加速度计+陀螺仪+气压计+GPS的组合检测。<br><br>
+        <strong>对国产手环的启示：</strong>Apple Watch的成功不在于传感器数量最多，而在于<strong>传感器融合算法</strong>——它将多个传感器的数据通过机器学习模型融合，提取出单个传感器无法发现的生理特征。我们的策略应该是：(1)MVP阶段用国产传感器控制成本(总BOM传感器部分控制在¥15以内)；(2)V2.0引入MAX86150的ECG功能；(3)V3.0加入传感器融合算法团队(至少2名信号处理工程师)，这是与Apple Watch拉开差距的关键。<br><br>
+        <strong>成本对比：</strong>Apple Watch Series 9的传感器BOM约$12-15(¥85-105)，我们的目标是将MVP版本控制在¥15-20。差距主要来自ECG(我们MVP暂缺)和双温度传感器(我们MVP单温度)。
+      </div>
+    </div>
+
+    <!-- 关键判断 -->
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microchip"></i> 关键判断: 传感器选型的"够用就好"原则</div>
+      <div class="case-body">
+        在老年健康手环场景中，传感器的"医疗级精度"不是第一优先级——"7天续航+2%误报率+¥15 BOM"才是。具体取舍：(1)PPG用汇顶GP8200(¥5)而非MAX86150(¥10)，精度从±1bpm降到±3bpm，但对老年人心率监测完全够用；(2)ECG功能MVP阶段不做，V2.0再加——因为ECG需要电极触点设计，改变ID结构；(3)跌倒检测用SVM多特征融合(准确率96.5%，误报2-3%)，这需要2周的数据采集和训练；(4)温度传感器必须做(¥0.5)，因为它是感染预警的唯一低成本手段。
+      </div>
+    </div>
+
+    <!-- ========== 多学派交叉解读 ========== -->
+    <h2 class="section-subtitle">14.6 多学派交叉解读：传感器技术的五种经济学视角</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-dna"></i> 演化经济学 (Nelson & Winter)</div>
+        <div class="sv-body">传感器技术从"分立元件"到"集成IMU"的演进遵循"变异-选择-保留"路径。早期手环使用分立加速度计+陀螺仪(两颗芯片)，LSM6DSO集成方案是新一代"惯例"。市场选择压力来自BOM成本和PCB面积的双重约束——集成方案节省40% PCB面积，但需要重新校准流程。关键在于<strong>路径依赖</strong>：MVP阶段选定的汇顶GP8200一旦进入量产固件生态，V2.0替换为MAX86150的切换成本不仅是芯片差价(¥5)，还包括算法重新标定和临床验证(¥50万+)。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-brain"></i> 行为经济学 (Kahneman & Tversky)</div>
+        <div class="sv-body">PPG在老年人皮肤松弛时精度下降15-20%，这是一个典型的<strong>"系统性偏差"</strong>——算法设计者(多为年轻工程师)无法想象自己80岁时的皮肤状态。行为经济学中的"同理心缺口"(empathy gap)解释了为什么消费级健康设备的老年适配普遍不足。解决方案是<strong>引入"预mortem"分析</strong>——在产品上市前假设它失败了，反推原因。对于传感器而言，最可能的失败原因是"佩戴不贴合导致信号质量下降"，而非"芯片精度不够"。这改变了优先级排序：表带设计和佩戴引导UI的重要性应高于芯片选型。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-coins"></i> 信息经济学 (Akerlof & Stiglitz)</div>
+        <div class="sv-body">消费者无法区分"医疗级PPG(MAX86150)"与"消费级PPG(GP8200)"的实际精度差异，最终导致<strong>"柠檬市场"</strong>——低精度产品驱逐高精度产品。解决之道在于<strong>标准化披露</strong>：在APP中展示"本次心率读数置信度"，让用户感知到不同场景下的数据可靠性。当用户发现GP8200在运动时误差±10bpm而MAX86150仅±3bpm时，他们会愿意为高精度支付溢价。这就是Apple Watch以3倍价格依然畅销的逻辑——信息披露降低了信息不对称。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学 (North & Williamson)</div>
+        <div class="sv-body">传感器阵列的功耗管理本质是一个<strong>治理结构选择</strong>问题。状态机调度(四种工作模式)对应"科层制"控制——集中决策、规则明确；自适应调度(基于用户历史行为预测)对应"市场制"——分散决策、灵活响应。Williamson的交易成本理论指出：当不确定性高(老人活动模式多变)且资产专用性高(传感器硬件已固化)时，最优治理结构是<strong>混合制</strong>——即状态机作为默认框架，叠加基于机器学习的自适应微调。中国《医疗器械监督管理条例》对算法变更的备案要求，实际上提高了云端部署的制度性交易成本。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-project-diagram"></i> 公共选择理论 (Buchanan & Tullock)</div>
+        <div class="sv-body">传感器选型的"精度vs功耗vs成本"三角，映射到组织层面就是<strong>利益相关者的偏好冲突</strong>：产品经理追求精度(卖点)，财务部门追求成本(BOM控制)，工程团队追求功耗(续航)。公共选择理论指出，不存在"社会最优"的传感器配置——只有各利益方的<strong>博弈均衡</strong>。MVP版本选择GP8200而非MAX86150，本质上是财务部门的偏好胜出。但这不意味着选择错误——Buchanan的"宪政规则"提醒我们：需要在产品生命周期早期就建立明确的决策框架(如"V1.0成本控制优先，V2.0精度优先")，避免后期反复拉锯。</div>
+      </div>
+    </div>
+
+    <!-- ========== Tip Box ========== -->
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 战略建议：传感器选型的三个关键决策点</div>
+      <div class="tip-body">
+        <strong>第一，MVP阶段"够用就好"：</strong>汇顶GP8200(¥5)的±3bpm精度对老年人心率监测完全足够。医疗级精度(MAX86150, ¥10)是V2.0的升级目标，不应在MVP阶段过度投资。<br><br>
+        <strong>第二，温度传感器是高ROI选项：</strong>NTC热敏电阻仅¥0.5，却是感染预警的唯一低成本手段。发热比症状早6-12小时出现，这个传感器的预防价值远超其成本。<br><br>
+        <strong>第三，传感器融合是长期壁垒：</strong>单传感器精度可以通过芯片选型追赶，但多传感器融合算法(加速度+PPG+ECG联合推断)需要2-3年的数据积累。这是国产手环与Apple Watch拉开差距的关键窗口期。
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-sensor"></div>
 
     <h2 class="section-subtitle">实操：传感器选型与集成 — 从I2C接线到量产良率</h2>
@@ -222,15 +347,74 @@
     var chart = echarts.init(document.getElementById('chart-sensor'));
     chart.setOption({
       backgroundColor: 'transparent',
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['PPG功耗(mW)', 'IMU功耗(mW)', 'GPS功耗(mW)', '总待机功耗(mW)'], textStyle: { color: '#94a3b8' }, top: 0 },
-      grid: { left: 70, right: 70, top: 40, bottom: 40 },
-      xAxis: { type: 'category', data: ['全天候','运动','睡眠','摔倒告警'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
-      yAxis: { type: 'value', name: '(mW)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: function(p) {
+          var r = p[0].name + '<br/>';
+          p.forEach(function(item) {
+            if (item.value != null) {
+              r += item.marker + item.seriesName + ': ' + item.value + 'mW<br/>';
+            }
+          });
+          return r;
+        }
+      },
+      legend: {
+        data: ['PPG功耗(mW)', 'IMU功耗(mW)', 'GPS功耗(mW)', '传感器总功耗(mW)'],
+        textStyle: { color: '#94a3b8' }, top: 0
+      },
+      grid: { left: 70, right: 70, top: 55, bottom: 40 },
+      xAxis: {
+        type: 'category',
+        data: ['全天候监测', '运动监测', '摔倒告警', '睡眠监测'],
+        axisLabel: { color: '#94a3b8' },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      yAxis: [
+        { type: 'value', name: '(mW)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        { type: 'value', name: '(总功耗)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+      ],
       series: [
-        { name: 'PPG功耗(mW)', type: 'bar', stack: 'total', data: [1.5, 3, 1.5, 5], itemStyle: { color: '#06b6d4' } },
-        { name: 'IMU功耗(mW)', type: 'bar', stack: 'total', data: [0.8, 0.8, 0.3, 0.8], itemStyle: { color: '#8b5cf6' } },
-        { name: 'GPS功耗(mW)', type: 'bar', stack: 'total', data: [0, 50, 0, 150], itemStyle: { color: '#ef4444' } }
+        {
+          name: 'PPG功耗(mW)', type: 'bar', stack: 'power', data: [1.5, 3, 5, 1.5],
+          itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1A5276'},{offset:1,color:'#0d3b5e'}]), borderRadius:[0,0,0,0] }
+        },
+        {
+          name: 'IMU功耗(mW)', type: 'bar', stack: 'power', data: [0.8, 0.8, 0.8, 0.3],
+          itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#B8860B'},{offset:1,color:'#8B6914'}]), borderRadius:[0,0,0,0] }
+        },
+        {
+          name: 'GPS功耗(mW)', type: 'bar', stack: 'power', data: [0, 50, 150, 0],
+          itemStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#dc2626'},{offset:1,color:'#991b1b'}]), borderRadius:[0,0,0,0] }
+        },
+        {
+          name: '传感器总功耗(mW)', type: 'line', data: [2.3, 53.8, 155.8, 1.8],
+          itemStyle: { color: '#7c3aed' },
+          lineStyle: { width: 3 },
+          smooth: true,
+          symbol: 'circle',
+          symbolSize: 8,
+          yAxisIndex: 1,
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(124,58,237,0.25)' },
+              { offset: 1, color: 'rgba(124,58,237,0.02)' }
+            ])
+          },
+          markPoint: {
+            data: [
+              { name: '峰值155.8mW', coord: ['摔倒告警', 155.8], value: '155.8', itemStyle: { color: '#dc2626' }, label: { formatter: '峰值', color: '#fff' } },
+              { name: '最低1.8mW', coord: ['睡眠监测', 1.8], value: '1.8', itemStyle: { color: '#059669' }, label: { formatter: '最低', color: '#fff' } }
+            ]
+          },
+          markLine: {
+            silent: true,
+            data: [{ type: 'average', name: '平均功耗' }],
+            lineStyle: { color: '#B8860B', type: 'dashed' },
+            label: { formatter: '均值: {c}mW', color: '#B8860B' }
+          }
+        }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });
