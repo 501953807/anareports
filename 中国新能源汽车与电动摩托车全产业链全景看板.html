@@ -2015,6 +2015,34 @@ footer a { color: var(--accent); text-decoration: none; }
 </div>
 </section>
 
+
+	<!-- ==================== 图表可视化区域 ==================== -->
+	<section>
+	<h2 class="section-title">数据可视化分析</h2>
+
+	<div class="grid-2" style="margin-bottom:20px;">
+	  <div class="card">
+	    <h3>📈 新能源汽车产销量趋势 (2023-2025)</h3>
+	    <div class="chart-container" id="chart-nev-sales-trend" style="height:320px;margin-bottom:30px;"></div>
+	  </div>
+	  <div class="card">
+	    <h3>🔋 全球动力电池市场格局 (2025全年)</h3>
+	    <div class="chart-container" id="chart-battery-market-share" style="height:320px;margin-bottom:30px;"></div>
+	  </div>
+	</div>
+
+	<div class="grid-2">
+	  <div class="card">
+	    <h3>⚡ 电池技术路线对比</h3>
+	    <div class="chart-container" id="chart-battery-tech-radar" style="height:320px;margin-bottom:30px;"></div>
+	  </div>
+	  <div class="card">
+	    <h3>🏆 2025年中国新能源车企销量排名 TOP10</h3>
+	    <div class="chart-container" id="chart-maker-ranking" style="height:320px;margin-bottom:30px;"></div>
+	  </div>
+	</div>
+	</section>
+
 <footer>
   <p>本看板由"全域全流派经济学首席研判专家"框架生成</p>
   <p>分析原则：前提校验优先 · 五维联动 · 多流派对冲 · 历史对称对标 · 代价前置</p>
@@ -2023,5 +2051,120 @@ footer a { color: var(--accent); text-decoration: none; }
 </footer>
 
 </div>
-</body>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  // Chart 1: NEV Sales Trend (Line)
+	  var c1 = echarts.init(document.getElementById('chart-nev-sales-trend'));
+	  c1.setOption({
+	    tooltip: { trigger: 'axis' },
+	    legend: { data: ['产量', '销量'], textStyle: { color: '#94a3b8' }, top: 0 },
+	    grid: { left: 60, right: 20, top: 40, bottom: 30 },
+	    xAxis: { type: 'category', data: ['2023年', '2024年', '2025年'], axisLabel: { color: '#e2e8f0' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+	    yAxis: { type: 'value', name: '万辆', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+	    series: [
+	      { name: '产量', type: 'line', data: [958.7, 1288.9, 1555.8], smooth: true, itemStyle: { color: '#5a8ec4' }, label: { show: true, position: 'top', color: '#e2e8f0', formatter: '{c}万' } },
+	      { name: '销量', type: 'line', data: [949.5, 1286.6, 1572.9], smooth: true, itemStyle: { color: '#5cb88a' }, label: { show: true, position: 'bottom', color: '#e2e8f0', formatter: '{c}万' } }
+	    ]
+	  });
+
+	  // Chart 2: Battery Market Share (Pie)
+	  var c2 = echarts.init(document.getElementById('chart-battery-market-share'));
+	  c2.setOption({
+	    tooltip: { trigger: 'item', formatter: '{b}: {d}%' },
+	    legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#94a3b8', fontSize: 10 } },
+	    series: [{
+	      type: 'pie',
+	      radius: ['40%', '65%'],
+	      center: ['38%', '50%'],
+	      avoidLabelOverlap: false,
+	      itemStyle: { borderRadius: 6, borderColor: '#1a1d27', borderWidth: 2 },
+	      label: { show: false },
+	      emphasis: { label: { show: true, fontWeight: 'bold', color: '#e4e6ed' } },
+	      data: [
+	        { value: 37, name: '宁德时代 CATL', itemStyle: { color: '#5a8ec4' } },
+	        { value: 17, name: '比亚迪 BYD', itemStyle: { color: '#c45a6c' } },
+	        { value: 13, name: 'LG新能源', itemStyle: { color: '#d4a843' } },
+	        { value: 6, name: '松下', itemStyle: { color: '#5cb88a' } },
+	        { value: 5, name: '三星SDI', itemStyle: { color: '#8a5ac4' } },
+	        { value: 5, name: '其他', itemStyle: { color: '#9498a8' } }
+	      ]
+	    }]
+	  });
+
+	  // Chart 3: Battery Tech Radar
+	  var c3 = echarts.init(document.getElementById('chart-battery-tech-radar'));
+	  c3.setOption({
+	    tooltip: {},
+	    legend: { data: ['磷酸铁锂 LFP', '三元 NCM', '半固态', '全固态(预期)'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+	    radar: {
+	      indicator: [
+	        { name: '能量密度', max: 100 },
+	        { name: '安全性', max: 100 },
+	        { name: '循环寿命', max: 100 },
+	        { name: '成本控制', max: 100 },
+	        { name: '低温性能', max: 100 },
+	        { name: '商业化程度', max: 100 }
+	      ],
+	      shape: 'polygon',
+	      splitNumber: 4,
+	      axisName: { color: '#e2e8f0', fontSize: 10 },
+	      splitLine: { lineStyle: { color: '#1e2a3a' } },
+	      splitArea: { areaStyle: { color: ['rgba(90,142,196,0.02)', 'rgba(90,142,196,0.05)'] } },
+	      axisLine: { lineStyle: { color: '#1e2a3a' } }
+	    },
+	    series: [{
+	      type: 'radar',
+	      symbolSize: 5,
+	      data: [
+	        { value: [65, 90, 80, 90, 60, 95], name: '磷酸铁锂 LFP', itemStyle: { color: '#5cb88a' }, areaStyle: { color: 'rgba(92,184,138,0.2)' } },
+	        { value: [90, 55, 75, 55, 70, 85], name: '三元 NCM', itemStyle: { color: '#c45a6c' }, areaStyle: { color: 'rgba(196,90,90,0.2)' } },
+	        { value: [92, 70, 100, 40, 65, 30], name: '半固态', itemStyle: { color: '#d4a843' }, areaStyle: { color: 'rgba(212,168,67,0.2)' } },
+	        { value: [98, 85, 100, 20, 80, 5], name: '全固态(预期)', itemStyle: { color: '#8a5ac4' }, areaStyle: { color: 'rgba(138,90,196,0.2)' } }
+	      ]
+	    }]
+	  });
+
+	  // Chart 4: Maker Ranking Bar
+	  var c4 = echarts.init(document.getElementById('chart-maker-ranking'));
+	  c4.setOption({
+	    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+	    grid: { left: 90, right: 60, top: 20, bottom: 30 },
+	    xAxis: { type: 'value', name: '万辆', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+	    yAxis: {
+	      type: 'category',
+	      data: ['赛力斯
+~40万', '小鹏
+~27万', '蔚来
+~28万', '理想
+~58万', '长安系
+~70万', '吉利系
+~100万', '特斯拉中国
+~110万', '比亚迪
+~402万'],
+	      axisLabel: { color: '#e2e8f0', fontSize: 9 },
+	      axisLine: { lineStyle: { color: '#1e2a3a' } }
+	    },
+	    series: [{
+	      type: 'bar',
+	      data: [
+	        { value: 40, itemStyle: { color: '#d4a843' } },
+	        { value: 27, itemStyle: { color: '#8a5ac4' } },
+	        { value: 28, itemStyle: { color: '#c45a6c' } },
+	        { value: 58, itemStyle: { color: '#5a8ec4' } },
+	        { value: 70, itemStyle: { color: '#5cb88a' } },
+	        { value: 100, itemStyle: { color: '#5ac4b8' } },
+	        { value: 110, itemStyle: { color: '#d4787e' } },
+	        { value: 402, itemStyle: { color: '#ffd700' } }
+	      ],
+	      label: { show: true, position: 'right', color: '#e2e8f0', fontSize: 10, formatter: '{c}万' },
+	      barWidth: 18
+	    }]
+	  });
+
+	  window.addEventListener('resize', function() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); });
+	});
+	</script>
+	</body>
 </html>

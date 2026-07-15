@@ -107,54 +107,6 @@
     </table>
 
     <div class="chart-container" id="chart-semi"></div>
-    <!-- ============================================================ -->
-    <!-- 实操专栏：车规芯片选型与国产替代                             -->
-    <!-- ============================================================ -->
-    <h2 class="section-subtitle">16.5 IGBT / MOSFET / SiC 选型实战对比</h2>
-    <div class="grid-2">
-      <div>
-        <h3 class="steps-title">IGBT 选型流程</h3>
-        <ol class="steps-list">
-          <li><strong>确定电压等级</strong>：350V-450V (48V/12V 低压系统)；650V-1200V (主逆变器)。</li>
-          <li><strong>确定电流等级</strong>：持续电流额定值(In)要大于电机峰值电流的 1.2-1.5 倍。例如电机峰值 200A → 选 In ≥ 250A 的模块。</li>
-          <li><strong>选型参考</strong>：斯达半导 SG356XX 系列(国内性价比首选)、比亚迪半导体 BSIA2CC 系列(自供为主)、英飞凌 FS series (性能标杆，交期长)。</li>
-          <li><strong>散热匹配</strong>：IGBT 导通损耗约 1.5-2.5V，开关损耗 10-50mJ。需配冷板式水冷或油冷，确保 Junction Temp ≤ 150°C。</li>
-        </ol>
-      </div>
-      <div>
-        <h3 class="steps-title">SiC MOSFET 选型流程</h3>
-        <ol class="steps-list">
-          <li><strong>适用前提</strong>：只有 800V 平台才有必要上 SiC。400V 平台用 IGBT 就够了，上 SiC 成本白烧。</li>
-          <li><strong>电压等级</strong>：1200V SiC 是目前主流(耐压余量大)。650V SiC 可用于 OBC 等低压辅助场景。</li>
-          <li><strong>选型参考</strong>：Wolfspeed (衬底自研，性能最强但最贵)、罗姆 ROHM (模块封装能力强)、三安光电 (国产芯片代工+自有品牌)、天岳先进 (衬底+模块一体)。</li>
-          <li><strong>驱动要求</strong>：SiC 开关速度快(dV/dt 高)，需要专门的gate driver (如英飞-go IR2101S/纳芯微 NSi57x 系列)，栅极电阻要调到 2-5Ω 抑制振荡。</li>
-        </ol>
-      </div>
-    </div>
-
-    <h3 class="steps-title">国产替代方案 — 按应用场景选择</h3>
-    <table class="data-table">
-      <thead><tr><th>场景</th><th>国际方案</th><th>国产替代(成熟)</th><th>国产替代(追赶中)</th><th>替代风险等级</th></tr></thead>
-      <tbody>
-        <tr><td>主逆变器 IGBT</td><td>英飞凌 FS series</td><td>斯达半导 / 比亚迪半导体</td><td>时代电气</td><td>低(已大批量上车)</td></tr>
-        <tr><td>主逆变器 SiC</td><td>英飞凌 / Wolfspeed</td><td>三安光电模块 / 基本半导体</td><td>泰科电子</td><td>中(可靠性需验证)</td></tr>
-        <tr><td>OBC 超级结 MOSFET</td><td>Infineon / ST</td><td>士兰微 / 华润微</td><td>扬杰科技</td><td>低</td></tr>
-        <tr><td>DC-DC 控制器</td><td>NXP / TI</td><td>重庆永能 / 矽力杰</td><td>纳芯微</td><td>中低</td></tr>
-        <tr><td>车规 MCU</td><td>NXP / Infineon / Renesas</td><td>杰发科技(AutoChips)</td><td>国芯科技</td><td>中高(B功能安全认证中)</td></tr>
-        <tr><td>GaN (快充/OBC)</td><td>Navitas / Innoscience</td><td>英诺赛科(已上市)</td><td>臻鼎科技</td><td>高(车规认证刚开始)</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="steps-title">芯片采购渠道 — 避坑指南</h3>
-    <ol class="steps-list">
-      <li><strong>授权分销商</strong>：优先通过 DigiKey / Mouser / Arrow / Avnet 下单，确保原厂追溯。不要省 2% 的手续费去买水货。</li>
-      <li><strong>二手/翻新芯片坑</strong>：车规芯片翻新猖獗。IC 上激光打标可擦除重写，换标后再卖。识别方法：X-ray 检查内部键合、Open 金丝外观检查蚀刻痕迹、测试参数漂移。</li>
-      <li><strong>交期策略</strong>：英飞凌 IGBT 模块交期 20-30 周，国产斯达 8-12 周。新车型开发前期就要锁单，最好在 EVT(工程验证)阶段就签 PO。</li>
-      <li><strong>AEC-Q100 认证</strong>：所有车规芯片必须有 AEC-Q100 等级证明。Grade 0 (整车) > Grade 1 (发动机舱) > Grade 2 (座舱)。采购时确认供应商能提供 Level 2 以上测试报告。</li>
-    </ol>
-    <div class="tip-box">
-      <p><strong>成本对比速查：</strong>一辆 400V 平台 NEV 用 IGBT 方案，功率半导体总成本约 ¥1,500-2,000。换到 800V + SiC 方案，功率半导体总成本约 ¥3,000-4,500，但续航提升 5-8%。当车型售价 ≥ 25 万时，SiC 方案的品牌溢价足以覆盖成本增加；15 万以下的车型目前还吃不下。</p>
-    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="15-battery-materials.html"><i class="fas fa-arrow-left"></i> 电池材料</a>

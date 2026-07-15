@@ -32,12 +32,12 @@
     <h2 class="section-subtitle">洗钱规模的估算方法论</h2>
     <p>洗钱规模的估算极其困难，因为洗钱本身就是非法的、隐蔽的活动。主要方法包括：</p>
     <table class="data-table">
-      <thead><tr><th>方法</th><th>原理</th><th>优点</th><th>局限</th></tr></thead>
+      <thead><tr><th>方法</th><th>原理</th><th>优点</th><th>局限</th><th style="background:rgba(6,182,212,0.06);color:#67e8f9">深度解读</th></tr></thead>
       <tbody>
-        <tr><td>货币需求法(MMA)</td><td>估算犯罪者为持有非法货币而愿意提供的商品和服务量</td><td>理论框架成熟</td><td>依赖大量假设</td></tr>
-        <tr><td>基础投入法</td><td>根据洗钱所需的基础设施(银行、律师、会计师)规模推算</td><td>可交叉验证</td><td>难以获取准确数据</td></tr>
-        <tr><td>剩余法</td><td>从GDP统计中"剩余"出不合常理的资金流</td><td>数据可得</td><td>混杂合法因素</td></tr>
-        <tr><td>查获 extrapolation</td><td>根据查获案件量按查获率倒数推算总量</td><td>基于实际数据</td><td>查获率极不确定</td></tr>
+        <tr><td>货币需求法(MMA)</td><td>估算犯罪者为持有非法货币而愿意提供的商品和服务量</td><td>理论框架成熟</td><td>依赖大量假设</td><td style="font-size:12px;color:var(--text2)">MMA隐含"黑市是外生给定"的假设，但演化经济学证明洗钱渠道会内生创新以适应监管压力</td></tr>
+        <tr><td>基础投入法</td><td>根据洗钱所需的基础设施(银行、律师、会计师)规模推算</td><td>可交叉验证</td><td>难以获取准确数据</td><td style="font-size:12px;color:var(--text2)">基础投入法低估了"去中心化洗钱"——DeFi和AI工具使个体无需专业机构即可完成复杂洗钱</td></tr>
+        <tr><td>剩余法</td><td>从GDP统计中"剩余"出不合常理的资金流</td><td>数据可得</td><td>混杂合法因素</td><td style="font-size:12px;color:var(--text2)">剩余法的根本问题是：当洗钱规模占GDP 3%时，它已不是"剩余"而是系统性偏差，会扭曲所有宏观统计</td></tr>
+        <tr><td>查获 extrapolation</td><td>根据查获案件量按查获率倒数推算总量</td><td>基于实际数据</td><td>查获率极不确定</td><td style="font-size:12px;color:var(--text2)">查获率假设服从泊松分布，但洗钱网络具有"无标度网络"特征——少数枢纽处理大量资金，导致外推严重偏低</td></tr>
       </tbody>
     </table>
 
@@ -80,6 +80,30 @@
         <tr><td>中亚/高加索</td><td>$200-800</td><td>哈瓦拉、离岸公司、能源</td><td>欧亚反洗钱小组(EAG)</td></tr>
       </tbody>
     </table>
+
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">2024年全球SWIFT跨境支付总额达$472万亿，其中约0.03%($141亿)被AML系统标记为可疑。东亚/东南亚区域洗钱规模$1,500-3,000亿，占全球约10%，但执法资源投入不足全球的8%——这种"风险-资源错配"是洗钱规模持续扩张的制度性根源。</div>
+
+    <h2 class="section-subtitle">五大学派交叉分析：全球洗钱规模扩张的结构性动因</h2>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.03);border-radius:0 4px 4px 0"><strong style="color:#1A5276">公共选择理论：</strong>各国对洗钱的"容忍度"并非偶然，而是政治经济均衡的结果。美国需要离岸金融中心维持美元霸权，欧洲需要私人银行服务吸引全球财富，中国需要地下钱庄的替代通道支持粤港澳大湾区资本流动——每个司法管辖区都在"反洗钱承诺"和"资本自由流动利益"之间做权衡。FATF标准看似统一，实际执行中的选择性问题暴露了监管的政治经济学本质。</div>
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.03);border-radius:0 4px 4px 0"><strong style="color:#B8860B">马克思主义政治经济学(资本流动)：</strong>洗钱是全球资本积累的"暗面循环"。当剩余价值通过欺诈、毒品、腐败在边缘国家产生时，必须经过洗钱进入中心国家的金融体系实现再生产。东亚→北美/欧洲的洗钱流向，与马克思描述的"中心-外围"资本流动完全同构。加密技术不是创造了新洗钱，而是降低了边缘资本进入中心金融体系的交易成本。</div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.03);border-radius:0 4px 4px 0"><strong style="color:#dc2626">后凯恩斯主义(Minsky)：</strong>洗钱规模从$11.2万亿(2015中值)增长到$21万亿(2026中值)，增速90%超过同期GDP增速43%——这是一个典型的"金融-犯罪复合体"扩张周期。Minsky框架下，当合规成本低于违规预期罚款时，机构选择"对冲融资"式合规；当罚款飙升时转入"投机融资"——只够付罚款不够修复系统；最终在下一轮丑闻爆发时陷入"庞氏融资"——合规成本吞噬利润但仍无法阻止漏洞。</div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.03);border-radius:0 4px 4px 0"><strong style="color:#059669">新制度经济学：</strong>各区域洗钱规模差异本质上是制度质量的函数。东亚/东南亚高洗钱规模($1,500-3,000亿)对应低BO透明度+弱FIU协作+高腐败感知指数；北美中等规模($1,000-2,000亿)对应高透明度但高资本流动复杂度。制度质量改善的边际收益递减——从灰名单到脱灰比从脱灰到满分容易10倍，这解释了为什么UAE进步快但瑞士仍有漏洞。</div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.03);border-radius:0 4px 4px 0"><strong style="color:#7c3aed">演化经济学：</strong>洗钱渠道不是静态分类，而是动态竞争生态。地下钱庄→TBML→空壳公司→混币器→稳定币→AI洗钱，这是一条清晰的"技术迭代链"。每一代渠道都比前一代具有更低的交易成本、更高的并行度和更强的抗追踪能力。关键转折点是2022年OFAC制裁Tornado Cash——这一"选择压力"催生了Blend等AI混币器的变异体，演化速度从5年一代加速到1-2年一代。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-globe-asia"></i> 案例：东南亚"对敲帝国"——中缅泰老边境的平行金融系统</div>
+      <div class="case-body">
+        <p><strong>规模：</strong>缅甸/柬埔寨/老挝边境地下钱庄网络年处理金额超$200亿</p>
+        <p><strong>结构：</strong>中国境内"水房"控制1200+张银行卡→ 通过Telegram通知金三角境外节点 → 境外用诈骗所得USD/THB直接放款给目标客户 → 差额通过边境贸易预付款平衡</p>
+        <p><strong>关键创新：</strong>将传统对敲与电诈收益结合——诈骗资金本身就是外币(美元/人民币混合)，减少了货币转换环节，洗钱效率提升3倍</p>
+        <p><strong>执法困境：</strong>四国联合执法面临司法管辖碎片化——中国刑事管辖不覆盖境外，缅北地方武装拒绝引渡，泰国FIU数据共享延迟平均6个月</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(6,182,212,0.05),rgba(124,58,237,0.05));border:1px solid rgba(6,182,212,0.15);border-radius:8px;padding:16px;margin-bottom:24px"><div style="font-weight:600;margin-bottom:10px;color:var(--text1)"><i class="fas fa-code-branch" style="color:var(--cyan)"></i> 洗钱规模与执法力度的背离链</div><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px"><span style="background:rgba(239,68,68,0.1);color:#fca5a5;padding:4px 10px;border-radius:4px">洗钱规模增速3.3%/年</span><span style="color:var(--text3)">→</span><span style="background:rgba(245,158,11,0.1);color:#fcd34d;padding:4px 10px;border-radius:4px">执法案件增速中国26.7%/年</span><span style="color:var(--text3)">→</span><span style="background:rgba(6,182,212,0.1);color:#67e8f9;padding:4px 10px;border-radius:4px">但追回率仅0.5-1.3%</span><span style="color:var(--text3)">→</span><span style="background:rgba(124,58,237,0.1);color:#c4b5fd;padding:4px 10px;border-radius:4px">违法净收益仍为正</span><span style="color:var(--text3)">→</span><span style="background:rgba(5,150,105,0.1);color:#6ee7b7;padding:4px 10px;border-radius:4px">激励持续存在→规模继续扩张</span></div><p style="margin-top:10px;font-size:12px;color:var(--text3)">背离含义：案件查处量上升不等于洗钱减少——可能只是"捕捞效率"提高。当追回率始终低于2%时，洗钱的预期收益率仍然远高于合法投资渠道。</p></div>
+
+    <h2 class="section-subtitle">五大学派交叉解读：各区域洗钱规模差异的制度逻辑</h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">东亚/东南亚洗钱规模$1,500-3,000亿居首，但执法重点分散在三个以上国家——以下从五个经济学视角解析这一格局。</p>
 
     <div class="chart-container" id="chart-global-trend"></div>
 

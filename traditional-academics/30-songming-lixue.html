@@ -226,6 +226,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>理学vs心学对比雷达图</h3>
+        <div class="chart-container" id="chart-li-xin-compare" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="29-mengzi.html" class="cross-ref-card">
@@ -272,6 +275,49 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-li-xin-compare'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {},
+      legend: { data: ['程朱理学', '陆王心学'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+      radar: {
+        indicator: [
+          { name: '向外穷理', max: 100 },
+          { name: '向内求理', max: 100 },
+          { name: '经典权威', max: 100 },
+          { name: '内心判断', max: 100 },
+          { name: '渐进积累', max: 100 },
+          { name: '顿悟直觉', max: 100 }
+        ],
+        shape: 'polygon',
+        splitNumber: 4,
+        axisName: { color: '#e2e8f0', fontSize: 10 },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(184,134,11,0.02)', 'rgba(184,134,11,0.05)'] } },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'radar',
+        symbolSize: 6,
+        data: [
+          {
+            value: [90, 20, 95, 15, 85, 25],
+            name: '程朱理学',
+            itemStyle: { color: '#1A5276' },
+            areaStyle: { color: 'rgba(26,82,118,0.2)' }
+          },
+          {
+            value: [20, 90, 15, 95, 25, 85],
+            name: '陆王心学',
+            itemStyle: { color: '#dc2626' },
+            areaStyle: { color: 'rgba(220,38,38,0.2)' }
+          }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var toggleBtn = document.querySelector('.nav-toggle');

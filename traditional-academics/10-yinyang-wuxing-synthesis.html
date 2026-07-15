@@ -188,6 +188,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>五行分类体系雷达图</h3>
+        <div class="chart-container" id="chart-wuxing-categories" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="09-wuxing-cycles.html" class="cross-ref-card">
@@ -233,5 +236,41 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-wuxing-categories'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {},
+      legend: { data: ['木', '火', '土', '金', '水'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+      radar: {
+        indicator: [
+          { name: '季节', max: 100 },
+          { name: '方位', max: 100 },
+          { name: '颜色', max: 100 },
+          { name: '脏腑', max: 100 },
+          { name: '情志', max: 100 },
+          { name: '体窍', max: 100 }
+        ],
+        shape: 'polygon',
+        splitNumber: 3,
+        axisName: { color: '#e2e8f0', fontSize: 11 },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(184,134,11,0.02)', 'rgba(184,134,11,0.05)'] } },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'radar',
+        symbolSize: 6,
+        data: [
+          { value: [100, 100, 100, 100, 100, 100], name: '木', itemStyle: { color: '#059669' }, lineStyle: { color: '#059669' } },
+          { value: [100, 100, 100, 100, 100, 100], name: '火', itemStyle: { color: '#dc2626' }, lineStyle: { color: '#dc2626' } },
+          { value: [100, 100, 100, 100, 100, 100], name: '土', itemStyle: { color: '#B8860B' }, lineStyle: { color: '#B8860B' } },
+          { value: [100, 100, 100, 100, 100, 100], name: '金', itemStyle: { color: '#1A5276' }, lineStyle: { color: '#1A5276' } },
+          { value: [100, 100, 100, 100, 100, 100], name: '水', itemStyle: { color: '#7c3aed' }, lineStyle: { color: '#7c3aed' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
 </body>
 </html>

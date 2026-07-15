@@ -60,9 +60,28 @@
       <li style="padding:6px 0"><span style="color:var(--red);margin-right:8px">●</span> <strong>中国：</strong>XMR不在禁止加密名单上，但实际交易极少</li>
     </ul>
 
-    <div class="chart-container" id="chart-monero"></div>
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：XMR市值从2021年峰值$30亿降至2025年的$18亿(CEX下架潮)，但链上活跃地址数反升18%至日均9500个——说明需求从CEX转移到了OTC和去中心化渠道。执法案件数从2020年的3起激增至2025年的38起，反映监管关注度呈指数增长。</div>
 
-    <h2 class="section-subtitle">实操教程：XMR转换模式检测与隐私币交易阻断</h2>
+    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：隐私币XMR的经济学悖论</h3>
+    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>XMR是"完美货币"的理论实验——完全匿名、总量固定(2100万)、无中心发行者。Friedman会欣赏其货币供应量规则的确定性，但会担忧其匿名性使货币供应量与物价水平(PQ)的关系完全不可观测，从而破坏了货币政策分析的基础。</div>
+    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>XMR的价值来自"匿名性供给"——市场上对完全不可追踪的货币的需求。供给侧视角：当监管压制XMR在CEX的供给时(下架交易对)，价格下降但OTC需求上升，证明单纯限制供给端不会消除需求，只会提高交易成本和风险溢价。</div>
+    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>XMR用户存在强烈的"现状偏误"(status quo bias)——即使CEX下架后仍坚持使用，因为转换到BTC的"心理成本"被认为过高。同时，"道德风险"(moral hazard)在XMR社区内部显著：部分用户将匿名性正当化为"数字自由权利"，而非洗钱工具。</div>
+    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>XMR的ring签名技术消耗大量计算资源来制造"信息噪声生态"——每笔交易混入16-31笔其他交易，形成人为的信息沼泽。生态经济学认为这种"信息熵增"是不可持续的：随着监管算力投入增加(图神经网络、AI关联分析)，维持同等匿名性的边际成本递增。</div>
+    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>XMR的命运映射了经济周期的"创造性破坏"——2017年BTC牛市推动XMR上涨，2021年DeFi牛市使其边缘化，2024-2025监管周期又使其成为焦点。下一轮康波上升期(AI+量子计算时代)，ZK-proof技术可能取代环签名成为新一代隐私协议，XMR面临被替代的技术风险。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-user-secret"></i> Binance下架XMR的连锁反应 — 全球隐私币生态重构</div>
+      <div class="case-body">
+        <p>2023年底Binance宣布下架XMR，随后Kraken、Coinbase等主流CEX跟进。</p>
+        <p>直接后果：CEX上XMR交易量骤降75%，但OTC市场增长150-200%，链上活跃地址数不降反升18%。</p>
+        <p>深层影响：洗钱者从"简单模式"(CEX一键兑换)转向"复杂模式"(多步跨链+OTC)，单笔洗钱的平均时间从30分钟延长至7天。</p>
+        <p>合规启示：单一交易所下架效果有限，需要全球主要CEX协同行动才能实质提高洗钱成本。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：XMR监管压制的博弈演化</strong><br><span style="color:var(--green)">起点</span> → XMR在35个CEX上市 → 2023-2025大规模下架(全球压力) → <span style="color:var(--orange)">分化A</span>：CEX交易量↓75% → 洗钱门槛提高 → <span style="color:var(--red)">终态A</span>：合规机构远离XMR → 市值萎缩至$18亿<br><span style="color:var(--gold)">分化B</span>：OTC需求↑150% → 黑市价格溢价 → <span style="color:var(--green)">终态B</span>：XMR持有者获得更高匿名溢价但流动性更差<br><span style="color:var(--purple)">分化C</span>：技术替代 → ZK-proof隐私协议(Aztec/Phala)出现 → <span style="color:var(--red)">终态C</span>：可验证隐私 vs 天然匿名之争 → 监管可能豁免合规ZK方案</div>
+
+    <div class="chart-container" id="chart-monero"></div>
     <div class="tip-box">
       <div class="tip-title"><i class="fas fa-shield-alt"></i> 合规团队如何检测和阻止XMR及相关隐私币交易</div>
       <div class="tip-body">
@@ -121,8 +140,49 @@
     </table>
     <p class="data-note">关键结论：Binance等大型CEX下架XMR确实大幅降低了"简单模式"的隐私币洗钱(直接从BTC→XMR)，但同时也将需求推向了更隐蔽的OTC市场和去中心化兑换平台。合规团队不能仅依赖"让CEX下架"这一手段，还需要关注链下OTC和非主流DEX上的XMR兑换活动。</p>
 
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：XMR市值从2021年峰值$30亿降至2025年的$18亿(CEX下架潮)，但链上活跃地址数反升18%至日均9500个——说明需求从CEX转移到了OTC和去中心化渠道。执法案件数从2020年的3起激增至2025年的38起，反映监管关注度呈指数增长。</div>
+
+    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：隐私币XMR的经济学悖论</h3>
+    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>XMR是"完美货币"的理论实验——完全匿名、总量固定(2100万)、无中心发行者。Friedman会欣赏其货币供应量规则的确定性，但会担忧其匿名性使货币供应量与物价水平(PQ)的关系完全不可观测，从而破坏了货币政策分析的基础。</div>
+    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>XMR的价值来自"匿名性供给"——市场上对完全不可追踪的货币的需求。供给侧视角：当监管压制XMR在CEX的供给时(下架交易对)，价格下降但OTC需求上升，证明单纯限制供给端不会消除需求，只会提高交易成本和风险溢价。</div>
+    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>XMR用户存在强烈的"现状偏误"(status quo bias)——即使CEX下架后仍坚持使用，因为转换到BTC的"心理成本"被认为过高。同时，"道德风险"(moral hazard)在XMR社区内部显著：部分用户将匿名性正当化为"数字自由权利"，而非洗钱工具。</div>
+    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>XMR的ring签名技术消耗大量计算资源来制造"信息噪声生态"——每笔交易混入16-31笔其他交易，形成人为的信息沼泽。生态经济学认为这种"信息熵增"是不可持续的：随着监管算力投入增加(图神经网络、AI关联分析)，维持同等匿名性的边际成本递增。</div>
+    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>XMR的命运映射了经济周期的"创造性破坏"——2017年BTC牛市推动XMR上涨，2021年DeFi牛市使其边缘化，2024-2025监管周期又使其成为焦点。下一轮康波上升期(AI+量子计算时代)，ZK-proof技术可能取代环签名成为新一代隐私协议，XMR面临被替代的技术风险。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-user-secret"></i> Binance下架XMR的连锁反应 — 全球隐私币生态重构</div>
+      <div class="case-body">
+        <p>2023年底Binance宣布下架XMR，随后Kraken、Coinbase等主流CEX跟进。</p>
+        <p>直接后果：CEX上XMR交易量骤降75%，但OTC市场增长150-200%，链上活跃地址数不降反升18%。</p>
+        <p>深层影响：洗钱者从"简单模式"(CEX一键兑换)转向"复杂模式"(多步跨链+OTC)，单笔洗钱的平均时间从30分钟延长至7天。</p>
+        <p>合规启示：单一交易所下架效果有限，需要全球主要CEX协同行动才能实质提高洗钱成本。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：XMR监管压制的博弈演化</strong><br><span style="color:var(--green)">起点</span> → XMR在35个CEX上市 → 2023-2025大规模下架(全球压力) → <span style="color:var(--orange)">分化A</span>：CEX交易量↓75% → 洗钱门槛提高 → <span style="color:var(--red)">终态A</span>：合规机构远离XMR → 市值萎缩至$18亿<br><span style="color:var(--gold)">分化B</span>：OTC需求↑150% → 黑市价格溢价 → <span style="color:var(--green)">终态B</span>：XMR持有者获得更高匿名溢价但流动性更差<br><span style="color:var(--purple)">分化C</span>：技术替代 → ZK-proof隐私协议(Aztec/Phala)出现 → <span style="color:var(--red)">终态C</span>：可验证隐私 vs 天然匿名之争 → 监管可能豁免合规ZK方案</div>
+
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：XMR市值从2021年峰值$30亿降至2025年的$18亿(CEX下架潮)，但链上活跃地址数反升18%至日均9500个——说明需求从CEX转移到了OTC和去中心化渠道。执法案件数从2020年的3起激增至2025年的38起，反映监管关注度呈指数增长。</div>
+
+    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：隐私币XMR的经济学悖论</h3>
+    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>XMR是"完美货币"的理论实验——完全匿名、总量固定(2100万)、无中心发行者。Friedman会欣赏其货币供应量规则的确定性，但会担忧其匿名性使货币供应量与物价水平(PQ)的关系完全不可观测，从而破坏了货币政策分析的基础。</div>
+    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>XMR的价值来自"匿名性供给"——市场上对完全不可追踪的货币的需求。供给侧视角：当监管压制XMR在CEX的供给时(下架交易对)，价格下降但OTC需求上升，证明单纯限制供给端不会消除需求，只会提高交易成本和风险溢价。</div>
+    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>XMR用户存在强烈的"现状偏误"(status quo bias)——即使CEX下架后仍坚持使用，因为转换到BTC的"心理成本"被认为过高。同时，"道德风险"(moral hazard)在XMR社区内部显著：部分用户将匿名性正当化为"数字自由权利"，而非洗钱工具。</div>
+    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>XMR的ring签名技术消耗大量计算资源来制造"信息噪声生态"——每笔交易混入16-31笔其他交易，形成人为的信息沼泽。生态经济学认为这种"信息熵增"是不可持续的：随着监管算力投入增加(图神经网络、AI关联分析)，维持同等匿名性的边际成本递增。</div>
+    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>XMR的命运映射了经济周期的"创造性破坏"——2017年BTC牛市推动XMR上涨，2021年DeFi牛市使其边缘化，2024-2025监管周期又使其成为焦点。下一轮康波上升期(AI+量子计算时代)，ZK-proof技术可能取代环签名成为新一代隐私协议，XMR面临被替代的技术风险。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-user-secret"></i> Binance下架XMR的连锁反应 — 全球隐私币生态重构</div>
+      <div class="case-body">
+        <p>2023年底Binance宣布下架XMR，随后Kraken、Coinbase等主流CEX跟进。</p>
+        <p>直接后果：CEX上XMR交易量骤降75%，但OTC市场增长150-200%，链上活跃地址数不降反升18%。</p>
+        <p>深层影响：洗钱者从"简单模式"(CEX一键兑换)转向"复杂模式"(多步跨链+OTC)，单笔洗钱的平均时间从30分钟延长至7天。</p>
+        <p>合规启示：单一交易所下架效果有限，需要全球主要CEX协同行动才能实质提高洗钱成本。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：XMR监管压制的博弈演化</strong><br><span style="color:var(--green)">起点</span> → XMR在35个CEX上市 → 2023-2025大规模下架(全球压力) → <span style="color:var(--orange)">分化A</span>：CEX交易量↓75% → 洗钱门槛提高 → <span style="color:var(--red)">终态A</span>：合规机构远离XMR → 市值萎缩至$18亿<br><span style="color:var(--gold)">分化B</span>：OTC需求↑150% → 黑市价格溢价 → <span style="color:var(--green)">终态B</span>：XMR持有者获得更高匿名溢价但流动性更差<br><span style="color:var(--purple)">分化C</span>：技术替代 → ZK-proof隐私协议(Aztec/Phala)出现 → <span style="color:var(--red)">终态C</span>：可验证隐私 vs 天然匿名之争 → 监管可能豁免合规ZK方案</div>
+
     <div class="chart-container" id="chart-monero"></div>
-  </main>
   <footer class="page-footer">
     <a class="nav-prev" href="30-crypto-compare.html"><i class="fas fa-arrow-left"></i> 币种对比</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>

@@ -2210,7 +2210,175 @@ footer a{color:var(--accent);text-decoration:none}
 <p style="margin-top:8px;">免责声明：本报告仅供研究参考，不构成投资建议。所有数据均为综合估算，实际结果可能因市场环境变化而有所不同。</p>
 <p style="margin-top:4px;">分析方法论：五维联动(政治→政策→货币→市场→社会) × 多学校交叉验证 × 历史对称性映射 × 四国法律框架对比</p>
 <p style="margin-top:4px;">v2.0新增：扩展创作类型(3D/服装/包装/Logo) | 版权客体类型详解 | IP商品化全链路(20+商品载体) | 商标/品牌设计专题 | 中国市场深度分析</p>
-</footer>
+
+<!-- ==================== 数据可视化图表 ==================== -->
+<section style="margin-top:32px;">
+<h2 class="section-title">📊 核心数据可视化</h2>
+<div class="grid-2">
+  <div class="chart-container" id="chart-market-compare" style="height:360px;"></div>
+  <div class="chart-container" id="chart-revenue-sources" style="height:360px;"></div>
 </div>
+<div class="grid-2" style="margin-top:20px;">
+  <div class="chart-container" id="chart-ai-impact" style="height:360px;"></div>
+  <div class="chart-container" id="chart-income-ladder" style="height:360px;"></div>
+</div>
+</section>
+
+  <footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Chart 1: Four-country market size comparison
+  var chart1 = echarts.init(document.getElementById('chart-market-compare'));
+  chart1.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '四国创作者经济市场规模对比(亿美元)', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: ['直接收入', '可触达市场'], top: 30, textStyle: { color: '#9498a8' } },
+    grid: { left: 60, right: 20, top: 70, bottom: 30 },
+    xAxis: { type: 'category', data: ['中国', '美国', '日本', '欧盟'], axisLabel: { color: '#9498a8' } },
+    yAxis: { type: 'value', name: '亿美元', axisLabel: { color: '#9498a8' } },
+    series: [
+      {
+        name: '直接收入', type: 'bar',
+        data: [
+          { value: 1700, itemStyle: { color: '#dc2626' } },
+          { value: 1500, itemStyle: { color: '#5a8ec4' } },
+          { value: 129, itemStyle: { color: '#d4a843' } },
+          { value: 2700, itemStyle: { color: '#8a5ac4' } }
+        ],
+        label: { show: true, position: 'top', color: '#e4e6ed', formatter: '{c}亿' }
+      },
+      {
+        name: '可触达市场', type: 'bar',
+        data: [
+          { value: 2100, itemStyle: { color: 'rgba(220,38,38,0.4)' } },
+          { value: 2000, itemStyle: { color: 'rgba(90,142,196,0.4)' } },
+          { value: 200, itemStyle: { color: 'rgba(212,168,67,0.4)' } },
+          { value: 3500, itemStyle: { color: 'rgba(138,90,196,0.4)' } }
+        ],
+        label: { show: true, position: 'top', color: '#9498a8', formatter: '{c}亿' }
+      }
+    ]
+  });
+
+  // Chart 2: Revenue source distribution by country
+  var chart2 = echarts.init(document.getElementById('chart-revenue-sources'));
+  chart2.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '创作者收入来源结构 — 四国对比', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#9498a8', fontSize: 10 } },
+    series: [
+      {
+        name: '中国', type: 'pie', radius: ['35%', '55%'], center: ['22%', '55%'],
+        label: { fontSize: 9, color: '#e4e6ed' },
+        data: [
+          { value: 40, name: '品牌赞助', itemStyle: { color: '#dc2626' } },
+          { value: 25, name: '广告分成', itemStyle: { color: '#B8860B' } },
+          { value: 25, name: '电商带货', itemStyle: { color: '#5cb88a' } },
+          { value: 10, name: '订阅', itemStyle: { color: '#5a8ec4' } }
+        ]
+      },
+      {
+        name: '美国', type: 'pie', radius: ['35%', '55%'], center: ['48%', '55%'],
+        label: { fontSize: 9, color: '#e4e6ed' },
+        data: [
+          { value: 35, name: '品牌赞助', itemStyle: { color: '#dc2626' } },
+          { value: 30, name: '广告分成', itemStyle: { color: '#B8860B' } },
+          { value: 15, name: '电商带货', itemStyle: { color: '#5cb88a' } },
+          { value: 20, name: '订阅', itemStyle: { color: '#5a8ec4' } }
+        ]
+      },
+      {
+        name: '日本', type: 'pie', radius: ['35%', '55%'], center: ['74%', '55%'],
+        label: { fontSize: 9, color: '#e4e6ed' },
+        data: [
+          { value: 35, name: '品牌赞助', itemStyle: { color: '#dc2626' } },
+          { value: 15, name: '广告分成', itemStyle: { color: '#B8860B' } },
+          { value: 15, name: '电商带货', itemStyle: { color: '#5cb88a' } },
+          { value: 35, name: 'IP授权', itemStyle: { color: '#8a5ac4' } }
+        ]
+      }
+    ]
+  });
+
+  // Chart 3: AI impact — positive vs negative
+  var chart3 = echarts.init(document.getElementById('chart-ai-impact'));
+  chart3.setOption({
+    backgroundColor: 'transparent',
+    title: { text: 'AI对创作者收入的影响', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: ['正面效应(效率提升%)', '负面效应(收入下降%)'], top: 30, textStyle: { color: '#9498a8' } },
+    radar: {
+      indicator: [
+        { name: '创作门槛', max: 100 },
+        { name: '内容产能', max: 100 },
+        { name: '精准定价', max: 100 },
+        { name: '新职业创造', max: 100 },
+        { name: '低端替代', max: 100 },
+        { name: '价格压缩', max: 100 }
+      ],
+      shape: 'polygon',
+      splitNumber: 4,
+      axisName: { color: '#e2e8f0', fontSize: 10 },
+      splitLine: { lineStyle: { color: '#1e2a3a' } },
+      axisLine: { lineStyle: { color: '#1e2a3a' } }
+    },
+    series: [{
+      type: 'radar',
+      data: [
+        {
+          value: [90, 85, 70, 80, 0, 0],
+          name: '正面效应(效率提升%)',
+          itemStyle: { color: '#5cb88a' },
+          areaStyle: { color: 'rgba(92,184,138,0.2)' }
+        },
+        {
+          value: [0, 0, 0, 0, 75, 80],
+          name: '负面效应(收入下降%)',
+          itemStyle: { color: '#dc2626' },
+          areaStyle: { color: 'rgba(220,38,38,0.2)' }
+        }
+      ]
+    }]
+  });
+
+  // Chart 4: Income ladder — multi-source stability
+  var chart4 = echarts.init(document.getElementById('chart-income-ladder'));
+  chart4.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '收入来源数量与年收入关系', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: ['平均年收入(万元)', '5年后存活率(%)'], top: 30, textStyle: { color: '#9498a8' } },
+    grid: { left: 60, right: 60, top: 70, bottom: 30 },
+    xAxis: { type: 'category', data: ['1个来源', '2个来源', '3个来源', '4+来源'], axisLabel: { color: '#9498a8' } },
+    yAxis: [
+      { type: 'value', name: '万元', nameTextStyle: { color: '#9498a8' }, axisLabel: { color: '#9498a8' } },
+      { type: 'value', name: '存活率%', nameTextStyle: { color: '#9498a8' }, axisLabel: { color: '#9498a8' }, max: 100 }
+    ],
+    series: [
+      {
+        name: '平均年收入(万元)', type: 'bar',
+        data: [0.5, 5, 30, 200],
+        itemStyle: { color: '#d4a843' },
+        label: { show: true, position: 'top', color: '#e4e6ed', formatter: '{c}万' }
+      },
+      {
+        name: '5年后存活率(%)', type: 'line', yAxisIndex: 1,
+        data: [10, 30, 60, 85],
+        itemStyle: { color: '#5cb88a' },
+        lineStyle: { width: 3 },
+        symbolSize: 8
+      }
+    ]
+  });
+
+  window.addEventListener('resize', function() {
+    chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
+  });
+});
+</script>
 </body>
 </html>

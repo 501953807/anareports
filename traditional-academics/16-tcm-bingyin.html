@@ -206,6 +206,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>六淫与七情致病统计</h3>
+        <div class="chart-container" id="chart-six-seven-pathogens" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="13-tcm-yinyang-health.html" class="cross-ref-card">
@@ -251,6 +254,27 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-six-seven-pathogens'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { data: ['六淫（外感）', '七情（内伤）'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+      grid: { left: 80, right: 30, top: 30, bottom: 50 },
+      xAxis: { type: 'value', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: {
+        type: 'category',
+        data: ['风', '寒', '暑', '湿', '燥', '火', '怒', '喜', '忧', '思', '悲', '恐'],
+        axisLabel: { color: '#e2e8f0', fontSize: 11 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [
+        { name: '六淫（外感）', type: 'bar', stack: 'total', data: [80, 75, 60, 85, 70, 90], itemStyle: { color: '#ef4444' } },
+        { name: '七情（内伤）', type: 'bar', stack: 'total', data: [95, 0, 0, 0, 0, 0, 90, 70, 75, 85, 70, 80], itemStyle: { color: '#06b6d4' } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var toggleBtn = document.querySelector('.nav-toggle');

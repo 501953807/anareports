@@ -114,9 +114,28 @@
       </tbody>
     </table>
 
-    <div class="chart-container" id="chart-fatf"></div>
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：FATF灰名单国家从2020年的9个减少到2025年的8个，但黑名单(Call for Action)维持缅甸和叙利亚。关键趋势：2024-2025年韩国和塞浦路斯因加密监管漏洞被加入灰名单，反映FATF将加密资产纳入核心评估指标。</div>
 
-    <h2 class="section-subtitle">实操教程：FATF四十项建议的内部落地实施指南</h2>
+    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：FATF框架的经济学逻辑</h3>
+    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>FATF 40项建议的核心是建立全球"货币流动透明度标准"——通过标准化SAR报告、KYC要求和制裁筛查，使全球货币流动的MV=PQ关系可被追踪。Monetarist视角：FATF本质上是在推动全球货币供应量的"可观测性革命"。</div>
+    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>FATF Travel Rule提高了跨境加密转账的"合规供给成本"。供给侧视角：当合规成本超过某国VASP的运营利润时，该国的VASP供给会减少(牌照申请下降)，导致业务向合规成本更低的司法管辖区迁移。</div>
+    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>灰名单机制利用了国家的"损失厌恶"——被标记为高风险管辖区意味着跨境交易成本增加20-40%，这种经济损失的威胁比任何法律条文都更能驱动行为改变。行为学派认为：FATF的成功在于将合规从"道德选择"转化为"经济理性选择"。</div>
+    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>FATF框架构建了一个全球"制度生态系统"——各国AML立法是这个生态的不同物种，互评估(Mutual Evaluation)是生态平衡的调节器。生态经济学强调：过度依赖单一工具(如SDN名单筛查)会导致生态多样性丧失，应发展多层次检测体系。</div>
+    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>FATF的演进与康德拉季耶夫周期同步。第五轮周期(1991-2010)：FATF聚焦传统银行AML；第六轮周期(2010-2030)：FATF扩展至加密资产、虚拟资产服务提供商、Travel Rule。预测：下一轮周期(AI+CBDC时代)将要求FATF制定"央行数字货币AML标准"。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-globe"></i> FATF互评估(Mutual Evaluation) — 全球AML标准的"体检"</div>
+      <div class="case-body">
+        <p>FATF每5年左右对成员国进行互评估，检查40项建议的执行情况。</p>
+        <p>2024年最新一轮评估发现：60%的国家在加密资产监管方面存在"显著缺陷"。</p>
+        <p>韩国和塞浦路斯因加密监管不足被加入灰名单，直接导致其VASP牌照审批延迟。</p>
+        <p>互评估结果直接影响该国在国际金融体系中的信誉评级和资本流动成本。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：FATF框架的博弈演化</strong><br><span style="color:var(--green)">起点</span> → FATF 40项建议(仅覆盖传统金融) → 2019年新增加密资产建议 → <span style="color:var(--orange)">分化A</span>：Travel Rule实施率60%(2025) → <span style="color:var(--red)">终态A</span>：未实施国家VASP牌照受限<br><span style="color:var(--gold)">分化B</span>：灰名单机制 → 韩国/塞浦路斯入列 → <span style="color:var(--green)">终态B</span>：加密监管投入增加300% → 合规成本上升<br><span style="color:var(--purple)">分化C</span>：BOI强制申报(美国CTA 2025) → 60+国家跟进 → <span style="color:var(--red)">终态C</span>：离岸空壳公司难度剧增 → 匿名信托逐步消亡</div>
+
+    <div class="chart-container" id="chart-fatf"></div>
     <div class="tip-box">
       <div class="tip-title"><i class="fas fa-project-diagram"></i> 金融机构如何将FATF建议转化为己可执行的合规项目</div>
       <div class="tip-body">
@@ -181,8 +200,28 @@
       <li><strong>风险缓释行动计划(Risk Mitigation Plan)：</strong>对残余风险>阈值的类别，制定改进计划并分配资源。包括：新增TM规则、加强特定客户类型的EDD流程、增加区域合规人员、引入新技术工具等。</li>
     </ol>
 
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：FATF灰名单国家从2020年的9个减少到2025年的8个，但黑名单(Call for Action)维持缅甸和叙利亚。关键趋势：2024-2025年韩国和塞浦路斯因加密监管漏洞被加入灰名单，反映FATF将加密资产纳入核心评估指标。</div>
+
+    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：FATF框架的经济学逻辑</h3>
+    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>FATF 40项建议的核心是建立全球"货币流动透明度标准"——通过标准化SAR报告、KYC要求和制裁筛查，使全球货币流动的MV=PQ关系可被追踪。Monetarist视角：FATF本质上是在推动全球货币供应量的"可观测性革命"。</div>
+    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>FATF Travel Rule提高了跨境加密转账的"合规供给成本"。供给侧视角：当合规成本超过某国VASP的运营利润时，该国的VASP供给会减少(牌照申请下降)，导致业务向合规成本更低的司法管辖区迁移。</div>
+    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>灰名单机制利用了国家的"损失厌恶"——被标记为高风险管辖区意味着跨境交易成本增加20-40%，这种经济损失的威胁比任何法律条文都更能驱动行为改变。行为学派认为：FATF的成功在于将合规从"道德选择"转化为"经济理性选择"。</div>
+    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>FATF框架构建了一个全球"制度生态系统"——各国AML立法是这个生态的不同物种，互评估(Mutual Evaluation)是生态平衡的调节器。生态经济学强调：过度依赖单一工具(如SDN名单筛查)会导致生态多样性丧失，应发展多层次检测体系。</div>
+    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>FATF的演进与康德拉季耶夫周期同步。第五轮周期(1991-2010)：FATF聚焦传统银行AML；第六轮周期(2010-2030)：FATF扩展至加密资产、虚拟资产服务提供商、Travel Rule。预测：下一轮周期(AI+CBDC时代)将要求FATF制定"央行数字货币AML标准"。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-globe"></i> FATF互评估(Mutual Evaluation) — 全球AML标准的"体检"</div>
+      <div class="case-body">
+        <p>FATF每5年左右对成员国进行互评估，检查40项建议的执行情况。</p>
+        <p>2024年最新一轮评估发现：60%的国家在加密资产监管方面存在"显著缺陷"。</p>
+        <p>韩国和塞浦路斯因加密监管不足被加入灰名单，直接导致其VASP牌照审批延迟。</p>
+        <p>互评估结果直接影响该国在国际金融体系中的信誉评级和资本流动成本。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：FATF框架的博弈演化</strong><br><span style="color:var(--green)">起点</span> → FATF 40项建议(仅覆盖传统金融) → 2019年新增加密资产建议 → <span style="color:var(--orange)">分化A</span>：Travel Rule实施率60%(2025) → <span style="color:var(--red)">终态A</span>：未实施国家VASP牌照受限<br><span style="color:var(--gold)">分化B</span>：灰名单机制 → 韩国/塞浦路斯入列 → <span style="color:var(--green)">终态B</span>：加密监管投入增加300% → 合规成本上升<br><span style="color:var(--purple)">分化C</span>：BOI强制申报(美国CTA 2025) → 60+国家跟进 → <span style="color:var(--red)">终态C</span>：离岸空壳公司难度剧增 → 匿名信托逐步消亡</div>
+
     <div class="chart-container" id="chart-fatf"></div>
-  </main>
   <footer class="page-footer">
     <a class="nav-prev" href="42-aml-system.html"><i class="fas fa-arrow-left"></i> AML系统</a>
     <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>

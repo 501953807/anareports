@@ -205,6 +205,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>内七篇核心概念覆盖度</h3>
+        <div class="chart-container" id="chart-zhuangzi-chapters" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="24-daodejing.html" class="cross-ref-card">
@@ -251,6 +254,40 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-zhuangzi-chapters'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {},
+      radar: {
+        indicator: [
+          { name: '逍遥游\n自由超越', max: 100 },
+          { name: '齐物论\n万物平等', max: 100 },
+          { name: '养生主\n顺应自然', max: 100 },
+          { name: '人间世\n处世之道', max: 100 },
+          { name: '德充符\n内在德性', max: 100 },
+          { name: '大宗师\n超越生死', max: 100 },
+          { name: '应帝王\n无为而治', max: 100 }
+        ],
+        shape: 'polygon',
+        splitNumber: 4,
+        axisName: { color: '#e2e8f0', fontSize: 10 },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(184,134,11,0.02)', 'rgba(184,134,11,0.05)'] } },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'radar',
+        data: [{
+          value: [100, 85, 80, 75, 70, 65, 60],
+          name: '内七篇核心概念强度',
+          itemStyle: { color: '#B8860B' },
+          areaStyle: { color: 'rgba(184,134,11,0.2)' }
+        }]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var toggleBtn = document.querySelector('.nav-toggle');

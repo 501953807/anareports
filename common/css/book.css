@@ -182,6 +182,80 @@ body {
 }
 .tip-box .tip-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
 
+/* ===== School View (Multi-School Cross-Interpretation) ===== */
+.school-view {
+  margin: 16px 0;
+}
+.school-view .sv-item {
+  border-left: 3px solid;
+  padding: 10px 14px;
+  margin: 8px 0;
+  background: var(--surface);
+  border-radius: 0 6px 6px 0;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.school-view .sv-item.sv-blue { border-left-color: #1A5276; }
+.school-view .sv-item.sv-gold { border-left-color: #B8860B; }
+.school-view .sv-item.sv-red { border-left-color: #dc2626; }
+.school-view .sv-item.sv-green { border-left-color: #059669; }
+.school-view .sv-item.sv-purple { border-left-color: #7c3aed; }
+.school-view .sv-item.sv-cyan { border-left-color: #06b6d4; }
+.school-view .sv-item .sv-school {
+  font-size: 12px; font-weight: 700; margin-bottom: 4px;
+}
+.school-view .sv-item.sv-blue .sv-school { color: #1A5276; }
+.school-view .sv-item.sv-gold .sv-school { color: #B8860B; }
+.school-view .sv-item.sv-red .sv-school { color: #dc2626; }
+.school-view .sv-item.sv-green .sv-school { color: #059669; }
+.school-view .sv-item.sv-purple .sv-school { color: #7c3aed; }
+.school-view .sv-item.sv-cyan .sv-school { color: #06b6d4; }
+.school-view .sv-item .sv-body {
+  font-size: 13px; color: var(--text2); line-height: 1.7;
+}
+
+/* ===== Divergence Chain ===== */
+.divergence-chain {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+.divergence-chain .dc-title {
+  font-size: 13px; font-weight: 700; color: var(--orange); margin-bottom: 10px;
+}
+.divergence-chain .dc-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+}
+.divergence-chain .dc-node {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.divergence-chain .dc-arrow {
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ===== Data Note ===== */
+.data-note {
+  background: rgba(6,182,212,0.06);
+  border: 1px solid rgba(6,182,212,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
 /* ===== Chart Container ===== */
 .chart-container {
   width: 100%; height: 400px; margin: 20px 0;

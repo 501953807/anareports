@@ -112,66 +112,6 @@
     </table>
 
     <div class="chart-container" id="chart-batt-materials"></div>
-    <!-- ============================================================ -->
-    <!-- 实操专栏：电池材料选型与供应商对接                           -->
-    <!-- ============================================================ -->
-    <h2 class="section-subtitle">15.6 正极材料选型 — LFP vs 三元实战指南</h2>
-    <div class="grid-2">
-      <div>
-        <h3 class="steps-title">磷酸铁锂(LFP)选型要点</h3>
-        <ol class="steps-list">
-          <li><strong>适用场景</strong>：A/B 级乘用车(续航 400-600km)、两轮车、储能。成本敏感型项目首选。</li>
-          <li><strong>电芯选型参数</strong>：容量 2.8Ah-100Ah 方块电池或软包叠片。首次筛选看 3C 放电容量保持率(≥85% @ 3C)。</li>
-          <li><strong>供应商对接流程</strong>：德方纳米 / 万润新能 / 龙蟠科技。先索取样品 → 做 3 次充放电循环 → 测 25°C 和 -10°C 容量衰减 → 确认批次一致性(CV ≤ 1.5%)。</li>
-          <li><strong>常见坑</strong>：部分小厂为降低成本掺入廉价铁源，导致第一次循环效率只有 85% 以下， pack 后容量掉得很快。验收时要明确首圈效率 ≥ 90%。</li>
-        </ol>
-      </div>
-      <div>
-        <h3 class="steps-title">三元材料(NCM/NCA)选型要点</h3>
-        <ol class="steps-list">
-          <li><strong>适用场景</strong>：长续航车型(续航 700km+)、低温地区、高性能两轮车。对成本和重量都敏感的场合慎用。</li>
-          <li>选型路径</strong>：NCM523(性价比) → NCM622(均衡) → NCM811(高能量密度)。2024 年起主流新车型选 NCM622/721，少用 811（安全性顾虑）。</li>
-          <li><strong>供应商对接</strong>：容百科技 / 当升科技 / 厦钨新能。重点考察 Ni 含量偏差（±0.5% 以内）、残留锂含量（≤1.0%）和粒径 D50（10-15 μm 最佳）。</li>
-          <li><strong>高温烧结工艺窗口</strong>：三元材料烧结温度 850-1000°C，不同批次波动不超过 ±20°C。确认供应商有没有在线温控系统。</li>
-        </ol>
-      </div>
-    </div>
-
-    <h3 class="steps-title">电解液配方选择 — 快充方案的加分项</h3>
-    <table class="data-table">
-      <thead><tr><th>配方类型</th><th>典型配方</th><th>适用场景</th><th>代表供应商</th><th>加价幅度</th></tr></thead>
-      <tbody>
-        <tr><td>标准配方</td><td>LiPF6 + EC/DMC/EMC (3:4:3) + VC 添加剂</td><td>常规 NEV/两轮车</td><td>天赐材料 / 新宙邦</td><td>基准</td></tr>
-        <tr><td>快充配方</td><td>上述 + FEC + LDTD + 高浓度 LiFSI</td><td>神行超充/4C 以上快充</td><td>新宙邦 / 瑞泰新材</td><td>+15-25%</td></tr>
-        <tr><td>低温配方</td><td>增加 EMC/DEC 比例 + TESP 添加剂</td><td>北方市场(−20°C 地区)</td><td>天赐 / 多氟多</td><td>+10-15%</td></tr>
-        <tr><td>高镍专属</td><td>HF 控制 ≤ 20ppm + 专用成膜添加剂</td><td>NCM811/9 系电池</td><td>新宙邦 / 奥克木木</td><td>+20-30%</td></tr>
-      </tbody>
-    </table>
-    <div class="tip-box">
-      <p><strong>实操建议：</strong>电解液不是越贵越好。标准配方 + 优质隔膜就能满足 90% 的项目需求。只在明确有 4C+ 快充或 −20°C 低温场景时，才值得加钱上快充/低温配方。采购时认准天赐材料和新宙邦两家，占了全球 60%+ 份额，质量和交期最稳。</p>
-    </div>
-
-    <h3 class="steps-title">隔膜供应商选型 — 湿法 vs 干法怎么挑</h3>
-    <ol class="steps-list">
-      <li><strong>湿法基膜</strong>：恩捷股份是绝对龙头(全球 35%+)。优势：薄(9-12μm)、孔隙率高(40-50%)、离子传导好。适合高能量密度电池。劣势：拉伸强度弱，需涂覆补强。</li>
-      <li><strong>干法基膜</strong>：星源材质、中材科技。优势：成本低、力学性能好、热收缩率低。适合储能/两轮车/低端 LFP。劣势：厚度下限 20μm+，不利于高能量密度。</li>
-      <li><strong>涂覆隔膜</strong>：陶瓷涂覆(SEO/Al2O3)是标配；芳纶涂覆适合高温场景(800V+ 电池)。采购确认：涂覆克重(单面 8-15g/m²)、附着力(划格法 0 级)。</li>
-    </ol>
-
-    <h3 class="steps-title">电池四大材料 — 供应商对接 checklist</h3>
-    <div class="case-box">
-      <p><strong>新项目材料选型 Checklist：</strong></p>
-      <ol class="steps-list">
-        <li>确定目标电池：容量(kWh)、电压平台(V)、放电倍率(C)、循环次数要求</li>
-        <li>根据目标选正极体系：LFP(成本优先) or NCM(能量密度优先)</li>
-        <li>选定负极：人造石墨(通用) / 硅碳(高能量密度) / 天然石墨(低成本)</li>
-        <li>隔膜厚度与涂覆方案匹配正极类型</li>
-        <li>电解液配方根据快充/低温需求选配</li>
-        <li>向 3+ 家供应商发 RFQ(询价单)，要求提供样品和 COA(质检报告)</li>
-        <li>小试 100-500 颗电芯 → 中试 2-5 kWh pack → 量产验证</li>
-        <li>签订年度框架协议，锁定折扣系数和调价机制</li>
-      </ol>
-    </div>
   </main>
   <footer class="page-footer">
     <a class="nav-prev" href="14-upstream-minerals.html"><i class="fas fa-arrow-left"></i> 上游矿产</a>

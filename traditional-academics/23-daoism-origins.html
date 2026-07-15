@@ -193,6 +193,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>道家人物年代对比</h3>
+        <div class="chart-container" id="chart-daoism-timeline" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="18-yijing-overview.html" class="cross-ref-card">
@@ -239,6 +242,36 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-daoism-timeline'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['人物年代跨度'], textStyle: { color: '#94a3b8' } },
+      grid: { left: 100, right: 30, top: 30, bottom: 30 },
+      xAxis: { type: 'value', axisLabel: { color: '#94a3b8', formatter: '{value} BC' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: {
+        type: 'category',
+        data: ['老子（李耳）', '杨朱', '列御寇', '庄子（庄周）', '慎到'],
+        axisLabel: { color: '#e2e8f0', fontSize: 11 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        name: '年代跨度',
+        type: 'bar',
+        data: [
+          { value: [500, 420], itemStyle: { color: '#B8860B' } },
+          { value: [420, 370], itemStyle: { color: '#f59e0b' } },
+          { value: [400, 340], itemStyle: { color: '#059669' } },
+          { value: [369, 286], itemStyle: { color: '#1A5276' } },
+          { value: [330, 270], itemStyle: { color: '#dc2626' } }
+        ],
+        stack: 'total',
+        label: { show: true, position: 'insideRight', color: '#e2e8f0', formatter: function(p) { return p.data[0] + '-' + p.data[1] + ' BC'; } }
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var toggleBtn = document.querySelector('.nav-toggle');

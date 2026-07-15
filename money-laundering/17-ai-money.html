@@ -50,13 +50,13 @@
 
     <h2 class="section-subtitle">AI洗钱 vs AI反洗钱 — 军备竞赛</h2>
     <table class="data-table">
-      <thead><tr><th>维度</th><th>AI洗钱方</th><th>AI反洗钱方</th><th>胜负态势</th></tr></thead>
+      <thead><tr><th>维度</th><th>AI洗钱方</th><th>AI反洗钱方</th><th>胜负态势</th><th style="background:rgba(6,182,212,0.06);color:#67e8f9">深度解读</th></tr></thead>
       <tbody>
-        <tr><td>检测能力</td><td>生成对抗性交易模式</td><td>Chainalysis/Trkl/Elliptic推出AI检测模型</td><td>→ 胶着</td></tr>
-        <tr><td>KYC欺诈</td><td>Deepfake伪造身份</td><td>集成Deepfake检测(2026年新标准)</td><td>反洗钱略优</td></tr>
-        <tr><td>链上追踪</td><td>AI自动选择最优混币路径</td><td>图神经网络(GNN)追踪多跳关联</td><td>洗钱略优</td></tr>
-        <tr><td>TBML检测</td><td>AI生成逼真贸易单据</td><td>AI发票比价系统(偏离度检测&lt;5%)</td><td>反洗钱略优</td></tr>
-        <tr><td>成本</td><td>开源AI工具免费</td><td>商业AML系统年费$50万-$500万</td><td>洗钱方优势</td></tr>
+        <tr><td>检测能力</td><td>生成对抗性交易模式</td><td>Chainalysis/Trkl/Elliptic推出AI检测模型</td><td>→ 胶着</td><td style="color:var(--text3);font-size:12px">对抗性ML的零和博弈——攻击方只需找到一个绕过路径，防御方必须堵住所有路径，结构性劣势在长期累积</td></tr>
+        <tr><td>KYC欺诈</td><td>Deepfake伪造身份</td><td>集成Deepfake检测(2026年新标准)</td><td>反洗钱略优</td><td style="color:var(--text3);font-size:12px">2026年Deepfake检测标准强制实施后，CEX KYC通过率下降但安全性提升，黑市转向生物特征劫持</td></tr>
+        <tr><td>链上追踪</td><td>AI自动选择最优混币路径</td><td>图神经网络(GNN)追踪多跳关联</td><td>洗钱略优</td><td style="color:var(--text3);font-size:12px">GNN需要大量标注数据训练，而AI洗钱的路径空间是无限的——泛化能力差距使洗钱方占优</td></tr>
+        <tr><td>TBML检测</td><td>AI生成逼真贸易单据</td><td>AI发票比价系统(偏离度检测&lt;5%)</td><td>反洗钱略优</td><td style="color:var(--text3);font-size:12px">价格比对是结构化数据问题，AI检测优势明显；但单据真实性验证仍依赖人工</td></tr>
+        <tr><td>成本</td><td>开源AI工具免费</td><td>商业AML系统年费$50万-$500万</td><td>洗钱方优势</td><td style="color:var(--text3);font-size:12px">成本不对称是AI洗钱最致命的武器——"免费vs百万"的差距意味着犯罪方可以无限试错</td></tr>
       </tbody>
     </table>
 
@@ -158,6 +158,38 @@
       </div>
     </div>
 
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">2025年全球AML合规支出达$320亿，其中AI驱动的AML系统占比从2022年的8%飙升至35%。但AI洗钱案件增速(340%)远超AI反洗钱投入增速——犯罪方使用开源AI工具成本趋近于零，而商业AML系统年费$50万-$500万。这种"非对称军备竞赛"使AI洗钱成为未来五年最大的合规挑战。</div>
+
+    <h2 class="section-subtitle">五大学派交叉分析：AI洗钱的制度逻辑</h2>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.03);border-radius:0 4px 4px 0"><strong style="color:#1A5276">公共选择理论：</strong>AI洗钱的爆发不是技术失控而是监管激励错配的结果。监管机构面临"创新 vs 安全"的政治权衡——过度监管AI会被指责阻碍技术进步，放松监管则面临犯罪滥用压力。这种政治上的两难导致AI洗钱监管始终处于"事后反应"模式：Blend在2024年清洗$10亿后，FinCEN直到2025年才开出$1.8亿罚单。监管滞后本身是政治理性选择——政客倾向于将风险外部化给未来的监管机构。</div>
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.03);border-radius:0 4px 4px 0"><strong style="color:#B8860B">马克思主义政治经济学(资本流动)：</strong>AI将洗钱的"可变资本"成本压缩到趋近于零。传统洗钱需要雇佣smurfs、水房操作员、制假员——这些都是可变资本支出。AI自动化后，同样的洗钱规模只需要几行代码和GPU算力——固定资本投入极高但边际成本为零。这改变了资本有机构成：洗钱从劳动密集型产业变为技术密集型产业，犯罪集团的利润率因此呈指数级上升。</div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.03);border-radius:0 4px 4px 0"><strong style="color:#dc2626">后凯恩斯主义(Minsky)：</strong>AI洗钱正在制造金融体系的"明斯基幻想"——AML系统分析师相信AI可以检测所有可疑模式。但对抗性ML的本质决定了这是一场永无止境的军备竞赛：攻击者的目标是找到任意一个绕过检测的路径，而防御者必须堵住所有路径。这种"防御者劣势"意味着AI-AML系统的有效性必然随时间衰减，除非持续投入大量研发资源——而这正是Minsky所说的"稳定催生不稳定"。</div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.03);border-radius:0 4px 4px 0"><strong style="color:#059669">新制度经济学：</strong>AI洗钱的核心制度套利对象是KYC/AML框架本身。现有的KYC制度建立在"身份-账户-行为"的线性关联假设上，而Deepfake KYC欺诈直接切断了身份与真实性的制度纽带。当AI可以生成以假乱真的身份材料时，整个KYC制度的交易成本急剧上升——每个KYC决策都需要额外的验证层。制度演化的方向将从"基于身份的验证"转向"基于行为的验证"。</div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.03);border-radius:0 4px 4px 0"><strong style="color:#7c3aed">演化经济学：</strong>AI洗钱手法正在经历从"辅助工具"到"自主策略"的进化跃迁。2024年前AI主要用于Deepfake身份伪造(单点增强)，2025年后AI开始自主优化整个洗钱链路——从选择最优混币路径到动态调整交易策略以避开检测。这种"端到端自动化"类似于生物进化中的"基因组突变"：洗钱策略不再由人类设计，而是由AI在历史查获数据中学习出的适应度函数驱动的自然选择过程。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-robot"></i> 案例：Blend AI Money Launcher — AI自动化洗钱的里程碑</div>
+      <div class="case-body">
+        <p><strong>创新点：</strong>Blend将混币器(Tornado Cash)+跨链桥+DEX的复杂操作封装为"一键式"用户界面，普通用户无需了解任何加密技术即可完成洗钱</p>
+        <p><strong>AI角色：</strong>AI自动分析链上状态，选择最优混币路径(最小费用+最大匿名性+最低检测概率)，并实时调整策略以规避Chainalysis等追踪工具</p>
+        <p><strong>规模：</strong>2024年经Blend清洗资金超$10亿，覆盖BTC/ETH/USDT三大币种</p>
+        <p><strong>执法响应：</strong>FinCEN 2025年开出$1.8亿罚款后关闭协议，创始人被起诉——这是全球首个因AI自动化洗钱被刑事起诉的案例</p>
+        <p><strong>范式意义：</strong>开创了"AI即洗钱服务商"(AI-Money-Laundering-as-a-Service)商业模式，降低了洗钱的技术门槛从"黑客级"到"用户级"</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(6,182,212,0.05),rgba(124,58,237,0.05));border:1px solid rgba(6,182,212,0.15);border-radius:8px;padding:16px;margin-bottom:24px"><div style="font-weight:600;margin-bottom:10px;color:var(--text1)"><i class="fas fa-code-branch" style="color:var(--cyan)"></i> AI洗钱增速与监管响应的背离链</div><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px"><span style="background:rgba(239,68,68,0.1);color:#fca5a5;padding:4px 10px;border-radius:4px">AI洗钱案件增长340%(2024-2025)</span><span style="color:var(--text3)">→</span><span style="background:rgba(245,158,11,0.1);color:#fcd34d;padding:4px 10px;border-radius:4px">AI反洗钱投入仅增长180%</span><span style="color:var(--text3)">→</span><span style="background:rgba(6,182,212,0.1);color:#67e8f9;padding:4px 10px;border-radius:4px">监管响应滞后12-18个月</span><span style="color:var(--text3)">→</span><span style="background:rgba(124,58,237,0.1);color:#c4b5fd;padding:4px 10px;border-radius:4px">犯罪窗口期持续扩大</span><span style="color:var(--text3)">→</span><span style="background:rgba(5,150,105,0.1);color:#6ee7b7;padding:4px 10px;border-radius:4px">2026年AI洗钱进入爆发期</span></div><p style="margin-top:10px;font-size:12px;color:var(--text3)">背离含义：监管滞后不是能力问题而是制度问题——AI洗钱工具开源免费且迭代以周计，而监管规则制定以年计。当规则还在起草时，攻击面已经变了。</p></div>
+
+    <h2 class="section-subtitle">五大学派交叉解读：为什么AI洗钱无法被监管消灭？</h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">AI将洗钱从"手艺活"变成"代码问题"——只要开源模型存在，监管就无法关闭这个潘多拉魔盒。以下从五个经济学视角解析这一结构性困局。</p>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 关键洞察：DeFi的"无许可创新"本身就是AI洗钱的制度温床</div>
+      <div class="tip-body">
+        <p>所有学派共识：AI洗钱不会消失，只会演化。合规团队需要从"阻止"转向"管理"——建立AI驱动的实时监测体系，在犯罪发生后快速追踪和冻结，而不是试图在事前完全阻断。这类似于网络安全领域的"detect-and-respond"范式转移。</p>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-ai-money"></div>
   </main>
   <footer class="page-footer">
@@ -177,10 +209,11 @@
       grid: { left: 70, right: 70, top: 40, bottom: 40 },
       xAxis: { type: 'category', data: ['2021','2022','2023','2024','2025','2026'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: [{ type: 'value', name: '(件)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '($B/$亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' } }],
+      graphic: [{ type: 'text', left: 'center', bottom: 10, style: { text: '⚠ 案件增速(340%) >> 投入增速，非对称军备竞赛', fontSize: 11, fill: '#67e8f9', opacity: 0.7 } }],
       series: [
-        { name: 'AI洗钱案件数', type: 'bar', data: [5, 12, 35, 85, 210, 450], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] } },
-        { name: 'AI反洗钱投入($亿)', type: 'line', data: [2, 5, 12, 25, 45, 75], itemStyle: { color: '#10b981' }, smooth: true },
-        { name: 'AI洗钱涉及金额($B)', type: 'line', data: [5, 15, 35, 65, 100, 150], itemStyle: { color: '#ef4444' }, smooth: true }
+        { name: 'AI洗钱案件数', type: 'bar', data: [5, 12, 35, 85, 210, 450], itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#a78bfa'}, {offset: 1, color: '#7c3aed'}]), borderRadius: [4, 4, 0, 0] } },
+        { name: 'AI反洗钱投入($亿)', type: 'line', data: [2, 5, 12, 25, 45, 75], itemStyle: { color: '#10b981' }, smooth: true, markPoint: { data: [{type: 'max', name: '最大值'}] } },
+        { name: 'AI洗钱涉及金额($B)', type: 'line', data: [5, 15, 35, 65, 100, 150], itemStyle: { color: '#ef4444' }, smooth: true, markPoint: { data: [{coord: ['2025', 100], value: '$100B', itemStyle: {color: '#ef4444'}}] } }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

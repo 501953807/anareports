@@ -198,6 +198,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>五脏功能系统对比</h3>
+        <div class="chart-container" id="chart-five-organs" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="13-tcm-yinyang-health.html" class="cross-ref-card">
@@ -243,6 +246,30 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-five-organs'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { data: ['心', '肝', '脾', '肺', '肾'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 80, right: 30, top: 50, bottom: 30 },
+      xAxis: { type: 'value', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: {
+        type: 'category',
+        data: ['核心功能维度', '关联体表组织', '关联情志', '开窍部位', '五行属性'],
+        axisLabel: { color: '#e2e8f0', fontSize: 11 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [
+        { name: '心', type: 'bar', stack: 'total', data: [95, 80, 70, 90, 85], itemStyle: { color: '#dc2626' } },
+        { name: '肝', type: 'bar', stack: 'total', data: [90, 85, 95, 80, 85], itemStyle: { color: '#059669' } },
+        { name: '脾', type: 'bar', stack: 'total', data: [95, 90, 75, 70, 85], itemStyle: { color: '#B8860B' } },
+        { name: '肺', type: 'bar', stack: 'total', data: [90, 75, 70, 95, 80], itemStyle: { color: '#1A5276' } },
+        { name: '肾', type: 'bar', stack: 'total', data: [100, 85, 80, 75, 95], itemStyle: { color: '#7c3aed' } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var toggleBtn = document.querySelector('.nav-toggle');

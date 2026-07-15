@@ -1303,8 +1303,130 @@ footer { text-align: center; padding: 30px 0 20px; border-top: 1px solid var(--b
   <p>智能手环与智能药盒产品开发全景看板 v2.0 — 完整版(10章)</p>
   <p style="margin-top:4px; font-size: 11px;">数据来源：IDC Q4 2024 Tracker / Grand View Research 2025 / World Alzheimer Report 2024 / 中国国家统计局 2024 / IMARC Group 2024 / 智研咨询 2025</p>
   <p style="margin-top:4px; font-size: 11px;">⚠️ 免责声明：以上内容仅为商业分析参考，不构成任何投资或创业建议。所有市场预判均存在不确定性边界，决策需谨慎。</p>
-</footer>
+
+<!-- ==================== 数据可视化图表 ==================== -->
+<section style="margin-top:32px;">
+<h2 class="section-title">📊 核心数据可视化</h2>
+<div class="grid-2">
+  <div class="chart-container" id="chart-market-size" style="height:360px;"></div>
+  <div class="chart-container" id="chart-bom-cost" style="height:360px;"></div>
+</div>
+<div class="grid-2" style="margin-top:20px;">
+  <div class="chart-container" id="chart-revenue-model" style="height:360px;"></div>
+  <div class="chart-container" id="chart-risk-matrix" style="height:360px;"></div>
+</div>
+</section>
+
+  <footer>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Chart 1: Market Size Comparison
+  var chart1 = echarts.init(document.getElementById('chart-market-size'));
+  chart1.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '市场规模对比(亿元)', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'axis' },
+    legend: { data: ['手环防走失', '智能药盒'], top: 30, textStyle: { color: '#9498a8' } },
+    grid: { left: 60, right: 20, top: 70, bottom: 30 },
+    xAxis: { type: 'category', data: ['当前规模', '2027预测', '2030预测'], axisLabel: { color: '#9498a8' } },
+    yAxis: { type: 'value', name: '亿元', nameTextStyle: { color: '#9498a8' }, axisLabel: { color: '#9498a8' } },
+    series: [
+      {
+        name: '手环防走失', type: 'bar', stack: 'total',
+        data: [30, 60, 120],
+        itemStyle: { color: '#5a8ec4' }
+      },
+      {
+        name: '智能药盒', type: 'bar', stack: 'total',
+        data: [10, 25, 60],
+        itemStyle: { color: '#5cb88a' }
+      }
+    ]
+  });
+
+  // Chart 2: BOM Cost Breakdown
+  var chart2 = echarts.init(document.getElementById('chart-bom-cost'));
+  chart2.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '手环BOM成本构成', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'item', formatter: '{b}: ¥{c} ({d}%)' },
+    legend: { orient: 'vertical', right: 10, top: 'center', textStyle: { color: '#9498a8', fontSize: 10 } },
+    series: [{
+      type: 'pie', radius: ['40%', '70%'], center: ['38%', '55%'],
+      avoidLabelOverlap: false,
+      label: { show: false },
+      data: [
+        { value: 80, name: '定位模块', itemStyle: { color: '#5a8ec4' } },
+        { value: 55, name: '通信模块', itemStyle: { color: '#5ac4b8' } },
+        { value: 55, name: '健康监测', itemStyle: { color: '#c45a6c' } },
+        { value: 20, name: '主控+存储', itemStyle: { color: '#8a5ac4' } },
+        { value: 15, name: '显示屏', itemStyle: { color: '#d4a843' } },
+        { value: 12, name: '音频', itemStyle: { color: '#5cb88a' } },
+        { value: 12, name: '电源系统', itemStyle: { color: '#d4787e' } },
+        { value: 22, name: '结构件+PCB', itemStyle: { color: '#9498a8' } },
+        { value: 10, name: '组装测试', itemStyle: { color: '#c45a5a' } }
+      ]
+    }]
+  });
+
+  // Chart 3: Revenue Model Distribution
+  var chart3 = echarts.init(document.getElementById('chart-revenue-model'));
+  chart3.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '收入模型构成(YEAR 3)', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'item', formatter: '{b}: {c}万元 ({d}%)' },
+    series: [{
+      type: 'pie', radius: ['40%', '70%'], center: ['50%', '55%'],
+      label: { color: '#e4e6ed', fontSize: 10 },
+      data: [
+        { value: 1800, name: '手环销售', itemStyle: { color: '#5a8ec4' } },
+        { value: 400, name: '药盒销售', itemStyle: { color: '#5cb88a' } },
+        { value: 400, name: '订阅服务', itemStyle: { color: '#d4a843' } },
+        { value: 100, name: '保险合作', itemStyle: { color: '#8a5ac4' } },
+        { value: 50, name: '数据服务', itemStyle: { color: '#5ac4b8' } }
+      ]
+    }]
+  });
+
+  // Chart 4: Risk Matrix (scatter)
+  var chart4 = echarts.init(document.getElementById('chart-risk-matrix'));
+  chart4.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '风险矩阵 — 严重程度 vs 发生概率', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: {
+      formatter: function(p) { return p.data[0].toFixed(0) + '% / ' + p.data[1].toFixed(0) + '% — ' + p.data[2]; }
+    },
+    grid: { left: 60, right: 60, top: 50, bottom: 50 },
+    xAxis: { name: '发生概率%', nameTextStyle: { color: '#9498a8' }, max: 100, axisLabel: { color: '#9498a8' } },
+    yAxis: { name: '严重程度%', nameTextStyle: { color: '#9498a8' }, max: 100, axisLabel: { color: '#9498a8' } },
+    series: [{
+      type: 'scatter',
+      symbolSize: function(data) { return Math.max(data[2] * 2, 20); },
+      data: [
+        [80, 90, '市场竞争', '高'],
+        [70, 85, '技术风险-分药机构', '高'],
+        [50, 70, '合规风险-PIPL', '中高'],
+        [40, 60, '续费率风险', '中'],
+        [50, 50, '供应链风险', '中']
+      ],
+      itemStyle: {
+        color: function(params) {
+          var map = {'高': '#dc2626', '中高': '#f59e0b', '中': '#5a8ec4'};
+          return map[params.data[3]] || '#9498a8';
+        }
+      },
+      label: { show: true, position: 'right', color: '#e4e6ed', fontSize: 10, formatter: function(p) { return p.data[2]; } }
+    }]
+  });
+
+  window.addEventListener('resize', function() {
+    chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
+  });
+});
+</script>
 </body>
 </html>

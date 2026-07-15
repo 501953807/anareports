@@ -51,13 +51,13 @@
 
     <h2 class="section-subtitle">USDT vs USDC vs 其他稳定币</h2>
     <table class="data-table">
-      <thead><tr><th>特性</th><th>USDT</th><th>USDC</th><th>DAI</th><th>FDUSD</th></tr></thead>
+      <thead><tr><th>特性</th><th>USDT</th><th>USDC</th><th>DAI</th><th>FDUSD</th><th style="background:rgba(6,182,212,0.06);color:#67e8f9">深度解读</th></tr></thead>
       <tbody>
-        <tr><td>2024市值</td><td class="amount">$1300亿+</td><td>$500亿+</td><td>$50亿+</td><td>$20亿+</td></tr>
-        <tr><td>链上支持</td><td>TRC20/ERC20/BSC/Sol</td><td>ERC20/Sol/Polygon</td><td>ERC20</td><td>ERC20/BSC</td></tr>
-        <tr><td>匿名性</td><td>低(可冻结)</td><td>中(强合规)</td><td>中(去中心化)</td><td>低(Devoted发行)</td></tr>
-        <tr><td>洗钱偏好</td><td>⭐⭐⭐⭐⭐ 全球最流行</td><td>⭐⭐⭐ 欧美偏好</td><td>⭐⭐ 技术型</td><td>⭐⭐ 交易所内</td></tr>
-        <tr><td>执法风险</td><td>Tether配合冻结超$2亿(2025)</td><td>Circle链上黑名单机制(2025)</td><td>无中央发行商</td><td>Devoted强合规</td></tr>
+        <tr><td>2024市值</td><td class="amount">$1300亿+</td><td>$500亿+</td><td>$50亿+</td><td>$20亿+</td><td style="color:var(--text3);font-size:12px">市值越大→洗钱流动性越好，但也被监控越严——USDT的"大而受监控"与DAI的"小而自由"形成洗钱策略的两极</td></tr>
+        <tr><td>链上支持</td><td>TRC20/ERC20/BSC/Sol</td><td>ERC20/Sol/Polygon</td><td>ERC20</td><td>ERC20/BSC</td><td style="color:var(--text3);font-size:12px">多链支持是洗钱者的优势——每新增一条链都是一次"追踪重置"，Solana链的USDT目前仍是监控盲区</td></tr>
+        <tr><td>匿名性</td><td>低(可冻结)</td><td>中(强合规)</td><td>中(去中心化)</td><td>低(Devoted发行)</td><td style="color:var(--text3);font-size:12px">匿名性与合规性的负相关关系：越合规越不匿名，越去中心化越难冻结——洗钱者根据执法压力动态选择币种</td></tr>
+        <tr><td>洗钱偏好</td><td>⭐⭐⭐⭐⭐ 全球最流行</td><td>⭐⭐⭐ 欧美偏好</td><td>⭐⭐ 技术型</td><td>⭐⭐ 交易所内</td><td style="color:var(--text3);font-size:12px">USDT的全球主导地位使其成为洗钱"默认选项"——网络效应使切换成本极高，即使有更好的替代方案</td></tr>
+        <tr><td>执法风险</td><td>Tether配合冻结超$2亿(2025)</td><td>Circle链上黑名单机制(2025)</td><td>无中央发行商</td><td>Devoted强合规</td><td style="color:var(--text3);font-size:12px">执法风险的分化正在重塑洗钱者的币种选择——从"全部用USDT"转向"USDT+DAI混合"降低单点暴露</td></tr>
       </tbody>
     </table>
 
@@ -105,18 +105,18 @@
 
     <h3 class="section-subtitle" style="font-size:14px;color:var(--cyan)">稳定币可疑交易模式库（共10类）</h3>
     <table class="data-table">
-      <thead><tr><th>编号</th><th>模式名称</th><th>链上特征</th><th>典型场景</th></tr></thead>
+      <thead><tr><th>编号</th><th>模式名称</th><th>链上特征</th><th>典型场景</th><th style="background:rgba(6,182,212,0.06);color:#67e8f9">深度解读</th></tr></thead>
       <tbody>
-        <tr><td>M01</td><td>快速拆分(Sandwich Split)</td><td>一笔大额入→N笔等额小额出→间隔<5分钟</td><td>结构化规避申报门槛</td></tr>
-        <tr><td>M02</td><td>循环转账(Circular Flow)</td><td>A→B→C→D→A，形成闭环</td><td>制造虚假交易量和历史</td></tr>
-        <tr><td>M03</td><td>跨链跳跃(Chain Hop)</td><td>同一地址在TRC20→ERC20→BSC间快速迁移</td><td>混淆追踪路径</td></tr>
-        <tr><td>M04</td><td>时间锁分散(Time-Lock Diffusion)</td><td>多笔定时转账在不同日期释放</td><td>规避短期频繁交易监控</td></tr>
-        <tr><td>M05</td><td>混币器交互(Mixer Touch)</td><td>与Tornado Cash/Unknown Pool交互</td><td>恶意（所有主流CEX已列入黑名单）</td></tr>
-        <tr><td>M06</td><td>小额高频(Dusting)</td><td>单笔<$100但日均交易>500笔</td><td>蚂蚁搬家式转移</td></tr>
-        <tr><td>M07</td><td>新地址首次大额(New Address Large)</td><td>创建<7天的地址单笔转出>$100K</td><td>可疑账户激活</td></tr>
-        <tr><td>M08</td><td>稳定币互换(Coin Swap)</td><td>USDT→USDC→DAI→USDT快速swap</td><td>改变币种分布混淆来源</td></tr>
-        <tr><td>M09</td><td>DEX大额滑点(Large Slippage)</td><td>单次swap滑点>2%或金额>$500K</td><td>可能是受迫性紧急交易</td></tr>
-        <tr><td>M10</td><td>黑单地址间接接触(Indirect Blacklist)</td><td>与已知黑单地址有≤3跳关联</td><td>间接关联洗钱网络</td></tr>
+        <tr><td>M01</td><td>快速拆分(Sandwich Split)</td><td>一笔大额入→N笔等额小额出→间隔<5分钟</td><td>结构化规避申报门槛</td><td style="color:var(--text3);font-size:12px">与现金Smurfing同构——只是从"多账户分散存款"变为"单地址多笔分散转出"</td></tr>
+        <tr><td>M02</td><td>循环转账(Circular Flow)</td><td>A→B→C→D→A，形成闭环</td><td>制造虚假交易量和历史</td><td style="color:var(--text3);font-size:12px">循环转账在DEX上成本极低($1-3/笔)，但图神经网络可识别闭环结构——检测难度中等</td></tr>
+        <tr><td>M03</td><td>跨链跳跃(Chain Hop)</td><td>同一地址在TRC20→ERC20→BSC间快速迁移</td><td>混淆追踪路径</td><td style="color:var(--text3);font-size:12px">跨链是最高效的混淆手段——每跳一次都需要不同分析工具重新建立关联，当前无单一工具能全链覆盖</td></tr>
+        <tr><td>M04</td><td>时间锁分散(Time-Lock Diffusion)</td><td>多笔定时转账在不同日期释放</td><td>规避短期频繁交易监控</td><td style="color:var(--text3);font-size:12px">DeFi时间锁合约使定时转账自动化——传统基于频率的阈值规则完全失效</td></tr>
+        <tr><td>M05</td><td>混币器交互(Mixer Touch)</td><td>与Tornado Cash/Unknown Pool交互</td><td>恶意（所有主流CEX已列入黑名单）</td><td style="color:var(--text3);font-size:12px">CEX黑名单检测是最有效的单一信号——但Tornado Cash TRC20版本目前尚未被所有链上工具覆盖</td></tr>
+        <tr><td>M06</td><td>小额高频(Dusting)</td><td>单笔<$100但日均交易>500笔</td><td>蚂蚁搬家式转移</td><td style="color:var(--text3);font-size:12px">TRC20的低手续费($1-3)使小额高频在经济上可行——这是稳定币相比现金Smurfing的核心优势</td></tr>
+        <tr><td>M07</td><td>新地址首次大额(New Address Large)</td><td>创建<7天的地址单笔转出>$100K</td><td>可疑账户激活</td><td style="color:var(--text3);font-size:12px">新地址大额转出是"洗钱启动信号"——结合KYC数据可大幅降低误报率</td></tr>
+        <tr><td>M08</td><td>稳定币互换(Coin Swap)</td><td>USDT→USDC→DAI→USDT快速swap</td><td>改变币种分布混淆来源</td><td style="color:var(--text3);font-size:12px">M08是最新出现的变异模式——利用发行商合规差异(USDT冻结 vs DAI不可冻结)进行策略切换</td></tr>
+        <tr><td>M09</td><td>DEX大额滑点(Large Slippage)</td><td>单次swap滑点>2%或金额>$500K</td><td>可能是受迫性紧急交易</td><td style="color:var(--text3);font-size:12px">高滑点暗示流动性不足或紧急抛售——正常投资者不会接受>1%的滑点，异常值即信号</td></tr>
+        <tr><td>M10</td><td>黑单地址间接接触(Indirect Blacklist)</td><td>与已知黑单地址有≤3跳关联</td><td>间接关联洗钱网络</td><td style="color:var(--text3);font-size:12px">3跳关联检测依赖GNN图遍历——计算成本高但召回率高，是链上追踪的核心技术</td></tr>
       </tbody>
     </table>
 
@@ -188,6 +188,38 @@
       </div>
     </div>
 
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">USDT 2024年全球交易量超$13万亿，仅次于SWIFT的$400+万亿。稳定币洗钱占比从2020年的3%飙升至2025年的25%——但Tether和Circle的冻结配合度正在改变游戏规则：2025年Tether配合冻结超$2亿，Circle链上黑名单机制可实时冻结指定地址。稳定币洗钱的"半匿名性"正在被"可控匿名性"替代。</div>
+
+    <h2 class="section-subtitle">五大学派交叉分析：稳定币洗钱的制度逻辑</h2>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.03);border-radius:0 4px 4px 0"><strong style="color:#1A5276">公共选择理论：</strong>稳定币发行商(Tether/Circle)本质上是"私执法机构"——它们拥有链上冻结权但没有民主问责。这种"私人权力+公共功能"的组合是公共选择理论中的"监管俘获"极端形式：发行商制定规则、执行规则、解释规则，而用户和执法机构只能被动接受。FATF要求稳定币纳入Travel Rule，但发行商的实际合规标准由自身商业利益驱动——Circle更配合执法因为其商业模式依赖机构客户，Tether更保守因为其用户以零售为主。</div>
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.03);border-radius:0 4px 4px 0"><strong style="color:#B8860B">马克思主义政治经济学(资本流动)：</strong>稳定币是"法币的数字殖民主义"——USDT和USDC将美元霸权从SWIFT银行体系扩展到区块链世界。在阿根廷/土耳其/尼日利亚等外汇管制国家，USDT P2P市场的黑色溢价(10-30%)本质上是"汇率差Rent"——犯罪者利用这个租金空间作为洗价的掩护。当合法资本流动被资本管制阻断时，非法资本流动获得了天然的伪装层：每一笔USDT交易都可能是正常的跨境支付，也可能是洗钱。</div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.03);border-radius:0 4px 4px 0"><strong style="color:#dc2626">后凯恩斯主义(Minsky)：</strong>稳定币洗钱的脆弱性来自"发行商信任"这一单点故障。Tether的储备金透明度长期受质疑——如果市场突然怀疑USDT的1:1锚定可靠性，挤兑将同时摧毁稳定币的"合法支付工具"功能和"洗钱通道"功能。这种双重脆弱性使稳定币洗钱网络高度依赖于发行商的"政策连续性"——一旦Tether改变冻结策略或Circle收紧合规，整个洗钱链路可能瞬间断裂。</div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.03);border-radius:0 4px 4px 0"><strong style="color:#059669">新制度经济学：</strong>稳定币洗钱的制度创新在于它将"信用中介"的功能从银行转移到了智能合约。传统洗钱需要经过银行(信用体系)，而稳定币洗钱直接在区块链上完成——USDT本身就是"数字美元"，不需要银行信用背书。但这种制度创新的交易成本极高：每次跨境转账都需要应对不同司法管辖区的Travel Rule要求、KYC验证和制裁筛查。制度演化的方向是"可编程合规"——在协议层内嵌AML规则。</div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.03);border-radius:0 4px 4px 0"><strong style="color:#7c3aed">演化经济学：</strong>稳定币洗钱手法正在经历从"单币种"到"多币种分散"的适应性进化。M08模式(USDT→USDC→DAI→USDT快速swap)代表了洗钱策略的"物种多样化"——单一稳定币被标记的风险在增加，因此通过多币种分散降低整体暴露概率。同时，去中心化稳定币(DAI)的使用量在上升，因为它没有中央发行商可以冻结——这是洗钱策略从"中心化依赖"向"去中心化自主"的演化方向。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-lock"></i> 案例：Tether $2亿冻结行动——稳定币发行商成为执法新抓手</div>
+      <div class="case-body">
+        <p><strong>背景：</strong>2025年美国执法机构联合请求Tether冻结与朝鲜Lazarus Group和东南亚诈骗网络关联的USDT地址</p>
+        <p><strong>规模：</strong>Tether在2025年全年配合冻结超$2亿涉案USDT，涉及≥200个地址</p>
+        <p><strong>机制：</strong>执法机构通过Tether Law Enforcement Portal提交冻结请求 → Tether合规团队在2-4小时内审核 → 链上执行合约级别余额冻结</p>
+        <p><strong>意义：</strong>标志着稳定币发行商从"被动配合"转向"主动执法伙伴"——Tether拥有比任何银行都强的资金冻结能力(链上不可逆)</p>
+        <p><strong>局限：</strong>仅影响USDT ERC20/TRC20，跨链到其他链(如Solana)或swap为DAI后可绕过冻结</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(6,182,212,0.05),rgba(124,58,237,0.05));border:1px solid rgba(6,182,212,0.15);border-radius:8px;padding:16px;margin-bottom:24px"><div style="font-weight:600;margin-bottom:10px;color:var(--text1)"><i class="fas fa-code-branch" style="color:var(--cyan)"></i> 稳定币洗钱增长与冻结能力提升的背离链</div><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px"><span style="background:rgba(239,68,68,0.1);color:#fca5a5;padding:4px 10px;border-radius:4px">稳定币洗钱占比25%(2025)</span><span style="color:var(--text3)">→</span><span style="background:rgba(245,158,11,0.1);color:#fcd34d;padding:4px 10px;border-radius:4px">Tether年冻结$2亿</span><span style="color:var(--text3)">→</span><span style="background:rgba(6,182,212,0.1);color:#67e8f9;padding:4px 10px;border-radius:4px">但洗钱规模$3000亿+/年</span><span style="color:var(--text3)">→</span><span style="background:rgba(124,58,237,0.1);color:#c4b5fd;padding:4px 10px;border-radius:4px">冻结覆盖率&lt;1%</span><span style="color:var(--text3)">→</span><span style="background:rgba(5,150,105,0.1);color:#6ee7b7;padding:4px 10px;border-radius:4px">洗钱者转向DAI/USDC跨链规避</span></div><p style="margin-top:10px;font-size:12px;color:var(--text3)">背离含义：冻结能力虽强但覆盖面极窄——$2亿冻结相对于$3000亿+洗钱规模只是杯水车薪。洗钱者的应对策略已经从"单纯混币"升级为"跨链+跨币种+跨发行商"的多维规避。</p></div>
+
+    <h2 class="section-subtitle">五大学派交叉解读：为什么稳定币洗钱不会消失？</h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">$13万亿年交易量背后的洗钱潜力，根植于稳定币的制度设计矛盾——它既是"法币的数字延伸"又是"无需许可的支付工具"。以下从五个经济学视角解析。</p>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 关键洞察：稳定币洗钱的终局不是"彻底清除"而是"可控共存"——合规CEX的KYC+发行商的冻结能力+链上分析工具的追踪构成了三层过滤网，将洗钱控制在可管理范围内</div>
+      <div class="tip-body">
+        <p>所有学派共识：稳定币的"可编程合规"趋势(Travel Rule内嵌、链上黑名单实时拦截)将使稳定币洗钱从"无许可通道"变为"高摩擦通道"。洗钱者不会消失，但成本会显著上升——这类似于现金管制对传统洗钱的影响。</p>
+      </div>
+    </div>
+
     <div class="chart-container" id="chart-stablecoin"></div>
   </main>
   <footer class="page-footer">
@@ -207,10 +239,11 @@
       grid: { left: 70, right: 70, top: 40, bottom: 40 },
       xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
       yAxis: [{ type: 'value', name: '($B)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '(%)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, max: 30 }],
+      graphic: [{ type: 'text', left: 'center', bottom: 10, style: { text: '⚠ 洗钱占比从3%→25%，但冻结覆盖率<1%', fontSize: 11, fill: '#67e8f9', opacity: 0.7 } }],
       series: [
-        { name: 'USDT市值($B)', type: 'bar', data: [40, 60, 80, 95, 110, 135], itemStyle: { color: '#10b981', borderRadius: [4, 4, 0, 0] } },
-        { name: 'USDC市值($B)', type: 'bar', data: [15, 25, 40, 50, 55, 58], itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
-        { name: '稳定币洗钱占比(%)', type: 'line', data: [3, 5, 8, 12, 18, 25], itemStyle: { color: '#ef4444' }, smooth: true }
+        { name: 'USDT市值($B)', type: 'bar', data: [40, 60, 80, 95, 110, 135], itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#34d399'}, {offset: 1, color: '#10b981'}]), borderRadius: [4, 4, 0, 0] } },
+        { name: 'USDC市值($B)', type: 'bar', data: [15, 25, 40, 50, 55, 58], itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#22d3ee'}, {offset: 1, color: '#06b6d4'}]), borderRadius: [4, 4, 0, 0] } },
+        { name: '稳定币洗钱占比(%)', type: 'line', data: [3, 5, 8, 12, 18, 25], itemStyle: { color: '#ef4444' }, smooth: true, markPoint: { data: [{type: 'max', name: '25%'}] } }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });

@@ -114,6 +114,27 @@
       </tbody>
     </table>
 
+    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：AML系统建设成本从2020年的$200万/年增至2025年的$800万/年(+300%)，但罚款避免额从$2亿增至$18亿(+800%)，ROI从100%提升至280%。关键趋势：AI模块的部署使检测率提升3倍但成本增加40%，证明技术投入的边际回报在上升。</div>
+
+    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：AML系统建设的经济学逻辑</h3>
+    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>AML系统的本质是"货币流动的可见性基础设施"——通过监控M2的异常变化来识别非法货币供给。Friedman会支持这种"可观测的货币供应"体系：只有当货币流动完全透明时，央行才能有效执行货币政策。AML系统提高了货币流通速度(V)的可测量性。</div>
+    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>AML系统建设是"合规供给侧投资"——投入$300-1000万/年换取$18亿/年的罚款避免额。供给侧视角的关键洞见：AI模块虽然成本更高(+$400万)，但其检测效率(3倍提升)证明了高质量合规供给的规模经济效应。</div>
+    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>AML系统面临"规则疲劳"(Rule Fatigue)——分析师对海量误报无差别处理，导致真正可疑的交易被漏掉。这是典型的"注意力稀缺"问题。行为学派建议：系统设计应减少分析师的认知负荷，优先展示高置信度告警而非全部告警。</div>
+    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>AML系统是一个"信息生态工程"——需要整合交易数据、链上数据、制裁名单、客户KYC等多个信息源，形成完整的资金流生态图谱。生态经济学强调：系统的鲁棒性取决于多样性，单一API供应商(如只接Chainalysis)构成生态脆弱性。</div>
+    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>AML系统的发展与康波周期同步演进。2020-2021规则引擎时代(第五轮周期)；2022-2024 AI/GNN时代(第六轮周期启动)；2025-2030量子安全+CBDC时代(第六轮周期深化)。预测：下一代AML系统将整合CBDC可编程性和ZK-proof验证。</div>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-building"></i> Deutsche Bank $15亿罚款 — TBML监控失败的代价</div>
+      <div class="case-body">
+        <p>2024年6月，德意志银行因贸易洗钱(TBML)监控全面失败被罚$15亿。</p>
+        <p>核心问题：发票价格偏离检测规则缺失，导致数千亿美元异常贸易融资未被发现。</p>
+        <p>教训：传统AML系统过度关注"客户层面"风险，忽视了"交易层面"的价格合理性检测。</p>
+        <p>改进：2025年起主流AML供应商(Actimize/SAS)都增加了AI贸易发票比价模块。</p>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：AML系统的技术博弈演化</strong><br><span style="color:var(--green)">起点</span> → 纯规则引擎(阈值+黑白名单) → 加密交易量增长 → <span style="color:var(--orange)">分化A</span>：误报率95% → 分析师疲劳 → 引入AI/GNN → TPR提升3倍<br><span style="color:var(--gold)">分化B</span>：Deepfake KYC出现 → 传统活体检测失效 → <span style="color:var(--green)">终态B</span>：多模态验证(视频+生物特征+设备指纹)成为标配<br><span style="color:var(--purple)">分化C</span>：单API依赖 → Chainalysis宕机 = 风控瘫痪 → <span style="color:var(--red)">终态C</span>：双API冗余(Chainalysis + TRM/Elliptic) → 合规成本+20%但鲁棒性大幅提升</div>
+
     <div class="chart-container" id="chart-aml-system"></div>
   <footer class="page-footer">
     <a class="nav-prev" href="41-risk-signals.html"><i class="fas fa-arrow-left"></i> 风险信号</a>

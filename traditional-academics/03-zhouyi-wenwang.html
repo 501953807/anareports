@@ -209,6 +209,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>六十四卦分类统计</h3>
+        <div class="chart-container" id="chart-guahexagrams" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="02-fuxi-shennong.html" class="cross-ref-card">
@@ -263,5 +266,30 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-guahexagrams'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'item' },
+      legend: { data: ['经卦', '重卦'], textStyle: { color: '#94a3b8' }, top: 0 },
+      series: [
+        {
+          name: '八卦组合统计',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          center: ['50%', '55%'],
+          avoidLabelOverlap: false,
+          itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
+          label: { show: true, color: '#e2e8f0', formatter: '{b}\n{d}%' },
+          emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+          data: [
+            { value: 8, name: '八卦（基本符号）', itemStyle: { color: '#06b6d4' } },
+            { value: 64, name: '六十四卦（两两相重）', itemStyle: { color: '#8b5cf6' } }
+          ]
+        }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
 </body>
 </html>

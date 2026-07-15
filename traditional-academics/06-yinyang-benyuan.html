@@ -189,6 +189,9 @@
       <!-- 段落5：延伸阅读 -->
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
+        <h3>阴阳对立属性统计图</h3>
+        <div class="chart-container" id="chart-yinyang-attributes" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="01-bagua-origin.html" class="cross-ref-card">
@@ -232,5 +235,49 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-yinyang-attributes'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {},
+      legend: { data: ['阳', '阴'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+      radar: {
+        indicator: [
+          { name: '空间', max: 100 },
+          { name: '光源', max: 100 },
+          { name: '温度', max: 100 },
+          { name: '运动', max: 100 },
+          { name: '时间', max: 100 },
+          { name: '声音', max: 100 },
+          { name: '味道', max: 100 },
+          { name: '数字', max: 100 }
+        ],
+        shape: 'polygon',
+        splitNumber: 4,
+        axisName: { color: '#e2e8f0', fontSize: 11 },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(6,182,212,0.02)', 'rgba(6,182,212,0.05)'] } },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          {
+            value: [100, 100, 100, 100, 100, 100, 70, 83],
+            name: '阳',
+            itemStyle: { color: '#f59e0b' },
+            areaStyle: { color: 'rgba(245,158,11,0.15)' }
+          },
+          {
+            value: [100, 100, 100, 100, 100, 100, 100, 100],
+            name: '阴',
+            itemStyle: { color: '#06b6d4' },
+            areaStyle: { color: 'rgba(6,182,212,0.15)' }
+          }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
 </body>
 </html>

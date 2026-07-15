@@ -796,6 +796,31 @@ footer a { color: var(--accent); text-decoration: none; }
 </div>
 </section>
 
+<!-- ========== 图表区 ========== -->
+<section style="margin-top:24px;">
+<h2 class="section-title">数据可视化全景</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3>📊 全球医药市场规模对比</h3>
+    <div class="chart-container" id="chart-global-market" style="height:350px;"></div>
+  </div>
+  <div class="card">
+    <h3>🏭 中国药品终端市场结构</h3>
+    <div class="chart-container" id="chart-market-structure" style="height:350px;"></div>
+  </div>
+</div>
+<div class="grid-2" style="margin-top:20px;">
+  <div class="card">
+    <h3>📈 中药四大子赛道 CAGR 对比</h3>
+    <div class="chart-container" id="chart-tcm-subsectors" style="height:350px;"></div>
+  </div>
+  <div class="card">
+    <h3>💊 五大赛道多维对比</h3>
+    <div class="chart-container" id="chart-five-sectors-radar" style="height:350px;"></div>
+  </div>
+</div>
+</section>
+
 <footer>
   <p>本看板由"全域全流派经济学首席研判专家"框架生成</p>
   <p>分析原则：前提校验优先 · 五维联动 · 多流派对冲 · 历史对称对标 · 代价前置</p>
@@ -803,6 +828,100 @@ footer a { color: var(--accent); text-decoration: none; }
   <p style="margin-top:4px; font-size:10px;">数据来源：国家统计局、NMPA、工信部、WHO、IMS Health、Frost & Sullivan、IQVIA、各公司年报、华经产业研究院、中研普华、东方财富、动脉网、医药魔方、FiercePharma。数据截止2025年末/2026年初。中国药品终端市场总规模约8.5万亿（含医院+零售），制造业营收约1.69万亿，零售药店药品市场约1.87万亿。三者统计口径不同，不可混用。</p>
 </footer>
 
+</div>
+<script src="common/js/echarts.inline.js"></script>
+<script>
+(function(){
+  // Global market comparison
+  var c1 = echarts.init(document.getElementById('chart-global-market'));
+  c1.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    grid: { left: 80, right: 30, top: 20, bottom: 40 },
+    xAxis: { type: 'value', axisLabel: { color: '#94a3b8', formatter: '{value} 万亿' } },
+    yAxis: { type: 'category', data: ['英国','日本','德国','中国','美国'], axisLabel: { color: '#e2e8f0' } },
+    series: [{
+      type: 'bar', name: '市场规模', label: { show: true, position: 'right', color: '#e2e8f0' },
+      data: [
+        { value: 0.4, itemStyle: { color: '#7c3aed' } },
+        { value: 0.24, itemStyle: { color: '#059669' } },
+        { value: 0.56, itemStyle: { color: '#1A5276' } },
+        { value: 8.5, itemStyle: { color: '#dc2626' } },
+        { value: 19.4, itemStyle: { color: '#B8860B' } }
+      ]
+    }]
+  });
+
+  // Market structure pie
+  var c2 = echarts.init(document.getElementById('chart-market-structure'));
+  c2.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'item' },
+    legend: { textStyle: { color: '#94a3b8' }, bottom: 0 },
+    series: [{
+      type: 'pie', radius: ['40%','70%'], avoidLabelOverlap: false,
+      label: { color: '#e2e8f0', fontSize: 11 },
+      data: [
+        { value: 4.08, name: '化学药 48%', itemStyle: { color: '#dc2626' } },
+        { value: 1.87, name: '中成药 23%', itemStyle: { color: '#B8860B' } },
+        { value: 1.53, name: '生物药 18%', itemStyle: { color: '#1A5276' } },
+        { value: 1.02, name: '其他 11%', itemStyle: { color: '#059669' } }
+      ]
+    }]
+  });
+
+  // TCM sub-sector CAGR
+  var c3 = echarts.init(document.getElementById('chart-tcm-subsectors'));
+  c3.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    grid: { left: 80, right: 30, top: 20, bottom: 40 },
+    xAxis: { type: 'value', axisLabel: { color: '#94a3b8', formatter: '{value}%' } },
+    yAxis: { type: 'category', data: ['中药饮片','中药大健康','配方颗粒','中药创新药'], axisLabel: { color: '#e2e8f0' } },
+    series: [{
+      type: 'bar', label: { show: true, position: 'right', color: '#e2e8f0' },
+      data: [
+        { value: 8, itemStyle: { color: '#94a3b8' } },
+        { value: 15, itemStyle: { color: '#d4a843' } },
+        { value: 20, itemStyle: { color: '#1A5276' } },
+        { value: 25, itemStyle: { color: '#059669' } }
+      ]
+    }]
+  });
+
+  // Five sectors radar
+  var c4 = echarts.init(document.getElementById('chart-five-sectors-radar'));
+  c4.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {},
+    legend: { data: ['创新药','仿制药','中药','原料药','CXO'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+    radar: {
+      indicator: [
+        { name: '增速', max: 100 },
+        { name: '政策友好度', max: 100 },
+        { name: '全球竞争力', max: 100 },
+        { name: '出海前景', max: 100 },
+        { name: '投资确定性', max: 100 },
+        { name: '利润率', max: 100 }
+      ],
+      splitNumber: 4, axisName: { color: '#e2e8f0', fontSize: 10 },
+      splitLine: { lineStyle: { color: '#1e2a3a' } }, axisLine: { lineStyle: { color: '#1e2a3a' } }
+    },
+    series: [{
+      type: 'radar', symbolSize: 5,
+      data: [
+        { value: [95, 50, 70, 85, 75, 90], name: '创新药', itemStyle: { color: '#dc2626' }, areaStyle: { color: 'rgba(220,38,38,0.15)' } },
+        { value: [30, 20, 50, 55, 35, 40], name: '仿制药', itemStyle: { color: '#94a3b8' }, areaStyle: { color: 'rgba(148,163,184,0.15)' } },
+        { value: [60, 90, 30, 35, 80, 55], name: '中药', itemStyle: { color: '#B8860B' }, areaStyle: { color: 'rgba(184,134,11,0.15)' } },
+        { value: [50, 40, 95, 80, 60, 50], name: '原料药', itemStyle: { color: '#1A5276' }, areaStyle: { color: 'rgba(26,82,118,0.15)' } },
+        { value: [40, 25, 65, 40, 30, 60], name: 'CXO', itemStyle: { color: '#7c3aed' }, areaStyle: { color: 'rgba(124,58,237,0.15)' } }
+      ]
+    }]
+  });
+
+  window.addEventListener('resize', function() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); });
+})();
+</script>
 </div>
 </body>
 </html>

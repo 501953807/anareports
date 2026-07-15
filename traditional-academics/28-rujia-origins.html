@@ -222,6 +222,9 @@
       <section class="chapter-section chapter-extensions">
         <h2 class="section-subtitle">五、延伸阅读与思考</h2>
 
+        <h3>五常概念关系强度图</h3>
+        <div class="chart-container" id="chart-wuchang" style="margin-bottom:30px;"></div>
+
         <h3>跨章节关联</h3>
         <div class="cross-ref-grid">
           <a href="29-mengzi.html" class="cross-ref-card">
@@ -268,6 +271,39 @@
   <script src="common/js/echarts.inline.js"></script>
   <script src="common/js/navigation.js"></script>
   <script src="common/js/theme-toggle.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-wuchang'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {},
+      legend: { data: ['五常概念强度'], textStyle: { color: '#94a3b8' }, bottom: 0 },
+      radar: {
+        indicator: [
+          { name: '仁\n爱人', max: 100 },
+          { name: '义\n正当', max: 100 },
+          { name: '礼\n秩序', max: 100 },
+          { name: '智\n明智', max: 100 },
+          { name: '信\n诚信', max: 100 }
+        ],
+        shape: 'polygon',
+        splitNumber: 4,
+        axisName: { color: '#e2e8f0', fontSize: 11 },
+        splitLine: { lineStyle: { color: '#1e2a3a' } },
+        splitArea: { areaStyle: { color: ['rgba(184,134,11,0.02)', 'rgba(184,134,11,0.05)'] } },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'radar',
+        data: [{
+          value: [100, 80, 85, 75, 70],
+          name: '五常',
+          itemStyle: { color: '#B8860B' },
+          areaStyle: { color: 'rgba(184,134,11,0.2)' }
+        }]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var toggleBtn = document.querySelector('.nav-toggle');
