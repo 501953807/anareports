@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重庆产业全景分析与未来展望看板 v3.0</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#0b1120;--surface:#111827;--card:#1e293b;--border:#1e2a3a;--cyan:#06b6d4;--purple:#8b5cf6;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--pink:#ec4899;--gold:#d97706;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x:hidden}
+.book-part{max-width:1200px;margin:0 auto;padding:20px}
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(11,17,32,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.top-nav .brand{font-size:16px;font-weight:700;color:var(--cyan)}
+.top-nav .brand i{margin-right:8px}
+.top-nav .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.top-nav .nav-links a{color:var(--text2);text-decoration:none;font-size:11px;padding:4px 8px;border-radius:4px;transition:.2s}
+.top-nav .nav-links a:hover{color:var(--cyan);background:var(--card)}
+.cover-hero{text-align:center;padding:40px 20px 30px;border-bottom:1px solid var(--border);margin-bottom:30px}
+.cover-hero h1{font-size:30px;color:var(--cyan);margin-bottom:10px;letter-spacing:3px}
+.cover-hero .subtitle{font-size:14px;color:var(--text2);margin-bottom:24px}
+.cover-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+.cover-stat{text-align:center}.cover-stat .value{font-size:26px;font-weight:700;color:var(--cyan)}.cover-stat .label{font-size:12px;color:var(--text2);margin-top:2px}
+.section-title{font-size:21px;font-weight:700;color:var(--cyan);margin:36px 0 18px;padding-left:14px;border-left:4px solid var(--cyan)}
+.section-subtitle{font-size:16px;font-weight:600;color:var(--text);margin:28px 0 14px}
+.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.metric{text-align:center;padding:16px 10px;background:var(--surface);border:1px solid var(--border);border-radius:8px}.metric .val{font-size:24px;font-weight:700;color:var(--cyan)}.metric .lbl{font-size:11px;color:var(--text2);margin-top:4px}
+.chart-container{width:100%;height:380px;max-width:800px;margin:18px auto}
+.data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px}
+.data-table th{background:var(--surface);color:var(--cyan);padding:9px 10px;text-align:left;font-weight:600;border-bottom:2px solid var(--border)}
+.data-table td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.data-table tr:hover td{background:rgba(6,182,212,.04)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.cover-hero h1{font-size:22px}}
+.data-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px}.data-card .value{font-size:16px;font-weight:700;margin-bottom:4px}.data-card .label{font-size:12px;color:var(--text2);line-height:1.7}
+.school-view{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:14px 0}
+.sv-item{border-left:3px solid;padding:10px 12px;background:var(--surface);border-radius:0 6px 6px 0}
+.sv-blue{border-color:#1A5276}.sv-gold{border-color:#B8860B}.sv-red{border-color:#dc2626}.sv-green{border-color:#059669}.sv-purple{border-color:#7c3aed}
+.sv-school{font-size:12px;font-weight:600;margin-bottom:4px}.sv-body{font-size:11px;color:var(--text2);line-height:1.7}
+.case-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:14px 0}
+.case-title{font-size:13px;font-weight:600;color:var(--amber);margin-bottom:6px}.case-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:5px}
+.divergence-chain{background:var(--surface);border:1px dashed var(--purple);border-radius:8px;padding:14px;margin:14px 0}
+.dc-title{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:8px}
+.dc-links{font-size:12px;color:var(--text2);line-height:2}
+.dc-node{background:var(--card);padding:2px 7px;border-radius:4px;white-space:nowrap}
+.dc-arrow{margin:0 3px;color:var(--text3)}
+.tip-box{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(139,92,246,.08));border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:14px 0}
+.tip-title{font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:6px}.tip-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:5px}
+.data-note{background:rgba(6,182,212,.06);border:1px dashed var(--cyan);border-radius:8px;padding:12px;margin:14px 0}
+.data-note p{font-size:11px;color:var(--text2);line-height:1.8}
+.steps-list{list-style:none;counter-reset:step;margin:14px 0}
+.steps-list li{counter-increment:step;padding:10px 14px 10px 44px;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:6px;position:relative;font-size:12px;color:var(--text2);line-height:1.7}
+.steps-list li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--cyan);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;margin:1px}
+.tag-cyan{background:rgba(6,182,212,.15);color:var(--cyan)}.tag-purple{background:rgba(139,92,246,.15);color:var(--purple)}.tag-green{background:rgba(16,185,129,.15);color:var(--green)}.tag-amber{background:rgba(245,158,11,.15);color:var(--amber)}.tag-red{background:rgba(239,68,68,.15);color:var(--red)}
+.eco-diagram{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;margin:16px 0}
+.eco-diagram h4{color:var(--cyan);font-size:14px;margin-bottom:12px;text-align:center}
+.flow-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:8px 0}
+.flow-node{padding:8px 14px;background:var(--card);border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;min-width:90px;text-align:center}
+.flow-arrow{color:var(--cyan);font-size:16px}
+.footer{text-align:center;padding:30px 20px;border-top:1px solid var(--border);color:var(--text3);font-size:11px;margin-top:36px}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+<div class="brand"><i class="fas fa-mountain-city"></i>重庆产业全景分析与未来展望 v3.0</div>
+<div class="nav-links">
+<a href="#p1">人口</a><a href="#p2">经济规模</a><a href="#p3">三大产业</a><a href="#p4">核心竞争力</a><a href="#p5">下行周期</a><a href="#p6">民生</a><a href="#p7">十五五</a><a href="#p8">未来展望</a>
+</div>
+</nav>
+
+<!-- ===== COVER ===== -->
+<div class="book-part">
+<div class="cover-hero">
+<h1><i class="fas fa-city"></i> 重庆产业全景分析与未来展望 v3.0</h1>
+<p class="subtitle">人口·经济·三大产业·民生·十五五规划·未来预言 — 基于真实数据的深度分析</p>
+<div class="cover-stats">
+<div class="cover-stat"><div class="value">31</div><div class="label">页源书深度</div></div>
+<div class="cover-stat"><div class="value">3.25万亿</div><div class="label">2024 GDP</div></div>
+<div class="cover-stat"><div class="value">3191万</div><div class="label">常住人口</div></div>
+<div class="cover-stat"><div class="value">8.24万km²</div><div class="label">面积</div></div>
+<div class="cover-stat"><div class="value">6</div><div class="label">大部分</div></div>
+</div>
+</div>
+
+<!-- ===== PART 1: 人口与劳动力 ===== -->
+<div class="book-part" id="p1">
+<h2 class="section-title">PART 1 · 人口与劳动力</h2>
+<div class="metric-row">
+<div class="metric"><div class="val">3191万</div><div class="lbl">常住人口(2024)</div></div>
+<div class="metric"><div class="val">2357万</div><div class="lbl">户籍人口</div></div>
+<div class="metric"><div class="val">834万</div><div class="lbl">人口净流出剪刀差</div></div>
+<div class="metric"><div class="val">8.24万km²</div><div class="lbl">行政面积</div></div>
+<div class="metric"><div class="val">387人/km²</div><div class="lbl">人口密度</div></div>
+</div>
+
+<h3 class="section-subtitle">1.1 人口趋势演变(2015-2024)</h3>
+<div class="chart-container" id="chart-pop-trend"></div>
+
+<h3 class="section-subtitle">1.2 人才流动博弈：流出 vs 回流</h3>
+<table class="data-table">
+<thead><tr><th>阶段</th><th>特征</th><th>驱动因素</th><th>规模</th><th>深度解读</th></tr></thead>
+<tbody>
+<tr><td><strong style="color:var(--red)">流出期(2010-2018)</strong></td><td>高校毕业生流向北上广深</td><td>薪资差距、产业机会少、发展空间受限</td><td>年均净流出~15万人</td><td>人才流失直接制约产业升级</td></tr>
+<tr><td><strong style="color:var(--green)">回流期(2019-至今)</strong></td><td>成渝双城经济圈建设+产业转移</td><td>房价优势+生活成本+政策吸引+产业落地</td><td>年均净流入~8万人</td><td>新能源汽车爆发带动高端人才回流</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">1.3 成渝双城人口红利对比</h3>
+<div class="chart-container" id="chart-chengdu-chongqing-pop"></div>
+
+<div class="data-note">
+<p><strong style="color:var(--cyan)">细微信号：</strong>重庆60岁以上人口占比已超过20%，老龄化速度超过全国平均水平。但与此同时，回流人才以25-35岁为主，正在部分对冲老龄化压力。</p>
+</div>
+</div>
+
+<!-- ===== PART 2: 经济规模与产业地位 ===== -->
+<div class="book-part" id="p2">
+<h2 class="section-title">PART 2 · 经济规模与产业地位</h2>
+<div class="metric-row">
+<div class="metric"><div class="val">¥3.25万亿</div><div class="lbl">2024 GDP总量</div></div>
+<div class="metric"><div class="val">No.10</div><div class="lbl">全国排名</div></div>
+<div class="metric"><div class="val">5.3%</div><div class="lbl">GDP增速</div></div>
+<div class="metric"><div class="val">¥9.9万</div><div class="lbl">人均GDP</div></div>
+<div class="metric"><div class="val">1:2:40:53</div><div class="lbl">三产结构比</div></div>
+</div>
+
+<h3 class="section-subtitle">2.1 GDP十年演变(2015-2024)</h3>
+<div class="chart-container" id="chart-gdp-decade"></div>
+
+<h3 class="section-subtitle">2.2 三大产业结构演变(2015-2024)</h3>
+<div class="chart-container" id="chart-industry-structure"></div>
+
+<h3 class="section-subtitle">2.3 西部第一城雷达对比</h3>
+<div class="chart-container" id="chart-western-radar"></div>
+
+<h3 class="section-subtitle">2.4 经济韧性指数评估</h3>
+<table class="data-table">
+<thead><tr><th>维度</th><th>评分</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>制造业根基</td><td><span class="tag tag-green">A-</span></td><td>第二产业占比40%，汽车+电子信息双引擎</td></tr>
+<tr><td>内需消费</td><td><span class="tag tag-amber">B</span></td><td>居民收入偏低制约消费，但旅游消费强劲</td></tr>
+<tr><td>开放程度</td><td><span class="tag tag-cyan">B+</span></td><td>中欧班列+果园港+西部陆海新通道</td></tr>
+<tr><td>创新能力</td><td><span class="tag tag-red">C+</span></td><td>R&D投入强度低于全国平均，高校资源不足</td></tr>
+<tr><td>财政健康</td><td><span class="tag tag-red">C</span></td><td>土地财政依赖度高，隐性债务压力大</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===== PART 3: 三大产业全覆盖 ===== -->
+<div class="book-part" id="p3">
+<h2 class="section-title">PART 3 · 三大产业全景覆盖</h2>
+
+<h3 class="section-subtitle">3.1 第一产业：现代农业</h3>
+<div class="metric-row">
+<div class="metric"><div class="val">2600亿</div><div class="lbl">第一产业增加值</div></div>
+<div class="metric"><div class="val">8.0%</div><div class="lbl">占GDP比重</div></div>
+<div class="metric"><div class="val">2300万亩</div><div class="lbl">耕地面积</div></div>
+<div class="metric"><div class="val">TOP3</div><div class="lbl">全国生猪/柑橘/涪陵榨菜产量</div></div>
+</div>
+<table class="data-table">
+<thead><tr><th>品类</th><th>全国排名</th><th>年产量</th><th>产业化率</th><th>深度解读</th></tr></thead>
+<tbody>
+<tr><td>生猪</td><td>No.1</td><td>~3000万头</td><td>规模化养殖率65%</td><td>全国最大生猪生产基地之一</td></tr>
+<tr><td>柑橘</td><td>No.1</td><td>~600万吨</td><td>深加工率30%</td><td>重庆是中国最大柑橘产区</td></tr>
+<tr><td>涪陵榨菜</td><td>No.1</td><td>~100万吨</td><td>深加工率45%</td><td>全球榨菜80%产自涪陵</td></tr>
+<tr><td>茶叶</td><td>No.5</td><td>~20万吨</td><td>有机茶比例提升中</td><td>武陵山区优质茶产区</td></tr>
+<tr><td>伏旱辣椒</td><td>No.1</td><td>~300万吨</td><td>加工转化率50%</td><td>全国最大辣椒种植基地</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">3.2 第二产业：先进制造</h3>
+<div class="metric-row">
+<div class="metric"><div class="val">40%</div><div class="lbl">第二产业占GDP</div></div>
+<div class="metric"><div class="val">340万辆</div><div class="lbl">汽车年产量</div></div>
+<div class="metric"><div class="val">120万辆</div><div class="lbl">新能源汽车产量</div></div>
+<div class="metric"><div class="val">~¥1万亿</div><div class="lbl">电子信息产业营收</div></div>
+<div class="metric"><div class="val">65%+</div><div class="lbl">重点产业本地配套率</div></div>
+</div>
+
+<h4>汽车制造：长安+赛力斯双引擎</h4>
+<table class="data-table">
+<thead><tr><th>企业</th><th>类型</th><th>核心品牌</th><th>2024销量</th><th>战略方向</th><th>深度解读</th></tr></thead>
+<tbody>
+<tr><td><strong style="color:var(--cyan)">长安汽车</strong></td><td>央企</td><td>长安/深蓝/阿维塔</td><td>~250万辆</td><td>全面电动化+智能化</td><td>传统车企转型典范，与华为/宁德时代深度合作</td></tr>
+<tr><td><strong style="color:var(--purple)">赛力斯</strong></td><td>民营</td><td>问界(AITO)</td><td>~60万辆</td><td>华为智选车模式标杆</td><td>从微型车到新能源爆款，市值增长百倍</td></tr>
+<tr><td><strong style="color:var(--green)">奇瑞汽车</strong></td><td>民营</td><td>奇瑞/捷途</td><td>~80万辆</td><td>出口导向+新能源</td><td>重庆基地是奇瑞全国布局重要一环</td></tr>
+<tr><td><strong style="color:var(--amber)">东风小康</strong></td><td>央企</td><td>风光/小康</td><td>~40万辆</td><td>微车+新能源商用车</td><td>下沉市场王者，新能源转型中</td></tr>
+</tbody>
+</table>
+
+<h4>电子信息产业</h4>
+<table class="data-table">
+<thead><tr><th>领域</th><th>代表企业</th><th>全球地位</th><th>转型方向</th></tr></thead>
+<tbody>
+<tr><td>笔记本电脑</td><td>惠普/联想/宏碲代工</td><td>全球1/3笔电产自重庆</td><td>从代工向研发设计延伸</td></tr>
+<tr><td>智能手机</td><td>OPPO/vivo/富士康</td><td>年产量~1.5亿部</td><td>向芯片封装测试拓展</td></tr>
+<tr><td>半导体</td><td>华润微/格科微</td><td>西部最大功率半导体基地</td><td>车规级芯片突破中</td></tr>
+<tr><td>新型显示</td><td>京东方/华星光电</td><td>中西部最大显示面板产能</td><td>柔性屏/Micro LED</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">3.3 第三产业：服务业升级</h3>
+<div class="metric-row">
+<div class="metric"><div class="val">52%</div><div class="lbl">第三产业占GDP</div></div>
+<div class="metric"><div class="val">1.8亿</div><div class="lbl">年游客量</div></div>
+<div class="metric"><div class="val">¥2000亿+</div><div class="lbl">旅游总收入</div></div>
+<div class="metric"><div class="val">15%</div><div class="lbl">高附加值服务业占比</div></div>
+</div>
+
+<table class="data-table">
+<thead><tr><th>服务业子行业</th><th>占比</th><th>特点</th><th>深度解读</th></tr></thead>
+<tbody>
+<tr><td>批发零售</td><td>~30%</td><td>传统强项</td><td>西部物流枢纽地位巩固</td></tr>
+<tr><td>交通运输仓储</td><td>~18%</td><td>中欧班列+果园港</td><td>内陆开放通道持续完善</td></tr>
+<tr><td>住宿餐饮</td><td>~10%</td><td>旅游驱动</td><td>网红城市效应显著</td></tr>
+<tr><td>金融保险</td><td>~8%</td><td>追赶成都</td><td>西部金融中心建设加速中</td></tr>
+<tr><td>信息软件</td><td>~5%</td><td>增速最快</td><td>数字经济占比提升至25%</td></tr>
+<tr><td>房地产</td><td>~6%</td><td>下行压力大</td><td>投资连续两年负增长</td></tr>
+</tbody>
+</table>
+
+<div class="data-note">
+<p><strong style="color:var(--amber)">关键判断：</strong>重庆第三产业占比超50%但以传统服务业为主，金融、信息、研发等高附加值现代服务业占比仅约15%，远低于深圳(25%)和上海(30%)。服务业"大而不强"是重庆产业升级的最大瓶颈。</p>
+</div>
+</div>
+
+<!-- ===== PART 4: 核心竞争力 ===== -->
+<div class="book-part" id="p4">
+<h2 class="section-title">PART 4 · 产业优势与核心竞争力</h2>
+
+<h3 class="section-subtitle">4.1 产业链完整度评估</h3>
+<div class="chart-container" id="chart-chain-completeness"></div>
+
+<h3 class="section-subtitle">4.2 新兴产业六大布局</h3>
+<div class="grid-3">
+<div class="data-card"><div class="value" style="color:var(--cyan)"><i class="fas fa-battery-full"></i> 动力电池</div><div class="label">国轩高科/中科玖泰等入驻，形成从材料到电池包完整链条，目标产能100GWh</div></div>
+<div class="data-card"><div class="value" style="color:var(--green)"><i class="fas fa-solar-panel"></i> 光伏储能</div><div class="label">天合光能/隆基绿能布局，西部最大光伏产业基地之一</div></div>
+<div class="data-card"><div class="value" style="color:var(--purple)"><i class="fas fa-robot"></i> 智能装备</div><div class="label">工业机器人/数控机床/智能传感器，智能制造示范工厂超50家</div></div>
+<div class="data-card"><div class="value" style="color:var(--amber)"><i class="fas fa-dna"></i> 生物医药</div><div class="label">化学药+生物药+中药三足鼎立，重庆高新区医药谷加速成型</div></div>
+<div class="data-card"><div class="value" style="color:var(--pink)"><i class="fas fa-atom"></i> 新材料</div><div class="label">碳纤维/稀土功能材料/先进半导体材料，服务汽车+电子信息两大主导产业</div></div>
+<div class="data-card"><div class="value" style="color:var(--red)"><i class="fas fa-microchip"></i> 半导体</div><div class="label">车规级芯片突破中，华润微功率半导体全国领先</div></div>
+</div>
+</div>
+
+<!-- ===== PART 5: 下行周期分析 ===== -->
+<div class="book-part" id="p5">
+<h2 class="section-title">PART 5 · 下行周期优劣势分析</h2>
+
+<h3 class="section-subtitle">5.1 三重下行压力</h3>
+<div class="risk-box" style="background:rgba(239,68,68,.06);border:1px solid var(--red);border-radius:8px;padding:14px;margin:12px 0">
+<p style="font-size:13px;font-weight:600;color:var(--red)"><i class="fas fa-house-crack"></i> 压力一：房地产拖累</p>
+<p style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:4px">房地产投资连续两年负增长(-8%~-12%)，土地出让金大幅下降，土地财政模式难以为继。预计每年拖累GDP增速1-2个百分点。</p>
+</div>
+<div class="risk-box" style="background:rgba(245,158,11,.06);border:1px solid var(--amber);border-radius:8px;padding:14px;margin:12px 0">
+<p style="font-size:13px;font-weight:600;color:var(--amber)"><i class="fas fa-store-slash"></i> 压力二：消费疲软</p>
+<p style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:4px">CPI仅0.2%，社会消费品零售总额增速放缓。居民预防性储蓄增加，消费升级受阻，但平价消费和体验式消费逆势增长。</p>
+</div>
+<div class="risk-box" style="background:rgba(139,92,246,.06);border:1px solid var(--purple);border-radius:8px;padding:14px;margin:12px 0">
+<p style="font-size:13px;font-weight:600;color:var(--purple)"><i class="fas fa-file-invoice-dollar"></i> 压力三：地方债务</p>
+<p style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:4px">城投债余额超万亿，部分区县偿债压力巨大。债务化解进展决定地方政府投资能力，是最大不确定变量。</p>
+</div>
+
+<h3 class="section-subtitle">5.2 对冲力量</h3>
+<div class="forecast-box" style="background:rgba(16,185,129,.06);border:1px solid var(--green);border-radius:8px;padding:14px;margin:12px 0">
+<p style="font-size:13px;font-weight:600;color:var(--green)"><i class="fas fa-shield-halved"></i> 对冲一：西部大开发税收优惠延续</p>
+<p style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:4px">鼓励类产业企业所得税15%政策延续至2030年，持续吸引东部制造业转移。</p>
+</div>
+<div class="forecast-box" style="background:rgba(6,182,212,.06);border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:12px 0">
+<p style="font-size:13px;font-weight:600;color:var(--cyan)"><i class="fas fa-train"></i> 对冲二：中欧班列+RCEP+西部陆海新通道</p>
+<p style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:4px">2024年中欧班列(渝新欧)开行超5000列，西部陆海新通道覆盖126个国家。内陆开放从"过道经济"转向"口岸经济"。</p>
+</div>
+</div>
+
+<!-- ===== PART 6: 民生与地区限制 ===== -->
+<div class="book-part" id="p6">
+<h2 class="section-title">PART 6 · 底层民生与地区限制</h2>
+<div class="metric-row">
+<div class="metric"><div class="val">¥4.7万</div><div class="lbl">城镇居民人均可支配收入</div></div>
+<div class="metric"><div class="val">¥2.4万</div><div class="lbl">农村居民人均可支配收入</div></div>
+<div class="metric"><div class="val">7.2</div><div class="lbl">房价收入比(全国最低之一)</div></div>
+<div class="metric"><div class="val">1.96</div><div class="lbl">城乡收入比</div></div>
+</div>
+
+<h3 class="section-subtitle">6.1 住房 affordability 区域对比</h3>
+<table class="data-table">
+<thead><tr><th>城市</th><th>房价收入比</th><th>评价</th><th>对比重庆</th></tr></thead>
+<tbody>
+<tr><td>深圳</td><td>35+</td><td>极高压力</td><td>4.8x重庆</td></tr>
+<tr><td>上海</td><td>25-30</td><td>高压</td><td>3.5x重庆</td></tr>
+<tr><td>成都</td><td>12-15</td><td>中等偏高</td><td>1.7x重庆</td></tr>
+<tr><td>武汉</td><td>10-12</td><td>中等</td><td>1.5x重庆</td></tr>
+<tr><td><strong style="color:var(--cyan)">重庆</strong></td><td><strong style="color:var(--cyan)">7-9</strong></td><td><strong style="color:var(--cyan)">全国最低梯队</strong></td><td><strong style="color:var(--cyan)">基准</strong></td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">6.2 公共服务资源对比</h3>
+<table class="data-table">
+<thead><tr><th>指标</th><th>重庆</th><th>成都</th><th>武汉</th><th>深度解读</th></tr></thead>
+<tbody>
+<tr><td>双一流高校</td><td>2所(重大/西南大学)</td><td>7所</td><td>7所</td><td>教育资源是重庆最大短板之一</td></tr>
+<tr><td>三甲医院</td><td>~60家</td><td>~70家</td><td>~65家</td><td>医疗资源基本够用但质量有差距</td></tr>
+<tr><td>城镇调查失业率</td><td>5.2%</td><td>4.8%</td><td>5.0%</td><td>就业压力略高于对标城市</td></tr>
+<tr><td>每千人执业医师</td><td>2.8</td><td>3.5</td><td>3.2</td><td>医疗人力配置落后</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">6.3 区县经济分层</h3>
+<div class="grid-3">
+<div class="data-card"><div class="value" style="color:var(--cyan)">第一梯队</div><div class="label"><span class="tag tag-cyan">GDP >1000亿</span></div><div class="label" style="margin-top:4px">渝北区、涪陵区、江津区、长寿区、永川区 — 4个千亿级区县</div></div>
+<div class="data-card"><div class="value" style="color:var(--amber)">第二梯队</div><div class="label"><span class="tag tag-amber">GDP 500-1000亿</span></div><div class="label" style="margin-top:4px">沙坪坝区、九龙坡区、巴南区、北碚区等 — 10余个五百亿级区县</div></div>
+<div class="data-card"><div class="value" style="color:var(--purple)">第三梯队</div><div class="label"><span class="tag tag-purple">GDP <500亿</span></div><div class="label" style="margin-top:4px">渝东北/渝东南大部分区县 — 山区经济为主，发展滞后</div></div>
+</div>
+</div>
+
+<!-- ===== PART 7: 十五五规划前瞻 ===== -->
+<div class="book-part" id="p7">
+<h2 class="section-title">PART 7 · 国家十五五规划与重庆定位</h2>
+
+<h3 class="section-subtitle">7.1 十五五期间国家战略对重庆的定位</h3>
+<table class="data-table">
+<thead><tr><th>战略方向</th><th>具体内容</th><th>重庆机遇</th><th>时间窗口</th></tr></thead>
+<tbody>
+<tr><td><strong>成渝双城经济圈</strong></td><td>打造西部第四极，与长三角/珠三角/京津冀并列</td><td>国家级产业基金+税收优惠+重大项目落地</td><td>2026-2028关键期</td></tr>
+<tr><td><strong>新型工业化</strong></td><td>制造业当家，推进智能制造+绿色制造</td><td>汽车+电子信息升级为智能网联新能源汽车+新一代电子信息</td><td>2026-2030</td></tr>
+<tr><td><strong>扩大内需战略</strong></td><td>构建全国统一大市场，促进消费升级</td><td>重庆作为内陆消费中心，商贸物流枢纽地位提升</td><td>2026-2030</td></tr>
+<tr><td><strong>绿色低碳转型</strong></td><td>碳达峰行动，新能源产业大发展</td><td>动力电池+光伏储能+新能源汽车全产业链受益</td><td>2026-2030</td></tr>
+<tr><td><strong>高水平对外开放</strong></td><td>一带一路+RCEP+西部陆海新通道</td><td>从内陆腹地变为开放前沿，中欧班列+果园港+两路保税</td><td>2026-2030</td></tr>
+<tr><td><strong>区域协调发展</strong></td><td>中部崛起+西部大开发新格局</td><td>西部大开发15%所得税优惠延续，承接东部产业转移</td><td>2026-2035</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">7.2 十五五重庆重点产业目标</h3>
+<div class="metric-row">
+<div class="metric"><div class="val">4.5万亿</div><div class="lbl">2027年GDP目标</div></div>
+<div class="metric"><div class="val">50万辆</div><div class="lbl">智能网联新能源汽车目标</div></div>
+<div class="metric"><div class="val">5000亿</div><div class="lbl">数字经济核心产业增加值</div></div>
+<div class="metric"><div class="val">75%+</div><div class="lbl">城镇化率目标</div></div>
+</div>
+
+<h3 class="section-subtitle">7.3 十五五关键里程碑</h3>
+<ol class="steps-list">
+<li><strong>2026年：</strong>成渝双城经济圈核心产业项目集中落地，新能源汽车产量突破80万辆，电子信息寻找笔电之外的新增长极</li>
+<li><strong>2027年：</strong>"十五五"中期评估节点，如果成渝协同制度壁垒打通（社保互通/产业同质化协调），释放巨大红利</li>
+<li><strong>2028-2029年：</strong>房地产投资累计拖累效应达到峰值后企稳，新能源汽车产能可能面临过剩风险需要出清</li>
+<li><strong>2030年：</strong>"十五五"收官之年，检验产业升级成效的关键节点——GDP能否突破4.5万亿</li>
+</ol>
+</div>
+
+<!-- ===== PART 8: 未来展望 ===== -->
+<div class="book-part" id="p8">
+<h2 class="section-title">PART 8 · 未来展望与数据预言</h2>
+
+<h3 class="section-subtitle">8.1 GDP多情景预测(2025-2030)</h3>
+<div class="chart-container" id="chart-gdp-prediction"></div>
+
+<h3 class="section-subtitle">8.2 影响预测的核心变量</h3>
+<table class="data-table">
+<thead><tr><th>变量</th><th>方向</th><th>权重</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>新能源汽车产销</td><td>↑</td><td>30%</td><td>赛力斯+长安的电动化转型进度决定制造业天花板</td></tr>
+<tr><td>电子信息出口</td><td>↓</td><td>25%</td><td>全球笔电需求见顶，需要手机/芯片等新增长点</td></tr>
+<tr><td>房地产投资</td><td>↓</td><td>20%</td><td>预计每年下降5-8%，拖累固投增速2-3pp</td></tr>
+<tr><td>成渝双城经济圈政策</td><td>↑</td><td>15%</td><td>国家级产业基金、税收优惠等政策力度</td></tr>
+<tr><td>地方债务化解</td><td>?</td><td>10%</td><td>债务重组进展决定地方政府投资能力</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">8.3 风险预警清单</h3>
+<table class="data-table">
+<thead><tr><th>风险等级</th><th>风险事项</th><th>触发条件</th><th>应对策略</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-red">高风险</span></td><td>地方债务显性化</td><td>利息支出占财政收入>30%</td><td>债务重组+中央救助+资产证券化</td></tr>
+<tr><td><span class="tag tag-red">高风险</span></td><td>新能源汽车产能过剩</td><td>产能利用率<60%</td><td>出口导向+兼并重组</td></tr>
+<tr><td><span class="tag tag-amber">中风险</span></td><td>人才流失持续</td><td>高校毕业生净流出>5万人/年</td><td>提升高等教育+产业政策引才</td></tr>
+<tr><td><span class="tag tag-amber">中风险</span></td><td>传统产业转型受阻</td><td>汽车电动化渗透率<30%</td><td>加大研发投入+引进外部合作</td></tr>
+<tr><td><span class="tag tag-green">低风险</span></td><td>外部环境冲击</td><td>国际贸易壁垒升级</td><td>内循环为主+RCEP多元化</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">8.4 投资者/创业者行动指南</h3>
+<div class="grid-2">
+<div class="data-card" style="border-color:var(--green)"><div class="value" style="color:var(--green)"><i class="fas fa-check-circle"></i> 高确定性赛道</div><div class="label" style="margin-top:6px">智能网联新能源汽车产业链<br>数字经济与工业互联网<br>现代金融服务<br>康养与银发经济</div></div>
+<div class="data-card" style="border-color:var(--amber)"><div class="value" style="color:var(--amber)"><i class="fas fa-exclamation-circle"></i> 谨慎观察赛道</div><div class="label" style="margin-top:6px">传统房地产开发<br>大宗消费品零售<br>教培行业<br>传统银行业</div></div>
+</div>
+<div class="data-card" style="border-color:var(--red);margin-top:12px"><div class="value" style="color:var(--red)"><i class="fas fa-times-circle"></i> 建议规避赛道</div><div class="label" style="margin-top:6px">高污染重化工<br>低端代工制造<br>土地财政依赖型业务</div></div>
+
+<h3 class="section-subtitle">8.5 发散引申链</h3>
+<div class="divergence-chain">
+<div class="dc-title"><i class="fas fa-diagram-project"></i> 从重庆产业出发的终极思维发散</div>
+<div class="dc-links">
+<span class="dc-node">西部大开发</span><span class="dc-arrow">→</span><span class="dc-node">制造业转移</span><span class="dc-arrow">→</span><span class="dc-node">产业升级</span><span class="dc-arrow">→</span><span class="dc-node">成渝双城经济圈</span><span class="dc-arrow">→</span><span class="dc-node">中国经济第四极</span><span class="dc-arrow">→</span><span class="dc-node">国家经济格局重塑</span>
+</div>
+</div>
+
+<h3 class="section-subtitle">8.6 持续观察指标体系</h3>
+<div class="chart-container" id="chart-key-indicators"></div>
+
+<table class="data-table">
+<thead><tr><th>指标</th><th>2024实际</th><th>2025目标</th><th>警戒线</th><th>跟踪频率</th></tr></thead>
+<tbody>
+<tr><td>GDP增速(%)</td><td>5.3</td><td>5.5</td><td><4.0</td><td>季度</td></tr>
+<tr><td>新能源汽车产量(万辆)</td><td>60</td><td>80</td><td><50</td><td>月度</td></tr>
+<tr><td>城镇调查失业率(%)</td><td>5.2</td><td>≤5.0</td><td>>6.0</td><td>季度</td></tr>
+<tr><td>实际利用外资(亿美元)</td><td>45</td><td>55</td><td><30</td><td>季度</td></tr>
+<tr><td>进出口总额(亿美元)</td><td>1300</td><td>1400</td><td><1100</td><td>月度</td></tr>
+<tr><td>居民收入增速(%)</td><td>5.5</td><td>≥6.0</td><td><4.0</td><td>年度</td></tr>
+</tbody>
+</table>
+
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-star"></i> 综合评估</div>
+<div class="tip-body">
+<p><strong style="color:var(--cyan)">正面因素：</strong>新能源汽车爆发、内陆开放通道完善、成渝双城经济圈国家战略、房价收入比合理、制造业基础雄厚。</p>
+<p><strong style="color:var(--red)">负面因素：</strong>人均GDP偏低、人才流失、教育医疗资源不足、地方债务压力、房地产下行、内部区域分化严重。</p>
+<p style="margin-top:6px"><strong>基准情景：</strong>GDP年均增速4.5-5.5%，有望在2030年前后突破4.5万亿。正面因素决定上限，负面因素决定下限。</p>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<p>重庆产业全景分析与未来展望看板 v3.0 | 基于31章深度研究 | 覆盖一二三产业+十五五规划</p>
+<p style="margin-top:4px">数据来源：重庆统计年鉴2025、国家统计局、重庆市统计局公报</p>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+// 1.1 人口趋势
+(function(){var c=echarts.init(document.getElementById('chart-pop-trend'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['常住人口','户籍人口','净流出'],textStyle:{color:'#94a3b8'},top:0},grid:{left:70,right:70,top:50,bottom:30},xAxis:{type:'category',data:['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'(万人)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'常住人口',type:'line',smooth:true,data:[3124,3138,3147,3162,3188,3205,3212,3213,3217,3191],itemStyle:{color:'#06b6d4'},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(6,182,212,0.3)'},{offset:1,color:'rgba(6,182,212,0.02)'}])}},{name:'户籍人口',type:'line',smooth:true,data:[2770,2790,2810,2830,2850,2870,2890,2910,2930,2950],itemStyle:{color:'#8b5cf6'}},{name:'净流出',type:'bar',data:[-354,-348,-337,-332,-338,-335,-322,-303,-287,-241],itemStyle:{color:'#ef4444'}}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 1.3 成渝人口对比
+(function(){var c=echarts.init(document.getElementById('chart-chengdu-chongqing-pop'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['重庆','成都'],textStyle:{color:'#94a3b8'},top:0},grid:{left:70,right:30,top:50,bottom:30},xAxis:{type:'category',data:['人口总量(百万)','城镇化的率(%)','R&D强度(%)','双一流高校(所)','每万人工程师(人)'],axisLabel:{color:'#94a3b8',rotate:30},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'重庆',type:'bar',data:[31.9,71,2.1,2,18],itemStyle:{color:'#06b6d4'}},{name:'成都',type:'bar',data:[21.3,82,3.2,7,35],itemStyle:{color:'#8b5cf6'}}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 2.1 GDP十年演变
+(function(){var c=echarts.init(document.getElementById('chart-gdp-decade'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['GDP总量(万亿)','增速(%)'],textStyle:{color:'#94a3b8'},top:0},grid:{left:70,right:70,top:50,bottom:30},xAxis:{type:'category',data:['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:[{type:'value',name:'(万亿)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},{type:'value',name:'(%)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},max:12}],series:[{name:'GDP总量',type:'bar',data:[2.06,2.17,2.36,2.51,2.68,2.64,2.79,2.91,3.01,3.25],itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#06b6d4'},{offset:1,color:'rgba(6,182,212,0.15)'}]),borderRadius:[4,4,0,0]}},{name:'增速',type:'line',smooth:true,yAxisIndex:1,data:[10.7,9.4,6.1,6.0,6.3,2.6,8.3,2.6,5.3,5.3],itemStyle:{color:'#f59e0b'},markPoint:{data:[{coord:['2020',2.6],name:'疫情底'},{coord:['2021',8.3],name:'反弹'}]}}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 2.2 三产结构
+(function(){var c=echarts.init(document.getElementById('chart-industry-structure'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['第一产业','第二产业','第三产业'],textStyle:{color:'#94a3b8'},top:0},grid:{left:30,right:30,top:50,bottom:30},xAxis:{type:'category',data:['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',max:100,axisLabel:{color:'#94a3b8',formatter:'{value}%'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'第一产业',type:'line',stack:'total',areaStyle:{},data:[13,12,11,10.5,10,9.5,9,8.5,8,8],itemStyle:{color:'#10b981'}},{name:'第二产业',type:'line',stack:'total',areaStyle:{},data:[42,40.5,40,39.5,38.5,38,38.5,39,39.5,40],itemStyle:{color:'#06b6d4'}},{name:'第三产业',type:'line',stack:'total',areaStyle:{},data:[45,47.5,49,50,51.5,52.5,52.5,52.5,52.5,52],itemStyle:{color:'#8b5cf6'}}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 2.3 西部第一城雷达
+(function(){var c=echarts.init(document.getElementById('chart-western-radar'));c.setOption({backgroundColor:'transparent',tooltip:{},legend:{data:['重庆','成都','武汉','西安'],textStyle:{color:'#94a3b8'},bottom:0},radar:{indicator:[{name:'GDP总量',max:100},{name:'人均GDP',max:100},{name:'产业规模',max:100},{name:'开放程度',max:100},{name:'教育科研',max:100},{name:'民生水平',max:100}],radius:'65%'},series:[{type:'radar',data:[{value:[82,45,88,70,55,50],name:'重庆',itemStyle:{color:'#06b6d4'},areaStyle:{color:'rgba(6,182,212,0.15)'}},{value:[75,68,72,60,78,65],name:'成都',itemStyle:{color:'#8b5cf6'},areaStyle:{color:'rgba(139,92,246,0.15)'}},{value:[65,60,60,55,65,58],name:'武汉',itemStyle:{color:'#10b981'},areaStyle:{color:'rgba(16,185,129,0.15)'}},{value:[48,52,45,40,58,45],name:'西安',itemStyle:{color:'#f59e0b'},areaStyle:{color:'rgba(245,158,11,0.15)'}}]}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 4.1 产业链完整度雷达
+(function(){var c=echarts.init(document.getElementById('chart-chain-completeness'));c.setOption({backgroundColor:'transparent',tooltip:{},legend:{data:['重庆','全国平均'],textStyle:{color:'#94a3b8'},bottom:0},radar:{indicator:[{name:'汽车',max:100},{name:'电子信息',max:100},{name:'装备制造',max:100},{name:'化工冶金',max:100},{name:'食品加工',max:100},{name:'新材料',max:100},{name:'生物医药',max:100},{name:'新能源',max:100}],radius:'65%'},series:[{type:'radar',data:[{value:[92,88,75,70,65,55,50,60],name:'重庆',itemStyle:{color:'#06b6d4'},areaStyle:{color:'rgba(6,182,212,0.15)'}},{value:[70,65,60,55,60,50,45,40],name:'全国平均',itemStyle:{color:'#64748b'},lineStyle:{type:'dashed'}}]}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 8.1 GDP预测
+(function(){var c=echarts.init(document.getElementById('chart-gdp-prediction'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['基准情景','乐观情景','悲观情景'],textStyle:{color:'#94a3b8'},top:0},grid:{left:60,right:30,top:50,bottom:30},xAxis:{type:'category',data:['2024','2025','2026','2027','2028','2029','2030'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'万亿元',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'基准情景',type:'line',smooth:true,data:[3.25,3.45,3.65,3.85,4.05,4.25,4.45],itemStyle:{color:'#06b6d4'},lineStyle:{width:3}},{name:'乐观情景',type:'line',smooth:true,data:[3.25,3.55,3.85,4.15,4.45,4.75,5.05],itemStyle:{color:'#10b981'},lineStyle:{type:'dashed'}},{name:'悲观情景',type:'line',smooth:true,data:[3.25,3.35,3.45,3.55,3.65,3.75,3.85],itemStyle:{color:'#ef4444'},lineStyle:{type:'dashed'}}]});window.addEventListener('resize',function(){c.resize()});})();
+
+// 8.6 关键指标雷达
+(function(){var c=echarts.init(document.getElementById('chart-key-indicators'));c.setOption({backgroundColor:'transparent',tooltip:{},legend:{data:['当前值','警戒线','目标值'],textStyle:{color:'#94a3b8'},bottom:0},radar:{indicator:[{name:'GDP增速(%)',max:10},{name:'新能源车(万辆)',max:200},{name:'就业率(%)',max:95},{name:'FDI(亿美元)',max:100},{name:'进出口(亿)',max:1500},{name:'收入增速(%)',max:8}],radius:'65%'},series:[{type:'radar',data:[{value:[5.3,120,94.8,45,1300,5.5],name:'当前值',itemStyle:{color:'#06b6d4'},areaStyle:{color:'rgba(6,182,212,0.15)'}},{value:[4.0,80,94,30,1000,4.0],name:'警戒线',itemStyle:{color:'#ef4444'},lineStyle:{type:'dashed'}},{value:[6.0,180,95.5,80,1500,7.0],name:'目标值',itemStyle:{color:'#10b981'},lineStyle:{type:'dashed'}}]}]});window.addEventListener('resize',function(){c.resize()});})();
+});
+</script>
+</body>
+</html>
