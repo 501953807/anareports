@@ -3,172 +3,509 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>最后五公里商业模式 — 项目看板</title>
+  <title>最后五公里商业模式 · 全景看板 v2.0</title>
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .kanban-header { text-align:center; padding:32px 0 16px; }
-    .kanban-header h1 { font-size:28px; margin-bottom:8px; }
-    .kanban-header p { color:var(--text2); font-size:14px; }
-    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:24px 0; }
-    .stat-card { background:var(--bg2); border-radius:12px; padding:20px; text-align:center; }
-    .stat-card .number { font-size:32px; font-weight:700; color:var(--cyan); }
-    .stat-card .label { font-size:12px; color:var(--text2); margin-top:4px; }
-    .chart-section { margin:24px 0; }
-    .chart-section h2 { font-size:18px; margin-bottom:12px; border-left:4px solid var(--cyan); padding-left:12px; }
-    .chart-container { height:300px; margin:12px 0; }
-    .toc-mini { margin:24px 0; }
-    .toc-mini h2 { font-size:18px; margin-bottom:12px; border-left:4px solid var(--purple); padding-left:12px; }
-    .toc-mini-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
-    .toc-mini-item { background:var(--bg2); border-radius:8px; padding:12px 16px; font-size:13px; }
-    .toc-mini-item i { color:var(--cyan); margin-right:8px; width:20px; text-align:center; }
-    .kanban-footer { text-align:center; padding:32px 0; color:var(--text2); font-size:12px; }
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface2: #1a2236; --border: #1e2a3a;
+      --text: #e2e8f0; --text2: #94a3b8; --cyan: #06b6d4; --purple: #8b5cf6;
+      --green: #10b981; --amber: #f59e0b; --red: #ef4444; --pink: #ec4899;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Noto Sans SC', sans-serif; }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-bar .brand { font-size: 15px; font-weight: 600; color: var(--cyan); }
+    .nav-bar .links a { color: var(--text2); text-decoration: none; margin-left: 20px; font-size: 13px; }
+    .nav-bar .links a:hover { color: var(--cyan); }
+    .book-part { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+    .part-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .part-num { background: var(--cyan); color: #000; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 4px; }
+    .part-title { font-size: 22px; font-weight: 700; }
+    .part-desc { color: var(--text2); font-size: 13px; margin-top: -14px; margin-bottom: 24px; }
+    .metric-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 28px; }
+    .metric { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+    .metric .val { font-size: 26px; font-weight: 700; }
+    .metric .lbl { font-size: 11px; color: var(--text2); margin-top: 4px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+    .card h3 { font-size: 15px; font-weight: 600; margin: 0 0 12px; color: var(--cyan); }
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .comp-table th { background: var(--surface2); color: var(--cyan); padding: 8px 10px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+    .comp-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin: 2px; font-weight: 600; }
+    .tag-cyan { background: rgba(6,182,212,.15); color: var(--cyan); }
+    .tag-purple { background: rgba(139,92,246,.15); color: var(--purple); }
+    .tag-green { background: rgba(16,185,129,.15); color: var(--green); }
+    .tag-amber { background: rgba(245,158,11,.15); color: var(--amber); }
+    .tag-red { background: rgba(239,68,68,.15); color: var(--red); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .chart-container { height: 280px; margin: 12px 0; }
+    .forecast-box { background: rgba(6,182,212,.08); border: 1px solid rgba(6,182,212,.25); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+    .forecast-box .fb-title { font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 6px; }
+    .forecast-box p { font-size: 12px; color: var(--text2); line-height: 1.7; margin: 0; }
+    .risk-box { background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.25); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+    .risk-box .rb-title { font-size: 13px; font-weight: 600; color: var(--red); margin-bottom: 6px; }
+    .risk-box p { font-size: 12px; color: var(--text2); line-height: 1.7; margin: 0; }
+    .timeline-step { display: flex; gap: 14px; margin-bottom: 14px; }
+    .timeline-step .ts-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); margin-top: 4px; flex-shrink: 0; }
+    .timeline-step .ts-dot.amber { background: var(--amber); }
+    .timeline-step .ts-dot.red { background: var(--red); }
+    .timeline-step .ts-content { flex: 1; }
+    .timeline-step .ts-time { font-size: 11px; color: var(--text2); }
+    .timeline-step .ts-text { font-size: 13px; color: var(--text); margin-top: 2px; }
+    .data-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 3px 10px; background: var(--surface2); border-radius: 12px; color: var(--text2); }
+    .source-note { font-size: 10px; color: var(--text2); text-align: right; margin-top: 8px; font-style: italic; }
+    .deep-dive { background: var(--surface2); border-left: 3px solid var(--purple); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 14px 0; }
+    .deep-dive .dd-title { font-size: 12px; font-weight: 600; color: var(--purple); margin-bottom: 4px; }
+    .deep-dive p { font-size: 12px; color: var(--text2); line-height: 1.7; margin: 0; }
+    .school-view-mini { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 14px 0; }
+    .sv-mini-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .sv-mini-item .sv-school { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .sv-mini-item .sv-body { font-size: 11px; color: var(--text2); line-height: 1.6; }
+    .divergence-chain-mini { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+    .dc-node { font-size: 11px; padding: 3px 10px; background: var(--surface2); border-radius: 12px; color: var(--cyan); }
+    .dc-arrow { color: var(--text2); font-size: 14px; }
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .school-view-mini { grid-template-columns: 1fr; }
+      .metric-row { grid-template-columns: repeat(2,1fr); }
+    }
   </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <div class="nav-left"><span class="nav-book-name"><i class="fas fa-chart-bar"></i> 最后五公里 · 项目看板</span></div>
-    <div class="nav-right"><a class="nav-btn" href="index.html"><i class="fas fa-book"></i> 书籍首页</a></div>
+  <nav class="nav-bar">
+    <span class="brand"><i class="fas fa-chart-bar"></i> 最后五公里商业模式 · 全景看板 v2.0</span>
+    <span class="links"><a href="index.html"><i class="fas fa-book"></i> 书籍首页</a><a href="#part1">概念</a><a href="#part2">配送</a><a href="#part3">团购</a><a href="#part4">积分</a><a href="#part5">博弈</a><a href="#part6">研判</a></span>
   </nav>
 
-  <main class="content">
-    <div class="kanban-header">
-      <h1><i class="fas fa-chart-bar"></i> 最后五公里商业模式 · 项目看板</h1>
-      <p>63页全景分析 · 8大板块 · 12+经济学流派 · 多数据可视化</p>
+  <!-- ==================== PART 1: 概念与市场全景 ==================== -->
+  <section class="book-part" id="part1">
+    <div class="part-header"><span class="part-num">PART 1</span><span class="part-title">概念与市场全景</span></div>
+    <p class="part-desc">定义·全球规模·中美对比·三模式矩阵·用户画像·新手路线图 — 6页全景扫描</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val" style="color:var(--cyan);">2.35万亿</div><div class="lbl">2025E全球市场规模(亿元)</div></div>
+      <div class="metric"><div class="val" style="color:var(--green);">12.2%</div><div class="lbl">年复合增长率(CAGR)</div></div>
+      <div class="metric"><div class="val" style="color:var(--amber);">44%</div><div class="lbl">中国占全球份额</div></div>
+      <div class="metric"><div class="val" style="color:var(--purple);">3</div><div class="lbl">核心模式：即时配送/社区团购/即时零售</div></div>
     </div>
 
-    <div class="stats-grid">
-      <div class="stat-card"><div class="number">63</div><div class="label">总页数</div></div>
-      <div class="stat-card"><div class="number">8</div><div class="label">内容板块</div></div>
-      <div class="stat-card"><div class="number">12+</div><div class="label">经济学流派</div></div>
-      <div class="stat-card"><div class="number">¥1.5T</div><div class="label">市场规模</div></div>
+    <div class="card">
+      <h3><i class="fas fa-globe"></i> 三模式对比矩阵</h3>
+      <table class="comp-table">
+        <thead><tr><th>维度</th><th>即时配送</th><th>社区团购</th><th>即时零售</th></tr></thead>
+        <tbody>
+          <tr><td>履约时效</td><td>30-60分钟</td><td>T+1自提</td><td>30-120分钟</td></tr>
+          <tr><td>品类范围</td><td>餐饮为主</td><td>生鲜食品</td><td>全品类(万物到家)</td></tr>
+          <tr><td>单均客单价</td><td>¥35-50</td><td>¥25-40</td><td>¥50-150</td></tr>
+          <tr><td>履约成本</td><td>¥6-8/单</td><td>¥1.5-2.5/单</td><td>¥5-10/单</td></tr>
+          <tr><td>代表平台</td><td>美团/饿了么/Douyin</td><td>多多买菜/美团优选</td><td>美团闪购/Gopuff</td></tr>
+          <tr><td>增长引擎</td><td>频次驱动</td><td>价格驱动</td><td>品类扩张驱动</td></tr>
+          <tr><td>竞争壁垒</td><td>骑手网络密度</td><td>供应链深度</td><td>前置仓覆盖</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="chart-section">
-      <h2><i class="fas fa-chart-pie"></i> 各板块页数分布</h2>
-      <div id="chart-partitions" class="chart-container"></div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-chart-line"></i> 全球O2O市场规模演变 (亿元)</h3>
+        <div id="chart-market-evolution" class="chart-container"></div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-users"></i> 用户画像分层</h3>
+        <div class="grid-3" style="margin-top:8px;">
+          <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:24px;color:var(--cyan);">🏙️</div>
+            <div style="font-size:12px;font-weight:600;margin:6px 0 4px;">一线中产</div>
+            <div style="font-size:10px;color:var(--text2);">频次: 4-6次/周<br>客单: ¥50-80<br>核心诉求: 省时</div>
+          </div>
+          <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:24px;color:var(--amber);">🛒</div>
+            <div style="font-size:12px;font-weight:600;margin:6px 0 4px;">家庭主妇</div>
+            <div style="font-size:10px;color:var(--text2);">频次: 2-3次/周<br>客单: ¥150-300<br>核心诉求: 省钱</div>
+          </div>
+          <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:24px;color:var(--purple);">📱</div>
+            <div style="font-size:12px;font-weight:600;margin:6px 0 4px;">Z世代</div>
+            <div style="font-size:10px;color:var(--text2);">频次: 3-5次/周<br>客单: ¥30-60<br>核心诉求: 新奇</div>
+          </div>
+        </div>
+        <div class="source-note">数据来源: 书中Ch.05 用户画像与消费行为</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PART 2: 即时配送平台 ==================== -->
+  <section class="book-part" id="part2">
+    <div class="part-header"><span class="part-num">PART 2</span><span class="part-title">即时配送平台生态</span></div>
+    <p class="part-desc">美团/饿了么/Douyin/DoorDash/Uber Eats深度拆解 · 骑手生态 · 佣金博弈 · 10页</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val" style="color:var(--cyan);">¥1.5万亿</div><div class="lbl">2025E中国即时配送市场规模</div></div>
+      <div class="metric"><div class="val" style="color:var(--green);">700万+</div><div class="lbl">中国骑手总数</div></div>
+      <div class="metric"><div class="val" style="color:var(--amber);">7-10%</div><div class="lbl">平台佣金率(商家端)</div></div>
+      <div class="metric"><div class="val" style="color:var(--purple);">30min</div><div class="lbl">平均履约时效目标</div></div>
     </div>
 
-    <div class="chart-section">
-      <h2><i class="fas fa-chart-line"></i> 全球O2O市场规模演变 (亿元)</h2>
-      <div id="chart-market" class="chart-container"></div>
+    <div class="card">
+      <h3><i class="fas fa-truck-fast"></i> 全球平台竞争力雷达</h3>
+      <div id="chart-platform-radar" class="chart-container"></div>
     </div>
 
-    <div class="chart-section">
-      <h2><i class="fas fa-chart-bar"></i> 平台佣金结构对比 (%)</h2>
-      <div id="chart-commission" class="chart-container"></div>
-    </div>
-
-    <div class="chart-section">
-      <h2><i class="fas fa-brain"></i> 多学派交叉研判覆盖度</h2>
-      <div id="chart-schools" class="chart-container"></div>
-    </div>
-
-    <div class="toc-mini">
-      <h2><i class="fas fa-list"></i> 八大板块一览</h2>
-      <div class="toc-mini-grid">
-        <div class="toc-mini-item"><i class="fas fa-globe"></i> 概念与市场全景 (6页)</div>
-        <div class="toc-mini-item"><i class="fas fa-motorcycle"></i> 即时配送平台 (10页)</div>
-        <div class="toc-mini-item"><i class="fas fa-users"></i> 社区团购模式 (10页)</div>
-        <div class="toc-mini-item"><i class="fas fa-shopping-bag"></i> 即时零售万物到家 (8页)</div>
-        <div class="toc-mini-item"><i class="fas fa-coins"></i> 积分经济体系 (10页)</div>
-        <div class="toc-mini-item"><i class="fas fa-chess"></i> 平台博弈与反垄断 (8页)</div>
-        <div class="toc-mini-item"><i class="fas fa-robot"></i> 技术驱动未来 (5页)</div>
-        <div class="toc-mini-item"><i class="fas fa-balance-scale"></i> 多学派交叉研判 (5页)</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-yen-sign"></i> 平台佣金结构对比 (%)</h3>
+        <div id="chart-commission" class="chart-container"></div>
+        <div class="source-note">含平台服务费+配送服务费+履约保障费+营销推广</div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-motorcycle"></i> 骑手零工经济画像</h3>
+        <div class="deep-dive">
+          <div class="dd-title"><i class="fas fa-exclamation-triangle"></i> 马克思主义视角</div>
+          <p>骑手是数字资本主义的典型——平台资本通过算法加强对劳动者的控制，数据占有获取超额剩余价值。骑手不是员工也不是独立承包商，而是"算法下的准雇员"。</p>
+        </div>
+        <div class="deep-dive">
+          <div class="dd-title"><i class="fas fa-lightbulb"></i> 凯恩斯主义视角</div>
+          <p>O2O创造了700万+灵活就业岗位，在经济下行期起到"就业蓄水池"作用。但需要政府监管来纠正市场失灵和保护弱势群体权益。</p>
+        </div>
+        <div class="grid-3" style="margin-top:12px;">
+          <div style="text-align:center;"><div style="font-size:20px;font-weight:700;color:var(--cyan);">¥5-8K</div><div style="font-size:10px;color:var(--text2);">月均收入</div></div>
+          <div style="text-align:center;"><div style="font-size:20px;font-weight:700;color:var(--amber);">10-14h</div><div style="font-size:10px;color:var(--text2);">日均在线时长</div></div>
+          <div style="text-align:center;"><div style="font-size:20px;font-weight:700;color:var(--green);">30-80单</div><div style="font-size:10px;color:var(--text2);">日均配送量</div></div>
+        </div>
       </div>
     </div>
 
-    <div class="kanban-footer">
-      <p>最后五公里商业模式全景书 · Kanban Dashboard · 2024</p>
-      <p style="margin-top:4px;"><a href="index.html" style="color:var(--cyan);">进入书籍首页 →</a></p>
+    <div class="card">
+      <h3><i class="fas fa-building"></i> 核心平台深度画像</h3>
+      <table class="comp-table">
+        <thead><tr><th>平台</th><th>生态定位</th><th>核心优势</th><th>关键挑战</th><th>估值/市值</th></tr></thead>
+        <tbody>
+          <tr><td>美团</td><td>超级App</td><td>280万商家+700万骑手网络密度</td><td>反垄断监管+Douyin冲击</td><td>~1.5万亿HKD</td></tr>
+          <tr><td>饿了么</td><td>阿里本地生活</td><td>支付宝流量+菜鸟履约协同</td><td>市场份额第二+盈利压力</td><td>未单独披露</td></tr>
+          <tr><td>Douyin</td><td>内容降维打击</td><td>日活7亿+算法推荐+短视频种草</td><td>履约能力空白+商家运营经验</td><td>~5万亿RMB</td></tr>
+          <tr><td>DoorDash</td><td>美国霸主</td><td>市占率>70%+盈利模型跑通</td><td>增长放缓+Uber竞争</td><td>$40B USD</td></tr>
+          <tr><td>Uber Eats</td><td>全球覆盖</td><td>45国+出行协同</td><td>多国亏损+本地化挑战</td><td>合并报表</td></tr>
+        </tbody>
+      </table>
     </div>
-  </main>
+  </section>
+
+  <!-- ==================== PART 3: 社区团购模式 ==================== -->
+  <section class="book-part" id="part3">
+    <div class="part-header"><span class="part-num">PART 3</span><span class="part-title">社区团购模式</span></div>
+    <p class="part-desc">多多买菜/美团优选/叮咚买菜/盒马 · 团长经济学 · 前置仓vs自提 · 10页</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val" style="color:var(--cyan);">¥1.2万亿</div><div class="lbl">2025E社区团购市场规模</div></div>
+      <div class="metric"><div class="val" style="color:var(--green);">¥1.5-2.5</div><div class="lbl">单均履约成本(自提模式)</div></div>
+      <div class="metric"><div class="val" style="color:var(--amber);">¥5-8</div><div class="lbl">前置仓单均履约成本</div></div>
+      <div class="metric"><div class="val" style="color:var(--purple);">150万+</div><div class="lbl">全国团长数量</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-store"></i> 团长经济学</h3>
+        <div class="deep-dive">
+          <div class="dd-title">团长的三重角色</div>
+          <p><strong style="color:var(--cyan);">获客者：</strong>利用社区微信群/朋友圈触达邻居<br>
+             <strong style="color:var(--green);">履约节点：</strong>自提点仓储+最后一公里分发<br>
+             <strong style="color:var(--amber);">信任中介：</strong>邻里关系降低售后纠纷率30%+</p>
+        </div>
+        <div style="margin-top:12px;">
+          <div class="data-badge" style="margin:4px;"><i class="fas fa-money-bill-wave"></i> 佣金率: 5-15%/单</div>
+          <div class="data-badge" style="margin:4px;"><i class="fas fa-home"></i> 团长月收入: ¥2000-8000</div>
+          <div class="data-badge" style="margin:4px;"><i class="fas fa-user-friends"></i> 平均管理群人数: 300-800</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-warehouse"></i> 前置仓 vs 自提模式</h3>
+        <table class="comp-table">
+          <thead><tr><th>指标</th><th>前置仓(叮咚)</th><th>自提(美团优选)</th></tr></thead>
+          <tbody>
+            <tr><td>履约成本/单</td><td>¥5-8</td><td>¥1.5-2.5</td></tr>
+            <tr><td>配送时效</td><td>30分钟</td><td>T+1自提</td></tr>
+            <tr><td>用户体验</td><td>极致便利</td><td>价格敏感型</td></tr>
+            <tr><td>亏损状态</td><td>每日优鲜已倒闭</td><td>已大幅收窄</td></tr>
+            <tr><td>扩张速度</td><td>慢(重资产)</td><td>快(轻资产)</td></tr>
+            <tr><td>存活概率</td><td>低</td><td>高</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-trophy"></i> 社区团购格局演变时间线</h3>
+      <div class="timeline-step"><div class="ts-dot"></div><div class="ts-content"><div class="ts-time">2019-2020</div><div class="ts-text">百团大战：社区团购补贴大战，年烧钱超200亿</div></div></div>
+      <div class="timeline-step"><div class="ts-dot amber"></div><div class="ts-content"><div class="ts-time">2020-2021</div><div class="ts-text">九合一→五强鼎立：大量玩家退出，多多买菜/美团优选/兴盛优选/同程生活/十荟成分割市场</div></div></div>
+      <div class="timeline-step"><div class="ts-dot red"></div><div class="ts-content"><div class="ts-time">2021</div><div class="ts-text">中央定调："防止资本无序扩张"，平台企业主动缩减团购业务</div></div></div>
+      <div class="timeline-step"><div class="ts-dot"></div><div class="ts-content"><div class="ts-time">2022-2023</div><div class="ts-text">聚焦盈利：美团优选收缩至500个县，多多买菜保持优势，同程/十荟先后倒下</div></div></div>
+      <div class="timeline-step"><div class="ts-dot green"></div><div class="ts-content"><div class="ts-time">2024-2025</div><div class="ts-text">格局稳定：多多买菜+美团优选双寡头，全球化尝试(东南亚/拉美)</div></div></div>
+    </div>
+  </section>
+
+  <!-- ==================== PART 4: 即时零售 + 积分经济 ==================== -->
+  <section class="book-part" id="part4">
+    <div class="part-header"><span class="part-num">PART 4</span><span class="part-title">即时零售 × 积分经济</span></div>
+    <p class="part-desc">万物到家 · 全球积分体系 · 行为学分析 · 18页交叉整合</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val" style="color:var(--cyan);">¥3000亿</div><div class="lbl">2025E即时零售规模(3年CAGR 50%+)</div></div>
+      <div class="metric"><div class="val" style="color:var(--green);">¥1.8万亿</div><div class="lbl">全球积分发行量规模</div></div>
+      <div class="metric"><div class="val" style="color:var(--amber);">35%</div><div class="lbl">积分兑换率(行业均值)</div></div>
+      <div class="metric"><div class="val" style="color:var(--purple);">6</div><div class="lbl">核心偏差：现时偏见/损失厌恶/默认效应等</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-bolt"></i> 即时零售：传统电商的颠覆者</h3>
+        <table class="comp-table">
+          <thead><tr><th>维度</th><th>传统电商(淘宝/京东)</th><th>即时零售(美团闪购)</th></tr></thead>
+          <tbody>
+            <tr><td>配送时效</td><td>1-3天</td><td>30-120分钟</td></tr>
+            <tr><td>仓储模式</td><td>中心仓</td><td>前置仓/店仓一体</td></tr>
+            <tr><td>品类限制</td><td>标准化商品</td><td>全品类(含生鲜/药品/鲜花)</td></tr>
+            <tr><td>决策路径</td><td>计划性购买</td><td>冲动性/应急性购买</td></tr>
+            <tr><td>客单价</td><td>¥100-300</td><td>¥50-150</td></tr>
+            <tr><td>核心场景</td><td>囤货比价</td><td>即时满足</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-coins"></i> 全球积分经济版图</h3>
+        <table class="comp-table">
+          <thead><tr><th>体系</th><th>发行方</th><th>特色优势</th><th>用户规模</th></tr></thead>
+          <tbody>
+            <tr><td>蚂蚁积分</td><td>支付宝</td><td>场景最全(缴费/购票/商城)</td><td>6亿+</td></tr>
+            <tr><td>微信积分</td><td>微信支付</td><td>社交图谱+小程序生态</td><td>7亿+</td></tr>
+            <tr><td>T积分</td><td>日本JCB</td><td>跨企业通用(铁路/便利店/酒店)</td><td>2800万+</td></tr>
+            <tr><td>d点/PayPay</td><td>NTT/软银</td><td>移动端整合</td><td>5000万+</td></tr>
+            <tr><td>Starbucks Rewards</td><td>星巴克</td><td>预付+忠诚度最佳实践</td><td>3200万(美国)</td></tr>
+            <tr><td>Amazon Prime</td><td>亚马逊</td><td>付费会员标杆(免运费+视频)</td><td>2亿+(全球)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-brain"></i> 积分经济的行为学武器库</h3>
+      <div class="grid-3">
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:var(--cyan);">现时偏见</div>
+          <div class="sv-body">用户为"30分钟送达"愿支付30%溢价——即时满足的经济学定价</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:var(--amber);">损失厌恶</div>
+          <div class="sv-body">"积分即将过期"提示使兑换率提升40%——恐惧比贪婪更有效</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:var(--green);">默认效应</div>
+          <div class="sv-body">自动续费会员续费率>85%——不做选择就是最佳选择</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:var(--purple);">社会证明</div>
+          <div class="sv-body">"已有1000人下单"——从众心理降低决策阻力</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:var(--red);">锚定效应</div>
+          <div class="sv-body">原价¥35→到手价¥15——第一个数字永远是最强的锚</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:var(--cyan);">沉没成本</div>
+          <div class="sv-body">积分攒到800分舍不得用——已投入的无法收回</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PART 5: 平台博弈与反垄断 ==================== -->
+  <section class="book-part" id="part5">
+    <div class="part-header"><span class="part-num">PART 5</span><span class="part-title">平台博弈与反垄断</span></div>
+    <p class="part-desc">佣金结构 · Douyin降维打击 · 全球反垄断 · 商家避坑 · 力量演变 · 8页</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val" style="color:var(--red);">¥11.8亿</div><div class="lbl">美团"二选一"罚款金额</div></div>
+      <div class="metric"><div class="val" style="color:var(--amber);">5-10%</div><div class="lbl">平台佣金率区间</div></div>
+      <div class="metric"><div class="val" style="color:var(--cyan);">3:7</div><div class="lbl">2018:2024 平台vs商家力量对比演变</div></div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-chess"></i> Douyin本地生活：内容流量的降维打击</h3>
+      <div class="deep-dive">
+        <div class="dd-title">攻击路径</div>
+        <p>短视频种草(激发需求) → 直播转化(即时购买) → POI挂载(到店核销) → 本地生活闭环<br>
+           <strong style="color:var(--cyan);">核心杀伤力：</strong>传统平台是"人找货"(搜索逻辑)，Douyin是"货找人"(推荐逻辑)——从被动到主动，从需求匹配到需求创造。</p>
+      </div>
+      <div class="forecast-box">
+        <div class="fb-title"><i class="fas fa-crystal-ball"></i> 2025-2027趋势预测</div>
+        <p>Douyin本地GMV将从2024年的约1500亿增长至2027年的4000-5000亿，占比从~8%提升至~15%，成为第三极。但履约短板决定其难以超越美团。</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-gavel"></i> 全球反垄断进展</h3>
+        <table class="comp-table">
+          <thead><tr><th>国家</th><th>案例</th><th>结果</th><th>影响</th></tr></thead>
+          <tbody>
+            <tr><td>中国</td><td>美团"二选一"</td><td>罚款11.8亿</td><td>强制开放商家多平台经营</td></tr>
+            <tr><td>欧盟</td><td>平台对商家不公平条款</td><td>DMA法规生效</td><td>禁止自我偏好+互操作性要求</td></tr>
+            <tr><td>美国</td><td>Uber/DoorDash反劳工法挑战</td><td>Prop 22通过(加州)</td><td>骑手归类为独立承包商</td></tr>
+            <tr><td>日本</td><td>配送平台劳动条件</td><td>最低报酬指引</td><td>禁止单方面降价</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-shield-halved"></i> 商家避坑指南</h3>
+        <div class="risk-box">
+          <div class="rb-title"><i class="fas fa-triangle-exclamation"></i> 五大致命陷阱</div>
+          <p>1. 过度依赖单一平台(佣金上涨无缓冲)<br>
+             2. 陷入价格战泥潭(低GMV高佣金不可持续)<br>
+             3. 忽视私域流量(不建自有客户池)<br>
+             4. 低估内容能力(不会做短视频=隐形失聪)<br>
+             5. 被算法绑架(盲目买流量→利润归零)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PART 6: 技术驱动 + 多学派研判 ==================== -->
+  <section class="book-part" id="part6">
+    <div class="part-header"><span class="part-num">PART 6</span><span class="part-title">技术驱动 × 多学派终极研判</span></div>
+    <p class="part-desc">AI调度系统 · 无人机配送 · 智慧城市 · 投资图谱 · 六大流派综合 · 13页</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val" style="color:var(--cyan);">6</div><div class="lbl">经济学派交叉验证</div></div>
+      <div class="metric"><div class="val" style="color:var(--green);">AI</div><div class="lbl">调度系统核心驱动力</div></div>
+      <div class="metric"><div class="val" style="color:var(--amber);">3-5年</div><div class="lbl">无人机商用化窗口</div></div>
+      <div class="metric"><div class="val" style="color:var(--purple);">交易成本革命</div><div class="lbl">全书经济学本质结论</div></div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-robot"></i> 技术驱动未来时间线</h3>
+      <div class="timeline-step"><div class="ts-dot"></div><div class="ts-content"><div class="ts-time">2024-2025</div><div class="ts-text">AI调度系统全面升级：多目标优化(时效/成本/骑手体验)，动态定价算法精细化</div></div></div>
+      <div class="timeline-step"><div class="ts-dot"></div><div class="ts-content"><div class="ts-time">2025-2026</div><div class="ts-text">无人机配送规模化试点：美团/顺丰/Amazon在部分城市开通固定航线</div></div></div>
+      <div class="timeline-step"><div class="ts-dot amber"></div><div class="ts-content"><div class="ts-time">2026-2027</div><div class="ts-text">无人车配送进入社区/园区：L4级自动驾驶，解决"最后100米"难题</div></div></div>
+      <div class="timeline-step"><div class="ts-dot red"></div><div class="ts-content"><div class="ts-time">2027-2030</div><div class="ts-text">智慧城市融合：O2O数据接入城市大脑，与交通/应急/商业规划实时联动</div></div></div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-balance-scale"></i> 六大经济学派终极交叉研判</h3>
+      <div class="school-view-mini">
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:#3b82f6;"><i class="fas fa-balance-scale"></i> 古典经济学</div>
+          <div class="sv-body">O2O是市场机制的延伸——降低交易成本，扩大市场范围，发挥比较优势。最终判断：正面。</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:#f59e0b;"><i class="fas fa-coins"></i> 凯恩斯主义</div>
+          <div class="sv-body">创造700万+就业，刺激消费。需政府监管纠正市场失灵、保护弱势群体。</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:#ef4444;"><i class="fas fa-hammer"></i> 马克思主义</div>
+          <div class="sv-body">数字资本主义典型——算法控制+数据占有获取超额利润。需重新思考数字时代劳资关系。</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:#10b981;"><i class="fas fa-chart-line"></i> 新制度经济学</div>
+          <div class="sv-body">核心创新是"新型契约"——骑手既非员工也非独立承包商。现有法律框架需重大调整。</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:#8b5cf6;"><i class="fas fa-clock"></i> 奥地利学派</div>
+          <div class="sv-body">市场过程的完美体现——企业家发现局部知识创造价值。中央计划无法替代。</div>
+        </div>
+        <div class="sv-mini-item">
+          <div class="sv-school" style="color:#ec4899;"><i class="fas fa-brain"></i> 行为经济学</div>
+          <div class="sv-body">成功源于对认知偏差的理解和利用——即时满足、损失厌恶、锚定效应。双刃剑。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-diagram-project"></i> 历史对称：O2O的技术革命镜像</h3>
+        <table class="comp-table">
+          <thead><tr><th>历史事件</th><th>阶段</th><th>O2O对应</th></tr></thead>
+          <tbody>
+            <tr><td>铁路时代(1840s)</td><td>疯狂投资→泡沫破裂→整合</td><td>O2O补贴大战(2014-2016)</td></tr>
+            <tr><td>互联网泡沫(2000)</td><td>估值过高→大量死亡→幸存者壮大</td><td>前置仓洗牌(2020-2022)</td></tr>
+            <tr><td>智能手机(2007)</td><td>新平台催生新生态</td><td>APP时代催生O2O生态</td></tr>
+            <tr><td>移动支付(2010s)</td><td>基础设施先行，应用随后</td><td>支付宝/微信→O2O爆发</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-road"></i> 战略建议与发散链</h3>
+        <div class="forecast-box">
+          <div class="fb-title"><i class="fas fa-chess-rook"></i> 长期主义判断</div>
+          <p>短期有泡沫和波动，但长期趋势是不可逆的效率提升。O2O降低的是"最后一公里"的交易成本——这同样是提高全社会经济效率的革命。</p>
+        </div>
+        <div class="divergence-chain-mini">
+          <span class="dc-node">交易成本革命</span><span class="dc-arrow">→</span>
+          <span class="dc-node">市场规模扩大</span><span class="dc-arrow">→</span>
+          <span class="dc-node">社会财富增长</span><span class="dc-arrow">→</span>
+          <span class="dc-node">不平等加剧?</span><span class="dc-arrow">→</span>
+          <span class="dc-node">制度再平衡</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="book-part" style="text-align:center;padding:24px;border-top:1px solid var(--border);">
+    <p style="color:var(--text2);font-size:12px;">最后五公里商业模式全景书 · Kanban Dashboard v2.0 · 62页深度分析 · 8大板块 · 6大经济学派交叉验证</p>
+    <p style="color:var(--text2);font-size:11px;margin-top:4px;"><a href="index.html" style="color:var(--cyan);">进入书籍首页 →</a></p>
+  </section>
 
   <script src="../echarts.inline.js"></script>
   <script>
-    // Chart 1: Partitions pie
-    var chart1 = echarts.init(document.getElementById('chart-partitions'));
-    chart1.setOption({
-      tooltip: { trigger: 'item' },
-      legend: { bottom: '5%', left: 'center', textStyle: { fontSize: 11 } },
-      series: [{
-        type: 'pie', radius: ['40%', '70%'], center: ['50%', '45%'],
-        data: [
-          { value: 6, name: '概念与市场', itemStyle: { color: '#0ea5e9' } },
-          { value: 10, name: '即时配送', itemStyle: { color: '#f59e0b' } },
-          { value: 10, name: '社区团购', itemStyle: { color: '#ef4444' } },
-          { value: 8, name: '即时零售', itemStyle: { color: '#10b981' } },
-          { value: 10, name: '积分经济', itemStyle: { color: '#8b5cf6' } },
-          { value: 8, name: '平台博弈', itemStyle: { color: '#ec4899' } },
-          { value: 5, name: '技术驱动', itemStyle: { color: '#06b6d4' } },
-          { value: 5, name: '多学派研判', itemStyle: { color: '#f97316' } }
-        ],
-        label: { fontSize: 11 }
-      }]
-    });
-
-    // Chart 2: Market evolution line
-    var chart2 = echarts.init(document.getElementById('chart-market'));
-    chart2.setOption({
-      tooltip: { trigger: 'axis' },
-      legend: { data: ['即时配送', '即时零售', '社区团购'] },
-      grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
-      xAxis: { type: 'category', boundaryGap: false, data: ['2019','2020','2021','2022','2023','2024E'] },
-      yAxis: { type: 'value', name: '亿元' },
-      series: [
-        { name: '即时配送', type: 'line', smooth: true, data: [600,800,1000,1100,1200,1500], itemStyle: { color: '#0ea5e9' } },
-        { name: '即时零售', type: 'line', smooth: true, data: [300,500,800,1200,2000,3000], itemStyle: { color: '#10b981' } },
-        { name: '社区团购', type: 'line', smooth: true, data: [200,300,500,800,1000,1200], itemStyle: { color: '#f59e0b' } }
-      ]
-    });
-
-    // Chart 3: Commission bar
-    var chart3 = echarts.init(document.getElementById('chart-commission'));
-    chart3.setOption({
-      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-      legend: { data: ['平台服务费', '配送服务费', '履约保障费', '营销推广'] },
-      grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
-      xAxis: { type: 'category', data: ['美团', '饿了么', 'Douyin', '京东'] },
-      yAxis: { type: 'value', name: '%' },
-      series: [
-        { name: '平台服务费', type: 'bar', stack: 'total', data: [7, 6.5, 5, 6], itemStyle: { color: '#0ea5e9' } },
-        { name: '配送服务费', type: 'bar', stack: 'total', data: [2, 2, 0, 2], itemStyle: { color: '#f59e0b' } },
-        { name: '履约保障费', type: 'bar', stack: 'total', data: [0.5, 0.5, 0.3, 0.5], itemStyle: { color: '#ef4444' } },
-        { name: '营销推广', type: 'bar', stack: 'total', data: [3, 3, 8, 3], itemStyle: { color: '#8b5cf6' } }
-      ]
-    });
-
-    // Chart 4: Schools radar
-    var chart4 = echarts.init(document.getElementById('chart-schools'));
-    chart4.setOption({
-      tooltip: {},
-      legend: { data: ['覆盖度', '深度', '原创性'], bottom: 10 },
-      radar: {
-        indicator: [
-          { name: '古典', max: 100 },
-          { name: '凯恩斯', max: 100 },
-          { name: '马克思', max: 100 },
-          { name: '新制度', max: 100 },
-          { name: '奥地利', max: 100 },
-          { name: '行为', max: 100 }
-        ],
-        center: ['50%', '45%'],
-        radius: '65%'
-      },
-      series: [{
-        type: 'radar',
-        data: [
-          { value: [95,90,85,90,80,95], name: '覆盖度', itemStyle: { color: '#0ea5e9' }, areaStyle: { color: 'rgba(14,165,233,0.2)' } },
-          { value: [80,75,70,85,65,90], name: '深度', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.2)' } },
-          { value: [85,80,90,75,80,70], name: '原创性', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.2)' } }
+    // Chart 1: Market Evolution
+    (function(){
+      var c = echarts.init(document.getElementById('chart-market-evolution'));
+      c.setOption({
+        backgroundColor:'transparent', tooltip:{trigger:'axis'}, legend:{data:['即时配送','即时零售','社区团购'], textStyle:{color:'#94a3b8',fontSize:10}},
+        grid:{left:60,right:20,top:50,bottom:30}, xAxis:{type:'category',data:['2019','2020','2021','2022','2023','2024E','2025E'], axisLabel:{color:'#94a3b8',fontSize:10}, axisLine:{lineStyle:{color:'#1e2a3a'}}},
+        yAxis:{type:'value',name:'亿元',nameTextStyle:{color:'#94a3b8',fontSize:10}, axisLabel:{color:'#94a3b8',fontSize:10}, splitLine:{lineStyle:{color:'#1e2a3a'}}},
+        series:[
+          {name:'即时配送',type:'line',smooth:true,data:[600,800,1000,1100,1200,1350,1500],itemStyle:{color:'#06b6d4'}},
+          {name:'即时零售',type:'line',smooth:true,data:[300,500,800,1200,2000,3000,5000],itemStyle:{color:'#10b981'}},
+          {name:'社区团购',type:'line',smooth:true,data:[200,300,500,800,1000,1100,1200],itemStyle:{color:'#f59e0b'}}
         ]
-      }]
-    });
+      });
+      window.addEventListener('resize', function(){ c.resize(); });
+    })();
 
-    window.addEventListener('resize', function() {
-      chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
-    });
+    // Chart 2: Platform Radar
+    (function(){
+      var c = echarts.init(document.getElementById('chart-platform-radar'));
+      c.setOption({
+        backgroundColor:'transparent', tooltip:{}, legend:{data:['美团','Douyin','DoorDash'], textStyle:{color:'#94a3b8',fontSize:10}, bottom:0},
+        radar:{indicator:[{name:'市场份额',max:100},{name:'履约能力',max:100},{name:'商家资源',max:100},{name:'用户粘性',max:100},{name:'内容能力',max:100},{name:'国际化',max:100}], radius:'60%'},
+        series:[{type:'radar', data:[
+          {value:[95,98,95,90,30,40], name:'美团', itemStyle:{color:'#06b6d4'}, areaStyle:{color:'rgba(6,182,212,0.15)'}},
+          {value:[40,10,30,70,100,20], name:'Douyin', itemStyle:{color:'#ef4444'}, areaStyle:{color:'rgba(239,68,68,0.15)'}},
+          {value:[72,75,60,70,20,85], name:'DoorDash', itemStyle:{color:'#10b981'}, areaStyle:{color:'rgba(16,185,129,0.15)'}}
+        ]}]
+      });
+      window.addEventListener('resize', function(){ c.resize(); });
+    })();
+
+    // Chart 3: Commission Stacked Bar
+    (function(){
+      var c = echarts.init(document.getElementById('chart-commission'));
+      c.setOption({
+        backgroundColor:'transparent', tooltip:{trigger:'axis', axisPointer:{type:'shadow'}}, legend:{data:['平台服务费','配送费','履约保障','营销推广'], textStyle:{color:'#94a3b8',fontSize:10}},
+        grid:{left:50,right:20,top:50,bottom:30}, xAxis:{type:'category',data:['美团','饿了么','Douyin','京东到家'], axisLabel:{color:'#94a3b8',fontSize:10}},
+        yAxis:{type:'value',name:'%',nameTextStyle:{color:'#94a3b8',fontSize:10}},
+        series:[
+          {name:'平台服务费',type:'bar',stack:'total',data:[7,6.5,5,6],itemStyle:{color:'#06b6d4'}},
+          {name:'配送费',type:'bar',stack:'total',data:[2,2,0,2],itemStyle:{color:'#f59e0b'}},
+          {name:'履约保障',type:'bar',stack:'total',data:[0.5,0.5,0.3,0.5],itemStyle:{color:'#ef4444'}},
+          {name:'营销推广',type:'bar',stack:'total',data:[3,3,8,3],itemStyle:{color:'#8b5cf6'}}
+        ]
+      });
+      window.addEventListener('resize', function(){ c.resize(); });
+    })();
   </script>
 </body>
 </html>
