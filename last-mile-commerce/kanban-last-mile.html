@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最后五公里商业模式 — 项目看板</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .kanban-header { text-align:center; padding:32px 0 16px; }
+    .kanban-header h1 { font-size:28px; margin-bottom:8px; }
+    .kanban-header p { color:var(--text2); font-size:14px; }
+    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:24px 0; }
+    .stat-card { background:var(--bg2); border-radius:12px; padding:20px; text-align:center; }
+    .stat-card .number { font-size:32px; font-weight:700; color:var(--cyan); }
+    .stat-card .label { font-size:12px; color:var(--text2); margin-top:4px; }
+    .chart-section { margin:24px 0; }
+    .chart-section h2 { font-size:18px; margin-bottom:12px; border-left:4px solid var(--cyan); padding-left:12px; }
+    .chart-container { height:300px; margin:12px 0; }
+    .toc-mini { margin:24px 0; }
+    .toc-mini h2 { font-size:18px; margin-bottom:12px; border-left:4px solid var(--purple); padding-left:12px; }
+    .toc-mini-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+    .toc-mini-item { background:var(--bg2); border-radius:8px; padding:12px 16px; font-size:13px; }
+    .toc-mini-item i { color:var(--cyan); margin-right:8px; width:20px; text-align:center; }
+    .kanban-footer { text-align:center; padding:32px 0; color:var(--text2); font-size:12px; }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left"><span class="nav-book-name"><i class="fas fa-chart-bar"></i> 最后五公里 · 项目看板</span></div>
+    <div class="nav-right"><a class="nav-btn" href="index.html"><i class="fas fa-book"></i> 书籍首页</a></div>
+  </nav>
+
+  <main class="content">
+    <div class="kanban-header">
+      <h1><i class="fas fa-chart-bar"></i> 最后五公里商业模式 · 项目看板</h1>
+      <p>63页全景分析 · 8大板块 · 12+经济学流派 · 多数据可视化</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="number">63</div><div class="label">总页数</div></div>
+      <div class="stat-card"><div class="number">8</div><div class="label">内容板块</div></div>
+      <div class="stat-card"><div class="number">12+</div><div class="label">经济学流派</div></div>
+      <div class="stat-card"><div class="number">¥1.5T</div><div class="label">市场规模</div></div>
+    </div>
+
+    <div class="chart-section">
+      <h2><i class="fas fa-chart-pie"></i> 各板块页数分布</h2>
+      <div id="chart-partitions" class="chart-container"></div>
+    </div>
+
+    <div class="chart-section">
+      <h2><i class="fas fa-chart-line"></i> 全球O2O市场规模演变 (亿元)</h2>
+      <div id="chart-market" class="chart-container"></div>
+    </div>
+
+    <div class="chart-section">
+      <h2><i class="fas fa-chart-bar"></i> 平台佣金结构对比 (%)</h2>
+      <div id="chart-commission" class="chart-container"></div>
+    </div>
+
+    <div class="chart-section">
+      <h2><i class="fas fa-brain"></i> 多学派交叉研判覆盖度</h2>
+      <div id="chart-schools" class="chart-container"></div>
+    </div>
+
+    <div class="toc-mini">
+      <h2><i class="fas fa-list"></i> 八大板块一览</h2>
+      <div class="toc-mini-grid">
+        <div class="toc-mini-item"><i class="fas fa-globe"></i> 概念与市场全景 (6页)</div>
+        <div class="toc-mini-item"><i class="fas fa-motorcycle"></i> 即时配送平台 (10页)</div>
+        <div class="toc-mini-item"><i class="fas fa-users"></i> 社区团购模式 (10页)</div>
+        <div class="toc-mini-item"><i class="fas fa-shopping-bag"></i> 即时零售万物到家 (8页)</div>
+        <div class="toc-mini-item"><i class="fas fa-coins"></i> 积分经济体系 (10页)</div>
+        <div class="toc-mini-item"><i class="fas fa-chess"></i> 平台博弈与反垄断 (8页)</div>
+        <div class="toc-mini-item"><i class="fas fa-robot"></i> 技术驱动未来 (5页)</div>
+        <div class="toc-mini-item"><i class="fas fa-balance-scale"></i> 多学派交叉研判 (5页)</div>
+      </div>
+    </div>
+
+    <div class="kanban-footer">
+      <p>最后五公里商业模式全景书 · Kanban Dashboard · 2024</p>
+      <p style="margin-top:4px;"><a href="index.html" style="color:var(--cyan);">进入书籍首页 →</a></p>
+    </div>
+  </main>
+
+  <script src="../echarts.inline.js"></script>
+  <script>
+    // Chart 1: Partitions pie
+    var chart1 = echarts.init(document.getElementById('chart-partitions'));
+    chart1.setOption({
+      tooltip: { trigger: 'item' },
+      legend: { bottom: '5%', left: 'center', textStyle: { fontSize: 11 } },
+      series: [{
+        type: 'pie', radius: ['40%', '70%'], center: ['50%', '45%'],
+        data: [
+          { value: 6, name: '概念与市场', itemStyle: { color: '#0ea5e9' } },
+          { value: 10, name: '即时配送', itemStyle: { color: '#f59e0b' } },
+          { value: 10, name: '社区团购', itemStyle: { color: '#ef4444' } },
+          { value: 8, name: '即时零售', itemStyle: { color: '#10b981' } },
+          { value: 10, name: '积分经济', itemStyle: { color: '#8b5cf6' } },
+          { value: 8, name: '平台博弈', itemStyle: { color: '#ec4899' } },
+          { value: 5, name: '技术驱动', itemStyle: { color: '#06b6d4' } },
+          { value: 5, name: '多学派研判', itemStyle: { color: '#f97316' } }
+        ],
+        label: { fontSize: 11 }
+      }]
+    });
+
+    // Chart 2: Market evolution line
+    var chart2 = echarts.init(document.getElementById('chart-market'));
+    chart2.setOption({
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['即时配送', '即时零售', '社区团购'] },
+      grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+      xAxis: { type: 'category', boundaryGap: false, data: ['2019','2020','2021','2022','2023','2024E'] },
+      yAxis: { type: 'value', name: '亿元' },
+      series: [
+        { name: '即时配送', type: 'line', smooth: true, data: [600,800,1000,1100,1200,1500], itemStyle: { color: '#0ea5e9' } },
+        { name: '即时零售', type: 'line', smooth: true, data: [300,500,800,1200,2000,3000], itemStyle: { color: '#10b981' } },
+        { name: '社区团购', type: 'line', smooth: true, data: [200,300,500,800,1000,1200], itemStyle: { color: '#f59e0b' } }
+      ]
+    });
+
+    // Chart 3: Commission bar
+    var chart3 = echarts.init(document.getElementById('chart-commission'));
+    chart3.setOption({
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { data: ['平台服务费', '配送服务费', '履约保障费', '营销推广'] },
+      grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+      xAxis: { type: 'category', data: ['美团', '饿了么', 'Douyin', '京东'] },
+      yAxis: { type: 'value', name: '%' },
+      series: [
+        { name: '平台服务费', type: 'bar', stack: 'total', data: [7, 6.5, 5, 6], itemStyle: { color: '#0ea5e9' } },
+        { name: '配送服务费', type: 'bar', stack: 'total', data: [2, 2, 0, 2], itemStyle: { color: '#f59e0b' } },
+        { name: '履约保障费', type: 'bar', stack: 'total', data: [0.5, 0.5, 0.3, 0.5], itemStyle: { color: '#ef4444' } },
+        { name: '营销推广', type: 'bar', stack: 'total', data: [3, 3, 8, 3], itemStyle: { color: '#8b5cf6' } }
+      ]
+    });
+
+    // Chart 4: Schools radar
+    var chart4 = echarts.init(document.getElementById('chart-schools'));
+    chart4.setOption({
+      tooltip: {},
+      legend: { data: ['覆盖度', '深度', '原创性'], bottom: 10 },
+      radar: {
+        indicator: [
+          { name: '古典', max: 100 },
+          { name: '凯恩斯', max: 100 },
+          { name: '马克思', max: 100 },
+          { name: '新制度', max: 100 },
+          { name: '奥地利', max: 100 },
+          { name: '行为', max: 100 }
+        ],
+        center: ['50%', '45%'],
+        radius: '65%'
+      },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [95,90,85,90,80,95], name: '覆盖度', itemStyle: { color: '#0ea5e9' }, areaStyle: { color: 'rgba(14,165,233,0.2)' } },
+          { value: [80,75,70,85,65,90], name: '深度', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.2)' } },
+          { value: [85,80,90,75,80,70], name: '原创性', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.2)' } }
+        ]
+      }]
+    });
+
+    window.addEventListener('resize', function() {
+      chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
+    });
+  </script>
+</body>
+</html>
