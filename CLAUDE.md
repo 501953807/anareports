@@ -55,3 +55,18 @@ Each crisis follows the fixed six-dimension framework: Pre-crisis politics → M
 - **Academic**: Include theoretical origins, core models, school disputes, classic literature citations
 - **Crisis review**: Strictly follow the six-dimension framework
 - **Policy evaluation**: Separate positive effects, negative effects, applicability prerequisites, optimization suggestions
+
+---
+
+## File Management Rules
+
+### Single Version Rule (CRITICAL)
+**Every HTML page has exactly ONE version — no duplicates, no numbered variants.**
+
+When modifying an existing file, edit it in place. Never create `filename-v2.html`, `filename-final.html`, or any variant copy. The only entry point is `index.html` — all navigation links must point to the single canonical filename.
+
+If you ever produce multiple versions of the same page, delete the duplicates immediately and commit the cleanup. This has happened with:
+- `最后五公里商业模式全景看板-v3.html` / `最后五公里商业模式全景看板.html` → keep only the non-versioned one
+- `重庆产业全景分析与未来展望看板-v3.html` / `重庆产业全景分析与未来展望看板.html` → keep only the non-versioned one
+
+After deletion, verify that `index.html` references are correct and point to the remaining file.
