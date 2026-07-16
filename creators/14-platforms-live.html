@@ -246,7 +246,8 @@
     </div>
 
     <div class="chart-container" id="chart-live-tutorial"></div>
-    <script>
+      <script src="../common/js/echarts.inline.js"></script>
+<script>
     var chart2 = echarts.init(document.getElementById('chart-live-tutorial'));
     chart2.setOption({
       backgroundColor: 'transparent',
@@ -284,7 +285,6 @@
     <span class="page-info">15 / 32</span>
     <a class="nav-next" href="15-platforms-ecommerce.html">电商/技能平台 <i class="fas fa-arrow-right"></i></a>
   </footer>
-  <script src="../common/js/echarts.inline.js"></script>
   <script src="../common/js/navigation.js"></script>
   <script>
     var chart = echarts.init(document.getElementById('chart-live'));

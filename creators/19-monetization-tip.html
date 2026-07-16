@@ -214,7 +214,8 @@
     </div>
 
     <div class="chart-container" id="chart-tip-tutorial"></div>
-    <script>
+      <script src="../common/js/echarts.inline.js"></script>
+<script>
     var chart2 = echarts.init(document.getElementById('chart-tip-tutorial'));
     chart2.setOption({
       backgroundColor: 'transparent',
@@ -248,7 +249,6 @@
     <span class="page-info">19 / 31</span>
     <a class="nav-next" href="24-income-analysis.html">收入金字塔 <i class="fas fa-arrow-right"></i></a>
   </footer>
-  <script src="../common/js/echarts.inline.js"></script>
   <script src="../common/js/navigation.js"></script>
   <script>
     var chart = echarts.init(document.getElementById('chart-monetization-comparison'));
