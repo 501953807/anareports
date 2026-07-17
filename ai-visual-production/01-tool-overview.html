@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.1 AI图像/视频工具全景 — 《AI影像创作实战指南》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">第1章 AI影像工具全景图谱</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html" class="active">1.1 AI图像/视频工具全景</a></li>
+      <li><a href="02-prompt-engineering.html">1.2 提示词工程核心方法论</a></li>
+      <li><a href="03-environment-setup.html">1.3 本地与云端环境搭建</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="04-design-concept.html">2.1 潮玩IP设计理念与方法论</a></li>
+      <li><a href="05-three-view.html">2.2 三视图生成实战</a></li>
+      <li><a href="06-expression-props.html">2.3 表情与道具扩展</a></li>
+      <li><a href="07-integration-output.html">2.4 整合与商业输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作</li>
+      <li><a href="08-short-film-planning.html">3.1 短片策划与分镜设计</a></li>
+      <li><a href="09-scene-generation.html">3.2 AI场景生成</a></li>
+      <li><a href="10-video-generation.html">3.3 AI视频生成技术</a></li>
+      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
+      <li><a href="12-publishing.html">3.5 发布与运营</a></li>
+      <li class="toc-chapter">第四篇：进阶与商业化</li>
+      <li><a href="13-commercial-applications.html">4.1 商业应用场景</a></li>
+      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">第1章 AI图像/视频工具全景图谱</h1>
+
+    <div class="data-note" style="margin-bottom:20px">2025年全球AI影像市场规模约85亿美元，年增长率42%，全球活跃创作者超过3000万。AI正在以前所未有的速度重构视觉内容的生产方式。</div>
+
+    <h2 class="section-subtitle">一、市场规模与数据概览</h2>
+
+    <div class="grid-4">
+      <div class="data-card">
+        <div class="value" style="color:var(--cyan)">$85亿</div>
+        <div class="label">2025年全球AI影像<br>市场规模</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="color:var(--green)">42%</div>
+        <div class="label">年同比增长率<br>(CAGR)</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="color:var(--purple)">3000万+</div>
+        <div class="label">全球活跃AI<br>创作者</div>
+      </div>
+      <div class="data-card">
+        <div class="value" style="color:var(--orange)">15+</div>
+        <div class="label">主流AI影像<br>工具平台</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">二、图像生成工具矩阵</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>工具名</th>
+          <th>类型</th>
+          <th>价格/月</th>
+          <th>免费额度</th>
+          <th>质量评分</th>
+          <th>易用性</th>
+          <th>输出分辨率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Midjourney v7</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>$10-$60</td>
+          <td>无（付费订阅）</td>
+          <td><span class="badge cyan">9.5/10</span></td>
+          <td>⭐⭐⭐⭐</td>
+          <td>最高 2048x2048</td>
+        </tr>
+        <tr>
+          <td><strong>DALL-E 4 / GPT-5 Image</strong></td>
+          <td><span class="badge purple">API</span></td>
+          <td>按量付费</td>
+          <td>新用户 $18 赠金</td>
+          <td><span class="badge cyan">9.2/10</span></td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>最高 4096x4096</td>
+        </tr>
+        <tr>
+          <td><strong>Stable Diffusion 3.5</strong></td>
+          <td><span class="badge green">开源</span></td>
+          <td>免费（本地部署）</td>
+          <td>完全免费</td>
+          <td><span class="badge cyan">8.8/10</span></td>
+          <td>⭐⭐⭐</td>
+          <td>取决于硬件</td>
+        </tr>
+        <tr>
+          <td><strong>Flux Pro / Schnell</strong></td>
+          <td><span class="badge green">开源+付费</span></td>
+          <td>Schnell免费 / Pro $9.99</td>
+          <td>Schnell免费额度</td>
+          <td><span class="badge cyan">9.3/10</span></td>
+          <td>⭐⭐⭐⭐</td>
+          <td>最高 4096x4096</td>
+        </tr>
+        <tr>
+          <td><strong>通义万相</strong></td>
+          <td><span class="badge green">国产SaaS</span></td>
+          <td>免费</td>
+          <td>每日免费额度</td>
+          <td><span class="badge orange">8.5/10</span></td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>最高 1024x1024</td>
+        </tr>
+        <tr>
+          <td><strong>文心一格</strong></td>
+          <td><span class="badge green">国产SaaS</span></td>
+          <td>免费+付费</td>
+          <td>每日免费积分</td>
+          <td><span class="badge orange">8.0/10</span></td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>最高 1024x1024</td>
+        </tr>
+        <tr>
+          <td><strong>KREA.ai</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>免费+$10起</td>
+          <td>每日100次生成</td>
+          <td><span class="badge orange">8.3/10</span></td>
+          <td>⭐⭐⭐⭐</td>
+          <td>最高 2048x2048</td>
+        </tr>
+        <tr>
+          <td><strong>Leonardo.ai</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>免费+$12起</td>
+          <td>每日150代币</td>
+          <td><span class="badge orange">8.2/10</span></td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>最高 2048x2048</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">三、视频生成工具矩阵</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>工具名</th>
+          <th>类型</th>
+          <th>价格/月</th>
+          <th>免费额度</th>
+          <th>质量评分</th>
+          <th>时长</th>
+          <th>出品方</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Runway Gen-3 Alpha</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>$76起</td>
+          <td>125积分注册送</td>
+          <td><span class="badge cyan">9.5/10</span></td>
+          <td>最高 10秒</td>
+          <td>Runway</td>
+        </tr>
+        <tr>
+          <td><strong>可灵Kling 1.5</strong></td>
+          <td><span class="badge green">国产SaaS</span></td>
+          <td>免费+付费</td>
+          <td>每日60积分</td>
+          <td><span class="badge cyan">9.2/10</span></td>
+          <td>最高 5-10秒</td>
+          <td>快手</td>
+        </tr>
+        <tr>
+          <td><strong>Pika 1.5</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>免费+$8起</td>
+          <td>每日30帧生成</td>
+          <td><span class="badge orange">8.5/10</span></td>
+          <td>最高 8秒</td>
+          <td>Pika Labs</td>
+        </tr>
+        <tr>
+          <td><strong>Luma Dream Machine</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>免费+$10起</td>
+          <td>每月120次生成</td>
+          <td><span class="badge orange">8.8/10</span></td>
+          <td>最高 5秒</td>
+          <td>Luma AI</td>
+        </tr>
+        <tr>
+          <td><strong>Sora</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>$100/月(Plus)</td>
+          <td>无</td>
+          <td><span class="badge cyan">9.3/10</span></td>
+          <td>最高 60秒</td>
+          <td>OpenAI</td>
+        </tr>
+        <tr>
+          <td><strong>Haiper</strong></td>
+          <td><span class="badge purple">SaaS</span></td>
+          <td>免费+$10起</td>
+          <td>每日10-20次</td>
+          <td><span class="badge orange">8.0/10</span></td>
+          <td>最高 4秒</td>
+          <td>Haiper AI</td>
+        </tr>
+        <tr>
+          <td><strong>即梦Dreamina</strong></td>
+          <td><span class="badge green">国产SaaS</span></td>
+          <td>免费+付费</td>
+          <td>每日免费额度</td>
+          <td><span class="badge orange">8.3/10</span></td>
+          <td>最高 5秒</td>
+          <td>字节跳动</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">四、工作流整合工具</h2>
+
+    <div class="card">
+      <h3 class="section-subtitle">本地部署工作流管理</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>工具</th>
+            <th>开源</th>
+            <th>适合人群</th>
+            <th>核心优势</th>
+            <th>学习曲线</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ComfyUI</strong></td>
+            <td>✅ 免费</td>
+            <td>高级用户/工作流开发者</td>
+            <td>节点式工作流，最大灵活性，支持LoRA/ControlNet</td>
+            <td>陡峭</td>
+          </tr>
+          <tr>
+            <td><strong>InvokeAI</strong></td>
+            <td>✅ 免费</td>
+            <td>中级用户</td>
+            <td>界面友好，画布编辑，批量处理</td>
+            <td>中等</td>
+          </tr>
+          <tr>
+            <td><strong>A1111 WebUI</strong></td>
+            <td>✅ 免费</td>
+            <td>入门/中级用户</td>
+            <td>生态最丰富，插件最多，社区最大</td>
+            <td>平缓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-subtitle">五、性价比雷达图 — 工具定位分析</h2>
+
+    <div class="chart-container" id="chart-tool-radar"></div>
+    <script src="../common/js/echarts.inline.js"></script>
+    <script>
+    (function() {
+      var chart = echarts.init(document.getElementById('chart-tool-radar'));
+      chart.setOption({
+        backgroundColor: 'transparent',
+        tooltip: {},
+        legend: {
+          data: ['图像生成工具', '视频生成工具'],
+          bottom: 0,
+          textStyle: { color: '#94a3b8', fontSize: 11 }
+        },
+        radar: {
+          indicator: [
+            { name: '输出质量', max: 10 },
+            { name: '价格友好度', max: 10 },
+            { name: '易用性', max: 10 },
+            { name: '中文支持', max: 10 },
+            { name: '社区生态', max: 10 },
+            { name: '可定制性', max: 10 }
+          ],
+          radius: '60%',
+          axisLine: { lineStyle: { color: 'rgba(124,58,237,0.3)' } },
+          splitLine: { lineStyle: { color: 'rgba(124,58,237,0.15)' } },
+          splitArea: {
+            areaStyle: {
+              color: ['rgba(124,58,237,0.03)', 'rgba(124,58,237,0.06)']
+            }
+          }
+        },
+        series: [{
+          type: 'radar',
+          data: [
+            {
+              value: [9.5, 4, 7, 5, 9, 6],
+              name: 'Midjourney v7',
+              itemStyle: { color: '#a78bfa' },
+              lineStyle: { color: '#a78bfa', width: 2 },
+              areaStyle: { color: 'rgba(167,139,250,0.2)' }
+            },
+            {
+              value: [8.8, 10, 5, 7, 10, 10],
+              name: 'Stable Diffusion 3.5',
+              itemStyle: { color: '#06b6d4' },
+              lineStyle: { color: '#06b6d4', width: 2 },
+              areaStyle: { color: 'rgba(6,182,212,0.15)' }
+            },
+            {
+              value: [9.3, 6, 7, 6, 7, 7],
+              name: 'Flux Pro',
+              itemStyle: { color: '#10b981' },
+              lineStyle: { color: '#10b981', width: 2 },
+              areaStyle: { color: 'rgba(16,185,129,0.15)' }
+            },
+            {
+              value: [9.5, 3, 8, 3, 6, 4],
+              name: 'Runway Gen-3',
+              itemStyle: { color: '#f59e0b' },
+              lineStyle: { color: '#f59e0b', width: 2 },
+              areaStyle: { color: 'rgba(245,158,11,0.15)' }
+            },
+            {
+              value: [9.2, 7, 9, 9, 7, 5],
+              name: '可灵Kling',
+              itemStyle: { color: '#ef4444' },
+              lineStyle: { color: '#ef4444', width: 2 },
+              areaStyle: { color: 'rgba(239,68,68,0.15)' }
+            },
+            {
+              value: [8.8, 6, 8, 6, 5, 4],
+              name: 'Luma Dream Machine',
+              itemStyle: { color: '#ec4899' },
+              lineStyle: { color: '#ec4899', width: 2 },
+              areaStyle: { color: 'rgba(236,72,153,0.15)' }
+            }
+          ]
+        }}
+      });
+      window.addEventListener('resize', function() { chart.resize(); });
+    })();
+    </script>
+
+    <h2 class="section-subtitle">六、多学派交叉解读</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 古典经济学视角（斯密/李嘉图）</div>
+        <div class="sv-body">AI影像工具大幅降低了视觉创作的"绝对成本"，使每个个体都能发挥自身的"比较优势"。过去需要摄影师+设计师+剪辑师组成的团队才能完成的工作，现在一个人+一台电脑即可。这相当于在创意产业中实现了斯密所说的"分工的普及化"——每个人不必样样精通，但可以通过AI工具调用全球最佳的技术能力。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</div>
+        <div class="sv-body">AI模型本身成为新的"生产资料"——训练数据来自无数创作者的作品（未经补偿的数据采集），算力集中在少数科技巨头手中（OpenAI、Google、Meta）。这产生了新的"数字异化"：创作者劳动被编码为模型权重，而模型的商业价值却被平台资本独占。同时，AI也催生了"数字无产阶级"——大量低薪的内容审核员、数据标注员，他们的劳动是AI影像系统运转的基础却几乎不可见。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学视角</div>
+        <div class="sv-body">AI工具的核心经济意义在于将创作流程中的"交易成本"从小时级压缩到分钟级。科斯定理指出企业的边界由内部管理成本与市场交易成本的相对大小决定——当AI将单个创作者的内部边际成本降到极低时，"一人公司"的规模边界大幅外扩。一个独立创作者可以完成过去需要10人团队才能交付的项目，这是因为AI替代了团队协作中的协调成本和沟通成本。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 奥地利学派视角</div>
+        <div class="sv-body">AI影像工具的普及是"分散知识"（disperse knowledge）的一次革命——哈耶克认为市场之所以高效，是因为它能利用每个个体特有的局部知识。AI让每个创作者都能利用全球最先进的视觉技术，而不必集中到某个中央机构。但奥地利学派也会警告：过度依赖AI可能导致"知识的懒惰"——当生成变得太容易时，创作者可能失去对审美判断力的深度训练。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 演化经济学视角</div>
+        <div class="sv-body">AI影像工具的竞争格局是一个典型的"演化生态系统"——不同工具在各自的选择压力（用户偏好、技术路线、商业模式）下经历"变异-选择-保留"循环。Midjourney凭借"纯文本到图像"的简单交互选择了美学质量路线；Stable Diffusion选择了开放生态路线；Runway选择了专业影视工作流路线。这些不同的"物种"占据不同的生态位，而非零和竞争。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">七、案例深挖：Midjourney的进化史</h2>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-rocket"></i> Midjourney：从v1到v7的四代跃迁</div>
+      <div class="case-body">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-year">2022年2月 — Midjourney v1</div>
+            <div class="tl-desc">基于Discord的对话式生成。分辨率低（512x512），风格偏"AI感"明显。但概念验证成功：纯文本提示可以生成有意义的图像。早期测试用户约10万人。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-year">2022年7月 — Midjourney v2</div>
+            <div class="tl-desc">大幅提升色彩和细节质量，支持更高分辨率（1024x1024）。引入"--style"参数控制风格倾向。用户增长到50万，开始引起主流媒体关注。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-year">2023年2月 — Midjourney v5</div>
+            <div class="tl-desc">重大架构升级。写实照片级质量成为可能，文字渲染能力初现。引入"--v 5"版本标识。用户突破500万，Discord服务器成为最大的AI创作者社区之一。付费模式从免费转为订阅制。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-year">2023年11月 — Midjourney v6</div>
+            <div class="tl-desc">多元素组合能力飞跃，可以处理复杂场景描述。支持英文+中文提示词。引入"局部重绘"(inpainting)、"画面扩展"(pan)、"变体"(variation)等编辑功能。用户达到1500万。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-year">2025年 — Midjourney v7</div>
+            <div class="tl-desc">当前最新版本。质量评分达9.5/10。关键突破：(1)提示词遵循度提升至95%+；(2)支持高分辨率输出(2048x2048+)；(3)视频生成功能内测；(4)角色一致性控制（同一角色多场景生成）；(5)物理引擎模拟（光线反射、材质质感更真实）。用户超过3000万。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">八、发散引申链</h2>
+
+    <div class="divergence-chain">
+      <div class="dc-links">
+        <span class="dc-node">AI工具演进</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">创作门槛降低</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">内容供给爆炸</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">注意力稀缺加剧</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">版权法重构</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">新IP商业模式</span>
+      </div>
+    </div>
+
+    <div class="data-note" style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
+      <strong>💡 核心洞察：</strong>AI影像工具的本质不是"替代人类创作者"，而是"放大人类的创意杠杆"。每一代工具的质量提升都遵循"能力翻倍、成本减半"的规律——这正是摩尔定律在创意产业的延伸。
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
+    <span class="page-info">1 / 38</span>
+    <a class="nav-next" href="02-prompt-engineering.html">提示词工程核心方法论 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/navigation.js"></script>
+</body>
+</html>
