@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.5 发布与运营 — 《AI影像创作实战指南》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">第三篇 第5章 发布与运营</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">1.1 AI图像/视频工具全景</a></li>
+      <li><a href="02-prompt-engineering.html">1.2 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">1.3 本地与云端环境搭建</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="04-character-design.html">2.1 潮玩IP角色设计理念</a></li>
+      <li><a href="05-character-views.html">2.2 AI生成角色三视图</a></li>
+      <li><a href="06-expression-props.html">2.3 表情集与道具设计</a></li>
+      <li><a href="07-character-output.html">2.4 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作</li>
+      <li><a href="08-short-film-plan.html">3.1 短片策划与分镜设计</a></li>
+      <li><a href="09-scene-gen.html">3.2 AI场景生成</a></li>
+      <li><a href="10-video-gen.html">3.3 AI视频生成技术</a></li>
+      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
+      <li><a href="12-publishing.html" class="active">3.5 发布与运营</a></li>
+      <li class="toc-chapter">第四篇：进阶与商业化</li>
+      <li><a href="13-commercial-applications.html">4.1 商业应用场景</a></li>
+      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">第三篇 第5章 发布与运营</h1>
+
+    <div class="data-note" style="margin-bottom:20px">作品完成了只是走完了50%的路。发布和运营决定了你的作品能触达多少观众、产生多大影响。本章系统讲解从视频格式选择到各平台发布策略的全流程，以及如何让AI动画短片获得最大化的曝光和粉丝增长。</div>
+
+    <h2 class="section-subtitle">一、视频格式与编码标准</h2>
+
+    <p>在上传之前，确保你的视频使用了正确的格式和编码参数。错误的格式可能导致画质损失、兼容性问题或被平台自动压缩。</p>
+
+    <h3 class="section-subtitle">1.1 H.264 vs H.265/HEVC对比</h3>
+
+    <table class="data-table">
+      <thead><tr><th>参数</th><th>H.264 (AVC)</th><th>H.265 (HEVC)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>压缩效率</strong></td><td>基准</td><td>比H.264高约50%</td></tr>
+        <tr><td><strong>画质（同码率）</strong></td><td>良好</td><td>优秀</td></tr>
+        <tr><td><strong>兼容性</strong></td><td>几乎所有设备/平台</td><td>较新设备支持（2018年后）</td></tr>
+        <tr><td><strong>编码速度</strong></td><td>快</td><td>慢（需较好GPU）</td></tr>
+        <tr><td><strong>推荐用途</strong></td><td><strong>首选</strong>——兼容性最好</td><td>4K内容或存储空间受限时</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">1.2 分辨率与帧率选择</h3>
+
+    <div class="grid-3">
+      <div class="card">
+        <h4 style="color:var(--cyan);font-size:13px;margin-bottom:6px">分辨率</h4>
+        <ul style="list-style:none;padding:0;margin:6px 0;font-size:12px">
+          <li><strong>720p (1280×720)：</strong>最低标准，适合抖音/短视频</li>
+          <li><strong>1080p (1920×1080)：</strong><span style="color:var(--cyan)">★推荐</span> 主流标准</li>
+          <li><strong>4K (3840×2160)：</strong>高端内容，文件大</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--orange);font-size:13px;margin-bottom:6px">帧率</h4>
+        <ul style="list-style:none;padding:0;margin:6px 0;font-size:12px">
+          <li><strong>24fps：</strong><span style="color:var(--orange)">电影感</span>，动画短片首选</li>
+          <li><strong>30fps：</strong>通用标准，YouTube/B站默认</li>
+          <li><strong>60fps：</strong>流畅感，游戏/运动内容</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green);font-size:13px;margin-bottom:6px">码率建议</h4>
+        <ul style="list-style:none;padding:0;margin:6px 0;font-size:12px">
+          <li><strong>1080p@30fps：</strong>8-12 Mbps</li>
+          <li><strong>1080p@60fps：</strong>15-20 Mbps</li>
+          <li><strong>4K@30fps：</strong>35-45 Mbps</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">1.3 音频编码</h3>
+
+    <table class="data-table">
+      <thead><tr><th>参数</th><th>推荐值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>编码格式</td><td>AAC</td><td>所有平台支持的通用格式</td></tr>
+        <tr><td>比特率</td><td>128-320 kbps</td><td>320kbps为最高质量，128kbps为最低可接受</td></tr>
+        <tr><td>采样率</td><td>48 kHz</td><td>视频标准采样率</td></tr>
+        <tr><td>声道</td><td>立体声 (Stereo)</td><td>环绕声(5.1)仅在高端制作中需要</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">二、发布平台选择与优化</h2>
+
+    <h3 class="section-subtitle">2.1 B站（哔哩哔哩）</h3>
+
+    <div class="card highlight">
+      <h3 style="font-size:14px;margin-bottom:10px"><i class="fas fa-play-circle"></i> B站上传全流程</h3>
+      <ol class="steps-list">
+        <li>
+          <strong>注册与认证：</strong>通过会员答题（60题，正确30题以上）获得正式会员资格，才能投稿视频。完成实名认证可获得创作中心全部功能。
+        </li>
+        <li>
+          <strong>分区选择：</strong>动画→独立动画 / 动画合集 → MAD·AMV / 动画短片。建议选择"独立动画"分区，竞争较小且受众精准。
+        </li>
+        <li>
+          <strong>标题优化：</strong>包含关键词"AI动画"、"AI短片"、"AI创作"。示例："【AI动画短片】小橘猫找回家｜全程用AI制作的皮克斯风格动画"
+        </li>
+        <li>
+          <strong>标签策略：</strong>添加5-10个标签，包括#AI动画 #Midjourney #Runway #AI视频 #动画短片 #独立动画
+        </li>
+        <li>
+          <strong>发布时间：</strong>工作日18:00-20:00或周末10:00-12:00为最佳上传时段。
+        </li>
+      </ol>
+    </div>
+
+    <h3 class="section-subtitle">2.2 YouTube</h3>
+
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:10px"><i class="fab fa-youtube"></i> YouTube上传与Monetization</h3>
+      <ol class="steps-list">
+        <li>
+          <strong>频道设置：</strong>创建Google账号→YouTube频道→设置频道品牌（头像、横幅、简介）。
+        </li>
+        <li>
+          <strong>Monetization资格：</strong>需要1000订阅 + 过去12个月4000小时观看时长（或Shorts 1000万浏览/90天）。
+        </li>
+        <li>
+          <strong>SEO优化：</strong>标题含关键词、描述写200+字、添加章节标记（Chapters）、自定义缩略图。
+        </li>
+        <li>
+          <strong>双语策略：</strong>添加多语言标题和描述（至少中英双语），扩大全球受众。
+        </li>
+      </ol>
+    </div>
+
+    <h3 class="section-subtitle">2.3 抖音</h3>
+
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:10px"><i class="fab fa-tiktok"></i> 抖音发布要点</h3>
+      <table class="data-table">
+        <thead><tr><th>维度</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr><td>竖版vs横版</td><td>竖版9:16优先（占流量70%+），横版16:9作为补充</td></tr>
+          <tr><td>时长限制</td><td>新用户≤1分钟，信用好可延长至5-15分钟</td></tr>
+          <tr><td>热门话题</td><td>#AI创作 #AI动画 #AI绘画 #数字艺术</td></tr>
+          <tr><td>前3秒钩子</td><td>开头必须有视觉冲击——暴风雨镜头或可爱角色特写</td></tr>
+          <tr><td>BGM选择</td><td>使用抖音热门BGM可增加推荐权重</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="section-subtitle">2.4 小红书</h3>
+
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:10px"><i class="fas fa-book-open"></i> 小红书图文混发策略</h3>
+      <ul style="list-style:none;padding:0;margin:8px 0;font-size:13px">
+        <li style="padding:4px 0"><strong>封面图决定点击率：</strong>用短片中最有吸引力的帧作为封面，加上大字标题（如"我用AI做了部皮克斯动画"）。</li>
+        <li style="padding:4px 0"><strong>笔记文案技巧：</strong>开头用情感共鸣句（"花了两周做的AI动画短片，终于完成了！"），中间分享制作过程，结尾引导互动（"你觉得AI能替代动画师吗？"）。</li>
+        <li style="padding:4px 0"><strong>图文混发：</strong>先发制作过程的截图（3-6张）吸引关注，再发布视频版。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-subtitle">三、各平台上传优化建议</h2>
+
+    <table class="data-table">
+      <thead><tr><th>平台</th><th>AI创作标签</th><th>分区策略</th><th>关键优化点</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>B站</strong></td>
+          <td>勾选"AI创作"标识</td>
+          <td>动画区 > 科技区 > 生活区</td>
+          <td>投币率是B站算法的核心权重之一，结尾加"求投币"</td>
+        </tr>
+        <tr>
+          <td><strong>YouTube</strong></td>
+          <td>标注"Generated with AI"</td>
+          <td>Entertainment > Animation</td>
+          <td>Shorts vs Long-form双发，Shorts引流+Long-form变现</td>
+        </tr>
+        <tr>
+          <td><strong>抖音</strong></td>
+          <td>无需特殊标签</td>
+          <td>抖音无分区概念，靠算法推荐</td>
+          <td>前3秒钩子+BGM选择决定初始推荐量</td>
+        </tr>
+        <tr>
+          <td><strong>小红书</strong></td>
+          <td>#AI绘画 #AIGC</td>
+          <td>科技 > 艺术 > 生活</td>
+          <td>封面图+标题决定点击率，正文长度500+字</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">四、AI动画短片的社区运营策略</h2>
+
+    <h3 class="section-subtitle">4.1 更新频率</h3>
+
+    <div class="grid-3">
+      <div class="card">
+        <h4 style="color:var(--red);font-size:13px;margin-bottom:6px">日更</h4>
+        <p style="font-size:12px;color:var(--text2)">适合短视频/切片内容<br>维护难度极高<br>适合已有稳定团队的创作者</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--orange);font-size:13px;margin-bottom:6px">周更<span style="color:var(--cyan)">(推荐)</span></h4>
+        <p style="font-size:12px;color:var(--text2)">平衡质量与频率<br>AI短片合理节奏<br>每周发布一个短片或幕后花絮</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green);font-size:13px;margin-bottom:6px">月更</h4>
+        <p style="font-size:12px;color:var(--text2)">适合高质量长片<br>每部精心打磨<br>适合个人创作者起步阶段</p>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">4.2 粉丝互动技巧</h3>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-comments"></i> 高互动策略</div>
+      <div class="tip-body">
+        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+          <li style="padding:3px 0"><strong>视频内CTA：</strong>在视频结尾明确请求"点赞、投币、收藏"三连。B站用户对此响应率约15-25%。</li>
+          <li style="padding:3px 0"><strong>评论区运营：</strong>发布后1小时内回复前20条评论。算法会识别早期互动密度，决定是否推入更大流量池。</li>
+          <li style="padding:3px 0"><strong>投票/提问：</strong>在描述区或评论区发起投票（"下一集想看什么故事？"），提高互动率。</li>
+          <li style="padding:3px 0"><strong>幕后内容：</strong>发布制作过程的截图/视频（"AI如何生成这个镜头"），满足观众好奇心。</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">4.3 跨平台分发策略</h3>
+
+    <table class="data-table">
+      <thead><tr><th>策略</th><th>操作</th><th>注意事项</th></tr></thead>
+      <tbody>
+        <tr><td><strong>一源多用</strong></td><td>同一部短片适配不同平台格式</td><td>B站/YouTube用横版16:9，抖音用竖版9:16裁剪</td></tr>
+        <tr><td><strong>错峰发布</strong></td><td>不同平台间隔24-48小时发布</td><td>避免平台判定为"搬运"，也利用时间差制造热度接力</td></tr>
+        <tr><td><strong>差异化标题</strong></td><td>各平台使用不同的标题和封面</td><td>抖音标题要"炸"，B站标题要"详细"，小红书标题要"情感"</td></tr>
+        <tr><td><strong>引流互导</strong></td><td>在A平台提及"B站也有完整版"</td><td>注意各平台规则——抖音不允许直接留外链</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">4.4 数据分析与优化</h3>
+
+    <p>每个平台都提供创作者后台数据分析。重点关注以下指标：</p>
+
+    <table class="data-table">
+      <thead><tr><th>指标</th><th>含义</th><th>健康值参考</th><th>优化方向</th></tr></thead>
+      <tbody>
+        <tr><td><strong>播放完成率</strong></td><td>观众看完视频的比例</td><td>≥40%为优秀</td><td>完播率低→开头不够吸引人，中段节奏拖沓</td></tr>
+        <tr><td><strong>互动率</strong></td><td>(点赞+评论+转发)/播放量</td><td>≥5%为优秀</td><td>互动率低→缺少CTA，内容缺乏共鸣点</td></tr>
+        <tr><td><strong>粉丝转化率</strong></td><td>新关注/播放量</td><td>≥2%为正常</td><td>转化率低→人设不清晰，没有让观众想追更的理由</td></tr>
+        <tr><td><strong>推荐流量占比</strong></td><td>算法推荐vs搜索vs关注</td><td>推荐占比≥60%为健康</td><td>推荐占比低→标题/封面/标签不够优化</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">五、案例深挖：AI动画短片在B站的爆款案例</h2>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-chart-line"></i> 案例：AI生成的"赛博朋克城市"短片</div>
+      <div class="tip-body">
+        <p>2024年，B站UP主"AI动画实验室"发布了一部全长3分20秒的AI动画短片《霓虹之下》，全片使用Midjourney+Runway Gen-2制作，讲述了一个赛博朋克世界中机器人与人类少年的友谊故事。</p>
+        <p style="margin-top:8px"><strong>数据表现：</strong></p>
+        <ul style="list-style:none;padding:0;margin:6px 0">
+          <li style="padding:3px 0">播放量：380万+</li>
+          <li style="padding:3px 0">点赞：12.5万</li>
+          <li style="padding:3px 0">投币：3.2万</li>
+          <li style="padding:3px 0">收藏：5.8万</li>
+          <li style="padding:3px 0">评论：4200+</li>
+          <li style="padding:3px 0">粉丝增长：单视频带来1.2万新增粉丝</li>
+        </ul>
+        <p style="margin-top:8px"><strong>成功因素分析：</strong></p>
+        <ol style="list-style:decimal; padding-left:20px; margin:6px 0">
+          <li><strong>题材稀缺性：</strong>当时B站AI动画内容较少，赛博朋克题材更是罕见，形成了差异化竞争。</li>
+          <li><strong>制作质量超预期：</strong>虽然用了AI工具，但后期调色和音效做得非常专业，达到了"准商业"水准。</li>
+          <li><strong>情感共鸣：</strong>机器人+少年的友谊主题跨越文化壁垒，无对白设计让全球观众都能理解。</li>
+          <li><strong>社区互动：</strong>作者在视频描述中详细列出了使用的工具和提示词，吸引了大量AI创作者讨论和二次传播。</li>
+          <li><strong>发布时间：</strong>选择在周五晚8点发布，利用了B站用户周末前的活跃高峰。</li>
+        </ol>
+        <p style="margin-top:8px"><strong>可复制的经验：</strong>找到你所在平台的"内容空白区"（AI动画+某个特定题材），用超出预期的制作质量填补它，并在描述中分享技术细节吸引同行传播。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">六、ECharts图表：各平台AI动画内容增长趋势</h2>
+
+    <div class="chart-container" id="chart-platform-growth"></div>
+
+    <h2 class="section-subtitle">七、多学派交叉解读</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义视角</div>
+        <div class="sv-body">数字内容作为"产消者"(Prosumer)的商品化。Tiziana Terranova提出的"产消者"概念——消费者同时也是生产者——在AI时代被推向极致。AI工具让每个人都可以成为内容创作者，但这是否意味着创作者从"被剥削的工人"变成了"自我剥削的自由职业者"？平台通过免费获取用户生成的内容来吸引广告商，创作者的"自由"实际上是被平台算法和规则所规训的自由。这就是数字劳动的新形态。</div>
+      </div>
+      <div class="sv-item sv-green">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学视角</div>
+        <div class="sv-body">平台规则是新的制度约束。科斯定理告诉我们，交易成本决定了组织的边界。在数字内容领域，平台规则（推荐算法、社区规范、审核机制）就是新的"制度环境"。这些规则不透明、经常变动，创作者必须在不确定中寻找最优策略。跨平台分发本质上是在"制度套利"——利用不同平台的规则差异最大化内容价值。但这也带来了合规成本的上升。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 行为经济学视角</div>
+        <div class="sv-body">算法推荐对用户偏好的塑造是一个典型的"偏好内生性"问题。传统经济学假设用户偏好是外生的、稳定的，但算法推荐系统通过A/B测试和协同过滤不断试探和调整推送内容，实际上是在"训练"用户的偏好。用户以为自己选择了想看的内容，实际上是算法告诉他们"想看"什么。这种"算法操纵"在AI生成内容的时代更加隐蔽——当内容本身也是AI生成的，算法和用户之间的博弈就变成了AI对AI的博弈。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">八、发散引申链</h2>
+
+    <div class="divergence-chain">
+      <div class="dc-links">
+        <span class="dc-node">内容发布</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">数据反馈</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">A/B测试</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">算法博弈</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">内容策略迭代</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">系列化IP</span>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-rocket"></i> 发布的五条黄金法则</div>
+      <div class="tip-body">
+        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+          <li style="padding:3px 0"><strong>先发布再完美：</strong>不要等到"完美"才发布。第一版永远不完美，但发布后的数据反馈比完美的空想有价值100倍。</li>
+          <li style="padding:3px 0"><strong>封面和标题占成功的60%：</strong>观众在点击之前只看到封面和标题。花5分钟做封面，不如花30分钟想标题。</li>
+          <li style="padding:3px 0"><strong>前3秒决定生死：</strong>无论是视频开头还是帖子开头，前3秒的跳出率决定了算法是否继续推荐你的内容。</li>
+          <li style="padding:3px 0"><strong>诚实标注AI创作：</strong>在描述中明确说明"本作品使用AI工具制作"。观众对AI内容的态度已经从好奇转向接受，隐瞒反而会在被发现后损害信任。</li>
+          <li style="padding:3px 0"><strong>建立发布日历：</strong>固定时间发布（如每周五晚8点），培养观众的观看习惯。一致性比偶尔的爆款更重要。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="data-note" style="background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
+      <strong>💡 第三篇总结：</strong>从短片策划到发布运营，这是一条完整的AI动画短片制作链路。三个核心原则贯穿始终：<strong>一是前期策划决定上限</strong>——好的分镜和故事板能让后续制作事半功倍；<strong>二是工具服务于创意</strong>——AI工具再强大也只是放大器，真正的核心竞争力仍然是讲故事的能力；<strong>三是发布即开始</strong>——作品的价值不在制作完成时确定，而在观众的反馈中持续演化。恭喜你完成了第三篇的学习，接下来我们将进入第四篇：进阶与商业化。
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="11-post-production.html"><i class="fas fa-arrow-up"></i> 后期合成与调色</a>
+    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
+    <span class="page-info">12 / 38</span>
+    <a class="nav-next" href="13-commercial-applications.html">商业应用场景 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-platform-growth'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['B站AI动画', 'YouTube AI Animation', '抖音AI创作', '小红书AIGC'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 20, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2023Q1', '2023Q2', '2023Q3', '2023Q4', '2024Q1', '2024Q2', '2024Q3', '2024Q4', '2025Q1', '2025Q2', '2025Q3', '2025Q4'], axisLabel: { color: '#94a3b8', rotate: 30 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '内容增长指数(基准=100)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: 'B站AI动画', type: 'line', smooth: true, data: [100, 120, 150, 200, 280, 380, 520, 700, 950, 1200, 1500, 1900], itemStyle: { color: '#06b6d4' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(6,182,212,0.3)' }, { offset: 1, color: 'rgba(6,182,212,0.05)' }]) } },
+        { name: 'YouTube AI Animation', type: 'line', smooth: true, data: [100, 130, 180, 250, 350, 480, 650, 850, 1100, 1400, 1750, 2200], itemStyle: { color: '#ef4444' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(239,68,68,0.2)' }, { offset: 1, color: 'rgba(239,68,68,0.03)' }]) } },
+        { name: '抖音AI创作', type: 'line', smooth: true, data: [100, 180, 320, 500, 750, 1100, 1500, 2000, 2600, 3300, 4100, 5000], itemStyle: { color: '#f59e0b' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(245,158,11,0.2)' }, { offset: 1, color: 'rgba(245,158,11,0.03)' }]) } },
+        { name: '小红书AIGC', type: 'line', smooth: true, data: [100, 140, 200, 290, 400, 550, 750, 1000, 1300, 1650, 2050, 2500], itemStyle: { color: '#ec4899' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(236,72,153,0.2)' }, { offset: 1, color: 'rgba(236,72,153,0.03)' }]) } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
