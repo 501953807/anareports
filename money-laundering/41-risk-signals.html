@@ -79,7 +79,6 @@
 
     <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：风险信号检测的博弈演化</strong><br><span style="color:var(--green)">起点</span> → 传统规则引擎(阈值+黑白名单) → 加密交易量增长10倍 → <span style="color:var(--orange)">分化A</span>：误报率飙升至95% → 分析师疲劳 → 漏报增加<br><span style="color:var(--gold)">分化B</span>：引入AI/GNN检测 → TPR提升3倍 → <span style="color:var(--green)">终态B</span>：但AI洗钱工具出现 → 新一轮猫鼠游戏<br><span style="color:var(--purple)">分化C</span>：Deepfake KYC绕过率10-15% → <span style="color:var(--red)">终态C</span>：多模态活体检测成为新标准 → KYC成本翻倍</div>
 
-    <div class="chart-container" id="chart-risk-signals"></div>
     <div class="tip-box">
       <div class="tip-title"><i class="fas fa-code"></i> 将风险信号转化为可执行的监控规则</div>
       <div class="tip-body">
@@ -125,48 +124,6 @@
         <tr><td>SAR/STR报表</td><td>自研报表生成器</td><td>Actimize / SAS AML / Nice Actimize</td><td>可疑报告自动生成+电子提交</td></tr>
       </tbody>
     </table>
-
-    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：传统洗钱信号增长平稳(2020年5万起→2026年65千起)，加密相关信号呈指数增长(2020年5千起→2026年20万起)，AI新型信号从零起步但增速最快(2026年达6万起)。关键趋势：2024年后加密信号首次超过传统信号，标志着洗钱检测进入"数字化时代"。</div>
-
-    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：风险信号的经济学本质</h3>
-    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>风险信号本质上是"货币异常流动的信号"——当资金流动偏离正常MV=PQ关系时产生告警。结构化交易(Smurfing)是典型的货币流通速度异常：资金以刻意规避监控的方式流动，改变了M2的表观增长速度。</div>
-    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>风险检测系统的供给质量决定了对洗钱的识别率。规则引擎(供给侧工具)的升级——从静态阈值到AI动态模型——提高了检测供给的质量。供给侧视角：降低误报率(FPR)比提高检测率(TPR)更经济，因为每条误报都消耗分析师时间。</div>
-    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>洗钱者使用"刚好低于阈值"的策略(如$9,999而非$10,001)利用了规则的"框架效应"。AI对抗性交易模式更是直接针对检测系统的认知偏差。行为学派指出：检测系统本身也需要"行为设计"——考虑人类分析师的认知负荷和疲劳效应。</div>
-    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>风险信号构成一个"信息生态系统"——传统信号、加密信号和AI信号分别代表不同层级的生态位。随着加密信号的增长，整个系统的生态平衡被打破，需要新的检测物种(AI模型)来填补生态位空缺。</div>
-    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>风险信号的演化与康波周期同步。2020-2021上升期：传统信号主导；2022-2023下行期：加密信号爆发；2024-2025转型期：AI信号崛起。下一轮技术革命将催生"量子信号"——基于量子计算的异常检测可能完全改变信号生态。</div>
-
-    <div class="case-box">
-      <div class="case-title"><i class="fas fa-robot"></i> Blend AI Money Launcher案 — 首个AI驱动洗钱工具的执法突破</div>
-      <div class="case-body">
-        <p>2025年3月，FinCEN查封了AI驱动的加密混币器Blend，罚款$1.8亿。</p>
-        <p>核心创新：Blend使用AI自动生成对抗性交易模式，使每笔交易都"刚好低于"AML告警阈值。</p>
-        <p>执法突破：FinCEN首次使用AI对抗AI——训练检测模型识别Blend生成的模式特征。</p>
-        <p>行业影响：标志着"AI洗钱 vs AI反洗钱"军备竞赛正式进入实战阶段。</p>
-      </div>
-    </div>
-
-    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：风险信号检测的博弈演化</strong><br><span style="color:var(--green)">起点</span> → 传统规则引擎(阈值+黑白名单) → 加密交易量增长10倍 → <span style="color:var(--orange)">分化A</span>：误报率飙升至95% → 分析师疲劳 → 漏报增加<br><span style="color:var(--gold)">分化B</span>：引入AI/GNN检测 → TPR提升3倍 → <span style="color:var(--green)">终态B</span>：但AI洗钱工具出现 → 新一轮猫鼠游戏<br><span style="color:var(--purple)">分化C</span>：Deepfake KYC绕过率10-15% → <span style="color:var(--red)">终态C</span>：多模态活体检测成为新标准 → KYC成本翻倍</div>
-
-    <div class="data-note" style="background:rgba(6,182,212,0.04);border:1px dashed rgba(6,182,212,0.25);padding:10px 14px;margin-bottom:20px;border-radius:4px;font-size:13px;color:var(--text2)">数据信号：传统洗钱信号增长平稳(2020年5万起→2026年65千起)，加密相关信号呈指数增长(2020年5千起→2026年20万起)，AI新型信号从零起步但增速最快(2026年达6万起)。关键趋势：2024年后加密信号首次超过传统信号，标志着洗钱检测进入"数字化时代"。</div>
-
-    <h3 style="margin:24px 0 14px;color:var(--cyan)">五学派交叉分析：风险信号的经济学本质</h3>
-    <div class="school-view" style="background:rgba(26,82,118,0.12);border-left:3px solid #1A5276;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#1A5276">Monetarism(货币主义)：</strong>风险信号本质上是"货币异常流动的信号"——当资金流动偏离正常MV=PQ关系时产生告警。结构化交易(Smurfing)是典型的货币流通速度异常：资金以刻意规避监控的方式流动，改变了M2的表观增长速度。</div>
-    <div class="school-view" style="background:rgba(184,134,11,0.12);border-left:3px solid #B8860B;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#B8860B">Supply-side Economics(供给侧经济学)：</strong>风险检测系统的供给质量决定了对洗钱的识别率。规则引擎(供给侧工具)的升级——从静态阈值到AI动态模型——提高了检测供给的质量。供给侧视角：降低误报率(FPR)比提高检测率(TPR)更经济，因为每条误报都消耗分析师时间。</div>
-    <div class="school-view" style="background:rgba(220,38,38,0.12);border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#dc2626">Behavioral Economics(行为经济学)：</strong>洗钱者使用"刚好低于阈值"的策略(如$9,999而非$10,001)利用了规则的"框架效应"。AI对抗性交易模式更是直接针对检测系统的认知偏差。行为学派指出：检测系统本身也需要"行为设计"——考虑人类分析师的认知负荷和疲劳效应。</div>
-    <div class="school-view" style="background:rgba(5,150,105,0.12);border-left:3px solid #059669;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#059669">Ecological Economics(生态经济学)：</strong>风险信号构成一个"信息生态系统"——传统信号、加密信号和AI信号分别代表不同层级的生态位。随着加密信号的增长，整个系统的生态平衡被打破，需要新的检测物种(AI模型)来填补生态位空缺。</div>
-    <div class="school-view" style="background:rgba(124,58,237,0.12);border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:10px;border-radius:4px;font-size:13px"><strong style="color:#7c3aed">World Economic Cycle Theory(世界经济周期理论)：</strong>风险信号的演化与康波周期同步。2020-2021上升期：传统信号主导；2022-2023下行期：加密信号爆发；2024-2025转型期：AI信号崛起。下一轮技术革命将催生"量子信号"——基于量子计算的异常检测可能完全改变信号生态。</div>
-
-    <div class="case-box">
-      <div class="case-title"><i class="fas fa-robot"></i> Blend AI Money Launcher案 — 首个AI驱动洗钱工具的执法突破</div>
-      <div class="case-body">
-        <p>2025年3月，FinCEN查封了AI驱动的加密混币器Blend，罚款$1.8亿。</p>
-        <p>核心创新：Blend使用AI自动生成对抗性交易模式，使每笔交易都"刚好低于"AML告警阈值。</p>
-        <p>执法突破：FinCEN首次使用AI对抗AI——训练检测模型识别Blend生成的模式特征。</p>
-        <p>行业影响：标志着"AI洗钱 vs AI反洗钱"军备竞赛正式进入实战阶段。</p>
-      </div>
-    </div>
-
-    <div class="divergence-chain" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8"><strong style="color:var(--cyan)">分化链：风险信号检测的博弈演化</strong><br><span style="color:var(--green)">起点</span> → 传统规则引擎(阈值+黑白名单) → 加密交易量增长10倍 → <span style="color:var(--orange)">分化A</span>：误报率飙升至95% → 分析师疲劳 → 漏报增加<br><span style="color:var(--gold)">分化B</span>：引入AI/GNN检测 → TPR提升3倍 → <span style="color:var(--green)">终态B</span>：但AI洗钱工具出现 → 新一轮猫鼠游戏<br><span style="color:var(--purple)">分化C</span>：Deepfake KYC绕过率10-15% → <span style="color:var(--red)">终态C</span>：多模态活体检测成为新标准 → KYC成本翻倍</div>
 
     <div class="chart-container" id="chart-risk-signals"></div>
   <footer class="page-footer">
