@@ -1,0 +1,406 @@
+- generic [active] [ref=f7e1]:
+  - navigation [ref=f7e2]:
+    - text: 
+    - generic [ref=f7e3]:
+      - link "📜 中华古典学术理论全景书" [ref=f7e4] [cursor=pointer]:
+        - /url: index.html
+      - generic [ref=f7e5]: /
+      - generic [ref=f7e6]: 一、八卦起源与演变概述
+    - generic [ref=f7e7]:
+      - link " 目录" [ref=f7e8] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f7e9]: 
+        - text: 目录
+      - link "后一章 " [ref=f7e10] [cursor=pointer]:
+        - /url: 02-fuxi-shennong.html
+        - text: 后一章
+        - generic [ref=f7e11]: 
+  - complementary [ref=f7e12]:
+    - generic [ref=f7e13]:
+      - heading "中华古典学术理论" [level=3] [ref=f7e14]
+      - button "Close sidebar" [ref=f7e15]:
+        - generic [ref=f7e16]: 
+    - navigation [ref=f7e17]:
+      - list [ref=f7e18]:
+        - listitem [ref=f7e19]: 第一部分 八卦
+        - listitem [ref=f7e20]:
+          - link "一、八卦起源与演变概述" [ref=f7e21] [cursor=pointer]:
+            - /url: 01-bagua-origin.html
+        - listitem [ref=f7e22]:
+          - link "二、伏羲画卦与上古传说" [ref=f7e23] [cursor=pointer]:
+            - /url: 02-fuxi-shennong.html
+        - listitem [ref=f7e24]:
+          - link "三、文王演周易" [ref=f7e25] [cursor=pointer]:
+            - /url: 03-zhouyi-wenwang.html
+        - listitem [ref=f7e26]:
+          - link "四、八卦象数体系" [ref=f7e27] [cursor=pointer]:
+            - /url: 04-bagua-xiangshu.html
+        - listitem [ref=f7e28]:
+          - link "五、八卦学习路径" [ref=f7e29] [cursor=pointer]:
+            - /url: 05-bagua-summary.html
+        - listitem [ref=f7e30]: 第二部分 阴阳五行
+        - listitem [ref=f7e31]:
+          - link "六、阴阳概念本源" [ref=f7e32] [cursor=pointer]:
+            - /url: 06-yinyang-benyuan.html
+        - listitem [ref=f7e33]:
+          - link "七、经典文本中的阴阳五行" [ref=f7e34] [cursor=pointer]:
+            - /url: 07-yinyang-wuxing-classics.html
+        - listitem [ref=f7e35]:
+          - link "八、五行理论基础" [ref=f7e36] [cursor=pointer]:
+            - /url: 08-wuxing-theory.html
+        - listitem [ref=f7e37]:
+          - link "九、五行生克乘侮" [ref=f7e38] [cursor=pointer]:
+            - /url: 09-wuxing-cycles.html
+        - listitem [ref=f7e39]:
+          - link "十、阴阳五行综合体系" [ref=f7e40] [cursor=pointer]:
+            - /url: 10-yinyang-wuxing-synthesis.html
+        - listitem [ref=f7e41]:
+          - link "十一、阴阳五行学习路径" [ref=f7e42] [cursor=pointer]:
+            - /url: 11-yinyang-summary.html
+        - listitem [ref=f7e43]: 第三部分 中医基础理论
+        - listitem [ref=f7e44]:
+          - link "十二、黄帝内经与中医理论源头" [ref=f7e45] [cursor=pointer]:
+            - /url: 12-tcm-neijing.html
+        - listitem [ref=f7e46]:
+          - link "十三、阴阳平衡与中医健康观" [ref=f7e47] [cursor=pointer]:
+            - /url: 13-tcm-yinyang-health.html
+        - listitem [ref=f7e48]:
+          - link "十四、藏象学说与五脏六腑" [ref=f7e49] [cursor=pointer]:
+            - /url: 14-tcm-zangfu.html
+        - listitem [ref=f7e50]:
+          - link "十五、经络系统与针灸理论" [ref=f7e51] [cursor=pointer]:
+            - /url: 15-tcm-jingluo.html
+        - listitem [ref=f7e52]:
+          - link "十六、病因病机与辨证论治" [ref=f7e53] [cursor=pointer]:
+            - /url: 16-tcm-bingyin.html
+        - listitem [ref=f7e54]:
+          - link "十七、中医理论学习路径" [ref=f7e55] [cursor=pointer]:
+            - /url: 17-tcm-summary.html
+        - listitem [ref=f7e56]: 第四部分 易经体系
+        - listitem [ref=f7e57]:
+          - link "十八、易经体系总论" [ref=f7e58] [cursor=pointer]:
+            - /url: 18-yijing-overview.html
+        - listitem [ref=f7e59]:
+          - link "十九、六十四卦详解" [ref=f7e60] [cursor=pointer]:
+            - /url: 19-yijing-hexagrams.html
+        - listitem [ref=f7e61]:
+          - link "二十、卦爻辞解读方法" [ref=f7e62] [cursor=pointer]:
+            - /url: 20-yijing-text-analysis.html
+        - listitem [ref=f7e63]:
+          - link "二十一、十翼与传注体系" [ref=f7e64] [cursor=pointer]:
+            - /url: 21-yijing-commentary.html
+        - listitem [ref=f7e65]:
+          - link "二十二、易经学习路径" [ref=f7e66] [cursor=pointer]:
+            - /url: 22-yijing-summary.html
+        - listitem [ref=f7e67]: 第五部分 道家理论
+        - listitem [ref=f7e68]:
+          - link "二十三、道家学派起源" [ref=f7e69] [cursor=pointer]:
+            - /url: 23-daoism-origins.html
+        - listitem [ref=f7e70]:
+          - link "二十四、道德经核心思想" [ref=f7e71] [cursor=pointer]:
+            - /url: 24-daodejing.html
+        - listitem [ref=f7e72]:
+          - link "二十五、庄子哲学" [ref=f7e73] [cursor=pointer]:
+            - /url: 25-zhuangzi.html
+        - listitem [ref=f7e74]:
+          - link "二十六、道家修养工夫" [ref=f7e75] [cursor=pointer]:
+            - /url: 26-daoism-gongfu.html
+        - listitem [ref=f7e76]:
+          - link "二十七、道家学习路径" [ref=f7e77] [cursor=pointer]:
+            - /url: 27-daoism-summary.html
+        - listitem [ref=f7e78]: 第六部分 儒家理论
+        - listitem [ref=f7e79]:
+          - link "二十八、儒家学派起源与孔子" [ref=f7e80] [cursor=pointer]:
+            - /url: 28-rujia-origins.html
+        - listitem [ref=f7e81]:
+          - link "二十九、孟子性善与仁政" [ref=f7e82] [cursor=pointer]:
+            - /url: 29-mengzi.html
+        - listitem [ref=f7e83]:
+          - link "三十、宋明理学发展" [ref=f7e84] [cursor=pointer]:
+            - /url: 30-songming-lixue.html
+        - listitem [ref=f7e85]:
+          - link "三十一、儒家学习路径" [ref=f7e86] [cursor=pointer]:
+            - /url: 31-rujia-summary.html
+  - main [ref=f7e87]:
+    - article [ref=f7e88]:
+      - generic [ref=f7e89]:
+        - generic [ref=f7e90]: 第一部分 八卦
+        - heading "一、八卦起源与演变概述" [level=1] [ref=f7e91]
+        - paragraph [ref=f7e92]: 八卦符号系统的起源、构成原理及其在中国古典学术中的核心地位
+      - heading "一、从一则历史故事说起" [level=2] [ref=f7e93]
+      - paragraph [ref=f7e94]: 公元前11世纪，商朝最后一位君主纣王在羑里囚禁了西伯侯姬昌。七年的幽禁之中，姬昌没有愤懑消沉，而是将毕生所学倾注于对古老八卦的推演之中。当他重出羑里时，八卦已从八个简单的自然象征，扩展为一个描述万事万物变化规律的宏大系统——六十四卦。这个故事虽然讲述的是文王的功绩，但它引出了八卦这个符号系统的根本问题：它从何而来？又是如何演变的？
+      - generic [ref=f7e95]:
+        - heading "二、核心概念详解" [level=2] [ref=f7e96]
+        - heading "二、核心概念详解" [level=2] [ref=f7e97]
+        - paragraph [ref=f7e98]: 八卦的基础单元是"爻"。"爻"者，交也，表示阴阳之交感。阳爻象征刚健、主动、光明、上升的力量；阴爻象征柔顺、被动、幽暗、下降的力量。八卦中每一卦由三条爻自下而上叠加而成，因此八卦本质上是用阴阳二爻的三种排列组合来表达八种不同的状态。
+        - paragraph [ref=f7e99]: 八卦的符号表示如下（从下到上依次为初爻、二爻、三爻）：
+        - table [ref=f7e100]:
+          - rowgroup [ref=f7e101]:
+            - row [ref=f7e102]:
+              - columnheader "卦名" [ref=f7e103]
+              - columnheader "符号" [ref=f7e104]
+              - columnheader "卦画" [ref=f7e105]
+              - columnheader "五行" [ref=f7e106]
+              - columnheader "方位" [ref=f7e107]
+              - columnheader "自然象征" [ref=f7e108]
+              - columnheader "人体部位" [ref=f7e109]
+          - rowgroup [ref=f7e110]:
+            - row [ref=f7e111]:
+              - cell [ref=f7e112]:
+                - strong [ref=f7e113]: 乾
+              - cell "☰" [ref=f7e114]
+              - cell "阳阳阳" [ref=f7e115]
+              - cell "金" [ref=f7e116]
+              - cell "西北" [ref=f7e117]
+              - cell "天" [ref=f7e118]
+              - cell "首（头）" [ref=f7e119]
+            - row [ref=f7e120]:
+              - cell [ref=f7e121]:
+                - strong [ref=f7e122]: 坤
+              - cell "☷" [ref=f7e123]
+              - cell "阴阴阴" [ref=f7e124]
+              - cell "土" [ref=f7e125]
+              - cell "西南" [ref=f7e126]
+              - cell "地" [ref=f7e127]
+              - cell "腹" [ref=f7e128]
+            - row [ref=f7e129]:
+              - cell [ref=f7e130]:
+                - strong [ref=f7e131]: 离
+              - cell "☲" [ref=f7e132]
+              - cell "阳阴阳" [ref=f7e133]
+              - cell "火" [ref=f7e134]
+              - cell "南" [ref=f7e135]
+              - cell "火" [ref=f7e136]
+              - cell "目" [ref=f7e137]
+            - row [ref=f7e138]:
+              - cell [ref=f7e139]:
+                - strong [ref=f7e140]: 坎
+              - cell "☵" [ref=f7e141]
+              - cell "阴阳阴" [ref=f7e142]
+              - cell "水" [ref=f7e143]
+              - cell "北" [ref=f7e144]
+              - cell "水" [ref=f7e145]
+              - cell "耳" [ref=f7e146]
+            - row [ref=f7e147]:
+              - cell [ref=f7e148]:
+                - strong [ref=f7e149]: 震
+              - cell "☳" [ref=f7e150]
+              - cell "阳阴阴" [ref=f7e151]
+              - cell "木" [ref=f7e152]
+              - cell "东" [ref=f7e153]
+              - cell "雷" [ref=f7e154]
+              - cell "足" [ref=f7e155]
+            - row [ref=f7e156]:
+              - cell [ref=f7e157]:
+                - strong [ref=f7e158]: 巽
+              - cell "☴" [ref=f7e159]
+              - cell "阴阳阳" [ref=f7e160]
+              - cell "木" [ref=f7e161]
+              - cell "东南" [ref=f7e162]
+              - cell "风" [ref=f7e163]
+              - cell "股" [ref=f7e164]
+            - row [ref=f7e165]:
+              - cell [ref=f7e166]:
+                - strong [ref=f7e167]: 艮
+              - cell "☶" [ref=f7e168]
+              - cell "阴阴阳" [ref=f7e169]
+              - cell "土" [ref=f7e170]
+              - cell "东北" [ref=f7e171]
+              - cell "山" [ref=f7e172]
+              - cell "手" [ref=f7e173]
+            - row [ref=f7e174]:
+              - cell [ref=f7e175]:
+                - strong [ref=f7e176]: 兑
+              - cell "☱" [ref=f7e177]
+              - cell "阳阳阴" [ref=f7e178]
+              - cell "金" [ref=f7e179]
+              - cell "西" [ref=f7e180]
+              - cell "泽" [ref=f7e181]
+              - cell "口" [ref=f7e182]
+        - paragraph [ref=f7e183]: 这个表格展示了八卦最基本的属性映射。值得注意的是，八卦的每一重属性都不是孤立存在的——它们通过五行、方位、季节、颜色、声音等维度形成一个相互关联的网络。理解这个网络，是进入中国古典思维的关键。
+        - heading "先天八卦与后天八卦" [level=3] [ref=f7e184]
+        - paragraph [ref=f7e185]: 八卦有两种经典的排列方式：先天八卦（又称伏羲八卦）和后天八卦（又称文王八卦）。它们的排列顺序不同，所代表的哲学含义也不同。
+        - paragraph [ref=f7e186]:
+          - strong [ref=f7e187]: 先天八卦
+          - text: 强调阴阳的对立统一和宇宙的原始状态。其排列为：乾南、坤北、离东、坎西、兑东南、艮西北、震东北、巽西南。先天八卦的核心思想是"对待"——即每一种力量都有其对立面，二者共同构成一个完整的系统。天与地对峙，火与水相望，山与泽呼应，雷与风相随。这种对称性反映了宇宙的基本秩序。
+        - generic [ref=f7e188]:
+          - img [ref=f7e189]:
+            - generic [ref=f7e192]: 南(S)
+            - generic [ref=f7e193]: ☰
+            - generic [ref=f7e194]: 乾
+            - generic [ref=f7e195]: 北(N)
+            - generic [ref=f7e196]: ☷
+            - generic [ref=f7e197]: 坤
+            - generic [ref=f7e198]: 东(E)
+            - generic [ref=f7e199]: ☲
+            - generic [ref=f7e200]: 离
+            - generic [ref=f7e201]: 西(W)
+            - generic [ref=f7e202]: ☵
+            - generic [ref=f7e203]: 坎
+            - generic [ref=f7e204]: 兑
+            - generic [ref=f7e205]: ☱
+            - generic [ref=f7e206]: 艮
+            - generic [ref=f7e207]: ☶
+            - generic [ref=f7e208]: 震
+            - generic [ref=f7e209]: ☳
+            - generic [ref=f7e210]: 巽
+            - generic [ref=f7e211]: ☴
+            - generic [ref=f7e212]: 太极
+          - generic [ref=f7e213]: 图1-1 先天八卦方位图：上南下北、左东右西。乾☰居南、坤☷居北、离☲居东、坎☵居西。
+        - paragraph [ref=f7e214]:
+          - strong [ref=f7e215]: 后天八卦
+          - text: 强调变化和流动，描述的是阴阳之气在时空中的运行规律。其排列为：离南、坎北、震东、兑西、巽东南、乾西北、坤西南、艮东北。后天八卦的核心思想是"流行"——即万物在时间和空间中的生长化收藏。春天雷动（震），夏天火盛（离），秋天金旺（兑），冬天水寒（坎），这是四季的流转；东北为岁终岁始之交（艮），西南为万物成熟之地（坤），西北为天门（乾），东南为地道（巽），这是方位的流转。
+        - generic [ref=f7e216]:
+          - img [ref=f7e217]:
+            - generic [ref=f7e220]: 南(S)
+            - generic [ref=f7e221]: ☲
+            - generic [ref=f7e222]: 离
+            - generic [ref=f7e223]: 北(N)
+            - generic [ref=f7e224]: ☵
+            - generic [ref=f7e225]: 坎
+            - generic [ref=f7e226]: 东(E)
+            - generic [ref=f7e227]: ☳
+            - generic [ref=f7e228]: 震
+            - generic [ref=f7e229]: 西(W)
+            - generic [ref=f7e230]: ☱
+            - generic [ref=f7e231]: 兑
+            - generic [ref=f7e232]: 巽
+            - generic [ref=f7e233]: ☴
+            - generic [ref=f7e234]: 坤
+            - generic [ref=f7e235]: ☷
+            - generic [ref=f7e236]: 艮
+            - generic [ref=f7e237]: ☶
+            - generic [ref=f7e238]: 乾
+            - generic [ref=f7e239]: ☰
+            - generic [ref=f7e240]: 太极
+          - generic [ref=f7e241]: 图1-2 后天八卦方位图：上南下北、左东右西。离☲居南、坎☵居北、震☳居东、兑☱居西。
+        - generic [ref=f7e242]:
+          - generic [ref=f7e243]:
+            - generic [ref=f7e244]: 
+            - text: 先天与后天的关系
+          - generic [ref=f7e245]: 先天八卦讲"体"（本体、静态结构），后天八卦讲"用"（应用、动态变化）。理解这一点，就能明白为什么宋代以后的易学家普遍认为：先天是体，后天是用；先天是本，后天是末。二者缺一不可。
+      - generic [ref=f7e246]:
+        - heading "三、深入理解" [level=2] [ref=f7e247]
+        - heading "八卦思想的演化历程" [level=3] [ref=f7e248]
+        - paragraph [ref=f7e249]: 八卦的思想经历了漫长的演化过程：
+        - list [ref=f7e250]:
+          - listitem [ref=f7e251]:
+            - strong [ref=f7e252]: 史前时期（约公元前6000年—前2000年）：
+            - text: 考古发现的彩陶纹饰中已出现类似八卦的符号，如甘肃大地湾遗址、河南仰韶文化遗址出土的陶器上刻有由三条线组成的符号。这些符号是否就是八卦的前身，学界仍有争论，但不可否认的是，先民们已经在使用三划符号来记录或表达某种信息。
+          - listitem [ref=f7e253]:
+            - strong [ref=f7e254]: 传说时代（约公元前2000年以前）：
+            - text: 据《易•系辞传》记载，"古者伏羲氏之王天下也，仰则观象于天，俯则观法于地，观鸟兽之文与地之宜，近取诸身，远取诸物，于是始作八卦。"伏羲画卦的传说，反映了八卦起源于对自然和人体的观察这一基本事实。
+          - listitem [ref=f7e255]:
+            - strong [ref=f7e256]: 商周之际（约公元前12世纪—前11世纪）：
+            - text: 周文王姬昌被囚于羑里（今河南汤阴），将八卦两两相重推演出六十四卦，并为每一卦撰写卦辞。这就是《周易》的雏形。
+          - listitem [ref=f7e257]:
+            - strong [ref=f7e258]: 春秋战国时期（约公元前8世纪—前3世纪）：
+            - text: 孔子及其后学撰写了"十翼"（又称《易传》），对八卦和六十四卦进行了系统的哲学阐释，使八卦从占卜之书升华为哲学经典。
+          - listitem [ref=f7e259]:
+            - strong [ref=f7e260]: 汉代以后：
+            - text: 八卦与阴阳五行、天干地支、天文历法紧密结合，形成了庞大的象数易学体系。同时，八卦也广泛应用于风水、命理、中医等领域。
+          - listitem [ref=f7e261]:
+            - strong [ref=f7e262]: 宋明时期：
+            - text: 周敦颐、邵雍、朱熹等大儒重新诠释八卦理论，建立了理学化的宇宙论体系。先天八卦图被赋予本体论意义，成为宋明理学的核心概念之一。
+        - paragraph [ref=f7e263]: 八卦思想蕴含以下几个核心哲学命题，它们构成了中国古典思维的底层逻辑：
+      - generic [ref=f7e264]:
+        - heading "四、在现代生活中的应用" [level=2] [ref=f7e265]
+        - paragraph [ref=f7e266]: 虽然八卦产生于数千年前的史前文明，但其思维方式在现代依然具有深刻的启示意义：
+        - generic [ref=f7e267]:
+          - generic [ref=f7e268]:
+            - generic [ref=f7e269]: 
+            - text: 命题一：象数思维
+          - generic [ref=f7e270]: 八卦不是抽象的逻辑符号，而是"象"（形象、意象）与"数"（数量、比例）的结合。每一卦都有其特定的形象和数值，通过取象比类的方法，可以将任何具体事物纳入八卦的分类体系中。这种思维方式强调直观把握而非形式推理。
+        - generic [ref=f7e271]:
+          - generic [ref=f7e272]:
+            - generic [ref=f7e273]: 
+            - text: 命题二：变易之道
+          - generic [ref=f7e274]: 八卦系统本质上是一个变化系统。阴阳爻的交替、卦与卦之间的转化，都体现了"变"的思想。《🨅🨁》之名本身就意味着"变化"。八卦告诉我们：变化是宇宙的根本法则，唯一不变的就是变化本身。
+        - generic [ref=f7e275]:
+          - generic [ref=f7e276]:
+            - generic [ref=f7e277]: 
+            - text: 命题三：天人合一
+          - generic [ref=f7e278]: 八卦将自然现象（天地水火风雷山泽）与人体部位、社会关系、道德品质一一对应，构建了一个天人相通的整体宇宙观。人不是自然之外的旁观者，而是自然的一部分；人的行为和命运与自然的变化息息相关。
+        - heading "四、在现代生活中的应用" [level=2] [ref=f7e282]
+        - paragraph [ref=f7e283]: 虽然八卦产生于数千年前的史前文明，但其思维方式在现代依然具有深刻的启示意义：
+        - list [ref=f7e284]:
+          - listitem [ref=f7e285]:
+            - strong [ref=f7e286]: 系统思维：
+            - text: 八卦将复杂的世界简化为八个基本要素及其相互作用，这与现代系统论中"用有限的基本变量描述无限复杂的系统"的思路高度一致。
+          - listitem [ref=f7e287]:
+            - strong [ref=f7e288]: 二进制思想：
+            - text: 德国哲学家莱布尼茨在发明二进制时，受到八卦阴阳爻的启发。阳爻代表1，阴爻代表0，八卦正是三位二进制数的八种组合。这一发现被认为是中西文化交流史上最重要的巧合之一。
+          - listitem [ref=f7e289]:
+            - strong [ref=f7e290]: 分类学方法：
+            - text: 八卦的分类框架被广泛应用于中医、风水、命理等领域，提供了一种跨学科的分类工具。
+          - listitem [ref=f7e291]:
+            - strong [ref=f7e292]: 商业决策：
+            - text: 现代管理学借鉴八卦的辩证思维，在分析市场局势时同时考虑对立统一的多个维度（供给与需求、竞争与合作、内部与外部），形成更加全面的战略判断。
+          - listitem [ref=f7e293]:
+            - strong [ref=f7e294]: 心理学应用：
+            - text: 荣格心理学中的"共时性"概念与八卦的象征思维有异曲同工之妙。当代认知科学也在研究人类如何像八卦系统一样，用有限的原型来理解和组织无限的经验。
+      - generic [ref=f7e295]:
+        - heading "五、延伸阅读与思考" [level=2] [ref=f7e296]
+        - generic [ref=f7e297]:
+          - link "☸ 伏羲画卦与上古传说 八卦创造的传说背景与伏羲的认识论方法" [ref=f7e298] [cursor=pointer]:
+            - /url: 02-fuxi-shennong.html
+            - generic [ref=f7e299]: ☸
+            - generic [ref=f7e300]:
+              - strong [ref=f7e301]: 伏羲画卦与上古传说
+              - text: 八卦创造的传说背景与伏羲的认识论方法
+          - link "📜 文王演周易 八卦如何发展为六十四卦体系" [ref=f7e302] [cursor=pointer]:
+            - /url: 03-zhouyi-wenwang.html
+            - generic [ref=f7e303]: 📜
+            - generic [ref=f7e304]:
+              - strong [ref=f7e305]: 文王演周易
+              - text: 八卦如何发展为六十四卦体系
+          - link "⚗ 八卦象数体系 八卦的取象比类方法与数理基础" [ref=f7e306] [cursor=pointer]:
+            - /url: 04-bagua-xiangshu.html
+            - generic [ref=f7e307]: ⚗
+            - generic [ref=f7e308]:
+              - strong [ref=f7e309]: 八卦象数体系
+              - text: 八卦的取象比类方法与数理基础
+          - link "☯ 阴阳概念本源 八卦的阴阳爻是阴阳思想的符号表达" [ref=f7e310] [cursor=pointer]:
+            - /url: 06-yinyang-benyuan.html
+            - generic [ref=f7e311]: ☯
+            - generic [ref=f7e312]:
+              - strong [ref=f7e313]: 阴阳概念本源
+              - text: 八卦的阴阳爻是阴阳思想的符号表达
+          - link "⚕ 中医理论基础 八卦象数体系与中医藏象学说的内在联系" [ref=f7e314] [cursor=pointer]:
+            - /url: 12-tcm-neijing.html
+            - generic [ref=f7e315]: ⚕
+            - generic [ref=f7e316]:
+              - strong [ref=f7e317]: 中医理论基础
+              - text: 八卦象数体系与中医藏象学说的内在联系
+          - link "☰ 易经六十四卦 八卦两两相重推演出六十四卦" [ref=f7e318] [cursor=pointer]:
+            - /url: 18-yijing-overview.html
+            - generic [ref=f7e319]: ☰
+            - generic [ref=f7e320]:
+              - strong [ref=f7e321]: 易经六十四卦
+              - text: 八卦两两相重推演出六十四卦
+        - generic [ref=f7e322]:
+          - heading " 思考题" [level=3] [ref=f7e323]:
+            - generic [ref=f7e324]: 
+            - text: 思考题
+          - list [ref=f7e325]:
+            - listitem [ref=f7e326]: 先天八卦与后天八卦的核心区别是什么？它们各自适用于哪些场景？
+            - listitem [ref=f7e327]: 八卦分类法与现代科学中的分类方法有什么异同？你能想到哪些例子？
+            - listitem [ref=f7e328]: 莱布尼茨在西方独立发明二进制时恰好接触到了八卦图，这究竟是巧合还是东西方思维存在深层共鸣？
+        - generic [ref=f7e329]:
+          - heading " 进一步阅读" [level=3] [ref=f7e330]:
+            - generic [ref=f7e331]: 
+            - text: 进一步阅读
+          - list [ref=f7e332]:
+            - listitem [ref=f7e333]: 《周易译注》黄寿祺、张善文，上海古籍出版社
+            - listitem [ref=f7e334]: 《中国哲学简史》冯友兰，北京大学出版社
+            - listitem [ref=f7e335]: 《易图明辨》胡渭，中华书局
+  - contentinfo [ref=f7e336]:
+    - link " 目录" [ref=f7e337] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f7e338]: 
+      - text: 目录
+    - generic [ref=f7e339]: 1 / 31
+    - link "伏羲画卦与上古传说 " [ref=f7e340] [cursor=pointer]:
+      - /url: 02-fuxi-shennong.html
+      - text: 伏羲画卦与上古传说
+      - generic [ref=f7e341]: 

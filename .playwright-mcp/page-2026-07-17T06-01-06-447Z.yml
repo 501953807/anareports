@@ -1,0 +1,324 @@
+- generic [active] [ref=f12e1]:
+  - navigation [ref=f12e2]:
+    - text: 
+    - generic [ref=f12e3]:
+      - link " 重庆产业全景分析与未来展望" [ref=f12e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f12e5]: 
+        - text: 重庆产业全景分析与未来展望
+      - generic [ref=f12e6]: /
+      - generic [ref=f12e7]: 六、GDP 总量与增速全国排名
+    - generic [ref=f12e8]:
+      - link " 目录" [ref=f12e9] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f12e10]: 
+        - text: 目录
+      - link "前一章 " [ref=f12e11] [cursor=pointer]:
+        - /url: 05-chengdu-chongqing-population.html
+        - text: 前一章
+        - generic [ref=f12e12]: 
+      - link "后一章 " [ref=f12e13] [cursor=pointer]:
+        - /url: 07-industry-structure.html
+        - text: 后一章
+        - generic [ref=f12e14]: 
+  - complementary [ref=f12e15]:
+    - generic [ref=f12e16]:
+      - heading "重庆产业全景分析与未来展望" [level=3] [ref=f12e17]
+      - button "Close sidebar" [ref=f12e18]:
+        - generic [ref=f12e19]: 
+    - navigation [ref=f12e20]:
+      - list [ref=f12e21]:
+        - listitem [ref=f12e22]: 第一部分 人口与劳动力
+        - listitem [ref=f12e23]:
+          - link "一、常住人口规模与变化趋势" [ref=f12e24] [cursor=pointer]:
+            - /url: 01-demographic-overview.html
+        - listitem [ref=f12e25]:
+          - link "二、户籍人口 vs 常住人口的剪刀差" [ref=f12e26] [cursor=pointer]:
+            - /url: 02-hukou-vs-resident.html
+        - listitem [ref=f12e27]:
+          - link "三、劳动力年龄结构与技能分布" [ref=f12e28] [cursor=pointer]:
+            - /url: 03-labor-structure.html
+        - listitem [ref=f12e29]:
+          - link "四、人才流失与回流博弈" [ref=f12e30] [cursor=pointer]:
+            - /url: 04-talent-flow.html
+        - listitem [ref=f12e31]:
+          - link "五、成渝双城人口红利对比" [ref=f12e32] [cursor=pointer]:
+            - /url: 05-chengdu-chongqing-population.html
+        - listitem [ref=f12e33]: 第二部分 经济规模与产业地位
+        - listitem [ref=f12e34]:
+          - link "六、GDP 总量与增速全国排名" [ref=f12e35] [cursor=pointer]:
+            - /url: 06-gdp-scale.html
+        - listitem [ref=f12e36]:
+          - link "七、三大产业结构演变" [ref=f12e37] [cursor=pointer]:
+            - /url: 07-industry-structure.html
+        - listitem [ref=f12e38]:
+          - link "八、人均 GDP 与全国均值差距" [ref=f12e39] [cursor=pointer]:
+            - /url: 08-per-capita-gdp.html
+        - listitem [ref=f12e40]:
+          - link "九、西部第一城地位之争" [ref=f12e41] [cursor=pointer]:
+            - /url: 09-western-first-city.html
+        - listitem [ref=f12e42]:
+          - link "十、经济韧性指数" [ref=f12e43] [cursor=pointer]:
+            - /url: 10-economic-resilience.html
+        - listitem [ref=f12e44]: 第三部分 产业优势与核心竞争力
+        - listitem [ref=f12e45]:
+          - link "十一、汽车制造：长安+赛力斯双引擎" [ref=f12e46] [cursor=pointer]:
+            - /url: 11-auto-manufacturing.html
+        - listitem [ref=f12e47]:
+          - link "十二、电子信息：全球笔电基地" [ref=f12e48] [cursor=pointer]:
+            - /url: 12-electronics.html
+        - listitem [ref=f12e49]:
+          - link "十三、装备制造与化工冶金" [ref=f12e50] [cursor=pointer]:
+            - /url: 13-equipment-manufacturing.html
+        - listitem [ref=f12e51]:
+          - link "十四、新兴产业布局" [ref=f12e52] [cursor=pointer]:
+            - /url: 14-emerging-industries.html
+        - listitem [ref=f12e53]:
+          - link "十五、产业链完整度评估" [ref=f12e54] [cursor=pointer]:
+            - /url: 15-industry-chain-analysis.html
+        - listitem [ref=f12e55]: 第四部分 下行周期优劣势分析
+        - listitem [ref=f12e56]:
+          - link "十六、通缩环境下的消费疲软" [ref=f12e57] [cursor=pointer]:
+            - /url: 16-deflation-consumer.html
+        - listitem [ref=f12e58]:
+          - link "十七、房地产拖累与土地财政依赖" [ref=f12e59] [cursor=pointer]:
+            - /url: 17-real-estate-drags.html
+        - listitem [ref=f12e60]:
+          - link "十八、地方债务压力测试" [ref=f12e61] [cursor=pointer]:
+            - /url: 18-local-debt-risk.html
+        - listitem [ref=f12e62]:
+          - link "十九、政策红利对冲" [ref=f12e63] [cursor=pointer]:
+            - /url: 19-policy-dividends.html
+        - listitem [ref=f12e64]:
+          - link "二十、内陆开放优势" [ref=f12e65] [cursor=pointer]:
+            - /url: 20-inland-opening.html
+        - listitem [ref=f12e66]: 第五部分 底层民生与地区限制
+        - listitem [ref=f12e67]:
+          - link "二十一、居民收入水平" [ref=f12e68] [cursor=pointer]:
+            - /url: 21-income-levels.html
+        - listitem [ref=f12e69]:
+          - link "二十二、房价收入比" [ref=f12e70] [cursor=pointer]:
+            - /url: 22-housing-affordability.html
+        - listitem [ref=f12e71]:
+          - link "二十三、就业质量与结构性矛盾" [ref=f12e72] [cursor=pointer]:
+            - /url: 23-employment-quality.html
+        - listitem [ref=f12e73]:
+          - link "二十四、教育医疗资源" [ref=f12e74] [cursor=pointer]:
+            - /url: 24-public-services.html
+        - listitem [ref=f12e75]:
+          - link "二十五、城乡差距与区县分化" [ref=f12e76] [cursor=pointer]:
+            - /url: 25-urban-rural-difference.html
+        - listitem [ref=f12e77]: 第六部分 未来展望与数据预言
+        - listitem [ref=f12e78]:
+          - link "二十六、2027-2030 GDP 预测" [ref=f12e79] [cursor=pointer]:
+            - /url: 26-2030-predictions.html
+        - listitem [ref=f12e80]:
+          - link "二十七、成渝双城经济圈战略" [ref=f12e81] [cursor=pointer]:
+            - /url: 27-chengdu-chongqing-circle.html
+        - listitem [ref=f12e82]:
+          - link "二十八、一带一路与 RCEP 机遇" [ref=f12e83] [cursor=pointer]:
+            - /url: 28-belt-road-rcep.html
+        - listitem [ref=f12e84]:
+          - link "二十九、风险预警清单" [ref=f12e85] [cursor=pointer]:
+            - /url: 29-risk-warnings.html
+        - listitem [ref=f12e86]:
+          - link "三十、投资者/创业者行动建议" [ref=f12e87] [cursor=pointer]:
+            - /url: 30-action-guide.html
+        - listitem [ref=f12e88]:
+          - link "三十一、总结与持续观察指标" [ref=f12e89] [cursor=pointer]:
+            - /url: 31-summary-future.html
+  - main [ref=f12e90]:
+    - article [ref=f12e91]:
+      - generic [ref=f12e92]:
+        - text: 第二部分 经济规模与产业地位
+        - heading "六、GDP 总量与增速全国排名" [level=1] [ref=f12e93]
+        - paragraph [ref=f12e94]: 2024年重庆GDP总量约3.01万亿元，在全国省级行政区中排名第10位。过去十年经历了从高速增长到增速换挡的完整周期。本章梳理重庆GDP的演变轨迹、全国排名变化及其背后的产业结构逻辑。
+      - generic [ref=f12e95]:
+        - heading "一、从一则真实故事说起" [level=2] [ref=f12e96]
+        - paragraph [ref=f12e97]: 2010年，赵建国从广东深圳回到重庆，在渝北区开了一家电子配件加工厂。当时重庆GDP刚突破5000亿元，在全国排名约第20位。赵建国选择回渝创业，看中的是重庆低廉的土地和劳动力成本，以及西部大开发的税收优惠政策。到2019年，他的工厂年产值达到2亿元，雇佣了300多名员工——这正是重庆制造业黄金十年的缩影。然而2020年后，随着疫情冲击、中美贸易摩擦加剧和全球产业链重构，赵建国的订单量大幅波动，他深刻感受到了经济增长换挡期的阵痛。
+      - generic [ref=f12e98]:
+        - heading "二、核心概念详解" [level=2] [ref=f12e99]
+        - heading "GDP总量与排名的十年演变" [level=3] [ref=f12e100]
+        - table [ref=f12e101]:
+          - rowgroup [ref=f12e102]:
+            - row [ref=f12e103]:
+              - columnheader "年份" [ref=f12e104]
+              - columnheader "GDP（亿元）" [ref=f12e105]
+              - columnheader "增速（%）" [ref=f12e106]
+              - columnheader "全国排名" [ref=f12e107]
+              - columnheader "占全国比重（%）" [ref=f12e108]
+          - rowgroup [ref=f12e109]:
+            - row [ref=f12e110]:
+              - cell "2015" [ref=f12e111]
+              - cell "20517" [ref=f12e112]
+              - cell "9.7" [ref=f12e113]
+              - cell "17" [ref=f12e114]
+              - cell "2.35" [ref=f12e115]
+            - row [ref=f12e116]:
+              - cell "2016" [ref=f12e117]
+              - cell "22821" [ref=f12e118]
+              - cell "8.8" [ref=f12e119]
+              - cell "16" [ref=f12e120]
+              - cell "2.52" [ref=f12e121]
+            - row [ref=f12e122]:
+              - cell "2017" [ref=f12e123]
+              - cell "25034" [ref=f12e124]
+              - cell "9.3" [ref=f12e125]
+              - cell "15" [ref=f12e126]
+              - cell "2.68" [ref=f12e127]
+            - row [ref=f12e128]:
+              - cell "2018" [ref=f12e129]
+              - cell "26412" [ref=f12e130]
+              - cell "6.0" [ref=f12e131]
+              - cell "14" [ref=f12e132]
+              - cell "2.66" [ref=f12e133]
+            - row [ref=f12e134]:
+              - cell "2019" [ref=f12e135]
+              - cell "23605" [ref=f12e136]
+              - cell "6.3" [ref=f12e137]
+              - cell "14" [ref=f12e138]
+              - cell "2.42" [ref=f12e139]
+            - row [ref=f12e140]:
+              - cell "2020" [ref=f12e141]
+              - cell "25002" [ref=f12e142]
+              - cell "3.7" [ref=f12e143]
+              - cell "13" [ref=f12e144]
+              - cell "2.39" [ref=f12e145]
+            - row [ref=f12e146]:
+              - cell "2021" [ref=f12e147]
+              - cell "27894" [ref=f12e148]
+              - cell "8.3" [ref=f12e149]
+              - cell "12" [ref=f12e150]
+              - cell "2.44" [ref=f12e151]
+            - row [ref=f12e152]:
+              - cell "2022" [ref=f12e153]
+              - cell "29129" [ref=f12e154]
+              - cell "2.6" [ref=f12e155]
+              - cell "11" [ref=f12e156]
+              - cell "2.46" [ref=f12e157]
+            - row [ref=f12e158]:
+              - cell "2023" [ref=f12e159]
+              - cell "30146" [ref=f12e160]
+              - cell "6.1" [ref=f12e161]
+              - cell "10" [ref=f12e162]
+              - cell "2.47" [ref=f12e163]
+            - row [ref=f12e164]:
+              - cell "2024" [ref=f12e165]
+              - cell "30138" [ref=f12e166]
+              - cell "5.3" [ref=f12e167]
+              - cell "10" [ref=f12e168]
+              - cell "2.43" [ref=f12e169]
+        - paragraph [ref=f12e170]: 数据来源：重庆市统计局年度统计公报、国家统计局
+        - heading "增速的三个阶段" [level=3] [ref=f12e171]
+        - list [ref=f12e172]:
+          - listitem [ref=f12e173]:
+            - strong [ref=f12e174]: 高速扩张期（2015-2017）：
+            - text: 年均增速超过9%，主要得益于基础设施投资爆发式增长和电子信息产业的快速崛起。
+          - listitem [ref=f12e175]:
+            - strong [ref=f12e176]: 换挡调整期（2018-2022）：
+            - text: 增速回落至3-6%区间，供给侧结构性改革和环保政策收紧带来阵痛，疫情进一步拖累增长。
+          - listitem [ref=f12e177]:
+            - strong [ref=f12e178]: 企稳回升期（2023-2024）：
+            - text: 增速恢复至5-6%，新能源汽车等新兴产业成为新增长点。
+      - generic [ref=f12e182]:
+        - heading "三、深入理解" [level=2] [ref=f12e183]
+        - heading "全国排名第10位的意义" [level=3] [ref=f12e184]
+        - paragraph [ref=f12e185]: 重庆在全国省级行政区中排名第10位，位于湖北之后、天津之前。这个排名的背后有几个关键因素：
+        - generic [ref=f12e186]:
+          - generic [ref=f12e187]:
+            - generic [ref=f12e188]: 
+            - text: 行政区划的特殊性
+          - generic [ref=f12e189]: 重庆的GDP总量中包含大量农村地区（面积8.24万平方公里，其中农村占70%以上）。如果仅计算主城都市区（约2.87万平方公里），其经济密度将大幅提升。因此，单纯用总量排名来衡量重庆的经济实力有一定局限性。
+        - generic [ref=f12e190]:
+          - generic [ref=f12e191]:
+            - generic [ref=f12e192]: 
+            - text: 增速换挡的必然性
+          - generic [ref=f12e193]: 作为后发地区，重庆在基础设施大规模建设和产业转移承接阶段具有"追赶效应"，增速可以显著高于全国平均。但随着经济体量增大和基数提高，增速自然回落至潜在增长率附近（约4-6%）。这是所有发展中经济体的共同规律。
+        - heading "与全国平均增速的比较" [level=3] [ref=f12e194]
+        - table [ref=f12e195]:
+          - rowgroup [ref=f12e196]:
+            - row [ref=f12e197]:
+              - columnheader "时期" [ref=f12e198]
+              - columnheader "重庆年均增速" [ref=f12e199]
+              - columnheader "全国年均增速" [ref=f12e200]
+              - columnheader "差值" [ref=f12e201]
+          - rowgroup [ref=f12e202]:
+            - row [ref=f12e203]:
+              - cell "2015-2019" [ref=f12e204]
+              - cell "7.8%" [ref=f12e205]
+              - cell "6.7%" [ref=f12e206]
+              - cell "+1.1pp" [ref=f12e207]
+            - row [ref=f12e208]:
+              - cell "2020-2022" [ref=f12e209]
+              - cell "4.7%" [ref=f12e210]
+              - cell "4.6%" [ref=f12e211]
+              - cell "+0.1pp" [ref=f12e212]
+            - row [ref=f12e213]:
+              - cell "2023-2024" [ref=f12e214]
+              - cell "5.7%" [ref=f12e215]
+              - cell "5.2%" [ref=f12e216]
+              - cell "+0.5pp" [ref=f12e217]
+        - paragraph [ref=f12e218]: 数据来源：重庆市统计局、国家统计局
+      - generic [ref=f12e219]:
+        - heading "四、在现代生活中的应用" [level=2] [ref=f12e220]
+        - paragraph [ref=f12e221]: GDP总量的变化直接影响重庆的产业投资环境和居民收入水平。
+        - generic [ref=f12e222]:
+          - generic [ref=f12e223]:
+            - generic [ref=f12e224]: 
+            - text: 投资环境的变化
+          - paragraph [ref=f12e226]: GDP总量突破3万亿使重庆成为外资企业布局西部的首选城市之一。2024年实际利用外资约80亿美元，同比增长12%。世界500强企业中有280家在渝投资，但相比成都（332家）仍有差距。GDP增速放缓也导致部分中小企业投资意愿下降，2024年民间投资增速仅为1.2%，远低于国有投资的8.5%。
+        - generic [ref=f12e227]:
+          - generic [ref=f12e228]:
+            - generic [ref=f12e229]: 
+            - text: 警惕"GDP幻觉"
+          - generic [ref=f12e230]: 重庆3万亿的GDP总量背后有行政区划因素——2015年重庆面积扩大了近4倍（原重庆直辖市+原四川省东部4地市）。如果仅比较原重庆辖区，其实际经济规模远小于表面数据。分析时应更多关注人均GDP和劳动生产率等质量指标。
+      - generic [ref=f12e231]:
+        - heading "五、延伸阅读与思考" [level=2] [ref=f12e232]
+        - generic [ref=f12e233]:
+          - link " 三大产业结构演变 GDP增长的产业来源分析" [ref=f12e234] [cursor=pointer]:
+            - /url: 07-industry-structure.html
+            - generic [ref=f12e235]: 
+            - generic [ref=f12e237]:
+              - strong [ref=f12e238]: 三大产业结构演变
+              - text: GDP增长的产业来源分析
+          - link " 人均 GDP 与全国均值差距 总量之外的质量维度" [ref=f12e239] [cursor=pointer]:
+            - /url: 08-per-capita-gdp.html
+            - generic [ref=f12e240]: 
+            - generic [ref=f12e242]:
+              - strong [ref=f12e243]: 人均 GDP 与全国均值差距
+              - text: 总量之外的质量维度
+          - link " 西部第一城地位之争 重庆vs成都的经济总量对比" [ref=f12e244] [cursor=pointer]:
+            - /url: 09-western-first-city.html
+            - generic [ref=f12e245]: 
+            - generic [ref=f12e247]:
+              - strong [ref=f12e248]: 西部第一城地位之争
+              - text: 重庆vs成都的经济总量对比
+        - generic [ref=f12e249]:
+          - heading " 思考题" [level=3] [ref=f12e250]:
+            - generic [ref=f12e251]: 
+            - text: 思考题
+          - list [ref=f12e252]:
+            - listitem [ref=f12e253]: 重庆GDP总量第10位，但人均GDP仅全国第22位左右。这种"总量大、人均低"的格局如何评价？
+            - listitem [ref=f12e254]: 在增速换挡期，重庆应该追求GDP总量还是发展质量？为什么？
+            - listitem [ref=f12e255]: 民间投资增速仅1.2%，反映出什么深层次问题？如何提振民营信心？
+        - generic [ref=f12e256]:
+          - heading " 进一步阅读" [level=3] [ref=f12e257]:
+            - generic [ref=f12e258]: 
+            - text: 进一步阅读
+          - list [ref=f12e259]:
+            - listitem [ref=f12e260]: 《重庆统计年鉴2025》—— 重庆市统计局
+            - listitem [ref=f12e261]: 《中国区域经济统计年鉴2024》—— 中国统计出版社
+  - contentinfo [ref=f12e262]:
+    - link " 成渝双城人口红利对比" [ref=f12e263] [cursor=pointer]:
+      - /url: 05-chengdu-chongqing-population.html
+      - generic [ref=f12e264]: 
+      - text: 成渝双城人口红利对比
+    - link " 目录" [ref=f12e265] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f12e266]: 
+      - text: 目录
+    - generic [ref=f12e267]: 7 / 31
+    - link "三大产业结构演变 " [ref=f12e268] [cursor=pointer]:
+      - /url: 07-industry-structure.html
+      - text: 三大产业结构演变
+      - generic [ref=f12e269]: 

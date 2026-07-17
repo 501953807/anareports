@@ -1,0 +1,396 @@
+- generic [active] [ref=f9e1]:
+  - navigation [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link " 地下钱庄与洗钱" [ref=f9e4] [cursor=pointer]:
+        - /url: ../index.html
+        - generic [ref=f9e5]: 
+        - text: 地下钱庄与洗钱
+      - generic [ref=f9e6]: /
+      - generic [ref=f9e7]: 1.1 全球洗钱规模与趋势
+    - generic [ref=f9e8]:
+      - text: 
+      - link " 目录" [ref=f9e9] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f9e10]: 
+        - text: 目录
+  - complementary [ref=f9e11]:
+    - heading " 目录" [level=3] [ref=f9e12]:
+      - generic [ref=f9e13]: 
+      - text: 目录
+    - list [ref=f9e14]:
+      - listitem [ref=f9e15]: 第一部分：全球概览
+      - listitem [ref=f9e16]:
+        - link "1.1 全球洗钱规模与趋势" [ref=f9e17] [cursor=pointer]:
+          - /url: 01-global-scale.html
+      - listitem [ref=f9e18]:
+        - link "1.2 各国执法数据对比" [ref=f9e19] [cursor=pointer]:
+          - /url: 02-enforcement-data.html
+      - listitem [ref=f9e20]:
+        - link "1.3 重大罚款案例" [ref=f9e21] [cursor=pointer]:
+          - /url: 03-major-fines.html
+      - listitem [ref=f9e22]: 第二部分：十大洗钱渠道深度解析
+      - listitem [ref=f9e23]:
+        - link "2.1 地下钱庄对敲模式" [ref=f9e24] [cursor=pointer]:
+          - /url: 10-underground-banks.html
+      - listitem [ref=f9e25]:
+        - link "2.2 哈瓦拉体系" [ref=f9e26] [cursor=pointer]:
+          - /url: 11-hawala.html
+      - listitem [ref=f9e27]:
+        - link "2.3 虚拟币混币/跨链" [ref=f9e28] [cursor=pointer]:
+          - /url: 12-crypto-mixer.html
+      - listitem [ref=f9e29]:
+        - link "2.4 链上犯罪/DeFi Exploit" [ref=f9e30] [cursor=pointer]:
+          - /url: 13-defend-exploit.html
+      - listitem [ref=f9e31]:
+        - link "2.5 贸易洗钱TBML" [ref=f9e32] [cursor=pointer]:
+          - /url: 14-tbml.html
+      - listitem [ref=f9e33]:
+        - link "2.6 离岸空壳公司嵌套" [ref=f9e34] [cursor=pointer]:
+          - /url: 15-shell-company.html
+      - listitem [ref=f9e35]:
+        - link "2.7 现金密集型洗钱" [ref=f9e36] [cursor=pointer]:
+          - /url: 16-cash-intensive.html
+      - listitem [ref=f9e37]:
+        - link "2.8 AI赋能洗钱" [ref=f9e38] [cursor=pointer]:
+          - /url: 17-ai-money.html
+      - listitem [ref=f9e39]:
+        - link "2.9 杀猪盘/电诈资金出境" [ref=f9e40] [cursor=pointer]:
+          - /url: 18-sea-fraud.html
+      - listitem [ref=f9e41]:
+        - link "2.10 稳定币洗钱通道" [ref=f9e42] [cursor=pointer]:
+          - /url: 19-stablecoin.html
+      - listitem [ref=f9e43]: 第三部分：传统洗钱手法
+      - listitem [ref=f9e44]:
+        - link "3.1 经典三步法" [ref=f9e45] [cursor=pointer]:
+          - /url: 20-three-phases.html
+      - listitem [ref=f9e46]:
+        - link "3.2 赌场/贵金属/钻石洗钱" [ref=f9e47] [cursor=pointer]:
+          - /url: 21-special-methods.html
+      - listitem [ref=f9e48]: 第四部分：加密洗钱深度专题
+      - listitem [ref=f9e49]:
+        - link "4.1 各币种洗钱特性对比" [ref=f9e50] [cursor=pointer]:
+          - /url: 30-crypto-compare.html
+      - listitem [ref=f9e51]:
+        - link "4.2 隐私币XMR深度解析" [ref=f9e52] [cursor=pointer]:
+          - /url: 31-monero.html
+      - listitem [ref=f9e53]:
+        - link "4.3 全球加密监管新规" [ref=f9e54] [cursor=pointer]:
+          - /url: 32-regulations.html
+      - listitem [ref=f9e55]: 第五部分：执法与合规
+      - listitem [ref=f9e56]:
+        - link "5.1 全球执法时间线" [ref=f9e57] [cursor=pointer]:
+          - /url: 40-timeline.html
+      - listitem [ref=f9e58]:
+        - link "5.2 高风险信号识别" [ref=f9e59] [cursor=pointer]:
+          - /url: 41-risk-signals.html
+      - listitem [ref=f9e60]:
+        - link "5.3 AML系统建设指南" [ref=f9e61] [cursor=pointer]:
+          - /url: 42-aml-system.html
+  - main [ref=f9e62]:
+    - heading "1.1 全球洗钱规模与历史趋势" [level=1] [ref=f9e63]
+    - generic [ref=f9e64]: 根据国际货币基金组织(IMF)和FATF估计，全球洗钱规模每年在$8万亿-$20万亿美元之间，相当于全球GDP的2%-5%。这一估算涵盖所有形式的洗钱活动，包括毒品犯罪、腐败、欺诈、税务犯罪等有罪收益的清洗。
+    - heading "洗钱规模的估算方法论" [level=2] [ref=f9e65]
+    - paragraph [ref=f9e66]: 洗钱规模的估算极其困难，因为洗钱本身就是非法的、隐蔽的活动。主要方法包括：
+    - table [ref=f9e67]:
+      - rowgroup [ref=f9e68]:
+        - row [ref=f9e69]:
+          - columnheader "方法" [ref=f9e70]
+          - columnheader "原理" [ref=f9e71]
+          - columnheader "优点" [ref=f9e72]
+          - columnheader "局限" [ref=f9e73]
+          - columnheader "深度解读" [ref=f9e74]
+      - rowgroup [ref=f9e75]:
+        - row [ref=f9e76]:
+          - cell "货币需求法(MMA)" [ref=f9e77]
+          - cell "估算犯罪者为持有非法货币而愿意提供的商品和服务量" [ref=f9e78]
+          - cell "理论框架成熟" [ref=f9e79]
+          - cell "依赖大量假设" [ref=f9e80]
+          - cell "MMA隐含\"黑市是外生给定\"的假设，但演化经济学证明洗钱渠道会内生创新以适应监管压力" [ref=f9e81]
+        - row [ref=f9e82]:
+          - cell "基础投入法" [ref=f9e83]
+          - cell "根据洗钱所需的基础设施(银行、律师、会计师)规模推算" [ref=f9e84]
+          - cell "可交叉验证" [ref=f9e85]
+          - cell "难以获取准确数据" [ref=f9e86]
+          - cell "基础投入法低估了\"去中心化洗钱\"——DeFi和AI工具使个体无需专业机构即可完成复杂洗钱" [ref=f9e87]
+        - row [ref=f9e88]:
+          - cell "剩余法" [ref=f9e89]
+          - cell "从GDP统计中\"剩余\"出不合常理的资金流" [ref=f9e90]
+          - cell "数据可得" [ref=f9e91]
+          - cell "混杂合法因素" [ref=f9e92]
+          - cell "剩余法的根本问题是：当洗钱规模占GDP 3%时，它已不是\"剩余\"而是系统性偏差，会扭曲所有宏观统计" [ref=f9e93]
+        - row [ref=f9e94]:
+          - cell "查获 extrapolation" [ref=f9e95]
+          - cell "根据查获案件量按查获率倒数推算总量" [ref=f9e96]
+          - cell "基于实际数据" [ref=f9e97]
+          - cell "查获率极不确定" [ref=f9e98]
+          - cell "查获率假设服从泊松分布，但洗钱网络具有\"无标度网络\"特征——少数枢纽处理大量资金，导致外推严重偏低" [ref=f9e99]
+    - heading "全球洗钱规模趋势 (2015-2026)" [level=2] [ref=f9e100]
+    - table [ref=f9e101]:
+      - rowgroup [ref=f9e102]:
+        - row [ref=f9e103]:
+          - columnheader "年份" [ref=f9e104]
+          - columnheader "下限($B)" [ref=f9e105]
+          - columnheader "上限($B)" [ref=f9e106]
+          - columnheader "中值($B)" [ref=f9e107]
+          - columnheader "占全球GDP%" [ref=f9e108]
+      - rowgroup [ref=f9e109]:
+        - row [ref=f9e110]:
+          - cell "2015" [ref=f9e111]
+          - cell "$6,400" [ref=f9e112]
+          - cell "$16,000" [ref=f9e113]
+          - cell "$11,200" [ref=f9e114]
+          - cell "2.0-2.5%" [ref=f9e115]
+        - row [ref=f9e116]:
+          - cell "2016" [ref=f9e117]
+          - cell "$7,000" [ref=f9e118]
+          - cell "$17,500" [ref=f9e119]
+          - cell "$12,250" [ref=f9e120]
+          - cell "2.0-2.5%" [ref=f9e121]
+        - row [ref=f9e122]:
+          - cell "2017" [ref=f9e123]
+          - cell "$7,500" [ref=f9e124]
+          - cell "$18,750" [ref=f9e125]
+          - cell "$13,125" [ref=f9e126]
+          - cell "2.0-2.6%" [ref=f9e127]
+        - row [ref=f9e128]:
+          - cell "2018" [ref=f9e129]
+          - cell "$8,000" [ref=f9e130]
+          - cell "$20,000" [ref=f9e131]
+          - cell "$14,000" [ref=f9e132]
+          - cell "2.0-2.6%" [ref=f9e133]
+        - row [ref=f9e134]:
+          - cell "2019" [ref=f9e135]
+          - cell "$8,500" [ref=f9e136]
+          - cell "$21,250" [ref=f9e137]
+          - cell "$14,875" [ref=f9e138]
+          - cell "2.0-2.7%" [ref=f9e139]
+        - row [ref=f9e140]:
+          - cell "2020" [ref=f9e141]
+          - cell "$9,000" [ref=f9e142]
+          - cell "$22,500" [ref=f9e143]
+          - cell "$15,750" [ref=f9e144]
+          - cell "2.0-2.8%" [ref=f9e145]
+        - row [ref=f9e146]:
+          - cell "2021" [ref=f9e147]
+          - cell "$9,500" [ref=f9e148]
+          - cell "$23,750" [ref=f9e149]
+          - cell "$16,625" [ref=f9e150]
+          - cell "2.0-2.8%" [ref=f9e151]
+        - row [ref=f9e152]:
+          - cell "2022" [ref=f9e153]
+          - cell "$10,000" [ref=f9e154]
+          - cell "$25,000" [ref=f9e155]
+          - cell "$17,500" [ref=f9e156]
+          - cell "2.0-2.9%" [ref=f9e157]
+        - row [ref=f9e158]:
+          - cell "2023" [ref=f9e159]
+          - cell "$10,500" [ref=f9e160]
+          - cell "$26,250" [ref=f9e161]
+          - cell "$18,375" [ref=f9e162]
+          - cell "2.0-3.0%" [ref=f9e163]
+        - row [ref=f9e164]:
+          - cell "2024" [ref=f9e165]
+          - cell "$11,000" [ref=f9e166]
+          - cell "$27,500" [ref=f9e167]
+          - cell "$19,250" [ref=f9e168]
+          - cell "2.0-3.0%" [ref=f9e169]
+        - row [ref=f9e170]:
+          - cell "2025" [ref=f9e171]
+          - cell "$11,500" [ref=f9e172]
+          - cell "$28,750" [ref=f9e173]
+          - cell "$20,125" [ref=f9e174]
+          - cell "2.0-3.2%" [ref=f9e175]
+        - row [ref=f9e176]:
+          - cell "2026" [ref=f9e177]
+          - cell "$12,000" [ref=f9e178]
+          - cell "$30,000" [ref=f9e179]
+          - cell "$21,000" [ref=f9e180]
+          - cell "2.0-3.3%" [ref=f9e181]
+    - heading "洗钱规模增长的核心驱动力" [level=2] [ref=f9e182]
+    - generic [ref=f9e183]:
+      - generic [ref=f9e184]:
+        - heading " 全球化深化" [level=3] [ref=f9e185]:
+          - generic [ref=f9e186]: 
+          - text: 全球化深化
+        - paragraph [ref=f9e187]: 跨境资本流动规模爆炸式增长，SWIFT年处理金额超$400万亿。资金跨境转移的速度和复杂度远超执法机构的监管能力。
+      - generic [ref=f9e188]:
+        - heading " 加密资产兴起" [level=3] [ref=f9e189]:
+          - generic [ref=f9e190]: 
+          - text: 加密资产兴起
+        - paragraph [ref=f9e191]: 2024年链上加密资产交易量超$10万亿，其中约15%涉嫌与非法活动有关。去中心化金融(DeFi)创造了全新的洗钱通道。
+      - generic [ref=f9e192]:
+        - heading " AI技术赋能" [level=3] [ref=f9e193]:
+          - generic [ref=f9e194]: 
+          - text: AI技术赋能
+        - paragraph [ref=f9e195]: AI洗钱案件2024-2025年增长340%。AI可自动生成伪造身份、编写漏洞利用代码、自动化混币路径选择，大幅提升洗钱效率和隐蔽性。
+      - generic [ref=f9e196]:
+        - heading " 电信诈骗产业化" [level=3] [ref=f9e197]:
+          - generic [ref=f9e198]: 
+          - text: 电信诈骗产业化
+        - paragraph [ref=f9e199]: 东南亚杀猪盘/电诈产业年产值估计超$1000亿，产生海量需要洗钱的诈骗资金。涉及100-500个中间账户/钱包的复杂链路。
+    - heading "各区域洗钱规模估算" [level=2] [ref=f9e200]
+    - table [ref=f9e201]:
+      - rowgroup [ref=f9e202]:
+        - row [ref=f9e203]:
+          - columnheader "区域" [ref=f9e204]
+          - columnheader "年洗钱规模($B)" [ref=f9e205]
+          - columnheader "主要渠道" [ref=f9e206]
+          - columnheader "执法重点" [ref=f9e207]
+      - rowgroup [ref=f9e208]:
+        - row [ref=f9e209]:
+          - cell "东亚/东南亚" [ref=f9e210]
+          - cell "$1,500-3,000" [ref=f9e211]
+          - cell "地下钱庄、电诈、TBML" [ref=f9e212]
+          - cell "中缅泰老联合执法" [ref=f9e213]
+        - row [ref=f9e214]:
+          - cell "北美" [ref=f9e215]
+          - cell "$1,000-2,000" [ref=f9e216]
+          - cell "现金密集、加密、离岸结构" [ref=f9e217]
+          - cell "FinCEN/DOJ联合行动" [ref=f9e218]
+        - row [ref=f9e219]:
+          - cell "欧洲" [ref=f9e220]
+          - cell "$1,200-2,500" [ref=f9e221]
+          - cell "离岸公司、TBML、现金" [ref=f9e222]
+          - cell "欧盟反洗钱局(EABM)" [ref=f9e223]
+        - row [ref=f9e224]:
+          - cell "中东/非洲" [ref=f9e225]
+          - cell "$500-1,500" [ref=f9e226]
+          - cell "哈瓦拉、现金、钻石" [ref=f9e227]
+          - cell "UAE FIU/MAS" [ref=f9e228]
+        - row [ref=f9e229]:
+          - cell "拉美" [ref=f9e230]
+          - cell "$400-1,000" [ref=f9e231]
+          - cell "现金、稳定币、毒品" [ref=f9e232]
+          - cell "巴西/墨西哥FIU" [ref=f9e233]
+        - row [ref=f9e234]:
+          - cell "中亚/高加索" [ref=f9e235]
+          - cell "$200-800" [ref=f9e236]
+          - cell "哈瓦拉、离岸公司、能源" [ref=f9e237]
+          - cell "欧亚反洗钱小组(EAG)" [ref=f9e238]
+    - generic [ref=f9e239]: 2024年全球SWIFT跨境支付总额达$472万亿，其中约0.03%($141亿)被AML系统标记为可疑。东亚/东南亚区域洗钱规模$1,500-3,000亿，占全球约10%，但执法资源投入不足全球的8%——这种"风险-资源错配"是洗钱规模持续扩张的制度性根源。
+    - heading "五大学派交叉分析：全球洗钱规模扩张的结构性动因" [level=2] [ref=f9e240]
+    - generic [ref=f9e241]:
+      - strong [ref=f9e242]: 公共选择理论：
+      - text: 各国对洗钱的"容忍度"并非偶然，而是政治经济均衡的结果。美国需要离岸金融中心维持美元霸权，欧洲需要私人银行服务吸引全球财富，中国需要地下钱庄的替代通道支持粤港澳大湾区资本流动——每个司法管辖区都在"反洗钱承诺"和"资本自由流动利益"之间做权衡。FATF标准看似统一，实际执行中的选择性问题暴露了监管的政治经济学本质。
+    - generic [ref=f9e243]:
+      - strong [ref=f9e244]: 马克思主义政治经济学(资本流动)：
+      - text: 洗钱是全球资本积累的"暗面循环"。当剩余价值通过欺诈、毒品、腐败在边缘国家产生时，必须经过洗钱进入中心国家的金融体系实现再生产。东亚→北美/欧洲的洗钱流向，与马克思描述的"中心-外围"资本流动完全同构。加密技术不是创造了新洗钱，而是降低了边缘资本进入中心金融体系的交易成本。
+    - generic [ref=f9e245]:
+      - strong [ref=f9e246]: 后凯恩斯主义(Minsky)：
+      - text: 洗钱规模从$11.2万亿(2015中值)增长到$21万亿(2026中值)，增速90%超过同期GDP增速43%——这是一个典型的"金融-犯罪复合体"扩张周期。Minsky框架下，当合规成本低于违规预期罚款时，机构选择"对冲融资"式合规；当罚款飙升时转入"投机融资"——只够付罚款不够修复系统；最终在下一轮丑闻爆发时陷入"庞氏融资"——合规成本吞噬利润但仍无法阻止漏洞。
+    - generic [ref=f9e247]:
+      - strong [ref=f9e248]: 新制度经济学：
+      - text: 各区域洗钱规模差异本质上是制度质量的函数。东亚/东南亚高洗钱规模($1,500-3,000亿)对应低BO透明度+弱FIU协作+高腐败感知指数；北美中等规模($1,000-2,000亿)对应高透明度但高资本流动复杂度。制度质量改善的边际收益递减——从灰名单到脱灰比从脱灰到满分容易10倍，这解释了为什么UAE进步快但瑞士仍有漏洞。
+    - generic [ref=f9e249]:
+      - strong [ref=f9e250]: 演化经济学：
+      - text: 洗钱渠道不是静态分类，而是动态竞争生态。地下钱庄→TBML→空壳公司→混币器→稳定币→AI洗钱，这是一条清晰的"技术迭代链"。每一代渠道都比前一代具有更低的交易成本、更高的并行度和更强的抗追踪能力。关键转折点是2022年OFAC制裁Tornado Cash——这一"选择压力"催生了Blend等AI混币器的变异体，演化速度从5年一代加速到1-2年一代。
+    - generic [ref=f9e251]:
+      - generic [ref=f9e252]:
+        - generic [ref=f9e253]: 
+        - text: 案例：东南亚"对敲帝国"——中缅泰老边境的平行金融系统
+      - generic [ref=f9e254]:
+        - paragraph [ref=f9e255]:
+          - strong [ref=f9e256]: 规模：
+          - text: 缅甸/柬埔寨/老挝边境地下钱庄网络年处理金额超$200亿
+        - paragraph [ref=f9e257]:
+          - strong [ref=f9e258]: 结构：
+          - text: 中国境内"水房"控制1200+张银行卡→ 通过Telegram通知金三角境外节点 → 境外用诈骗所得USD/THB直接放款给目标客户 → 差额通过边境贸易预付款平衡
+        - paragraph [ref=f9e259]:
+          - strong [ref=f9e260]: 关键创新：
+          - text: 将传统对敲与电诈收益结合——诈骗资金本身就是外币(美元/人民币混合)，减少了货币转换环节，洗钱效率提升3倍
+        - paragraph [ref=f9e261]:
+          - strong [ref=f9e262]: 执法困境：
+          - text: 四国联合执法面临司法管辖碎片化——中国刑事管辖不覆盖境外，缅北地方武装拒绝引渡，泰国FIU数据共享延迟平均6个月
+    - generic [ref=f9e263]:
+      - generic [ref=f9e264]:
+        - generic [ref=f9e265]: 
+        - text: 洗钱规模与执法力度的背离链
+      - generic [ref=f9e266]:
+        - generic [ref=f9e267]: 洗钱规模增速3.3%/年
+        - generic [ref=f9e268]: →
+        - generic [ref=f9e269]: 执法案件增速中国26.7%/年
+        - generic [ref=f9e270]: →
+        - generic [ref=f9e271]: 但追回率仅0.5-1.3%
+        - generic [ref=f9e272]: →
+        - generic [ref=f9e273]: 违法净收益仍为正
+        - generic [ref=f9e274]: →
+        - generic [ref=f9e275]: 激励持续存在→规模继续扩张
+      - paragraph [ref=f9e276]: 背离含义：案件查处量上升不等于洗钱减少——可能只是"捕捞效率"提高。当追回率始终低于2%时，洗钱的预期收益率仍然远高于合法投资渠道。
+    - heading "五大学派交叉解读：各区域洗钱规模差异的制度逻辑" [level=2] [ref=f9e277]
+    - paragraph [ref=f9e278]: 东亚/东南亚洗钱规模$1,500-3,000亿居首，但执法重点分散在三个以上国家——以下从五个经济学视角解析这一格局。
+    - heading "合规实务：金融机构洗钱风险自评估(SRA)操作手册" [level=2] [ref=f9e282]
+    - generic [ref=f9e283]:
+      - generic [ref=f9e284]:
+        - generic [ref=f9e285]: 
+        - text: FATF建议第1条：风险评估要求
+      - paragraph [ref=f9e287]: FATF建议第1条要求所有受监管实体进行书面化的洗钱/恐怖融资风险评估(Risk Assessment)。以下是自评估操作指南。
+    - list [ref=f9e288]:
+      - listitem [ref=f9e289]:
+        - strong [ref=f9e290]: 界定评估范围：
+        - text: 明确覆盖的业务范围(零售银行/企业银行/贸易金融/私人银行/加密业务)、地理范围(本国/跨境/高风险司法管辖区)、客户类型(自然人/法人/信托/FOA)。
+      - listitem [ref=f9e291]:
+        - strong [ref=f9e292]: 识别固有风险(RI)：
+        - text: 对每个业务单元评估四大风险因子：(a)客户风险——PEP/现金密集行业/VASP/无面对面KYC客户分别赋分3-5分；(b)产品/服务风险——代理行业务/私人银行/跨境汇款分别赋分3-5分；(c)渠道风险——非面对面开户/代理行分别赋分3-5分；(d)地域风险——FATF灰名单国家赋分5分，高风险司法管辖区赋分4分。
+      - listitem [ref=f9e293]:
+        - strong [ref=f9e294]: 评估现有 controls有效性：
+        - text: 逐项评估现有AML控制措施：KYC流程成熟度(0-3分)、Transaction Monitoring规则覆盖率(规则数/行业建议规则数×3)、SAR/STR提交质量(FIU反馈评分)、Staff Training覆盖率(%)。controls越弱→调整后风险(After-Risk)越高。
+      - listitem [ref=f9e295]:
+        - strong [ref=f9e296]: 计算剩余风险(RR)：
+        - text: RR = RI × (1 - Controls_Effectiveness)。若RR > Risk_Appetite_Threshold → 必须制定 remediation plan并在下次董事会汇报。
+      - listitem [ref=f9e297]:
+        - strong [ref=f9e298]: 编写SRA报告并报送治理层：
+        - text: 报告需包含：方法论说明、数据源(内部交易数据/行业基准/执法案例)、风险热力图、差距分析(gap analysis)、remediation计划(责任人+截止日期)。
+    - heading "洗钱风险自评估热力图打分表" [level=2] [ref=f9e299]
+    - table [ref=f9e300]:
+      - rowgroup [ref=f9e301]:
+        - row [ref=f9e302]:
+          - columnheader "风险因子" [ref=f9e303]
+          - columnheader "低风险(1分)" [ref=f9e304]
+          - columnheader "中风险(3分)" [ref=f9e305]
+          - columnheader "高风险(5分)" [ref=f9e306]
+          - columnheader "自评得分" [ref=f9e307]
+      - rowgroup [ref=f9e308]:
+        - row [ref=f9e309]:
+          - cell "客户类型" [ref=f9e310]
+          - cell "普通零售客户" [ref=f9e311]
+          - cell "中小企业客户" [ref=f9e312]
+          - cell "PEP/虚拟货币VASP/无脸KYC" [ref=f9e313]
+          - cell "___分" [ref=f9e314]
+        - row [ref=f9e315]:
+          - cell "地域风险" [ref=f9e316]
+          - cell "OECD成员国" [ref=f9e317]
+          - cell "欧盟/亚洲新兴市场" [ref=f9e318]
+          - cell "FATF灰黑名单/制裁国家" [ref=f9e319]
+          - cell "___分" [ref=f9e320]
+        - row [ref=f9e321]:
+          - cell "产品/服务" [ref=f9e322]
+          - cell "储蓄账户/国内转账" [ref=f9e323]
+          - cell "信用卡/国内汇款" [ref=f9e324]
+          - cell "跨境汇款/代理行/私人银行" [ref=f9e325]
+          - cell "___分" [ref=f9e326]
+        - row [ref=f9e327]:
+          - cell "交付渠道" [ref=f9e328]
+          - cell "面对面(网点)" [ref=f9e329]
+          - cell "网银/手机银行" [ref=f9e330]
+          - cell "纯线上无脸KYC/代理行" [ref=f9e331]
+          - cell "___分" [ref=f9e332]
+        - row [ref=f9e333]:
+          - cell "交易模式" [ref=f9e334]
+          - cell "可预测/常规" [ref=f9e335]
+          - cell "偶发异常" [ref=f9e336]
+          - cell "结构化/快进快出/频繁跨境" [ref=f9e337]
+          - cell "___分" [ref=f9e338]
+  - contentinfo [ref=f9e339]:
+    - link " 封面" [ref=f9e340] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f9e341]: 
+      - text: 封面
+    - link " 目录" [ref=f9e342] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f9e343]: 
+      - text: 目录
+    - generic [ref=f9e344]: 1 / 23
+    - link "各国执法数据 " [ref=f9e345] [cursor=pointer]:
+      - /url: 02-enforcement-data.html
+      - text: 各国执法数据
+      - generic [ref=f9e346]: 

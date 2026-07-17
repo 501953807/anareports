@@ -1,0 +1,196 @@
+- generic [active] [ref=f4e1]:
+  - navigation [ref=f4e2]:
+    - generic [ref=f4e3]:
+      - link " 新能源出行书" [ref=f4e4] [cursor=pointer]:
+        - /url: ../index.html
+        - generic [ref=f4e5]: 
+        - text: 新能源出行书
+      - generic [ref=f4e6]: /
+      - generic [ref=f4e7]: 第一章：双轮驱动市场规模
+    - generic [ref=f4e8]:
+      - text: 
+      - link " 目录" [ref=f4e9] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f4e10]: 
+        - text: 目录
+  - complementary [ref=f4e11]:
+    - heading " 目录" [level=3] [ref=f4e12]:
+      - generic [ref=f4e13]: 
+      - text: 目录
+    - list [ref=f4e14]:
+      - listitem [ref=f4e15]: 第一部分：市场规模
+      - listitem [ref=f4e16]:
+        - link "第一章：双轮驱动市场规模" [ref=f4e17] [cursor=pointer]:
+          - /url: 01-market-overview.html
+      - listitem [ref=f4e18]: 第二部分：新能源汽车产业链
+      - listitem [ref=f4e19]:
+        - link "第二章：NEV全产业链拓扑" [ref=f4e20] [cursor=pointer]:
+          - /url: 02-nev-supply-chain.html
+      - listitem [ref=f4e21]: 第三部分：零部件全品类
+      - listitem [ref=f4e22]:
+        - link "第三章：零部件单品级拆解" [ref=f4e23] [cursor=pointer]:
+          - /url: 03-parts-catalog.html
+      - listitem [ref=f4e24]: 第四部分：电动两轮车产业链
+      - listitem [ref=f4e25]:
+        - link "第四章：两轮电动车产业链" [ref=f4e26] [cursor=pointer]:
+          - /url: 04-two-wheel.html
+      - listitem [ref=f4e27]: 第五部分：产业集群与地图
+      - listitem [ref=f4e28]:
+        - link "第五章：产业集群分布" [ref=f4e29] [cursor=pointer]:
+          - /url: 05-clusters.html
+      - listitem [ref=f4e30]: 第六部分：易损件与保养
+      - listitem [ref=f4e31]:
+        - link "第六章：易损件与保养周期" [ref=f4e32] [cursor=pointer]:
+          - /url: 06-maintenance.html
+      - listitem [ref=f4e33]: 第七部分：全球市场与研判
+      - listitem [ref=f4e34]:
+        - link "第七章：全球市场+多学派研判" [ref=f4e35] [cursor=pointer]:
+          - /url: 07-global-market.html
+  - main [ref=f4e36]:
+    - heading "第一章：双轮驱动 — 中国新能源出行市场规模总览" [level=1] [ref=f4e37]
+    - generic [ref=f4e38]: 中国新能源出行产业呈现"四轮汽车+两轮电动车"双轮驱动格局。新能源汽车2025年产量1555.8万辆，连续11年全球第一；电动两轮车年销量超5400万辆，雅迪连续8年全球销量第一。以下从两个维度分别深度解析。
+    - heading "1.1 新能源汽车 — 里程碑式跨越" [level=2] [ref=f4e39]
+    - table [ref=f4e40]:
+      - rowgroup [ref=f4e41]:
+        - row [ref=f4e42]:
+          - columnheader "指标" [ref=f4e43]
+          - columnheader "2023年" [ref=f4e44]
+          - columnheader "2024年" [ref=f4e45]
+          - columnheader "2025年" [ref=f4e46]
+          - columnheader "同比变化" [ref=f4e47]
+      - rowgroup [ref=f4e48]:
+        - row [ref=f4e49]:
+          - cell "产量" [ref=f4e50]
+          - cell "958.7万辆" [ref=f4e51]
+          - cell "1,288.9万辆" [ref=f4e52]
+          - cell "1,555.8万辆" [ref=f4e53]
+          - cell "+35.4%" [ref=f4e54]
+        - row [ref=f4e55]:
+          - cell "销量" [ref=f4e56]
+          - cell "949.5万辆" [ref=f4e57]
+          - cell "1,286.6万辆" [ref=f4e58]
+          - cell "1,572.9万辆" [ref=f4e59]
+          - cell "+34.8%" [ref=f4e60]
+        - row [ref=f4e61]:
+          - cell "渗透率" [ref=f4e62]
+          - cell "41.4%" [ref=f4e63]
+          - cell "48.9%" [ref=f4e64]
+          - cell "52.3%" [ref=f4e65]
+          - cell "+3.4pp" [ref=f4e66]
+        - row [ref=f4e67]:
+          - cell "出口量" [ref=f4e68]
+          - cell "~90万辆" [ref=f4e69]
+          - cell "120万+" [ref=f4e70]
+          - cell "180万+" [ref=f4e71]
+          - cell "+50%+" [ref=f4e72]
+        - row [ref=f4e73]:
+          - cell "市场规模" [ref=f4e74]
+          - cell "~4,000亿" [ref=f4e75]
+          - cell "~4,849亿" [ref=f4e76]
+          - cell "~6,200亿" [ref=f4e77]
+          - cell "+28%CAGR" [ref=f4e78]
+    - paragraph [ref=f4e79]: 2025年纯电动汽车产销量1,080.1/1,098.9万辆；插电式混动475.7/474万辆。出口180万+辆，同比+50%+。数据来源：中汽协CAAM。
+    - heading "1.2 电动两轮车 — 雅迪爱玛台铃三足鼎立" [level=2] [ref=f4e80]
+    - table [ref=f4e81]:
+      - rowgroup [ref=f4e82]:
+        - row [ref=f4e83]:
+          - columnheader "品牌" [ref=f4e84]
+          - columnheader "2023年销量" [ref=f4e85]
+          - columnheader "2024年销量" [ref=f4e86]
+          - columnheader "营收" [ref=f4e87]
+          - columnheader "净利" [ref=f4e88]
+          - columnheader "毛利率" [ref=f4e89]
+          - columnheader "核心基地" [ref=f4e90]
+      - rowgroup [ref=f4e91]:
+        - row [ref=f4e92]:
+          - cell [ref=f4e93]:
+            - strong [ref=f4e94]: 雅迪
+          - cell "~1,500万+" [ref=f4e95]
+          - cell "2,000万+" [ref=f4e96]
+          - cell "310.17亿" [ref=f4e97]
+          - cell "21.62亿" [ref=f4e98]
+          - cell "20.5%" [ref=f4e99]
+          - cell "无锡/杭州/合肥/成都/西安/越南" [ref=f4e100]
+        - row [ref=f4e101]:
+          - cell [ref=f4e102]:
+            - strong [ref=f4e103]: 爱玛
+          - cell "~550万+" [ref=f4e104]
+          - cell "~800万+" [ref=f4e105]
+          - cell "189.5亿" [ref=f4e106]
+          - cell "14.2亿" [ref=f4e107]
+          - cell "~28.5%" [ref=f4e108]
+          - cell "天津/无锡/重庆/平湖" [ref=f4e109]
+        - row [ref=f4e110]:
+          - cell [ref=f4e111]:
+            - strong [ref=f4e112]: 台铃
+          - cell "~300万+" [ref=f4e113]
+          - cell "~330万+" [ref=f4e114]
+          - cell "~115亿" [ref=f4e115]
+          - cell "~8亿" [ref=f4e116]
+          - cell "~22.5%" [ref=f4e117]
+          - cell "东莞/无锡" [ref=f4e118]
+        - row [ref=f4e119]:
+          - cell [ref=f4e120]:
+            - strong [ref=f4e121]: 小牛
+          - cell "~50万+" [ref=f4e122]
+          - cell "~55万+" [ref=f4e123]
+          - cell "~22亿" [ref=f4e124]
+          - cell "~1.5亿" [ref=f4e125]
+          - cell "~19%" [ref=f4e126]
+          - cell "南京" [ref=f4e127]
+        - row [ref=f4e128]:
+          - cell [ref=f4e129]:
+            - strong [ref=f4e130]: 九号公司
+          - cell "~80万+" [ref=f4e131]
+          - cell "~95万+" [ref=f4e132]
+          - cell "~38亿" [ref=f4e133]
+          - cell "~5亿" [ref=f4e134]
+          - cell "~26%" [ref=f4e135]
+          - cell "北京/嘉兴" [ref=f4e136]
+    - paragraph [ref=f4e137]: 雅迪+爱玛合计占两轮车市场近60%。2025年雅迪全球累计销量突破2,000万辆，连续8年全球第一。行业锂电化率提升至45%+。
+    - heading "1.3 双轮驱动市场规模对比" [level=2] [ref=f4e138]
+    - table [ref=f4e139]:
+      - rowgroup [ref=f4e140]:
+        - row [ref=f4e141]:
+          - columnheader "维度" [ref=f4e142]
+          - columnheader "新能源汽车" [ref=f4e143]
+          - columnheader "电动两轮车" [ref=f4e144]
+      - rowgroup [ref=f4e145]:
+        - row [ref=f4e146]:
+          - cell "年产量/销量" [ref=f4e147]
+          - cell "1,555.8万辆" [ref=f4e148]
+          - cell "~5,400万辆" [ref=f4e149]
+        - row [ref=f4e150]:
+          - cell "市场规模" [ref=f4e151]
+          - cell "~6,200亿元" [ref=f4e152]
+          - cell "~700亿元" [ref=f4e153]
+        - row [ref=f4e154]:
+          - cell "增长驱动力" [ref=f4e155]
+          - cell "政策补贴+技术迭代+消费升级" [ref=f4e156]
+          - cell "以旧换新政策+锂电化+消费升级" [ref=f4e157]
+        - row [ref=f4e158]:
+          - cell "核心竞争点" [ref=f4e159]
+          - cell "续航/智驾/智能化" [ref=f4e160]
+          - cell "续航/颜值/智能化/品牌" [ref=f4e161]
+        - row [ref=f4e162]:
+          - cell "出口规模" [ref=f4e163]
+          - cell "180万+辆" [ref=f4e164]
+          - cell "~300万辆(东南亚/非洲/拉美)" [ref=f4e165]
+        - row [ref=f4e166]:
+          - cell "产业链长度" [ref=f4e167]
+          - cell "极长(上游矿产→下游服务)" [ref=f4e168]
+          - cell "中等(电池→整车→售后)" [ref=f4e169]
+  - contentinfo [ref=f4e173]:
+    - link " 封面" [ref=f4e174] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f4e175]: 
+      - text: 封面
+    - link " 目录" [ref=f4e176] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f4e177]: 
+      - text: 目录
+    - generic [ref=f4e178]: 1 / 7
+    - link "全产业链拓扑 " [ref=f4e179] [cursor=pointer]:
+      - /url: 02-nev-supply-chain.html
+      - text: 全产业链拓扑
+      - generic [ref=f4e180]: 

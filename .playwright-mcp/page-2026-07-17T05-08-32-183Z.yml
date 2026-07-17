@@ -1,0 +1,308 @@
+- generic [active] [ref=f1e1]:
+  - navigation [ref=f1e2]:
+    - text: 
+    - generic [ref=f1e3]:
+      - link " 重庆产业全景分析与未来展望" [ref=f1e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f1e5]: 
+        - text: 重庆产业全景分析与未来展望
+      - generic [ref=f1e6]: /
+      - generic [ref=f1e7]: 一、常住人口规模与变化趋势
+    - generic [ref=f1e8]:
+      - link " 目录" [ref=f1e9] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f1e10]: 
+        - text: 目录
+      - link "后一章 " [ref=f1e11] [cursor=pointer]:
+        - /url: 02-hukou-vs-resident.html
+        - text: 后一章
+        - generic [ref=f1e12]: 
+  - complementary [ref=f1e13]:
+    - generic [ref=f1e14]:
+      - heading "重庆产业全景分析与未来展望" [level=3] [ref=f1e15]
+      - button "Close sidebar" [ref=f1e16]:
+        - generic [ref=f1e17]: 
+    - navigation [ref=f1e18]:
+      - list [ref=f1e19]:
+        - listitem [ref=f1e20]: 第一部分 人口与劳动力
+        - listitem [ref=f1e21]:
+          - link "一、常住人口规模与变化趋势" [ref=f1e22] [cursor=pointer]:
+            - /url: 01-demographic-overview.html
+        - listitem [ref=f1e23]:
+          - link "二、户籍人口 vs 常住人口的剪刀差" [ref=f1e24] [cursor=pointer]:
+            - /url: 02-hukou-vs-resident.html
+        - listitem [ref=f1e25]:
+          - link "三、劳动力年龄结构与技能分布" [ref=f1e26] [cursor=pointer]:
+            - /url: 03-labor-structure.html
+        - listitem [ref=f1e27]:
+          - link "四、人才流失与回流博弈" [ref=f1e28] [cursor=pointer]:
+            - /url: 04-talent-flow.html
+        - listitem [ref=f1e29]:
+          - link "五、成渝双城人口红利对比" [ref=f1e30] [cursor=pointer]:
+            - /url: 05-chengdu-chongqing-population.html
+        - listitem [ref=f1e31]: 第二部分 经济规模与产业地位
+        - listitem [ref=f1e32]:
+          - link "六、GDP 总量与增速全国排名" [ref=f1e33] [cursor=pointer]:
+            - /url: 06-gdp-scale.html
+        - listitem [ref=f1e34]:
+          - link "七、三大产业结构演变" [ref=f1e35] [cursor=pointer]:
+            - /url: 07-industry-structure.html
+        - listitem [ref=f1e36]:
+          - link "八、人均 GDP 与全国均值差距" [ref=f1e37] [cursor=pointer]:
+            - /url: 08-per-capita-gdp.html
+        - listitem [ref=f1e38]:
+          - link "九、西部第一城地位之争" [ref=f1e39] [cursor=pointer]:
+            - /url: 09-western-first-city.html
+        - listitem [ref=f1e40]:
+          - link "十、经济韧性指数" [ref=f1e41] [cursor=pointer]:
+            - /url: 10-economic-resilience.html
+        - listitem [ref=f1e42]: 第三部分 产业优势与核心竞争力
+        - listitem [ref=f1e43]:
+          - link "十一、汽车制造：长安+赛力斯双引擎" [ref=f1e44] [cursor=pointer]:
+            - /url: 11-auto-manufacturing.html
+        - listitem [ref=f1e45]:
+          - link "十二、电子信息：全球笔电基地" [ref=f1e46] [cursor=pointer]:
+            - /url: 12-electronics.html
+        - listitem [ref=f1e47]:
+          - link "十三、装备制造与化工冶金" [ref=f1e48] [cursor=pointer]:
+            - /url: 13-equipment-manufacturing.html
+        - listitem [ref=f1e49]:
+          - link "十四、新兴产业布局" [ref=f1e50] [cursor=pointer]:
+            - /url: 14-emerging-industries.html
+        - listitem [ref=f1e51]:
+          - link "十五、产业链完整度评估" [ref=f1e52] [cursor=pointer]:
+            - /url: 15-industry-chain-analysis.html
+        - listitem [ref=f1e53]: 第四部分 下行周期优劣势分析
+        - listitem [ref=f1e54]:
+          - link "十六、通缩环境下的消费疲软" [ref=f1e55] [cursor=pointer]:
+            - /url: 16-deflation-consumer.html
+        - listitem [ref=f1e56]:
+          - link "十七、房地产拖累与土地财政依赖" [ref=f1e57] [cursor=pointer]:
+            - /url: 17-real-estate-drags.html
+        - listitem [ref=f1e58]:
+          - link "十八、地方债务压力测试" [ref=f1e59] [cursor=pointer]:
+            - /url: 18-local-debt-risk.html
+        - listitem [ref=f1e60]:
+          - link "十九、政策红利对冲" [ref=f1e61] [cursor=pointer]:
+            - /url: 19-policy-dividends.html
+        - listitem [ref=f1e62]:
+          - link "二十、内陆开放优势" [ref=f1e63] [cursor=pointer]:
+            - /url: 20-inland-opening.html
+        - listitem [ref=f1e64]: 第五部分 底层民生与地区限制
+        - listitem [ref=f1e65]:
+          - link "二十一、居民收入水平" [ref=f1e66] [cursor=pointer]:
+            - /url: 21-income-levels.html
+        - listitem [ref=f1e67]:
+          - link "二十二、房价收入比" [ref=f1e68] [cursor=pointer]:
+            - /url: 22-housing-affordability.html
+        - listitem [ref=f1e69]:
+          - link "二十三、就业质量与结构性矛盾" [ref=f1e70] [cursor=pointer]:
+            - /url: 23-employment-quality.html
+        - listitem [ref=f1e71]:
+          - link "二十四、教育医疗资源" [ref=f1e72] [cursor=pointer]:
+            - /url: 24-public-services.html
+        - listitem [ref=f1e73]:
+          - link "二十五、城乡差距与区县分化" [ref=f1e74] [cursor=pointer]:
+            - /url: 25-urban-rural-difference.html
+        - listitem [ref=f1e75]: 第六部分 未来展望与数据预言
+        - listitem [ref=f1e76]:
+          - link "二十六、2027-2030 GDP 预测" [ref=f1e77] [cursor=pointer]:
+            - /url: 26-2030-predictions.html
+        - listitem [ref=f1e78]:
+          - link "二十七、成渝双城经济圈战略" [ref=f1e79] [cursor=pointer]:
+            - /url: 27-chengdu-chongqing-circle.html
+        - listitem [ref=f1e80]:
+          - link "二十八、一带一路与 RCEP 机遇" [ref=f1e81] [cursor=pointer]:
+            - /url: 28-belt-road-rcep.html
+        - listitem [ref=f1e82]:
+          - link "二十九、风险预警清单" [ref=f1e83] [cursor=pointer]:
+            - /url: 29-risk-warnings.html
+        - listitem [ref=f1e84]:
+          - link "三十、投资者/创业者行动建议" [ref=f1e85] [cursor=pointer]:
+            - /url: 30-action-guide.html
+        - listitem [ref=f1e86]:
+          - link "三十一、总结与持续观察指标" [ref=f1e87] [cursor=pointer]:
+            - /url: 31-summary-future.html
+  - main [ref=f1e88]:
+    - article [ref=f1e89]:
+      - generic [ref=f1e90]:
+        - text: 第一部分 人口与劳动力
+        - heading "一、常住人口规模与变化趋势" [level=1] [ref=f1e91]
+        - paragraph [ref=f1e92]: 2015-2025年重庆常住人口从2300万增长至3213万，城镇化率从53%提升至71%，但自然增长率持续走低甚至转负。本章梳理重庆人口规模演变轨迹与区域流动格局。
+      - generic [ref=f1e93]:
+        - heading "一、从一则历史故事说起" [level=2] [ref=f1e94]
+        - paragraph [ref=f1e95]: 1997年6月18日，重庆正式成为直辖市。当时的重庆辖区面积只有6万平方公里，常住人口约3000万，GDP不足1000亿元。然而，重庆的行政区划有一个独特之处——它管辖着8.24万平方公里的土地和3200多万人口，相当于一个中等省份。从那时起，重庆经历了中国历史上规模最大的城市化进程之一。
+        - paragraph [ref=f1e96]: 到2024年，重庆常住人口达到3213万人，在全国省级行政区中排名第 fifth（仅次于广东、山东、河南、江苏）。但更值得关注的是人口增长的结构性变化：2022年重庆自然增长率为-1.0‰，这是直辖以来首次出现人口负增长。在总量仍在上升的同时，内生动力已经减弱。
+        - generic [ref=f1e97]:
+          - generic [ref=f1e98]:
+            - generic [ref=f1e99]: 
+            - text: 关键认知
+          - generic [ref=f1e100]: 重庆的人口增长模式已经从"自然增长+机械增长"双轮驱动，转变为几乎完全依赖外来人口流入的单轮驱动。这种模式的可持续性值得深入分析。
+      - generic [ref=f1e101]:
+        - heading "二、核心概念详解" [level=2] [ref=f1e102]
+        - heading "常住人口的统计口径" [level=3] [ref=f1e103]
+        - paragraph [ref=f1e104]: 常住人口是指实际经常居住在某地区一定时间（半年以上）的人口。它与户籍人口的关键区别在于：不以户口登记为依据，而以实际居住地为准。对于重庆这样一个拥有大量农民工外出务工和返乡创业的城市，常住人口指标比户籍人口更能反映真实的经济活力。
+        - table [ref=f1e105]:
+          - rowgroup [ref=f1e106]:
+            - row [ref=f1e107]:
+              - columnheader "年份" [ref=f1e108]
+              - columnheader "常住人口（万人）" [ref=f1e109]
+              - columnheader "较上年增减（万人）" [ref=f1e110]
+              - columnheader "增长率（‰）" [ref=f1e111]
+              - columnheader "城镇化率（%）" [ref=f1e112]
+          - rowgroup [ref=f1e113]:
+            - row [ref=f1e114]:
+              - cell "2015" [ref=f1e115]
+              - cell "3048" [ref=f1e116]
+              - cell "+25" [ref=f1e117]
+              - cell "8.2" [ref=f1e118]
+              - cell "52.7" [ref=f1e119]
+            - row [ref=f1e120]:
+              - cell "2016" [ref=f1e121]
+              - cell "3061" [ref=f1e122]
+              - cell "+13" [ref=f1e123]
+              - cell "4.3" [ref=f1e124]
+              - cell "53.4" [ref=f1e125]
+            - row [ref=f1e126]:
+              - cell "2017" [ref=f1e127]
+              - cell "3075" [ref=f1e128]
+              - cell "+14" [ref=f1e129]
+              - cell "4.6" [ref=f1e130]
+              - cell "54.3" [ref=f1e131]
+            - row [ref=f1e132]:
+              - cell "2018" [ref=f1e133]
+              - cell "3090" [ref=f1e134]
+              - cell "+15" [ref=f1e135]
+              - cell "4.9" [ref=f1e136]
+              - cell "55.0" [ref=f1e137]
+            - row [ref=f1e138]:
+              - cell "2019" [ref=f1e139]
+              - cell "3124" [ref=f1e140]
+              - cell "+34" [ref=f1e141]
+              - cell "11.0" [ref=f1e142]
+              - cell "62.9" [ref=f1e143]
+            - row [ref=f1e144]:
+              - cell "2020" [ref=f1e145]
+              - cell "3205" [ref=f1e146]
+              - cell "+81" [ref=f1e147]
+              - cell "25.9" [ref=f1e148]
+              - cell "69.5" [ref=f1e149]
+            - row [ref=f1e150]:
+              - cell "2021" [ref=f1e151]
+              - cell "3212" [ref=f1e152]
+              - cell "+7" [ref=f1e153]
+              - cell "2.2" [ref=f1e154]
+              - cell "70.2" [ref=f1e155]
+            - row [ref=f1e156]:
+              - cell "2022" [ref=f1e157]
+              - cell "3213" [ref=f1e158]
+              - cell "+1" [ref=f1e159]
+              - cell "0.3" [ref=f1e160]
+              - cell "70.6" [ref=f1e161]
+            - row [ref=f1e162]:
+              - cell "2023" [ref=f1e163]
+              - cell "3213" [ref=f1e164]
+              - cell "0" [ref=f1e165]
+              - cell "0.0" [ref=f1e166]
+              - cell "71.0" [ref=f1e167]
+            - row [ref=f1e168]:
+              - cell "2024" [ref=f1e169]
+              - cell "3213" [ref=f1e170]
+              - cell "0" [ref=f1e171]
+              - cell "-1.0" [ref=f1e172]
+              - cell "71.3" [ref=f1e173]
+        - paragraph [ref=f1e174]: 数据来源：重庆市统计局年度统计公报、第七次全国人口普查
+        - heading "城镇化率的跃升" [level=3] [ref=f1e175]
+        - paragraph [ref=f1e176]: 重庆城镇化率从2015年的52.7%提升至2024年的71.3%，九年提升了18.6个百分点。这一增速在全国省级行政区中位居前列。但需要注意的是，重庆的城镇化存在明显的区域差异：主城都市区城镇化率超过75%，而渝东北三峡库区城镇群仅为48%，渝东南生态涵养区仅为45%。
+      - generic [ref=f1e177]:
+        - heading "三、深入理解" [level=2] [ref=f1e178]
+        - heading "人口增长的三个阶段" [level=3] [ref=f1e179]
+        - list [ref=f1e180]:
+          - listitem [ref=f1e181]:
+            - strong [ref=f1e182]: 快速扩张期（2015-2020）：
+            - text: 常住人口年均增加约30万人，主要驱动力是成渝地区产业转移带来的务工人口流入，以及城镇化率的快速提升。
+          - listitem [ref=f1e183]:
+            - strong [ref=f1e184]: 增速放缓期（2021-2022）：
+            - text: 年均增量降至个位数，新冠疫情导致跨省流动减少，部分外出务工人员选择就近就业。
+          - listitem [ref=f1e185]:
+            - strong [ref=f1e186]: 平台期（2023-2024）：
+            - text: 人口总量基本停滞，自然增长率先负，机械增长也趋近于零。人口红利窗口正在关闭。
+        - heading "自然增长的隐忧" [level=3] [ref=f1e190]
+        - paragraph [ref=f1e191]: 2024年重庆出生率约为6.5‰，死亡率约为7.5‰，自然增长率为-1.0‰。这意味着即使不考虑人口流动，重庆的人口也在自然减少。与全国平均水平相比，重庆的老龄化程度更为严重——60岁以上人口占比已超过22%，高于全国平均约2个百分点。
+        - paragraph [ref=f1e192]: 从生育率来看，重庆的总和生育率估计在1.0-1.2之间，远低于维持人口稳定所需的2.1。这一水平与日本、韩国相近，意味着未来10-15年重庆将面临更为严峻的人口收缩压力。
+      - generic [ref=f1e193]:
+        - heading "四、在现代生活中的应用" [level=2] [ref=f1e194]
+        - paragraph [ref=f1e195]: 人口规模的变化直接影响重庆的产业布局和政策制定。以下从三个维度分析其对经济发展的实际影响：
+        - generic [ref=f1e196]:
+          - generic [ref=f1e197]:
+            - generic [ref=f1e198]: 
+            - text: 劳动力供给
+          - generic [ref=f1e199]: 劳动年龄人口（15-59岁）占比从2015年的73%下降至2024年的68%。制造业和服务业面临用工成本上升压力，汽车、电子等支柱产业的人工成本年均上涨8-10%。
+        - generic [ref=f1e200]:
+          - generic [ref=f1e201]:
+            - generic [ref=f1e202]: 
+            - text: 消费市场
+          - generic [ref=f1e203]: 常住人口增速放缓直接制约消费市场规模扩张。2024年重庆社会消费品零售总额同比增长仅3.2%，低于全国平均的4.4%。人口总量停滞意味着内需增长主要依赖消费升级而非人口增量。
+        - generic [ref=f1e204]:
+          - generic [ref=f1e205]:
+            - generic [ref=f1e206]: 
+            - text: 房地产市场
+          - generic [ref=f1e207]: 人口增长乏力叠加住房存量充足，重庆商品房库存去化周期长达18个月，高于全国平均的14个月。主城九区之外的区县市场压力更大，部分区县房价已从峰值回落20-30%。
+        - generic [ref=f1e208]:
+          - generic [ref=f1e209]:
+            - generic [ref=f1e210]: 
+            - text: 案例：万州区的人口流失
+          - paragraph [ref=f1e212]: 万州区作为渝东北地区的人口大区，常住人口从2015年的166万下降至2024年的148万，十年减少18万人。大量青壮年劳动力流向主城都市区和沿海城市，导致当地消费萎缩、学校合并、商业凋敝。这反映了重庆内部人口流动的"虹吸效应"——渝东北和渝东南的人口持续向主城集中。
+      - generic [ref=f1e213]:
+        - heading "五、延伸阅读与思考" [level=2] [ref=f1e214]
+        - generic [ref=f1e215]:
+          - link " 户籍人口 vs 常住人口的剪刀差 理解流动人口规模及其对经济的贡献" [ref=f1e216] [cursor=pointer]:
+            - /url: 02-hukou-vs-resident.html
+            - generic [ref=f1e217]: 
+            - generic [ref=f1e219]:
+              - strong [ref=f1e220]: 户籍人口 vs 常住人口的剪刀差
+              - text: 理解流动人口规模及其对经济的贡献
+          - link " 劳动力年龄结构与技能分布 分析人口红利的质量而非仅仅数量" [ref=f1e221] [cursor=pointer]:
+            - /url: 03-labor-structure.html
+            - generic [ref=f1e222]: 
+            - generic [ref=f1e224]:
+              - strong [ref=f1e225]: 劳动力年龄结构与技能分布
+              - text: 分析人口红利的质量而非仅仅数量
+          - link " 人才流失与回流博弈 高校毕业生去向与高端人才引进成效" [ref=f1e226] [cursor=pointer]:
+            - /url: 04-talent-flow.html
+            - generic [ref=f1e227]: 
+            - generic [ref=f1e229]:
+              - strong [ref=f1e230]: 人才流失与回流博弈
+              - text: 高校毕业生去向与高端人才引进成效
+          - link " 成渝双城人口红利对比 成都vs重庆的人口吸引力与竞争力" [ref=f1e231] [cursor=pointer]:
+            - /url: 05-chengdu-chongqing-population.html
+            - generic [ref=f1e232]: 
+            - generic [ref=f1e234]:
+              - strong [ref=f1e235]: 成渝双城人口红利对比
+              - text: 成都vs重庆的人口吸引力与竞争力
+        - generic [ref=f1e236]:
+          - heading " 思考题" [level=3] [ref=f1e237]:
+            - generic [ref=f1e238]: 
+            - text: 思考题
+          - list [ref=f1e239]:
+            - listitem [ref=f1e240]: 重庆人口总量接近3200万，但自然增长率已转负。这种"总量大、增长弱"的格局对产业发展意味着什么？
+            - listitem [ref=f1e241]: 城镇化率达到71%后，重庆是否还有大规模农村人口进城的空间？未来的城镇化动力来自哪里？
+            - listitem [ref=f1e242]: 如果未来10年重庆人口零增长甚至负增长，哪些产业将受到最大冲击？哪些产业反而可能受益？
+        - generic [ref=f1e243]:
+          - heading " 进一步阅读" [level=3] [ref=f1e244]:
+            - generic [ref=f1e245]: 
+            - text: 进一步阅读
+          - list [ref=f1e246]:
+            - listitem [ref=f1e247]: 《重庆统计年鉴2025》—— 重庆市统计局
+            - listitem [ref=f1e248]: 《中国人口普查资料2020》—— 第七次全国人口普查办公室
+            - listitem [ref=f1e249]: 《中国人口老龄化发展趋势预测研究》—— 国务院发展研究中心
+  - contentinfo [ref=f1e250]:
+    - link " 目录" [ref=f1e251] [cursor=pointer]:
+      - /url: index.html
+      - generic [ref=f1e252]: 
+      - text: 目录
+    - generic [ref=f1e253]: 2 / 31
+    - link "户籍人口 vs 常住人口的剪刀差 " [ref=f1e254] [cursor=pointer]:
+      - /url: 02-hukou-vs-resident.html
+      - text: 户籍人口 vs 常住人口的剪刀差
+      - generic [ref=f1e255]: 

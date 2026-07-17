@@ -1,0 +1,122 @@
+- generic [active] [ref=f11e1]:
+  - generic [ref=f11e2]:
+    - heading " 重庆产业全景分析与未来展望" [level=1] [ref=f11e3]:
+      - generic [ref=f11e4]: 
+      - text: 重庆产业全景分析与未来展望
+    - paragraph [ref=f11e5]: 人口·经济·产业·民生·未来 — 基于真实数据的深度分析
+    - generic [ref=f11e6]:
+      - generic [ref=f11e7]:
+        - generic [ref=f11e8]: "6"
+        - generic [ref=f11e9]: 大部分
+      - generic [ref=f11e10]:
+        - generic [ref=f11e11]: "39"
+        - generic [ref=f11e12]: 章节
+      - generic [ref=f11e13]:
+        - generic [ref=f11e14]: "7"
+        - generic [ref=f11e15]: ECharts 看板
+      - generic [ref=f11e16]:
+        - generic [ref=f11e17]: 2015–2030
+        - generic [ref=f11e18]: 时间跨度
+  - main [ref=f11e19]:
+    - generic [ref=f11e21]:
+      - generic [ref=f11e22]:
+        - generic [ref=f11e23]: 第一部分 人口与劳动力
+        - generic [ref=f11e24]:
+          - link "一、常住人口规模与变化趋势" [ref=f11e25] [cursor=pointer]:
+            - /url: 01-demographic-overview.html
+          - link "二、户籍人口 vs 常住人口的剪刀差" [ref=f11e26] [cursor=pointer]:
+            - /url: 02-hukou-vs-resident.html
+          - link "三、劳动力年龄结构与技能分布" [ref=f11e27] [cursor=pointer]:
+            - /url: 03-labor-structure.html
+          - link "四、人才流失与回流博弈" [ref=f11e28] [cursor=pointer]:
+            - /url: 04-talent-flow.html
+          - link "五、成渝双城人口红利对比" [ref=f11e29] [cursor=pointer]:
+            - /url: 05-chengdu-chongqing-population.html
+      - generic [ref=f11e30]:
+        - generic [ref=f11e31]: 第二部分 经济规模与产业地位
+        - generic [ref=f11e32]:
+          - link "六、GDP 总量与增速全国排名" [ref=f11e33] [cursor=pointer]:
+            - /url: 06-gdp-scale.html
+          - link "七、三大产业结构演变" [ref=f11e34] [cursor=pointer]:
+            - /url: 07-industry-structure.html
+          - link "八、人均 GDP 与全国均值差距" [ref=f11e35] [cursor=pointer]:
+            - /url: 08-per-capita-gdp.html
+          - link "九、西部第一城地位之争" [ref=f11e36] [cursor=pointer]:
+            - /url: 09-western-first-city.html
+          - link "十、经济韧性指数" [ref=f11e37] [cursor=pointer]:
+            - /url: 10-economic-resilience.html
+      - generic [ref=f11e38]:
+        - generic [ref=f11e39]: 第三部分 产业优势与核心竞争力
+        - generic [ref=f11e40]:
+          - link "十一、汽车制造：长安+赛力斯双引擎" [ref=f11e41] [cursor=pointer]:
+            - /url: 11-auto-manufacturing.html
+          - link "十二、电子信息：全球笔电基地" [ref=f11e42] [cursor=pointer]:
+            - /url: 12-electronics.html
+          - link "十三、装备制造与化工冶金" [ref=f11e43] [cursor=pointer]:
+            - /url: 13-equipment-manufacturing.html
+          - link "十四、新兴产业布局" [ref=f11e44] [cursor=pointer]:
+            - /url: 14-emerging-industries.html
+          - link "十五、产业链完整度评估" [ref=f11e45] [cursor=pointer]:
+            - /url: 15-industry-chain-analysis.html
+      - generic [ref=f11e46]:
+        - generic [ref=f11e47]: 第四部分 下行周期优劣势分析
+        - generic [ref=f11e48]:
+          - link "十六、通缩环境下的消费疲软" [ref=f11e49] [cursor=pointer]:
+            - /url: 16-deflation-consumer.html
+          - link "十七、房地产拖累与土地财政依赖" [ref=f11e50] [cursor=pointer]:
+            - /url: 17-real-estate-drags.html
+          - link "十八、地方债务压力测试" [ref=f11e51] [cursor=pointer]:
+            - /url: 18-local-debt-risk.html
+          - link "十九、政策红利对冲" [ref=f11e52] [cursor=pointer]:
+            - /url: 19-policy-dividends.html
+          - link "二十、内陆开放优势" [ref=f11e53] [cursor=pointer]:
+            - /url: 20-inland-opening.html
+      - generic [ref=f11e54]:
+        - generic [ref=f11e55]: 第五部分 底层民生与地区限制
+        - generic [ref=f11e56]:
+          - link "二十一、居民收入水平" [ref=f11e57] [cursor=pointer]:
+            - /url: 21-income-levels.html
+          - link "火锅经济：一座城的味觉GDP" [ref=f11e58] [cursor=pointer]:
+            - /url: 21a-hotpot-economy.html
+          - link "重庆小面：一碗面的百亿产业" [ref=f11e59] [cursor=pointer]:
+            - /url: 21b-xiaomian-industry.html
+          - link "文旅消费：网红城市的流量变现" [ref=f11e60] [cursor=pointer]:
+            - /url: 21c-tourism-consumption.html
+          - link "电商经济：内陆开放的双通道" [ref=f11e61] [cursor=pointer]:
+            - /url: 21d-e-commerce.html
+          - link "社区商业：山城的毛细血管" [ref=f11e62] [cursor=pointer]:
+            - /url: 21e-community-commerce.html
+          - link "中医中药：道地药材的扶贫与产业化" [ref=f11e63] [cursor=pointer]:
+            - /url: 21f-tcm-herbs.html
+          - link "夜市夜经济：40度高温催生的第二白天" [ref=f11e64] [cursor=pointer]:
+            - /url: 21g-night-economy.html
+          - link "个体商户：200万张嘴的生计账" [ref=f11e65] [cursor=pointer]:
+            - /url: 21h-individual-merchants.html
+          - link "二十二、房价收入比" [ref=f11e66] [cursor=pointer]:
+            - /url: 22-housing-affordability.html
+          - link "二十三、就业质量与结构性矛盾" [ref=f11e67] [cursor=pointer]:
+            - /url: 23-employment-quality.html
+          - link "二十四、教育医疗资源" [ref=f11e68] [cursor=pointer]:
+            - /url: 24-public-services.html
+          - link "二十五、城乡差距与区县分化" [ref=f11e69] [cursor=pointer]:
+            - /url: 25-urban-rural-difference.html
+      - generic [ref=f11e70]:
+        - generic [ref=f11e71]: 第六部分 未来展望与数据预言
+        - generic [ref=f11e72]:
+          - link "二十六、2027-2030 GDP 预测" [ref=f11e73] [cursor=pointer]:
+            - /url: 26-2030-predictions.html
+          - link "二十七、成渝双城经济圈战略" [ref=f11e74] [cursor=pointer]:
+            - /url: 27-chengdu-chongqing-circle.html
+          - link "二十八、一带一路与 RCEP 机遇" [ref=f11e75] [cursor=pointer]:
+            - /url: 28-belt-road-rcep.html
+          - link "二十九、风险预警清单" [ref=f11e76] [cursor=pointer]:
+            - /url: 29-risk-warnings.html
+          - link "三十、投资者/创业者行动建议" [ref=f11e77] [cursor=pointer]:
+            - /url: 30-action-guide.html
+          - link "三十一、总结与持续观察指标" [ref=f11e78] [cursor=pointer]:
+            - /url: 31-summary-future.html
+  - contentinfo [ref=f11e79]:
+    - link " 返回首页" [ref=f11e80] [cursor=pointer]:
+      - /url: ../index.html
+      - generic [ref=f11e81]: 
+      - text: 返回首页

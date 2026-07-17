@@ -1,0 +1,266 @@
+- generic [active] [ref=f8e1]:
+  - navigation [ref=f8e2]:
+    - generic [ref=f8e3]:
+      - link " 地下钱庄与洗钱" [ref=f8e4] [cursor=pointer]:
+        - /url: ../index.html
+        - generic [ref=f8e5]: 
+        - text: 地下钱庄与洗钱
+      - generic [ref=f8e6]: /
+      - generic [ref=f8e7]: 5.2 风险信号
+    - generic [ref=f8e8]:
+      - text: 
+      - link " 目录" [ref=f8e9] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f8e10]: 
+        - text: 目录
+  - complementary [ref=f8e11]:
+    - heading " 目录" [level=3] [ref=f8e12]:
+      - generic [ref=f8e13]: 
+      - text: 目录
+    - list [ref=f8e14]:
+      - listitem [ref=f8e15]: 第五部分：执法与合规
+      - listitem [ref=f8e16]:
+        - link "5.1 执法时间线" [ref=f8e17] [cursor=pointer]:
+          - /url: 40-timeline.html
+      - listitem [ref=f8e18]:
+        - link "5.2 风险信号" [ref=f8e19] [cursor=pointer]:
+          - /url: 41-risk-signals.html
+      - listitem [ref=f8e20]:
+        - link "5.3 AML系统" [ref=f8e21] [cursor=pointer]:
+          - /url: 42-aml-system.html
+  - main [ref=f8e22]:
+    - heading "5.2 高风险信号识别 — 金融机构实操指南" [level=1] [ref=f8e23]
+    - generic [ref=f8e24]: 以下信号列表基于FinCEN/OFAC/FATF公开指引和2024-2026年实际执法案例整理。金融机构合规官应将这些信号纳入AML监测系统规则库。
+    - heading "传统洗钱高风险信号" [level=2] [ref=f8e25]
+    - generic [ref=f8e26]:
+      - heading " 经典信号" [level=3] [ref=f8e27]:
+        - generic [ref=f8e28]: 
+        - text: 经典信号
+      - list [ref=f8e29]:
+        - listitem [ref=f8e30]:
+          - text: 🔴
+          - strong [ref=f8e31]: 频繁小额存款接近申报阈值
+          - text: — 美国<$10,000(需填CTR)，中国<¥50,000，刻意规避
+        - listitem [ref=f8e32]:
+          - text: 🔴
+          - strong [ref=f8e33]: 无合理商业目的的跨境转账
+          - text: — 与经营范围不符的大额跨境汇款
+        - listitem [ref=f8e34]:
+          - text: 🔴
+          - strong [ref=f8e35]: 贸易发票价格显著偏离市场均价(>15%)
+          - text: — TBML最强信号
+        - listitem [ref=f8e36]:
+          - text: 🔴
+          - strong [ref=f8e37]: 离岸空壳公司作为主要交易对手
+          - text: — 无实质经营、无员工、无办公场所
+        - listitem [ref=f8e38]:
+          - text: 🔴
+          - strong [ref=f8e39]: 现金密集型企业异常大额"营业收入"
+          - text: — 餐馆/洗衣店收入远超行业均值
+        - listitem [ref=f8e40]:
+          - strong [ref=f8e41]: 🔴 资金快进快出不留余额
+          - text: — 典型的水房归集账户特征
+    - heading "加密洗钱高风险信号" [level=2] [ref=f8e42]
+    - generic [ref=f8e43]:
+      - heading " 链上信号" [level=3] [ref=f8e44]:
+        - generic [ref=f8e45]: 
+        - text: 链上信号
+      - list [ref=f8e46]:
+        - listitem [ref=f8e47]:
+          - text: 🟣
+          - strong [ref=f8e48]: 与混币器地址有交易关联
+          - text: — Tornado Cash/Wasabi/Samourai
+        - listitem [ref=f8e49]:
+          - text: 🟣
+          - strong [ref=f8e50]: 与已知暗网/制裁地址有1-2跳关联
+          - text: — 链上图分析告警
+        - listitem [ref=f8e51]:
+          - text: 🟣
+          - strong [ref=f8e52]: 频繁跨链桥操作
+          - text: — ERC20→BSC→AVAX→POLYGON多链流转
+        - listitem [ref=f8e53]:
+          - text: 🟣
+          - strong [ref=f8e54]: DEX大额分散交易
+          - text: — 单笔资金拆为10-50笔小额swap
+        - listitem [ref=f8e55]:
+          - text: 🟣
+          - strong [ref=f8e56]: 使用Privacy Coin(XMR/ZEC)的交易
+          - text: — 天然不可追踪
+        - listitem [ref=f8e57]:
+          - strong [ref=f8e58]: 🟣 CEX充值后快速转出到非KYC交易所
+          - text: — "跳跃"策略规避监管
+    - heading "2026年新型信号" [level=2] [ref=f8e59]
+    - generic [ref=f8e60]:
+      - heading " AI相关新型风险" [level=3] [ref=f8e61]:
+        - generic [ref=f8e62]: 
+        - text: AI相关新型风险
+      - list [ref=f8e63]:
+        - listitem [ref=f8e64]:
+          - text: 🔵
+          - strong [ref=f8e65]: AI生成的伪造KYC资料
+          - text: — Deepfake身份证/护照照片/视频
+        - listitem [ref=f8e66]:
+          - text: 🔵
+          - strong [ref=f8e67]: AI生成虚假贸易单据
+          - text: — LLM生成的逼真发票/合同/提单
+        - listitem [ref=f8e68]:
+          - text: 🔵
+          - strong [ref=f8e69]: 对抗性交易模式
+          - text: — 交易行为"刚好低于"AML告警阈值
+        - listitem [ref=f8e70]:
+          - strong [ref=f8e71]: 🔵 自动化混币工具使用痕迹
+          - text: — Blend类AI Money Launcher的操作模式
+    - generic [ref=f8e72]: 数据信号：传统洗钱信号增长平稳(2020年5万起→2026年65千起)，加密相关信号呈指数增长(2020年5千起→2026年20万起)，AI新型信号从零起步但增速最快(2026年达6万起)。关键趋势：2024年后加密信号首次超过传统信号，标志着洗钱检测进入"数字化时代"。
+    - heading "五学派交叉分析：风险信号的经济学本质" [level=3] [ref=f8e73]
+    - generic [ref=f8e74]:
+      - strong [ref=f8e75]: Monetarism(货币主义)：
+      - text: 风险信号本质上是"货币异常流动的信号"——当资金流动偏离正常MV=PQ关系时产生告警。结构化交易(Smurfing)是典型的货币流通速度异常：资金以刻意规避监控的方式流动，改变了M2的表观增长速度。
+    - generic [ref=f8e76]:
+      - strong [ref=f8e77]: Supply-side Economics(供给侧经济学)：
+      - text: 风险检测系统的供给质量决定了对洗钱的识别率。规则引擎(供给侧工具)的升级——从静态阈值到AI动态模型——提高了检测供给的质量。供给侧视角：降低误报率(FPR)比提高检测率(TPR)更经济，因为每条误报都消耗分析师时间。
+    - generic [ref=f8e78]:
+      - strong [ref=f8e79]: Behavioral Economics(行为经济学)：
+      - text: 洗钱者使用"刚好低于阈值"的策略(如$9,999而非$10,001)利用了规则的"框架效应"。AI对抗性交易模式更是直接针对检测系统的认知偏差。行为学派指出：检测系统本身也需要"行为设计"——考虑人类分析师的认知负荷和疲劳效应。
+    - generic [ref=f8e80]:
+      - strong [ref=f8e81]: Ecological Economics(生态经济学)：
+      - text: 风险信号构成一个"信息生态系统"——传统信号、加密信号和AI信号分别代表不同层级的生态位。随着加密信号的增长，整个系统的生态平衡被打破，需要新的检测物种(AI模型)来填补生态位空缺。
+    - generic [ref=f8e82]:
+      - strong [ref=f8e83]: World Economic Cycle Theory(世界经济周期理论)：
+      - text: 风险信号的演化与康波周期同步。2020-2021上升期：传统信号主导；2022-2023下行期：加密信号爆发；2024-2025转型期：AI信号崛起。下一轮技术革命将催生"量子信号"——基于量子计算的异常检测可能完全改变信号生态。
+    - generic [ref=f8e84]:
+      - generic [ref=f8e85]:
+        - generic [ref=f8e86]: 
+        - text: Blend AI Money Launcher案 — 首个AI驱动洗钱工具的执法突破
+      - generic [ref=f8e87]:
+        - paragraph [ref=f8e88]: 2025年3月，FinCEN查封了AI驱动的加密混币器Blend，罚款$1.8亿。
+        - paragraph [ref=f8e89]: 核心创新：Blend使用AI自动生成对抗性交易模式，使每笔交易都"刚好低于"AML告警阈值。
+        - paragraph [ref=f8e90]: 执法突破：FinCEN首次使用AI对抗AI——训练检测模型识别Blend生成的模式特征。
+        - paragraph [ref=f8e91]: 行业影响：标志着"AI洗钱 vs AI反洗钱"军备竞赛正式进入实战阶段。
+    - generic [ref=f8e92]:
+      - strong [ref=f8e93]: 分化链：风险信号检测的博弈演化
+      - text: 起点 → 传统规则引擎(阈值+黑白名单) → 加密交易量增长10倍 → 分化A：误报率飙升至95% → 分析师疲劳 → 漏报增加分化B：引入AI/GNN检测 → TPR提升3倍 → 终态B：但AI洗钱工具出现 → 新一轮猫鼠游戏分化C：Deepfake KYC绕过率10-15% → 终态C：多模态活体检测成为新标准 → KYC成本翻倍
+    - generic [ref=f8e94]:
+      - generic [ref=f8e95]:
+        - generic [ref=f8e96]: 
+        - text: 将风险信号转化为可执行的监控规则
+      - paragraph [ref=f8e98]: 以下是将红旗信号转化为交易监测规则引擎具体规则的实操方法，适用于SQL/DataBricks/Flink环境。
+    - list [ref=f8e99]:
+      - listitem [ref=f8e100]:
+        - strong [ref=f8e101]: 规则1——结构化交易检测(Smurfing)：
+        - text: SELECT customer_id, DATE_TRUNC('day', transaction_date) AS txn_day, COUNT(DISTINCT CASE WHEN amount BETWEEN threshold_min AND threshold_max THEN transaction_id END) AS near_threshold_txns FROM transactions GROUP BY customer_id, txn_day HAVING near_threshold_txns >= 5 AND near_threshold_txns / COUNT(*) >= 0.3。解释：客户单日≥30%的交易金额落在阈值附近(如美国$8,000-$9,999或中国¥40,000-¥49,999)。
+      - listitem [ref=f8e102]:
+        - strong [ref=f8e103]: 规则2——快进快出(水房归集)：
+        - text: SELECT account_id, SUM(incoming_amount) as total_in, AVG(TIMESTAMPDIFF(SECOND, first_in_time, first_out_time)) AS avg_balance_hours FROM (SELECT * FROM daily_balances WHERE balance_at_eod <= daily_inflow * 0.05) WHERE avg_balance_hours <= 24。解释：账户日均留存时间≤24h且当日结束时余额≤当日流入的5%。
+      - listitem [ref=f8e104]:
+        - strong [ref=f8e105]: 规则3——夜间异常活跃：
+        - text: SELECT customer_id, COUNT(*) AS night_txns FROM transactions WHERE HOUR(transaction_time) BETWEEN 23 AND 5 GROUP BY customer_id HAVING night_txns / total_txns >= 0.4。解释：夜间(23:00-05:00)交易占比≥40%的客户标记异常。
+      - listitem [ref=f8e106]:
+        - strong [ref=f8e107]: 规则4——多对一资金归集：
+        - text: SELECT recipient_account, COUNT(DISTINCT sender_account) AS unique_senders, SUM(amount) AS total FROM transactions WHERE transaction_date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) GROUP BY recipient_account HAVING unique_senders >= 10 AND total > base_income * 5。解释：7天内≥10个不同付款人向同一账户转账且总额超客户基准收入5倍以上。
+      - listitem [ref=f8e108]:
+        - strong [ref=f8e109]: 规则5——加密地址风险接触：
+        - text: SELECT wallet_address, chain, risk_score FROM chainalysis_risk_api WHERE risk_score >= 50 AND last_seen_days_ago <= 30。解释：最近30天内与风险评分≥50的链上地址发生过交易的钱包地址。
+    - heading "风险信号优先级排序矩阵" [level=2] [ref=f8e110]
+    - table [ref=f8e111]:
+      - rowgroup [ref=f8e112]:
+        - row [ref=f8e113]:
+          - columnheader "优先级" [ref=f8e114]
+          - columnheader "风险信号类别" [ref=f8e115]
+          - columnheader "建议响应时限" [ref=f8e116]
+          - columnheader "自动处理动作" [ref=f8e117]
+          - columnheader "人工复核要求" [ref=f8e118]
+      - rowgroup [ref=f8e119]:
+        - row [ref=f8e120]:
+          - cell "P0" [ref=f8e121]
+          - cell "制裁名单命中/OFAC匹配" [ref=f8e122]
+          - cell "即时(≤1分钟)" [ref=f8e123]
+          - cell "自动冻结交易" [ref=f8e124]
+          - cell "MLRO 24h内确认" [ref=f8e125]
+        - row [ref=f8e126]:
+          - cell "P0" [ref=f8e127]
+          - cell "混币器地址直接关联" [ref=f8e128]
+          - cell "即时(≤1分钟)" [ref=f8e129]
+          - cell "禁止充提+标记" [ref=f8e130]
+          - cell "合规分析师1h内审查" [ref=f8e131]
+        - row [ref=f8e132]:
+          - cell "P1" [ref=f8e133]
+          - cell "结构化交易(Smurfing)" [ref=f8e134]
+          - cell "T+1(次日)" [ref=f8e135]
+          - cell "降额+增强KYC" [ref=f8e136]
+          - cell "合规分析师48h内审查" [ref=f8e137]
+        - row [ref=f8e138]:
+          - cell "P1" [ref=f8e139]
+          - cell "多对一归集模式" [ref=f8e140]
+          - cell "T+1" [ref=f8e141]
+          - cell "触发EDD流程" [ref=f8e142]
+          - cell "MLRO 72h内出具报告" [ref=f8e143]
+        - row [ref=f8e144]:
+          - cell "P2" [ref=f8e145]
+          - cell "夜间高频交易" [ref=f8e146]
+          - cell "T+3" [ref=f8e147]
+          - cell "标记观察名单" [ref=f8e148]
+          - cell "合规分析师1周内复核" [ref=f8e149]
+        - row [ref=f8e150]:
+          - cell "P2" [ref=f8e151]
+          - cell "FPATF高风险管辖区交易" [ref=f8e152]
+          - cell "T+3" [ref=f8e153]
+          - cell "增强记录留存" [ref=f8e154]
+          - cell "EDD流程" [ref=f8e155]
+    - heading "实务工具：风险信号检测软件栈" [level=2] [ref=f8e156]
+    - generic [ref=f8e157]:
+      - generic [ref=f8e158]:
+        - generic [ref=f8e159]: 
+        - text: 信号检测技术架构推荐
+      - paragraph [ref=f8e161]: 以下是构建风险信号检测系统的主流技术栈选择。
+    - table [ref=f8e162]:
+      - rowgroup [ref=f8e163]:
+        - row [ref=f8e164]:
+          - columnheader "功能层" [ref=f8e165]
+          - columnheader "开源方案" [ref=f8e166]
+          - columnheader "商业方案" [ref=f8e167]
+          - columnheader "适用场景" [ref=f8e168]
+      - rowgroup [ref=f8e169]:
+        - row [ref=f8e170]:
+          - cell "流式数据采集" [ref=f8e171]
+          - cell "Apache Kafka + Flink" [ref=f8e172]
+          - cell "AWS Kinesis" [ref=f8e173]
+          - cell "实时交易流接入，毫秒级延迟" [ref=f8e174]
+        - row [ref=f8e175]:
+          - cell "规则引擎" [ref=f8e176]
+          - cell "Drools / EasyRules" [ref=f8e177]
+          - cell "FICO Blaze Advisor" [ref=f8e178]
+          - cell "硬编码阈值规则(结构化/夜间交易)" [ref=f8e179]
+        - row [ref=f8e180]:
+          - cell "机器学习检测" [ref=f8e181]
+          - cell "Scikit-learn / PyTorch (GNN)" [ref=f8e182]
+          - cell "Actimize AML (IBM)" [ref=f8e183]
+          - cell "行为基线模型/异常集群检测" [ref=f8e184]
+        - row [ref=f8e185]:
+          - cell "链上分析" [ref=f8e186]
+          - cell "开源UTXO追踪脚本" [ref=f8e187]
+          - cell "Chainalysis Reactor / TRM Labs API" [ref=f8e188]
+          - cell "加密货币地址风险标签和路径分析" [ref=f8e189]
+        - row [ref=f8e190]:
+          - cell "情报数据" [ref=f8e191]
+          - cell "OFAC/UN制裁名单RSS" [ref=f8e192]
+          - cell "Refinitiv World-Check / Dow Jones" [ref=f8e193]
+          - cell "外部制裁/PEP/负面新闻数据" [ref=f8e194]
+        - row [ref=f8e195]:
+          - cell "SAR/STR报表" [ref=f8e196]
+          - cell "自研报表生成器" [ref=f8e197]
+          - cell "Actimize / SAS AML / Nice Actimize" [ref=f8e198]
+          - cell "可疑报告自动生成+电子提交" [ref=f8e199]
+    - generic [ref=f8e203]:
+      - link " 执法时间线" [ref=f8e204] [cursor=pointer]:
+        - /url: 40-timeline.html
+        - generic [ref=f8e205]: 
+        - text: 执法时间线
+      - link " 目录" [ref=f8e206] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f8e207]: 
+        - text: 目录
+      - generic [ref=f8e208]: 20 / 23
+      - link "AML系统 " [ref=f8e209] [cursor=pointer]:
+        - /url: 42-aml-system.html
+        - text: AML系统
+        - generic [ref=f8e210]: 
