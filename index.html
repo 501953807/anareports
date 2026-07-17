@@ -35,57 +35,87 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-/* ===== Particle Canvas ===== */
+/* ===== Animated Background ===== */
 #particle-bg {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   z-index: -1; pointer-events: none;
 }
+.bg-orb {
+  position: fixed; border-radius: 50%; filter: blur(80px);
+  pointer-events: none; z-index: -1; opacity: 0.3;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+.bg-orb.orb-1 { width: 400px; height: 400px; background: rgba(6,182,212,0.15); top: -100px; left: -100px; animation-delay: 0s; }
+.bg-orb.orb-2 { width: 350px; height: 350px; background: rgba(139,92,246,0.12); top: 30%; right: -80px; animation-delay: -7s; animation-duration: 25s; }
+.bg-orb.orb-3 { width: 300px; height: 300px; background: rgba(16,185,129,0.1); bottom: -50px; left: 30%; animation-delay: -14s; animation-duration: 22s; }
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40px, -30px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(30px, 40px) scale(1.05); }
+}
 
 /* ===== Hero ===== */
-.hero { text-align: center; padding: 80px 20px 40px; margin-bottom: 32px; position: relative; }
+.hero {
+  text-align: center; padding: 70px 20px 40px; margin-bottom: 36px;
+  position: relative;
+}
 .hero::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.12) 0%, rgba(139,92,246,0.06) 40%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.15) 0%, rgba(139,92,246,0.08) 40%, transparent 70%);
   pointer-events: none;
 }
 .hero h1 {
-  font-size: clamp(28px, 5vw, 40px); font-weight: 700;
-  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--cyan));
+  background-size: 200% auto;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  animation: shimmer 4s linear infinite;
 }
-.hero p { color: var(--text2); font-size: 16px; }
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.hero p { color: var(--text2); font-size: 15px; }
 .hero .stats-bar {
-  display: inline-flex; gap: 24px; margin-top: 20px; padding: 10px 24px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-  font-size: 13px; color: var(--text2);
+  display: inline-flex; gap: 20px; margin-top: 22px; padding: 12px 28px;
+  background: rgba(17,24,39,0.8); border: 1px solid var(--border); border-radius: 12px;
+  font-size: 13px; color: var(--text2); backdrop-filter: blur(10px);
 }
 .hero .stats-bar strong { color: var(--cyan); font-weight: 600; }
+.hero .stats-bar span { transition: color 0.2s; }
+.hero .stats-bar span:hover strong { color: var(--purple); }
 
 /* ===== Search Bar ===== */
-.search-bar { text-align: center; margin-bottom: 32px; }
+.search-bar { text-align: center; margin-bottom: 36px; }
 #bookSearch {
-  width: 100%; max-width: 500px; padding: 12px 20px; border-radius: 24px;
+  width: 100%; max-width: 520px; padding: 13px 24px; border-radius: 28px;
   border: 1px solid var(--border); background: var(--surface); color: var(--text);
-  font-size: 14px; outline: none; transition: border-color 0.2s;
+  font-size: 14px; outline: none; transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
-#bookSearch:focus { border-color: var(--cyan); }
+#bookSearch:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(6,182,212,0.1), 0 4px 20px rgba(6,182,212,0.15);
+}
 #bookSearch::placeholder { color: var(--text2); }
 
-/* ===== Group Sections (collapsible) ===== */
-.group-section { margin-bottom: 40px; }
+/* ===== Group Sections ===== */
+.group-section { margin-bottom: 44px; }
 .group-summary {
   font-size: 16px; font-weight: 700; color: var(--text);
-  padding: 12px 14px; margin-bottom: 16px;
+  padding: 12px 14px; margin-bottom: 18px;
   border-left: 3px solid var(--cyan);
   cursor: pointer; list-style: none;
   display: flex; align-items: center; gap: 8px;
-  transition: color 0.2s;
+  transition: all 0.2s;
 }
-.group-summary:hover { color: var(--cyan); }
+.group-summary:hover { color: var(--cyan); padding-left: 18px; }
 .group-summary::-webkit-details-marker { display: none; }
 .group-summary::after {
   content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
@@ -96,103 +126,177 @@ details[open] > .group-summary::after { transform: rotate(-180deg); }
 
 /* ===== Grid ===== */
 .books-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 20px; margin-bottom: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+  gap: 22px;
 }
 
-/* ===== Card (3D ready) ===== */
+/* ===== Card ===== */
 .book-card {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 12px; padding: 24px;
+  border-radius: 14px; padding: 24px;
   color: var(--text); display: flex; flex-direction: column; gap: 12px;
   position: relative; overflow: hidden;
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.3s;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s;
   transform-style: preserve-3d;
+  cursor: pointer;
+  opacity: 0;
+  animation: cardEntrance 0.6s ease-out forwards;
 }
 .book-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  transition: height 0.3s;
 }
-.book-card.cyan::before      { background: var(--cyan); box-shadow: var(--glow-cyan); }
-.book-card.purple::before    { background: var(--purple); box-shadow: var(--glow-purple); }
-.book-card.red::before       { background: var(--red); box-shadow: var(--glow-red); }
-.book-card.green::before     { background: var(--green); box-shadow: var(--glow-green); }
-.book-card.orange::before    { background: var(--orange); box-shadow: var(--glow-orange); }
-.book-card.pink::before      { background: var(--pink); box-shadow: var(--glow-pink); }
-.book-card.gold::before      { background: var(--gold); box-shadow: var(--glow-gold); }
+.book-card.cyan::before      { background: linear-gradient(90deg, var(--cyan), var(--green)); box-shadow: var(--glow-cyan); }
+.book-card.purple::before    { background: linear-gradient(90deg, var(--purple), var(--pink)); box-shadow: var(--glow-purple); }
+.book-card.red::before       { background: linear-gradient(90deg, var(--red), var(--orange)); box-shadow: var(--glow-red); }
+.book-card.green::before     { background: linear-gradient(90deg, var(--green), var(--cyan)); box-shadow: var(--glow-green); }
+.book-card.orange::before    { background: linear-gradient(90deg, var(--orange), var(--gold)); box-shadow: var(--glow-orange); }
+.book-card.pink::before      { background: linear-gradient(90deg, var(--pink), var(--purple)); box-shadow: var(--glow-pink); }
+.book-card.gold::before      { background: linear-gradient(90deg, var(--gold), var(--orange)); box-shadow: var(--glow-gold); }
+.book-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.04) 0%, transparent 60%);
+  pointer-events: none; transition: opacity 0.3s;
+  opacity: 0;
+}
+.book-card:hover::after { opacity: 1; }
 
-.book-card:hover { border-color: var(--cyan); }
-.book-card.cyan:hover      { border-color: var(--cyan); box-shadow: 0 12px 40px rgba(6,182,212,0.2); }
-.book-card.purple:hover    { border-color: var(--purple); box-shadow: 0 12px 40px rgba(139,92,246,0.2); }
-.book-card.red:hover       { border-color: var(--red); box-shadow: 0 12px 40px rgba(239,68,68,0.2); }
-.book-card.green:hover     { border-color: var(--green); box-shadow: 0 12px 40px rgba(16,185,129,0.2); }
-.book-card.orange:hover    { border-color: var(--orange); box-shadow: 0 12px 40px rgba(245,158,11,0.2); }
-.book-card.pink:hover      { border-color: var(--pink); box-shadow: 0 12px 40px rgba(236,72,153,0.2); }
-.book-card.gold:hover      { border-color: var(--gold); box-shadow: 0 12px 40px rgba(234,179,8,0.2); }
+.book-card:hover { border-color: rgba(6,182,212,0.4); }
+.book-card.cyan:hover      { border-color: var(--cyan); box-shadow: 0 16px 50px rgba(6,182,212,0.18), 0 0 0 1px var(--cyan); }
+.book-card.purple:hover    { border-color: var(--purple); box-shadow: 0 16px 50px rgba(139,92,246,0.18), 0 0 0 1px var(--purple); }
+.book-card.red:hover       { border-color: var(--red); box-shadow: 0 16px 50px rgba(239,68,68,0.18), 0 0 0 1px var(--red); }
+.book-card.green:hover     { border-color: var(--green); box-shadow: 0 16px 50px rgba(16,185,129,0.18), 0 0 0 1px var(--green); }
+.book-card.orange:hover    { border-color: var(--orange); box-shadow: 0 16px 50px rgba(245,158,11,0.18), 0 0 0 1px var(--orange); }
+.book-card.pink:hover      { border-color: var(--pink); box-shadow: 0 16px 50px rgba(236,72,153,0.18), 0 0 0 1px var(--pink); }
+.book-card.gold:hover      { border-color: var(--gold); box-shadow: 0 16px 50px rgba(234,179,8,0.18), 0 0 0 1px var(--gold); }
 
 .book-card .card-header { display: flex; align-items: center; gap: 14px; }
 .book-card .card-icon {
-  font-size: 30px; width: 48px; height: 48px;
+  font-size: 28px; width: 48px; height: 48px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 12px; flex-shrink: 0;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.book-card.cyan .card-icon      { background: rgba(6,182,212,0.12); }
-.book-card.purple .card-icon    { background: rgba(139,92,246,0.12); }
-.book-card.red .card-icon       { background: rgba(239,68,68,0.12); }
-.book-card.green .card-icon     { background: rgba(16,185,129,0.12); }
-.book-card.orange .card-icon    { background: rgba(245,158,11,0.12); }
-.book-card.pink .card-icon      { background: rgba(236,72,153,0.12); }
-.book-card.gold .card-icon      { background: rgba(234,179,8,0.12); }
+.book-card:hover .card-icon { transform: scale(1.1) rotate(-3deg); }
+.book-card.cyan .card-icon      { background: rgba(6,182,212,0.1); }
+.book-card.purple .card-icon    { background: rgba(139,92,246,0.1); }
+.book-card.red .card-icon       { background: rgba(239,68,68,0.1); }
+.book-card.green .card-icon     { background: rgba(16,185,129,0.1); }
+.book-card.orange .card-icon    { background: rgba(245,158,11,0.1); }
+.book-card.pink .card-icon      { background: rgba(236,72,153,0.1); }
+.book-card.gold .card-icon      { background: rgba(234,179,8,0.1); }
 
 .book-card .card-title {
-  font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--text); flex: 1;
+  font-size: 14px; font-weight: 600; line-height: 1.45; color: var(--text); flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
-.book-card .card-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
-.book-card .card-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--text2); }
-.book-card .card-meta .page-count { padding: 2px 8px; border-radius: 4px; background: var(--surface2); font-weight: 500; }
+.book-card .card-desc { font-size: 12.5px; color: var(--text2); line-height: 1.65;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.book-card .card-meta { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--text2); }
+.book-card .card-meta .page-count { padding: 2px 10px; border-radius: 6px; background: var(--surface2); font-weight: 500; }
 
 .book-card .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .book-card .card-tag {
-  display: inline-block; padding: 3px 10px; border-radius: 4px;
-  font-size: 11px; font-weight: 500;
+  display: inline-block; padding: 3px 10px; border-radius: 6px;
+  font-size: 11px; font-weight: 500; transition: all 0.2s;
 }
-.book-card.cyan .card-tag       { background: rgba(6,182,212,0.12); color: var(--cyan); }
-.book-card.purple .card-tag     { background: rgba(139,92,246,0.12); color: var(--purple); }
-.book-card.red .card-tag        { background: rgba(239,68,68,0.12); color: var(--red); }
-.book-card.green .card-tag      { background: rgba(16,185,129,0.12); color: var(--green); }
-.book-card.orange .card-tag     { background: rgba(245,158,11,0.12); color: var(--orange); }
-.book-card.pink .card-tag       { background: rgba(236,72,153,0.12); color: var(--pink); }
-.book-card.gold .card-tag       { background: rgba(234,179,8,0.12); color: var(--gold); }
+.book-card.cyan .card-tag       { background: rgba(6,182,212,0.1); color: var(--cyan); }
+.book-card.purple .card-tag     { background: rgba(139,92,246,0.1); color: var(--purple); }
+.book-card.red .card-tag        { background: rgba(239,68,68,0.1); color: var(--red); }
+.book-card.green .card-tag      { background: rgba(16,185,129,0.1); color: var(--green); }
+.book-card.orange .card-tag     { background: rgba(245,158,11,0.1); color: var(--orange); }
+.book-card.pink .card-tag       { background: rgba(236,72,153,0.1); color: var(--pink); }
+.book-card.gold .card-tag       { background: rgba(234,179,8,0.1); color: var(--gold); }
+.book-card .card-tag:hover { filter: brightness(1.3); transform: translateY(-1px); }
 
 /* Highlights row */
 .book-card .card-highlights {
-  display: flex; gap: 12px; flex-wrap: wrap; padding-top: 4px;
+  display: flex; gap: 12px; flex-wrap: wrap; padding-top: 6px;
   border-top: 1px solid var(--border);
 }
 .book-card .highlight-item { text-align: center; flex: 1; min-width: 60px; }
-.book-card .highlight-value { display: block; font-size: 16px; font-weight: 700; }
+.book-card .highlight-value { display: block; font-size: 15px; font-weight: 700; transition: transform 0.2s; }
+.book-card .highlight-item:hover .highlight-value { transform: scale(1.08); }
 .book-card .highlight-label { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }
 
-/* Action buttons */
-.book-card .card-actions {
-  display: flex; gap: 8px; margin-top: 4px;
+/* Unified action hint */
+.book-card .card-hint {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 11.5px; color: var(--text2); padding-top: 2px;
+  transition: color 0.2s;
 }
-.book-card .card-actions .btn {
-  flex: 1; text-align: center; padding: 8px 12px; border-radius: 6px;
-  font-size: 12px; font-weight: 600; text-decoration: none;
-  transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;
+.book-card:hover .card-hint { color: var(--cyan); }
+.book-card .card-hint i { transition: transform 0.3s; }
+.book-card:hover .card-hint i { transform: translateX(3px); }
+
+/* ===== Card Entry Animations ===== */
+@keyframes cardEntrance {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
-.book-card .card-actions .btn-book {
-  background: rgba(6,182,212,0.1); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3);
+
+/* ===== Modal Overlay ===== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
 }
-.book-card .card-actions .btn-book:hover { background: rgba(6,182,212,0.2); border-color: var(--cyan); }
-.book-card .card-actions .btn-kanban {
-  background: rgba(139,92,246,0.1); color: var(--purple); border: 1px solid rgba(139,92,246,0.3);
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-content {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px; max-width: 480px; width: 90%;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
 }
-.book-card .card-actions .btn-kanban:hover { background: rgba(139,92,246,0.2); border-color: var(--purple); }
+.modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text2); width: 32px; height: 32px; border-radius: 8px;
+  cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.modal-close:hover { border-color: var(--red); color: var(--red); }
+.modal-book-name {
+  font-size: 16px; font-weight: 700; color: var(--text);
+  margin-bottom: 6px; padding-right: 40px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.modal-book-desc { font-size: 12.5px; color: var(--text2); margin-bottom: 20px; line-height: 1.6; }
+.modal-actions { display: flex; gap: 12px; }
+.modal-actions .modal-btn {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 20px 16px; border-radius: 12px; text-decoration: none;
+  transition: all 0.3s; border: 1px solid var(--border);
+}
+.modal-btn.btn-book-opt {
+  background: rgba(6,182,212,0.06);
+}
+.modal-btn.btn-book-opt:hover {
+  background: rgba(6,182,212,0.15); border-color: var(--cyan);
+  box-shadow: 0 0 24px rgba(6,182,212,0.15); transform: translateY(-2px);
+}
+.modal-btn.btn-kanban-opt {
+  background: rgba(139,92,246,0.06);
+}
+.modal-btn.btn-kanban-opt:hover {
+  background: rgba(139,92,246,0.15); border-color: var(--purple);
+  box-shadow: 0 0 24px rgba(139,92,246,0.15); transform: translateY(-2px);
+}
+.modal-btn i { font-size: 28px; }
+.modal-btn.btn-book-opt i { color: var(--cyan); }
+.modal-btn.btn-kanban-opt i { color: var(--purple); }
+.modal-btn .btn-label { font-size: 14px; font-weight: 600; }
+.modal-btn.btn-book-opt .btn-label { color: var(--cyan); }
+.modal-btn.btn-kanban-opt .btn-label { color: var(--purple); }
+.modal-btn .btn-sub { font-size: 11px; color: var(--text2); }
 
 /* ===== Footer ===== */
 footer {
-  text-align: center; padding: 40px 20px; margin-top: 40px;
+  text-align: center; padding: 44px 20px; margin-top: 40px;
   border-top: 1px solid var(--border); color: var(--text2); font-size: 12px;
 }
 footer a { color: var(--cyan); text-decoration: none; }
@@ -200,15 +304,20 @@ footer a { color: var(--cyan); text-decoration: none; }
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .books-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 26px; }
-  .hero .stats-bar { flex-wrap: wrap; gap: 12px; }
-  .hero { padding: 50px 20px 30px; }
+  .hero h1 { font-size: 24px; }
+  .hero .stats-bar { flex-wrap: wrap; gap: 10px; font-size: 12px; }
+  .hero { padding: 40px 16px 24px; }
+  .modal-actions { flex-direction: column; }
+  .modal-content { padding: 24px; }
 }
 </style>
 </head>
 <body>
 
 <canvas id="particle-bg"></canvas>
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+<div class="bg-orb orb-3"></div>
 <div class="container">
 
 <!-- Hero -->
@@ -230,6 +339,27 @@ footer a { color: var(--cyan); text-decoration: none; }
 
 <!-- Cards container (rendered by JS) -->
 <div id="cards-container"></div>
+
+<!-- Unified Modal -->
+<div class="modal-overlay" id="cardModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-book-name" id="modalName"></div>
+    <div class="modal-book-desc" id="modalDesc"></div>
+    <div class="modal-actions">
+      <a class="modal-btn btn-book-opt" id="modalBookLink" href="#">
+        <i class="fas fa-book-open"></i>
+        <span class="btn-label">进入书籍</span>
+        <span class="btn-sub">阅读完整深度分析</span>
+      </a>
+      <a class="modal-btn btn-kanban-opt" id="modalKanbanLink" href="#">
+        <i class="fas fa-chart-column"></i>
+        <span class="btn-label">查看看板</span>
+        <span class="btn-sub">ECharts 数据可视化</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <footer>
   <p>AnaReports · 经济学研判与产业研究 &nbsp;|&nbsp; 11 套全景书 · 400+ 页内容 · 11 份独立看板 &nbsp;|&nbsp; 2026</p>
@@ -302,6 +432,21 @@ const BOOK_DATA = [
     ],
     bookUrl: "money-laundering/index.html",
     kanbanUrl: "全球地下金融与洗钱风险研判看板_渠道图谱_链上追踪_执法合规.html"
+  },
+  {
+    name: "《AI影像创作实战指南：从工具选型到潮玩IP角色设计与完整动画短片》",
+    shortName: "AI影像创作",
+    desc: "AI图像/视频工具全景对比、提示词工程、潮玩IP角色设计稿实战、完整动画短片制作全流程教学。",
+    group: "academic", icon: "fa-wand-magic-sparkles", color: "purple",
+    pages: 38, charts: 15,
+    tags: ["AI影像", "角色设计", "动画短片"],
+    highlights: [
+      { label: "工具", value: "15+" },
+      { label: "图表", value: "15" },
+      { label: "实战案例", value: "2个" }
+    ],
+    bookUrl: "ai-visual-production/index.html",
+    kanbanUrl: "AI视频图像设计全景看板_AI工具矩阵_潮玩IP角色设计_动画短片制作.html"
   },
   {
     name: "《中日经济周期比较研究：日本失去的三十年与中国路径选择》",
@@ -454,11 +599,12 @@ function renderCards() {
     container.appendChild(section);
 
     const grid = section.querySelector('.books-grid');
-    books.forEach(book => {
+    books.forEach((book, i) => {
       const card = document.createElement('div');
       card.className = `book-card ${book.color}`;
       card.dataset.name = book.shortName;
       card.dataset.search = `${book.name} ${book.desc} ${book.tags.join(' ')}`.toLowerCase();
+      card.style.animationDelay = `${i * 0.08}s`;
 
       const hc = HIGHLIGHT_COLORS[book.color] || '#06b6d4';
 
@@ -483,13 +629,8 @@ function renderCards() {
             </div>
           `).join('')}
         </div>
-        <div class="card-actions">
-          <a href="${book.bookUrl}" class="btn btn-book">
-            <i class="fas fa-book-open"></i> 进入书籍
-          </a>
-          <a href="${book.kanbanUrl}" class="btn btn-kanban">
-            <i class="fas fa-chart-column"></i> 查看看板
-          </a>
+        <div class="card-hint">
+          点击查看书籍或看板 <i class="fas fa-arrow-right"></i>
         </div>
       `;
 
@@ -498,7 +639,62 @@ function renderCards() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', renderCards);
+// ============================================================
+// MODAL: Unified card action selection
+// ============================================================
+function initModal() {
+  const overlay = document.getElementById('cardModal');
+  const modalName = document.getElementById('modalName');
+  const modalDesc = document.getElementById('modalDesc');
+  const bookLink = document.getElementById('modalBookLink');
+  const kanbanLink = document.getElementById('modalKanbanLink');
+
+  // Delegate clicks on cards
+  document.getElementById('cards-container').addEventListener('click', (e) => {
+    const card = e.target.closest('.book-card');
+    if (!card) return;
+
+    const name = card.dataset.name;
+    const book = BOOK_DATA.find(b => b.shortName === name);
+    if (!book) return;
+
+    modalName.textContent = book.name;
+    modalDesc.textContent = book.desc;
+    bookLink.href = book.bookUrl;
+    kanbanLink.href = book.kanbanUrl;
+    overlay.classList.add('active');
+  });
+
+  // Close handlers
+  window.closeModal = () => overlay.classList.remove('active');
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+}
+
+// ============================================================
+// CARD SPOTLIGHT: Radial glow follows cursor
+// ============================================================
+document.addEventListener('mousemove', (e) => {
+  document.querySelectorAll('.book-card').forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+      card.style.setProperty('--mx', `${x}px`);
+      card.style.setProperty('--my', `${y}px`);
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCards();
+  initModal();
+});
 
 // ============================================================
 // PARTICLE BACKGROUND: Canvas-based floating nodes
@@ -578,30 +774,6 @@ document.addEventListener('DOMContentLoaded', renderCards);
   draw();
   window.addEventListener('resize', () => { resize(); createParticles(); });
 })();
-
-// ============================================================
-// 3D CARD TILT: Mouse-follow perspective rotation
-// ============================================================
-document.addEventListener('mousemove', (e) => {
-  document.querySelectorAll('.book-card').forEach(card => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rx = ((y - cy) / cy) * -8;
-      const ry = ((x - cx) / cx) * 8;
-
-      card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`;
-      card.style.transition = 'transform 0.1s ease-out';
-    } else {
-      card.style.transform = '';
-      card.style.transition = 'transform 0.4s ease-out';
-    }
-  });
-});
 
 // ============================================================
 // SEARCH FILTER: Real-time card filtering
