@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.2 AI生成角色三视图 — 《AI影像创作实战指南》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">第5章 AI生成角色三视图</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">1.1 AI图像/视频工具全景</a></li>
+      <li><a href="02-prompt-engineering.html">1.2 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">1.3 本地与云端环境搭建</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="04-character-design.html">2.1 潮玩IP角色设计理念</a></li>
+      <li><a href="05-character-views.html" class="active">2.2 AI生成角色三视图</a></li>
+      <li><a href="06-expression-props.html">2.3 表情集与道具设计</a></li>
+      <li><a href="07-character-output.html">2.4 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作</li>
+      <li><a href="08-short-film-planning.html">3.1 短片策划与分镜设计</a></li>
+      <li><a href="09-scene-generation.html">3.2 AI场景生成</a></li>
+      <li><a href="10-video-generation.html">3.3 AI视频生成技术</a></li>
+      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
+      <li><a href="12-publishing.html">3.5 发布与运营</a></li>
+      <li class="toc-chapter">第四篇：进阶与商业化</li>
+      <li><a href="13-commercial-applications.html">4.1 商业应用场景</a></li>
+      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">第二篇 第2章 AI生成角色三视图实战</h1>
+
+    <div class="data-note" style="margin-bottom:20px">三视图是角色设计的标准输出格式，也是从2D概念到3D制造的桥梁。传统上需要专业美术师手工绘制2-3周，现在使用AI工具可以在一天内完成高质量三视图生成。本章将提供完整的操作步骤和精确的提示词配方。</div>
+
+    <h2 class="section-subtitle">一、为什么三视图如此重要</h2>
+
+    <p>三视图（正面图 + 侧面图 + 背面图）是角色设计的"标准货币"——它是所有后续工作的基础参照系。</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="font-size:14px;color:var(--cyan);margin-bottom:8px"><i class="fas fa-cube"></i> 3D建模</h3>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">3D建模师需要三视图作为参考来构建角色模型。每个面都需要精确的比例和细节对应，缺少任何一个视角都会导致建模偏差。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:14px;color:var(--orange);margin-bottom:8px"><i class="fas fa-box-open"></i> 手办制作</h3>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">手办工厂根据三视图开模。正面决定外观识别度，侧面决定轮廓剪影，背面决定细节丰富度。三视图精度直接决定成品质量。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:14px;color:var(--green);margin-bottom:8px"><i class="fas fa-film"></i> 动画制作</h3>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">动画师需要三视图来理解角色的空间结构，确保角色在任何角度下都保持一致的外观。这是"角色一致性"的技术基础。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">二、AI生成三视图的完整步骤</h2>
+
+    <ol class="steps-list">
+      <li>
+        <strong>生成基础角色概念图</strong><br>
+        使用Midjourney/Flux/通义万相生成角色的基础概念设计。这一步不追求完美，而是探索角色造型的可能性。<br>
+        <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:12px;margin:8px 0;color:var(--cyan)">一只圆润可爱的橘猫角色，2.5头身Q版比例，大眼睛，橙色条纹，戴着蓝色小帽子，皮克斯风格3D渲染，纯白背景 --v 7 --style raw</code>
+        <br><span style="color:var(--cyan)">⚡ 提示：这一步生成20-30个变体，选出最满意的1-2个作为后续参考图。</span>
+      </li>
+      <li>
+        <strong>锁定角色一致性</strong><br>
+        使用AI工具的"角色参考图"功能，确保后续生成的不同视角保持同一角色特征。<br>
+        <ul style="list-style:none;padding:0;margin:8px 0">
+          <li style="padding:3px 0"><strong>Midjourney：</strong>上传概念图，使用 <code style="color:var(--cyan)">--cref [URL] --cw 100</code> 参数。cw值100表示包含面部+服装全身信息，0只包含面部。</li>
+          <li style="padding:3px 0"><strong>Flux：</strong>将概念图作为image prompt输入，配合文本描述。</li>
+          <li style="padding:3px 0"><strong>通义万相：</strong>使用"图生图"模式上传参考图，调整风格权重。</li>
+        </ul>
+      </li>
+      <li>
+        <strong>分别生成三个视角</strong><br>
+        对每个视角使用专门的提示词，同时保持角色参考图不变。<br>
+        <ul style="list-style:none;padding:0;margin:8px 0">
+          <li style="padding:3px 0"><strong>正面视图：</strong><code style="color:var(--cyan)">character sheet, front view, full body, white background</code></li>
+          <li style="padding:3px 0"><strong>侧面视图：</strong><code style="color:var(--cyan)">character sheet, side view, right profile, full body, white background</code></li>
+          <li style="padding:3px 0"><strong>背面视图：</strong><code style="color:var(--cyan)">character sheet, back view, full body, white background</code></li>
+        </ul>
+      </li>
+      <li>
+        <strong>ComfyUI统一风格与比例</strong><br>
+        将三个视角的生成结果导入ComfyUI，使用ControlNet的Depth和Canny节点统一线条风格和身体比例。<br>
+        <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:12px;margin:8px 0;color:var(--cyan)">工作流：参考图 → IP-Adapter（角色锁定）→ ControlNet Depth（比例统一）→ SDXL生成 → 超分辨率放大</code>
+      </li>
+      <li>
+        <strong>后期合成标准化稿件</strong><br>
+        在Photoshop或Figma中将三视图排列为标准格式，添加比例标注线、色彩规范说明、材质标注。<br>
+        <span style="color:var(--cyan)">⚡ 标准三视图稿件尺寸：A3（297×420mm），300dpi，RGB色彩模式。</span>
+      </li>
+    </ol>
+
+    <h2 class="section-subtitle">三、精确提示词配方</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-terminal"></i> 正面视图提示词模板</div>
+      <div class="tip-body">
+        <p style="margin-bottom:8px">复制以下模板，替换括号中的内容即可使用：</p>
+        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:11px;line-height:1.8;color:var(--cyan);word-break:break-all">character design sheet, front view, full body shot, [角色描述], [风格关键词], [光照关键词], clean white background, centered composition, professional character reference, consistent proportions, --v 7 --ar 2:3 --style raw</code>
+        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>示例：</strong>character design sheet, front view, full body shot, a cute chubby orange tabby cat, 2.5 chibi proportions, big expressive green eyes, wearing a small blue sailor hat, Pixar style 3D render, soft studio lighting, clean white background, centered composition, professional character reference, consistent proportions, --v 7 --ar 2:3 --style raw</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:12px">
+      <div class="tip-title"><i class="fas fa-terminal"></i> 侧面视图提示词模板</div>
+      <div class="tip-body">
+        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:11px;line-height:1.8;color:var(--cyan);word-break:break-all">character design sheet, right side view, profile view, full body, [角色描述], same character as reference, [风格关键词], clean white background, showing silhouette clearly, --v 7 --ar 2:3 --style raw --cref [参考图URL] --cw 100</code>
+        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>关键差异：</strong>侧面视图需要强调"showing silhouette clearly"和"profile view"，确保AI生成的是准确的侧面而非斜45度角。</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:12px">
+      <div class="tip-title"><i class="fas fa-terminal"></i> 背面视图提示词模板</div>
+      <div class="tip-body">
+        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:11px;line-height:1.8;color:var(--cyan);word-break:break-all">character design sheet, back view, rear view, full body, [角色描述], same character, [风格关键词], clean white background, showing back details like [背部特征], --v 7 --ar 2:3 --style raw --cref [参考图URL] --cw 100</code>
+        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>关键差异：</strong>背面视图需要明确描述背部特征（如尾巴形状、帽子后部、背部图案），否则AI可能生成与正面相同的简化背面。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">四、角色一致性控制技术</h2>
+
+    <p>角色一致性是三视图生成的最大挑战。以下是四种核心技术的对比和使用策略：</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>技术</th><th>原理</th><th>效果</th><th>适用场景</th><th>操作难度</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Seed值控制</strong></td>
+          <td>固定随机种子，微调提示词</td>
+          <td>⭐⭐ 中等——适合微调同一角色的不同角度</td>
+          <td>同一提示词的多次生成</td>
+          <td>低</td>
+        </tr>
+        <tr>
+          <td><strong>参考图上传（--cref）</strong></td>
+          <td>以已有图像为视觉参考，AI模仿其特征</td>
+          <td>⭐⭐⭐⭐ 高——面部和造型高度一致</td>
+          <td>基于选定概念图生成多视角</td>
+          <td>中</td>
+        </tr>
+        <tr>
+          <td><strong>LoRA模型训练</strong></td>
+          <td>用15-30张角色图训练专用模型</td>
+          <td>⭐⭐⭐⭐⭐ 极高——任何场景都能生成该角色</td>
+          <td>长期IP项目，需要大量变体</td>
+          <td>高（需要训练资源）</td>
+        </tr>
+        <tr>
+          <td><strong>IP-Adapter（ComfyUI）</strong></td>
+          <td>通过CLIP视觉编码器注入参考图特征</td>
+          <td>⭐⭐⭐⭐ 高——支持多参考图融合</td>
+          <td>ComfyUI高级用户，需要精细控制</td>
+          <td>中高</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 推荐组合策略</div>
+      <div class="tip-body">
+        <p><strong>入门方案：</strong>Seed值控制 + --cref参考图。适合单次项目，无需训练模型。Midjourney即可完成全部流程。</p>
+        <p style="margin-top:6px"><strong>进阶方案：</strong>--cref参考图 + ComfyUI IP-Adapter。适合需要批量生产的创作者，可以精细控制每个视角的细节。</p>
+        <p style="margin-top:6px"><strong>专业方案：</strong>LoRA训练 + IP-Adapter + ControlNet。适合长期IP项目（系列盲盒、动画角色），前期投入训练时间，后期收益巨大。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">五、实操演示：设计一只皮克斯风格的小橘猫</h2>
+
+    <p>让我们用一个完整的例子，演示从概念到三视图的全流程。</p>
+
+    <div class="card highlight">
+      <h3 class="section-subtitle" style="color:var(--cyan)">🐱 角色设定卡</h3>
+      <table class="data-table">
+        <thead><tr><th>属性</th><th>设定值</th></tr></thead>
+        <tbody>
+          <tr><td>名称</td><td>小橘（Orangey）</td></tr>
+          <tr><td>体型</td><td>圆胖型，2.5头身，短腿</td></tr>
+          <tr><td>毛色</td><td>橙色虎斑条纹，腹部白色</td></tr>
+          <tr><td>眼睛</td><td>大而圆的绿色眼睛，瞳孔竖直</td></tr>
+          <tr><td>配饰</td><td>蓝色水手帽（略微歪戴），脖子上红色小围巾</td></tr>
+          <tr><td>尾巴</td><td>蓬松大尾巴，尾尖白色</td></tr>
+          <tr><td>性格</td><td>好奇、贪吃、有点傲娇</td></tr>
+          <tr><td>风格</td><td>皮克斯3D渲染风格</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="section-subtitle">5.1 第一步：生成概念图</h3>
+
+    <code style="display:block;background:var(--surface2);padding:14px;border-radius:6px;font-size:12px;line-height:1.8;color:var(--cyan);margin:10px 0">a cute chubby orange tabby cat character, 2.5 chibi proportions, big round green eyes with catchlights, orange fur with darker stripes, fluffy tail with white tip, wearing a slightly tilted blue sailor hat and a tiny red scarf around neck, Pixar 3D render style, soft volumetric studio lighting, clean white background, full body front view, character design sheet, adorable expression --v 7 --ar 3:4 --style raw --s 250</code>
+
+    <p style="font-size:13px;color:var(--text2);margin:8px 0"><strong>参数说明：</strong><code style="color:var(--cyan)">--s 250</code> 控制风格强度（0-1000），250是偏写实的中等强度。对于潮玩角色，建议100-300之间。</p>
+
+    <h3 class="section-subtitle">5.2 第二步：生成正面视图</h3>
+
+    <p>从概念图中选出最满意的一张，获取URL后执行：</p>
+
+    <code style="display:block;background:var(--surface2);padding:14px;border-radius:6px;font-size:12px;line-height:1.8;color:var(--cyan);margin:10px 0">character design sheet, front view, full body, a cute chubby orange tabby cat, 2.5 chibi proportions, big green eyes, orange fur with stripes, blue sailor hat tilted slightly, red scarf, fluffy tail with white tip, Pixar style 3D render, clean white background, centered, consistent character design --v 7 --ar 2:3 --style raw --cref [概念图URL] --cw 100 --seed 12345</code>
+
+    <h3 class="section-subtitle">5.3 第三步：生成侧面视图</h3>
+
+    <code style="display:block;background:var(--surface2);padding:14px;border-radius:6px;font-size:12px;line-height:1.8;color:var(--cyan);margin:10px 0">character design sheet, right side view, profile view, full body, a cute chubby orange tabby cat, 2.5 chibi proportions, showing round belly profile, blue sailor hat from side, red scarf draping, fluffy tail curling up from behind, Pixar style 3D render, clean white background, showing clear silhouette --v 7 --ar 2:3 --style raw --cref [概念图URL] --cw 100 --seed 12346</code>
+
+    <h3 class="section-subtitle">5.4 第四步：生成背面视图</h3>
+
+    <code style="display:block;background:var(--surface2);padding:14px;border-radius:6px;font-size:12px;line-height:1.8;color:var(--cyan);margin:10px 0">character design sheet, back view, rear view, full body, a cute chubby orange tabby cat, 2.5 chibi proportions, showing back of blue sailor hat, red scarf from behind, fluffy orange tail with white tip from rear, orange fur pattern on back, Pixar style 3D render, clean white background --v 7 --ar 2:3 --style raw --cref [概念图URL] --cw 100 --seed 12347</code>
+
+    <h3 class="section-subtitle">5.5 第五步：后期整合</h3>
+
+    <p>将三张图导入Photoshop/Figma，按以下标准排版：</p>
+    <table class="data-table" style="margin-top:10px">
+      <thead><tr><th>要素</th><th>规格</th></tr></thead>
+      <tbody>
+        <tr><td>画布尺寸</td><td>A3 (3508 × 4961 px, 300dpi)</td></tr>
+        <tr><td>布局</td><td>正面居中，侧面居左，背面居右，间距均匀</td></tr>
+        <tr><td>标注线</td><td>添加水平比例线（头顶/肩/腰/脚底）</td></tr>
+        <tr><td>色彩标注</td><td>用色块标注各部位颜色代码</td></tr>
+        <tr><td>材质标注</td><td>注释毛绒、布料、塑料等材质类型</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">六、工具选择建议</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>工具</th><th>优势</th><th>劣势</th><th>最佳用途</th><th>成本</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Midjourney v7</strong></td>
+          <td>艺术质量最高，--cref功能成熟，社区资源丰富</td>
+          <td>付费订阅，无本地部署</td>
+          <td>角色概念设计和三视图生成</td>
+          <td>$10-60/月</td>
+        </tr>
+        <tr>
+          <td><strong>Flux</strong></td>
+          <td>开源灵活，支持本地部署，image prompt能力强</td>
+          <td>需要一定技术门槛</td>
+          <td>需要自定义工作流的进阶用户</td>
+          <td>免费（本地）/ $10/月（API）</td>
+        </tr>
+        <tr>
+          <td><strong>通义万相</strong></td>
+          <td>完全免费，中文提示词友好，操作简单</td>
+          <td>角色一致性控制较弱</td>
+          <td>入门练习和快速概念验证</td>
+          <td>免费</td>
+        </tr>
+        <tr>
+          <td><strong>ComfyUI</strong></td>
+          <td>最大灵活性，IP-Adapter + ControlNet组合拳</td>
+          <td>学习曲线陡峭</td>
+          <td>批量生产和精细化控制</td>
+          <td>免费（开源）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">七、多学派交叉解读</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 古典经济学视角</div>
+        <div class="sv-body">AI辅助角色设计降低了技能门槛，实现了创意表达的民主化。亚当·斯密会指出：过去角色设计需要多年美术训练才能掌握的技能，现在被"分解"为提示词工程——任何人只要学会如何描述，就能获得接近专业水准的输出。这是典型的"分工理论"在AI时代的延伸：你不需要会画画，只需要会"描述画"。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</div>
+        <div class="sv-body">AI生成三视图的过程揭示了"数字异化"的新形态。设计师不再亲手绘制每一根线条，而是通过提示词"指挥"算法完成创作。这种"去技能化"过程类似于工厂流水线对手工匠人的替代——创意被分解为可操作的指令片段。但另一方面，AI也打破了美术技能的阶级壁垒，让没有绘画能力的人也能表达创意。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 演化经济学视角</div>
+        <div class="sv-body">角色设计正在经历从"人工选择"到"算法选择"的范式转变。传统设计中，设计师通过试错逐步优化角色；AI时代，一次生成20个变体，人类只做最终选择。这个"变异-选择-保留"的循环速度提升了100倍。更快的演化速度意味着更优的设计解被更快发现。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">八、发散引申链</h2>
+
+    <div class="divergence-chain">
+      <div class="dc-links">
+        <span class="dc-node">角色一致性控制</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">系列化设计</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">IP宇宙构建</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">跨媒体叙事</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">沉浸式体验经济</span>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-tools"></i> 三视图生成的常见陷阱与对策</div>
+      <div class="tip-body">
+        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+          <li style="padding:4px 0"><strong>陷阱1：三视图角色不一致</strong> — 对策：始终使用--cref或IP-Adapter锁定参考图，不要仅依赖seed值。</li>
+          <li style="padding:4px 0"><strong>陷阱2：侧面/背面过于简单</strong> — 对策：在提示词中明确描述背部和侧面的具体细节（"showing back pattern of X"）。</li>
+          <li style="padding:4px 0"><strong>陷阱3：比例不统一</strong> — 对策：使用ComfyUI的ControlNet Depth节点强制统一骨骼比例。</li>
+          <li style="padding:4px 0"><strong>陷阱4：背景不够干净</strong> — 对策：提示词末尾加上"clean solid white background, no shadows, no props"。</li>
+          <li style="padding:4px 0"><strong>陷阱5：生成速度慢</strong> — 对策：批量生成时使用Midjourney的"/blend"功能或ComfyUI的batch处理。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="data-note" style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
+      <strong>💡 核心洞察：</strong>三视图的本质不是"三张图"，而是一套"空间编码系统"——它将一个三维角色压缩为三个正交投影。AI生成三视图的最大价值不在于速度，而在于它让你可以在一天内尝试10种不同的角色方案，每种都有完整的三视图。这种"快速试错"的能力是传统设计流程无法想象的。
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="04-character-design.html"><i class="fas fa-arrow-up"></i> 潮玩IP角色设计理念</a>
+    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
+    <span class="page-info">5 / 38</span>
+    <a class="nav-next" href="06-expression-props.html">表情集与道具设计 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-three-view-comparison'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['Midjourney', 'Flux', '通义万相'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 80, right: 20, top: 50, bottom: 40 },
+      xAxis: { type: 'category', data: ['艺术质量', '角色一致性', '操作简便性', '成本控制', '批量效率'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', max: 100, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: 'Midjourney', type: 'bar', stack: 'total', data: [95, 85, 80, 60, 80], itemStyle: { color: '#06b6d4' } },
+        { name: 'Flux', type: 'bar', stack: 'total', data: [80, 75, 65, 90, 75], itemStyle: { color: '#8b5cf6' } },
+        { name: '通义万相', type: 'bar', stack: 'total', data: [70, 55, 95, 100, 70], itemStyle: { color: '#10b981' } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

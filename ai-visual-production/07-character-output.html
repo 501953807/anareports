@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.4 设计稿整合输出 — 《AI影像创作实战指南》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">第7章 设计稿整合输出</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">1.1 AI图像/视频工具全景</a></li>
+      <li><a href="02-prompt-engineering.html">1.2 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">1.3 本地与云端环境搭建</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="04-character-design.html">2.1 潮玩IP角色设计理念</a></li>
+      <li><a href="05-character-views.html">2.2 AI生成角色三视图</a></li>
+      <li><a href="06-expression-props.html">2.3 表情集与道具设计</a></li>
+      <li><a href="07-character-output.html" class="active">2.4 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作</li>
+      <li><a href="08-short-film-planning.html">3.1 短片策划与分镜设计</a></li>
+      <li><a href="09-scene-generation.html">3.2 AI场景生成</a></li>
+      <li><a href="10-video-generation.html">3.3 AI视频生成技术</a></li>
+      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
+      <li><a href="12-publishing.html">3.5 发布与运营</a></li>
+      <li class="toc-chapter">第四篇：进阶与商业化</li>
+      <li><a href="13-commercial-applications.html">4.1 商业应用场景</a></li>
+      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">第二篇 第4章 设计稿整合与商业输出</h1>
+
+    <div class="data-note" style="margin-bottom:20px">设计稿的整合输出是角色从"创意概念"到"可交付资产"的关键一步。一份专业的角色设定稿不仅要展示角色长什么样，还要告诉工厂、动画师、设计师如何准确地复现它。本章将系统讲解从AI生成图到专业设计稿的完整输出流程。</div>
+
+    <h2 class="section-subtitle">一、潮玩产品稿件标准</h2>
+
+    <p>在将AI生成的角色图交付给下游生产之前，必须了解不同用途的技术标准。错误的格式或分辨率会导致整个生产链路的返工。</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>参数</th><th>印刷用途</th><th>屏幕用途</th><th>3D打印用途</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>分辨率</strong></td>
+          <td>300 dpi（最高质量）<br>至少 3508×4961px (A4)</td>
+          <td>72-150 dpi<br>1080p (1920×1080) 起步</td>
+          <td>按实际尺寸计算<br>1:1模型需毫米级精度</td>
+        </tr>
+        <tr>
+          <td><strong>文件格式</strong></td>
+          <td>PNG透明背景<br>PSD分层文件<br>AI矢量文件</td>
+          <td>PNG / WebP<br>MP4视频格式</td>
+          <td>STL / OBJ / FBX<br>3MF（新标准）</td>
+        </tr>
+        <tr>
+          <td><strong>色彩模式</strong></td>
+          <td>CMYK（印刷专用）<br>Pantone专色（高端）</td>
+          <td>RGB（屏幕专用）<br>sRGB标准</td>
+          <td>RGB → 打印时转换<br>注意色差控制</td>
+        </tr>
+        <tr>
+          <td><strong>文件尺寸</strong></td>
+          <td>A4 / A3 / 自定义<br>最小 10MB</td>
+          <td>正方形 1080×1080<br>横版 1920×1080</td>
+          <td>取决于模型大小<br>通常 50MB-500MB</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-info-circle"></i> AI生成图的输出优化</div>
+      <div class="tip-body">
+        <p>AI原生输出的分辨率通常不够用于印刷。以下是分辨率提升方案：</p>
+        <table class="data-table" style="margin-top:10px">
+          <thead><tr><th>方法</th><th>操作</th><th>提升倍数</th><th>适用场景</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Midjourney Upscale</strong></td><td>点击生成结果下方的U按钮</td><td>2x</td><td>快速预览，适合屏幕用途</td></tr>
+            <tr><td><strong>ComfyUI 超分辨率节点</strong></td><td>使用ESRGAN或4x-UltraSharp节点</td><td>4x</td><td>批量处理，印刷可用</td></tr>
+            <tr><td><strong>Topaz Gigapixel AI</strong></td><td>付费软件，专用AI超分模型</td><td>6x</td><td>最高质量要求的专业输出</td></tr>
+            <tr><td><strong>在线工具</strong></td><td>BigJPG / Waifu2x（免费）</td><td>2-4x</td><td>简单需求，快速处理</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">二、整合三视图+表情集+道具为完整设计稿</h2>
+
+    <p>一份完整的角色设定稿（Character Design Sheet）应该包含以下模块，按标准排版布局：</p>
+
+    <div class="card">
+      <h3 class="section-subtitle">标准角色设定稿模板</h3>
+      <div style="background:var(--surface2);border-radius:8px;padding:16px;margin:10px 0">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+          <div style="text-align:center;padding:12px;background:var(--bg);border-radius:6px;border:1px dashed var(--border)">
+            <div style="font-size:24px;margin-bottom:4px">👤</div>
+            <div style="font-size:11px;color:var(--text2)">正面视图<br>居中放置</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:var(--bg);border-radius:6px;border:1px dashed var(--border)">
+            <div style="font-size:24px;margin-bottom:4px">👤</div>
+            <div style="font-size:11px;color:var(--text2)">侧面视图<br>居左放置</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:var(--bg);border-radius:6px;border:1px dashed var(--border)">
+            <div style="font-size:24px;margin-bottom:4px">👤</div>
+            <div style="font-size:11px;color:var(--text2)">背面视图<br>居右放置</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">😊 开心</div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">😠 生气</div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">😢 难过</div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">😲 惊讶</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px">
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">👔 日常装</div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">🎄 节日装</div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">🚀 主题装</div>
+        </div>
+        <div style="padding:10px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2)">
+          <strong style="color:var(--cyan)">底部区域：</strong>色彩规范（色块+HEX代码）| 材质标注 | 比例说明 | 角色名称与版本信息
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">2.1 标注和说明文字添加</h3>
+
+    <p>专业设计稿需要包含以下标注信息，这些是工厂和协作方必需的内容：</p>
+    <ul style="list-style:none;padding:0;margin:10px 0">
+      <li style="padding:4px 0"><strong>比例标注线：</strong>用虚线标注头顶、肩、腰、脚底的位置，标明各部分的比例关系（如头部占身高的1/2.5）。</li>
+      <li style="color:var(--cyan)"><strong>色彩规范：</strong>列出所有使用颜色的HEX/RGB/CMYK值，用色块直观展示。</li>
+      <li style="padding:4px 0"><strong>材质标注：</strong>标注各部位使用的材质类型（毛绒、塑料、布料等），对应不同的生产工艺。</li>
+      <li style="padding:4px 0"><strong>尺寸说明：</strong>标注最终产品的实际尺寸（如手办高度10cm，宽度6cm）。</li>
+    </ul>
+
+    <h3 class="section-subtitle">2.2 设计说明文档编写</h3>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-file-alt"></i> 设计说明文档模板</div>
+      <div class="tip-body">
+        <p>一份完整的设计说明文档应包含以下内容：</p>
+        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+          <li style="padding:3px 0"><strong>角色基本信息：</strong>名称、性别（如有）、年龄（如有）、物种/种族、身高体重比例。</li>
+          <li style="padding:3px 0"><strong>性格描述：</strong>3-5个关键词描述性格特征，附带简短的行为描述（如"遇到陌生人会躲到主人身后，但熟悉后会主动蹭人"）。</li>
+          <li style="padding:3px 0"><strong>背景故事：</strong>角色的"来历"——这决定了角色的情感深度。即使是玩具，有故事的IP也更容易产生用户粘性。</li>
+          <li style="padding:3px 0"><strong>设计灵感：</strong>参考来源（如"灵感来源于日本招财猫和皮克斯怪兽大学"），便于理解设计意图。</li>
+          <li style="padding:3px 0"><strong>使用规范：</strong>哪些场景可以使用该角色、哪些禁止使用、最小使用尺寸等。</li>
+        </ol>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">三、产品渲染图生成（3D效果模拟）</h2>
+
+    <p>将2D设计稿转化为3D效果图，可以让客户和合作方更直观地理解角色的立体形态。这一步现在完全可以用AI完成。</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-size:14px;color:var(--cyan);margin-bottom:8px"><i class="fas fa-cube"></i> 白模渲染技巧</h3>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">
+          <strong>步骤1：</strong>将三视图导入Blender/MeshMixer，用AI辅助生成基础3D网格。<br>
+          <strong>步骤2：</strong>使用Substance Painter或AI材质生成器创建贴图。<br>
+          <strong>步骤3：</strong>在纯白背景下渲染出多角度效果图。<br>
+          <strong>AI加速：</strong>使用Tripo3D或Meshy.ai等AI 3D生成工具，上传单张角色图即可自动生成3D模型。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:14px;color:var(--orange);margin-bottom:8px"><i class="fas fa-sun"></i> 光影处理</h3>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">
+          <strong>三点布光法：</strong>主光（key light）45度角照射，补光（fill light）减弱阴影，轮廓光（rim light）从背后勾勒边缘。<br>
+          <strong>AI增强：</strong>用Photoshop的AI神经滤镜自动添加高质量阴影和环境光遮蔽（AO）效果。
+        </p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">四、使用场景图与Mockup生成</h2>
+
+    <p>使用场景图（Context Shot）展示角色在实际生活中的样子——放在书架上、拿在手中、作为背包挂件。这种"场景化展示"对于向客户提案和电商销售至关重要。</p>
+
+    <div class="card highlight">
+      <h3 class="section-subtitle" style="color:var(--cyan)">📸 Mockup生成三步法</h3>
+      <ol class="steps-list" style="margin-top:12px">
+        <li>
+          <strong>准备透明背景的角色PNG</strong><br>
+          使用ComfyUI的Segment Anything节点或Photoshop的AI选择主体功能，将角色从背景中精确抠出，保存为PNG透明背景格式。
+        </li>
+        <li>
+          <strong>生成场景底图</strong><br>
+          用Midjourney生成目标场景：<br>
+          <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:11px;margin:6px 0;color:var(--cyan)">a wooden bookshelf with soft natural lighting from window, cozy home interior, shallow depth of field, empty space in center for product placement --v 7 --ar 16:9</code>
+        </li>
+        <li>
+          <strong>合成并添加阴影</strong><br>
+          将角色PNG叠加到场景图上，添加正确的接触阴影（contact shadow）和环境光反射。使用Photoshop的"混合选项→阴影"功能，或使用AI自动阴影生成工具。
+        </li>
+      </ol>
+    </div>
+
+    <h3 class="section-subtitle">4.1 电商产品展示图制作</h3>
+
+    <p>电商场景需要特定的视觉规范，以下是主流平台的展示图标准：</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>平台</th><th>主图规格</th><th>副图数量</th><th>风格要求</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>淘宝/天猫</strong></td><td>800×800px，白底</td><td>5-8张</td><td>首图纯白底，其余可场景化</td></tr>
+        <tr><td><strong>小红书</strong></td><td>1080×1350px（3:4竖版）</td><td>6-9张</td><td>生活化、氛围感强</td></tr>
+        <tr><td><strong>Instagram</strong></td><td>1080×1080px（正方形）</td><td>10张</td><td>高颜值、统一色调</td></tr>
+        <tr><td><strong>Amazon</strong></td><td>2000×2000px以上</td><td>7-10张</td><td>纯白底主图，场景图可选</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">五、包装设计效果图</h2>
+
+    <p>包装是潮玩IP的"第一触点"——消费者在购买前看到的第一个实物就是包装盒。好的包装设计与角色本身同等重要。</p>
+
+    <h3 class="section-subtitle">5.1 盲盒包装设计</h3>
+
+    <div class="grid-3">
+      <div class="card">
+        <h4 style="color:var(--cyan);font-size:13px;margin-bottom:6px">外盒设计</h4>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">
+          <strong>标准尺寸：</strong>7.5×7.5×7.5cm（立方体）<br>
+          <strong>设计要素：</strong>角色剪影 + IP Logo + 系列名称<br>
+          <strong>关键策略：</strong>不展示具体角色，保持神秘感驱动购买欲望
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--orange);font-size:13px;margin-bottom:6px">内托设计</h4>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">
+          <strong>材料：</strong>PP塑料内托或纸浆模塑<br>
+          <strong>设计要点：</strong>角色专属卡位，防止运输晃动<br>
+          <strong>隐藏款标识：</strong>特殊内托颜色或纹理区分普通款/隐藏款
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green);font-size:13px;margin-bottom:6px">收藏卡</h4>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7">
+          <strong>尺寸：</strong>标准扑克牌大小（63×88mm）<br>
+          <strong>内容：</strong>角色名 + 属性 + 编号 + 背面图案<br>
+          <strong>收集价值：</strong>隐藏款收藏卡具有额外收藏价值
+        </p>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">5.2 系列化包装的视觉统一</h3>
+
+    <p>当一个IP推出多个系列时，包装需要在"统一性"和"差异化"之间找到平衡：</p>
+    <ul style="list-style:none;padding:0;margin:10px 0">
+      <li style="padding:4px 0"><strong>统一元素：</strong>Logo位置、品牌色彩、字体系统、版式网格——这些在所有系列中保持一致。</li>
+      <li style="padding:4px 0"><strong>差异元素：</strong>主角色插画、系列主题色、背景图案——每个系列有自己的视觉识别。</li>
+      <li style="padding:4px 0"><strong>AI辅助：</strong>用Midjourney生成系列主题的包装背景图案（"seamless pattern, [主题关键词], minimalist style, white background"），确保同一系列的图案风格统一。</li>
+    </ul>
+
+    <h2 class="section-subtitle">六、潮玩产品成本构成分析</h2>
+
+    <div class="chart-container" id="chart-product-cost-pie"></div>
+
+    <div class="data-note" style="margin-top:16px"><strong>📊 数据信号：</strong>以一个定价69元的标准盲盒为例，单品BOM（物料清单）成本约¥12-18，其中模具分摊约¥2-3、材料+注塑约¥5-8、包装约¥2-3、物流约¥1-2。这意味着单品的直接生产成本约为总售价的20-26%。</div>
+
+    <h2 class="section-subtitle">七、多学派交叉解读</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学视角</div>
+        <div class="sv-body">设计稿是IP的"知识产权确权"过程。一份完整的设计说明文档和标准三视图，本质上是在界定IP的使用边界和授权范围。科斯定理告诉我们：当产权界定清晰时，市场交易可以达到最优配置。设计稿越详细、标注越精确，后续的IP授权就越不容易产生纠纷，交易成本就越低。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 公共选择理论视角</div>
+        <div class="sv-body">平台审核机制对创作者的影响不容忽视。淘宝、小红书、Amazon等平台对商品图片有严格的审核标准（如白底图要求、分辨率下限、禁止水印等）。这些"制度性规则"构成了创作者的合规成本。理解并适应这些规则，本身就是商业能力的一部分。AI工具可以帮助快速生成符合各平台规范的图片变体，降低合规成本。</div>
+      </div>
+      <div class="sv-item sv-purple">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 演化经济学视角</div>
+        <div class="sv-body">从设计稿到成品的过程是一个"自然选择"的缩影。设计稿是"基因型"（genotype），成品是"表现型"（phenotype）。AI加速了这个演化循环——传统设计需要数周才能迭代一轮，AI可以在数小时内完成多轮迭代。更快的迭代速度意味着更快的"适者生存"过程，最终产出的产品更接近市场需求的最优解。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">八、发散引申链</h2>
+
+    <div class="divergence-chain">
+      <div class="dc-links">
+        <span class="dc-node">设计稿完成</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">打样生产</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">市场反馈</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">迭代优化</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">系列化扩展</span>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-check-circle"></i> 输出前的最终检查清单</div>
+      <div class="tip-body">
+        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+          <li style="padding:3px 0"><strong>分辨率检查：</strong>印刷用途≥300dpi，屏幕用途≥1080p</li>
+          <li style="padding:3px 0"><strong>色彩模式检查：</strong>印刷用CMYK，屏幕用RGB/sRGB</li>
+          <li style="padding:3px 0"><strong>一致性检查：</strong>三视图角色特征是否完全一致？表情是否保持了基础造型？</li>
+          <li style="padding:3px 0"><strong>标注完整性：</strong>色彩代码、材质说明、比例标注是否齐全？</li>
+          <li style="padding:3px 0"><strong>格式检查：</strong>PNG透明背景、PSD分层文件是否都已导出？</li>
+          <li style="padding:3px 0"><strong>命名规范：</strong>所有文件使用统一命名规则（如 CharacterName_ViewType_Version_Date）</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="data-note" style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
+      <strong>💡 核心洞察：</strong>设计稿整合输出的本质不是"把图片排在一起"，而是"建立一套可复用的设计规范"。这份规范越完善，后续的生产效率越高、错误率越低。AI的价值不仅在于生成了好看的图，更在于它让"快速建立设计规范"成为可能——过去需要美术总监花一周整理的设定集，现在一天就能完成初稿。
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="06-expression-props.html"><i class="fas fa-arrow-up"></i> 表情集与道具设计</a>
+    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
+    <span class="page-info">7 / 38</span>
+    <a class="nav-next" href="08-short-film-planning.html">短片策划与分镜设计 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-product-cost-pie'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'item', formatter: '{b}: {c}元 ({d}%)' },
+      legend: { orient: 'vertical', left: 'left', textStyle: { color: '#94a3b8', fontSize: 11 } },
+      series: [{
+        type: 'pie',
+        radius: ['40%', '70%'],
+        center: ['55%', '50%'],
+        avoidLabelOverlap: false,
+        itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
+        label: { show: true, position: 'outside', color: '#94a3b8', fontSize: 11, formatter: '{b}\n{d}%' },
+        emphasis: { label: { show: true, fontSize: 13, fontWeight: 'bold' } },
+        data: [
+          { value: 15, name: '模具分摊', itemStyle: { color: '#06b6d4' } },
+          { value: 35, name: '材料与注塑', itemStyle: { color: '#8b5cf6' } },
+          { value: 12, name: '包装设计', itemStyle: { color: '#f59e0b' } },
+          { value: 8, name: '物流运输', itemStyle: { color: '#10b981' } },
+          { value: 18, name: '营销推广', itemStyle: { color: '#ef4444' } },
+          { value: 12, name: '渠道分成', itemStyle: { color: '#ec4899' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

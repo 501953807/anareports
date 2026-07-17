@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.3 表情集与道具设计 — 《AI影像创作实战指南》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">第6章 表情集与道具设计</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">1.1 AI图像/视频工具全景</a></li>
+      <li><a href="02-prompt-engineering.html">1.2 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">1.3 本地与云端环境搭建</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="04-character-design.html">2.1 潮玩IP角色设计理念</a></li>
+      <li><a href="05-character-views.html">2.2 AI生成角色三视图</a></li>
+      <li><a href="06-expression-props.html" class="active">2.3 表情集与道具设计</a></li>
+      <li><a href="07-character-output.html">2.4 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作</li>
+      <li><a href="08-short-film-planning.html">3.1 短片策划与分镜设计</a></li>
+      <li><a href="09-scene-generation.html">3.2 AI场景生成</a></li>
+      <li><a href="10-video-generation.html">3.3 AI视频生成技术</a></li>
+      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
+      <li><a href="12-publishing.html">3.5 发布与运营</a></li>
+      <li class="toc-chapter">第四篇：进阶与商业化</li>
+      <li><a href="13-commercial-applications.html">4.1 商业应用场景</a></li>
+      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">第二篇 第3章 表情集与道具设计</h1>
+
+    <div class="data-note" style="margin-bottom:20px">一个静态角色是苍白的，一个拥有丰富表情和多样服装的角色才是有生命的。表情集和道具系统是赋予角色"人格"的关键步骤——它们决定了角色在动画、表情包、社交媒体等场景中的表现力。本章将教你如何用AI高效生成完整的角色表情库和服装系统。</div>
+
+    <h2 class="section-subtitle">一、角色表情集生成（8-12种标准表情）</h2>
+
+    <p>标准的角色表情集包含以下核心情绪，每种表情都需要保持角色特征不变，仅改变面部肌肉形态和眼部状态。</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>表情</th><th>眼部变化</th><th>嘴部变化</th><th>眉毛变化</th><th>提示词关键词</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>😊 喜（Happy）</strong></td><td>眼睛弯成月牙形</td><td>大张的灿烂笑容</td><td>自然上扬</td><td><code style="color:var(--cyan)">joyful expression, big happy smile, eyes curved in delight</code></td></tr>
+        <tr><td><strong>😠 怒（Angry）</strong></td><td>眼睛瞪圆，瞳孔缩小</td><td>咬牙或张嘴怒吼</td><td>向下压，形成V字</td><td><code style="color:var(--cyan)">angry expression, furrowed brows, clenched teeth</code></td></tr>
+        <tr><td><strong>😢 哀（Sad）</strong></td><td>眼角下垂，可能有泪滴</td><td>嘴角下撇的小弧线</td><td>向上挑，八字眉</td><td><code style="color:var(--cyan)">sad expression, teary eyes, downturned mouth, worried eyebrows</code></td></tr>
+        <tr><td><strong>😲 乐/兴奋（Excited）</strong></td><td>眼睛最大，高光最多</td><td>兴奋的Z字形大笑</td><td>高高扬起</td><td><code style="color:var(--cyan)">excited expression, sparkling eyes, wide open mouth laugh, energetic pose</code></td></tr>
+        <tr><td><strong>😮 惊（Surprised）</strong></td><td>眼睛最大化，瞳孔放大</td><td>O型嘴</td><td>高高扬起成拱形</td><td><code style="color:var(--cyan)">surprised expression, eyes wide open, O-shaped mouth, raised eyebrows</code></td></tr>
+        <tr><td><strong>😨 惧（Scared）</strong></td><td>瞳孔急剧缩小</td><td>颤抖的Z字形小嘴</td><td>紧张上挑</td><td><code style="color:var(--cyan)">scared expression, tiny pupils, trembling mouth, fearful look</code></td></tr>
+        <tr><td><strong>😊 羞涩（Shy）</strong></td><td>眼神躲闪，看向一侧</td><td>抿嘴微笑 + 腮红</td><td>微微下垂</td><td><code style="color:var(--cyan)">shy expression, blushing cheeks, looking away, gentle closed-mouth smile</code></td></tr>
+        <tr><td><strong>😤 傲娇（Tsundere）</strong></td><td>半眯眼，不屑但带笑意</td><td>撇嘴 + 单边嘴角上扬</td><td>一边挑起</td><td><code style="color:var(--cyan)">tsundere expression, pouting lips, side-eye glance, one eyebrow raised, cute stubborn look</code></td></tr>
+        <tr><td><strong>🤔 困惑（Confused）</strong></td><td>一只眼大一只眼小</td><td>微张的O型嘴</td><td>一高一低</td><td><code style="color:var(--cyan)">confused expression, tilted head, one eyebrow raised, puzzled look</code></td></tr>
+        <tr><td><strong>😴 困（Sleepy）</strong></td><td>半闭眼，眼皮下垂</td><td>打哈欠的Z型嘴</td><td>放松下垂</td><td><code style="color:var(--cyan)">sleepy expression, half-closed eyes, yawning, droopy eyelids</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">二、AI生成表情的关键技术</h2>
+
+    <div class="card">
+      <h3 class="section-subtitle">2.1 固定角色的三大技巧</h3>
+      <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+        <li style="padding:4px 0"><strong>固定Seed值</strong> — 所有表情生成使用相同的seed（如12345），确保随机噪声一致。只在提示词中修改表情相关词汇。</li>
+        <li style="padding:4px 0"><strong>参考图锁定</strong> — 每次生成都上传原始角色三视图作为参考（--cref），确保面部结构、发型、配饰不变。</li>
+        <li style="padding:4px 0"><strong>面部关键点对齐</strong> — ComfyUI中使用FaceID节点或IP-Adapter Face，专门锁定面部特征一致性。</li>
+      </ol>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3 class="section-subtitle">2.2 表情变化范围控制</h3>
+      <p>表情变化的核心原则是：<strong>"变脸不变性"</strong>——改变面部肌肉形态，但不改变角色的基础特征（瞳色、发型、配饰、体型）。</p>
+      <table class="data-table" style="margin-top:10px">
+        <thead><tr><th>可变元素</th><th>不可变元素</th><th>控制方法</th></tr></thead>
+        <tbody>
+          <tr><td>眼部形状、嘴部形状、眉毛角度、腮红强度</td><td>瞳色、发型、帽子、围巾、体型比例</td><td>在提示词中将不可变元素放在最前面，表情描述放在最后面</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-subtitle">三、道具设计系统</h2>
+
+    <p>道具是角色个性的延伸。一个好的道具系统设计可以让一个角色变成"一套角色"。</p>
+
+    <h3 class="section-subtitle">3.1 配件系统</h3>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color:var(--cyan);font-size:13px;margin-bottom:6px">头部配件</h4>
+        <ul style="list-style:none;padding:0;font-size:12px;color:var(--text2)">
+          <li style="padding:3px 0">• 帽子（棒球帽、礼帽、水手帽、圣诞帽）</li>
+          <li style="padding:3px 0">• 发饰（蝴蝶结、发卡、头花）</li>
+          <li style="padding:3px 0">• 耳机/眼镜（增加科技感或书卷气）</li>
+          <li style="padding:3px 0">• 动物耳朵/角（奇幻风格）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--orange);font-size:13px;margin-bottom:6px">颈部/身体配件</h4>
+        <ul style="list-style:none;padding:0;font-size:12px;color:var(--text2)">
+          <li style="padding:3px 0">• 围巾/领带（改变风格的关键单品）</li>
+          <li style="padding:3px 0">• 项链/吊坠（可以加入故事性元素）</li>
+          <li style="padding:3px 0">• 胸针/徽章（职业身份标识）</li>
+          <li style="padding:3px 0">• 背包/挎包（冒险属性）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green);font-size:13px;margin-bottom:6px">手部配件</h4>
+        <ul style="list-style:none;padding:0;font-size:12px;color:var(--text2)">
+          <li style="padding:3px 0">• 手套（不同颜色/材质改变性格）</li>
+          <li style="padding:3px 0">• 手持物品（武器、工具、食物）</li>
+          <li style="padding:3px 0">• 戒指/手环（细节装饰）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--purple);font-size:13px;margin-bottom:6px">尾部配件</h4>
+        <ul style="list-style:none;padding:0;font-size:12px;color:var(--text2)">
+          <li style="padding:3px 0">• 尾巴装饰（铃铛、蝴蝶结）</li>
+          <li style="padding:3px 0">• 脚部配件（靴子、袜子颜色）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">3.2 服装系统设计</h3>
+
+    <p>服装系统是潮玩IP商业化的核心驱动力。同一角色换一套衣服就变成"新角色"——这就是系列化产品的秘密。</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>服装类型</th><th>适用场景</th><th>AI提示词模板</th><th>衍生价值</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>日常装</strong></td>
+          <td>基础形象，社交媒体头像</td>
+          <td style="font-size:11px">casual outfit, t-shirt and shorts, everyday style</td>
+          <td>毛绒玩具、钥匙扣、手机壳</td>
+        </tr>
+        <tr>
+          <td><strong>节日装</strong></td>
+          <td>季节性营销，限量发售</td>
+          <td style="font-size:11px">Christmas outfit, red sweater with snowflake pattern, winter hat</td>
+          <td>限定盲盒、节日贺卡、春联</td>
+        </tr>
+        <tr>
+          <td><strong>主题换装</strong></td>
+          <td>IP联名、跨界合作</td>
+          <td style="font-size:11px">astronaut suit, space helmet, sci-fi theme</td>
+          <td>联名手办、T恤、海报</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">四、实操演示：为"小橘猫"设计完整表情集和3套服装</h2>
+
+    <div class="card highlight">
+      <h3 class="section-subtitle" style="color:var(--cyan)">🐱 小橘（Orangey）的表情集生成</h3>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:12px">以下提示词基于固定的角色描述模板，仅替换表情关键词部分：</p>
+
+      <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-bottom:10px">
+        <strong style="color:var(--orange);font-size:13px">固定部分（所有表情共享）：</strong>
+        <code style="display:block;background:var(--bg);padding:10px;border-radius:4px;font-size:11px;line-height:1.8;color:var(--cyan);margin-top:6px">a cute chubby orange tabby cat character, 2.5 chibi proportions, big green eyes, orange fur with stripes, blue sailor hat, red scarf, fluffy tail with white tip, Pixar 3D render style, white background, [表情关键词]</code>
+      </div>
+
+      <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-bottom:10px">
+        <strong style="color:var(--orange);font-size:13px">表情关键词替换方案：</strong>
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>表情</th><th>替换的关键词</th></tr></thead>
+          <tbody>
+            <tr><td>😊 开心</td><td><code style="color:var(--cyan)">big joyful smile, eyes curved happily</code></td></tr>
+            <tr><td>😠 生气</td><td><code style="color:var(--cyan)">angry expression, furrowed brows, clenched jaw</code></td></tr>
+            <tr><td>😢 难过</td><td><code style="color:var(--cyan)">sad expression, teary green eyes, downturned mouth</code></td></tr>
+            <tr><td>😲 惊讶</td><td><code style="color:var(--cyan)">surprised expression, eyes wide open, O-shaped mouth</code></td></tr>
+            <tr><td>😊 羞涩</td><td><code style="color:var(--cyan)">shy expression, blushing cheeks, looking to the side, gentle smile</code></td></tr>
+            <tr><td>😤 傲娇</td><td><code style="color:var(--cyan)">tsundere expression, pouting lips, side-eye glance, cute stubborn</code></td></tr>
+            <tr><td>🤔 困惑</td><td><code style="color:var(--cyan)">confused expression, head tilted, one eyebrow raised</code></td></tr>
+            <tr><td>😴 困倦</td><td><code style="color:var(--cyan)">sleepy expression, half-closed eyes, yawning</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card highlight" style="margin-top:16px">
+      <h3 class="section-subtitle" style="color:var(--cyan)">👔 小橘的3套服装系统</h3>
+
+      <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-bottom:10px">
+        <strong style="color:var(--cyan);font-size:13px">服装一：水手服（基础款）</strong>
+        <code style="display:block;background:var(--bg);padding:10px;border-radius:4px;font-size:11px;line-height:1.8;color:var(--cyan);margin-top:6px">wearing a classic blue and white sailor uniform, sailor collar with red stripe, matching blue shorts, white socks and navy shoes, nautical theme, clean white background</code>
+      </div>
+
+      <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-bottom:10px">
+        <strong style="color:var(--orange);font-size:13px">服装二：圣诞限定（节日款）</strong>
+        <code style="display:block;background:var(--bg);padding:10px;border-radius:4px;font-size:11px;line-height:1.8;color:var(--cyan);margin-top:6px">wearing a festive Christmas outfit, red sweater with white snowflake pattern, Santa hat slightly tilted, holding a tiny wrapped gift, warm holiday atmosphere, snowy background</code>
+      </div>
+
+      <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-bottom:10px">
+        <strong style="color:var(--green);font-size:13px">服装三：宇航员（主题款）</strong>
+        <code style="display:block;background:var(--bg);padding:10px;border-radius:4px;font-size:11px;line-height:1.8;color:var(--cyan);margin-top:6px">wearing a detailed astronaut spacesuit, clear helmet showing face, orange fur visible through helmet, floating in zero gravity pose, stars and planets background, sci-fi aesthetic</code>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">五、案例深挖：从表情包到社交媒体的商业化路径</h2>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-chart-line"></i> 微信表情平台的创作者经济</div>
+      <div class="case-body">
+        <p>微信表情开放平台是目前全球最大的中文表情包分发渠道。截至2025年，平台累计上线表情超过300万套，月活跃创作者约5万人。收入模式分为两种：</p>
+        <ul style="list-style:none;padding:0;margin:8px 0">
+          <li style="padding:4px 0"><strong>打赏模式：</strong>用户自愿付费下载（通常¥1-6/套），平台抽成30%，创作者得70%。头部表情套装月收入可达¥10-50万。</li>
+          <li style="padding:4px 0"><strong>免费+广告：</strong>表情免费下载，用户查看广告后创作者获得分成。头部创作者月广告收入¥5-20万。</li>
+        </ul>
+        <p style="margin-top:8px">一个成功的表情包可以在2-4周内积累1亿次使用量，成为角色IP的"冷启动引擎"。表情包传播力远超其他任何内容形式——因为它嵌入在日常对话中，是最高频的"品牌曝光"。</p>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:12px">
+      <div class="case-title"><i class="fas fa-star"></i> LINEスタンプ — 日本表情包帝国的启示</div>
+      <div class="case-body">
+        <p>LINE的贴纸（スタンプ）系统是全球最成熟的表情包商业模型。LINE官方角色Conan（コンナン）通过一套简单的"点头+眨眼"表情，年创造超过2亿日元的收入。关键策略：</p>
+        <ul style="list-style:none;padding:0;margin:8px 0">
+          <li style="padding:4px 0"><strong>极简设计：</strong>Conan只有黑白两色，没有复杂细节，但辨识度极高。</li>
+          <li style="padding:4px 0"><strong>高频更新：</strong>每月推出2-3套新表情，保持用户粘性。</li>
+          <li style="padding:4px 0"><strong>季节限定：</strong>樱花季、夏季祭典、冬季雪景等季节性表情触发"FOMO"心理。</li>
+        </ul>
+        <p style="margin-top:8px"><strong>AI赋能：</strong>使用AI生成表情包，一套表情从原来的人工绘制12-24个（耗时2周），缩短为AI生成+人工微调（耗时2天）。效率提升7倍，使得"每周上新"成为可能。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">六、多学派交叉解读</h2>
+
+    <div class="school-view">
+      <div class="sv-item sv-blue">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 古典经济学视角</div>
+        <div class="sv-body">表情集是情感表达的"标准化货币"。正如亚当·斯密描述的分工体系提高了生产效率，表情包的标准化使得情感传递的效率提升了数个数量级——从需要手写一封情书表达爱意，到发送一个"爱心"表情只需0.1秒。这种"情感交易成本"的骤降，创造了全新的社交经济形态。</div>
+      </div>
+      <div class="sv-item sv-red">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</div>
+        <div class="sv-body">数字表情包的"无偿数字劳动"争议：用户在聊天中使用免费表情包，实际上在为平台贡献"社交活跃度"这一核心指标。表情包创作者的劳动被平台无偿占有并转售——LINE从Conan的贴纸销售中抽取30-50%的分成，而表情包背后的社交数据价值则完全归平台所有。这是典型的"数字地租"关系。</div>
+      </div>
+      <div class="sv-item sv-gold">
+        <div class="sv-school"><i class="fas fa-balance-scale"></i> 演化经济学视角</div>
+        <div class="sv-body">表情包是文化模因（Meme）的传播载体。理查德·道金斯提出的"模因"概念在数字时代得到了完美验证：一个优秀的表情包像病毒一样在社交网络中复制、变异、传播。AI加速了这一演化过程——它不仅是模因的"生产者"，更是"加速器"。表情包的生命周期从过去的数月缩短为数天，演化速度提升了百倍。</div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">七、发散引申链</h2>
+
+    <div class="divergence-chain">
+      <div class="dc-links">
+        <span class="dc-node">表情包传播</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">病毒式营销</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">IP破圈</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">品牌联名</span>
+        <span class="dc-arrow">→</span>
+        <span class="dc-node">跨文化输出</span>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:16px">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 表情集生成的最佳实践</div>
+      <div class="tip-body">
+        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
+          <li style="padding:4px 0"><strong>先做正面表情，再做侧面表情</strong> — 正面表情占80%的使用场景，优先完成。</li>
+          <li style="padding:4px 0"><strong>每个表情至少生成5个变体再选择</strong> — AI的表情生成有随机性，多生成几个再挑选最佳版本。</li>
+          <li style="padding:4px 0"><strong>服装系统按"基础→节日→主题"三级递进</strong> — 先做好日常装，再扩展节日装，最后做主题变体。</li>
+          <li style="padding:4px 0"><strong>道具与角色比例要匹配</strong> — 2.5头身角色手持过大的道具会破坏视觉平衡，道具尺寸不超过角色的1/3。</li>
+          <li style="padding:4px 0"><strong>建立"表情-场景"映射表</strong> — 记录每个表情最适合的使用场景（如"傲娇"适合回应调侃，"羞涩"适合被夸奖时）。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="data-note" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
+      <strong>💡 核心洞察：</strong>表情和服装的本质不是"装饰"，而是"角色的不同人格面向"。Molly之所以能持续推出50+变体而不被消费者厌倦，就是因为每个变体都激活了不同的情感连接。AI让你可以低成本地为同一个角色创造无数个"人格面向"——这不仅是设计能力的提升，更是IP叙事维度的拓展。
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="05-character-views.html"><i class="fas fa-arrow-up"></i> AI生成角色三视图</a>
+    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
+    <span class="page-info">6 / 38</span>
+    <a class="nav-next" href="07-character-output.html">设计稿整合输出 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-expression-commerce'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['表情包下载量(万)', '创作者月收入(千元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 80, right: 20, top: 50, bottom: 40 },
+      xAxis: { type: 'category', data: ['新手(0-3套)', '入门(3-10套)', '进阶(10-30套)', '专业(30-100套)', '头部(100+套)'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: [{ type: 'value', name: '下载量(万)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } }, { type: 'value', name: '月收入(千元)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }],
+      series: [
+        { name: '表情包下载量(万)', type: 'bar', data: [5, 30, 150, 500, 2000], itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#06b6d4' }, { offset: 1, color: 'rgba(6,182,212,0.3)' }]), borderRadius: [4, 4, 0, 0] } },
+        { name: '创作者月收入(千元)', type: 'line', smooth: true, yAxisIndex: 0, data: [0.5, 2, 8, 25, 80], itemStyle: { color: '#f59e0b' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(245,158,11,0.3)' }, { offset: 1, color: 'rgba(245,158,11,0.05)' }]) } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
