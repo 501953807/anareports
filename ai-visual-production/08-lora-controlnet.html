@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 LoRA训练与ControlNet精细控制 — 《AI影像创作百科全书》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #7c3aed; }
+    .training-table th { background: rgba(124,58,237,0.1); color: var(--accent); }
+    .param-card { border-left: 3px solid var(--accent); }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">08 LoRA训练与ControlNet精细控制</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-workflow-automation.html">18 AI工作流自动化</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-ops.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-apps.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merchandise.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">08 LoRA训练与ControlNet精细控制</h1>
+
+    <div class="data-note" style="margin-bottom:20px">LoRA（Low-Rank Adaptation）和ControlNet是AI角色一致性控制的两大核心技术。LoRA让你能训练专属角色的风格模型，ControlNet让你在生成时精确控制姿态、构图和深度。两者结合，是实现"小橘猫"角色贯穿全书所有画面的关键。</div>
+
+    <h2 class="section-subtitle">一、LoRA训练全教程</h2>
+
+    <h3 class="section-subtitle">8.1 什么是LoRA？</h3>
+    <p>LoRA（Low-Rank Adaptation of Large Language Models）是一种轻量级微调技术，通过在预训练模型的低秩分解上添加可训练参数，以极小的计算成本实现特定风格的迁移。在Stable Diffusion生态中，LoRA文件大小通常只有原版模型的0.1%（约10-100MB vs 2-7GB），但能精确复刻特定角色、风格或概念。</p>
+    <p>对于潮玩IP角色设计，LoRA的价值在于：<strong>一旦训练成功，任何提示词都能生成"小橘猫"</strong>——无需每次都写冗长的角色描述，极大提高了批量生产的效率。</p>
+
+    <h3 class="section-subtitle">8.2 数据集准备（第一步）</h3>
+    <table class="data-table training-table">
+      <thead>
+        <tr>
+          <th>步骤</th>
+          <th>操作</th>
+          <th>数量要求</th>
+          <th>注意事项</th>
+          <th>免费工具</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>收集参考图</td>
+          <td>15-30张</td>
+          <td>多角度（正面/侧面/背面）、多表情、多光照条件</td>
+          <td>Midjourney生成参考图</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>图像裁剪与对齐</td>
+          <td>统一512×512或768×768</td>
+          <td>角色居中，背景尽量干净</td>
+          <td>自动裁剪脚本 / Photoshop</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>打标签（Captioning）</td>
+          <td>每张图一个标签文件</td>
+          <td>使用通用前缀词（如 "siorange_cat"）+ 描述性词</td>
+          <td>WD14 Tagger（自动）</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>数据增强</td>
+          <td>原始数据×2-3倍</td>
+          <td>随机旋转、翻转、色彩调整</td>
+          <td>Albumentations库</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>清洗与筛选</td>
+          <td>保留质量最高的</td>
+          <td>删除模糊、变形、低分辨率图片</td>
+          <td>手动筛选</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">8.3 训练参数详解</h3>
+    <div class="grid-2">
+      <div class="card param-card">
+        <h3 class="section-subtitle">epoch（训练轮数）</h3>
+        <p><strong>推荐值：10-20</strong></p>
+        <p>epoch太少→欠拟合（LoRA学不到特征）；epoch太多→过拟合（只能生成完全相同的图）。原则：<em>"刚好够学到特征，但不要过度"</em>。</p>
+        <p style="font-size:12px;color:var(--text2)">经验公式：epoch = max(10, min(20, 300 / 图片数量))。如果有20张图片，epoch≈15。</p>
+      </div>
+      <div class="card param-card">
+        <h3 class="section-subtitle">batch_size（批次大小）</h3>
+        <p><strong>推荐值：1-4</strong></p>
+        <p>batch_size越大，训练越稳定但显存占用越高。16GB显存可设4，8GB显存建议1-2。</p>
+      </div>
+      <div class="card param-card">
+        <h3 class="section-subtitle">learning_rate（学习率）</h3>
+        <p><strong>推荐值：1e-4 到 1e-5</strong></p>
+        <p>学习率过高→训练震荡不收敛；过低→训练太慢。使用余弦退火（cosine decay）衰减策略最佳。</p>
+      </div>
+      <div class="card param-card">
+        <h3 class="section-subtitle">rank/dim（LoRA秩）</h3>
+        <p><strong>推荐值：8-32</strong></p>
+        <p>rank越高，LoRA表达能力越强，但文件越大。潮玩角色rank=16是性价比最优解。</p>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">8.4 实操演示：为"小橘猫"训练LoRA</h3>
+    <ol class="steps-list">
+      <li><strong>收集20张"小橘猫"参考图</strong> — 使用之前章节生成的三视图+表情集，补充多角度渲染图。确保每张图片风格一致（皮克斯3D渲染风）</li>
+      <li><strong>安装 Kohya_ss 训练框架</strong> — 推荐使用WebUI一键安装包：<code>git clone https://github.com/bmaltais/kohya_ss.git</code> → <code>./setup.bat</code>（Windows）或 <code>./setup.sh</code>（Linux/Mac）</li>
+      <li><strong>运行 WD14 Tagger 自动打标</strong> — 在Kohya_ss界面选择"Quick Tagger"，指向你的图片文件夹，自动生成 .txt 标签文件</li>
+      <li><strong>配置训练参数</strong> — network_rank=16, network_alpha=8, train_batch_size=2, epochs=15, learning_rate=1e-4, optimizer=adamw8bit, lr_scheduler=cosine_with_restarts</li>
+      <li><strong>启动训练</strong> — 点击"Start Training"，预计耗时2-6小时（取决于GPU）。训练过程中会自动保存checkpoint，建议每5个epoch保存一次以便回退</li>
+      <li><strong>测试生成的LoRA</strong> — 在ComfyUI或WebUI中加载训练好的 .safetensors 文件，用提示词 "<siorange_cat:1.0>, pixar style, 3d render" 测试生成效果</li>
+      <li><strong>迭代优化</strong> — 如果角色相似度不够，增加epoch或补充更多参考图；如果过拟合（所有输出几乎相同），降低rank或减少epoch</li>
+    </ol>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microchip"></i> 深案例：从0到1训练一个潮玩角色LoRA</div>
+      <div class="case-body">
+        <p>独立设计师Kael使用AI生成的"小橘猫"角色训练了一个LoRA模型。他用了18张不同角度的参考图，在Google Colab Pro（T4 GPU）上训练了约4小时，lr=1e-4, rank=16, epoch=15。最终LoRA文件仅28MB。使用这个LoRA后，他在1小时内生成了超过200张"小橘猫"的变体图，用于后续的手办设计和周边产品开发。关键经验：<strong>"数据质量远胜于数据量"</strong>——18张高质量图优于100张低质量图。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">二、ControlNet精细控制</h2>
+
+    <h3 class="section-subtitle">8.5 ControlNet原理与模式</h3>
+    <p>ControlNet由微软研究院开发，核心思想是<strong>"复制一个预训练模型副本，冻结原模型参数，只训练新增的ControlNet分支"</strong>。这使得你可以在不破坏原模型能力的前提下，加入额外的条件控制信号。</p>
+
+    <table class="data-table training-table">
+      <thead>
+        <tr>
+          <th>ControlNet模式</th>
+          <th>输入</th>
+          <th>用途</th>
+          <th>推荐权重</th>
+          <th>适用场景</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Canny</strong></td>
+          <td>边缘检测图</td>
+          <td>精确控制轮廓和线条</td>
+          <td>0.8-1.0</td>
+          <td>角色三视图生成、产品结构设计</td>
+        </tr>
+        <tr>
+          <td><strong>Depth</strong></td>
+          <td>深度图</td>
+          <td>控制场景前后关系和透视</td>
+          <td>0.6-0.9</td>
+          <td>场景分层生成、3D感营造</td>
+        </tr>
+        <tr>
+          <td><strong>OpenPose</strong></td>
+          <td>人物骨架关键点</td>
+          <td>精确控制角色姿势和动作</td>
+          <td>0.8-1.0</td>
+          <td>角色动作设定、动画分镜预览</td>
+        </tr>
+        <tr>
+          <td><strong>Normal</strong></td>
+          <td>法线图</td>
+          <td>控制表面朝向和光影方向</td>
+          <td>0.5-0.8</td>
+          <td>材质表现、光影一致性</td>
+        </tr>
+        <tr>
+          <td><strong>Seg</strong></td>
+          <td>语义分割图</td>
+          <td>区域化控制（哪里放什么）</td>
+          <td>0.7-1.0</td>
+          <td>复杂场景布局、角色与环境关系</td>
+        </tr>
+        <tr>
+          <td><strong>Tile</strong></td>
+          <td>低分辨率原图</td>
+          <td>高清放大时保持细节一致</td>
+          <td>0.3-0.6</td>
+          <td>超分辨率放大、局部重绘</td>
+        </tr>
+        <tr>
+          <td><strong>Recolor</strong></td>
+          <td>原图</td>
+          <td>仅改变色调和明暗</td>
+          <td>0.5-0.8</td>
+          <td>配色方案探索、氛围调整</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">8.6 ComfyUI中的LoRA + ControlNet联合配置</h3>
+    <p>在ComfyUI中，LoRA和ControlNet可以同时作用于同一张生成流程，实现"角色一致性+姿态控制"的双重保障：</p>
+    <ol class="steps-list">
+      <li><strong>加载基础模型</strong> — 选择皮克斯/3D卡通风格的基础模型（如 "pixarStyle_v2.safetensors"）</li>
+      <li><strong>加载LoRA</strong> — 添加 LoRA Loader 节点，选择训练好的 "siorange_cat_v1.safetensors"，强度设为 0.8-1.0</li>
+      <li><strong>添加ControlNet</strong> — 添加 ControlNet Apply 节点，选择对应的ControlNet模型（如 openpose_siorange.safetensors）</li>
+      <li><strong>输入控制图</strong> — 上传OpenPose骨架图作为姿态控制输入</li>
+      <li><strong>设置CFG和采样器</strong> — CFG=5-7, sampler=DPM++ 2M Karras, steps=20-30</li>
+      <li><strong>执行生成</strong> — 连接所有节点并执行，即可得到符合"小橘猫"角色设定且姿态精确控制的画面</li>
+    </ol>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 实用技巧：LoRA与ControlNet的协同策略</div>
+      <div class="tip-body">
+        <strong>LoRA管"像谁"</strong>，<strong>ControlNet管"做什么"</strong>。LoRA负责角色外观的一致性（毛色、眼睛形状、体型比例），ControlNet负责姿态和场景的控制。两者分工明确，缺一不可。<br><br>
+        <strong>权重平衡法则：</strong>当LoRA和ControlNet同时作用时，可能出现冲突（如LoRA想让角色微笑，但ControlNet的骨架图显示悲伤姿态）。解决方法是降低其中一个的权重——通常优先保证ControlNet的精确控制，LoRA权重降至0.6-0.8即可。<br><br>
+        <strong>训练周期建议：</strong>先用5个epoch做初步测试，生成10张图看效果。如果角色特征不明显就继续训练到10-15epoch。不要一次性训练20epoch然后才发现数据有问题——浪费GPU时间。
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">🔬 多学派解读：LoRA与ControlNet的经济学意义</h2>
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#B8860B;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 古典经济学视角（斯密/李嘉图）</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">LoRA的本质是"技能专业化"——将通用的AI生成能力（基础模型）转化为特定角色的专业能力（LoRA模型）。这完全符合斯密的分工理论：一个能生成任意图像的模型，不如十个专精于特定角色的LoRA。李嘉图的比较优势同样适用：训练一个角色LoRA的机会成本远低于从零开始手绘所有角度。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 凯恩斯主义视角</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">ControlNet解决了AI生成中的"有效需求不足"问题——基础模型虽然能生成精美图像，但无法精确响应设计师的具体需求（特定姿态、特定构图）。ControlNet就像凯恩斯的"政府干预"，通过外部控制信号弥补市场（基础模型）的失灵，使供给端能够精准匹配需求端的精确要求。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">LoRA训练过程是"数据劳动"的典型——设计师收集、标注、整理参考图的过程是无偿的数字劳动，但这些数据被转化为可交易的LoRA模型后，产生了远超原始投入的商业价值。这是马克思所说的"一般智力"（general intellect）的体现：社会知识（角色设计数据）被资本化为私有财产（LoRA文件），产生剩余价值。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 新制度经济学视角</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">LoRA .safetensors 文件本质上是一种"知识产权的制度创新"——它将抽象的角色设计转化为可交易、可授权、可追溯的数字资产。相比传统IP授权（需要复杂的法律合同），LoRA的授权更加标准化和自动化：一个文件就是一个IP载体，交易成本趋近于零。这是"技术制度"替代"法律制度"的典型范例。</p>
+    </div>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 分化链条：LoRA技术的四条演进路径</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(26,82,118,0.08);border-radius:6px;border-left:3px solid #1A5276">
+          <strong style="color:#1A5276;font-size:12px">路径一：角色IP化</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">训练多个角色LoRA，建立角色矩阵，形成IP宇宙</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(184,134,11,0.08);border-radius:6px;border-left:3px solid #B8860B">
+          <strong style="color:#B8860B;font-size:12px">路径二：风格商业化</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">训练特定艺术风格LoRA，在Civitai等平台出售下载</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(220,38,38,0.08);border-radius:6px;border-left:3px solid #dc2626">
+          <strong style="color:#dc2626;font-size:12px">路径三：工业级应用</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">企业级LoRA训练平台，为品牌定制角色/产品LoRA</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(5,150,105,0.08);border-radius:6px;border-left:3px solid #059669">
+          <strong style="color:#059669;font-size:12px">路径四：开源社区</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">参与开源模型训练社区，共享数据和模型，推动技术进步</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-container" id="chart-lora-training"></div>
+
+    <script src="../common/js/echarts.inline.js"></script>
+    <script src="../common/js/navigation.js"></script>
+    <script>
+      var chart_lora = echarts.init(document.getElementById('chart-lora-training'));
+      chart_lora.setOption({
+        backgroundColor: 'transparent',
+        tooltip: { trigger: 'axis' },
+        legend: { data: ['epoch=5', 'epoch=10', 'epoch=15', 'epoch=20'], textStyle: { color: '#94a3b8' }, top: 0 },
+        grid: { left: 80, right: 20, top: 50, bottom: 40 },
+        xAxis: { type: 'category', data: ['角色相似度', '姿态多样性', '背景适应性', '细节丰富度', '整体评分'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+        yAxis: { type: 'value', max: 100, nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+        series: [
+          { name: 'epoch=5', type: 'line', data: [50, 85, 80, 55, 68], itemStyle: { color: '#64748b' }, smooth: true, lineStyle: { width: 2 } },
+          { name: 'epoch=10', type: 'line', data: [72, 82, 78, 70, 76], itemStyle: { color: '#3b82f6' }, smooth: true, lineStyle: { width: 2 } },
+          { name: 'epoch=15', type: 'line', data: [88, 78, 75, 85, 84], itemStyle: { color: '#7c3aed' }, smooth: true, lineStyle: { width: 2 } },
+          { name: 'epoch=20', type: 'line', data: [92, 60, 65, 90, 78], itemStyle: { color: '#ef4444' }, smooth: true, lineStyle: { width: 2 } }
+        ]
+      });
+      window.addEventListener('resize', function() { chart_lora.resize(); });
+    </script>
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="07-expression-prop-design.html"><i class="fas fa-arrow-left"></i> 表情集与道具设计</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">8 / 25</span>
+    <a class="nav-next" href="09-design-integration.html">设计稿整合输出 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+</body>
+</html>

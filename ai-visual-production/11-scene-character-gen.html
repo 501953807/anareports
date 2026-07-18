@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 场景与角色图像生成 — 《AI影像创作百科全书》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AnaReports</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">AI影像创作百科全书</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-automation-n8n.html">18 AI工作流自动化（n8n/Make/Zapier）</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-matrix.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-applications.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merch-commodification.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization-evaluation.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">11 场景与角色图像生成</h1>
+
+    <div class="data-note">
+      <strong>📊 核心观点：</strong>场景与角色图像生成是动画短片制作中"最耗时但最关键"的环节。在AI工作流中，这一步决定了整部短片的视觉上限。本章以"小橘找回家"的12个关键镜头为基础，演示从角色一致性控制到场景分层生成再到关键帧产出的完整工作流。
+    </div>
+
+    <h2 class="section-subtitle">一、场景设计AI生成工作流</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-layer-group"></i> 三层分层生成法</div>
+      <div class="tip-body">
+        <p style="margin-bottom:8px">高质量AI场景的关键在于"分层生成+后期合成"，而非一次性生成完整画面。推荐三层架构：</p>
+        <table class="data-table">
+          <thead><tr><th>层级</th><th>内容</th><th>生成方式</th><th>工具</th></tr></thead>
+          <tbody>
+            <tr><td><strong>背景层</strong></td><td>城市天际线、建筑、远景</td><td>Midjourney生成宽幅全景图</td><td>MJ v6.1 / Flux</td></tr>
+            <tr><td><strong>前景层</strong></td><td>角色小橘、道具（纸箱、雨伞）</td><td>ComfyUI中用ControlNet将角色植入场景</td><td>ComfyUI + IP-Adapter + ControlNet</td></tr>
+            <tr><td><strong>氛围层</strong></td><td>光线、雾气、雨滴、光晕</td><td>后期叠加或AI inpaint</td><td>Photoshop / ComfyUI img2img</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">1.1 背景层生成：全景城市</h3>
+
+    <div class="card">
+      <p style="font-size:13px;line-height:1.8"><strong>Midjourney提示词（镜头1-开场全景）：</strong><br>
+      <code style="background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:12px;display:block;margin-top:4px">Pixar-style 3D animated wide establishing shot,俯瞰城市天际线 with old town alley in lower third, storm clouds gathering, dramatic volumetric lighting, deep blue-grey color palette with warm orange accent from alley entrance, cinematic composition, rule of thirds, --ar 2:1 --stylize 250 --v 6.1 --seed 10001</code></p>
+    </div>
+
+    <h3 class="section-subtitle">1.2 前景层生成：角色植入</h3>
+
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">使用ComfyUI的IP-Adapter将小橘角色从第二篇的设计稿中"移植"到背景场景中：</p>
+
+    <div class="card highlight">
+      <p style="font-size:13px;line-height:1.8"><strong>ComfyUI工作流节点序列：</strong></p>
+      <ol style="padding-left:18px;margin-top:8px;font-size:13px;color:var(--text2)">
+        <li>加载基础模型：SDXL Base 1.0 或 Animagine XL 3.1（专为卡通/动画风格优化）</li>
+        <li>加载角色参考：第二篇输出的小橘三视图 → IP-Adapter Plus（face ID 模式）</li>
+        <li>加载背景图：Midjourney生成的全景图 → Resize节点匹配分辨率</li>
+        <li>ControlNet OpenPose：定义小橘的姿态（蜷缩/站立/奔跑）</li>
+        <li>ControlNet Canny：如果需要精确轮廓（如特定动作）</li>
+        <li>采样器：DPM++ 2M Karras，30-40步，CFG 5-7</li>
+        <li>后处理：放大2x（4x V-UltraSharp）→ 色彩校正匹配背景</li>
+      </ol>
+    </div>
+
+    <h2 class="section-subtitle">二、角色一致性控制在多场景中的应用</h2>
+
+    <h3 class="section-subtitle">2.1 一致性控制的三大难题</h3>
+
+    <table class="data-table">
+      <thead><tr><th>难题</th><th>具体表现</th><th>AI解决方案</th><th>可靠度</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>外观一致性</strong></td>
+          <td>同一角色在不同镜头中毛色/体型/花纹不一致</td>
+          <td>IP-Adapter面部参考 + 固定Seed + LoRA角色微调</td>
+          <td><span class="badge green">高（85%+）</span></td>
+        </tr>
+        <tr>
+          <td><strong>比例一致性</strong></td>
+          <td>不同景别下角色大小比例失调</td>
+          <td>ControlNet Depth/OpenPose + 参考尺板图</td>
+          <td><span class="badge cyan">中（70%）</span></td>
+        </tr>
+        <tr>
+          <td><strong>情绪一致性</strong></td>
+          <td>角色表情与剧情阶段不符</td>
+          <td>表情参考图 + 情绪关键词加权 + inpaint局部调整</td>
+          <td><span class="badge cyan">中（75%）</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">2.2 "小橘"角色一致性文档</h3>
+
+    <div class="card">
+      <p style="font-size:13px;line-height:2"><strong>角色标识符（用于所有提示词）：</strong><code style="background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:12px">fluffy orange tabby cat, orange and white fur patches, green eyes, small size (kitten, approx 6 months old), round face, plump cheeks, short tail with darker orange ring, white paws</code></p>
+      <p style="font-size:13px;margin-top:8px"><strong>负向提示词（全局通用）：</strong><code style="background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:12px">realistic cat, photorealistic, adult cat, black cat, Siamese cat, dog, human, text, watermark, deformed, extra limbs</code></p>
+      <p style="font-size:13px;margin-top:8px"><strong>LoRA权重建议：</strong>如果使用角色LoRA，权重设为0.7-0.85（过高会僵硬，过低会失去特征）</p>
+    </div>
+
+    <h2 class="section-subtitle">三、关键帧图像生成</h2>
+
+    <h3 class="section-subtitle">3.1 8个关键帧完整生成清单</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:6%">#</th>
+          <th style="width:10%">场景</th>
+          <th style="width:18%">提示词（精简版）</th>
+          <th style="width:10%">工具</th>
+          <th style="width:10%">分辨率</th>
+          <th style="width:10%">步数</th>
+          <th style="width:10%">CFG</th>
+          <th style="width:8%">Seed</th>
+          <th style="width:18%">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>暴风雨城市</td>
+          <td style="font-size:11px">Pixar 3D, city skyline, storm clouds, narrow alley, volumetric fog</td>
+          <td>Midjourney</td>
+          <td>2048×1152</td>
+          <td>—</td>
+          <td>—</td>
+          <td>10001</td>
+          <td>广角全景，--ar 16:9</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>猫窝日常</td>
+          <td style="font-size:11px">Orange kitten in cardboard box, warm sunset, half photo beside</td>
+          <td>Midjourney</td>
+          <td>2048×1152</td>
+          <td>—</td>
+          <td>—</td>
+          <td>10002</td>
+          <td>中景，暖光</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>暴风雨逃离</td>
+          <td style="font-size:11px">Kitten running from destroyed box, heavy rain, debris, terrified</td>
+          <td>MJ + ComfyUI inpaint</td>
+          <td>2048×1152</td>
+          <td>40</td>
+          <td>6</td>
+          <td>10003</td>
+          <td>低角度，动态模糊感</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>城市灯光</td>
+          <td style="font-size:11px">Kitten on bridge, city lights after rain, rainbow, hopeful</td>
+          <td>Midjourney</td>
+          <td>2048×1152</td>
+          <td>—</td>
+          <td>—</td>
+          <td>10004</td>
+          <td>远景+角色剪影</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td>遇流浪狗</td>
+          <td style="font-size:11px">Kitten and black dog standoff, alley, dramatic side light</td>
+          <td>ComfyUI + IP-Adapter</td>
+          <td>2048×1152</td>
+          <td>35</td>
+          <td>5.5</td>
+          <td>10005</td>
+          <td>双人构图，IP-Adapter锁定小橘</td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td>分享食物</td>
+          <td style="font-size:11px">Kitten pushing biscuit to dog, close-up, warm light, DOF</td>
+          <td>ComfyUI + IP-Adapter</td>
+          <td>2048×1152</td>
+          <td>35</td>
+          <td>5</td>
+          <td>10006</td>
+          <td>特写，浅景深</td>
+        </tr>
+        <tr>
+          <td><strong>7</strong></td>
+          <td>商场困局</td>
+          <td style="font-size:11px">Tiny cat+dog in massive mall atrium, glass ceiling, wonder</td>
+          <td>Midjourney</td>
+          <td>2048×1152</td>
+          <td>—</td>
+          <td>—</td>
+          <td>10007</td>
+          <td>仰拍，夸张透视</td>
+        </tr>
+        <tr>
+          <td><strong>8</strong></td>
+          <td>夜景相依</td>
+          <td style="font-size:11px">Cat+dog cuddling, neon reflections in puddles, bokeh city</td>
+          <td>ComfyUI + IP-Adapter</td>
+          <td>2048×1152</td>
+          <td>35</td>
+          <td>5.5</td>
+          <td>10008</td>
+          <td>夜景，霓虹光</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">四、工具链：Midjourney/Flux → ComfyUI统一风格</h2>
+
+    <h3 class="section-subtitle">4.1 工具分工策略</h3>
+
+    <table class="data-table">
+      <thead><tr><th>步骤</th><th>首选工具</th><th>备选工具</th><th>为什么</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>场景概念/背景生成</strong></td>
+          <td>Midjourney v6.1</td>
+          <td>Flux Pro</td>
+          <td>MJ在"氛围感"和"构图美感"上仍领先，出图速度快</td>
+        </tr>
+        <tr>
+          <td><strong>角色精确植入场景</strong></td>
+          <td>ComfyUI + IP-Adapter</td>
+          <td>Stable Diffusion WebUI</td>
+          <td>ComfyUI的节点式工作流可精确控制角色位置和姿态</td>
+        </tr>
+        <tr>
+          <td><strong>风格统一后处理</strong></td>
+          <td>ComfyUI + 风格LoRA</td>
+          <td>Photoshop + Neural Filters</td>
+          <td>用统一的"皮克斯3D动画"风格LoRA对所有关键帧做一次风格校准</td>
+        </tr>
+        <tr>
+          <td><strong>局部修复</strong></td>
+          <td>ComfyUI Inpaint</td>
+          <td>Photoshop Generative Fill</td>
+          <td>修复手部/爪子/面部瑕疵，ComfyUI可批量处理</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">4.2 ComfyUI风格统一工作流</h3>
+
+    <div class="card highlight">
+      <p style="font-size:13px;line-height:1.8"><strong>风格统一Pipeline：</strong></p>
+      <ol style="padding-left:18px;margin-top:8px;font-size:13px">
+        <li>输入：8张关键帧图像（MJ或ComfyUI分别生成）</li>
+        <li>加载"皮克斯3D动画"风格LoRA（可从Civitai下载免费的Pixar-Style-3D LoRA）</li>
+        <li>每张图以img2img方式过一遍，denoise强度0.25-0.35（轻度风格化，不改变构图）</li>
+        <li>批量色彩校正：统一色调曲线（阴影偏蓝、中间调偏暖、高光偏白）</li>
+        <li>输出：8张风格统一的最终关键帧</li>
+      </ol>
+    </div>
+
+    <h2 class="section-subtitle">五、实操演示：为"小橘找回家"生成12帧完整流程</h2>
+
+    <h3 class="section-subtitle">5.1 每日工作量规划</h3>
+
+    <table class="data-table">
+      <thead><tr><th>日期</th><th>任务</th><th>预计产出</th><th>工具</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>Day 1</td><td>生成场景背景（镜头1、4、7）</td><td>3张背景图 × 各生成20张选优</td><td>Midjourney</td><td>约60次生成，选3张最佳</td></tr>
+        <tr><td>Day 2</td><td>生成角色+场景组合（镜头2、3、8）</td><td>3张组合图</td><td>ComfyUI IP-Adapter</td><td>需先准备好小橘的LoRA或参考图</td></tr>
+        <tr><td>Day 3</td><td>生成双人互动（镜头5、6、9、10）</td><td>4张组合图</td><td>ComfyUI IP-Adapter</td><td>角色一致性要求最高的一天</td></tr>
+        <tr><td>Day 4</td><td>生成结尾帧（镜头11、12）</td><td>2张组合图</td><td>ComfyUI + MJ</td><td>情感高潮帧，需反复打磨</td></tr>
+        <tr><td>Day 5</td><td>风格统一 + 局部修复</td><td>12张最终关键帧</td><td>ComfyUI批量处理</td><td>一次性过风格LoRA，检查一致性</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">六、多学派交叉解读</h2>
+
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#B8860B;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 重商主义视角 — 工具链即国家竞争力</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">一个国家在AI影像生成领域的竞争力，取决于其"工具链完整度"。美国拥有Midjourney（应用层）+ NVIDIA（算力层）+ OpenAI（模型层）的完整链条；中国有快手可灵（视频生成）+ 字节即梦（图像+视频）+ 国产芯片（昇腾）的追赶链条；欧洲有Mistral AI（模型层）但缺应用层。这就像18世纪英国通过控制造船原料（木材、帆布、焦油）确立海上霸权——今天控制AI影像工具链的公司和国家，将控制下一代视觉内容的生产标准。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 凯恩斯主义视角 — 生成质量的"有效需求"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">AI图像生成存在明显的"边际产出递减"规律：前10次生成可能产出2张可用结果（20%有效率），但通过精细化提示词和参数调整，可以将有效率提升到60-70%。凯恩斯会建议：在生成效率低于30%时，应当"刺激有效需求"——即投入更多时间在提示词工程和参数调试上，而非盲目增加生成次数。这类似于政府在经济衰退时增加公共投资来刺激总需求。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 马克思主义视角 — AI生成中的"数字劳动"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">每一次AI图像生成都是"数字劳动"的结晶——但不是生成者的劳动，而是训练数据中数百万创作者的无偿劳动。Midjourney的模型包含了LAION数据集中数亿张图片的特征，这些图片的作者从未获得补偿。当你在Midjourney中生成一张"皮克斯风格"的图片时，你实际上是在调用无数动画师多年劳动的"沉淀价值"。这就是马克思主义所说的"死劳动支配活劳动"——过去创作者的劳动成果（训练数据）现在被平台资本用来生成利润，而原始创作者被排除在分配体系之外。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 新制度经济学视角 — IP-Adapter作为"产权制度"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">角色一致性的技术难题本质上是一个"产权界定"问题——如何让"小橘"这个角色在无限多的生成场景中保持"所有权"（视觉特征）的完整。IP-Adapter的作用相当于为角色建立了"数字产权制度"：它定义了什么特征属于"小橘"，什么不属于。ComfyUI的工作流则是"执行机制"——确保每次生成都尊重这个产权。制度经济学告诉我们：好的产权制度不一定是最完美的，但一定是最可执行的。IP-Adapter的可靠度约85%，这意味着15%的场景会出现"产权纠纷"（角色走样），需要人工干预（inpaint修复）。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#7c3aed;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 演化经济学视角 — 风格演化的"适应度景观"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">动画风格的演化可以用"适应度景观"（fitness landscape）模型来理解：每个可能的视觉风格都是景观中的一个点，"适应度"由观众接受度+AI可实现度共同决定。皮克斯风格之所以成为当前AI动画的"局部最优解"，是因为它在两个维度上都达到了较高水平——观众熟悉且喜欢（高接受度），AI模型训练数据充分（高可实现度）。但演化经济学提醒我们：局部最优不等于全局最优。随着多模态大模型的发展，新的风格峰值可能出现（比如"AI原生风格"——人类艺术家不会想到但AI天然擅长的视觉语言）。</p>
+    </div>
+
+    <h2 class="section-subtitle">七、发散引申链</h2>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链：角色一致性 → 观众信任 → 情感投入 → 传播裂变</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(124,58,237,0.08);border-radius:6px;border-left:3px solid #7c3aed">
+          <strong style="color:#7c3aed;font-size:12px">角色一致性</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">如果小橘在第3镜和第7镜看起来不像同一个角色，观众会"出戏"</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(6,182,212,0.08);border-radius:6px;border-left:3px solid #06b6d4">
+          <strong style="color:#06b6d4;font-size:12px">观众信任</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">一致性建立了"叙事契约"——观众相信这个故事是连续的、真实的</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(16,185,129,0.08);border-radius:6px;border-left:3px solid #10b981">
+          <strong style="color:#10b981;font-size:12px">情感投入</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">信任→沉浸→情感投入。观众对小橘的关心程度直接决定结局是否感人</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(245,158,11,0.08);border-radius:6px;border-left:3px solid #f59e0b">
+          <strong style="color:#f59e0b;font-size:12px">传播裂变</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">情感投入→分享意愿→算法推荐→更多观众→正反馈循环</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">八、战略建议：场景与角色生成的效率法则</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> AI场景角色生成的长期生存法则</div>
+      <div class="tip-body">
+        <p><strong>先批量生成背景，再逐帧植入角色：</strong>这是最高效的顺序。背景图一旦选定基本不需要改，而角色植入需要反复调试。把确定性高的任务先完成。</p>
+        <p style="margin-top:8px"><strong>建立"角色参考库"：</strong>为小橘准备至少20张不同角度/情绪的参考图，放在ComfyUI的IP-Adapter文件夹中。每次生成时，系统会自动匹配最接近的参考图，一致性提升30%以上。</p>
+        <p style="margin-top:8px"><strong>不要追求"完美单帧"：</strong>动画的关键帧不需要每一张都是艺术品。更重要的是帧与帧之间的"视觉连续性"——相邻帧的色调、光影、角色位置应该有合理的渐变关系。</p>
+      </div>
+    </div>
+
+    <div class="chart-container" id="chart-11-tools"></div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="10-animation-planning.html"><i class="fas fa-arrow-left"></i> 动画短片策划</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">11 / 25</span>
+    <a class="nav-next" href="12-image-to-video.html">从图像到动画的视频生成 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-11-tools'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['生成速度(张/分钟)', '一致性得分', '风格化能力', '可控性'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 20, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['Midjourney v6.1', 'Flux Pro', 'ComfyUI + SDXL', 'ComfyUI + IP-Adapter'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', max: 100, name: '评分', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '生成速度', type: 'bar', stack: 'total', data: [90, 75, 60, 45], itemStyle: { color: '#8b5cf6' }, barWidth: 18 },
+        { name: '一致性得分', type: 'bar', stack: 'total', data: [50, 55, 70, 88], itemStyle: { color: '#06b6d4' }, barWidth: 18 },
+        { name: '风格化能力', type: 'bar', stack: 'total', data: [95, 70, 65, 72], itemStyle: { color: '#10b981' }, barWidth: 18 },
+        { name: '可控性', type: 'bar', stack: 'total', data: [40, 55, 80, 92], itemStyle: { color: '#f59e0b' }, barWidth: 18 }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>

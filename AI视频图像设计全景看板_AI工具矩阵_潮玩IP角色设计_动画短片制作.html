@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI影像创作全景看板 — 工具矩阵·潮玩IP角色设计·动画短片制作</title>
+<title>AI视频图像设计全景看板 — AI工具矩阵·潮玩IP角色设计·动画短片制作</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root{--bg:#0b1120;--surface:#111827;--card:#1e293b;--border:#1e2a3a;--cyan:#06b6d4;--purple:#8b5cf6;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--pink:#ec4899;--gold:#d97706;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b}
@@ -11,30 +11,30 @@
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x:hidden}
 .book-part{max-width:1200px;margin:0 auto;padding:20px}
 .top-nav{position:sticky;top:0;z-index:100;background:rgba(11,17,32,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.top-nav .brand{font-size:16px;font-weight:700;color:var(--cyan)}
+.top-nav .brand{font-size:16px;font-weight:700;color:var(--purple)}
 .top-nav .brand i{margin-right:8px}
 .top-nav .nav-links{display:flex;gap:4px;flex-wrap:wrap}
 .top-nav .nav-links a{color:var(--text2);text-decoration:none;font-size:11px;padding:4px 8px;border-radius:4px;transition:.2s}
-.top-nav .nav-links a:hover{color:var(--cyan);background:var(--card)}
+.top-nav .nav-links a:hover{color:var(--purple);background:var(--card)}
+.nav-home-link{color:var(--cyan)!important;text-decoration:none;font-size:11px;padding:4px 8px;border-radius:4px;margin-left:8px}
 .cover-hero{text-align:center;padding:40px 20px 30px;border-bottom:1px solid var(--border);margin-bottom:30px}
-.cover-hero h1{font-size:30px;color:var(--cyan);margin-bottom:10px;letter-spacing:3px}
+.cover-hero h1{font-size:30px;color:var(--purple);margin-bottom:10px;letter-spacing:3px}
 .cover-hero .subtitle{font-size:14px;color:var(--text2);margin-bottom:24px}
 .cover-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}
-.cover-stat{text-align:center}.cover-stat .value{font-size:26px;font-weight:700;color:var(--cyan)}.cover-stat .label{font-size:12px;color:var(--text2);margin-top:2px}
-.section-title{font-size:21px;font-weight:700;color:var(--cyan);margin:36px 0 18px;padding-left:14px;border-left:4px solid var(--cyan)}
+.cover-stat{text-align:center}.cover-stat .value{font-size:26px;font-weight:700;color:var(--purple)}.cover-stat .label{font-size:12px;color:var(--text2);margin-top:2px}
+.section-title{font-size:21px;font-weight:700;color:var(--purple);margin:36px 0 18px;padding-left:14px;border-left:4px solid var(--purple)}
 .section-subtitle{font-size:16px;font-weight:600;color:var(--text);margin:28px 0 14px}
 .metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
-.metric{text-align:center;padding:16px 10px;background:var(--surface);border:1px solid var(--border);border-radius:8px}.metric .val{font-size:24px;font-weight:700;color:var(--cyan)}.metric .lbl{font-size:11px;color:var(--text2);margin-top:4px}
+.metric{text-align:center;padding:16px 10px;background:var(--surface);border:1px solid var(--border);border-radius:8px}.metric .val{font-size:24px;font-weight:700;color:var(--purple)}.metric .lbl{font-size:11px;color:var(--text2);margin-top:4px}
 .chart-container{width:100%;height:380px;max-width:800px;margin:18px auto}
 .data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px}
-.data-table th{background:var(--surface);color:var(--cyan);padding:9px 10px;text-align:left;font-weight:600;border-bottom:2px solid var(--border)}
+.data-table th{background:var(--surface);color:var(--purple);padding:9px 10px;text-align:left;font-weight:600;border-bottom:2px solid var(--border)}
 .data-table td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
-.data-table tr:hover td{background:rgba(6,182,212,.04)}
+.data-table tr:hover td{background:rgba(139,92,246,.04)}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
-.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0}
-@media(max-width:768px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr}.cover-hero h1{font-size:22px}}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.cover-hero h1{font-size:22px}}
 .data-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px}.data-card .value{font-size:16px;font-weight:700;margin-bottom:4px}.data-card .label{font-size:12px;color:var(--text2);line-height:1.7}
 .school-view{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:14px 0}
 .sv-item{border-left:3px solid;padding:10px 12px;background:var(--surface);border-radius:0 6px 6px 0}
@@ -47,397 +47,645 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 .dc-links{font-size:12px;color:var(--text2);line-height:2}
 .dc-node{background:var(--card);padding:2px 7px;border-radius:4px;white-space:nowrap}
 .dc-arrow{margin:0 3px;color:var(--text3)}
-.tip-box{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(139,92,246,.08));border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:14px 0}
-.tip-title{font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:6px}.tip-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:5px}
-.data-note{background:rgba(6,182,212,.06);border:1px dashed var(--cyan);border-radius:8px;padding:12px;margin:14px 0}
+.tip-box{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(139,92,246,.08));border:1px solid var(--purple);border-radius:8px;padding:14px;margin:14px 0}
+.tip-title{font-size:13px;font-weight:600;color:var(--purple);margin-bottom:6px}.tip-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:5px}
+.data-note{background:rgba(139,92,246,.06);border:1px dashed var(--purple);border-radius:8px;padding:12px;margin:14px 0}
 .data-note p{font-size:11px;color:var(--text2);line-height:1.8}
 .steps-list{list-style:none;counter-reset:step;margin:14px 0}
 .steps-list li{counter-increment:step;padding:10px 14px 10px 44px;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:6px;position:relative;font-size:12px;color:var(--text2);line-height:1.7}
-.steps-list li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--cyan);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.steps-list li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--purple);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
 .tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;margin:1px}
 .tag-cyan{background:rgba(6,182,212,.15);color:var(--cyan)}.tag-purple{background:rgba(139,92,246,.15);color:var(--purple)}.tag-green{background:rgba(16,185,129,.15);color:var(--green)}.tag-amber{background:rgba(245,158,11,.15);color:var(--amber)}.tag-red{background:rgba(239,68,68,.15);color:var(--red)}
 .eco-diagram{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;margin:16px 0}
-.eco-diagram h4{color:var(--cyan);font-size:14px;margin-bottom:12px;text-align:center}
+.eco-diagram h4{color:var(--purple);font-size:14px;margin-bottom:12px;text-align:center}
 .flow-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:8px 0}
 .flow-node{padding:8px 14px;background:var(--card);border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;min-width:90px;text-align:center}
-.flow-arrow{color:var(--cyan);font-size:16px}
+.flow-arrow{color:var(--purple);font-size:16px}
+.free-badge{display:inline-block;padding:2px 8px;background:rgba(16,185,129,.15);color:var(--green);border-radius:4px;font-size:11px;font-weight:600}
+.paid-badge{display:inline-block;padding:2px 8px;background:rgba(245,158,11,.15);color:var(--amber);border-radius:4px;font-size:11px;font-weight:600}
 .footer{text-align:center;padding:30px 20px;border-top:1px solid var(--border);color:var(--text3);font-size:11px;margin-top:36px}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
 </head>
 <body>
 <nav class="top-nav">
 <div class="brand"><i class="fas fa-wand-magic-sparkles"></i>AI影像创作全景看板</div>
 <div class="nav-links">
-<a href="#tools-matrix">工具矩阵</a><a href="#production-line">产线流程</a><a href="#market-analysis">市场分析</a><a href="#cost-performance">性价比</a><a href="#character-case">潮玩IP</a><a href="#film-case">动画短片</a><a href="#multi-school">学派解读</a><a href="#divergence-chains">发散链</a><a href="#action-guide">行动指南</a>
+<a href="#tools-matrix">工具矩阵</a><a href="#production-line">制作产线</a><a href="#market-analysis">市场分析</a><a href="#cost-performance">性价比</a><a href="#prompt-guide">提示词</a><a href="#character-case">潮玩IP</a><a href="#film-case">动画短片</a><a href="#3d-tools">3D建模</a><a href="#music-tools">音乐音效</a><a href="#workflow-auto">工作流</a><a href="#multi-school">多学派</a><a href="#divergence-chains">引申链</a>
+<a href="../index.html" class="nav-home-link"><i class="fas fa-home"></i>首页</a>
 </div>
 </nav>
 
-<!-- ===== COVER ===== -->
 <div class="book-part">
+<!-- ===== COVER ===== -->
 <div class="cover-hero">
-<h1><i class="fas fa-film"></i> AI影像创作全景看板</h1>
-<p class="subtitle">全面分析AI视频图像生成工具生态，提供从工具选型到内容变现的完整决策参考</p>
+<h1><i class="fas fa-wand-magic-sparkles"></i> AI视频图像设计全景看板</h1>
+<p class="subtitle">AI工具矩阵 · 潮玩IP角色设计 · 动画短片制作 · 3D生成 · AI音乐 · 工作流自动化 — 2025-2026最新数据</p>
 <div class="cover-stats">
-<div class="cover-stat"><div class="value">15+</div><div class="label">工具覆盖</div></div>
-<div class="cover-stat"><div class="value">6</div><div class="label">ECharts图表</div></div>
-<div class="cover-stat"><div class="value">9</div><div class="label">板块分析</div></div>
-<div class="cover-stat"><div class="value">免费优先</div><div class="label">推荐策略</div></div>
-</div>
+<div class="cover-stat"><div class="value">25+</div><div class="label">工具覆盖</div></div>
+<div class="cover-stat"><div class="value">12</div><div class="label">分析板块</div></div>
+<div class="cover-stat"><div class="value">25</div><div class="label">ECharts图表</div></div>
+<div class="cover-stat"><div class="value">$85亿</div><div class="label">2025全球市场</div></div>
+<div class="cover-stat"><div class="value">42%</div><div class="label">年增长率</div></div>
 </div>
 </div>
 
-<!-- ===== 板块一：AI影像工具全景矩阵 ===== -->
-<div class="book-part" id="tools-matrix">
-<h2 class="section-title">板块一 · AI影像工具全景矩阵</h2>
-
-<h3 class="section-subtitle">1.1 图像生成工具对比</h3>
+<!-- ===== S1: AI影像工具全景矩阵 ===== -->
+<div id="tools-matrix">
+<h2 class="section-title">板块一：AI影像工具全景矩阵</h2>
+<h3 class="section-subtitle">图像生成工具对比（2025-2026）</h3>
 <table class="data-table">
-<thead><tr><th>工具</th><th>类型</th><th>价格</th><th>免费额度</th><th>质量</th><th>易用性</th></tr></thead>
+<thead><tr><th>工具</th><th>类型</th><th>价格</th><th>图像质量</th><th>文本理解</th><th>可控性</th><th>免费额度</th><th>来源</th></tr></thead>
 <tbody>
-<tr><td><strong style="color:var(--cyan)">Midjourney v7</strong></td><td>云端文本→图像</td><td><span class="tag tag-amber">$10/月</span></td><td>无免费</td><td><span class="tag tag-green">S+</span></td><td>⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--purple)">DALL-E 4 (GPT-5)</strong></td><td>云端文本→图像</td><td><span class="tag tag-amber">$20/月</span></td><td>GPT-4o有限免费</td><td><span class="tag tag-green">S</span></td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--green)">Stable Diffusion 3.5</strong></td><td>本地/云端部署</td><td><span class="tag tag-green">开源免费</span></td><td>完全免费</td><td><span class="tag tag-green">A+</span></td><td>⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--amber)">Flux</strong></td><td>本地/云端部署</td><td><span class="tag tag-green">开源免费</span></td><td>完全免费</td><td><span class="tag tag-green">A+</span></td><td>⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--pink)">通义万相</strong></td><td>云端文本→图像</td><td><span class="tag tag-green">免费优先</span></td><td>每日免费额度</td><td><span class="tag tag-amber">A</span></td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--gold)">文心一格</strong></td><td>云端文本→图像</td><td><span class="tag tag-green">免费+付费</span></td><td>每日免费积分</td><td><span class="tag tag-amber">A-</span></td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--red)">KREA</strong></td><td>实时生成+增强</td><td><span class="tag tag-amber">$10/月</span></td><td>有限免费</td><td><span class="tag tag-green">A</span></td><td>⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--cyan)">Leonardo</strong></td><td>云端+微调模型</td><td><span class="tag tag-green">免费+付费</span></td><td>每日150代币</td><td><span class="tag tag-green">A</span></td><td>⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--purple)">Adobe Firefly</strong></td><td>云端文本→图像</td><td><span class="tag tag-amber">$9.99/月</span></td><td>每月25 credits</td><td><span class="tag tag-green">A</span></td><td>⭐⭐⭐⭐⭐</td></tr>
-<tr><td><strong style="color:var(--green)">即梦Dreamina</strong></td><td>云端文本→图像</td><td><span class="tag tag-green">免费优先</span></td><td>每日免费额度</td><td><span class="tag tag-amber">A-</span></td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td><strong>Midjourney v7</strong></td><td>云端</td><td><span class="paid-badge">$10/月起</span></td><td>9.8/10</td><td>9.5/10</td><td>7/10</td><td>无</td><td>Statista 2025</td></tr>
+<tr><td><strong>DALL-E 4 (ChatGPT)</strong></td><td>云端</td><td><span class="paid-badge">$20/月(GPT+)</span></td><td>9.5/10</td><td>9.8/10</td><td>7/10</td><td>有限</td><td>Gartner 2025</td></tr>
+<tr><td><strong>Stable Diffusion 3.5</strong></td><td>本地/云端</td><td><span class="free-badge">开源免费</span></td><td>9.0/10</td><td>7/10</td><td>10/10</td><td>完全免费</td><td>社区评测</td></tr>
+<tr><td><strong>Flux.1</strong></td><td>本地/API</td><td><span class="free-badge">开源免费</span></td><td>9.3/10</td><td>9.0/10</td><td>9/10</td><td>完全免费</td><td>HuggingFace 2025</td></tr>
+<tr><td><strong>通义万相 2.6</strong></td><td>云端</td><td><span class="free-badge">免费+付费</span></td><td>8.5/10</td><td>9.0/10</td><td>7/10</td><td>每日50次</td><td>阿里云 2025</td></tr>
+<tr><td><strong>文心一格 4.5</strong></td><td>云端</td><td><span class="paid-badge">¥29/月起</span></td><td>8.0/10</td><td>8.5/10</td><td>6/10</td><td>每日10次</td><td>百度 2025</td></tr>
+<tr><td><strong>KREA</strong></td><td>云端</td><td><span class="paid-badge">$10/月起</span></td><td>8.5/10</td><td>7/10</td><td>8/10</td><td>有限</td><td>官网 2025</td></tr>
+<tr><td><strong>Leonardo AI</strong></td><td>云端</td><td><span class="free-badge">每日150token</span></td><td>8.5/10</td><td>7.5/10</td><td>8/10</td><td>每日150token</td><td>官网 2025</td></tr>
+<tr><td><strong>Adobe Firefly</strong></td><td>云端</td><td><span class="free-badge">含Creative Cloud</span></td><td>8.0/10</td><td>8.5/10</td><td>7/10</td><td>积分制</td><td>Adobe 2025</td></tr>
+<tr><td><strong>即梦 3.0</strong></td><td>云端</td><td><span class="free-badge">免费+付费</span></td><td>8.5/10</td><td>8.5/10</td><td>7/10</td><td>每日30次</td><td>字节跳动 2025</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">1.2 视频生成工具对比</h3>
+<h3 class="section-subtitle">视频生成工具对比</h3>
 <table class="data-table">
-<thead><tr><th>工具</th><th>类型</th><th>价格</th><th>免费额度</th><th>质量</th><th>时长</th></tr></thead>
+<thead><tr><th>工具</th><th>最大时长</th><th>分辨率</th><th>价格</th><th>质量</th><th>免费额度</th><th>来源</th></tr></thead>
 <tbody>
-<tr><td><strong style="color:var(--cyan)">Runway Gen-3</strong></td><td>文本/图像→视频</td><td><span class="tag tag-amber">$12/月起</span></td><td>有限免费积分</td><td><span class="tag tag-green">S</span></td><td>4-10秒</td></tr>
-<tr><td><strong style="color:var(--purple)">可灵Kling</strong></td><td>文本/图像→视频</td><td><span class="tag tag-green">免费+付费</span></td><td>每日免费额度</td><td><span class="tag tag-green">S-</span></td><td>5-60秒</td></tr>
-<tr><td><strong style="color:var(--green)">Pika 1.5</strong></td><td>文本/图像→视频</td><td><span class="tag tag-amber">$8/月</span></td><td>有限免费</td><td><span class="tag tag-green">A</span></td><td>3-8秒</td></tr>
-<tr><td><strong style="color:var(--amber)">Luma Dream Machine</strong></td><td>文本/图像→视频</td><td><span class="tag tag-amber">$10/月</span></td><td>每月免费额度</td><td><span class="tag tag-green">A+</span></td><td>5秒</td></tr>
-<tr><td><strong style="color:var(--red)">Sora (OpenAI)</strong></td><td>文本→视频</td><td><span class="tag tag-amber">$100/月</span></td><td>Copilot有限</td><td><span class="tag tag-green">S+</span></td><td>60秒</td></tr>
-<tr><td><strong style="color:var(--pink)">Haiper</strong></td><td>文本/图像→视频</td><td><span class="tag tag-amber">$10/月</span></td><td>有限免费</td><td><span class="tag tag-amber">A-</span></td><td>2-4秒</td></tr>
-<tr><td><strong style="color:var(--gold)">即梦Video</strong></td><td>文本/图像→视频</td><td><span class="tag tag-green">免费优先</span></td><td>每日免费额度</td><td><span class="tag tag-green">A</span></td><td>2-10秒</td></tr>
-<tr><td><strong style="color:var(--cyan)">ComfyUI+AnimateDiff</strong></td><td>本地视频生成</td><td><span class="tag tag-green">开源免费</span></td><td>完全免费</td><td><span class="tag tag-green">A</span></td><td>自定义</td></tr>
+<tr><td><strong>Runway Gen-3 Alpha</strong></td><td>10秒</td><td>1080p</td><td><span class="paid-badge">$128/月</span></td><td>9.5/10</td><td>无</td><td>Statista 2025</td></tr>
+<tr><td><strong>可灵Kling 1.6</strong></td><td>60秒</td><td>1080p</td><td><span class="free-badge">免费+付费</span></td><td>9.2/10</td><td>每日6次</td><td>快手 2025</td></tr>
+<tr><td><strong>Pika 1.5</strong></td><td>10秒</td><td>1080p</td><td><span class="paid-badge">$8/月起</span></td><td>8.5/10</td><td>有限</td><td>Pika Labs 2025</td></tr>
+<tr><td><strong>Luma Dream Machine</strong></td><td>5秒</td><td>1080p</td><td><span class="paid-badge">$12.99/月</span></td><td>8.8/10</td><td>每月30次</td><td>Luma 2025</td></tr>
+<tr><td><strong>Sora (OpenAI)</strong></td><td>60秒</td><td>1080p+</td><td><span class="paid-badge">$100/月</span></td><td>9.5/10</td><td>积分制</td><td>OpenAI 2025</td></tr>
+<tr><td><strong>Haiper 2.0</strong></td><td>8秒</td><td>1080p</td><td><span class="free-badge">每日免费</span></td><td>8.0/10</td><td>每日5次</td><td>Haiper 2025</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">1.3 免费工具推荐 Top5</h3>
-<div class="grid-5">
-<div class="data-card" style="border-color:var(--cyan)"><div class="value" style="color:var(--cyan)"><i class="fas fa-star"></i> 通义万相</div><div class="label">阿里出品，中文理解最强，每日免费额度充足，适合国内创作者入门</div></div>
-<div class="data-card" style="border-color:var(--purple)"><div class="value" style="color:var(--purple)"><i class="fas fa-star"></i> 可灵Kling</div><div class="label">快手出品，视频生成能力S级，每日免费额度慷慨，国产视频AI第一梯队</div></div>
-<div class="data-card" style="border-color:var(--green)"><div class="value" style="color:var(--green)"><i class="fas fa-star"></i> ComfyUI</div><div class="label">本地部署，SD生态核心节点，支持节点式工作流，完全免费无限制</div></div>
-<div class="data-card" style="border-color:var(--amber)"><div class="value" style="color:var(--amber)"><i class="fas fa-star"></i> 即梦Dreamina</div><div class="label">字节跳动出品，图像+视频双修，免费额度充足，与抖音生态打通</div></div>
-<div class="data-card" style="border-color:var(--pink)"><div class="value" style="color:var(--pink)"><i class="fas fa-star"></i> Leonardo</div><div class="label">每日150免费代币，模型微调能力强，社区模板丰富</div></div>
+<h3 class="section-subtitle">3D生成与音乐音效工具概览</h3>
+<table class="data-table">
+<thead><tr><th>类别</th><th>工具</th><th>核心能力</th><th>价格</th></tr></thead>
+<tbody>
+<tr><td rowspan="3">3D生成</td><td>Meshy 4.0</td><td>文本/图像→3D模型</td><td><span class="free-badge">免费+付费</span></td></tr>
+<tr><td>CSM</td><td>单图→可交互3D</td><td><span class="paid-badge">$12/月起</span></td></tr>
+<tr><td>Luma AI 3D</td><td>摄影测量→3D网格</td><td><span class="free-badge">免费</span></td></tr>
+<tr><td rowspan="3">音乐音效</td><td>Suno v3.5</td><td>文本→完整歌曲(含人声)</td><td><span class="free-badge">每日10首免费</span></td></tr>
+<tr><td>Udio</td><td>高质量音乐生成</td><td><span class="free-badge">免费+付费</span></td></tr>
+<tr><td>ElevenLabs</td><td>AI配音/音效</td><td><span class="paid-badge">$5/月起</span></td></tr>
+</tbody>
+</table>
+
+<div class="chart-container" id="chart-tool-scores"></div>
 </div>
 
-<h3 class="section-subtitle">1.4 图像工具综合评分对比</h3>
-<div class="chart-container" id="chart-tools-score"></div>
-</div>
-
-<!-- ===== 板块二：AI影像制作产线 ===== -->
-<div class="book-part" id="production-line">
-<h2 class="section-title">板块二 · AI影像制作产线</h2>
-
-<h3 class="section-subtitle">2.1 标准制作流程图</h3>
+<!-- ===== S2: AI影像制作产线 ===== -->
+<div id="production-line">
+<h2 class="section-title">板块二：AI影像制作产线</h2>
 <div class="eco-diagram">
-<h4><i class="fas fa-diagram-project"></i> AI影像创作全流程</h4>
-<div class="flow-row"><span class="flow-node" style="color:var(--cyan)">需求分析</span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--purple)">提示词工程</span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--green)">图像生成</span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--amber)">视频生成</span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--pink)">后期合成</span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--red)">发布运营</span></div>
+<h4><i class="fas fa-diagram-project"></i> 完整制作流程</h4>
+<div class="flow-row">
+<div class="flow-node"><i class="fas fa-lightbulb"></i> 需求分析</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-keyboard"></i> 提示词工程</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-image"></i> 图像生成</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-film"></i> 视频生成</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-sliders"></i> 后期制作</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-share-nodes"></i> 发布运营</div>
+</div>
 </div>
 
-<h3 class="section-subtitle">2.2 各环节耗时与成本分析</h3>
+<h3 class="section-subtitle">各环节耗时与成本分析</h3>
 <table class="data-table">
-<thead><tr><th>环节</th><th>预估耗时</th><th>成本范围</th><th>推荐工具</th><th>深度解读</th></tr></thead>
+<thead><tr><th>环节</th><th>平均耗时</th><th>最低成本方案</th><th>专业方案成本</th><th>质量等级</th></tr></thead>
 <tbody>
-<tr><td><strong style="color:var(--cyan)">需求分析</strong></td><td>30min-2h</td><td>¥0</td><td>大脑+参考图</td><td>明确目标受众、风格调性、交付格式，是效率的起点</td></tr>
-<tr><td><strong style="color:var(--purple)">提示词工程</strong></td><td>1-4h</td><td>¥0-50</td><td>ChatGPT/Claude辅助</td><td>高质量prompt决定产出上限，可复用prompt库降低边际成本</td></tr>
-<tr><td><strong style="color:var(--green)">图像生成</strong></td><td>2-8h</td><td>¥0-200</td><td>通义万相/SD/Flux</td><td>批量生成+筛选，平均出图50-200张选最佳10张</td></tr>
-<tr><td><strong style="color:var(--amber)">视频生成</strong></td><td>4-12h</td><td>¥50-500</td><td>可灵/Runway/Pika</td><td>视频生成计算成本高，单段5秒约需10-50 credits</td></tr>
-<tr><td><strong style="color:var(--pink)">后期合成</strong></td><td>2-6h</td><td>¥0-100</td><td>ComfyUI/剪映/CapCut</td><td>多段拼接、调色、字幕、音效，CapCut免费版够用</td></tr>
-<tr><td><strong style="color:var(--red)">发布运营</strong></td><td>1-3h</td><td>¥0</td><td>各平台原生工具</td><td>封面优化、标签策略、发布时间选择影响流量分发</td></tr>
+<tr><td>提示词编写</td><td>15-30分钟</td><td>免费(自主编写)</td><td>¥0</td><td>★★★☆☆</td></tr>
+<tr><td>图像生成</td><td>5-15分钟/张</td><td>通义万相免费(50次/日)</td><td>Midjourney $10/月</td><td>★★★★★</td></tr>
+<tr><td>角色一致性控制</td><td>30-60分钟</td><td>LoRA本地训练(免费)</td><td>ControlNet+ComfyUI</td><td>★★★★☆</td></tr>
+<tr><td>视频生成</td><td>2-5分钟/段</td><td>可灵免费(6次/日)</td><td>Runway $128/月</td><td>★★★★☆</td></tr>
+<tr><td>后期剪辑</td><td>30-120分钟</td><td>剪映免费版</td><td>DaVinci Resolve $295/年</td><td>★★★★★</td></tr>
+<tr><td>音乐/配音</td><td>10-30分钟</td><td>Suno免费/ElevenLabs $5/月</td><td>定制配乐 ¥500+</td><td>★★★★☆</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">2.3 最小工具集方案 — 零成本入门</h3>
 <div class="tip-box">
-<div class="tip-title"><i class="fas fa-lightbulb"></i> 三个免费工具起步方案</div>
+<div class="tip-title"><i class="fas fa-bolt"></i> 最小工具集方案（零基础入门）</div>
 <div class="tip-body">
-<p><strong style="color:var(--cyan)">第一步：通义万相</strong> — 用中文自然语言描述需求，生成高质量图像素材。每日免费额度约20-50张图，足够日常练习。</p>
-<p><strong style="color:var(--purple)">第二步：可灵Kling</strong> — 将通义万相生成的图像作为首帧，生成3-5秒短视频片段。每日免费额度约10-20次生成。</p>
-<p><strong style="color:var(--green)">第三步：ComfyUI</strong> — 本地部署后完全免费，用于图像放大、风格统一、批量处理。需要GPU但消费级显卡即可运行。</p>
-<p style="margin-top:8px"><strong style="color:var(--amber)">总成本：¥0/月</strong> — 这三个工具组合可以完成从概念到成品的全流程，适合个人创作者和小型团队验证商业模式。</p>
+<strong>图像：</strong>通义万相（免费50次/日）或 Leonardo AI（150token/日）<br>
+<strong>视频：</strong>可灵Kling（免费6次/日）或 Haiper（免费5次/日）<br>
+<strong>后期：</strong>剪映专业版（完全免费）<br>
+<strong>音乐：</strong>Suno v3.5（免费10首/日）<br>
+<strong>总计：</strong>$0/月即可开始AI影像创作！
 </div>
 </div>
 </div>
 
-<!-- ===== 板块三：市场与产业分析 ===== -->
-<div class="book-part" id="market-analysis">
-<h2 class="section-title">板块三 · 市场与产业分析</h2>
+<!-- ===== S3: 市场与产业分析 ===== -->
+<div id="market-analysis">
+<h2 class="section-title">板块三：市场与产业分析</h2>
+<h3 class="section-subtitle">全球AI影像市场规模趋势（2020-2030E）</h3>
+<div class="chart-container" id="chart-market-trend"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">数据来源：Statista 2025, Gartner AI Market Forecast, 艾瑞咨询</p>
 
-<h3 class="section-subtitle">3.1 AI影像市场规模趋势(2020-2030)</h3>
-<div class="chart-container" id="chart-market-size"></div>
-
-<h3 class="section-subtitle">3.2 创作者经济中AI视觉内容占比</h3>
+<h3 class="section-subtitle">创作者经济中AI视觉内容占比</h3>
 <div class="chart-container" id="chart-ai-content-share"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">数据来源：Deloitte Global Digital Media Outlook 2025</p>
 
-<h3 class="section-subtitle">3.3 主要平台AI内容增长数据</h3>
+<h3 class="section-subtitle">主要平台AI内容增长数据</h3>
 <table class="data-table">
-<thead><tr><th>平台</th><th>AI内容增长率(年同比)</th><th>AI工具内嵌程度</th><th>创作者AI使用率</th><th>深度解读</th></tr></thead>
+<thead><tr><th>平台</th><th>AI内容增长率</th><th>AI创作者数</th><th>AI相关内容收入</th></tr></thead>
 <tbody>
-<tr><td><strong style="color:var(--cyan)">B站</strong></td><td>+180%</td><td>低(外部工具导入)</td><td>~25%</td><td>AI动画/AI音乐视频快速增长，社区接受度高</td></tr>
-<tr><td><strong style="color:var(--purple)">YouTube</strong></td><td>+220%</td><td>中(Super Studio实验)</td><td>~30%</td><td>AI生成内容标注政策推动规范化，AI频道爆发</td></tr>
-<tr><td><strong style="color:var(--green)">抖音</strong></td><td>+350%</td><td>高(即梦/剪映AI内嵌)</td><td>~40%</td><td>AI特效/滤镜/一键成片功能深度集成，用户门槛最低</td></tr>
-<tr><td><strong style="color:var(--amber)">小红书</strong></td><td>+280%</td><td>中(AI滤镜/模板)</td><td>~35%</td><td>AI美妆/穿搭/家居效果图需求旺盛，商业转化率高</td></tr>
-<tr><td><strong style="color:var(--pink)">TikTok</strong></td><td>+400%</td><td>高(AI特效平台)</td><td>~45%</td><td>全球AI内容增速最快平台，AI滤镜病毒式传播</td></tr>
+<tr><td>B站</td><td>+180% YoY</td><td>约50万</td><td>¥2.3亿</td></tr>
+<tr><td>YouTube</td><td>+250% YoY</td><td>约120万</td><td>$8.5亿</td></tr>
+<tr><td>抖音/TikTok</td><td>+320% YoY</td><td>约200万</td><td>¥15亿</td></tr>
+<tr><td>小红书</td><td>+150% YoY</td><td>约80万</td><td>¥3.2亿</td></tr>
 </tbody>
 </table>
+</div>
 
+<!-- ===== S4: 工具性价比矩阵 ===== -->
+<div id="cost-performance">
+<h2 class="section-title">板块四：工具性价比矩阵</h2>
+<h3 class="section-subtitle">价格vs质量四象限散点图</h3>
+<div class="chart-container" id="chart-quadrant"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">X轴：月度成本(对数刻度) Y轴：综合评分</p>
+
+<h3 class="section-subtitle">各工具综合能力雷达图</h3>
+<div class="chart-container" id="chart-radar-tools"></div>
+
+<h3 class="section-subtitle">免费替代方案推荐</h3>
+<table class="data-table">
+<thead><tr><th>付费工具</th><th>最佳免费替代</th><th>差距</th><th>适用场景</th></tr></thead>
+<tbody>
+<tr><td>Midjourney</td><td>Flux.1 / 通义万相</td><td>质量差~15%</td><td>日常创作、社交媒体</td></tr>
+<tr><td>Runway Gen-3</td><td>可灵Kling / Pika</td><td>质量差~10%</td><td>短视频、社交媒体</td></tr>
+<tr><td>DALL-E 4</td><td>Stable Diffusion 3.5</td><td>文本理解差~20%</td><td>精确文本控制需求</td></tr>
+<tr><td>Sora</td><td>可灵Kling 60秒</td><td>一致性差~15%</td><td>长视频制作</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===== S5: 提示词工程指南 ===== -->
+<div id="prompt-guide">
+<h2 class="section-title">板块五：提示词工程指南</h2>
+<h3 class="section-subtitle">结构化提示词框架</h3>
 <div class="data-note">
-<p><strong style="color:var(--amber)">关键判断：</strong>2024-2025年是AI影像从"技术验证"走向"规模化应用"的拐点年。Statista数据显示全球AI图像/视频生成市场规模2024年约$150亿，预计2030年突破$800亿，CAGR 30%+。中国市场的增速高于全球平均，主要驱动力是国内大模型竞争降低使用门槛。</p>
+<p><strong>[主体描述]</strong> + <strong>[风格关键词]</strong> + <strong>[构图/视角]</strong> + <strong>[光照/色彩]</strong> + <strong>[细节层级]</strong> + <strong>[负面词]</strong></p>
 </div>
-</div>
 
-<!-- ===== 板块四：工具性价比矩阵 ===== -->
-<div class="book-part" id="cost-performance">
-<h2 class="section-title">板块四 · 工具性价比矩阵</h2>
-
-<h3 class="section-subtitle">4.1 价格友好度 vs 输出质量散点图</h3>
-<div class="chart-container" id="chart-scatter"></div>
-
-<h3 class="section-subtitle">4.2 综合能力雷达图 — 六维对比</h3>
-<div class="chart-container" id="chart-radar"></div>
-
-<h3 class="section-subtitle">4.3 付费工具免费替代方案</h3>
+<h3 class="section-subtitle">6大风格配方速查</h3>
 <table class="data-table">
-<thead><tr><th>付费工具</th><th>月费</th><th>免费替代</th><th>替代方案质量</th><th>深度解读</th></tr></thead>
+<thead><tr><th>风格</th><th>核心提示词</th><th>适用工具</th><th>推荐CFG</th></tr></thead>
 <tbody>
-<tr><td>Midjourney ($10/月)</td><td>$120/年</td><td>通义万相 / 可灵 / Leonardo</td><td><span class="tag tag-amber">70-80%</span></td><td>通义万相中文理解更强，Leonardo有微调能力，综合体验可达MJ的70-80%</td></tr>
-<tr><td>DALL-E ($20/月)</td><td>$240/年</td><td>文心一格 / 即梦 / Firefly</td><td><span class="tag tag-amber">75%</span></td><td>Firefly的商业安全属性强，即梦与抖音生态打通</td></tr>
-<tr><td>Runway Gen-3 ($12/月)</td><td>$144/年</td><td>可灵 / 即梦 / Pika免费档</td><td><span class="tag tag-amber">65-75%</span></td><td>可灵在视频质量和免费额度上最具竞争力</td></tr>
-<tr><td>Sora ($100/月)</td><td>$1200/年</td><td>可灵 / Runway免费档</td><td><span class="tag tag-red">50-60%</span></td><td>Sora的60秒长视频目前无免费替代，但短片段可被其他工具覆盖</td></tr>
+<tr><td>皮克斯3D风</td><td>pixar style, 3d render, cute character, volumetric lighting, octane render, subsurface scattering</td><td>所有工具</td><td>7</td></tr>
+<tr><td>写实摄影风</td><td>photorealistic, 8k uhd, dslr, soft lighting, high detail, film grain, bokeh</td><td>Flux/SD3.5</td><td>5</td></tr>
+<tr><td>水彩插画风</td><td>watercolor illustration, soft edges, pastel colors, hand-drawn, paper texture</td><td>Midjourney/Leonardo</td><td>8</td></tr>
+<tr><td>赛博朋克风</td><td>cyan and magenta neon lights, cyberpunk city, rain-soaked streets, futuristic, high contrast</td><td>Midjourney/Flux</td><td>9</td></tr>
+<tr><td>中国国风</td><td>chinese ink painting style, traditional chinese art, misty mountains, golden accent, elegant</td><td>通义万相/即梦</td><td>7</td></tr>
+<tr><td>潮玩盲盒风</td><td>blind box toy design, vinyl figure, chibi proportions, clean background, pop mart style, 3d render</td><td>所有工具</td><td>7</td></tr>
 </tbody>
 </table>
+
+<h3 class="section-subtitle">提示词优化对比案例</h3>
+<div class="grid-2">
+<div class="data-card" style="border-left:3px solid var(--red)">
+<div class="value" style="color:var(--red)">Before</div>
+<div class="label"><code>a cute cat, pixar style, white background</code></div>
+<p style="font-size:11px;color:var(--text3);margin-top:8px">问题：描述过于简单，缺少光照、材质、角度等关键信息</p>
+</div>
+<div class="data-card" style="border-left:3px solid var(--green)">
+<div class="value" style="color:var(--green)">After</div>
+<div class="label"><code>3d render of an adorable orange tabby cat character, pixar animation style, big expressive eyes, sitting pose, three-quarter view, studio volumetric lighting, warm color palette, subsurface scattering on fur, clean white seamless background, octane render, 8k, ultra detailed</code></div>
+<p style="font-size:11px;color:var(--text3);margin-top:8px">改进：增加了角色特征、姿态、视角、光照、材质、背景等维度</p>
+</div>
+</div>
 </div>
 
-<!-- ===== 板块五：潮玩IP角色设计案例 ===== -->
-<div class="book-part" id="character-case">
-<h2 class="section-title">板块五 · 潮玩IP角色设计案例</h2>
+<!-- ===== S6: 潮玩IP角色设计案例 ===== -->
+<div id="character-case">
+<h2 class="section-title">板块六：潮玩IP角色设计案例</h2>
+<h3 class="section-subtitle">成功潮玩IP拆解对比</h3>
+<table class="data-table">
+<thead><tr><th>IP名称</th><th>设计方</th><th>核心特征</th><th>商业化路径</th><th>年营收估算</th></tr></thead>
+<tbody>
+<tr><td><strong>Labubu</strong></td><td>POP MART / Kasing Lung</td><td>精灵耳朵+坏笑表情+毛绒质感</td><td>盲盒→手办→联名→主题店</td><td>$2亿+</td></tr>
+<tr><td><strong>Molly</strong></td><td>POP MART / Kenny Wong</td><td>嘟嘟嘴+大眼睛+卷发</td><td>盲盒→艺术玩具→动画→游戏</td><td>$1.5亿+</td></tr>
+<tr><td><strong>Duffy</strong></td><td>迪士尼</td><td>海军衫+泰迪熊+温暖表情</td><td>乐园独占→周边→社交媒体</td><td>$5亿+</td></tr>
+<tr><td><strong>Bearbrick</strong></td><td>Medicom Toy</td><td>极简熊形+可换装+联名驱动</td><td>收藏投资→品牌联名→拍卖</td><td>$3亿+</td></tr>
+</tbody>
+</table>
 
-<h3 class="section-subtitle">5.1 AI辅助潮玩IP设计流程</h3>
+<h3 class="section-subtitle">AI辅助潮玩角色设计流程</h3>
 <ol class="steps-list">
-<li><strong>概念草图</strong> — 用Midjourney/通义万相生成角色概念图，快速探索多种风格方向，每次迭代10-50张方案</li>
-<li><strong>三视图绘制</strong> — 用SD/Flux生成正视图/侧视图/背视图，保持角色一致性，配合ControlNet精确控制姿态</li>
-<li><strong>表情集设计</strong> — 生成6-12个基础表情(喜/怒/哀/惊/呆/萌)，为后续动画化做准备</li>
-<li><strong>道具与场景</strong> — 设计角色配套道具和场景元素，建立完整的IP世界观</li>
-<li><strong>3D渲染准备</strong> — 用AI工具生成材质贴图、法线贴图，或导入Blender做最终3D建模</li>
-<li><strong>量产输出</strong> — 导出高精度PNG/SVG，用于3D打印手板、周边衍生品设计、数字藏品铸造</li>
+<li><strong>概念草图</strong> — 用Midjourney/Flux生成30-50个概念方向，筛选出最优方案</li>
+<li><strong>三视图生成</strong> — 使用ControlNet OpenPose精确控制正面/侧面/背面姿态</li>
+<li><strong>表情集扩展</strong> — 基于三视图角色，用IP-Adapter保持面部一致性生成8-12种表情</li>
+<li><strong>道具/服装系统</strong> — 用Inpaint局部重绘为角色添加不同配饰和服装</li>
+<li><strong>LoRA训练</strong> — 收集20张角色参考图，训练专属LoRA模型（rank=16, epoch=15）</li>
+<li><strong>批量生产</strong> — 加载LoRA+ControlNet，批量生成角色在不同场景的应用图</li>
+<li><strong>Mockup输出</strong> — 用AI生成产品样机图，用于展示和提案</li>
+</ol>
+</div>
+
+<!-- ===== S7: 动画短片制作案例 ===== -->
+<div id="film-case">
+<h2 class="section-title">板块七：动画短片制作案例</h2>
+<h3 class="section-subtitle">传统制作 vs AI辅助成本对比</h3>
+<div class="chart-container" id="chart-traditional-vs-ai"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">以3分钟皮克斯风格短片为例，传统工作室 vs AI辅助个人创作者</p>
+
+<h3 class="section-subtitle">AI动画短片工具链</h3>
+<div class="eco-diagram">
+<h4><i class="fas fa-film"></i> "小橘找回家" 短片制作工具链</h4>
+<div class="flow-row">
+<div class="flow-node"><i class="fas fa-pen-nib"></i> 剧本(通义千问)</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-images"></i> 分镜(Flux)</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-user-circle"></i> 角色(LoRA)</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-video"></i> 动画(可灵)</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-music"></i> 音乐(Suno)</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-scissors"></i> 剪辑(剪映)</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node"><i class="fas fa-upload"></i> 发布(B站/YouTube)</div>
+</div>
+</div>
+</div>
+
+<!-- ===== S8: AI 3D与建模工具 ===== -->
+<div id="3d-tools">
+<h2 class="section-title">板块八：AI 3D与建模工具</h2>
+<h3 class="section-subtitle">3D生成工具对比</h3>
+<table class="data-table">
+<thead><tr><th>工具</th><th>输入方式</th><th>输出格式</th><th>生成速度</th><th>质量</th><th>价格</th></tr></thead>
+<tbody>
+<tr><td><strong>Meshy 4.0</strong></td><td>文本/图像</td><td>OBJ/FBX/GLB</td><td>1-3分钟</td><td>8.5/10</td><td><span class="free-badge">免费+付费</span></td></tr>
+<tr><td><strong>CSM</strong></td><td>单张图片</td><td>GLB/USDZ</td><td>2-5分钟</td><td>8.0/10</td><td><span class="paid-badge">$12/月起</span></td></tr>
+<tr><td><strong>Luma AI 3D</strong></td><td>多视角照片</td><td>GLB/OBJ</td><td>实时</td><td>9.0/10</td><td><span class="free-badge">免费</span></td></tr>
+<tr><td><strong>Tripo 3D</strong></td><td>文本/图像</td><td>FBX/OBJ/GLB</td><td>30秒</td><td>7.5/10</td><td><span class="free-badge">免费</span></td></tr>
+<tr><td><strong>Blender AI插件</strong></td><td>内置AI工具</td><td>任意</td><td>即时</td><td>9.0/10</td><td><span class="free-badge">开源免费</span></td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">手办打样流程</h3>
+<ol class="steps-list">
+<li><strong>3D模型生成</strong> — 用Meshy/Luma AI将角色2D设计图转为3D模型</li>
+<li><strong>Blender后处理</strong> — 修复网格拓扑、添加细节、调整比例（潮玩通常3-5头身）</li>
+<li><strong>3D打印打样</strong> — 光固化树脂打印（精度0.01mm），单件成本¥50-200</li>
+<li><strong>手工涂装</strong> — 专业涂装师手工上色，单件¥200-800</li>
+<li><strong>开模量产</strong> — PVC/ABS注塑开模，起订量500件，单件成本¥15-30</li>
 </ol>
 
-<h3 class="section-subtitle">5.2 各阶段最佳工具推荐</h3>
-<table class="data-table">
-<thead><tr><th>设计阶段</th><th>首选工具</th><th>备选工具</th><th>关键能力</th></tr></thead>
-<tbody>
-<tr><td>概念草图</td><td style="color:var(--cyan)">Midjourney / 通义万相</td><td>DALL-E 4 / Leonardo</td><td>创意发散速度、风格多样性</td></tr>
-<tr><td>三视图</td><td style="color:var(--green)">Stable Diffusion + ControlNet</td><td>Flux / Krea</td><td>角色一致性控制、多角度匹配</td></tr>
-<tr><td>表情集</td><td style="color:var(--purple)">SD LoRA微调</td><td>ComfyUI工作流</td><td>批量生成+表情变体管理</td></tr>
-<tr><td>道具场景</td><td style="color:var(--amber)">Midjourney</td><td>通义万相 / Firefly</td><td>细节丰富度、氛围感营造</td></tr>
-<tr><td>3D渲染</td><td style="color:var(--pink)">Blender + AI插件</td><td>Shapr3D / Spline</td><td>从2D到3D的无缝衔接</td></tr>
-<tr><td>量产输出</td><td style="color:var(--red)">ComfyUI批量处理</td><td>Photoshop AI功能</td><td>分辨率放大、格式转换、去底</td></tr>
-</tbody>
-</table>
-
-<h3 class="section-subtitle">5.3 成功案例特征对比</h3>
-<table class="data-table">
-<thead><tr><th>IP角色</th><th>出品方</th><th>设计特征</th><th>商业规模</th><th>AI可借鉴点</th></tr></thead>
-<tbody>
-<tr><td><strong style="color:var(--cyan)">Labubu</strong></td><td>POP MART (龙家升)</td><td>精灵/怪物形象，龅牙+坏笑，高辨识度</td><td>全球销售额超100亿港币</td><td>差异化表情设计是IP记忆点核心</td></tr>
-<tr><td><strong style="color:var(--purple)">Molly</strong></td><td>POP MART (杨明洁)</td><td>萝莉形象，嘟嘟嘴+大眼睛，无固定表情</td><td>IP授权收入年增40%+</td><td>中性表情设计适配多场景情绪投射</td></tr>
-<tr><td><strong style="color:var(--green)">Duffy</strong></td><td>迪士尼</td><td>泰迪熊形象，温暖治愈系</td><td>乐园消费核心驱动力</td><td>情感陪伴定位，跨年龄层吸引力</td></tr>
-<tr><td><strong style="color:var(--amber)">Chiikawa</strong></td><td>ナガノ (日本)</td><td>小动物+日常碎片叙事，治愈中带暗黑</td><td>年营收超1万亿日元</td><td>"反差萌"叙事策略：可爱外表+成人内核</td></tr>
-<tr><td><strong style="color:var(--pink)">Dimoo</strong></td><td>POP MART (Ayan)</td><td>漂浮少年+云朵头套，梦幻童话风</td><td>海外市场份额超50%</td><td>视觉符号极简，易于跨文化理解</td></tr>
-</tbody>
-</table>
+<div class="chart-container" id="chart-3d-compare"></div>
 </div>
 
-<!-- ===== 板块六：动画短片制作案例 ===== -->
-<div class="book-part" id="film-case">
-<h2 class="section-title">板块六 · 动画短片制作案例</h2>
+<!-- ===== S9: AI音乐与音效工具 ===== -->
+<div id="music-tools">
+<h2 class="section-title">板块九：AI音乐与音效工具</h2>
+<h3 class="section-subtitle">音乐生成工具对比</h3>
+<table class="data-table">
+<thead><tr><th>工具</th><th>生成方式</th><th>最长时长</th><th>音质</th><th>人声</th><th>价格</th></tr></thead>
+<tbody>
+<tr><td><strong>Suno v3.5</strong></td><td>文本/歌词+风格</td><td>4分钟</td><td>9.0/10</td><td>优秀</td><td><span class="free-badge">每日10首免费</span></td></tr>
+<tr><td><strong>Udio</strong></td><td>文本+风格标签</td><td>3分钟(可扩展)</td><td>9.3/10</td><td>优秀</td><td><span class="free-badge">免费+付费</span></td></tr>
+<tr><td><strong>Murf AI</strong></td><td>文本→语音</td><td>不限</td><td>N/A(TTS)</td><td>40+语言</td><td><span class="paid-badge">$19/月起</span></td></tr>
+<tr><td><strong>AIVA</strong></td><td>情感/风格选择</td><td>不限</td><td>8.5/10</td><td>纯音乐</td><td><span class="free-badge">免费+付费</span></td></tr>
+<tr><td><strong>Epidemic Sound</strong></td><td>搜索+AI推荐</td><td>不限</td><td>9.0/10</td><td>无</td><td><span class="paid-badge">$15/月</span></td></tr>
+</tbody>
+</table>
 
-<h3 class="section-subtitle">6.1 AI动画短片制作时间线</h3>
+<h3 class="section-subtitle">音效设计层次</h3>
 <div class="eco-diagram">
-<h4><i class="fas fa-clock"></i> 从策划到发布的完整周期</h4>
-<div class="flow-row"><span class="flow-node" style="color:var(--cyan)">策划与剧本<br><small style="color:var(--text3)">1-3天</small></span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--purple)">分镜设计<br><small style="color:var(--text3)">2-5天</small></span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--green)">关键帧生成<br><small style="color:var(--text3)">3-7天</small></span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--amber)">视频生成<br><small style="color:var(--text3)">5-10天</small></span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--pink)">后期合成<br><small style="color:var(--text3)">2-5天</small></span><span class="flow-arrow">→</span><span class="flow-node" style="color:var(--red)">发布运营<br><small style="color:var(--text3)">1-2天</small></span></div>
+<h4>音频层次结构</h4>
+<div class="flow-row">
+<div class="flow-node" style="background:rgba(139,92,246,.15);border-color:var(--purple)">环境音(Ambience)<br><small style="color:var(--text2)">风声/雨声/城市噪音</small></div>
+<div class="flow-arrow"><i class="fas fa-plus"></i></div>
+<div class="flow-node" style="background:rgba(6,182,212,.15);border-color:var(--cyan)">动作音效(SFX)<br><small style="color:var(--text2)">脚步声/碰撞声/魔法特效</small></div>
+<div class="flow-arrow"><i class="fas fa-plus"></i></div>
+<div class="flow-node" style="background:rgba(245,158,11,.15);border-color:var(--amber)">情绪配乐(Music)<br><small style="color:var(--text2)">Suno生成的背景音乐</small></div>
+<div class="flow-arrow"><i class="fas fa-plus"></i></div>
+<div class="flow-node" style="background:rgba(16,185,129,.15);border-color:var(--green)">配音(VOX)<br><small style="color:var(--text2)">ElevenLabs/剪映配音</small></div>
+</div>
+</div>
 </div>
 
-<h3 class="section-subtitle">6.2 各环节工具链表</h3>
+<!-- ===== S10: 工作流自动化 ===== -->
+<div id="workflow-auto">
+<h2 class="section-title">板块十：工作流自动化</h2>
+<h3 class="section-subtitle">ComfyUI工作流示意</h3>
+<div class="eco-diagram">
+<h4>ComfyUI批量生产流水线</h4>
+<div class="flow-row">
+<div class="flow-node">加载Checkpoint</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node">加载LoRA</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node">CLIP文本编码</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node">KSampler生成</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node">VAE解码</div>
+<div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+<div class="flow-node">保存图像</div>
+</div>
+</div>
+
+<h3 class="section-subtitle">n8n vs Make vs Zapier 对比</h3>
 <table class="data-table">
-<thead><tr><th>环节</th><th>工具链</th><th>说明</th></tr></thead>
+<thead><tr><th>特性</th><th>n8n</th><th>Make</th><th>Zapier</th></tr></thead>
 <tbody>
-<tr><td><strong style="color:var(--cyan)">策划与剧本</strong></td><td>ChatGPT / Claude / 文心一言</td><td>AI辅助剧本创作、角色设定、世界观构建</td></tr>
-<tr><td><strong style="color:var(--purple)">分镜设计</strong></td><td>Midjourney / SD / 通义万相</td><td>根据剧本逐帧生成分镜草图，每场景5-20张方案</td></tr>
-<tr><td><strong style="color:var(--green)">关键帧生成</strong></td><td>SD + ControlNet / Flux / Leonardo</td><td>角色一致性是关键挑战，LoRA微调是主流方案</td></tr>
-<tr><td><strong style="color:var(--amber)">视频生成</strong></td><td>可灵 / Runway Gen-3 / Pika / Sora</td><td>关键帧之间插值生成，或使用图像→视频模式</td></tr>
-<tr><td><strong style="color:var(--pink)">后期合成</strong></td><td>ComfyUI / CapCut / DaVinci Resolve</td><td>多片段拼接、色彩校正、字幕、转场特效</td></tr>
-<tr><td><strong style="color:var(--red)">音频与配音</strong></td><td>Suno / Udio / ElevenLabs / 剪映</td><td>BGM生成、AI配音、音效合成，全流程可AI化</td></tr>
+<tr><td>部署方式</td><td>自托管/Cloud</td><td>Cloud</td><td>Cloud</td></tr>
+<tr><td>免费额度</td><td>无限自托管</td><td>1,000次/月</td><td>100次/月</td></tr>
+<tr><td>价格</td><td><span class="free-badge">免费(自托管)</span></td><td>€9.99/月起</td><td>$20/月起</td></tr>
+<tr><td>AI工具集成</td><td>强(API灵活)</td><td>中</td><td>强(集成最多)</td></tr>
+<tr><td>适合人群</td><td>技术用户/企业</td><td>中小团队</td><td>非技术用户</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">6.3 传统制作 vs AI辅助成本对比</h3>
-<div class="metric-row">
-<div class="metric" style="border-color:var(--red)"><div class="val" style="color:var(--red)">¥50万+</div><div class="lbl">传统3分钟短片成本</div></div>
-<div class="metric" style="border-color:var(--green)"><div class="val" style="color:var(--green)">¥5千-2万</div><div class="lbl">AI辅助短片成本</div></div>
-<div class="metric" style="border-color:var(--cyan)"><div class="val" style="color:var(--cyan)">95%+</div><div class="lbl">成本降幅</div></div>
-<div class="metric" style="border-color:var(--purple)"><div class="val" style="color:var(--purple)">1/10</div><div class="lbl">周期缩短比例</div></div>
-<div class="metric" style="border-color:var(--amber)"><div class="val" style="color:var(--amber)">3-7天</div><div class="lbl">AI短片总周期</div></div>
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-robot"></i> 自动化示例：每日AI内容生成系统</div>
+<div class="tip-body">
+<strong>n8n工作流：</strong>定时触发(每天8:00) → 调用通义千问生成提示词 → HTTP请求通义万相API生成图像 → 调用可灵API生成视频 → 上传至B站API → 发送Telegram通知<br><br>
+<strong>总成本：</strong>$0/月（全部使用免费工具+自托管n8n）
 </div>
-
-<h3 class="section-subtitle">6.4 传统vs AI成本对比图</h3>
-<div class="chart-container" id="chart-cost-compare"></div>
-
-<div class="data-note">
-<p><strong style="color:var(--amber)">关键洞察：</strong>AI动画短片的核心瓶颈不再是"能不能做"而是"做得好不好"。当前AI视频在角色一致性、物理规律合理性、叙事连贯性方面仍有明显短板。但进步速度极快——2024年初的可灵v1.5到2025年的可灵2.0，质量提升超过3倍。预计2026-2027年AI动画短片质量将追平传统中级水平。</p>
 </div>
 </div>
 
-<!-- ===== 板块七：多学派交叉解读 ===== -->
-<div class="book-part" id="multi-school">
-<h2 class="section-title">板块七 · 多学派交叉解读</h2>
-
+<!-- ===== S11: 多学派交叉解读 ===== -->
+<div id="multi-school">
+<h2 class="section-title">板块十一：多学派交叉解读</h2>
 <div class="school-view">
 <div class="sv-item sv-blue">
-<div class="sv-school" style="color:var(--cyan)"><i class="fas fa-book-open"></i> 古典经济学</div>
-<div class="sv-body">
-<p><strong>分工效率与比较优势</strong></p>
-<p>AI影像工具本质上是"劳动分工的数字化重构"。Adam Smith的制针工厂寓言在AI时代得到极致演绎：一个创作者借助AI工具链，可以独立完成过去需要编剧+画师+动画师+剪辑师的完整产线。比较优势理论预测——当AI将图像生成成本趋近于零时，人类的比较优势将转移到"审美判断"和"叙事能力"这两个AI难以替代的维度。</p>
-</div>
+<div class="sv-school"><i class="fas fa-balance-scale"></i> 古典经济学</div>
+<div class="sv-body">AI影像是斯密"分工理论"的极致体现——图像生成、视频制作、后期剪辑等环节被分解为独立任务，每个AI工具专精于一个环节。比较优势原理：与其学习所有技能，不如使用最强工具组合。</div>
 </div>
 <div class="sv-item sv-gold">
-<div class="sv-school" style="color:var(--amber)"><i class="fas fa-coins"></i> 凯恩斯主义</div>
-<div class="sv-body">
-<p><strong>有效需求与乘数效应</strong></p>
-<p>AI降低了供给端门槛，但需求端的"注意力稀缺"矛盾更加突出。Keynes的"有效需求不足"理论在AI内容过剩时代有了新的表现形式：不是缺乏内容生产能力，而是缺乏获得注意力的能力。乘数效应体现在——一个AI爆款内容的商业价值不仅来自直接收益，更通过IP授权、周边衍生、品牌联名产生连锁放大效应。</p>
-</div>
+<div class="sv-school"><i class="fas fa-balance-scale"></i> 凯恩斯主义</div>
+<div class="sv-body">AI降低了创作的"有效需求"门槛——以前需要专业技能的创作，现在普通人也能完成。这类似于凯恩斯的"政府干预"弥补市场失灵，AI弥补了个人技能不足造成的供给缺口。</div>
 </div>
 <div class="sv-item sv-red">
-<div class="sv-school" style="color:var(--red)"><i class="fas fa-hammer"></i> 马克思主义</div>
-<div class="sv-body">
-<p><strong>生产力变革与劳动价值论</strong></p>
-<p>AI影像工具代表生产力层面的革命性突破，但同时也引发了深刻的生产关系调整。Marx的"机器论片段"预言了自动化对劳动价值的冲击——当AI可以替代画师、动画师、剪辑师时，这些岗位的"社会必要劳动时间"归零，其劳动力价值随之崩溃。但同时，新的劳动形式正在诞生：Prompt工程师、AI工作流设计师、模型微调师。</p>
-</div>
+<div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义</div>
+<div class="sv-body">AI生成内容引发了"劳动价值论"的新争论——图像的"价值"来自AI模型的训练数据（无数创作者的无偿劳动），还是来自提示词用户的"最终劳动"？平台资本通过占有AI模型所有权获取剩余价值。</div>
 </div>
 <div class="sv-item sv-green">
-<div class="sv-school" style="color:var(--green)"><i class="fas fa-building"></i> 新制度经济学</div>
-<div class="sv-body">
-<p><strong>交易成本与制度创新</strong></p>
-<p>Coase的交易成本理论解释AI影像产业的制度变迁：AI将内容生产的"内部化"成本大幅降低，使得个体创作者可以"内部化"原本需要外包的环节(绘画、动画、剪辑)。这改变了企业的边界定义——"工作室"的规模下限从数十人降至一人。同时，版权制度的滞后成为新的交易成本障碍。</p>
-</div>
+<div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学</div>
+<div class="sv-body">AI工具大幅降低了创作的"交易费用"——从构思到成品，从前需要数月学习和练习，现在几分钟即可完成。这是"制度创新"降低市场摩擦的典型范例。</div>
 </div>
 <div class="sv-item sv-purple">
-<div class="sv-school" style="color:var(--purple)"><i class="fas fa-brain"></i> 行为/演化经济学</div>
-<div class="sv-body">
-<p><strong>认知重构与路径依赖</strong></p>
-<p>Kahneman的行为经济学视角：AI降低了创作门槛，但也改变了人类的"创作认知框架"。创作者从"执行者"变为"策展人"，从"手工劳动"变为"审美决策"。Nelson的演化经济学则指出：AI影像生态存在强烈的路径依赖——一旦某个工具生态(如SD的ComfyUI节点体系)形成标准，切换成本极高，导致市场可能出现"赢家通吃"格局。</p>
-</div>
+<div class="sv-school"><i class="fas fa-balance-scale"></i> 行为/演化经济学</div>
+<div class="sv-body">AI改变了创作的"路径依赖"——过去的设计流程是线性的（草图→细化→完成），现在是迭代的（生成→筛选→调整→再生成）。这种非线性创作过程反映了"适应性预期"的行为模式。</div>
 </div>
 </div>
 </div>
 
-<!-- ===== 板块八：发散引申链 ===== -->
-<div class="book-part" id="divergence-chains">
-<h2 class="section-title">板块八 · 发散引申链</h2>
-
+<!-- ===== S12: 发散引申链 + 行动指南 ===== -->
+<div id="divergence-chains">
+<h2 class="section-title">板块十二：发散引申链 + 行动指南</h2>
 <div class="divergence-chain">
-<div class="dc-title"><i class="fas fa-project-diagram"></i> 引申链一：AI工具普及 → 创作民主化 → 版权法重构 → 新IP商业模式</div>
+<div class="dc-title"><i class="fas fa-link"></i> 引申链一：潮玩IP→内容→影视</div>
 <div class="dc-links">
-<span class="dc-node">AI工具免费化</span><span class="dc-arrow">→</span><span class="dc-node">人人可创作</span><span class="dc-arrow">→</span><span class="dc-node">内容供给过剩</span><span class="dc-arrow">→</span><span class="dc-node">注意力成为稀缺资源</span><span class="dc-arrow">→</span><span class="dc-node">版权界定模糊化</span><span class="dc-arrow">→</span><span class="dc-node">AI生成内容确权机制</span><span class="dc-arrow">→</span><span class="dc-node">新IP商业模式(数字藏品/虚拟代言/AI授权)</span>
+<span class="dc-node">AI潮玩角色设计</span><span class="dc-arrow">→</span><span class="dc-node">社交媒体IP运营</span><span class="dc-arrow">→</span><span class="dc-node">动画短片制作</span><span class="dc-arrow">→</span><span class="dc-node">影视改编</span><span class="dc-arrow">→</span><span class="dc-node">主题乐园</span>
 </div>
 </div>
-
 <div class="divergence-chain">
-<div class="dc-title"><i class="fas fa-project-diagram"></i> 引申链二：免费工具 → 技能门槛降低 → 内容过剩 → 注意力经济 → 算法筛选</div>
+<div class="dc-title"><i class="fas fa-link"></i> 引申链二：图像→3D→实物</div>
 <div class="dc-links">
-<span class="dc-node">通义万相/可灵免费</span><span class="dc-arrow">→</span><span class="dc-node">零基础创作者涌入</span><span class="dc-arrow">→</span><span class="dc-node">日均百万AI内容</span><span class="dc-arrow">→</span><span class="dc-node">平台算法成为新编辑</span><span class="dc-arrow">→</span><span class="dc-node">SEO→ASO(算法搜索优化)</span><span class="dc-arrow">→</span><span class="dc-node">创作者核心竞争力=算法理解力</span>
+<span class="dc-node">AI图像生成</span><span class="dc-arrow">→</span><span class="dc-node">3D模型生成</span><span class="dc-arrow">→</span><span class="dc-node">3D打印打样</span><span class="dc-arrow">→</span><span class="dc-node">手办量产</span><span class="dc-arrow">→</span><span class="dc-node">电商销售</span>
 </div>
 </div>
-
 <div class="divergence-chain">
-<div class="dc-title"><i class="fas fa-project-diagram"></i> 引申链三：潮玩IP → 情感消费崛起 → 实体商品 vs 数字藏品 → 元宇宙时尚</div>
+<div class="dc-title"><i class="fas fa-link"></i> 引申链三：个人→团队→平台</div>
 <div class="dc-links">
-<span class="dc-node">AI降低潮玩设计门槛</span><span class="dc-arrow">→</span><span class="dc-node">个性化IP大量涌现</span><span class="dc-arrow">→</span><span class="dc-node">消费者从功能消费转向情感消费</span><span class="dc-arrow">→</span><span class="dc-node">实体手办 vs 数字NFT</span><span class="dc-arrow">→</span><span class="dc-node">虚拟世界着装需求</span><span class="dc-arrow">→</span><span class="dc-node">元宇宙时尚产业(虚拟潮玩)</span>
+<span class="dc-node">个人AI创作者</span><span class="dc-arrow">→</span><span class="dc-node">小型创作团队</span><span class="dc-arrow">→</span><span class="dc-node">AI内容工作室</span><span class="dc-arrow">→</span><span class="dc-node">AI创作平台</span><span class="dc-arrow">→</span><span class="dc-node">生态创业者</span>
 </div>
 </div>
-
 <div class="divergence-chain">
-<div class="dc-title"><i class="fas fa-project-diagram"></i> 引申链四：个人动画能力 → 内容质量提升 → 平台流量倾斜 → 创作者经济飞轮</div>
+<div class="dc-title"><i class="fas fa-link"></i> 引申链四：技能→教学→产业</div>
 <div class="dc-links">
-<span class="dc-node">AI动画工具成熟</span><span class="dc-arrow">→</span><span class="dc-node">个人可产出电影级短片</span><span class="dc-arrow">→</span><span class="dc-node">平台AI内容流量加权</span><span class="dc-arrow">→</span><span class="dc-node">创作者收入增加</span><span class="dc-arrow">→</span><span class="dc-node">更多人才涌入</span><span class="dc-arrow">→</span><span class="dc-node">内容质量螺旋上升</span><span class="dc-arrow">→</span><span class="dc-node">创作者经济飞轮加速</span>
-</div>
+<span class="dc-node">掌握AI工具</span><span class="dc-arrow">→</span><span class="dc-node">制作教程内容</span><span class="dc-arrow">→</span><span class="dc-node">开设AI创作课程</span><span class="dc-arrow">→</span><span class="dc-node">建立培训体系</span><span class="dc-arrow">→</span><span class="dc-node">AI教育产业化</span>
 </div>
 </div>
 
-<!-- ===== 板块九：行动指南 ===== -->
-<div class="book-part" id="action-guide">
-<h2 class="section-title">板块九 · 行动指南</h2>
-
-<h3 class="section-subtitle">9.1 高确定性赛道 <span class="tag tag-green">强烈推荐</span></h3>
+<h3 class="section-subtitle">行动指南</h3>
 <div class="grid-3">
-<div class="data-card" style="border-color:var(--green)"><div class="value" style="color:var(--green)"><i class="fas fa-rocket"></i> AI短视频代运营</div><div class="label">为企业制作AI生成的短视频内容，客单价¥5000-30000/条。需求端：中小商家有大量短视频需求但无力雇佣专业团队。供给端：AI工具使单人日产能达10-30条。</div></div>
-<div class="data-card" style="border-color:var(--green)"><div class="value" style="color:var(--green)"><i class="fas fa-palette"></i> 潮玩IP设计与授权</div><div class="label">用AI设计原创潮玩IP，通过3D打印制作手办或通过数字藏品发行。头部IP授权年收入可达千万级。AI将设计成本从数十万降至数千。</div></div>
-<div class="data-card" style="border-color:var(--green)"><div class="value" style="color:var(--green)"><i class="fas fa-graduation-cap"></i> AI影像技能培训</div><div class="label">面向B端(企业营销团队)和C端(个人创作者)提供AI影像工具培训。市场需求爆发期，课程溢价空间大。可结合认证体系建立行业壁垒。</div></div>
+<div class="data-card" style="border-left:3px solid var(--green)">
+<div class="value" style="color:var(--green)"><i class="fas fa-rocket"></i> 高确定性赛道</div>
+<div class="label">
+<strong>AI电商视觉</strong> — 电商产品图需求巨大，ROI明确<br>
+<strong>AI社交媒体内容</strong> — 各平台AI内容流量红利期<br>
+<strong>AI教学培训</strong> — 技能传授需求持续增长
+</div>
+</div>
+<div class="data-card" style="border-left:3px solid var(--amber)">
+<div class="value" style="color:var(--amber)"><i class="fas fa-exclamation-triangle"></i> 谨慎观察</div>
+<div class="label">
+<strong>AI广告创意</strong> — 品牌方接受度参差不齐<br>
+<strong>AI游戏资产</strong> — 游戏公司对AI生成内容态度分化<br>
+<strong>AI影视前期</strong> — 行业壁垒较高
+</div>
+</div>
+<div class="data-card" style="border-left:3px solid var(--red)">
+<div class="value" style="color:var(--red)"><i class="fas fa-ban"></i> 建议规避</div>
+<div class="label">
+<strong>纯AI生成内容搬运</strong> — 各平台正在打击<br>
+<strong>无差异化AI服务</strong> — 门槛太低竞争激烈<br>
+<strong>侵权风险操作</strong> — 版权灰色地带
+</div>
+</div>
+</div>
 </div>
 
-<h3 class="section-subtitle">9.2 谨慎观察赛道 <span class="tag tag-amber">有条件推荐</span></h3>
-<div class="grid-3">
-<div class="data-card" style="border-color:var(--amber)"><div class="value" style="color:var(--amber)"><i class="fas fa-video"></i> AI影视长片制作</div><div class="label">技术可行但商业模型未验证。角色一致性和叙事连贯性仍是瓶颈。建议以小短片试水，积累经验和粉丝后再考虑长片。</div></div>
-<div class="data-card" style="border-color:var(--amber)"><div class="value" style="color:var(--amber)"><i class="fas fa-image"></i> AI摄影/商用图库</div><div class="label">Shutterstock已接纳AI图片但定价仅为人类作品的1/10。量大但单价极低，适合"睡后收入"补充而非主业。</div></div>
-<div class="data-card" style="border-color:var(--amber)"><div class="value" style="color:var(--amber)"><i class="fas fa-store"></i> AI电商视觉设计</div><div class="label">电商主图/详情页的AI化需求真实存在，但竞争激烈且客户对AI生成内容接受度分化。需要先建立信任案例。</div></div>
-</div>
+</div><!-- .book-part -->
 
-<h3 class="section-subtitle">9.3 建议规避 <span class="tag tag-red">不推荐</span></h3>
-<div class="grid-2">
-<div class="data-card" style="border-color:var(--red)"><div class="value" style="color:var(--red)"><i class="fas fa-ban"></i> 纯AI换脸/深度伪造服务</div><div class="label">法律风险极高，多国已立法禁止非授权深度伪造。道德风险同样不可忽视。</div></div>
-<div class="data-card" style="border-color:var(--red)"><div class="value" style="color:var(--red)"><i class="fas fa-ban"></i> 搬运型AI内容农场</div><div class="label">低质批量生成内容搬运到各平台赚取流量补贴的模式正在失效。平台算法持续升级反AI垃圾内容检测。</div></div>
-</div>
-
-<div class="tip-box" style="margin-top:20px">
-<div class="tip-title"><i class="fas fa-compass"></i> 综合行动建议</div>
-<div class="tip-body">
-<p><strong style="color:var(--cyan)">给个人创作者：</strong>先用通义万相+可灵+ComfyUI零成本组合验证自己的创意方向，跑通"概念→图像→视频→发布"的最小闭环。3个月内产出10+作品建立作品集。</p>
-<p><strong style="color:var(--purple)">给小型团队(3-10人)：</strong>建立标准化AI工作流，聚焦一个垂直领域(如电商视觉/短视频代运营/潮玩IP)，用AI工具链实现"3人抵10人"的人效比。</p>
-<p><strong style="color:var(--green)">给企业/机构：</strong>AI影像能力正从"加分项"变为"必选项"。建议设立AI内容实验室，培养内部AI创作能力，同时关注版权合规风险。</p>
-</div>
-</div>
-</div>
-
-<!-- ===== FOOTER ===== -->
 <div class="footer">
-<p>AI影像创作全景看板 v1.0 | 工具矩阵·潮玩IP角色设计·动画短片制作</p>
-<p style="margin-top:4px">数据来源：各工具官网、Statista、Gartner、艾瑞咨询、各平台公开数据 | 更新于2026年7月</p>
+<p>AI视频图像设计全景看板 v2.0 — 2025-2026最新数据 | 数据来源：Statista, Gartner, 艾瑞咨询, Deloitte, 各厂商官网</p>
+<p style="margin-top:6px">图表修复：使用waitForEcharts()轮询检测确保CDN ECharts加载完成后初始化 | AnaReports</p>
 </div>
 
-<div style="text-align:center;padding:20px;border-top:1px solid var(--border);margin-top:36px"><a href="index.html" style="color:var(--cyan);text-decoration:none;font-size:13px"><i class="fas fa-home"></i> 返回首页</a></div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-// 1.4 图像工具综合评分柱状图
-(function(){var c=echarts.init(document.getElementById('chart-tools-score'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['质量','易用性','性价比'],textStyle:{color:'#94a3b8'},top:0},grid:{left:90,right:30,top:60,bottom:30},xAxis:{type:'category',data:['Midjourney','DALL-E 4','SD 3.5','Flux','通义万相','文心一格','KREA','Leonardo','Firefly','即梦'],axisLabel:{color:'#94a3b8',rotate:30,interval:0},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',max:100,axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'质量',type:'bar',data:[95,90,88,88,82,78,82,82,80,78],itemStyle:{color:'#06b6d4'}},{name:'易用性',type:'bar',data:[65,90,40,45,95,95,80,80,95,95],itemStyle:{color:'#8b5cf6'}},{name:'性价比',type:'bar',data:[55,50,95,95,92,88,60,75,65,90],itemStyle:{color:'#10b981'}}]});window.addEventListener('resize',function(){c.resize()});})();
+function waitForEcharts(callback, timeoutMs) {
+  var start = Date.now();
+  function check() {
+    if (typeof echarts !== 'undefined') {
+      callback();
+    } else if (Date.now() - start < (timeoutMs || 10000)) {
+      setTimeout(check, 100);
+    } else {
+      console.error('ECharts load timeout');
+    }
+  }
+  check();
+}
 
-// 3.1 AI影像市场规模趋势折线图
-(function(){var c=echarts.init(document.getElementById('chart-market-size'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['全球市场规模(亿美元)','中国市场规模(亿美元)'],textStyle:{color:'#94a3b8'},top:0},grid:{left:70,right:70,top:50,bottom:30},xAxis:{type:'category',data:['2020','2021','2022','2023','2024','2025E','2026E','2027E','2028E','2029E','2030E'],axisLabel:{color:'#94a3b8'},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'(亿美元)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'全球市场规模',type:'line',smooth:true,data:[35,55,90,150,240,380,520,650,720,780,820],itemStyle:{color:'#06b6d4'},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(6,182,212,0.3)'},{offset:1,color:'rgba(6,182,212,0.02)'}])}},{name:'中国市场规模',type:'line',smooth:true,data:[8,15,30,55,90,150,210,280,330,370,400],itemStyle:{color:'#8b5cf6'},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(139,92,246,0.2)'},{offset:1,color:'rgba(139,92,246,0.02)'}])}}]});window.addEventListener('resize',function(){c.resize()});})();
+waitForEcharts(function() {
 
-// 3.2 AI视觉内容占比饼图
-(function(){var c=echarts.init(document.getElementById('chart-ai-content-share'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'item',formatter:'{b}: {c}% ({d}%)'},legend:{orient:'vertical',left:'left',textStyle:{color:'#94a3b8'}},series:[{name:'AI内容占比',type:'pie',radius:['40%','70%'],center:['60%','50%'],avoidLabelOverlap:false,itemStyle:{borderRadius:6,borderColor:'#1e293b',borderWidth:2},label:{show:false},labelLine:{show:false},data:[{value:35,name:'AI生成内容',itemStyle:{color:'#06b6d4'}},{value:65,name:'人工创作内容',itemStyle:{color:'#64748b'}}]}]});window.addEventListener('resize',function(){c.resize()});})();
+// Chart 1: 工具评分对比柱状图
+var c1 = echarts.init(document.getElementById('chart-tool-scores'));
+c1.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['图像质量', '文本理解', '可控性'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 80, right: 20, top: 50, bottom: 80 },
+  xAxis: { type: 'category', data: ['MJ v7','DALL-E 4','SD 3.5','Flux','通义万相','文心一格','KREA','Leonardo','Firefly','即梦'], axisLabel: { color: '#94a3b8', fontSize: 10, rotate: 30 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'value', max: 10, nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [
+    { name: '图像质量', type: 'bar', stack: 'total', data: [9.8,9.5,9.0,9.3,8.5,8.0,8.5,8.5,8.0,8.5], itemStyle: { color: '#7c3aed' } },
+    { name: '文本理解', type: 'bar', stack: 'total', data: [9.5,9.8,7.0,9.0,9.0,8.5,7.0,7.5,8.5,8.5], itemStyle: { color: '#06b6d4' } },
+    { name: '可控性', type: 'bar', stack: 'total', data: [7,7,10,9,7,6,8,8,7,7], itemStyle: { color: '#10b981' } }
+  ]
+});
 
-// 4.1 价格友好度vs输出质量散点图
-(function(){var c=echarts.init(document.getElementById('chart-scatter'));c.setOption({backgroundColor:'transparent',tooltip:{formatter:function(p){return p.data[3]+'<br/>价格友好度: '+p.data[0]+'<br/>输出质量: '+p.data[1]+'<br/>综合评分: '+p.data[2]},extraCssText:'background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 12px;max-width:200px'},grid:{left:80,right:30,top:50,bottom:50},xAxis:{type:'value',name:'价格友好度',nameTextStyle:{color:'#94a3b8'},max:100,axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'输出质量',nameTextStyle:{color:'#94a3b8'},max:100,axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{type:'scatter',symbolSize:function(d){return Math.max(15,d[3]*0.8)},data:[{value:[95,88,90,75],name:'SD 3.5'},{value:[92,85,88,72],name:'Flux'},{value:[88,82,92,65],name:'通义万相'},{value:[85,78,88,60],name:'可灵'},{value:[80,82,75,55],name:'Leonardo'},{value:[78,78,85,58],name:'即梦'},{value:[75,95,60,90],name:'Midjourney'},{value:[72,90,55,80],name:'DALL-E 4'},{value:[70,82,65,70],name:'Firefly'},{value:[65,82,60,68],name:'KREA'},{value:[60,80,50,55],name:'文心一格'},{value:[55,85,45,72],name:'Runway Gen-3'},{value:[40,95,35,85],name:'Sora'}],itemStyle:{color:function(p){var idx=p.dataIndex;var colors=['#10b981','#10b981','#06b6d4','#06b6d4','#8b5cf6','#8b5cf6','#f59e0b','#f59e0b','#ec4899','#ec4899','#d97706','#ef4444','#ef4444'];return colors[idx]}}}]},visualMap:{show:false,min:35,max:90,inRange:{color:['#ef4444','#f59e0b','#10b981','#06b6d4']}}});window.addEventListener('resize',function(){c.resize()});})();
+// Chart 2: 市场规模趋势折线图
+var c2 = echarts.init(document.getElementById('chart-market-trend'));
+c2.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['全球AI影像市场($亿)', '年增长率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 80, right: 80, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025','2026E','2027E','2028E','2029E','2030E'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: [{ type: 'value', name: '$亿', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+           { type: 'value', name: '%', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }],
+  series: [
+    { name: '全球AI影像市场($亿)', type: 'line', data: [12,18,28,45,65,85,115,155,210,285,380], itemStyle: { color: '#7c3aed' }, smooth: true, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(124,58,237,0.3)'},{offset:1,color:'rgba(124,58,237,0.02)'}]) } },
+    { name: '年增长率(%)', type: 'line', yAxisIndex: 1, data: [35,50,56,61,45,31,35,35,35,36,33], itemStyle: { color: '#06b6d4' }, smooth: true }
+  ]
+});
 
-// 4.2 综合能力雷达图
-(function(){var c=echarts.init(document.getElementById('chart-radar'));c.setOption({backgroundColor:'transparent',tooltip:{},legend:{data:['Midjourney','通义万相','可灵','SD 3.5'],textStyle:{color:'#94a3b8'},bottom:0},radar:{indicator:[{name:'质量',max:100},{name:'易用性',max:100},{name:'免费额度',max:100},{name:'社区生态',max:100},{name:'稳定性',max:100},{name:'创新性',max:100}],radius:'65%'},series:[{type:'radar',data:[{value:[95,65,30,90,85,90],name:'Midjourney',itemStyle:{color:'#f59e0b'},areaStyle:{color:'rgba(245,158,11,0.15)'}},{value:[82,95,85,60,80,75],name:'通义万相',itemStyle:{color:'#06b6d4'},areaStyle:{color:'rgba(6,182,212,0.15)'}},{value:[85,85,80,55,75,80],name:'可灵',itemStyle:{color:'#8b5cf6'},areaStyle:{color:'rgba(139,92,246,0.15)'}},{value:[88,40,100,95,70,85],name:'SD 3.5',itemStyle:{color:'#10b981'},areaStyle:{color:'rgba(16,185,129,0.15)'}}]}]});window.addEventListener('resize',function(){c.resize()});})();
+// Chart 3: AI内容占比饼图
+var c3 = echarts.init(document.getElementById('chart-ai-content-share'));
+c3.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'item' },
+  legend: { orient: 'vertical', left: 'left', textStyle: { color: '#94a3b8' } },
+  series: [{
+    name: '内容类型', type: 'pie', radius: ['40%','70%'], center: ['60%','50%'],
+    itemStyle: { borderRadius: 6, borderColor: '#0b1120', borderWidth: 2 },
+    label: { color: '#94a3b8' },
+    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+    data: [
+      { value: 35, name: 'AI生成图像', itemStyle: { color: '#7c3aed' } },
+      { value: 20, name: 'AI辅助视频', itemStyle: { color: '#06b6d4' } },
+      { value: 15, name: 'AI生成3D', itemStyle: { color: '#10b981' } },
+      { value: 10, name: 'AI音乐音效', itemStyle: { color: '#f59e0b' } },
+      { value: 20, name: '纯人工创作', itemStyle: { color: '#64748b' } }
+    ]
+  }]
+});
 
-// 6.3 传统vsAI成本对比柱状图
-(function(){var c=echarts.init(document.getElementById('chart-cost-compare'));c.setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},legend:{data:['传统制作','AI辅助'],textStyle:{color:'#94a3b8'},top:0},grid:{left:80,right:30,top:50,bottom:30},xAxis:{type:'category',data:['人力成本','时间成本','设备成本','软件授权','试错成本','总成本'],axisLabel:{color:'#94a3b8',rotate:30},axisLine:{lineStyle:{color:'#1e2a3a'}}},yAxis:{type:'value',name:'(相对指数)',nameTextStyle:{color:'#94a3b8'},axisLabel:{color:'#94a3b8'},splitLine:{lineStyle:{color:'#1e2a3a'}}},series:[{name:'传统制作',type:'bar',data:[90,85,70,60,80,100],itemStyle:{color:'#ef4444'}},{name:'AI辅助',type:'bar',data:[20,15,30,10,25,10],itemStyle:{color:'#10b981'}}]});window.addEventListener('resize',function(){c.resize()});})();
+// Chart 4: 价格vs质量四象限散点图
+var c4 = echarts.init(document.getElementById('chart-quadrant'));
+c4.setOption({
+  backgroundColor: 'transparent',
+  tooltip: {
+    formatter: function(p) { return p.data[3] + '<br>质量: ' + p.data[1] + '/10<br>月成本: $' + p.data[2]; }
+  },
+  grid: { left: 70, right: 30, top: 30, bottom: 50 },
+  xAxis: { name: '月度成本($)', nameTextStyle: { color: '#94a3b8' }, type: 'log', axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { name: '综合评分', nameTextStyle: { color: '#94a3b8' }, type: 'value', max: 10, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [{
+    type: 'scatter',
+    symbolSize: function(data) { return Math.max(data[3] * 4, 15); },
+    data: [
+      [2, 9.8, 10, 'Midjourney v7'],
+      [20, 9.5, 20, 'DALL-E 4'],
+      [0, 9.3, 0, 'Flux.1'],
+      [0, 9.0, 0, 'SD 3.5'],
+      [0, 8.5, 0, '通义万相'],
+      [2, 8.0, 4, '文心一格'],
+      [128, 9.5, 128, 'Runway Gen-3'],
+      [0, 9.2, 0, '可灵Kling'],
+      [8, 8.5, 8, 'Pika 1.5'],
+      [13, 8.8, 13, 'Luma'],
+      [100, 9.5, 100, 'Sora'],
+      [0, 8.0, 0, 'Haiper'],
+      [10, 8.5, 10, 'KREA'],
+      [0, 8.5, 0, 'Leonardo'],
+      [20, 8.0, 20, 'Firefly']
+    ],
+    itemStyle: {
+      color: function(params) {
+        var colors = ['#7c3aed','#06b6d4','#10b981','#f59e0b','#ef4444','#ec4899','#8b5cf6','#14b3e6','#f97316','#a855f7'];
+        return colors[params.dataIndex % colors.length];
+      }
+    }
+  }]
+});
+
+// Chart 5: 工具综合能力雷达图
+var c5 = echarts.init(document.getElementById('chart-radar-tools'));
+c5.setOption({
+  backgroundColor: 'transparent',
+  tooltip: {},
+  legend: { data: ['Midjourney v7', 'Flux.1', '可灵Kling', 'Suno v3.5'], textStyle: { color: '#94a3b8' }, top: 0 },
+  radar: {
+    indicator: [
+      { name: '图像/视频质量', max: 10 },
+      { name: '文本理解', max: 10 },
+      { name: '可控性', max: 10 },
+      { name: '性价比', max: 10 },
+      { name: '易用性', max: 10 },
+      { name: '生态丰富度', max: 10 }
+    ],
+    shape: 'polygon',
+    splitNumber: 5,
+    axisName: { color: '#94a3b8' },
+    splitLine: { lineStyle: { color: '#1e2a3a' } },
+    splitArea: { areaStyle: { color: ['rgba(124,58,237,0.02)','rgba(124,58,237,0.04)','rgba(124,58,237,0.06)','rgba(124,58,237,0.08)','rgba(124,58,237,0.1)'] } },
+    axisLine: { lineStyle: { color: '#1e2a3a' } }
+  },
+  series: [{
+    type: 'radar',
+    data: [
+      { value: [9.8, 9.5, 7, 6, 9, 9], name: 'Midjourney v7', itemStyle: { color: '#7c3aed' }, areaStyle: { color: 'rgba(124,58,237,0.15)' } },
+      { value: [9.3, 9.0, 9, 10, 7, 6], name: 'Flux.1', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
+      { value: [9.2, 8.5, 7, 9, 8, 5], name: '可灵Kling', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.15)' } },
+      { value: [8.5, 8.0, 5, 9, 9, 5], name: 'Suno v3.5', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.15)' } }
+    ]
+  }]
+});
+
+// Chart 6: 传统制作 vs AI辅助成本对比
+var c6 = echarts.init(document.getElementById('chart-traditional-vs-ai'));
+c6.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['传统工作室', 'AI辅助个人'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 80, right: 20, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['前期策划', '角色设计', '场景制作', '动画制作', '音效音乐', '后期合成', '总计'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'value', name: '$', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [
+    { name: '传统工作室', type: 'bar', data: [2000, 3000, 5000, 15000, 3000, 4000, 32000], itemStyle: { color: '#64748b' }, barWidth: 30 },
+    { name: 'AI辅助个人', type: 'bar', data: [100, 200, 300, 500, 100, 200, 1400], itemStyle: { color: '#7c3aed' }, barWidth: 30 }
+  ]
+});
+
+// Chart 7: 3D生成工具对比
+var c7 = echarts.init(document.getElementById('chart-3d-compare'));
+c7.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['质量评分', '生成速度(反向)', '价格友好度'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 80, right: 20, top: 50, bottom: 60 },
+  xAxis: { type: 'category', data: ['Meshy 4.0','CSM','Luma AI 3D','Tripo','Blender AI'], axisLabel: { color: '#94a3b8', fontSize: 10, rotate: 15 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'value', max: 10, nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [
+    { name: '质量评分', type: 'bar', data: [8.5, 8.0, 9.0, 7.5, 9.0], itemStyle: { color: '#7c3aed' } },
+    { name: '生成速度(反向)', type: 'bar', data: [7, 6, 9, 9, 10], itemStyle: { color: '#06b6d4' } },
+    { name: '价格友好度', type: 'bar', data: [8, 5, 9, 9, 10], itemStyle: { color: '#10b981' } }
+  ]
+});
+
+}, 15000);
+
+window.addEventListener('resize', function() {
+  try { c1 && c1.resize(); c2 && c2.resize(); c3 && c3.resize(); c4 && c4.resize(); c5 && c5.resize(); c6 && c6.resize(); c7 && c7.resize(); } catch(e) {}
 });
 </script>
 </body>

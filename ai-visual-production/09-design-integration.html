@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 设计稿整合输出 — 《AI影像创作百科全书》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #7c3aed; }
+    .output-table th { background: rgba(124,58,237,0.1); color: var(--accent); }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">09 设计稿整合输出</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-workflow-automation.html">18 AI工作流自动化</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-ops.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-apps.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merchandise.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">09 设计稿整合输出</h1>
+
+    <div class="data-note" style="margin-bottom:20px">经过前8章的学习，你现在已经拥有了"小橘猫"的三视图、表情集、道具库和LoRA模型。本章的任务是将这些零散的设计资产整合为一份<strong>完整的角色设计说明书（Character Design Document）</strong>，并输出为可用于生产制造的标准化稿件。</div>
+
+    <h2 class="section-subtitle">一、潮玩产品稿件标准</h2>
+
+    <h3 class="section-subtitle">9.1 文件规格要求</h3>
+    <table class="data-table output-table">
+      <thead>
+        <tr>
+          <th>用途</th>
+          <th>分辨率</th>
+          <th>格式</th>
+          <th>色彩模式</th>
+          <th>背景要求</th>
+          <th>文件大小限制</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3D建模参考</td>
+          <td>≥4096×4096px</td>
+          <td>PNG / PSD</td>
+          <td>RGB</td>
+          <td>纯白或透明</td>
+          <td><20MB/张</td>
+        </tr>
+        <tr>
+          <td>手办打样</td>
+          <td>≥6000×6000px</td>
+          <td>PNG / TIFF</td>
+          <td>CMYK（印刷用）</td>
+          <td>纯白</td>
+          <td><50MB/张</td>
+        </tr>
+        <tr>
+          <td>包装设计</td>
+          <td>按实际尺寸×300dpi</td>
+          <td>AI / PDF / PSD</td>
+          <td>CMYK</td>
+          <td>按需</td>
+          <td><100MB</td>
+        </tr>
+        <tr>
+          <td>线上展示</td>
+          <td>2000×2000px</td>
+          <td>JPEG / WebP</td>
+          <td>sRGB</td>
+          <td>透明或纯色</td>
+          <td><2MB/张</td>
+        </tr>
+        <tr>
+          <td>社交媒体</td>
+          <td>1080×1080px</td>
+          <td>JPEG / PNG</td>
+          <td>sRGB</td>
+          <td>任意</td>
+          <td><5MB</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">9.2 角色设计说明书结构</h3>
+    <p>一份完整的潮玩角色设计说明书应包含以下模块：</p>
+    <ol class="steps-list">
+      <li><strong>角色基本信息页</strong> — 名称、年龄、性格关键词、代表色、身高比例（如"小橘：3岁橘猫，活泼好奇，主色#FF8C42，3头身比例"）</li>
+      <li><strong>三视图（正面/侧面/背面）</strong> — 统一光照条件（通常45度顶光），标注关键尺寸比例</li>
+      <li><strong>表情集（8-12种）</strong> — 每种表情配简短描述和使用场景</li>
+      <li><strong>道具/配件清单</strong> — 每个道具的名称、用途、设计说明</li>
+      <li><strong>配色方案</strong> — 主色/辅色/点缀色的色值和适用场景</li>
+      <li><strong>禁忌说明</strong> — 哪些元素不能修改（如毛色、眼睛形状等角色核心识别特征）</li>
+      <li><strong>应用场景示例</strong> — 该角色在不同场景下的参考图（日常/节日/运动等）</li>
+    </ol>
+
+    <h2 class="section-subtitle">二、整合"小橘猫"完整设计稿</h2>
+
+    <h3 class="section-subtitle">9.3 实操演示：从分散素材到完整设计稿</h3>
+    <ol class="steps-list">
+      <li><strong>创建PSD模板</strong> — 新建一个A3尺寸（297×420mm）、300dpi的画布，分区域放置三视图、表情集、道具</li>
+      <li><strong>导入三视图</strong> — 将第06章生成的正面/侧面/背面图，按统一比例缩放到合适大小，排列在画布中央</li>
+      <li><strong>添加表情集</strong> — 将第07章生成的12种表情图，以3×4网格排列在三视图下方</li>
+      <li><strong>插入道具图</strong> — 将第07章设计的配饰、服装等道具图，排列在画布右侧</li>
+      <li><strong>添加配色方案</strong> — 在画布左上角放置色板，标注每个颜色的HEX/RGB/CMYK值</li>
+      <li><strong>编写文字说明</strong> — 在每个模块旁边添加简短的文字描述</li>
+      <li><strong>导出多格式</strong> — 分别导出PNG（数字展示）、PDF（文档分发）、PSD（可编辑源文件）</li>
+    </ol>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-star"></i> 案例：完整设计稿的实际应用</div>
+      <div class="case-body">
+        <p>设计师Lina为"小橘猫"角色输出了完整的PSD设计稿后，将其发送给3D建模师进行手办建模。建模师根据三视图和尺寸标注，在Blender中快速搭建了3D模型。随后使用之前训练的LoRA模型生成了多个场景的应用效果图，用于众筹页面的产品展示。最终在Kickstarter上筹集了$47,000，远超$20,000的目标。关键成功因素：<strong>"设计稿的专业程度直接决定了下游生产的质量和效率"</strong>。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">三、Mockup生成方法</h2>
+
+    <h3 class="section-subtitle">9.4 3D效果模拟</h3>
+    <p>Mockup（样机图）是展示潮玩设计稿最直观的方式。以下是几种常用的Mockup生成方法：</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="section-subtitle">方法一：AI生成Mockup（推荐）</h3>
+        <p><strong>工具：</strong>Midjourney v7 / Flux / 即梦</p>
+        <p><strong>步骤：</strong></p>
+        <ol style="font-size:13px;padding-left:16px;margin-top:8px">
+          <li>准备角色的三视图PNG（透明背景）</li>
+          <li>使用Flux的Inpaint功能，将角色"放置"到场景中</li>
+          <li>提示词示例：<code>a cute orange cat toy figure on a white display stand, studio lighting, product photography, 8k</code></li>
+          <li>使用ControlNet Canny模式保持角色轮廓不变</li>
+        </ol>
+        <p style="font-size:12px;color:var(--text2);margin-top:8px">优点：风格自由度高，可生成任意场景；缺点：需要反复调试提示词</p>
+      </div>
+      <div class="card">
+        <h3 class="section-subtitle">方法二：传统Mockup模板</h3>
+        <p><strong>工具：</strong>Photoshop / Canva / Figma</p>
+        <p><strong>步骤：</strong></p>
+        <ol style="font-size:13px;padding-left:16px;margin-top:8px">
+          <li>下载潮玩/盲盒Mockup模板（推荐资源：MockupWorld、Freepik）</li>
+          <li>将角色设计稿导入Smart Object层</li>
+          <li>自动适配透视和光影</li>
+          <li>导出高清图片</li>
+        </ol>
+        <p style="font-size:12px;color:var(--text2);margin-top:8px">优点：快速专业；缺点：场景选择有限</p>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">9.5 包装设计效果图</h3>
+    <p>潮玩产品的包装是重要的营销触点。设计包装时需考虑：</p>
+    <ul style="font-size:13px;padding-left:16px;margin-top:8px">
+      <li><strong>外盒设计</strong> — 盲盒采用"不透明包装+隐藏款标识"策略，激发收集欲望</li>
+      <li><strong>内衬设计</strong> — EVA吸塑内托保护手办，同时增加开箱仪式感</li>
+      <li><strong>收藏卡</strong> — 每张手办附带一张角色收藏卡，印有角色设定和编号</li>
+      <li><strong>系列感</strong> — 同一系列的包装保持统一的视觉语言，仅更换角色图案</li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 实用技巧：设计稿交付清单</div>
+      <div class="tip-body">
+        向3D建模师或代工厂交付设计稿时，建议包含以下文件：<br><br>
+        1. <strong>角色三视图PNG</strong>（透明背景，≥4096px宽）<br>
+        2. <strong>角色设计PSD源文件</strong>（分层可编辑）<br>
+        3. <strong>表情集PNG</strong>（每张独立文件，统一命名）<br>
+        4. <strong>配色方案表</strong>（HEX/RGB/CMYK值）<br>
+        5. <strong>LoRA模型文件</strong>（.safetensors格式，便于后续AI扩展）<br>
+        6. <strong>设计说明PDF</strong>（包含角色故事、使用规范、禁忌事项）<br>
+        7. <strong>Mockup效果图</strong>（3-5张不同场景的应用展示）
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">🔬 多学派解读：设计稿整合的经济意义</h2>
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#B8860B;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 古典经济学视角（斯密/李嘉图）</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">设计稿整合的本质是"生产分解后的再组装"——将设计、建模、渲染、包装等环节分解给不同专业人士，再通过标准化的设计说明书实现无缝对接。这正是斯密制针工厂理论的数字化版本：设计稿就是"分工的接口协议"，确保每个环节的专业知识能够准确传递。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 凯恩斯主义视角</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">设计稿整合解决了"有效需求"的精确匹配问题——代工厂需要精确的技术规格才能生产出符合预期的产品。模糊的描述会导致"供给错配"（生产出不符合要求的产品），而标准化的设计稿就像凯恩斯的"产业政策"，通过精确的需求信号引导供给端高效运作。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">设计稿是"抽象劳动"的物化形式——设计师的创造性劳动被编码为像素、参数和文件格式，然后在代工厂被"还原"为具体的物质产品（手办）。这个过程掩盖了劳动的价值来源：一个价值$50的手办，其大部分价值来自设计师的创意劳动（抽象劳动），而非工厂的物理加工（具体劳动）。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 新制度经济学视角</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">设计稿是一种"技术标准"，它降低了设计师与制造商之间的"交易费用"。在没有设计稿的时代，设计师需要亲自监督生产过程（高交易费用）；有了标准化的设计稿，任何代工厂都能理解设计要求（低交易费用）。这是"技术制度"降低市场摩擦的经典案例。</p>
+    </div>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 分化链条：设计稿整合的四条演进路径</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(26,82,118,0.08);border-radius:6px;border-left:3px solid #1A5276">
+          <strong style="color:#1A5276;font-size:12px">路径一：IP授权</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">将完整设计稿授权给品牌方，收取版权费</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(184,134,11,0.08);border-radius:6px;border-left:3px solid #B8860B">
+          <strong style="color:#B8860B;font-size:12px">路径二：自主生产</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">自己找代工厂生产，掌控定价和渠道</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(220,38,38,0.08);border-radius:6px;border-left:3px solid #dc2626">
+          <strong style="color:#dc2626;font-size:12px">路径三：众筹预售</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">通过Kickstarter等平台验证市场需求后再生产</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(5,150,105,0.08);border-radius:6px;border-left:3px solid #059669">
+          <strong style="color:#059669;font-size:12px">路径四：数字藏品</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">将设计稿铸造成NFT，在数字市场交易</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-container" id="chart-cost-pie"></div>
+
+    <script src="../common/js/echarts.inline.js"></script>
+    <script src="../common/js/navigation.js"></script>
+    <script>
+      var chart_cost = echarts.init(document.getElementById('chart-cost-pie'));
+      chart_cost.setOption({
+        backgroundColor: 'transparent',
+        tooltip: { trigger: 'item' },
+        legend: { orient: 'vertical', left: 'left', textStyle: { color: '#94a3b8' } },
+        series: [{
+          name: '潮玩产品成本构成',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          center: ['60%', '50%'],
+          avoidLabelOverlap: false,
+          itemStyle: { borderRadius: 6, borderColor: '#0f172a', borderWidth: 2 },
+          label: { show: false },
+          emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold', color: '#fff' } },
+          data: [
+            { value: 35, name: '模具开发', itemStyle: { color: '#7c3aed' } },
+            { value: 25, name: '材料成本', itemStyle: { color: '#3b82f6' } },
+            { value: 15, name: '涂装人工', itemStyle: { color: '#10b981' } },
+            { value: 12, name: '包装设计', itemStyle: { color: '#f59e0b' } },
+            { value: 8, name: '物流运输', itemStyle: { color: '#ef4444' } },
+            { value: 5, name: '其他', itemStyle: { color: '#64748b' } }
+          ]
+        }]
+      });
+      window.addEventListener('resize', function() { chart_cost.resize(); });
+    </script>
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="08-lora-controlnet.html"><i class="fas fa-arrow-left"></i> LoRA训练与ControlNet精细控制</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">9 / 25</span>
+    <a class="nav-next" href="10-animation-planning.html">动画短片策划 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+</body>
+</html>

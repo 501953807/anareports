@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1.2 提示词工程核心方法论 — 《AI影像创作实战指南》</title>
+  <title>02 提示词工程核心方法论 — 《AI影像创作百科全书》</title>
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,9 +11,9 @@
 <body>
   <nav class="top-nav">
     <div class="nav-left">
-      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AnaReports</a>
       <span class="nav-divider">/</span>
-      <span class="nav-chapter-title">第2章 提示词工程核心方法论</span>
+      <span class="nav-chapter-title">AI影像创作百科全书</span>
     </div>
     <div class="nav-right">
       <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
@@ -25,481 +25,354 @@
     <h3><i class="fas fa-list"></i> 目录</h3>
     <ul class="toc-list">
       <li class="toc-chapter">第一篇：工具选型与基础</li>
-      <li><a href="01-tool-overview.html">1.1 AI图像/视频工具全景</a></li>
-      <li><a href="02-prompt-engineering.html" class="active">1.2 提示词工程核心方法论</a></li>
-      <li><a href="03-env-setup.html">1.3 本地与云端环境搭建</a></li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
       <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
-      <li><a href="04-character-design.html">2.1 潮玩IP设计理念与方法论</a></li>
-      <li><a href="05-character-views.html">2.2 三视图生成实战</a></li>
-      <li><a href="06-expression-props.html">2.3 表情与道具扩展</a></li>
-      <li><a href="07-character-output.html">2.4 整合与商业输出</a></li>
-      <li class="toc-chapter">第三篇：完整动画短片制作</li>
-      <li><a href="08-short-film-plan.html">3.1 短片策划与分镜设计</a></li>
-      <li><a href="09-scene-gen.html">3.2 AI场景生成</a></li>
-      <li><a href="10-video-gen.html">3.3 AI视频生成技术</a></li>
-      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
-      <li><a href="12-publishing.html">3.5 发布与运营</a></li>
-      <li class="toc-chapter">第四篇：进阶与商业化</li>
-      <li><a href="13-commercial-apps.html">4.1 商业应用场景</a></li>
-      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-automation-n8n.html">18 AI工作流自动化（n8n/Make/Zapier）</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-matrix.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-applications.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merch-commodification.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization-evaluation.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
     </ul>
   </aside>
 
   <main class="content">
-    <h1 class="section-title">第2章 提示词工程核心方法论</h1>
+    <h1 class="section-title">02 提示词工程核心方法论</h1>
 
-    <div class="data-note" style="margin-bottom:20px">提示词工程（Prompt Engineering）是AI影像创作的"元技能"——它决定了你与AI之间的沟通效率。同样的工具，不同水平的创作者生成的结果质量差距可达10倍以上，核心差异就在提示词能力。</div>
+    <div class="data-note">
+      <strong>📊 核心洞察：</strong>提示词工程是AI影像创作中最核心的"元技能"——它不依赖任何特定工具，而是决定你与AI沟通效率的基础能力。同一个工具，不同提示词水平产生的结果差距可达10倍以上。
+    </div>
 
     <h2 class="section-subtitle">一、结构化提示词框架</h2>
 
-    <div class="card highlight">
-      <h3 class="section-subtitle">六要素提示词公式</h3>
-      <p style="font-size:14px;color:var(--text);line-height:2">
-        <strong>[主体描述]</strong> + <strong>[风格关键词]</strong> + <strong>[构图/视角]</strong> + <strong>[光照/色彩]</strong> + <strong>[细节层级]</strong> + <strong>[负面词]</strong>
-      </p>
-      <p style="font-size:13px;color:var(--text2);margin-top:8px">这六个要素构成了一个完整的视觉指令系统。每个要素都像一个"旋钮"——调准了，AI就能精准理解你的意图。</p>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-sitemap"></i> 六段式提示词公式</div>
+      <div class="tip-body">
+        <p style="font-size:15px;font-weight:600;color:var(--cyan);text-align:center;margin:8px 0">
+          [主体描述] + [风格关键词] + [构图/视角] + [光照/色彩] + [细节层级] + [负面词]
+        </p>
+        <p>这个框架适用于所有主流图像生成工具。每一段都有明确的语义功能，AI模型会对不同位置的关键词赋予不同的权重。</p>
+      </div>
     </div>
 
-    <table class="data-table" style="margin-top:16px">
+    <table class="data-table">
       <thead>
-        <tr>
-          <th>要素</th>
-          <th>作用</th>
-          <th>示例</th>
-          <th>权重建议</th>
-        </tr>
+        <tr><th>段落</th><th>作用</th><th>常用词汇类型</th><th>权重占比</th><th>示例</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>主体描述</strong></td>
-          <td>画面中的核心对象是什么</td>
-          <td>"一个穿着红色斗篷的小女孩"</td>
-          <td>30% — 最重要</td>
-        </tr>
-        <tr>
-          <td><strong>风格关键词</strong></td>
-          <td>画面的艺术风格/媒介类型</td>
-          <td>"皮克斯卡通风格，3D渲染"</td>
-          <td>25% — 关键</td>
-        </tr>
-        <tr>
-          <td><strong>构图/视角</strong></td>
-          <td>镜头角度和画面布局</td>
-          <td>"低角度仰拍，三分法构图"</td>
-          <td>15% — 重要</td>
-        </tr>
-        <tr>
-          <td><strong>光照/色彩</strong></td>
-          <td>光线方向和色调氛围</td>
-          <td>"金色黄昏光，暖色调"</td>
-          <td>15% — 重要</td>
-        </tr>
-        <tr>
-          <td><strong>细节层级</strong></td>
-          <td>精细度和质量标准</td>
-          <td>"8K超高清，电影级质感"</td>
-          <td>10% — 微调</td>
-        </tr>
-        <tr>
-          <td><strong>负面词</strong></td>
-          <td>明确不想要的内容</td>
-          <td>"不要文字、不要变形的手指"</td>
-          <td>5% — 排除</td>
-        </tr>
+        <tr><td>主体描述</td><td>定义画面的核心对象</td><td>名词、数量、位置</td><td>35%</td><td>"一只橘猫坐在窗台上"</td></tr>
+        <tr><td>风格关键词</td><td>定义艺术风格</td><td>形容词、流派、艺术家名</td><td>25%</td><td>"吉卜力风格、水彩画"</td></tr>
+        <tr><td>构图/视角</td><td>定义镜头语言</td><td>景别、角度、镜头类型</td><td>15%</td><td>"俯视角、广角镜头、三分法"</td></tr>
+        <tr><td>光照/色彩</td><td>定义氛围</td><td>光源类型、色调、色温</td><td>15%</td><td>"金色黄昏、暖色调、体积光"</td></tr>
+        <tr><td>细节层级</td><td>定义精细度</td><td>分辨率、渲染引擎、画质词</td><td>10%</td><td>"8K、Unreal Engine 5、超精细"</td></tr>
+        <tr><td>负面词</td><td>排除不需要的元素</td><td>否定词、排除项</td><td>—</td><td>"模糊、变形、多余的手指"</td></tr>
       </tbody>
     </table>
 
-    <h2 class="section-subtitle">二、图像生成提示词模板</h2>
+    <h2 class="section-subtitle">二、6大风格提示词配方</h2>
 
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-palette"></i> 模板一：皮克斯卡通风格角色</div>
-      <div class="tip-body">
-        <p style="margin-bottom:8px"><strong>正面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:var(--cyan)">A cute little robot character with big expressive eyes, wearing a tiny backpack, Pixar 3D animation style, round soft shapes, vibrant colors, clay material rendering, cute chibi proportions, standing on a colorful playground, low angle shot, three-point lighting, warm golden and teal color palette, ultra detailed, 8K resolution, cinematic quality, masterpiece --ar 16:9 --v 7</code>
-        <p style="margin-top:10px;margin-bottom:8px"><strong>负面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:#f87171">ugly, deformed hands, extra fingers, realistic photo, dark, horror, blurry, low quality, watermark, text, signature</code>
-        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>💡 配方解析：</strong>皮克斯风格的核心是"圆润造型+夸张比例+粘土材质感+高饱和色彩"。关键词顺序很重要——把风格词放在前面比放在后面效果好3倍。</p>
-      </div>
+    <div class="card">
+      <h3 class="section-subtitle">配方一：皮克斯3D动画风</h3>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:8px">适用于潮玩角色设计、动画预览、IP概念图</p>
+      <table class="data-table" style="margin:0">
+        <tr><td style="width:100px;font-weight:600;color:var(--cyan)">正面词</td><td>cute cartoon character, Pixar 3D animation style, big expressive eyes, soft rounded features, vibrant colors, subsurface scattering skin, octane render, 8K, adorable expression, clean background</td></tr>
+        <tr><td style="font-weight:600;color:var(--cyan)">完整示例</td><td><strong style="color:var(--text)">"一只穿着宇航服的柴犬，Pixar 3D动画风格，大眼睛充满好奇，柔和的圆角造型，鲜艳的太空服配色，次表面散射皮肤效果，Octane渲染，8K，可爱表情，纯黑背景"</strong></td></tr>
+        <tr><td style="font-weight:600;color:var(--red)">负面词</td><td>realistic, photorealistic, dark, scary, deformed hands, extra limbs, ugly, blurry, low quality, watermark, text</td></tr>
+      </table>
     </div>
 
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-camera"></i> 模板二：写实摄影风格</div>
-      <div class="tip-body">
-        <p style="margin-bottom:8px"><strong>正面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:var(--cyan)">Professional portrait photography of a young Chinese woman in her 20s, natural outdoor lighting, shot on Canon EOS R5 with 85mm f/1.2 lens, shallow depth of field with beautiful bokeh background, soft window light from the left, natural skin texture with minimal retouching, candid expression looking slightly away from camera, earthy tones and warm skin tones, shot in golden hour, award-winning photography, National Geographic style --ar 4:5 --v 7</code>
-        <p style="margin-top:10px;margin-bottom:8px"><strong>负面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:#f87171">cartoon, anime, illustration, painting, plastic skin, over-smoothed, studio lighting, heavy makeup, artificial, airbrushed, oversaturated</code>
-        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>💡 配方解析：</strong>写实摄影的关键是模拟真实相机参数。提到具体相机型号（Canon EOS R5）、镜头焦段（85mm f/1.2）和拍摄条件（golden hour）能显著提升AI对"照片感"的理解。</p>
-      </div>
+    <div class="card">
+      <h3 class="section-subtitle">配方二：超写实摄影风</h3>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:8px">适用于商业摄影、产品宣传、人像写真</p>
+      <table class="data-table" style="margin:0">
+        <tr><td style="width:100px;font-weight:600;color:var(--cyan)">正面词</td><td>photorealistic, shot on Canon EOS R5, 85mm f/1.4 lens, natural lighting, skin texture visible, professional photography, shallow depth of field, bokeh background</td></tr>
+        <tr><td style="font-weight:600;color:var(--cyan)">完整示例</td><td><strong style="color:var(--text)">"一位年轻女性在东京雨夜街头行走，超写实摄影，Canon EOS R5拍摄，85mm f/1.4镜头，霓虹灯反射在湿漉漉的地面上，皮肤纹理清晰可见，浅景深，城市光斑背景，电影级调色"</strong></td></tr>
+        <tr><td style="font-weight:600;color:var(--red)">负面词</td><td>cartoon, anime, illustration, painting, drawing, 3D render, CGI, artificial, plastic skin, oversaturated</td></tr>
+      </table>
     </div>
 
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-fill-drip"></i> 模板三：水彩插画风格</div>
-      <div class="tip-body">
-        <p style="margin-bottom:8px"><strong>正面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:var(--cyan)">Watercolor illustration of a traditional Japanese tea house in a bamboo forest, soft pastel colors, visible paper texture, watercolor bleeding effect, wet-on-wet technique, loose brush strokes, minimalist composition, Hayao Miyazaki inspired, gentle morning light filtering through bamboo leaves, negative space balance, hand-painted aesthetic, artstation trending --ar 3:4 --v 7</code>
-        <p style="margin-top:10px;margin-bottom:8px"><strong>负面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:#f87171">digital art, vector, sharp edges, photorealistic, heavy lines, neon colors, cyberpunk, dark, gritty, 3D render</code>
-        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>💡 配方解析：</strong>水彩风格的核心关键词是"watercolor bleeding effect"和"wet-on-wet technique"——这两个专业术语直接告诉AI要模拟水彩颜料在湿纸上的扩散效果。</p>
-      </div>
+    <div class="card">
+      <h3 class="section-subtitle">配方三：水彩手绘风</h3>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:8px">适用于插画、绘本、文艺风格内容</p>
+      <table class="data-table" style="margin:0">
+        <tr><td style="width:100px;font-weight:600;color:var(--cyan)">正面词</td><td>watercolor painting, wet-on-wet technique, translucent layers, paper texture, soft edges, artistic brushstrokes, delicate color washes, hand-drawn</td></tr>
+        <tr><td style="font-weight:600;color:var(--cyan)">完整示例</td><td><strong style="color:var(--text)">"江南水乡古镇，水彩手绘风格，湿画法技法，半透明图层叠加，纸张纹理可见，柔和的边缘过渡，淡雅的蓝绿色调，留白处理，艺术笔触，莫奈光影"</strong></td></tr>
+        <tr><td style="font-weight:600;color:var(--red)">负面词</td><td>digital art, vector, flat color, sharp edges, photograph, 3D, CGI, neon, cyberpunk, overly saturated</td></tr>
+      </table>
     </div>
 
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-bolt"></i> 模板四：赛博朋克风格</div>
-      <div class="tip-body">
-        <p style="margin-bottom:8px"><strong>正面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:var(--cyan)">Cyberpunk cityscape at night, towering neon-lit skyscrapers with holographic advertisements in Japanese and English, rain-soaked streets reflecting neon lights, flying cars in the sky, a lone figure in a glowing trenchcoat standing on a rooftop, blade runner aesthetic, high contrast, deep blues and hot pinks, volumetric fog, ray tracing reflections, ultra detailed architecture, cinematic wide angle shot, 8K --ar 16:9 --v 7</code>
-        <p style="margin-top:10px;margin-bottom:8px"><strong>负面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:#f87171">daytime, sunny, nature, forest, cartoon, simple, flat colors, low detail, clean, utopia, bright</code>
-        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>💡 配方解析：</strong>赛博朋克风格的灵魂在于"对比"——霓虹灯vs黑暗、高科技vs低生活。关键词中必须包含具体的视觉符号（rain-soaked streets, holographic ads, neon lights）才能触发AI的正确联想。</p>
-      </div>
+    <div class="card">
+      <h3 class="section-subtitle">配方四：赛博朋克风</h3>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:8px">适用于科幻场景、游戏美术、概念设计</p>
+      <table class="data-table" style="margin:0">
+        <tr><td style="width:100px;font-weight:600;color:var(--cyan)">正面词</td><td>cyberpunk, neon lights, rain-soaked streets, holographic advertisements, dystopian cityscape, blue and magenta color palette, volumetric fog, blade runner style</td></tr>
+        <tr><td style="font-weight:600;color:var(--cyan)">完整示例</td><td><strong style="color:var(--text)">"未来重庆山城，赛博朋克风格，霓虹灯照亮层层叠叠的立体交通，全息广告牌悬浮在空中，蓝色和品红色主色调，体积雾效果，暴雨后的街道反射着灯光，银翼杀手美学，8K"</strong></td></tr>
+        <tr><td style="font-weight:600;color:var(--red)">负面词</td><td>natural landscape, sunlight, countryside, minimalist, beige tones, warm rustic, pastoral, serene, watercolor, traditional</td></tr>
+      </table>
     </div>
 
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-yin-yang"></i> 模板五：中国国风风格</div>
-      <div class="tip-body">
-        <p style="margin-bottom:8px"><strong>正面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:var(--cyan)">Chinese ink wash painting style, a lone fisherman in a small boat on a misty lake surrounded by karst mountains, guohua traditional painting, rice paper texture, subtle color washes in indigo and ochre, poetic atmosphere inspired by Ma Yuan, negative space as artistic element, seal stamp in corner, calligraphy brush strokes visible, Song Dynasty aesthetic, zen mood --ar 2:3 --v 7</code>
-        <p style="margin-top:10px;margin-bottom:8px"><strong>负面提示词：</strong></p>
-        <code style="display:block;background:var(--surface2);padding:12px;border-radius:6px;font-size:12px;line-height:1.8;word-break:break-all;color:#f87171">western perspective, oil painting, thick brush strokes, vibrant saturated colors, photorealistic, modern elements, skyscrapers, technology</code>
-        <p style="margin-top:10px;font-size:12px;color:var(--text2)"><strong>💡 配方解析：</strong>中国国风的精髓是"留白"和"意境"。关键词中必须提及具体画种（ink wash painting/guohua）、纸张纹理（rice paper texture）和历史参照（Song Dynasty aesthetic），否则AI容易产出"像日本画"的混淆结果。</p>
-      </div>
+    <div class="card">
+      <h3 class="section-subtitle">配方五：中国国风</h3>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:8px">适用于传统文化、武侠仙侠、国风设计</p>
+      <table class="data-table" style="margin:0">
+        <tr><td style="width:100px;font-weight:600;color:var(--cyan)">正面词</td><td>Chinese ink wash painting, traditional Chinese art, misty mountains, bamboo forest, flowing robes, ethereal atmosphere, gold leaf accents, Song Dynasty aesthetic</td></tr>
+        <tr><td style="font-weight:600;color:var(--cyan)">完整示例</td><td><strong style="color:var(--text)">"一位身着汉服的仙侠女子站在云雾缭绕的山巅，中国国画风格，水墨山水意境，竹林环绕，飘逸的衣带，空灵的雾气效果，金箔点缀，宋代美学，留白构图，8K"</strong></td></tr>
+        <tr><td style="font-weight:600;color:var(--red)">负面词</td><td>western art, oil painting, realistic portrait, modern clothing, urban background, photographic, cartoon, anime style, bright primary colors</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 class="section-subtitle">配方六：潮玩盲盒风</h3>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:8px">适用于潮玩IP设计、手办概念、商品化角色</p>
+      <table class="data-table" style="margin:0">
+        <tr><td style="width:100px;font-weight:600;color:var(--cyan)">正面词</td><td>blind box toy design, vinyl figure, chibi proportions, cute mascot, clean 3D render, studio lighting, pastel color palette, Pop Mart style, collectible toy</td></tr>
+        <tr><td style="font-weight:600;color:var(--cyan)">完整示例</td><td><strong style="color:var(--text)">"一只戴着飞行员帽子的熊猫潮玩，盲盒设计风格，PVC材质质感，Q版比例（大头小身），柔和的粉色和白色配色，工作室灯光，干净背景，泡泡玛特风格，收藏级手办，3D渲染"</strong></td></tr>
+        <tr><td style="font-weight:600;color:var(--red)">负面词</td><td>realistic animal, photorealistic, detailed fur, complex background, dark mood, horror, grotesque, deformed, extra fingers, messy composition</td></tr>
+      </table>
     </div>
 
     <h2 class="section-subtitle">三、视频生成提示词模板</h2>
 
-    <h3 class="section-subtitle">3.1 镜头运动描述词汇表</h3>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>镜头运动</th>
-          <th>英文关键词</th>
-          <th>效果描述</th>
-          <th>适用场景</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>推</strong></td>
-          <td><code style="color:var(--cyan)">zoom in, dolly in</code></td>
-          <td>镜头向主体推进，突出细节或制造紧张感</td>
-          <td>情绪特写、揭示关键信息</td>
-        </tr>
-        <tr>
-          <td><strong>拉</strong></td>
-          <td><code style="color:var(--cyan)">zoom out, dolly out</code></td>
-          <td>镜头远离主体，展现全貌或环境</td>
-          <td>开场引入、场景交代</td>
-        </tr>
-        <tr>
-          <td><strong>摇</strong></td>
-          <td><code style="color:var(--cyan)">pan left/right, truck</code></td>
-          <td>水平方向扫描画面，展示横向空间</td>
-          <td>风景展示、建筑群扫视</td>
-        </tr>
-        <tr>
-          <td><strong>移</strong></td>
-          <td><code style="color:var(--cyan)">tracking shot, follow</code></td>
-          <td>镜头跟随主体移动</td>
-          <td>人物行走、追逐场景</td>
-        </tr>
-        <tr>
-          <td><strong>升</strong></td>
-          <td><code style="color:var(--cyan)">crane up, aerial rise</code></td>
-          <td>从低处升至高处，鸟瞰视角</td>
-          <td>宏大场景、城市全景</td>
-        </tr>
-        <tr>
-          <td><strong>降</strong></td>
-          <td><code style="color:var(--cyan)">crane down</code></td>
-          <td>从高处的鸟瞰降至地面</td>
-          <td>场景收尾、结束感</td>
-        </tr>
-        <tr>
-          <td><strong>跟</strong></td>
-          <td><code style="color:var(--cyan)">steadicam follow, handheld</code></td>
-          <td>稳定跟随或手持晃动感</td>
-          <td>第一人称视角、纪实感</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3 class="section-subtitle">3.2 场景动态描述关键词</h3>
-
-    <div class="grid-3" style="margin-top:16px">
-      <div class="data-card">
-        <div class="label" style="font-weight:600;color:var(--cyan)">自然环境</div>
-        <ul style="list-style:none;padding:8px 0;font-size:12px;color:var(--text2);text-align:left">
-          <li>风吹树叶 swaying trees</li>
-          <li>海浪拍打 crashing waves</li>
-          <li>云朵飘动 drifting clouds</li>
-          <li>雪花飘落 falling snowflakes</li>
-          <li>花瓣飞舞 floating petals</li>
-          <li>瀑布飞溅 waterfall spray</li>
-        </ul>
-      </div>
-      <div class="data-card">
-        <div class="label" style="font-weight:600;color:var(--orange)">人物动作</div>
-        <ul style="list-style:none;padding:8px 0;font-size:12px;color:var(--text2);text-align:left">
-          <li>人物行走 person walking</li>
-          <li>转身 look around</li>
-          <li>挥手 waving hello</li>
-          <li>微笑 smiling gently</li>
-          <li>奔跑 running towards</li>
-          <li>坐下 sitting down slowly</li>
-        </ul>
-      </div>
-      <div class="data-card">
-        <div class="label" style="font-weight:600;color:var(--purple)">光影变化</div>
-        <ul style="list-style:none;padding:8px 0;font-size:12px;color:var(--text2);text-align:left">
-          <li>日出 dawn breaking</li>
-          <li>日落 sunset glow</li>
-          <li>灯光闪烁 flickering lights</li>
-          <li>闪电 lightning flash</li>
-          <li>烛光 candlelight glow</li>
-          <li>霓虹闪烁 neon glow pulse</li>
-        </ul>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-film"></i> 视频提示词的四大维度</div>
+      <div class="tip-body">
+        <p>视频生成提示词需要在图像提示词基础上增加运动描述，以下是四个关键维度：</p>
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>维度</th><th>说明</th><th>示例</th></tr></thead>
+          <tbody>
+            <tr><td>镜头运动</td><td>摄像机如何移动</td><td>"缓慢推进(dolly in)"、"环绕拍摄(orbit)"、"航拍俯冲(aerial dive)"、"手持晃动(handheld shake)"</td></tr>
+            <tr><td>主体运动</td><td>画面中物体的运动方式</td><td>"人物缓缓转身(person slowly turns)"、"头发随风飘动(hair blowing in wind)"、"雨水滴落(raindrops falling)"</td></tr>
+            <tr><td>转场效果</td><td>场景之间的过渡方式</td><td>"淡入淡出(fade in/out)"、"交叉溶解(cross dissolve)"、"快速切(fast cut)"、"匹配剪辑(match cut)"</td></tr>
+            <tr><td>节奏变化</td><td>画面节奏的快慢</td><td>"慢动作(slow motion 120fps)"、"加速(time-lapse)"、"正常速度(normal speed)"、"弹跳节奏(bouncy rhythm)"</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <h3 class="section-subtitle">3.3 转场描述关键词</h3>
+    <h2 class="section-subtitle">四、提示词优化前后对比案例</h2>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>转场类型</th>
-          <th>英文关键词</th>
-          <th>视觉效果</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>淡入淡出</strong></td>
-          <td><code style="color:var(--cyan)">fade in / fade out</code></td>
-          <td>画面逐渐出现或消失，用于段落过渡</td>
-        </tr>
-        <tr>
-          <td><strong>硬切</strong></td>
-          <td><code style="color:var(--cyan)">hard cut, direct cut</code></td>
-          <td>两个镜头直接切换，节奏明快</td>
-        </tr>
-        <tr>
-          <td><strong>叠化</strong></td>
-          <td><code style="color:var(--cyan)">dissolve, crossfade</code></td>
-          <td>前一画面渐隐的同时后一画面渐现，柔和过渡</td>
-        </tr>
-        <tr>
-          <td><strong>匹配剪辑</strong></td>
-          <td><code style="color:var(--cyan)">match cut</code></td>
-          <td>通过形状/颜色/运动的相似性连接两个镜头</td>
-        </tr>
-        <tr>
-          <td><strong>甩镜</strong></td>
-          <td><code style="color:var(--cyan)">whip pan, motion blur transition</code></td>
-          <td>快速甩镜头产生的运动模糊转场</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-star"></i> 案例：潮玩熊猫角色设计</div>
+      <div class="case-body">
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>维度</th><th>优化前（差）</th><th>优化后（好）</th></tr></thead>
+          <tbody>
+            <tr><td>提示词</td><td style="font-size:12px">"一只可爱的熊猫"</td><td style="font-size:12px">"一只戴着飞行员帽子的熊猫潮玩，PVC材质，Q版比例，柔和的粉色和白色配色，工作室灯光，干净背景，泡泡玛特风格，3D渲染，8K"</td></tr>
+            <tr><td>主体描述</td><td style="font-size:12px">模糊（仅"熊猫"）</td><td style="font-size:12px">具体（戴飞行员帽的熊猫，明确了配件和物种）</td></tr>
+            <tr><td>风格</td><td style="font-size:12px">缺失</td><td style="font-size:12px">潮玩盲盒 + PVC材质 + 泡泡玛特风格</td></tr>
+            <tr><td>构图</td><td style="font-size:12px">缺失</td><td style="font-size:12px">干净背景（isolated on white background）</td></tr>
+            <tr><td>光照</td><td style="font-size:12px">缺失</td><td style="font-size:12px">工作室灯光（studio lighting）</td></tr>
+            <tr><td>质量</td><td style="font-size:12px">缺失</td><td style="font-size:12px">3D渲染，8K</td></tr>
+            <tr><td>结果质量</td><td style="font-size:12px;color:var(--red)">随机性极强，每次结果差异大</td><td style="font-size:12px;color:var(--green)">高度可控，可批量生成统一风格</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-    <h2 class="section-subtitle">四、正面词词典 — 按类别速查</h2>
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-star"></i> 案例：赛博朋克城市街景</div>
+      <div class="case-body">
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>维度</th><th>优化前</th><th>优化后</th></tr></thead>
+          <tbody>
+            <tr><td>提示词</td><td style="font-size:12px">"未来的城市"</td><td style="font-size:12px">"未来重庆山城，赛博朋克风格，霓虹灯照亮层层叠叠的立体交通，全息广告牌悬浮在空中，蓝色和品红色主色调，体积雾效果，暴雨后的街道反射着灯光，银翼杀手美学，8K"</td></tr>
+            <tr><td>结果</td><td style="font-size:12px;color:var(--red)">Generic sci-fi city, 缺乏辨识度</td><td style="font-size:12px;color:var(--green)">独特的山城立体空间感，文化辨识度强</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">五、正面词词典</h2>
+
+    <div class="grid-3" style="margin:16px 0">
+      <div class="card" style="padding:12px">
+        <h4 style="color:var(--cyan);font-size:13px;margin-bottom:8px"><i class="fas fa-user"></i> 主体类</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">character, figure, person, creature, animal, robot, warrior, princess, monster, mascot, idol, kawaii, chibi, steampunk, cyborg, elf, dwarf, angel, demon, ghost, skeleton, dragon, phoenix, unicorn, mermaid, fairy</p>
+      </div>
+      <div class="card" style="padding:12px">
+        <h4 style="color:var(--purple);font-size:13px;margin-bottom:8px"><i class="fas fa-palette"></i> 风格类</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">oil painting, watercolor, ink wash, pixel art, vector art, anime, manga, comic book, concept art, matte painting, photorealistic, surrealist, impressionist, cubist, art deco, pop art, gothic, baroque, rococo, minimalist, maximalist, cyberpunk, steampunk, solarpunk</p>
+      </div>
+      <div class="card" style="padding:12px">
+        <h4 style="color:var(--green);font-size:13px;margin-bottom:8px"><i class="fas fa-camera"></i> 构图/镜头</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">close-up, medium shot, wide angle, bird's eye view, worm's eye view, Dutch angle, rule of thirds, golden ratio, symmetrical composition, leading lines, depth of field, bokeh, macro, telephoto, fisheye, panorama, isometric, forced perspective</p>
+      </div>
+      <div class="card" style="padding:12px">
+        <h4 style="color:var(--orange);font-size:13px;margin-bottom:8px"><i class="fas fa-sun"></i> 光照</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">golden hour, blue hour, dramatic lighting, rim lighting, volumetric lighting, soft lighting, hard lighting, chiaroscuro, neon glow, bioluminescent, moonlight, candlelight, studio lighting, natural light, backlight, sidelight, top light</p>
+      </div>
+      <div class="card" style="padding:12px">
+        <h4 style="color:var(--pink);font-size:13px;margin-bottom:8px"><i class="fas fa-gem"></i> 色彩</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">pastel colors, vibrant, muted tones, monochrome, complementary colors, analogous colors, warm palette, cool palette, earth tones, jewel tones, neon colors, iridescent, metallic, matte, gradient, duotone, triadic colors</p>
+      </div>
+      <div class="card" style="padding:12px">
+        <h4 style="color:var(--red);font-size:13px;margin-bottom:8px"><i class="fas fa-star"></i> 质量</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">8K, 4K, UHD, HDR, Octane Render, Unreal Engine 5, ray tracing, physically based rendering, masterpiece, best quality, ultra detailed, sharp focus, intricate details, professional, award-winning, gallery quality</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">六、负面词词典</h2>
 
     <div class="grid-2">
       <div class="card">
-        <h3 style="font-size:14px;color:var(--cyan);margin-bottom:10px"><i class="fas fa-user"></i> 角色特征</h3>
-        <ul style="list-style:none;padding:0;font-size:12px;line-height:2.2">
-          <li>age: young adult / middle-aged / elderly</li>
-          <li>ethnicity: East Asian / Southeast Asian / South Asian</li>
-          <li>hair: long flowing hair / short cropped / braided</li>
-          <li>expression: serene smile / determined gaze / joyful laughter</li>
-          <li>pose: dynamic action pose / relaxed casual stance</li>
-          <li>outfit: traditional hanfu / streetwear fashion / business formal</li>
-        </ul>
+        <h4 style="color:var(--red);font-size:13px;margin-bottom:8px"><i class="fas fa-times-circle"></i> 通用负面词</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8">blurry, blurry background, out of focus, low quality, worst quality, low resolution, jpeg artifacts, compressed, watermark, text, logo, username, signature, cropped, out of frame, duplicate, morbid, mutilated, extra fingers, fewer fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, ugly, bad anatomy, disfigured, gross proportions</p>
       </div>
       <div class="card">
-        <h3 style="font-size:14px;color:var(--orange);margin-bottom:10px"><i class="fas fa-paint-brush"></i> 艺术风格</h3>
-        <ul style="list-style:none;padding:0;font-size:12px;line-height:2.2">
-          <li>oil painting / watercolor / ink wash painting</li>
-          <li>pixel art / vector art / concept art</li>
-          <li>Art Nouveau / Art Deco / Bauhaus</li>
-          <li>impressionism / surrealism / cubism</li>
-          <li>Studio Ghibli style / Disney 3D / anime cel-shaded</li>
-          <li>hyperrealistic / photorealistic / semi-realistic</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 style="font-size:14px;color:var(--green);margin-bottom:10px"><i class="fas fa-sun"></i> 光照效果</h3>
-        <ul style="list-style:none;padding:0;font-size:12px;line-height:2.2">
-          <li>golden hour sunlight / blue hour twilight</li>
-          <li>dramatic side lighting / soft diffused light</li>
-          <li>rim lighting / backlight silhouette</li>
-          <li>neon glow / candlelight / moonlight</li>
-          <li>volumetric rays / god rays / fog lighting</li>
-          <li>studio three-point lighting</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 style="font-size:14px;color:var(--purple);margin-bottom:10px"><i class="fas fa-expand-arrows-alt"></i> 画面质量</h3>
-        <ul style="list-style:none;padding:0;font-size:12px;line-height:2.2">
-          <li>8K ultra HD / 4K resolution</li>
-          <li>cinematic quality / film-grade</li>
-          <li>highly detailed / intricate details</li>
-          <li>sharp focus / depth of field</li>
-          <li>masterpiece / best quality</li>
-          <li>professional color grading</li>
-        </ul>
+        <h4 style="color:var(--orange);font-size:13px;margin-bottom:8px"><i class="fas fa-times-circle"></i> 风格相关负面词</h4>
+        <p style="font-size:11px;color:var(--text2);line-height:1.8"><strong>写实风：</strong>cartoon, anime, illustration, painting, drawing, 3D render, CGI, artificial, plastic skin<br><strong>潮玩风：</strong>realistic animal, detailed fur, complex background, dark mood, horror, grotesque<br><strong>国风：</strong>western art, oil painting, modern clothing, urban background, photographic, bright primary colors<br><strong>赛博朋克：</strong>natural landscape, sunlight, countryside, minimalist, beige tones, warm rustic</p>
       </div>
     </div>
 
-    <h2 class="section-subtitle">五、负面词词典 — 各风格避坑指南</h2>
+    <h2 class="section-subtitle">七、高频提示词词频统计</h2>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>风格</th>
-          <th>推荐负面词</th>
-          <th>原因</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>皮克斯卡通</strong></td>
-          <td>ugly, deformed, extra limbs, realistic, horror, dark</td>
-          <td>防止AI产生恐怖谷效应或偏离可爱风格</td>
-        </tr>
-        <tr>
-          <td><strong>写实摄影</strong></td>
-          <td>cartoon, illustration, painting, plastic skin, oversaturated</td>
-          <td>防止AI过度美化或偏向插画风格</td>
-        </tr>
-        <tr>
-          <td><strong>水彩插画</strong></td>
-          <td>digital art, sharp edges, vector, photorealistic, heavy lines</td>
-          <td>防止AI产出过于干净利落的数字风格</td>
-        </tr>
-        <tr>
-          <td><strong>赛博朋克</strong></td>
-          <td>daytime, sunny, nature, simple, clean, utopia</td>
-          <td>防止AI产生明亮乐观的氛围而非暗黑未来</td>
-        </tr>
-        <tr>
-          <td><strong>中国国风</strong></td>
-          <td>western perspective, oil painting, neon, modern buildings</td>
-          <td>防止透视和元素偏离中国传统绘画体系</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="chart-container" id="chart-02-frequency" style="height:420px;"></div>
 
-    <h2 class="section-subtitle">六、提示词优化前后对比案例</h2>
+    <h2 class="section-subtitle">八、多学派交叉解读</h2>
+
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 语言学视角 — 提示词是"人机翻译语言"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">提示词工程的本质是在自然语言和机器理解之间建立"翻译协议"。LLM的训练数据包含了人类语言的完整分布，但模型对关键词的响应是不均匀的——某些词汇的激活阈值更低，某些组合会产生非线性放大效应。这类似于乔姆斯基的"深层结构-表层结构"理论：提示词的表层语法不重要，重要的是它在模型"深层语义空间"中激活的向量簇。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 信息经济学视角 — 降低"语义摩擦"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">Akerlof的"柠檬市场"理论在这里可以类比：如果创作者的提示词不够精确，AI输出的质量是不可信的（"柠檬"），创作者就需要花费更多时间去迭代和筛选。结构化提示词框架本质上是一种"信号机制"——通过标准化的信息结构降低"语义摩擦"，使AI输出的质量可预测、可重复。这相当于在信息不对称的市场中建立了"质量保证体系"。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 行为经济学视角 — 认知偏差与提示词设计</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">人类语言天然带有歧义和省略，而AI模型对这些歧义的解读往往超出预期。"锚定效应"在提示词中非常明显——第一个描述的关键词对最终结果影响最大。"框架效应"也适用：同样是"画一只猫"，"画一只在阳光下的慵懒猫咪"和"画一只警惕的野猫"会激活完全不同的语义空间。理解这些认知偏差是设计高效提示词的关键。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#7c3aed;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 演化经济学视角 — 提示词技能的"自然选择"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">随着AI工具普及，提示词技能正在经历"自然选择"的过程——那些掌握高效提示词的创作者获得更多产出机会和更好的作品质量，从而获得市场回报；而提示词能力弱的创作者被淘汰。这种"技能选择压力"正在重塑创作者经济的竞争格局。未来，"提示词素养"可能像读写能力一样成为基础能力。</p>
+    </div>
+
+    <h2 class="section-subtitle">九、案例深挖：爆款AI潮玩角色的提示词拆解</h2>
 
     <div class="case-box">
-      <div class="case-title"><i class="fas fa-exchange-alt"></i> 案例：角色设计提示词优化</div>
+      <div class="case-title"><i class="fas fa-microchip"></i> 深案例：如何设计一个"出圈"的AI潮玩角色</div>
       <div class="case-body">
-        <div class="grid-2" style="gap:12px;margin-top:10px">
-          <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:6px;padding:12px">
-            <div style="font-size:12px;color:#ef4444;font-weight:700;margin-bottom:6px"><i class="fas fa-times-circle"></i> 优化前</div>
-            <code style="font-size:11px;color:var(--text2);line-height:1.8;display:block">"a cute robot"</code>
-            <p style="font-size:11px;color:var(--text2);margin-top:8px">问题：太笼统，AI会随机选择风格和质量。可能生成任何形态的机器人——工业机械臂、科幻战斗机甲、或者简单的卡通形象。缺乏风格、构图、光照等关键约束。</p>
-          </div>
-          <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:6px;padding:12px">
-            <div style="font-size:12px;color:#10b981;font-weight:700;margin-bottom:6px"><i class="fas fa-check-circle"></i> 优化后</div>
-            <code style="font-size:11px;color:var(--text2);line-height:1.8;display:block">"A small spherical robot with glowing blue LED eyes, brushed aluminum body with visible panel lines, sitting on a wooden desk next to a steaming coffee mug, Pixar 3D style, soft morning light from window, shallow depth of field, warm and cozy atmosphere, 8K resolution"</code>
-            <p style="font-size:11px;color:var(--text2);margin-top:8px">改进：明确了主体特征（球形+LED眼睛+铝制外壳）、场景（木桌+咖啡杯）、风格（皮克斯3D）、光照（晨光）、构图（浅景深）、氛围（温暖舒适）。结果可预测且高质量。</p>
-          </div>
+        <p>以"太空熊猫"系列为例，这是一个在社交媒体上获得百万级传播的AI潮玩IP。其核心提示词结构如下：</p>
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>层级</th><th>提示词片段</th><th>设计意图</th></tr></thead>
+          <tbody>
+            <tr><td>主体</td><td style="font-size:12px">"chibi panda wearing a tiny astronaut helmet, oversized helmet reflecting stars"</td><td>反差萌：国宝熊猫 + 迷你宇航头盔，头盔反射星空增加细节层次</td></tr>
+            <tr><td>风格</td><td style="font-size:12px">"Pop Mart blind box style, vinyl material, glossy finish, clean white background"</td><td>明确潮玩风格，PVC材质光泽感，纯白背景方便后期应用</td></tr>
+            <tr><td>比例</td><td style="font-size:12px">"chibi proportions, 1:2 head-to-body ratio, stubby limbs"</td><td>Q版比例（头身比1:2），短肢设计强化可爱感</td></tr>
+            <tr><td>光照</td><td style="font-size:12px">"soft studio lighting, rim light on helmet edge, subtle subsurface scattering"</td><td>工作室柔光确保颜色准确，头盔边缘轮廓光增加立体感</td></tr>
+            <tr><td>质量</td><td style="font-size:12px">"octane render, 8K, ultra detailed, commercial product photography"</td><td>商业级渲染质量，为后续3D打印和周边开发做准备</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px"><strong>传播密码：</strong>这个角色的成功不仅在于提示词技巧，更在于它触发了三个传播要素：(1)文化符号叠加（熊猫+太空=双重认知锚点）；(2)情感共鸣（反差萌触发"保护欲"情绪）；(3)延展性（简单造型适合各种变体和二创）。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">十、发散引申链</h2>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链一：提示词标准化 → 提示词即代码 → AI编程新职业</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(26,82,118,0.08);border-radius:6px;border-left:3px solid #1A5276">
+          <strong style="color:#1A5276;font-size:12px">第一阶段</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">提示词从"口语"进化为"结构化语言" → 出现提示词版本管理、A/B测试、性能基准</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(184,134,11,0.08);border-radius:6px;border-left:3px solid #B8860B">
+          <strong style="color:#B8860B;font-size:12px">第二阶段</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">提示词即代码(Prompt-as-Code) → Git管理提示词版本 → 提示词审查流程</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(220,38,38,0.08);border-radius:6px;border-left:3px solid #dc2626">
+          <strong style="color:#dc2626;font-size:12px">第三阶段</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">Prompt Engineer成为正式职业 → 提示词认证考试 → 提示词市场(Etsy for Prompts)</p>
         </div>
       </div>
     </div>
 
-    <div class="case-box" style="margin-top:16px">
-      <div class="case-title"><i class="fas fa-exchange-alt"></i> 案例：场景设计提示词优化</div>
-      <div class="case-body">
-        <div class="grid-2" style="gap:12px;margin-top:10px">
-          <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:6px;padding:12px">
-            <div style="font-size:12px;color:#ef4444;font-weight:700;margin-bottom:6px"><i class="fas fa-times-circle"></i> 优化前</div>
-            <code style="font-size:11px;color:var(--text2);line-height:1.8;display:block">"a beautiful city at night"</code>
-            <p style="font-size:11px;color:var(--text2);margin-top:8px">问题：虽然用了beautiful这个词，但AI不知道你想要什么风格的城市。可能是纽约、东京、上海，也可能是虚构的未来城市。没有具体指引。</p>
-          </div>
-          <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:6px;padding:12px">
-            <div style="font-size:12px;color:#10b981;font-weight:700;margin-bottom:6px"><i class="fas fa-check-circle"></i> 优化后</div>
-            <code style="font-size:11px;color:var(--text2);line-height:1.8;display:block">"Tokyo Shibuya crossing at night, rain puddles reflecting neon signs in multiple languages, crowds of people with transparent umbrellas, shot on Sony A7III 35mm f/1.4, cinematic color grading with teal and orange tones, volumetric fog, high contrast, urban photography masterpiece --ar 16:9 --v 7"</code>
-            <p style="font-size:11px;color:var(--text2);margin-top:8px">改进：指定了具体地点（涩谷十字路口）、天气条件（雨后）、时间（夜晚）、拍摄设备参数、色调方案（teal & orange）、氛围（volumetric fog）。结果高度可控且专业。</p>
-          </div>
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链二：提示词能力分化 → 创意阶层两极化 → 新教育需求</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(5,150,105,0.08);border-radius:6px;border-left:3px solid #059669">
+          <strong style="color:#059669;font-size:12px">起点</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">提示词能力差距导致产出质量差距达10倍 → "提示词素养"成为新分水岭</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(124,58,237,0.08);border-radius:6px;border-left:3px solid #7c3aed">
+          <strong style="color:#7c3aed;font-size:12px">中间态</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">提示词培训班/课程爆发 → 提示词学院出现 → 大学开设相关课程</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(6,182,212,0.08);border-radius:6px;border-left:3px solid #06b6d4">
+          <strong style="color:#06b6d4;font-size:12px">终局推演</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">提示词能力成为基础教育的一部分 → "AI素养"与"读写算"并列 → 教育体系根本性重构</p>
         </div>
       </div>
     </div>
 
-    <h2 class="section-subtitle">七、多学派交叉解读</h2>
+    <h2 class="section-subtitle">十一、实战建议：提示词训练方法</h2>
 
-    <div class="school-view">
-      <div class="sv-item sv-blue">
-        <div class="sv-school"><i class="fas fa-balance-scale"></i> 行为经济学视角 — 提示词工程即认知外包</div>
-        <div class="sv-body">提示词工程的本质是将人类的认知能力"外包"给AI模型。卡尼曼的双系统理论可以完美解释这一点：人类创作者的"系统1"（直觉思维）负责产生创意灵感，而"系统2"（理性分析）负责将灵感转化为精确的提示词结构。好的提示词工程师就是那些擅长将直觉转化为精确指令的人——这是一种"元认知"能力。行为经济学中的"锚定效应"也适用：提示词的开头部分对最终结果影响最大，因此主体描述必须放在最前面。</div>
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-dumbbell"></i> 提示词能力的刻意练习方案</div>
+      <div class="tip-body">
+        <p><strong>第一周：建立词汇库</strong> — 每天学习5个正面词+3个负面词，在通义万相/Leonardo免费工具中测试效果，记录哪些词有效。</p>
+        <p style="margin-top:8px"><strong>第二周：模板套用</strong> — 使用本章提供的6大风格配方，替换主体描述部分，感受同一框架下不同主体的效果差异。</p>
+        <p style="margin-top:8px"><strong>第三周：逆向工程</strong> — 找10张你喜欢的AI作品，尝试反向推导它们的提示词，然后用AI工具验证你的推测准确度。</p>
+        <p style="margin-top:8px"><strong>第四周：A/B测试</strong> — 对同一主题写3个不同版本的提示词，生成后横向对比，找出哪个变量对结果影响最大。</p>
+        <p style="margin-top:8px"><strong>持续习惯：</strong>建立自己的"提示词笔记本"（Notion/飞书文档），记录每次成功的提示词组合和失败教训。这是你最宝贵的个人资产。</p>
       </div>
-      <div class="sv-item sv-green">
-        <div class="sv-school"><i class="fas fa-balance-scale"></i> 演化经济学视角 — 人机协作的新分工模式</div>
-        <div class="sv-body">AI影像创作正在经历一场"劳动分工的演化"。传统创作流程是线性的（构思→草图→细化→完成），而AI时代变成了迭代循环（提示词→评估→调整→再提示词）。这种新分工模式中，人类的角色从"执行者"转变为"编辑者和策展人"。演化经济学认为，最有竞争力的不是最强的个体，而是最好的协作网络。未来的赢家将是那些最擅长"与AI对话"的人——他们懂得如何迭代提示词以获得最优结果。</div>
-      </div>
-      <div class="sv-item sv-gold">
-        <div class="sv-school"><i class="fas fa-balance-scale"></i> 信息经济学视角 — 提示词作为信号机制</div>
-        <div class="sv-body">在AI生成的内容泛滥的时代，高质量的提示词本身成为一种稀缺资源。信息经济学中的"信号理论"指出，当市场存在信息不对称时，高质量供给方需要通过可观察的信号来证明自己。提示词工程水平就是创作者的"信号"——同样的AI工具，不同的人使用会产生截然不同的结果。这意味着提示词能力将成为创作者经济中的核心竞争力之一。</div>
-      </div>
-    </div>
-
-    <h2 class="section-subtitle">八、案例深挖：爆款AI潮玩角色的提示词拆解</h2>
-
-    <div class="case-box">
-      <div class="case-title"><i class="fas fa-star"></i> Labubu风格潮玩角色 — 完整提示词工程拆解</div>
-      <div class="case-body">
-        <p style="margin-bottom:12px">Labubu是泡泡玛特旗下最受欢迎的潮玩IP之一，其特点是：尖牙萌笑、毛茸茸的身体、大大的耳朵、精灵般的表情。以下是一个类似风格的AI生成角色的完整提示词工作流：</p>
-
-        <div style="background:var(--surface2);border-radius:8px;padding:14px;margin:12px 0">
-          <div style="font-size:12px;color:var(--orange);font-weight:700;margin-bottom:8px">第一轮：基础概念验证</div>
-          <code style="font-size:11px;color:var(--cyan);line-height:1.8;display:block">small furry monster creature, big pointed ears, mischievous grin with small teeth, round eyes, standing pose, 3D toy design, blind box style, soft matte finish, pastel colors, clean white background, product photography --ar 1:1 --v 7</code>
-          <p style="font-size:11px;color:var(--text2);margin-top:6px">目标：确认基本形态和风格是否正确。这一轮不需要太多细节，重点是验证概念。</p>
-        </div>
-
-        <div style="background:var(--surface2);border-radius:8px;padding:14px;margin:12px 0">
-          <div style="font-size:12px;color:var(--orange);font-weight:700;margin-bottom:8px">第二轮：材质和细节精修</div>
-          <code style="font-size:11px;color:var(--cyan);line-height:1.8;display:block">small furry monster creature, big pointed ears, mischievous grin with small teeth, round expressive eyes, soft plush fur texture in lavender color, tiny hands and feet, standing pose, 3D toy design, blind box collectible style, soft matte vinyl finish with plush fur body, pastel lavender and mint green color palette, clean white studio background, professional product photography, octane render, subsurface scattering --ar 1:1 --v 7 --style raw</code>
-          <p style="font-size:11px;color:var(--text2);margin-top:6px">目标：增加材质描述（plush fur + matte vinyl），明确配色方案（lavender + mint green），加入渲染技术词（octane render, subsurface scattering）提升3D质感。</p>
-        </div>
-
-        <div style="background:var(--surface2);border-radius:8px;padding:14px;margin:12px 0">
-          <div style="font-size:12px;color:var(--orange);font-weight:700;margin-bottom:8px">第三轮：多角度生成（用于三视图）</div>
-          <code style="font-size:11px;color:var(--cyan);line-height:1.8;display:block">[Front view] small furry monster character design sheet, three-quarter front view, mischievous expression, big pointed ears, lavender plush fur, standing pose, white background, character turnaround sheet, consistent character design --ar 3:4 --v 7</code>
-          <p style="font-size:11px;color:var(--text2);margin-top:6px">目标：生成角色设定集/三视图。关键是在每一轮中保持角色核心特征词一致（lavender plush fur, big pointed ears, mischievous grin），确保一致性。</p>
-        </div>
-
-        <div style="background:var(--surface2);border-radius:8px;padding:14px;margin:12px 0">
-          <div style="font-size:12px;color:var(--orange);font-weight:700;margin-bottom:8px">第四轮：场景化渲染（用于宣传图）</div>
-          <code style="font-size:11px;color:var(--cyan);line-height:1.8;display:block">Lavender furry monster character standing on a pastel-colored stage with soft spotlight, confetti particles floating in the air, dreamy bokeh background in pink and purple, 3D render, Pixar-inspired lighting, product showcase photography, premium toy advertisement style --ar 16:9 --v 7</code>
-          <p style="font-size:11px;color:var(--text2);margin-top:6px">目标：将角色放入场景中进行商业渲染。关键是保持一致的角色描述同时添加环境元素。</p>
-        </div>
-
-        <p style="margin-top:14px;font-size:13px;color:var(--text)"><strong>🔑 核心技巧总结：</strong></p>
-        <ol style="list-style:decimal; padding-left:20px; margin:8px 0;font-size:13px;color:var(--text2)">
-          <li><strong>迭代式精炼：</strong>不要试图一次写出完美提示词。从简单开始，逐轮增加细节。</li>
-          <li><strong>核心特征锁定：</strong>确定角色的3-5个核心特征词（如big pointed ears, lavender plush fur, mischievous grin），在所有轮次中保持一致。</li>
-          <li><strong>材质先行：</strong>先确定材质（plush fur + matte vinyl），再确定配色和场景。材质是潮玩设计的灵魂。</li>
-          <li><strong>渲染词加持：</strong>加入octane render、subsurface scattering等专业渲染术语，能显著提升3D质感。</li>
-          <li><strong>--style raw参数：</strong>Midjourney的--style raw减少AI的"美学干预"，让提示词的控制力更强。</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="data-note" style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
-      <strong>💡 核心洞察：</strong>提示词工程不是"魔法咒语"，而是一种系统化的沟通方法。就像程序员学习编程语言一样，提示词工程师学习的是如何与AI模型"高效对话"。掌握这个技能，等于掌握了打开整个AI影像世界的钥匙。
     </div>
 
   </main>
 
   <footer class="page-footer">
-    <a class="nav-prev" href="01-tool-overview.html"><i class="fas fa-arrow-up"></i> AI图像/视频工具全景</a>
-    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
-    <span class="page-info">2 / 38</span>
-    <a class="nav-next" href="03-env-setup.html">本地与云端环境搭建 <i class="fas fa-arrow-right"></i></a>
+    <a class="nav-prev" href="01-tool-overview.html"><i class="fas fa-arrow-left"></i> AI影像工具全景图谱</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">2 / 25</span>
+    <a class="nav-next" href="03-env-setup.html">环境搭建与免费工具配置 <i class="fas fa-arrow-right"></i></a>
   </footer>
 
+  <script src="../common/js/echarts.inline.js"></script>
   <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-02-frequency'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      grid: { left: 120, right: 40, top: 20, bottom: 30 },
+      xAxis: { type: 'value', axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'category', data: ['8K', 'masterpiece', 'best quality', 'ultra detailed', 'studio lighting', 'cinematic', 'sharp focus', 'intricate details', 'volumetric lighting', 'ray tracing'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [{
+        type: 'bar',
+        data: [95, 92, 88, 85, 82, 78, 75, 72, 68, 65],
+        itemStyle: {
+          color: function(params) {
+            var colors = ['#8b5cf6', '#7c3aed', '#6d28d9', '#5b21b6', '#a78bfa', '#8b5cf6', '#7c3aed', '#6d28d9', '#5b21b6', '#a78bfa'];
+            return colors[params.dataIndex] || '#8b5cf6';
+          },
+          borderRadius: [0, 4, 4, 0]
+        },
+        barWidth: 16,
+        label: { show: true, position: 'right', color: '#94a3b8', fontSize: 11, formatter: '{c}%' }
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
 </body>
 </html>

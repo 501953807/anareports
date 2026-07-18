@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1.3 本地与云端环境搭建 — 《AI影像创作实战指南》</title>
+  <title>03 环境搭建与免费工具配置 — 《AI影像创作百科全书》</title>
   <link rel="stylesheet" href="../common/css/book.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,9 +11,9 @@
 <body>
   <nav class="top-nav">
     <div class="nav-left">
-      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AI影像创作</a>
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AnaReports</a>
       <span class="nav-divider">/</span>
-      <span class="nav-chapter-title">第3章 本地与云端环境搭建</span>
+      <span class="nav-chapter-title">AI影像创作百科全书</span>
     </div>
     <div class="nav-right">
       <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
@@ -25,408 +25,291 @@
     <h3><i class="fas fa-list"></i> 目录</h3>
     <ul class="toc-list">
       <li class="toc-chapter">第一篇：工具选型与基础</li>
-      <li><a href="01-tool-overview.html">1.1 AI图像/视频工具全景</a></li>
-      <li><a href="02-prompt-engineering.html">1.2 提示词工程核心方法论</a></li>
-      <li><a href="03-env-setup.html" class="active">1.3 本地与云端环境搭建</a></li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
       <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
-      <li><a href="04-character-design.html">2.1 潮玩IP设计理念与方法论</a></li>
-      <li><a href="05-character-views.html">2.2 三视图生成实战</a></li>
-      <li><a href="06-expression-props.html">2.3 表情与道具扩展</a></li>
-      <li><a href="07-character-output.html">2.4 整合与商业输出</a></li>
-      <li class="toc-chapter">第三篇：完整动画短片制作</li>
-      <li><a href="08-short-film-plan.html">3.1 短片策划与分镜设计</a></li>
-      <li><a href="09-scene-gen.html">3.2 AI场景生成</a></li>
-      <li><a href="10-video-gen.html">3.3 AI视频生成技术</a></li>
-      <li><a href="11-post-production.html">3.4 后期合成与调色</a></li>
-      <li><a href="12-publishing.html">3.5 发布与运营</a></li>
-      <li class="toc-chapter">第四篇：进阶与商业化</li>
-      <li><a href="13-commercial-apps.html">4.1 商业应用场景</a></li>
-      <li><a href="14-monetization.html">4.2 变现路径与案例</a></li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-automation-n8n.html">18 AI工作流自动化（n8n/Make/Zapier）</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-matrix.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-applications.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merch-commodification.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization-evaluation.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
     </ul>
   </aside>
 
   <main class="content">
-    <h1 class="section-title">第3章 本地与云端环境搭建</h1>
+    <h1 class="section-title">03 环境搭建与免费工具配置</h1>
 
-    <div class="data-note" style="margin-bottom:20px">不需要昂贵的硬件也能开始AI影像创作。2025年，纯云端方案已经可以完成从图像到视频的全部创作流程。本章将帮助你根据自身条件选择最合适的起步方案。</div>
+    <div class="data-note">
+      <strong>📊 核心观点：</strong>AI影像创作的入门门槛已经降至历史最低——一个普通笔记本电脑+三个免费工具，就足以开始专业级创作。本章将手把手教你搭建完整的免费创作环境。
+    </div>
 
     <h2 class="section-subtitle">一、硬件需求评估</h2>
 
-    <h3 class="section-subtitle">1.1 GPU门槛分析</h3>
-
     <table class="data-table">
       <thead>
-        <tr>
-          <th>使用场景</th>
-          <th>最低GPU要求</th>
-          <th>推荐GPU</th>
-          <th>显存需求</th>
-          <th>预算（人民币）</th>
-        </tr>
+        <tr><th>使用场景</th><th>CPU</th><th>GPU</th><th>内存</th><th>存储</th><th>预算</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>仅使用SaaS工具</strong><br>(Midjourney/可灵/Runway)</td>
-          <td>不需要GPU</td>
-          <td>不需要</td>
-          <td>不适用</td>
-          <td>¥0</td>
-        </tr>
-        <tr>
-          <td><strong>Stable Diffusion 基础使用</strong><br>(A1111 WebUI)</td>
-          <td>RTX 3060 12GB</td>
-          <td>RTX 4070 Ti Super 16GB</td>
-          <td>≥ 8GB</td>
-          <td>¥2000-4000</td>
-        </tr>
-        <tr>
-          <td><strong>ComfyUI 高级工作流</strong><br>(多模型并行)</td>
-          <td>RTX 3060 12GB</td>
-          <td>RTX 4090 24GB</td>
-          <td>≥ 12GB</td>
-          <td>¥4000-15000</td>
-        </tr>
-        <tr>
-          <td><strong>本地训练LoRA</strong></td>
-          <td>RTX 3090 24GB</td>
-          <td>RTX 4090 24GB / A100云端</td>
-          <td>≥ 24GB</td>
-          <td>¥15000+</td>
-        </tr>
-        <tr>
-          <td><strong>视频生成本地部署</strong></td>
-          <td>RTX 4090 24GB</td>
-          <td>双 RTX 4090 / 云端A100</td>
-          <td>≥ 24GB</td>
-          <td>¥15000+</td>
-        </tr>
+        <tr><td>仅使用云端工具</td><td>任意现代CPU</td><td>不需要</td><td>8GB</td><td>50GB</td><td>¥0</td></tr>
+        <tr><td>轻度本地推理</td><td>i5/R5 以上</td><td>GTX 1660 / RTX 3050</td><td>16GB</td><td>100GB SSD</td><td>¥2000-4000</td></tr>
+        <tr><td>标准本地部署</td><td>i7/R7 以上</td><td>RTX 3060 12GB</td><td>32GB</td><td>500GB NVMe</td><td>¥5000-8000</td></tr>
+        <tr><td>高性能本地部署</td><td>i9/R9 以上</td><td>RTX 4090 24GB</td><td>64GB</td><td>1TB NVMe</td><td>¥15000-25000</td></tr>
+        <tr><td>专业工作站</td><td>Xeon/Threadripper</td><td>双RTX 4090 / A6000</td><td>128GB</td><td>2TB+ NVMe</td><td>¥40000+</td></tr>
       </tbody>
     </table>
 
-    <h3 class="section-subtitle">1.2 云端替代方案</h3>
-
-    <div class="grid-3">
-      <div class="card">
-        <h3 style="font-size:14px;color:var(--cyan);margin-bottom:8px"><i class="fas fa-cloud"></i> Google Colab</h3>
-        <p style="font-size:12px;color:var(--text2);line-height:1.8">
-          <strong>免费方案：</strong>T4 GPU，每次运行约2-4小时<br>
-          <strong>付费方案（$10/月）：</strong>A100 GPU，更长时间运行<br>
-          <strong>适合：</strong>偶尔使用SD/ComfyUI的入门用户<br>
-          <strong>价格：</strong>免费 / $10/月
-        </p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:14px;color:var(--orange);margin-bottom:8px"><i class="fas fa-bolt"></i> Replicate API</h3>
-        <p style="font-size:12px;color:var(--text2);line-height:1.8">
-          <strong>按次付费：</strong>图像生成约$0.003/次<br>
-          <strong>视频生成：</strong>约$0.05-0.10/次<br>
-          <strong>适合：</strong>需要API集成的高级用户<br>
-          <strong>价格：</strong>用多少付多少
-        </p>
-      </div>
-      <div class="card">
-        <h3 style="font-size:14px;color:var(--green);margin-bottom:8px"><i class="fas fa-server"></i> RunPod / Vast.ai</h3>
-        <p style="font-size:12px;color:var(--text2);line-height:1.8">
-          <strong>按小时租用GPU：</strong>$0.20-0.50/小时(4090)<br>
-          <strong>A100 40GB：</strong>$1.00-1.50/小时<br>
-          <strong>适合：</strong>需要长期本地部署的用户<br>
-          <strong>价格：</strong>$0.20-1.50/小时
-        </p>
-      </div>
-    </div>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-lightbulb"></i> 关键结论：纯云端方案完全可以满足所有创作需求</div>
+    <div class="tip-box" style="margin-top:12px">
+      <div class="tip-title"><i class="fas fa-lightbulb"></i> 关键建议：GPU显存比核心数更重要</div>
       <div class="tip-body">
-        <p>2025年的现实是：<strong>你不需要购买任何硬件就能完成完整的AI影像创作流程</strong>。</p>
-        <ul style="list-style:none;padding:0;margin:10px 0">
-          <li style="padding:4px 0"><strong>图像生成：</strong>通义万相/可灵Kling完全免费，Midjourney $10/月即可起步</li>
-          <li style="padding:4px 0"><strong>视频生成：</strong>可灵每日60免费积分，Runway注册送125积分</li>
-          <li style="padding:4px 0"><strong>高级工作流：</strong>Google Colab Free即可运行ComfyUI</li>
-          <li style="padding:4px 0"><strong>模型训练：</strong>Replicate API按次付费，无需本地GPU</li>
+        <p>对于AI影像创作，GPU显存(GVRAM)是最关键的硬件指标。显存决定了你能运行多大的模型：</p>
+        <ul style="list-style:none;padding:0;margin:8px 0">
+          <li style="padding:4px 0"><strong>6GB：</strong>只能跑SD 1.5和小参数模型，SDXL/3.5会OOM</li>
+          <li style="padding:4px 0"><strong>8GB：</strong>可以跑SDXL（量化版），Flux.1-schnell勉强可用</li>
+          <li style="padding:4px 0"><strong>12GB：</strong>舒适区，SDXL/Flux.1-pro均可流畅运行</li>
+          <li style="padding:4px 0"><strong>24GB+：</strong>专业级，可同时加载多个模型，支持高分辨率生成</li>
         </ul>
-        <p style="margin-top:8px"><strong>建议：</strong>先用纯云端免费工具学习1-2个月，确定自己的创作方向和工作流后，再考虑是否投资本地硬件。</p>
+        <p><strong>如果不想买显卡：</strong>几乎所有主流AI工具都提供云端版本。下面是完整的免费云端工具配置指南。</p>
       </div>
     </div>
 
-    <h2 class="section-subtitle">二、免费工具配置指南</h2>
-
-    <h3 class="section-subtitle">2.1 通义万相 — 零门槛图像生成</h3>
-
-    <ol class="steps-list">
-      <li>
-        <strong>注册阿里账号</strong><br>
-        访问 <code style="color:var(--cyan)">aliyun.com</code>，使用手机号注册阿里云账号。首次注册赠送一定额度的免费算力资源。
-      </li>
-      <li>
-        <strong>打开通义万相</strong><br>
-        在阿里云控制台搜索"通义万相"或直接访问 <code style="color:var(--cyan)">wanx.aliyuncs.com</code>。也可以直接使用"通义"APP（移动端），功能完全相同。
-      </li>
-      <li>
-        <strong>选择图像生成模式</strong><br>
-        通义万相提供多种模式：文生图、图生图、风格迁移、人物写真。新手建议从"文生图"开始。
-      </li>
-      <li>
-        <strong>输入提示词并生成</strong><br>
-        使用中文提示词即可（通义万相对中文理解最好）。参考第2章的提示词公式，输入包含主体、风格、光照的描述。点击生成后等待10-30秒即可获得结果。
-      </li>
-      <li>
-        <strong>下载与保存</strong><br>
-        生成满意后可以右键保存图片。免费版每日有一定生成额度限制，通常足够日常练习使用。
-      </li>
-    </ol>
-
-    <h3 class="section-subtitle">2.2 可灵Kling — 免费视频生成</h3>
-
-    <ol class="steps-list">
-      <li>
-        <strong>注册快手账号</strong><br>
-        访问 <code style="color:var(--cyan)">klingai.com</code>，使用手机号注册。新用户赠送大量免费积分。
-      </li>
-      <li>
-        <strong>进入可灵AI创作平台</strong><br>
-        可选择"图像生成"或"视频生成"模式。视频生成功能目前全球领先，质量评分9.2/10。
-      </li>
-      <li>
-        <strong>图像生成视频</strong><br>
-        推荐工作流：先在通义万相/Midjourney中生成高质量静态图，然后在可灵中选择"图生视频"模式。这种方式比直接文生视频效果更好、可控性更强。
-      </li>
-      <li>
-        <strong>视频参数设置</strong><br>
-        可选参数包括：时长（5秒或10秒）、分辨率（720p或1080p）、运动强度（低/中/高）。新手建议先用默认参数体验。
-      </li>
-      <li>
-        <strong>每日免费额度</strong><br>
-        可灵每日赠送约60积分，生成一段5秒1080p视频消耗约10积分。也就是说每天可以免费生成约6段短视频。
-      </li>
-    </ol>
-
-    <h3 class="section-subtitle">2.3 Stable Diffusion + ComfyUI — 本地部署指南</h3>
-
-    <ol class="steps-list">
-      <li>
-        <strong>安装Python环境</strong><br>
-        下载并安装Python 3.10.x（推荐版本，兼容性最好）。安装时务必勾选"Add Python to PATH"。
-        <br><span style="color:var(--cyan)">⚡ 提示：Windows用户建议从 python.org 下载安装包；Mac用户使用Homebrew：brew install python@3.10</span>
-      </li>
-      <li>
-        <strong>克隆ComfyUI仓库</strong><br>
-        打开终端/命令行，执行以下命令：
-        <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:12px;margin:8px 0;color:var(--cyan)">git clone https://github.com/comfyanonymous/ComfyUI.git</code>
-      </li>
-      <li>
-        <strong>安装依赖</strong><br>
-        <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:12px;margin:8px 0;color:var(--cyan)">cd ComfyUI<br>pip install -r requirements.txt</code>
-      </li>
-      <li>
-        <strong>下载基础模型</strong><br>
-        从 <code style="color:var(--cyan)">huggingface.co</code> 或 <code style="color:var(--cyan)">civitai.com</code> 下载SD 1.5或SDXL基础模型，放入 <code style="color:var(--cyan)">ComfyUI/models/checkpoints/</code> 目录。
-      </li>
-      <li>
-        <strong>启动ComfyUI</strong><br>
-        <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:12px;margin:8px 0;color:var(--cyan)">python main.py</code>
-        <br>启动后浏览器自动打开 <code style="color:var(--cyan)">http://localhost:8188</code>。
-      </li>
-      <li>
-        <strong>安装自定义节点</strong><br>
-        推荐使用ComfyUI Manager（一键安装管理器）。克隆到 <code style="color:var(--cyan)">ComfyUI/custom_nodes/ComfyUI-Manager</code>，重启ComfyUI后即可在菜单中搜索安装各种自定义节点。
-      </li>
-    </ol>
-
-    <div class="tip-box">
-      <div class="tip-title"><i class="fas fa-terminal"></i> Mac用户特别提示</div>
-      <div class="tip-body">
-        <p>M系列芯片（M1/M2/M3）Mac可以直接运行ComfyUI，利用Apple Silicon的统一内存架构。虽然速度不如NVIDIA GPU，但8GB以上内存的Mac可以运行SDXL模型。启动命令相同：</p>
-        <code style="display:block;background:var(--surface2);padding:10px;border-radius:6px;font-size:12px;margin:8px 0;color:var(--cyan)">python main.py --force-fp16</code>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle">2.4 Flux模型 — 免费试用方式</h3>
+    <h2 class="section-subtitle">二、免费工具配置指南（从零开始）</h2>
 
     <div class="card">
-      <h3 class="section-subtitle">三种免费使用Flux的途径</h3>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>途径</th>
-            <th>操作步骤</th>
-            <th>免费额度</th>
-            <th>适合人群</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>HuggingFace Spaces</strong></td>
-            <td>搜索"Flux"找到官方Space，直接在网页中使用</td>
-            <td>完全免费（有排队时间）</td>
-            <td>快速体验</td>
-          </tr>
-          <tr>
-            <td><strong>Replicate API</strong></td>
-            <td>注册replicate.com，获得$5赠金</td>
-            <td>$5赠金 ≈ 1500次生成</td>
-            <td>开发者/API用户</td>
-          </tr>
-          <tr>
-            <td><strong>本地部署</strong></td>
-            <td>通过ComfyUI加载Flux Schnell模型</td>
-            <td>免费（需要24GB VRAM）</td>
-            <td>有高端GPU的用户</td>
-          </tr>
-        </tbody>
-      </table>
+      <h3 class="section-subtitle">配置一：通义万相 — 零门槛中文AI绘画</h3>
+      <ol class="steps-list">
+        <li><strong>注册账号：</strong>访问 <span style="color:var(--cyan)">tongyi.aliyun.com/wanxiang</span>，用阿里云账号或淘宝/支付宝账号登录（一键授权，无需额外注册）。</li>
+        <li><strong>选择功能：</strong>首页提供"文本生成图像"和"图像生成图像"两种模式。新手从文本生成开始。</li>
+        <li><strong>输入提示词：</strong>在文本框中输入描述，支持中文。建议按照第二章的六段式框架编写。</li>
+        <li><strong>调整参数：</strong>可以选择画幅比例（1:1/16:9/9:16等）、分辨率（1024x1024起）、风格预设（写实/动漫/艺术/国风）。</li>
+        <li><strong>生成与保存：</strong>每次生成4张候选图，点击喜欢的图片可下载高清版本（默认免费额度每天可生成约20-30张）。</li>
+        <li><strong>进阶功能：</strong>"图像生成图像"支持上传参考图进行风格迁移；"扩图"功能可以智能扩展画面边界。</li>
+      </ol>
+      <p style="margin-top:8px;font-size:12px;color:var(--green)"><i class="fas fa-check-circle"></i> 优点：完全免费、中文优化最好、无需安装、国内访问速度快</p>
+      <p style="font-size:12px;color:var(--orange)"><i class="fas fa-exclamation-circle"></i> 限制：免费额度有限、无法本地部署、商用需确认协议</p>
+    </div>
+
+    <div class="card">
+      <h3 class="section-subtitle">配置二：可灵Kling — 国产最强视频生成</h3>
+      <ol class="steps-list">
+        <li><strong>注册账号：</strong>访问 <span style="color:var(--cyan)">klingai.kuaishou.com</span>，用微信或手机号注册。</li>
+        <li><strong>获取积分：</strong>新用户注册送积分，每日登录补充免费积分（约30-60积分/天）。</li>
+        <li><strong>文本生成视频：</strong>输入描述词，选择时长（5秒/10秒）、分辨率（720p/1080p）、比例。</li>
+        <li><strong>图生视频：</strong>上传静态图片，AI会自动添加运动效果。支持首尾帧控制（上传两张图定义起始和结束状态）。</li>
+        <li><strong>高级设置：</strong>可调节"运动强度"(0-100)、开启"角色一致性"模式、选择"专业模式"获得更高画质。</li>
+        <li><strong>导出：</strong>生成完成后下载MP4文件，支持1080p/30fps输出。</li>
+      </ol>
+      <p style="margin-top:8px;font-size:12px;color:var(--green)"><i class="fas fa-check-circle"></i> 优点：国产视频生成最强、物理模拟优秀、支持60秒长视频、中文提示词理解好</p>
+      <p style="font-size:12px;color:var(--orange)"><i class="fas fa-exclamation-circle"></i> 限制：免费积分每天有限、高画质消耗更多积分、生成速度受排队影响</p>
+    </div>
+
+    <div class="card">
+      <h3 class="section-subtitle">配置三：Stable Diffusion本地部署（WebUI/Automatic1111）</h3>
+      <ol class="steps-list">
+        <li><strong>安装Python：</strong>下载并安装Python 3.10.x（SD WebUI官方推荐版本）。</li>
+        <li><strong>安装Git：</strong>下载Git for Windows或macOS版，用于克隆仓库。</li>
+        <li><strong>克隆仓库：</strong>打开终端/命令行，执行 <span style="color:var(--cyan)">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span></li>
+        <li><strong>下载模型：</strong>前往 <span style="color:var(--cyan)">huggingface.co</span> 下载SD 1.5或SDXL基础模型，放入 <span style="color:var(--cyan)">models/Stable-diffusion/</span> 目录。</li>
+        <li><strong>启动WebUI：</strong>运行 <span style="color:var(--cyan)">webui.sh</span> (macOS/Linux) 或 <span style="color:var(--cyan)">webui.bat</span> (Windows)，首次启动会自动安装依赖。</li>
+        <li><strong>安装扩展：</strong>在WebUI的"Extensions"标签中安装常用插件：ControlNet、ADetailer、Dynamic Thresholding、Regional Prompter。</li>
+        <li><strong>下载LoRA模型：</strong>前往 <span style="color:var(--cyan)">civitai.com</span> 下载社区训练的LoRA模型，放入 <span style="color:var(--cyan)">models/Lora/</span> 目录。</li>
+      </ol>
+      <p style="margin-top:8px;font-size:12px;color:var(--green)"><i class="fas fa-check-circle"></i> 优点：完全免费、无限生成、可定制性最强、插件生态丰富、隐私安全</p>
+      <p style="font-size:12px;color:var(--orange)"><i class="fas fa-exclamation-circle"></i> 限制：需要NVIDIA GPU（AMD/Mac需特殊配置）、初次设置较复杂、占用磁盘空间大（20GB+）</p>
+    </div>
+
+    <div class="card">
+      <h3 class="section-subtitle">配置四：ComfyUI — 节点式工作流（进阶推荐）</h3>
+      <ol class="steps-list">
+        <li><strong>安装：</strong>执行 <span style="color:var(--cyan)">git clone https://github.com/comfyanonymous/ComfyUI.git</span>，然后运行 <span style="color:var(--cyan)">python main.py</span></li>
+        <li><strong>安装自定义节点：</strong>使用ComfyUI Manager（内置扩展管理器）一键安装常用节点包：ControlNet、IPAdapter、AnimateDiff、Impact Pack等。</li>
+        <li><strong>加载工作流：</strong>从 <span style="color:var(--cyan)">comfyui_examples</span> 或社区分享导入预设工作流，拖拽JSON文件即可。</li>
+        <li><strong>自定义工作流：</strong>通过节点连接构建自己的Pipeline，支持并行生成、条件分支、循环等高级逻辑。</li>
+      </ol>
+      <p style="margin-top:8px;font-size:12px;color:var(--green)"><i class="fas fa-check-circle"></i> 优点：内存效率比WebUI高30%、可视化工作流、适合批量处理和自动化、节点可复用</p>
+      <p style="font-size:12px;color:var(--orange)"><i class="fas fa-exclamation-circle"></i> 限制：学习曲线陡峭、不适合纯新手、节点调试需要经验</p>
+    </div>
+
+    <div class="card">
+      <h3 class="section-subtitle">配置五：Flux本地/云端部署</h3>
+      <ol class="steps-list">
+        <li><strong>模型下载：</strong>从 <span style="color:var(--cyan)">huggingface.co/black-forest-labs</span> 下载Flux.1-schnell（开源权重）。</li>
+        <li><strong>本地运行：</strong>使用ComfyUI或WebUI加载Flux模型。注意Flux比SD大得多，需要16GB+显存才能流畅运行。</li>
+        <li><strong>云端替代方案：</strong>如果没有合适硬件，可使用以下云端服务：<br>
+          - <span style="color:var(--cyan)">fal.ai</span> — 按调用付费，Flux.1-schnell约$0.003/张<br>
+          - <span style="color:var(--cyan)">replicate.com</span> — 按秒计费，免费额度$5<br>
+          - <span style="color:var(--cyan)">runpod.io</span> — 租用云端GPU，约$0.30-0.50/小时</li>
+        <li><strong>量化版节省资源：</strong>使用GGUF量化版本可在8GB显存上运行（画质略有损失）。</li>
+      </ol>
+      <p style="margin-top:8px;font-size:12px;color:var(--green)"><i class="fas fa-check-circle"></i> 优点：当前开源图像质量标杆、文本渲染能力最强、开源可商用</p>
+      <p style="font-size:12px;color:var(--orange)"><i class="fas fa-exclamation-circle"></i> 限制：模型体积大（20GB+）、显存需求高、生成速度较慢</p>
     </div>
 
     <h2 class="section-subtitle">三、付费工具性价比分析</h2>
 
     <table class="data-table">
       <thead>
-        <tr>
-          <th>工具</th>
-          <th>基础版价格</th>
-          <th>高级版价格</th>
-          <th>每次生成成本</th>
-          <th>性价比评价</th>
-        </tr>
+        <tr><th>工具</th><th>月费</th><th>免费额度</th><th>每张成本</th><th>适合人群</th><th>性价比评分</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>Midjourney</strong></td>
-          <td>$10/月（1000张/月）</td>
-          <td>$60/月（无限）</td>
-          <td>约$0.01/张</td>
-          <td><span class="badge green">极高</span> — 质量最好的图像生成工具之一</td>
-        </tr>
-        <tr>
-          <td><strong>Runway Gen-3</strong></td>
-          <td>$76/月（235秒视频）</td>
-          <td>$204/月（720秒视频）</td>
-          <td>约$0.32/秒</td>
-          <td><span class="badge orange">中等</span> — 视频质量顶尖但价格较高</td>
-        </tr>
-        <tr>
-          <td><strong>DALL-E (OpenAI)</strong></td>
-          <td>ChatGPT Plus $20/月</td>
-          <td>API按量 $0.04-0.08/张</td>
-          <td>约$0.04/张</td>
-          <td><span class="badge cyan">高</span> — 文本理解能力最强</td>
-        </tr>
-        <tr>
-          <td><strong>可灵Kling</strong></td>
-          <td>免费（每日60积分）</td>
-          <td>¥68/月（会员）</td>
-          <td>约¥0.1/秒</td>
-          <td><span class="badge green">极高</span> — 性价比最高的视频生成工具</td>
-        </tr>
-        <tr>
-          <td><strong>Flux Pro</strong></td>
-          <td>$9.99/月（1000张）</td>
-          <td>$29.99/月（5000张）</td>
-          <td>约$0.01/张</td>
-          <td><span class="badge green">高</span> — 开源模型中最强质量</td>
-        </tr>
+        <tr><td>Midjourney Basic</td><td>$10/月</td><td>无</td><td>~$0.04/张</td><td>个人创作者，日生成50-100张</td><td>8.5/10</td></tr>
+        <tr><td>Midjourney Standard</td><td>$30/月</td><td>无</td><td>~$0.03/张</td><td>重度用户，需要并发和后台生成</td><td>9.0/10</td></tr>
+        <tr><td>Leonardo</td><td>$10/月</td><td>每日150代币(免费)</td><td>~$0.02/张</td><td>游戏美术、概念设计</td><td>8.0/10</td></tr>
+        <tr><td>Adobe Firefly</td><td>$9.99/月(含Creative Cloud)</td><td>每月20积分</td><td>~$0.10/张</td><td>设计师，需要商用安全</td><td>7.5/10</td></tr>
+        <tr><td>Runway Gen-3</td><td>$15/月起</td><td>有限免费</td><td>~$0.15/秒</td><td>视频创作者</td><td>7.0/10</td></tr>
+        <tr><td>ChatGPT Plus</td><td>$20/月</td><td>DALL-E 4按量</td><td>~$0.08/张</td><td>需要DALL-E集成+对话式创作</td><td>8.0/10</td></tr>
       </tbody>
     </table>
 
-    <div class="tip-box" style="margin-top:16px">
-      <div class="tip-title"><i class="fas fa-chart-pie"></i> 推荐策略：先免费后付费</div>
+    <h2 class="section-subtitle">四、最小工具集：3个免费工具即可入门</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-rocket"></i> 零成本起步方案</div>
       <div class="tip-body">
-        <ol style="list-style:decimal; padding-left:20px; margin:8px 0">
-          <li style="padding:4px 0"><strong>第1个月（学习期）：</strong>完全使用免费工具——通义万相（图像）+ 可灵（视频）+ HuggingFace（Flux试用）。目标：掌握提示词技巧，确定自己偏好的风格方向。</li>
-          <li style="padding:4px 0"><strong>第2-3个月（验证期）：</strong>如果确定要深入，订阅Midjourney基础版($10/月)或Flux Pro($10/月)。继续用可灵免费额度做视频。目标：产出稳定的作品集。</li>
-          <li style="padding:4px 0"><strong>第3个月后（投入期）：</strong>根据实际使用频率决定升级。如果日均生成>10张图，Midjourney Pro版可能更划算；如果主要做视频，可灵会员+Runway组合最佳。</li>
-        </ol>
+        <p>如果你一分钱都不想花，以下三个工具的组合足以让你开始AI影像创作：</p>
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>工具</th><th>用途</th><th>链接</th><th>每日免费额度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>通义万相</strong></td><td>图像生成（主力）</td><td style="font-size:12px">tongyi.aliyun.com/wanxiang</td><td>约20-30张/天</td></tr>
+            <tr><td><strong>可灵Kling</strong></td><td>视频生成</td><td style="font-size:12px">klingai.kuaishou.com</td><td>约30-60积分/天</td></tr>
+            <tr><td><strong>Leonardo</strong></td><td>图像生成（备用/风格化）</td><td style="font-size:12px">leonardo.ai</td><td>150代币/天(~15-30张)</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px"><strong>进阶升级路径：</strong>当你确定自己会持续使用AI影像创作后，再考虑以下升级：</p>
+        <ul style="list-style:none;padding:0;margin:6px 0">
+          <li style="padding:3px 0"><strong>第一步（$10/月）：</strong>Midjourney — 获得最佳的图像质量和最大的社区资源</li>
+          <li style="padding:3px 0"><strong>第二步（本地部署SD/ComfyUI）：</strong>一次性投入¥5000左右的电脑，获得无限免费的本地生成能力</li>
+          <li style="padding:3px 0"><strong>第三步（按需）：</strong>Runway/可灵Pro — 视频生成需要更高质量时开通</li>
+        </ul>
       </div>
     </div>
 
-    <h2 class="section-subtitle">四、最小工具集推荐方案</h2>
+    <h2 class="section-subtitle">五、硬件需求对比图</h2>
 
-    <div class="card highlight">
-      <h3 class="section-subtitle">🎯 三个免费工具即可开启AI影像创作</h3>
-      <p style="font-size:14px;color:var(--text);margin-bottom:16px">你不需要购买任何设备或订阅任何付费服务，只需要以下三个工具就能完成从图像到视频的完整创作流程：</p>
+    <div class="chart-container" id="chart-03-hardware" style="height:420px;"></div>
 
-      <div class="grid-3">
-        <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:16px;text-align:center">
-          <div style="font-size:28px;margin-bottom:8px">🖼️</div>
-          <h4 style="color:var(--cyan);font-size:14px;margin-bottom:6px">通义万相</h4>
-          <p style="font-size:12px;color:var(--text2);line-height:1.7">
-            <strong>用途：</strong>图像生成<br>
-            <strong>费用：</strong>完全免费<br>
-            <strong>优势：</strong>中文理解最好，操作简单<br>
-            <strong>入口：</strong>wanx.aliyuncs.com
-          </p>
+    <h2 class="section-subtitle">六、多学派交叉解读</h2>
+
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 古典经济学视角 — 资本-劳动替代弹性</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">AI影像工具大幅降低了"资本投入"的门槛——过去需要几十万设备的摄影棚，现在一台免费云端工具即可替代。古典经济学中的"资本-劳动替代弹性"理论在此得到验证：当替代弹性足够大时，技术进步会使生产从"资本密集型"转向"劳动密集型"（即创意密集型）。这意味着创作者的个人能力比设备投入更重要，这是真正的"创作民主化"。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 马克思主义视角 — 生产资料的重新分配</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">在传统影像生产中，摄影机、灯光、后期工作站是"生产资料"，集中在少数机构和富人手中。AI工具将"数字生产资料" democratize——任何人都可以通过免费工具获得专业能力。但马克思主义者会追问：训练AI模型的"数据劳动"是谁提供的？是数百万无偿贡献作品的创作者。这形成了新的矛盾：生产资料的民主化建立在数据剥削之上。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 奥地利学派视角 — 分散知识的利用</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">哈耶克认为，经济系统的效率取决于它利用分散知识的能力。AI影像工具将原本集中在专业机构中的"默会知识"(tacit knowledge)——构图、用光、色彩理论——编码进了算法中，使每个人都能调用这些知识。这是一种前所未有的"知识社会化"过程。但同时，如果少数几家公司控制了核心模型，它们就掌握了"知识的权力"，这与奥地利学派的分散化理想相悖。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#B8860B;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 演化经济学视角 — 技术获取的"路径创造"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">演化经济学强调"路径创造"而非"路径依赖"——新技术的出现打开了新的可能性空间。免费AI工具为发展中国家和低收入群体提供了"跳跃式发展"的机会：他们可以跳过"学习专业软件"的阶段，直接进入AI辅助创作的新路径。但这种跳跃也可能导致基础技能（如绘画、摄影）的退化，形成"能力空心化"的风险。</p>
+    </div>
+
+    <h2 class="section-subtitle">七、发散引申链</h2>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链一：免费工具 → 技能门槛降低 → 内容过剩 → 注意力经济 → 算法筛选</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(5,150,105,0.08);border-radius:6px;border-left:3px solid #059669">
+          <strong style="color:#059669;font-size:12px">免费工具普及</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">创作门槛降到零 → 人人都是创作者 → 内容供给呈指数增长</p>
         </div>
-        <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:16px;text-align:center">
-          <div style="font-size:28px;margin-bottom:8px">🎬</div>
-          <h4 style="color:var(--orange);font-size:14px;margin-bottom:6px">可灵Kling</h4>
-          <p style="font-size:12px;color:var(--text2);line-height:1.7">
-            <strong>用途：</strong>视频生成<br>
-            <strong>费用：</strong>每日免费60积分<br>
-            <strong>优势：</strong>质量接近Runway，免费可用<br>
-            <strong>入口：</strong>klingai.com
-          </p>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(184,134,11,0.08);border-radius:6px;border-left:3px solid #B8860B">
+          <strong style="color:#B8860B;font-size:12px">内容过剩</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">人均消费量不变但供给暴增 → 单件内容价值下降 → "注意力税"上升</p>
         </div>
-        <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:16px;text-align:center">
-          <div style="font-size:28px;margin-bottom:8px">⚙️</div>
-          <h4 style="color:var(--green);font-size:14px;margin-bottom:6px">ComfyUI</h4>
-          <p style="font-size:12px;color:var(--text2);line-height:1.7">
-            <strong>用途：</strong>工作流管理<br>
-            <strong>费用：</strong>开源免费<br>
-            <strong>优势：</strong>最大灵活性，支持所有开源模型<br>
-            <strong>入口：</strong>github.com/comfyanonymous/ComfyUI
-          </p>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(220,38,38,0.08);border-radius:6px;border-left:3px solid #dc2626">
+          <strong style="color:#dc2626;font-size:12px">算法筛选</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">平台算法成为新的"守门人" → 谁能获得流量取决于算法偏好 → 创作者被迫适配算法</p>
         </div>
       </div>
     </div>
 
-    <h2 class="section-subtitle">五、多学派交叉解读</h2>
-
-    <div class="school-view">
-      <div class="sv-item sv-blue">
-        <div class="sv-school"><i class="fas fa-balance-scale"></i> 公共物品理论视角</div>
-        <div class="sv-body">免费的AI工具正在成为数字时代的"公共基础设施"——类似于道路、电力和互联网。传统上，视觉创作需要昂贵的专业设备（相机、灯光、剪辑工作站），这些构成了"准公共物品"的门槛。现在，通义万相和可灵这样的免费工具将创作基础设施"公共化"，使任何人都能使用世界级的AI能力。这类似于电力普及如何 democratize 了制造业——AI正在 democratize 创意生产。</div>
-      </div>
-      <div class="sv-item sv-red">
-        <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义政治经济学视角</div>
-        <div class="sv-body">免费工具的"免费"是有代价的——用户在用数据换取服务。当你使用通义万相时，你的提示词和生成结果都成为了训练数据的来源。这是一种"数字地租"关系：平台拥有基础设施（服务器、模型），创作者使用基础设施并贡献数据，平台从中获取价值。然而，这也产生了新的矛盾——当免费工具足够好时，创作者可能减少对付费工具的依赖，迫使平台寻找新的盈利模式。</div>
-      </div>
-      <div class="sv-item sv-gold">
-        <div class="sv-school"><i class="fas fa-balance-scale"></i> 演化经济学视角</div>
-        <div class="sv-body">免费工具的存在加速了整个生态系统的演化速度。当一个新工具出现并免费提供时，它会迅速吸引大量用户，这些用户产生的使用数据和反馈又加速了模型的迭代改进。这是一个正反馈循环：免费 → 用户增长 → 数据积累 → 模型改进 → 更多用户。这种"演化加速器"效应使得AI影像工具的发展速度远超以往任何创意技术。</div>
-      </div>
-    </div>
-
-    <h2 class="section-subtitle">六、发散引申链</h2>
-
-    <div class="divergence-chain">
-      <div class="dc-links">
-        <span class="dc-node">免费工具普及</span>
-        <span class="dc-arrow">→</span>
-        <span class="dc-node">创作民主化</span>
-        <span class="dc-arrow">→</span>
-        <span class="dc-node">内容供给爆炸</span>
-        <span class="dc-arrow">→</span>
-        <span class="dc-node">注意力经济加剧</span>
-        <span class="dc-arrow">→</span>
-        <span class="dc-node">新筛选机制</span>
-        <span class="dc-arrow">→</span>
-        <span class="dc-node">个人品牌溢价</span>
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链二：本地部署 → 数据主权 → 隐私保护 → 去中心化AI</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(26,82,118,0.08);border-radius:6px;border-left:3px solid #1A5276">
+          <strong style="color:#1A5276;font-size:12px">本地部署兴起</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">开源模型+本地GPU → 数据不出本地 → 隐私和自主性提升</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(124,58,237,0.08);border-radius:6px;border-left:3px solid #7c3aed">
+          <strong style="color:#7c3aed;font-size:12px">数据主权</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">个人/企业掌握自己的AI基础设施 → 减少对云端服务的依赖 → 议价能力提升</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(6,182,212,0.08);border-radius:6px;border-left:3px solid #06b6d4">
+          <strong style="color:#06b6d4;font-size:12px">去中心化AI</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">分布式推理网络 → 模型运行在边缘设备上 → 云计算巨头垄断被打破</p>
+        </div>
       </div>
     </div>
 
-    <div class="data-note" style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);padding:12px 16px;margin-top:20px;border-radius:8px;font-size:13px;color:var(--text2)">
-      <strong>💡 核心洞察：</strong>环境搭建的本质不是"选择最好的工具"，而是"选择最适合当前阶段的工具"。2025年最大的红利就是：你可以从零成本开始，用免费工具验证自己的能力，然后逐步投入。这种"低试错成本"本身就是AI时代最重要的制度性变革。
+    <h2 class="section-subtitle">八、常见问题FAQ</h2>
+
+    <div class="card">
+      <h3 class="section-subtitle">Q: Mac电脑可以用Stable Diffusion吗？</h3>
+      <p>A: 可以。Apple Silicon(M1/M2/M3)通过mps后端支持SD运行，速度比同价位NVIDIA显卡快。推荐使用ComfyUI（对Mac支持更好）或WebUI的mps版本。8GB内存的Mac可以跑SDXL的量化版。</p>
+    </div>
+    <div class="card">
+      <h3 class="section-subtitle">Q: 没有显卡可以用吗？</h3>
+      <p>A: 完全可以。所有云端工具（通义万相、可灵、Leonardo、Runway）都不需要本地GPU。如果你只想做轻度创作，纯云端方案完全够用。等确定需要本地部署时再考虑硬件投资。</p>
+    </div>
+    <div class="card">
+      <h3 class="section-subtitle">Q: 哪个工具最适合新手？</h3>
+      <p>A: 推荐顺序：通义万相（中文最好）> Leonardo（英文界面但易用）> 可灵（视频首选）。这三个都有免费额度，可以先体验再决定是否付费。</p>
+    </div>
+    <div class="card">
+      <h3 class="section-subtitle">Q: 本地部署和云端工具哪个更好？</h3>
+      <p>A: 各有优劣。云端工具胜在方便、免维护、持续更新；本地部署胜在免费无限、隐私安全、可定制。建议新手先用云端验证需求，确定会长期使用后再部署本地。</p>
     </div>
 
   </main>
 
   <footer class="page-footer">
-    <a class="nav-prev" href="02-prompt-engineering.html"><i class="fas fa-arrow-up"></i> 提示词工程核心方法论</a>
-    <a class="nav-home" href="../index.html"><i class="fas fa-home"></i> 返回首页</a>
-    <span class="page-info">3 / 38</span>
-    <a class="nav-next" href="04-character-design.html">潮玩IP角色设计理念 <i class="fas fa-arrow-right"></i></a>
+    <a class="nav-prev" href="02-prompt-engineering.html"><i class="fas fa-arrow-left"></i> 提示词工程核心方法论</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">3 / 25</span>
+    <a class="nav-next" href="04-industry-analysis.html">AI影像产业链分析 <i class="fas fa-arrow-right"></i></a>
   </footer>
 
+  <script src="../common/js/echarts.inline.js"></script>
   <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-03-hardware'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { data: ['显存需求(GB)', '月成本(元)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 100, right: 60, top: 40, bottom: 40 },
+      xAxis: { type: 'value', name: 'GB / 元', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'category', data: ['纯云端(0GB)', '入门级(6GB)', '进阶级(8GB)', '标准级(12GB)', '高性能(24GB)', '专业级(48GB)'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '显存需求(GB)', type: 'bar', data: [0, 6, 8, 12, 24, 48], itemStyle: { color: '#8b5cf6', borderRadius: [4, 4, 0, 0] }, barWidth: 20 },
+        { name: '月成本(元)', type: 'line', data: [0, 0, 0, 0, 500, 2000], itemStyle: { color: '#06b6d4' }, smooth: true, lineStyle: { width: 3 }, symbol: 'circle', symbolSize: 8, markPoint: { data: [{ type: 'max', name: '最高', itemStyle: { color: '#06b6d4' } }] } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
 </body>
 </html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 AI影像产业链分析 — 《AI影像创作百科全书》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AnaReports</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">AI影像创作百科全书</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-automation-n8n.html">18 AI工作流自动化（n8n/Make/Zapier）</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-matrix.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-applications.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merch-commodification.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization-evaluation.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">04 AI影像产业链分析</h1>
+
+    <div class="data-note">
+      <strong>📊 市场规模：</strong>2025年全球AI影像市场规模约$85亿，预计2030年将达到$350-500亿，年复合增长率(CAGR)约35-40%。中国AI影像市场规模约$15亿，预计2030年达到$80-100亿。（数据来源：Statista、Gartner、IDC）
+    </div>
+
+    <h2 class="section-subtitle">一、AI影像产业链全景图</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-sitemap"></i> 三层产业结构</div>
+      <div class="tip-body">
+        <table class="data-table">
+          <thead><tr><th>层级</th><th>环节</th><th>核心能力</th><th>代表企业</th><th>市场占比</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="4" style="vertical-align:middle;font-weight:700;color:var(--red)">上游<br>算力与模型</td><td>GPU/芯片</td><td>训练算力</td><td>NVIDIA、AMD、Intel、华为昇腾、Google TPU</td><td rowspan="4" style="text-align:center;vertical-align:middle;font-size:12px;color:var(--text2)">约25-30%<br>产业链价值</td></tr>
+            <tr><td>云算力平台</td><td>弹性GPU租赁</td><td>AWS、Azure、GCP、阿里云、火山引擎、RunPod、Lambda</td></tr>
+            <tr><td>基础大模型</td><td>训练/微调核心模型</td><td>OpenAI、Google、Meta、 Stability AI、Black Forest Labs(Flux)、MiniMax</td></tr>
+            <tr><td>数据集</td><td>训练数据收集与标注</td><td>LAION、Civitai、DataWorld、各公司自建数据集</td></tr>
+            <tr><td rowspan="4" style="vertical-align:middle;font-weight:700;color:var(--orange)">中游<br>平台与应用</td><td>图像生成平台</td><td>文本/图生图API与应用</td><td>Midjourney、DALL-E、Leonardo、通义万相、文心一格、KREA</td><td rowspan="4" style="text-align:center;vertical-align:middle;font-size:12px;color:var(--text2)">约35-40%<br>产业链价值</td></tr>
+            <tr><td>视频生成平台</td><td>图/文生视频API与应用</td><td>Runway、可灵、Pika、Luma、Sora、Haiper、即梦</td></tr>
+            <tr><td>工作流/编排平台</td><td>节点式编排、自动化</td><td>ComfyUI、Replicate、fal.ai、Dify、Coze</td></tr>
+            <tr><td>3D生成平台</td><td>文本/图转3D模型</td><td>Meshy、CSM、Luma AI、Tripo</td></tr>
+            <tr><td rowspan="4" style="vertical-align:middle;font-weight:700;color:var(--green)">下游<br>内容与应用</td><td>内容创作</td><td>个人/企业使用AI生成内容</td><td>自媒体创作者、广告公司、游戏工作室、影视公司</td><td rowspan="4" style="text-align:center;vertical-align:middle;font-size:12px;color:var(--text2)">约30-35%<br>产业链价值</td></tr>
+            <tr><td>电商视觉</td><td>产品图、广告图AI生成</td><td>淘宝/天猫商家、亚马逊卖家、独立站品牌</td></tr>
+            <tr><td>游戏/影视</td><td>概念设计、资产生成、预可视化</td><td>游戏公司、影视工作室、动画公司</td></tr>
+            <tr><td>IP/潮玩</td><td>角色设计、周边开发</td><td>潮玩品牌、IP运营公司、手办厂商</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">二、全球竞争格局分析</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>地区</th><th>优势领域</th><th>代表企业</th><th>政策环境</th><th>竞争态势</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>美国</strong></td>
+          <td>基础模型、芯片、开源生态</td>
+          <td>OpenAI、Google、Meta、Adobe、Runway、Stability AI</td>
+          <td>鼓励创新，监管滞后，自愿性AI安全框架</td>
+          <td><span style="color:var(--green)">全球领先</span></td>
+        </tr>
+        <tr>
+          <td><strong>中国</strong></td>
+          <td>应用层、视频生成、中文优化</td>
+          <td>快手(可灵)、字节(即梦)、阿里(通义万相)、百度(文心)、MiniMax、生数科技(Vidu)</td>
+          <td>积极扶持+内容监管，生成式AI管理办法已出台</td>
+          <td><span style="color:var(--cyan)">快速追赶</span></td>
+        </tr>
+        <tr>
+          <td><strong>欧洲</strong></td>
+          <td>AI治理、伦理框架、数据保护</td>
+          <td> Mistral AI(法国)、Stability AI(英国)、DeepMind(英国)</td>
+          <td>AI Act严格监管，数据隐私保护领先</td>
+          <td><span style="color:var(--orange)">监管先行</span></td>
+        </tr>
+        <tr>
+          <td><strong>日本</strong></td>
+          <td>动漫/游戏结合、IP运营</td>
+          <td>Synthesia(部分合作)、CyberAgent、KeyPlus</td>
+          <td>政府推动AI+内容产业融合</td>
+          <td><span style="color:var(--purple)">垂直深耕</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">三、主要公司对比</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>总部</th><th>核心模型</th><th>图像</th><th>视频</th><th>3D</th><th>开源</th><th>估值/市值</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OpenAI</td><td>美国</td><td>DALL-E 4 / GPT-4o</td><td>9.5</td><td>Sora(研发中)</td><td>—</td><td>闭源</td><td>$3000亿+</td></tr>
+        <tr><td>Google</td><td>美国</td><td>Imagen 3 / Gemini</td><td>9.0</td><td>VideoPoet(研发中)</td><td>Partnership</td><td>部分开源</td><td>$20000亿+</td></tr>
+        <tr><td>Meta</td><td>美国</td><td>FLUX (新) / Segment Anything</td><td>8.5</td><td>Movie Gen(研发中)</td><td>—</td><td>开源为主</td><td>$3000亿+</td></tr>
+        <tr><td>字节跳动</td><td>中国</td><td>即梦 / Soul</td><td>8.0</td><td>即梦视频</td><td>—</td><td>闭源</td><td>$1500亿+</td></tr>
+        <tr><td>快手</td><td>中国</td><td>可灵Kling</td><td>—</td><td>9.0</td><td>—</td><td>部分开源</td><td>上市公司</td></tr>
+        <tr><td>阿里巴巴</td><td>中国</td><td>通义万相</td><td>8.0</td><td>—</td><td>—</td><td>部分开源</td><td>上市公司</td></tr>
+        <tr><td>百度</td><td>中国</td><td>文心一格</td><td>7.5</td><td>—</td><td>—</td><td>闭源</td><td>上市公司</td></tr>
+        <tr><td>Runway</td><td>美国</td><td>Gen-3</td><td>8.5</td><td>9.5</td><td>—</td><td>闭源</td><td>$24亿</td></tr>
+        <tr><td>Stability AI</td><td>英国</td><td>SD 3.5 / FLUX</td><td>8.5</td><td>—</td><td>—</td><td>开源为主</td><td>$40亿(上市)</td></tr>
+        <tr><td>Midjourney</td><td>美国</td><td>MJ v7</td><td>9.5</td><td>实验性</td><td>—</td><td>闭源</td><td>私密公司($5亿+营收)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">四、市场规模预测</h2>
+
+    <div class="chart-container" id="chart-04-market" style="height:420px;"></div>
+
+    <h2 class="section-subtitle">五、全球市场份额分布</h2>
+
+    <div class="chart-container" id="chart-04-share" style="height:420px;"></div>
+
+    <h2 class="section-subtitle">六、中国AI影像发展路径分析</h2>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-microchip"></i> 中国AI影像产业的"弯道超车"之路</div>
+      <div class="case-body">
+        <div class="timeline">
+          <div class="timeline-item"><span class="tl-year">2020-2021</span><span class="tl-desc">跟随期：国内团队开始研究扩散模型，百度文心一格上线（2022.06），但整体技术落后海外1-2年</span></div>
+          <div class="timeline-item"><span class="tl-year">2022-2023</span><span class="tl-desc">追赶期：SD开源让国内开发者可以直接基于开源模型二次开发，阿里通义万相、字节即梦相继推出</span></div>
+          <div class="timeline-item"><span class="tl-year">2023-2024</span><span class="tl-desc">并跑期：快手可灵在视频生成领域达到全球第一梯队，MiniMax、生数科技等创业公司涌现</span></div>
+          <div class="timeline-item"><span class="tl-year">2024-2025</span><span class="tl-desc">领跑期：可灵Kling在多项基准测试中超越Runway和Pika，即梦用户量突破千万，国内应用层创新领先</span></div>
+          <div class="timeline-item"><span class="tl-year">2025+</span><span class="tl-desc">分化期：基础模型仍依赖美国（OpenAI/Google/Meta），但应用层中国已形成独特生态——短视频+电商+社交的深度融合</span></div>
+        </div>
+        <p style="margin-top:12px"><strong>关键判断：</strong>中国在AI影像领域的优势不在基础模型（芯片受限、训练数据不足），而在"应用创新+场景丰富+用户规模"。短视频（抖音/快手）和电商（淘宝/拼多多）为AI影像提供了全球最大的试验场，这是美国公司不具备的优势。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">七、案例深挖：中国AI影像创业公司生态</h2>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-star"></i> 深案例：中国AI影像创业版图</div>
+      <div class="case-body">
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>公司</th><th>成立时间</th><th>核心产品</th><th>融资情况</th><th>竞争壁垒</th></tr></thead>
+          <tbody>
+            <tr><td>MiniMax</td><td>2021</td><td>海螺AI、视频生成模型</td><td>$4亿+（多轮融资）</td><td>大模型全栈能力，视频生成技术领先</td></tr>
+            <tr><td>生数科技(Vidu)</td><td>2023</td><td>Vidu视频生成</td><td>数亿人民币</td><td>角色一致性技术，视频时长行业领先</td></tr>
+            <tr><td>万兴科技</td><td>2002(上市)</td><td>万兴喵影AI版、FireRed</td><td>上市公司</td><td>视频编辑软件用户基础，出海经验</td></tr>
+            <tr><td>相芯科技</td><td>2018</td><td>AI视觉处理SDK</td><td>数亿美元</td><td>人脸/人体理解技术，ToB服务能力</td></tr>
+            <tr><td>硅基智能</td><td>2021</td><td>数字人直播、AI短视频</td><td>数亿人民币</td><td>数字人技术，直播电商场景深耕</td></tr>
+            <tr><td>频普科技(频普AI)</td><td>2023</td><td>AI视频生成平台</td><td>天使轮+</td><td>视频生成算法优化，低成本方案</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px"><strong>生态特点：</strong>中国AI影像创业公司呈现出"大厂主导+创业公司垂直突破"的格局。大厂（字节/快手/阿里/百度）凭借数据和算力优势主导应用层，创业公司则在特定技术方向（如角色一致性、视频时长控制）寻找差异化。融资环境方面，2023-2024年是高峰，2025年开始分化——有真实技术壁垒的公司继续获得融资，纯套壳公司被淘汰。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">八、多学派交叉解读</h2>
+
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 重商主义视角 — 国家战略竞争</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">AI影像技术是数字时代的核心竞争力，各国都在争夺这一战略高地。美国通过芯片出口管制和技术封锁维持领先，中国通过应用层创新和庞大的国内市场实现"曲线突围"。重商主义强调"贸易顺差即国力"，在AI时代可以类比为"AI技术自主度即数字主权"。谁掌握了AI影像的基础模型和标准制定权，谁就掌握了下一代内容产业的"关税"。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 马克思主义视角 — 产业链中的价值分配</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">AI影像产业链中，价值分配极不均衡：上游芯片（NVIDIA）和基础模型（OpenAI）攫取了最大份额的利润，中游平台（Midjourney、Runway）获得可观的订阅收入，而下游创作者（使用AI工具的内容生产者）却面临"价值被挤压"——因为AI降低了内容生产成本，市场竞争加剧导致单件内容收益下降。这是典型的"资本有机构成提高"过程中的利润率下降趋势。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 新制度经济学视角 — 平台作为制度</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">AI影像平台不仅是技术工具，更是"制度安排"——它们定义了创作者与受众之间的交互规则、价值分配方式和信任机制。平台通过算法推荐、内容审核、版权保护等机制行使着"准治理权"。科斯定理在此的应用：如果平台间的交易成本（迁移成本、学习成本、数据锁定）足够高，平台就会形成垄断地位。因此，开源生态（SD/Flux）的制度意义在于降低"制度性交易成本"，防止平台垄断。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#7c3aed;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 演化经济学视角 — 产业生态的"协同演化"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">AI影像产业是一个典型的"协同演化系统"：芯片性能提升 → 允许更大模型 → 生成质量提高 → 吸引更多用户 → 更多资金投入研发 → 芯片需求增加。这种正向反馈循环正在加速产业演化。但演化经济学也提醒我们注意"锁定效应"——当前基于扩散模型的技术轨道可能在未来被新的范式（如世界模型、神经渲染）颠覆，就像扩散模型曾经颠覆GAN一样。</p>
+    </div>
+
+    <h2 class="section-subtitle">九、发散引申链</h2>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链一：算力集中 → 模型垄断 → 应用同质化 → 差异化竞争上移</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(26,82,118,0.08);border-radius:6px;border-left:3px solid #1A5276">
+          <strong style="color:#1A5276;font-size:12px">算力集中</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">GPU供应链被NVIDIA主导 → 基础模型训练门槛极高 → 只有少数公司能训练顶级模型</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(184,134,11,0.08);border-radius:6px;border-left:3px solid #B8860B">
+          <strong style="color:#B8860B;font-size:12px">应用同质化</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">多数工具使用相似的基础模型 → 输出质量趋同 → 差异化越来越难</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(220,38,38,0.08);border-radius:6px;border-left:3px solid #dc2626">
+          <strong style="color:#dc2626;font-size:12px">差异化上移</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">竞争焦点从"模型能力"转移到"工作流/场景/品牌" → 垂直领域和专业服务成为新战场</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链二：AI影像普及 → 传统视觉行业冲击 → 职业重构 → 新技能需求</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(5,150,105,0.08);border-radius:6px;border-left:3px solid #059669">
+          <strong style="color:#059669;font-size:12px">行业冲击</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">摄影/插画/设计/动画等传统行业受到冲击 → 部分岗位消失，部分岗位转型</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(124,58,237,0.08);border-radius:6px;border-left:3px solid #7c3aed">
+          <strong style="color:#7c3aed;font-size:12px">职业重构</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">"AI+设计"复合型岗位兴起 → 传统技能+AI工具=新竞争力 → 职业培训体系重构</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(6,182,212,0.08);border-radius:6px;border-left:3px solid #06b6d4">
+          <strong style="color:#06b6d4;font-size:12px">新技能需求</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">审美能力>技术能力 → 提示词素养成为基础技能 → 创意策划能力溢价上升</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">十、战略建议：产业链中的定位选择</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> 在产业链中找到你的位置</div>
+      <div class="tip-body">
+        <p><strong>如果你是个人创作者：</strong>不要试图和平台竞争——你的优势在"下游应用层"。专注于你擅长的创意内容和垂直领域，用AI工具提升效率而不是替代创意。记住：工具是杠杆，创意是支点。</p>
+        <p style="margin-top:8px"><strong>如果你是企业主：</strong>关注"中游平台+下游应用"的结合点。例如，将AI影像工具集成到你的产品设计流程中（概念设计→3D建模→渲染），可以大幅缩短产品上市周期。ROI通常在一季度内可见。</p>
+        <p style="margin-top:8px"><strong>如果你关注投资：</strong>上游芯片和基础模型已经是巨头游戏，创业公司很难切入。但中游的工具层和下游的场景应用层仍有大量机会——特别是那些能够将AI影像与现有业务深度整合的团队。</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="03-env-setup.html"><i class="fas fa-arrow-left"></i> 环境搭建与免费工具配置</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">4 / 25</span>
+    <a class="nav-next" href="05-ip-design-concepts.html">潮玩IP角色设计理念 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart1 = echarts.init(document.getElementById('chart-04-market'));
+    chart1.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['全球市场规模($亿)', '中国市场规模($亿)'], textStyle: { color: '#94a3b8' }, top: 0 },
+      grid: { left: 70, right: 20, top: 40, bottom: 40 },
+      xAxis: { type: 'category', data: ['2020', '2021', '2022', '2023', '2024', '2025', '2026E', '2027E', '2028E', '2029E', '2030E'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: { type: 'value', name: '($亿)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      series: [
+        { name: '全球市场规模($亿)', type: 'line', smooth: true, data: [8, 15, 28, 50, 65, 85, 115, 155, 210, 285, 380], itemStyle: { color: '#8b5cf6' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(139,92,246,0.3)' }, { offset: 1, color: 'rgba(139,92,246,0.05)' }]) }, lineStyle: { width: 3 } },
+        { name: '中国市场规模($亿)', type: 'line', smooth: true, data: [1, 2, 4, 7, 10, 15, 22, 32, 45, 62, 85], itemStyle: { color: '#06b6d4' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(6,182,212,0.2)' }, { offset: 1, color: 'rgba(6,182,212,0.03)' }]) }, lineStyle: { width: 2, type: 'dashed' } }
+      ]
+    });
+    window.addEventListener('resize', function() { chart1.resize(); });
+
+    var chart2 = echarts.init(document.getElementById('chart-04-share'));
+    chart2.setOption({
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', right: 20, top: 'center', textStyle: { color: '#94a3b8', fontSize: 11 } },
+      series: [{
+        type: 'pie',
+        radius: ['40%', '70%'],
+        center: ['35%', '50%'],
+        avoidLabelOverlap: false,
+        itemStyle: { borderRadius: 6, borderColor: '#0a0e17', borderWidth: 2 },
+        label: { show: false },
+        emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold', color: '#e2e8f0' } },
+        data: [
+          { value: 30, name: '美国公司', itemStyle: { color: '#8b5cf6' } },
+          { value: 22, name: '中国公司', itemStyle: { color: '#06b6d4' } },
+          { value: 15, name: '欧洲公司', itemStyle: { color: '#10b981' } },
+          { value: 8, name: '日本/韩国公司', itemStyle: { color: '#f59e0b' } },
+          { value: 12, name: '其他(以色列/印度/加拿大等)', itemStyle: { color: '#64748b' } },
+          { value: 13, name: '开源社区/非营利', itemStyle: { color: '#ec4899' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function() { chart2.resize(); });
+  </script>
+</body>
+</html>

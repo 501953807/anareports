@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 动画短片策划 — 《AI影像创作百科全书》</title>
+  <link rel="stylesheet" href="../common/css/book.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-book-name"><i class="fas fa-book"></i> AnaReports</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-chapter-title">AI影像创作百科全书</span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn nav-toc-toggle" onclick="AnaNav.toggleSidebar()"><i class="fas fa-bars"></i> 目录</button>
+      <a class="nav-btn" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <h3><i class="fas fa-list"></i> 目录</h3>
+    <ul class="toc-list">
+      <li class="toc-chapter">第一篇：工具选型与基础</li>
+      <li><a href="01-tool-overview.html">01 AI影像工具全景图谱</a></li>
+      <li><a href="02-prompt-engineering.html">02 提示词工程核心方法论</a></li>
+      <li><a href="03-env-setup.html">03 环境搭建与免费工具配置</a></li>
+      <li><a href="04-industry-analysis.html">04 AI影像产业链分析</a></li>
+      <li class="toc-chapter">第二篇：潮玩IP角色设计实战</li>
+      <li><a href="05-ip-design-concepts.html">05 潮玩IP角色设计理念</a></li>
+      <li><a href="06-character-three-view.html">06 AI生成角色三视图</a></li>
+      <li><a href="07-expression-prop-design.html">07 表情集与道具设计</a></li>
+      <li><a href="08-lora-controlnet.html">08 LoRA训练与ControlNet精细控制</a></li>
+      <li><a href="09-design-integration.html">09 设计稿整合输出</a></li>
+      <li class="toc-chapter">第三篇：完整动画短片制作全流程</li>
+      <li><a href="10-animation-planning.html">10 动画短片策划</a></li>
+      <li><a href="11-scene-character-gen.html">11 场景与角色图像生成</a></li>
+      <li><a href="12-image-to-video.html">12 从图像到动画的视频生成</a></li>
+      <li><a href="13-post-production.html">13 AI辅助后期全栈</a></li>
+      <li><a href="14-music-sfx.html">14 AI音乐与音效创作</a></li>
+      <li><a href="15-voice-subtitle.html">15 AI配音与字幕生成</a></li>
+      <li><a href="16-output-publishing.html">16 成片输出与发布策略</a></li>
+      <li class="toc-chapter">第四篇：AI工作流自动化与进阶</li>
+      <li><a href="17-comfyui-advanced.html">17 ComfyUI高级工作流</a></li>
+      <li><a href="18-automation-n8n.html">18 AI工作流自动化（n8n/Make/Zapier）</a></li>
+      <li><a href="19-3d-generation.html">19 AI 3D生成与建模</a></li>
+      <li><a href="20-short-video-matrix.html">20 AI短视频矩阵运营</a></li>
+      <li><a href="21-commercial-applications.html">21 AI影像商业应用场景</a></li>
+      <li><a href="22-advanced-painting.html">22 AI绘画进阶技法</a></li>
+      <li class="toc-chapter">第五篇：变现路径与未来展望</li>
+      <li><a href="23-merch-commodification.html">23 潮玩IP周边商品化</a></li>
+      <li><a href="24-monetization-evaluation.html">24 内容变现综合评估</a></li>
+      <li><a href="25-future-trends.html">25 AI影像未来趋势</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h1 class="section-title">10 动画短片策划</h1>
+
+    <div class="data-note">
+      <strong>📊 核心观点：</strong>一部成功的动画短片，90%的质量取决于前期策划。AI时代，策划阶段的最大变化是从"手绘草图+口头描述"升级为"结构化提示词+视觉参考板"。本章以"小橘找回家"为例，完整演示从剧本到分镜到视觉设定的全流程。
+    </div>
+
+    <h2 class="section-subtitle">一、短片定位：3-5分钟皮克斯风格现代卡通</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-crosshairs"></i> 短片定位框架</div>
+      <div class="tip-body">
+        <table class="data-table">
+          <thead><tr><th>维度</th><th>选择</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td><strong>时长</strong></td><td>3-5分钟</td><td>适合短视频平台传播，制作周期可控（AI辅助下约2-3周），观众注意力友好</td></tr>
+            <tr><td><strong>风格</strong></td><td>皮克斯风格现代卡通</td><td>三维渲染质感+简化几何造型+温暖色彩，AI工具（SD/Flux）对此风格训练数据最充分</td></tr>
+            <tr><td><strong>受众</strong></td><td>全年龄段（核心8-35岁）</td><td>情感共鸣跨越年龄层，B站/YouTube/抖音均可覆盖</td></tr>
+            <tr><td><strong>主题</strong></td><td>寻家之旅</td><td>普世情感主题，无需对白即可理解，天然适合多语种配音</td></tr>
+            <tr><td><strong>叙事方式</strong></td><td>无对白纯视觉叙事</td><td>降低多语言制作成本，全球发行无障碍，AI配音可选配非必需</td></tr>
+            <tr><td><strong>角色数量</strong></td><td>3-5个主要角色</td><td>角色一致性控制在AI流程中的关键瓶颈，控制在5个以内可大幅降低技术风险</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">二、剧本创作方法</h2>
+
+    <h3 class="section-subtitle">2.1 三幕剧结构</h3>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="section-subtitle">第一幕：出发（0:00-1:00）</h3>
+        <p>建立主角"小橘"的日常世界——一个温暖但简陋的小巷猫窝。一场暴风雨摧毁了猫窝，小橘被迫踏上旅程。</p>
+        <ul style="list-style:none;padding:8px 0 0;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">激励事件：</strong>暴风雨摧毁家园</li>
+          <li><strong style="color:var(--text)">转折点：</strong>小橘看到远处城市灯光，决定前往</li>
+          <li><strong style="color:var(--text)">情感锚点：</strong>小橘带着半张旧照片（可能是它家的线索）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="section-subtitle">第二幕：冒险（1:00-3:30）</h3>
+        <p>小橘在城市中经历三次考验：遇见流浪狗伙伴、被困在商场、遇到善良的小女孩。</p>
+        <ul style="list-style:none;padding:8px 0 0;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">考验一：</strong>流浪狗的善意帮助，建立友谊</li>
+          <li><strong style="color:var(--text)">考验二：</strong>商场困局，AI生成的壮观城市夜景</li>
+          <li><strong style="color:var(--text)">考验三：</strong>小女孩收留，短暂温暖后再次出发</li>
+        </ul>
+      </div>
+      <div class="card" style="grid-column: 1 / -1;">
+        <h3 class="section-subtitle">第三幕：归来（3:30-5:00）</h3>
+        <p>小橘根据照片线索找到了一栋熟悉的公寓楼，门开后——原来小女孩的家就是它原来的家！原来小女孩就是搬家后新来的邻居。团圆结局。</p>
+        <ul style="list-style:none;padding:8px 0 0;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">高潮：</strong>照片与公寓门牌的匹配确认</li>
+          <li><strong style="color:var(--text)">反转：</strong>不是回到过去，而是在新地方找到新家</li>
+          <li><strong style="color:var(--text)">主题升华：</strong>"家不是一个地点，是有爱的地方"</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">2.2 角色弧光设计</h3>
+
+    <table class="data-table">
+      <thead><tr><th>角色</th><th>初始状态</th><th>转变契机</th><th>最终状态</th><th>弧光类型</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>小橘</strong></td>
+          <td>恐惧未知，躲在巷子里</td>
+          <td>失去家园，别无选择</td>
+          <td>勇敢探索城市，主动寻找</td>
+          <td><span class="badge cyan">成长弧</span></td>
+        </tr>
+        <tr>
+          <td><strong>小黑（流浪狗）</strong></td>
+          <td>警惕陌生人，独来独往</td>
+          <td>小橘分享食物</td>
+          <td>成为忠诚伙伴，一起冒险</td>
+          <td><span class="badge green">信任弧</span></td>
+        </tr>
+        <tr>
+          <td><strong>小女孩（小雅）</strong></td>
+          <td>孤独，缺少陪伴</td>
+          <td>遇到小橘和小黑</td>
+          <td>找到情感寄托，学会关爱</td>
+          <td><span class="badge purple">治愈弧</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">2.3 冲突设计矩阵</h3>
+
+    <table class="data-table">
+      <thead><tr><th>冲突类型</th><th>具体表现</th><th>出现时间点</th><th>情感效果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>人与自然</strong></td><td>暴风雨摧毁猫窝</td><td>0:30</td><td>紧迫感、同情心</td></tr>
+        <tr><td><strong>人与社会</strong></td><td>城市中对流浪动物的排斥</td><td>1:30</td><td>孤独感、边缘化</td></tr>
+        <tr><td><strong>人与人</strong></td><td>有人想驱赶小橘 vs 小雅想收留</td><td>2:30</td><td>道德张力</td></tr>
+        <tr><td><strong>内在冲突</strong></td><td>小橘害怕 vs 渴望回家的矛盾</td><td>贯穿全程</td><td>共情、代入感</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">三、分镜脚本设计</h2>
+
+    <h3 class="section-subtitle">3.1 Shot List：12个关键镜头</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:6%">#</th>
+          <th style="width:12%">镜头</th>
+          <th style="width:10%">景别</th>
+          <th style="width:10%">角度</th>
+          <th style="width:14%">运动</th>
+          <th style="width:22%">画面描述</th>
+          <th style="width:14%">时长</th>
+          <th style="width:12%">情绪</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>开场全景</td>
+          <td>远景</td>
+          <td>俯拍</td>
+          <td>缓慢下降</td>
+          <td>城市天际线，暴雨乌云笼罩，一条狭窄小巷隐约可见</td>
+          <td>8s</td>
+          <td><span class="badge red">压抑</span></td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>猫窝日常</td>
+          <td>中景</td>
+          <td>平视</td>
+          <td>固定</td>
+          <td>小橘在纸箱猫窝里蜷缩睡觉，旁边放着半张照片</td>
+          <td>6s</td>
+          <td><span class="badge orange">温馨</span></td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>暴风雨来袭</td>
+          <td>近景→特写</td>
+          <td>低角度</td>
+          <td>手持晃动</td>
+          <td>狂风暴雨袭击小巷，纸箱被吹散，小橘惊恐逃跑</td>
+          <td>10s</td>
+          <td><span class="badge red">恐慌</span></td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>城市灯光</td>
+          <td>远景</td>
+          <td>小橘主观视角</td>
+          <td>缓慢推进</td>
+          <td>小橘站在天桥上，远处城市灯火辉煌，雨后天晴</td>
+          <td>8s</td>
+          <td><span class="badge cyan">希望</span></td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td>相遇流浪狗</td>
+          <td>中景</td>
+          <td>平视</td>
+          <td>环绕</td>
+          <td>小黑从阴影中走出，两人对视，气氛紧张</td>
+          <td>7s</td>
+          <td><span class="badge orange">紧张</span></td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td>分享食物</td>
+          <td>特写</td>
+          <td>俯视</td>
+          <td>固定</td>
+          <td>小橘把半块饼干推向小黑，小黑犹豫后接受</td>
+          <td>6s</td>
+          <td><span class="badge green">善意</span></td>
+        </tr>
+        <tr>
+          <td><strong>7</strong></td>
+          <td>商场困局</td>
+          <td>全景</td>
+          <td>仰拍</td>
+          <td>旋转</td>
+          <td>小橘和小黑被困在巨大商场中庭，玻璃门在头顶关闭</td>
+          <td>10s</td>
+          <td><span class="badge red">壮观/绝望</span></td>
+        </tr>
+        <tr>
+          <td><strong>8</strong></td>
+          <td>夜晚城市</td>
+          <td>远景</td>
+          <td>平视</td>
+          <td>缓慢横摇</td>
+          <td>城市夜景，霓虹灯倒映在水洼中，小橘和小黑依偎</td>
+          <td>8s</td>
+          <td><span class="badge purple">孤独/美</span></td>
+        </tr>
+        <tr>
+          <td><strong>9</strong></td>
+          <td>遇见小雅</td>
+          <td>中景</td>
+          <td>平视</td>
+          <td>推进</td>
+          <td>小雅撑伞出现，蹲下来看着小橘，伸出手</td>
+          <td>7s</td>
+          <td><span class="badge green">温暖</span></td>
+        </tr>
+        <tr>
+          <td><strong>10</strong></td>
+          <td>暂时安顿</td>
+          <td>中景</td>
+          <td>平视</td>
+          <td>固定</td>
+          <td>小雅的房间，小橘在小床上睡觉，小黑趴在门口</td>
+          <td>6s</td>
+          <td><span class="badge orange">安宁</span></td>
+        </tr>
+        <tr>
+          <td><strong>11</strong></td>
+          <td>发现线索</td>
+          <td>特写→中景</td>
+          <td>俯视→平视</td>
+          <td>拉远</td>
+          <td>小橘翻找物品时发现照片上的地址就是这条街，抬头看到公寓楼</td>
+          <td>8s</td>
+          <td><span class="badge cyan">惊喜</span></td>
+        </tr>
+        <tr>
+          <td><strong>12</strong></td>
+          <td>团圆结局</td>
+          <td>全景→近景</td>
+          <td>平视</td>
+          <td>推进+缓慢拉远</td>
+          <td>公寓门打开，小雅的妈妈认出小橘，一家人团聚</td>
+          <td>12s</td>
+          <td><span class="badge green">感动</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">3.2 分镜草图提示词模板</h3>
+
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">每个关键镜头对应一组AI图像生成提示词。以下是镜头1（开场全景）的完整提示词模板：</p>
+
+    <div class="card highlight">
+      <p style="font-size:13px;line-height:1.8"><strong>镜头1 — 完整提示词：</strong><br>
+      <code style="background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:12px"> Pixar-style 3D animated wide shot,俯瞰城市天际线,暴风雨前的压抑氛围,深灰色积雨云笼罩整个城市,闪电在云层中闪烁,一条狭窄的老城小巷隐约可见,湿漉漉的街道反射着微弱的灯光, cinematic lighting, volumetric fog, warm orange accent light from alley, 8K resolution, Unreal Engine 5 render, --ar 16:9 --v 6.1 --style raw</code></p>
+    </div>
+
+    <h2 class="section-subtitle">四、视觉风格设定</h2>
+
+    <h3 class="section-subtitle">4.1 Color Palette（配色方案）</h3>
+
+    <div class="grid-4" style="margin-bottom:16px">
+      <div style="text-align:center"><div style="width:100%;height:60px;background:#1a1a2e;border-radius:8px;margin-bottom:6px"></div><div style="font-size:11px;color:var(--text2)">深蓝灰 #1a1a2e<br>主背景色</div></div>
+      <div style="text-align:center"><div style="width:100%;height:60px;background:#f59e0b;border-radius:8px;margin-bottom:6px"></div><div style="font-size:11px;color:var(--text2)">暖橙色 #f59e0b<br>小橘主色</div></div>
+      <div style="text-align:center"><div style="width:100%;height:60px;background:#06b6d4;border-radius:8px;margin-bottom:6px"></div><div style="font-size:11px;color:var(--text2)">青蓝色 #06b6d4<br>城市灯光</div></div>
+      <div style="text-align:center"><div style="width:100%;height:60px;background:#ec4899;border-radius:8px;margin-bottom:6px"></div><div style="font-size:11px;color:var(--text2)">粉紫 #ec4899<br>情感高光</div></div>
+    </div>
+
+    <h3 class="section-subtitle">4.2 Texture Reference（质感参考）</h3>
+
+    <table class="data-table">
+      <thead><tr><th>元素</th><th>质感</th><th>AI生成关键词</th><th>参考工具</th></tr></thead>
+      <tbody>
+        <tr><td>小橘毛发</td><td>柔软蓬松，高光边缘</td><td>fluffy orange tabby cat fur, soft subsurface scattering</td><td>SD + ControlNet OpenPose</td></tr>
+        <tr><td>城市建筑</td><td>写实混凝土+霓虹反射</td><td>urban concrete texture, neon light reflection on wet surfaces</td><td>Midjourney v6.1</td></tr>
+        <tr><td>天气效果</td><td>雨滴透明感+雾气朦胧</td><td>rain droplets on glass, volumetric fog, cinematic atmosphere</td><td>Runway Gen-3 后期叠加</td></tr>
+        <tr><td>室内温馨</td><td>木质纹理+暖光漫射</td><td>warm wood texture, soft ambient occlusion, candlelight glow</td><td>Flux + ComfyUI post-process</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-subtitle">4.3 Lighting Mood（灯光情绪表）</h3>
+
+    <table class="data-table">
+      <thead><tr><th>幕</th><th>时间</th><th>光源类型</th><th>色温</th><th>情绪功能</th></tr></thead>
+      <tbody>
+        <tr><td>第一幕</td><td>黄昏→夜晚</td><td>自然光衰减+路灯</td><td>3200K→1800K</td><td>温暖→不安的过渡</td></tr>
+        <tr><td>暴风雨</td><td>深夜</td><td>闪电频闪+雨水折射</td><td>6500K（冷）</td><td>混乱、恐惧、无助</td></tr>
+        <tr><td>第二幕</td><td>白天→夜晚循环</td><td>城市霓虹+车灯</td><td>4000K-8000K（多变）</td><td>城市的冷漠与美丽并存</td></tr>
+        <tr><td>第三幕</td><td>清晨→日出</td><td>柔和晨光+室内暖光</td><td>4500K→2700K</td><td>希望、温暖、回归</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-subtitle">五、实操演示："小橘找回家"完整分镜设计</h2>
+
+    <h3 class="section-subtitle">5.1 分镜时间线总览</h3>
+
+    <div class="chart-container" id="chart-10-gantt"></div>
+
+    <h3 class="section-subtitle">5.2 12个关键镜头的详细Storyboard Prompt</h3>
+
+    <div class="card">
+      <h3 style="font-size:14px;color:var(--accent-light);margin-bottom:8px"><i class="fas fa-film"></i> 镜头1-4：第一幕 — 出发</h3>
+      <table class="data-table" style="margin-top:8px">
+        <thead><tr><th>镜头</th><th>Midjourney提示词</th><th>关键参数</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1 开场</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animated wide shot, storm clouds over city skyline, dramatic lightning, narrow alley visible, wet streets reflecting dim light, cinematic composition, --ar 16:9 --stylize 250 --v 6.1</td>
+            <td><code>--s 250</code> 中等风格化</td>
+          </tr>
+          <tr>
+            <td><strong>2 猫窝</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation still, fluffy orange tabby cat sleeping in cardboard box, half photo visible beside it, warm sunset light through alley, cozy atmosphere, --ar 16:9 --stylize 200 --v 6.1</td>
+            <td><code>--seed 12345</code> 固定种子</td>
+          </tr>
+          <tr>
+            <td><strong>3 暴风雨</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation dramatic scene, orange kitten running from destroyed cardboard box, heavy rain wind, debris flying, terrified expression, cinematic low angle, --ar 16:9 --stylize 300 --v 6.1</td>
+            <td><code>--chaos 30</code> 高混乱度</td>
+          </tr>
+          <tr>
+            <td><strong>4 城市灯光</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation, small orange cat standing on pedestrian bridge looking at distant city lights after rain, rainbow in sky, hopeful composition, golden hour, --ar 16:9 --stylize 250 --v 6.1</td>
+            <td><code>--style raw</code> 减少MJ风格化</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:14px;color:var(--accent-light);margin-bottom:8px"><i class="fas fa-film"></i> 镜头5-8：第二幕 — 冒险</h3>
+      <table class="data-table" style="margin-top:8px">
+        <thead><tr><th>镜头</th><th>Midjourney提示词</th><th>关键参数</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>5 遇狗</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation, orange kitten facing a black stray dog in narrow alley, tense standoff, dramatic side lighting, both cats and dogs stylized cute but realistic proportions, --ar 16:9 --stylize 200 --v 6.1</td>
+            <td><code>--seed 12345</code> 保持一致</td>
+          </tr>
+          <tr>
+            <td><strong>6 分享</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation close-up, orange cat pushing half biscuit towards black dog, gentle warm light, emotional moment, shallow depth of field, --ar 16:9 --stylize 150 --v 6.1</td>
+            <td><code>--v 6.1</code> 最新模型</td>
+          </tr>
+          <tr>
+            <td><strong>7 商场</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation wide shot, tiny orange cat and black dog inside massive shopping mall atrium, glass ceiling above, towering escalators, sense of wonder and smallness, --ar 16:9 --stylize 350 --v 6.1</td>
+            <td><code>--s 350</code> 高风格化</td>
+          </tr>
+          <tr>
+            <td><strong>8 夜景</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation night scene, orange cat and black dog cuddling together on wet sidewalk, neon signs reflected in puddles, bokeh city lights background, --ar 16:9 --stylize 250 --v 6.1</td>
+            <td><code>--seed 12345</code> 保持一致</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:14px;color:var(--accent-light);margin-bottom:8px"><i class="fas fa-film"></i> 镜头9-12：第三幕 — 归来</h3>
+      <table class="data-table" style="margin-top:8px">
+        <thead><tr><th>镜头</th><th>Midjourney提示词</th><th>关键参数</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>9 遇女孩</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation, kind young Asian girl with umbrella crouching down to pet an orange kitten, black dog sitting nearby, warm street lamp light, gentle expression, --ar 16:9 --stylize 200 --v 6.1</td>
+            <td><code>--style raw</code></td>
+          </tr>
+          <tr>
+            <td><strong>10 安顿</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation interior, orange cat sleeping on small blue bed in cozy bedroom, black dog guarding door, warm lamp light, plush toys visible, peaceful atmosphere, --ar 16:9 --stylize 150 --v 6.1</td>
+            <td><code>--seed 12345</code></td>
+          </tr>
+          <tr>
+            <td><strong>11 线索</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation close-up, orange cat paw holding torn photograph showing apartment building, cat looking up with realization, dramatic spotlight effect, --ar 16:9 --stylize 200 --v 6.1</td>
+            <td><code>--chaos 10</code></td>
+          </tr>
+          <tr>
+            <td><strong>12 团圆</strong></td>
+            <td style="font-size:12px">Pixar-style 3D animation heartwarming ending, orange cat running into arms of young girl and her mother at apartment doorway, black dog jumping happily, warm golden sunlight streaming through door, --ar 16:9 --stylize 250 --v 6.1</td>
+            <td><code>--s 250</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-subtitle">六、案例深挖：皮克斯《包宝宝》制作流程分析</h2>
+
+    <div class="case-box">
+      <div class="case-title"><i class="fas fa-star"></i> 深案例：《包宝宝》（Bao）— 8分钟如何征服奥斯卡</div>
+      <div class="case-body">
+        <p>Domee Shi执导的《包宝宝》2018年上映，2019年获奥斯卡最佳动画短片。制作周期约3年，核心团队12人。关键成功因素：</p>
+        <ol style="padding-left:18px;margin-top:8px;font-size:13px;color:var(--text2)">
+          <li><strong>情感内核极其简单：</strong>母子关系→放手→和解，任何文化背景的观众都能理解</li>
+          <li><strong>无对白设计：</strong>完全依靠视觉叙事和音乐，全球发行零障碍</li>
+          <li><strong>文化细节精准：</strong>中式厨房、包子、家庭餐桌布置，细节经得起推敲</li>
+          <li><strong>视觉隐喻系统：</strong>包子=孩子，吃掉包子=控制欲的极端化，色彩从暖黄→暗红→暖黄的弧光</li>
+          <li><strong>Pixar技术栈：</strong>内部渲染器RenderMan支持极致的材质和光影，毛发模拟（小包的头发丝）是独家技术</li>
+        </ol>
+        <p style="margin-top:10px"><strong>AI时代的启示：</strong>如果《包宝宝》今天用AI制作，核心挑战不再是技术（渲染/毛发），而是"一致性控制"——如何让同一个角色在不同场景、不同角度、不同情绪下保持视觉统一。这正是本书第二篇（角色设计）和第三篇（短片制作）要解决的核心问题。</p>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">七、多学派交叉解读：策划阶段的经济学</h2>
+
+    <div class="school-view" style="border-left:4px solid #B8860B;padding:12px 16px;margin-bottom:12px;background:rgba(184,134,11,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#B8860B;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 古典经济学视角 — 分工与前期专业化</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">亚当·斯密在《国富论》中以制针工厂为例说明了分工的力量。动画短片策划正是"创意分工"的极致体现：编剧负责故事结构、分镜师负责视觉叙事、美术指导负责风格统一。AI时代的变化是——这三个角色可以合并为一个人（你），只要你会写结构化提示词。但分工的逻辑不变：前期策划越专业，后期制作越高效。经验数据表明，策划阶段投入占总时间30%的项目，返工率降低60%以上。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #1A5276;padding:12px 16px;margin-bottom:12px;background:rgba(26,82,118,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#1A5276;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 凯恩斯主义视角 — 计划先于支出</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">凯恩斯的"有效需求理论"可以类比到动画制作：没有明确策划的AI图像生成，就像没有政府投资的私人消费——随机、低效、容易陷入"流动性陷阱"（不断生成不满意的结果却停不下来）。一份完整的分镜脚本和视觉风格指南，就是动画制作的"财政政策"——它引导AI工具的"投资"流向正确的方向，避免资源浪费在无效尝试上。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #dc2626;padding:12px 16px;margin-bottom:12px;background:rgba(220,38,38,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#dc2626;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 马克思主义视角 — 创意劳动的异化与解放</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">在传统动画工业中，分镜师、编剧、美术设计师都是"分工的工人"，他们不拥有最终作品的完整著作权。AI工具的出现让个体创作者重新掌握了从策划到成片的"完整劳动过程"——这可以被看作是"创意劳动的去异化"。但另一方面，AI模型本身训练数据的版权问题又提出了新的"数字生产资料私有化"问题——你使用的每一个AI工具，其训练数据都可能包含了未经授权的创作者劳动。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #059669;padding:12px 16px;margin-bottom:12px;background:rgba(5,150,105,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#059669;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 演化经济学视角 — 动画风格的"自然选择"</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">动画短片的视觉风格不是在真空中选择的，而是在"环境压力"（平台算法偏好、观众审美趋势、AI工具的能力边界）下"自然选择"的结果。皮克斯风格之所以成为AI动画的首选风格，不是因为它是"最好的"，而是因为它是"最适合当前生态环境的"——AI模型对此风格的训练数据最多、提示词最成熟、观众接受度最高。演化经济学提醒我们：风格选择是一个适应性过程，而非绝对优劣判断。</p>
+    </div>
+    <div class="school-view" style="border-left:4px solid #7c3aed;padding:12px 16px;margin-bottom:12px;background:rgba(124,58,237,0.04);border-radius:0 6px 6px 0">
+      <h3 style="color:#7c3aed;font-size:15px;margin:0 0 6px 0"><i class="fas fa-balance-scale"></i> 行为经济学视角 — 策划中的认知偏差</h3>
+      <p style="margin:0;font-size:13px;line-height:1.7">动画策划阶段最常见的认知偏差有三种：(1)<strong>确认偏误</strong>——创作者总是生成自己"想看"的画面，忽略了观众的实际理解；(2)<strong>锚定效应</strong>——第一个生成的分镜稿会成为"锚"，后续所有修改都在此基础上微调，而非从根本上质疑结构；(3)<strong>沉没成本谬误</strong>——在一个已经失败的剧本上继续投入时间，因为"已经花了这么多"。行为经济学的解法是：引入外部评审（至少3个不同背景的观众看分镜）、设定"止损点"（策划阶段不超过总时间的40%）、定期"从零重来"。</p>
+    </div>
+
+    <h2 class="section-subtitle">八、发散引申链</h2>
+
+    <div class="divergence-chain" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(6,182,212,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:16px;margin-bottom:20px">
+      <h3 style="color:var(--text);font-size:14px;margin:0 0 12px 0"><i class="fas fa-link"></i> 引申链：策划质量 → 生成效率 → 成品质量 → 传播效果</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(124,58,237,0.08);border-radius:6px;border-left:3px solid #7c3aed">
+          <strong style="color:#7c3aed;font-size:12px">策划质量</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">分镜完整性、角色一致性文档、视觉参考板的详细程度</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(6,182,212,0.08);border-radius:6px;border-left:3px solid #06b6d4">
+          <strong style="color:#06b6d4;font-size:12px">生成效率</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">好的策划使AI图像生成的一次通过率从20%提升到80%+</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(16,185,129,0.08);border-radius:6px;border-left:3px solid #10b981">
+          <strong style="color:#10b981;font-size:12px">成品质量</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">一致性保障→视觉连贯→观众沉浸感→情感共鸣</p>
+        </div>
+        <div style="flex:1;min-width:200px;padding:10px;background:rgba(245,158,11,0.08);border-radius:6px;border-left:3px solid #f59e0b">
+          <strong style="color:#f59e0b;font-size:12px">传播效果</strong>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--text-secondary)">高质量→完播率提升→算法推荐→曝光增长→正反馈循环</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-subtitle">九、战略建议：策划阶段的效率最大化</h2>
+
+    <div class="tip-box">
+      <div class="tip-title"><i class="fas fa-chess"></i> AI动画短片的策划生存法则</div>
+      <div class="tip-body">
+        <p><strong>先写"一句话故事"：</strong>在动任何工具之前，用一句话概括你的故事。如果这句话说不清楚，说明故事本身有问题。"小橘找回家"的一句话概括："一只流浪橘猫在暴风雨后穿越城市寻找家园，途中结识朋友，最终在新地方找到了真正的家。"</p>
+        <p style="margin-top:8px"><strong>分镜优先于图像：</strong>不要一上来就用Midjourney生成图片。先用文字描述每个镜头，确认叙事流畅后再进入视觉生成。这可以节省50%以上的返工时间。</p>
+        <p style="margin-top:8px"><strong>建立"角色圣经"：</strong>为每个主要角色创建一页文档，包含：外貌描述（精确到毛色编号）、性格关键词、标志性动作、配色方案。每次生成角色图像时，引用这份文档确保一致性。</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <a class="nav-prev" href="09-design-integration.html"><i class="fas fa-arrow-left"></i> 设计稿整合输出</a>
+    <a class="nav-home" href="index.html"><i class="fas fa-list"></i> 目录</a>
+    <span class="page-info">10 / 25</span>
+    <a class="nav-next" href="11-scene-character-gen.html">场景与角色图像生成 <i class="fas fa-arrow-right"></i></a>
+  </footer>
+
+  <script src="../common/js/echarts.inline.js"></script>
+  <script src="../common/js/navigation.js"></script>
+  <script>
+    var chart = echarts.init(document.getElementById('chart-10-gantt'));
+    chart.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: function(params) {
+          var p = params[0];
+          return p.name + ': ' + p.value[1] + '-' + p.value[2] + '秒 (' + p.value[3] + ')';
+        }
+      },
+      grid: { left: 100, right: 30, top: 20, bottom: 30 },
+      xAxis: { type: 'value', max: 300, name: '时间（秒）', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+      yAxis: {
+        type: 'category',
+        data: ['第一幕：出发', '  镜头1 开场全景', '  镜头2 猫窝日常', '  镜头3 暴风雨来袭', '  镜头4 城市灯光', '第二幕：冒险', '  镜头5 相遇流浪狗', '  镜头6 分享食物', '  镜头7 商场困局', '  镜头8 夜晚城市', '第三幕：归来', '  镜头9 遇见小雅', '  镜头10 暂时安顿', '  镜头11 发现线索', '  镜头12 团圆结局'],
+        axisLabel: { color: '#94a3b8', fontSize: 11 },
+        axisLine: { lineStyle: { color: '#1e2a3a' } }
+      },
+      series: [{
+        type: 'bar',
+        data: [
+          { value: [0, 30], itemStyle: { color: '#7c3aed', borderRadius: 0 } },
+          { value: [0, 8], itemStyle: { color: '#a78bfa' } },
+          { value: [8, 14], itemStyle: { color: '#a78bfa' } },
+          { value: [14, 24], itemStyle: { color: '#a78bfa' } },
+          { value: [24, 32], itemStyle: { color: '#a78bfa' } },
+          { value: [32, 130], itemStyle: { color: '#06b6d4', borderRadius: 0 } },
+          { value: [32, 39], itemStyle: { color: '#67e8f3' } },
+          { value: [39, 45], itemStyle: { color: '#67e8f3' } },
+          { value: [45, 55], itemStyle: { color: '#67e8f3' } },
+          { value: [55, 63], itemStyle: { color: '#67e8f3' } },
+          { value: [130, 220], itemStyle: { color: '#10b981', borderRadius: 0 } },
+          { value: [130, 137], itemStyle: { color: '#6ee7b7' } },
+          { value: [137, 143], itemStyle: { color: '#6ee7b7' } },
+          { value: [143, 151], itemStyle: { color: '#6ee7b7' } },
+          { value: [151, 163], itemStyle: { color: '#6ee7b7' } }
+        ],
+        barWidth: 14,
+        label: {
+          show: true,
+          position: 'right',
+          formatter: function(params) {
+            if (params.value[0] === params.value[1]) return '';
+            return params.value[1] + 's';
+          },
+          color: '#94a3b8',
+          fontSize: 10
+        }
+      }]
+    });
+    window.addEventListener('resize', function() { chart.resize(); });
+  </script>
+</body>
+</html>
