@@ -1,0 +1,271 @@
+- generic [ref=e2]:
+  - region "New seller incentive" [ref=e3]:
+    - generic [ref=e4]:
+      - paragraph [ref=e5]: Earn new seller incentives worth up to $11,900
+      - link "Learn more ↗" [ref=e6] [cursor=pointer]:
+        - /url: "#seller-home-incentive"
+  - banner [ref=e7]:
+    - generic [ref=e8]:
+      - link "TikTok Shop" [ref=e9] [cursor=pointer]:
+        - /url: https://seller.tiktok.com/?channel=portal_header_v4
+        - img "TikTok Shop" [ref=e10]
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - checkbox [ref=e13]
+          - generic "United States" [ref=e14] [cursor=pointer]
+        - group [ref=e18]:
+          - generic "Menu" [ref=e19] [cursor=pointer]:
+            - img "Menu" [ref=e20]
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - heading "Turn views into sales" [level=1] [ref=e24]
+      - paragraph [ref=e25]: Reach shoppers through creators, shoppable video, and LIVE
+      - link "Start selling" [ref=e26] [cursor=pointer]:
+        - /url: https://seller-us.tiktok.com/account/register?channel=portal_hero_v4
+    - generic [ref=e28]:
+      - figure [ref=e29]:
+        - img "TikTok Shop seller example" [ref=e30]
+        - img "TikTok Shop seller example" [ref=e32]
+      - article [ref=e33]:
+        - heading "Earn new seller incentives worth up to $11,900" [level=2] [ref=e34]
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - generic [ref=e38]: Earn up to $1,900 in rewards as you launch
+          - listitem [ref=e39]:
+            - generic [ref=e40]: Scale with up to $10,000 in ad credits
+          - listitem [ref=e41]:
+            - generic [ref=e42]: Boost visibility with TikTok-funded discounts and campaigns
+          - listitem [ref=e43]:
+            - generic [ref=e44]: Get started with no setup fees
+    - generic [ref=e45]:
+      - 'radio "@SACHEUBeautyUSA Previous story: @SACHEUBeautyUSA Next story: @SACHEUBeautyUSA" [checked]'
+      - 'radio "@Aroma_Concepts_fl Next story: @Aroma_Concepts_fl Previous story: @Aroma_Concepts_fl"'
+      - 'radio "@ILoveChamoy Next story: @ILoveChamoy Previous story: @ILoveChamoy"'
+      - 'radio "@simplymandys Previous story: @simplymandys Next story: @simplymandys"'
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - heading "Success stories" [level=2] [ref=e48]
+          - generic [ref=e49]:
+            - generic [ref=e50] [cursor=pointer]: "@SACHEUBeautyUSA"
+            - generic [ref=e51] [cursor=pointer]: "@Aroma_Concepts_fl"
+            - generic [ref=e52] [cursor=pointer]: "@ILoveChamoy"
+            - generic [ref=e53] [cursor=pointer]: "@simplymandys"
+        - generic [ref=e55]:
+          - article [ref=e56]:
+            - generic [ref=e57]:
+              - figure [ref=e58]:
+                - generic [ref=e59]:
+                  - generic:
+                    - generic:
+                      - button "Pause video" [ref=e61] [cursor=pointer]
+                      - generic:
+                        - button "Unmute video" [ref=e66] [cursor=pointer]
+                        - button "Open fullscreen video" [ref=e72] [cursor=pointer]
+                    - slider "Video progress" [ref=e78] [cursor=pointer]: "0"
+              - paragraph [ref=e79]: 2025 seller results
+            - generic [ref=e80]:
+              - paragraph [ref=e81]: We've connected with over 20k+ creators and they make up 90% of our sales
+              - strong [ref=e82]: Sarah Cheung Founder of Sacheu Beauty
+              - generic [ref=e83]:
+                - generic [ref=e84]:
+                  - generic [ref=e87]:
+                    - text: "90"
+                    - emphasis [ref=e88]: "%"
+                  - generic [ref=e89]: creator generated sales
+                - generic [ref=e90]:
+                  - generic [ref=e93]:
+                    - text: "1.8"
+                    - emphasis [ref=e94]: B
+                  - generic [ref=e95]: views in 8 hours
+          - article [ref=e96]:
+            - generic [ref=e97]:
+              - figure [ref=e98]:
+                - generic [ref=e99]:
+                  - generic:
+                    - generic:
+                      - button "Play video" [ref=e101] [cursor=pointer]
+                      - generic:
+                        - button "Unmute video" [ref=e105] [cursor=pointer]
+                        - button "Open fullscreen video" [ref=e111] [cursor=pointer]
+                    - slider "Video progress" [ref=e117] [cursor=pointer]: "0"
+              - paragraph [ref=e118]: 2024 seller results
+            - generic [ref=e119]:
+              - paragraph [ref=e120]: TikTok Shop is contributing 74% of our annual sales
+              - strong [ref=e121]: Sheraz Ishaque Founder of Aroma Concepts
+              - generic [ref=e122]:
+                - generic [ref=e123]:
+                  - generic [ref=e126]:
+                    - text: "+3699"
+                    - emphasis [ref=e127]: "%"
+                  - generic [ref=e128]: LIVE uplift in one month
+                - generic [ref=e129]:
+                  - generic [ref=e132]:
+                    - text: "+38"
+                    - emphasis [ref=e133]: "%"
+                  - generic [ref=e134]: increase in total revenue
+          - article [ref=e135]:
+            - generic [ref=e136]:
+              - figure [ref=e137]:
+                - generic [ref=e138]:
+                  - generic:
+                    - generic:
+                      - button "Play video" [ref=e140] [cursor=pointer]
+                      - generic:
+                        - button "Unmute video" [ref=e144] [cursor=pointer]
+                        - button "Open fullscreen video" [ref=e150] [cursor=pointer]
+                    - slider "Video progress" [ref=e156] [cursor=pointer]: "0"
+              - paragraph [ref=e157]: 2024 seller results
+            - generic [ref=e158]:
+              - paragraph [ref=e159]: The most impressive thing about shoppable videos for us has been that it has more than 3X our sales
+              - strong [ref=e160]: Annie Leal Founder of I Love Chamoy
+              - generic [ref=e161]:
+                - generic [ref=e162]:
+                  - generic [ref=e165]:
+                    - text: +$324
+                    - emphasis [ref=e166]: K
+                  - generic [ref=e167]: GMV in one month
+                - generic [ref=e168]:
+                  - generic [ref=e171]:
+                    - text: "70"
+                    - emphasis [ref=e172]: "%"
+                  - generic [ref=e173]: sales from shoppable videos
+          - article [ref=e174]:
+            - generic [ref=e175]:
+              - figure [ref=e176]:
+                - generic [ref=e177]:
+                  - generic:
+                    - generic:
+                      - button "Play video" [ref=e179] [cursor=pointer]
+                      - generic:
+                        - button "Unmute video" [ref=e183] [cursor=pointer]
+                        - button "Open fullscreen video" [ref=e189] [cursor=pointer]
+                    - slider "Video progress" [ref=e195] [cursor=pointer]: "0"
+              - paragraph [ref=e196]: 2024 seller results
+            - generic [ref=e197]:
+              - paragraph [ref=e198]: I cannot believe we sold $1.2M going LIVE on TikTok Shop in one day
+              - strong [ref=e199]: Mandy Pena Founder of Simply Mandys
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - generic [ref=e204]:
+                    - text: $1.2
+                    - emphasis [ref=e205]: M
+                  - generic [ref=e206]: sales in a single LIVE
+                - generic [ref=e207]:
+                  - generic [ref=e210]:
+                    - text: "39"
+                    - emphasis [ref=e211]: M
+                  - generic [ref=e212]: views in a single LIVE
+    - generic [ref=e214]:
+      - heading "Turn scrollers into shoppers" [level=2] [ref=e216]
+      - generic [ref=e217]:
+        - figure "Reach millions of highly engaged customers" [ref=e218]:
+          - img "Reach millions of highly engaged customers" [ref=e219]
+        - figure "Tap into the creator ecosystem to scale your business" [ref=e221]:
+          - img "Tap into the creator ecosystem to scale your business" [ref=e222]
+        - figure "From scroll to sale — without leaving TikTok" [ref=e224]:
+          - img "From scroll to sale — without leaving TikTok" [ref=e225]
+    - generic [ref=e227]:
+      - heading "Shoppers discover and buy on TikTok" [level=2] [ref=e229]
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - term [ref=e232]:
+            - generic [ref=e233]: "0"
+            - generic [ref=e234]: "%"
+          - definition [ref=e235]: of TikTok users discover new brands and products on TikTok¹
+        - generic [ref=e236]:
+          - term [ref=e237]:
+            - generic [ref=e238]: "0"
+            - generic [ref=e239]: in 4
+          - definition [ref=e240]: TikTok users are likely to buy something while using TikTok²
+        - generic [ref=e241]:
+          - term [ref=e242]:
+            - generic [ref=e243]: "0"
+            - generic [ref=e244]: "%"
+          - definition [ref=e245]: of users say that TikTok content plays a role in purchase decisions³
+      - paragraph [ref=e246]: "Sources: (1) TikTok Marketing Science Global Retail Path to Purchase (US Results) conducted by Material August 2021. (2) TikTok Marketing Science Global TikTok Shop Research (US Results) 2024, conducted by Material. (3) McKinsey, How Live Commerce is Transforming the Shopping Experience, July 2021."
+    - generic [ref=e248]:
+      - heading "FAQs" [level=2] [ref=e249]
+      - generic [ref=e250]:
+        - group [ref=e251]:
+          - generic "Who can sell on TikTok Shop?" [ref=e252] [cursor=pointer]
+        - group [ref=e255]:
+          - generic "How do I sign up?" [ref=e256] [cursor=pointer]
+        - group [ref=e259]:
+          - generic "Is there a fee to join TikTok Shop?" [ref=e260] [cursor=pointer]
+          - text: ↗
+        - group [ref=e263]:
+          - generic "How do I get paid?" [ref=e264] [cursor=pointer]
+    - generic [ref=e268]:
+      - heading "Reach millions of shoppers on TikTok Shop" [level=2] [ref=e269]
+      - link "Start selling" [ref=e270] [cursor=pointer]:
+        - /url: https://seller-us.tiktok.com/account/register?channel=portal_finnal_cta_v4
+    - region "New seller incentive" [ref=e271]:
+      - generic [ref=e272]:
+        - paragraph [ref=e273]: Earn new seller incentives worth up to $11,900
+        - link "Learn more ↗" [ref=e274] [cursor=pointer]:
+          - /url: "#seller-home-incentive"
+  - contentinfo [ref=e275]:
+    - generic [ref=e276]:
+      - generic [ref=e277]:
+        - generic [ref=e278]:
+          - navigation [ref=e279]:
+            - heading "Company" [level=4] [ref=e280]
+            - link "TikTok" [ref=e281] [cursor=pointer]:
+              - /url: https://www.tiktok.com/about?from=portal_v4
+            - link "TikTok for Business" [ref=e282] [cursor=pointer]:
+              - /url: https://www.tiktok.com/business/en-US?from=portal_v4
+            - link "TikTok Shop" [ref=e283] [cursor=pointer]:
+              - /url: https://www.tiktok.com/shop?from=portal_v4
+            - link "CapCut" [ref=e284] [cursor=pointer]:
+              - /url: https://www.capcut.com/?from=portal_v4
+            - link "Lark" [ref=e285] [cursor=pointer]:
+              - /url: https://www.larksuite.com/?utm_source=seo_external_link_tts&from=portal_v4
+          - navigation [ref=e286]:
+            - heading "Product" [level=4] [ref=e287]
+            - link "Seller Center" [ref=e288] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/account/register?channel=portal_footer_v4
+            - link "App Store" [ref=e289] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/appstore?source=portal_footer_v4
+            - link "Partners" [ref=e290] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/partners?source=portal_footer_v4
+            - link "LIVE Manager" [ref=e291] [cursor=pointer]:
+              - /url: https://shop.tiktok.com/streamer/welcome?enter_from=official_website_v4
+            - link "CapCut creative suite" [ref=e292] [cursor=pointer]:
+              - /url: https://www.capcut.com/creative-suite?from=portal_footer_v4
+            - link "Partner Desktop" [ref=e293] [cursor=pointer]:
+              - /url: https://partner.us.tiktokshop.com/?from=portal_v4
+          - navigation [ref=e294]:
+            - heading "Support" [level=4] [ref=e295]
+            - link "Academy" [ref=e296] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/university/home?identity=1&role=seller&from=portal_v4
+            - link "Feature guide" [ref=e297] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/university/home?identity=1&role=seller&menu=feature&content_id=3071403937875758&from=portal_v4
+            - link "Policy Center" [ref=e298] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/university/home?identity=1&role=seller&menu=policy&content_id=321015469098753&from=portal_v4
+            - generic [ref=e299]:
+              - checkbox [ref=e300]
+              - generic [ref=e301] [cursor=pointer]: Contact us
+              - generic "Close contact panel"
+            - link "File a complaint" [ref=e302] [cursor=pointer]:
+              - /url: https://seller-us.tiktok.com/compliance/hre-complaints?entrance=seller_center&from=portal_v4
+        - generic [ref=e303]:
+          - generic [ref=e304]:
+            - checkbox [ref=e305]
+            - generic "TikTok" [ref=e306] [cursor=pointer]:
+              - img "TikTok" [ref=e307]
+            - generic "Close social links"
+          - link "Facebook" [ref=e308] [cursor=pointer]:
+            - /url: https://www.facebook.com/TikTokShopUSA
+            - img "Facebook" [ref=e309]
+          - link "LinkedIn" [ref=e310] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/tiktokshop/
+            - img "LinkedIn" [ref=e311]
+      - generic [ref=e313]:
+        - generic [ref=e314]: © 2026 TikTok. All rights reserved
+        - navigation [ref=e315]:
+          - link "Policy" [ref=e316] [cursor=pointer]:
+            - /url: https://seller-us.tiktok.com/university/article/agreement?knowledge_id=10013713&identity=1&from=portal_v4
+          - link "Cookie policy" [ref=e317] [cursor=pointer]:
+            - /url: https://www.tiktok.com/legal/page/global/cookie-policy/en
+          - link "Intellectual property protection" [ref=e318] [cursor=pointer]:
+            - /url: https://www.tiktok.com/legal/page/global/copyright-policy/en

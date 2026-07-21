@@ -1,0 +1,109 @@
+字段英文名,字段中文名,数据类型,所属模块,是否标准字段,Shopee字段名,Shopee说明,TikTok Shop字段名,TikTok Shop说明,Temu字段名,Temu说明,妙手ERP字段名,妙手ERP说明,国别差异字段,备注
+product_id,商品ID,string,Y,是,,,,,,,商品唯一标识
+product_title,商品标题,string,Y,是,商品名称(最多180字符),是,商品标题,是,商品名称,是,产品标题,,
+product_description,商品描述,string,Y,是,商品描述(最多5000字符),是,商品描述,是,商品描述,是,描述,,
+product_images,商品图片,array,Y,是,图片0/9张,是,商品图片,是,商品图片,是,产品信息(图片),,
+product_video,商品视频,string,Y,否,视频Max 30MB 10-60s MP4,是,商品视频,否,商品视频,否,视频,,
+category_l1,一级类目,string,Y,是,时尚配饰/包袋/鞋履等,是,类目,是,一级分类,是,预发布类目,,
+category_l2,二级类目,string,Y,是,手提包/双肩包/斜挎包等,是,类目,是,二级分类,是,预发布类目,,
+category_l3,三级类目,string,Y,是,通勤手提包/购物袋/水桶包等,是,类目,是,三级分类,是,预发布类目,,
+brand,品牌,string,N,否,品牌信息,否,品牌,否,品牌,否,品牌,,
+sku_id,SKU ID,string,Y,是,Model ID / 规格货号,是,SKU ID,是,SKU ID,是,货源ID+规格1+规格2,,
+sku_name,SKU名称,string,Y,是,Yellow,350ml,是,SKU变体,是,商品规格,是,规格1+规格2,,
+sku_price,SKU价格,decimal,Y,是,当前售价(站点本地币),是,售价,是,申报价格(CNY),是,售价,,Temu为供货价
+sku_stock,SKU库存,integer,Y,是,库存数量(每SKU),是,库存,是,库存,是,库存,,
+sku_dimensions,SKU尺寸,object,Y,否,体积/尺寸,否,尺寸,否,体积(长×宽×高cm),否,重量/体积,,Temu必填
+sku_weight,SKU重量,decimal,Y,否,重量,否,重量,否,重量(g),否,重量,,Temu必填
+supply_price_cny,供货价(CNY),decimal,N,否,不适用,否,不适用,是,申报价格(CNY),否,货源价格,,仅Temu
+retail_price_suggested,建议零售价,decimal,N,否,不适用,否,不适用,是,建议零售价,否,售价,,仅Temu
+price_status,价格状态,enum,N,否,不适用,否,不适用,是,开款价格状态(已生效/待审核),否,定价模板,,仅Temu
+listing_status,上架状态,enum,Y,是,架上商品/违规删除/审查中/未上架,是,To Ship/Completed/Cancelled,是,在售中/未发布到站点/已下架/已废弃,是,未发布/定时发布/已发布,,
+order_id,订单编号,string,Y,是,订单编号,是,Order No.,是,备货单号,是,订单号,,
+buyer_name,买家名称,string,Y,是,买家,是,买家,是,买家,是,买家,,
+order_items,订单商品,object,Y,是,商品标题/规格/数量/金额,是,Items,是,商品信息,是,产品,订单商品,,
+total_amount,总金额,decimal,Y,是,₱金额(站点本地币),是,Total Amount,是,结算金额,是,订单金额,,多币种
+payment_method,支付方式,string,Y,是,MariBank Savings/COD/SPayLater,是,Payment Method,是,支付渠道,是,支付方式,,按国别
+order_status,订单状态,enum,Y,是,待付款/待出货/运送中/已完成/退货退款取消,是,To Ship/To Process/To Review/Completed/Cancelled,是,备货中/发货中/履约完成/退货,是,订单状态,,
+shipping_channel,物流渠道,string,Y,是,Express International/Standard International,是,物流渠道,是,仓组/发货台,是,物流渠道,,
+tracking_number,运单号,string,Y,是,运单号,是,运单号,否,发货单号,是,物流单号,,
+dispatch_deadline,发货时限,datetime,Y,是,发货截止时间,是,发货时限,否,备货截止,否,发货时限,,
+commission_rate,佣金比例,decimal,N,否,联盟营销佣金,是,佣金,是,平台服务费,是,佣金,,
+voucher_type,优惠券类型,enum,N,是,店铺券/商品券/非公开券/直播券/短视频券/新买家券/回购买家券/关注礼券,否,聊天计划,否,平台统一下发,否,折扣活动/优惠券,,
+discount_activity_type,折扣活动类型,enum,N,是,套装优惠/我的折扣活动/分类折扣,否,促销,否,平台统一下发,否,折扣活动/套装优惠/加购优惠,,
+flash_sale_slot,秒杀时段,datetime,N,是,Flash Sale时段,否,直播时段,否,平台推荐,否,店内秒杀,,
+ssp_id,标准商品编号,string,N,是,SSP编号(如SSP400012702092126),否,不适用,否,不适用,否,不适用,,仅Shopee
+hot_listing_status,Hot Listing状态,enum,N,是,Hot Listing/立即链接/Check Detail,否,不适用,否,不适用,否,不适用,,仅Shopee
+smart_diagnosis_status,Smart Diagnosis状态,enum,N,是,商品健康度诊断/内容问题,否,不适用,否,不适用,否,不适用,,仅Shopee
+new_item_boost_eligible,新品流量扶持,boolean,N,是,New Item 90day Traffic Boosting,否,不适用,否,不适用,否,不适用,,仅Shopee
+advance_fulfillment_stock,Advance Fulfillment库存,integer,N,是,Available Stock/In-transit Advance Stock,否,不适用,否,不适用,否,不适用,,仅Shopee
+sps_score,卖家体验分,decimal,N,否,不适用,是,SPS评分(门槛≥3.5解锁CRM),否,不适用,否,不适用,,仅TikTok Shop
+crm_enabled,CRM功能解锁,boolean,N,否,不适用,是,聊天营销(SPS≥3.5+GMV>0),否,不适用,否,不适用,,仅TikTok Shop
+chat_plan_template,聊天计划模板,enum,N,否,不适用,是,一次性计划/自动计划,否,不适用,否,不适用,,仅TikTok Shop
+chat_gmv,聊天GMV,decimal,N,否,不适用,是,聊天GMV,否,不适用,否,不适用,,仅TikTok Shop
+spu_id,SPU ID,string,N,否,不适用,否,不适用,是,SPU ID(标准产品单元),否,不适用,,仅Temu
+skc_id,SKC ID,string,N,否,不适用,否,不适用,是,SKC ID(标准颜色单元),否,不适用,,仅Temu
+warehouse_group,备货仓组,string,N,否,不适用,否,不适用,是,备货仓组(如广东仓组1),否,不适用,,仅Temu
+stocking_logic,备货逻辑,enum,N,否,不适用,否,不适用,是,JIT/VMI,否,不适用,,仅Temu
+daily_posting_quota_used,当日发品额度已用,integer,N,否,不适用,否,不适用,是,0/400,否,不适用,,仅Temu
+qualification_status,商品资质状态,enum,N,否,不适用,否,不适用,是,待上传/上传失败,否,资质,仅合规
+live_photo_status,商品实拍图状态,enum,N,否,不适用,否,不适用,是,待上传/有异常,否,实拍图,仅合规
+compliance_info_status,商品合规信息状态,enum,N,否,不适用,否,不适用,是,待补充,否,合规信息,仅合规
+is_sensitive,敏感属性,boolean,N,否,不适用,否,不适用,是,敏感属性信息,否,敏感属性,仅Temu
+optimization_tips,商品优化事项,text,N,否,不适用,否,不适用,是,高价商品流量下降/建议零售价待填写/分类错误,否,商品诊断,,仅Temu
+currency_code,货币代码,string,Y,是,PHP/SGD/MYR/THB/VND/IDR/TWD,是,PHP/SGD/MYR/THB/VND/IDR/GBP/USD,是,CNY,是,多币种,,国别差异化
+currency_symbol,货币符号,string,Y,是,₱/S$/RM/฿/₫/Rp/NT$,是,₱/S$/RM/฿/₫/Rp/£/$,是,CNY(¥),是,货币符号,,国别差异化
+tax_rate,税率,decimal,N,否,各国不同,是,各国不同,是,各国不同,否,税率,,国别差异化
+logistics_channels,物流渠道列表,object,N,是,Express International/Standard International,是,跨境物流渠道,是,备货仓组/发货台,是,物流渠道,,国别差异化
+payment_methods,支付方式列表,object,N,是,MariBank/COD/SPayLater,是,本地电子钱包/银行转账/COD,是,平台统一下发,是,支付方式,,国别差异化
+category_tree_version,类目树版本,string,N,是,各站点类目体系不同,是,各站点类目不同,是,全球/美国/欧区类目,是,类目映射,国别差异化
+country_code,国家代码,string,Y,是,PH/SG/MY/TH/VN/ID/TW,是,PH/SG/MY/TH/VN/ID/UK/US,是,US/EU,是,站点,国别差异化
+shop_name,店铺名称,string,Y,是,cocotrip.ph等,是,CocoTrip Shop,是,CocoTrip,是,授权店铺,,
+shop_region,店铺区域,enum,N,否,本地店,是,Cross Border/本地店,是,全托管/半托管,是,店铺类型,,
+account_security_password,安全密码,secret,N,是,财务页面需额外密码验证,否,无,否,无,否,无,,Shopee特有
+affiliate_commission,联盟佣金,decimal,N,是,商品级佣金设置,是,佣金设置,否,平台统一下发,否,联盟营销,,
+inventory_available,仓内可用库存,integer,N,否,不适用,否,不适用,是,仓内可用库存,否,本土仓库存,,仅Temu
+inventory_reserved,仓内预占用库存,integer,N,否,不适用,否,不适用,是,仓内预占用库存,否,库存,,仅Temu
+inventory_blocked,仓内暂不可用库存,integer,N,否,不适用,否,不适用,是,仓内暂不可用库存,否,库存,,仅Temu
+inventory_physical,仓内实物库存,integer,N,否,不适用,否,不适用,是,仓内实物库存,否,库存,,仅Temu
+suggested_stock_days,建议目标库存天数,integer,N,否,不适用,否,不适用,是,建议目标库存天数,否,库存,,仅Temu
+suggested_reorder_qty,建议备货量,integer,N,否,不适用,否,不适用,是,建议备货量,否,备货建议,,仅Temu
+days_of_supply,库存可售天数,integer,N,否,不适用,否,不适用,是,库存可售天数,否,可售天数,,仅Temu
+return_refund_id,退货申请编号,string,N,是,退货申请编号,是,退货申请,是,退货申请,是,售后单号,,
+return_package_id,退货包裹单号,string,N,是,退货包裹单号,是,退货包裹,是,退货包裹,是,退货包裹,,
+content_issues,内容问题数,integer,N,是,1 Content Issue To Fix + Optimise,否,内容审核,否,商品体检,否,产品诊断,,
+l30d_sales,近30天销量,integer,Y,是,L30D Sales,是,销量,是,今日销量/7天销量/30天销量,是,销售数据,,
+l30d_impression,近30天曝光量,integer,Y,是,L30D Impression,是,曝光量,是,流量数据,是,曝光量,,
+click_through_rate,点击率,decimal,Y,是,CTR,是,点击率,是,点击率,是,点击率,,
+conversion_rate,转化率,decimal,Y,是,转化率,是,转化率,是,转化率,是,转化率,,
+created_at,创建时间,datetime,Y,是,商品创建时间,是,下单日期,是,创建时间,是,认领时间,,
+updated_at,更新时间,datetime,Y,是,最近更新时间,是,更新时间,是,更新时间,是,更新时间,,
+sku_images,SKU级别图片,array,Y,否,不适用,否,不适用,否,不适用,是,SKU图片,,编辑弹窗新增字段
+image_editor_type,图片编辑器类型,enum,N,否,不适用,否,不适用,否,不适用,是,编辑器类型(内置/易可图),,弹窗式编辑支持
+image_editor_config,图片编辑器配置,json,N,否,不适用,否,不适用,否,不适用,是,批量编辑配置,,弹窗式编辑支持
+batch_edit_mode,批量编辑模式,enum,N,否,不适用,否,不适用,否,不适用,是,批量编辑模式,,批量编辑功能支持
+title_optimization,标题优化状态,enum,N,否,不适用,否,不适用,否,不适用,是,标题优化,,妙手ERP特有
+product_group,商品分组,string,N,否,不适用,否,不适用,否,不适用,是,分组,,妙手ERP特有
+source_price,货源价格,decimal,N,否,不适用,否,不适用,否,不适用,是,货源价格,,妙手ERP特有
+main_sku_code,主货号,string,N,否,不适用,否,不适用,否,不适用,是,主货号,,妙手ERP特有
+sku_image_list,SKU图片列表,array,N,否,不适用,否,不适用,否,不适用,是,产品图片/SKU图片,,妙手ERP图片编辑弹窗
+image_batch_count,批量编辑数量,integer,N,否,不适用,否,不适用,否,不适用,是,批量编辑数量,,易可图编辑器(免费10张/会员100张)
+ai_design_status,AI设计状态,enum,N,否,不适用,否,不适用,否,不适用,是,AI功能状态,,易可图编辑器
+smart_cutout_status,智能抠图状态,enum,N,否,不适用,否,不适用,否,不适用,是,智能抠图,,易可图编辑器
+template_id,主图模板ID,string,N,否,不适用,否,不适用,否,不适用,是,主图模板,,易可图编辑器
+watermark_config,水印配置,json,N,否,不适用,否,不适用,否,不适用,是,水印设置,,内置编辑器
+crop_rotation_config,裁剪旋转配置,json,N,否,不适用,否,不适用,否,不适用,是,裁剪旋转,,内置编辑器
+size_adjust_config,尺寸调整配置,json,N,否,不适用,否,不适用,否,不适用,是,修改尺寸,,内置编辑器
+color_adjust_config,色彩调整配置,json,N,否,不适用,否,不适用,否,不适用,是,色彩调整,,易可图编辑器
+image_translate_config,图片翻译配置,json,N,否,不适用,否,不适用,否,不适用,是,图片翻译,,易可图编辑器
+puzzle_config,拼图配置,json,N,否,不适用,否,不适用,否,不适用,是,拼图,,易可图编辑器
+cut_config,切图配置,json,N,否,不适用,否,不适用,否,不适用,是,切图,,易可图编辑器
+upscale_config,无损放大配置,json,N,否,不适用,否,不适用,否,不适用,是,无损放大,,易可图编辑器
+pod_design_config,POD设计配置,json,N,否,不适用,否,不适用,否,不适用,是,POD设计,,易可图编辑器
+unit_convert_config,单位转化配置,json,N,否,不适用,否,不适用,否,不适用,是,单位转化,,易可图编辑器
+product_ruler_config,商品标尺配置,json,N,否,不适用,否,不适用,否,不适用,是,商品标尺,,易可图编辑器
+doodle_config,涂鸦配置,json,N,否,不适用,否,不适用,否,不适用,是,涂鸦,,易可图编辑器
+elimination_pen_config,消除笔配置,json,N,否,不适用,否,不适用,否,不适用,是,消除笔,,易可图编辑器
+annotation_config,标注笔配置,json,N,否,不适用,否,不适用,否,不适用,是,标注笔,,易可图编辑器
+magnifier_config,放大镜配置,json,N,否,不适用,否,不适用,否,不适用,是,放大镜,,易可图编辑器
+logo_check_status,logo检测状态,enum,N,否,不适用,否,不适用,否,不适用,是,logo检测,,易可图编辑器
+clear_image_status,图片变清晰状态,enum,N,否,不适用,否,不适用,否,不适用,是,商品堆品/变清晰,,易可图编辑器

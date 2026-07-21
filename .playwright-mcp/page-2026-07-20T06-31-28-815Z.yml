@@ -1,0 +1,42 @@
+- generic [ref=f4e3]:
+  - generic [ref=f4e5]:
+    - generic [ref=f4e7]:
+      - img "TikTok Shop Seller Log In | Cross Border" [ref=f4e8]
+      - separator [ref=f4e9]
+      - generic [ref=f4e10]: 商家中心
+    - navigation [ref=f4e11]:
+      - menu [ref=f4e12] [cursor=pointer]:
+        - menuitem "学习中心" [ref=f4e14]
+    - generic [ref=f4e15]:
+      - generic [ref=f4e16]: 申诉问题
+      - button "联系我们" [ref=f4e24] [cursor=pointer]
+      - button [ref=f4e30] [cursor=pointer]:
+        - paragraph [ref=f4e35]: 简体中文
+  - generic [ref=f4e44]:
+    - generic [ref=f4e46]:
+      - generic [ref=f4e47]:
+        - generic [ref=f4e48]: 登录
+        - generic [ref=f4e49]:
+          - generic [ref=f4e50]:
+            - generic [ref=f4e51]: 手机号
+            - generic [ref=f4e52]:
+              - generic [ref=f4e56] [cursor=pointer]:
+                - generic [ref=f4e57]: CN +86
+                - img "Combined Shape" [ref=f4e59]
+              - textbox "请输入你的手机号" [ref=f4e67]
+            - generic [ref=f4e68] [cursor=pointer]: 使用邮箱登录
+          - generic [ref=f4e69]:
+            - generic [ref=f4e70]: 密码
+            - textbox "请输入您的密码" [ref=f4e71]
+            - generic [ref=f4e72] [cursor=pointer]: 
+          - generic [ref=f4e73]:
+            - link "忘记密码？" [ref=f4e74] [cursor=pointer]:
+              - /url: javascript:;
+            - link "使用验证码登录" [ref=f4e76] [cursor=pointer]:
+              - /url: javascript:;
+          - button "登录" [ref=f4e78] [cursor=pointer]:  登录
+      - text:          
+    - generic [ref=f4e79]:
+      - generic [ref=f4e80]: 还没有 TikTok Shop 账号？
+      - button "立即注册" [ref=f4e84] [cursor=pointer]:
+        - img [ref=f4e86]: 

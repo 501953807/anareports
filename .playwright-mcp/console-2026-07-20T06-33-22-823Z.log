@@ -1,0 +1,44 @@
+[    2219ms] [LOG] [APMS] Fingerprint set in local storage: d4822f4c85ab4a6392456f24c19e9c03 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[    2354ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/get_session/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[    2455ms] U: Apms-Skip: Go Account Signin
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/framework.967fe279976f54e3c754.js:1:33985
+    at Generator.throw (<anonymous>)
+    at a (https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/vendors.04ee16773496ea634a22.js:1:67318)
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:1:321105
+[    2551ms] [LOG] [APMS] Fingerprint already exists: d4822f4c85ab4a6392456f24c19e9c03 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[    2636ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/get_session/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[    3270ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://seller.shopee.cn/account/signin?next=%2Fportal%2Fproduct%2Flist%2Fall%3Fcnsc_shop_id%3D1522772350%26operationSortBy%3Drecommend_v2:0
+[   44751ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/login/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[   62902ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/report/miscellaneous/last_active?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[   62903ms] [LOG] c: Request failed with status code 403
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/framework.967fe279976f54e3c754.js:1:94305
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:1:321105 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[   84289ms] [ERROR] Failed to load resource: the server responded with a status of 429 () @ https://seller.shopee.cn/api/cnsc/selleraccount/login/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[   90641ms] [LOG] [APMS] Fingerprint already exists: d4822f4c85ab4a6392456f24c19e9c03 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[   90706ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/get_session/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[   90850ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://seller.shopee.cn/account/signin?next=%2Fportal%2Fproduct%2Flist%2Fall%3Fcnsc_shop_id%3D1522772350%26operationSortBy%3Drecommend_v2:0
+[  129941ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/login/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  139367ms] [LOG] [APMS] Fingerprint already exists: d4822f4c85ab4a6392456f24c19e9c03 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[  139424ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/get_session/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  139559ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://seller.shopee.cn/account/signin?next=%2Fportal%2Fproduct%2Flist%2Fall%3Fcnsc_shop_id%3D1522772350%26operationSortBy%3Drecommend_v2:0
+[  164853ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/login/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  199609ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/report/miscellaneous/last_active?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  199609ms] [LOG] c: Request failed with status code 403
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/framework.967fe279976f54e3c754.js:1:94305
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:1:321105 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[  219854ms] [ERROR] Failed to load resource: the server responded with a status of 470 () @ https://seller.shopee.cn/api/cnsc/selleraccount/login/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  227687ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/login/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  259537ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/report/miscellaneous/last_active?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  259537ms] [LOG] c: Request failed with status code 403
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/framework.967fe279976f54e3c754.js:1:94305
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:1:321105 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[  268065ms] [LOG] [APMS] Fingerprint already exists: d4822f4c85ab4a6392456f24c19e9c03 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[  268126ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/get_session/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  268184ms] U: Apms-Skip: Go Account Signin
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/framework.967fe279976f54e3c754.js:1:33985
+    at Generator.throw (<anonymous>)
+    at a (https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/portal/cb-seller-center/js/vendors.04ee16773496ea634a22.js:1:67318)
+    at https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:1:321105
+[  268294ms] [LOG] [APMS] Fingerprint already exists: d4822f4c85ab4a6392456f24c19e9c03 @ https://deo.shopeesz.com/shopee/shopee-seller-live-sg/mmf_portal_seller_root_dir/static/shopee-mmf/default/js/core-mmf-entry.b1664bade5efe5b7.js:0
+[  268349ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://seller.shopee.cn/api/cnsc/selleraccount/get_session/?SPC_CDS=6abde9d7-e44c-4ee9-ade9-78801668bab1&SPC_CDS_VER=2:0
+[  268483ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://seller.shopee.cn/account/signin?next=%2F%3Fcnsc_shop_id%3D1522772350:0
