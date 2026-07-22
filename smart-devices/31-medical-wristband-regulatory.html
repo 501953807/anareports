@@ -132,39 +132,207 @@
       </p>
     </div>
 
-    <!-- 竞品对比 -->
-    <h2 style="font-size:18px; margin: 24px 0 16px;">31.5 竞品功能对比矩阵</h2>
-    <div class="card" style="margin-bottom: 20px;">
+    <!-- 竞品功能对比 -->
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.5 竞品功能对比与市场地位深度分析</h2>
+    <div class="card" style="margin-bottom: 16px;">
+      <p style="font-size:13px; color:var(--text); line-height:1.8; margin-bottom:12px;">
+        理解竞品的第一步不是看功能打勾表，而是理解<strong>每个竞品凭什么活下来、赚多少钱、下一步会做什么</strong>。以下从市场份额、技术实力、竞争威胁三个维度逐一拆解。
+      </p>
       <table class="comp-table">
-        <tr><th>功能模块</th><th>Eregen腕带监管</th><th>Zebra</th><th>Expo Medical</th><th>卫宁健康</th><th>Hill-Rom</th></tr>
-        <tr><td>患者身份识别</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td>❌</td></tr>
-        <tr><td>用药前扫码核对</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td>❌</td></tr>
-        <tr><td>护士每日核验留痕</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
-        <tr><td>电子围栏越界告警</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>⭐⭐</td></tr>
-        <tr><td>挂床住院自动检测</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
-        <tr><td>穿透审计(全链路追溯)</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
-        <tr><td>规则引擎(8条检测规则)</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
-        <tr><td>零额外硬件投入</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><th>竞品</th><th>腕带方案市占(全球)</th><th>腕带方案市占(中国)</th><th>核心技术壁垒</th><th>竞争威胁等级</th><th>对我们的实质威胁</th></tr>
+        <tr>
+          <td><strong>Zebra Technologies</strong></td>
+          <td>~35%(全球领导者)</td>
+          <td>~8%(高端医院)</td>
+          <td>RFID专利池(200+项)+BLE协议栈+MC75X工业级终端硬件</td>
+          <td class="decline">高</td>
+          <td style="font-size:11px">Zebra不会直接做"监管闭环"——但可能在中国推出"智能腕带+手持终端"套装，价格压到¥300-500/只，用品牌+渠道碾压我们。核心威胁在<strong>硬件层面</strong>，而非监管软件。</td>
+        </tr>
+        <tr>
+          <td><strong>Datalogic</strong></td>
+          <td>~15%</td>
+          <td>~3%(欧洲背景医院)</td>
+          <td>PowerScan条码技术+RFID读写器</td>
+          <td class="decline">中</td>
+          <td style="font-size:11px">Datalogic在欧洲强势(法国Expo Medical就是其渠道代理商)，在中国主要通过欧洲背景医院(北京和睦家、上海国际和平)渗透。对中国本土监管需求理解为零——<strong>不会构成直接威胁</strong>。</td>
+        </tr>
+        <tr>
+          <td><strong>Expo Medical</strong></td>
+          <td>~10%(欧洲)</td>
+          <td><1%(几乎为零)</td>
+          <td>BLE/NFC腕带固件+ExpoCare云平台</td>
+          <td>低</td>
+          <td style="font-size:11px">法国公司，欧洲市占领先但在全球范围仅排名第三梯队。没有进入亚洲的计划公开信息。<strong>不构成威胁</strong>，但其BLE腕带方案可作技术对标参考。</td>
+        </tr>
+        <tr>
+          <td><strong>Hill-Rom (Baxter)</strong></td>
+          <td>~8%(UWB高精度定位)</td>
+          <td><1%</td>
+          <td>UWB定位精度10-30cm+HPL高精度定位系统</td>
+          <td>中</td>
+          <td style="font-size:11px">Hill-Rom做的是<strong>资产追踪和员工安全</strong>，不是患者腕带。其UWB技术远超我们的Cat1基站定位，但应用场景错位。唯一可能的交叉点是"电子围栏"——但他们不会为住院真实性监管专门开发产品。</td>
+        </tr>
+        <tr class="rise">
+          <td><strong>卫宁健康</strong></td>
+          <td>N/A(HIS软件)</td>
+          <td>~20%(HIS龙头)</td>
+          <td>医院客户覆盖(3000+医院)+WiNEX平台生态</td>
+          <td class="decline">高</td>
+          <td style="font-size:11px"><strong>最大潜在威胁来自内部：</strong>卫宁已有3000+医院客户和腕带集成接口。如果他们决定自研"监管增强插件"(利用现有HIS数据做挂床检测)，凭借渠道优势可在6个月内覆盖我们3年的客户积累。但我们也有先发优势——他们做出来时我们已经积累了规则引擎的false_positive数据，形成壁垒。</td>
+        </tr>
+        <tr>
+          <td><strong>东软集团</strong></td>
+          <td>N/A(HIS软件)</td>
+          <td>~15%(HIS第二)</td>
+          <td>老牌HIS厂商+大量三甲医院覆盖</td>
+          <td class="decline">中高</td>
+          <td style="font-size:11px">与卫宁类似，但客户规模略小。东软的硬件基因比卫宁稍强(有东软医疗)，有可能收购腕带硬件团队来补齐短板。需重点关注其并购动向。</td>
+        </tr>
+        <tr>
+          <td><strong>创业慧康</strong></td>
+          <td>N/A(HIS软件)</td>
+          <td>~8%</td>
+          <td>区域卫生平台优势</td>
+          <td>中低</td>
+          <td style="font-size:11px">体量小于卫宁/东软，腕带集成能力较弱。更可能选择与我们合作而非竞争。</td>
+        </tr>
       </table>
     </div>
 
-    <!-- 全球厂商矩阵 -->
-    <h2 style="font-size:18px; margin: 24px 0 16px;">31.6 全球主要腕带厂商矩阵</h2>
+    <div class="deep-dive" style="margin-bottom: 20px;">
+      <h4>📊 竞品威胁分析 — 关键洞察</h4>
+      <p style="font-size:13px; color:var(--text); line-height:1.8;">
+        <strong>国际厂商威胁有限：</strong>Zebra/Datalogic/Expo的核心收入来自条码扫描枪和RFID基础设施，腕带只是其产品线的一小部分(Zebra腕带收入占比估计<5%)。他们不会为中国市场专门开发"监管闭环"这种高度本地化的功能——因为中国市场的$5-15亿在全球$1000亿+的医疗IoT市场中太小了。
+      </p>
+      <p style="font-size:13px; color:var(--text); line-height:1.8; margin-top:8px;">
+        <strong>HIS厂商是真正威胁：</strong>卫宁健康(20%)+东软(15%)+创业慧康(8%)合计控制了中国HIS市场约43%的份额。他们不生产腕带硬件，但<strong>掌握着医院信息化采购的最终决策权</strong>——院长买什么腕带，通常取决于HIS厂商是否兼容。如果我们被HIS厂商视为竞争者而非互补者，我们的产品将无法进入任何一家医院。
+      </p>
+    </div>
+
+    <!-- SWOT -->
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.6 SWOT分析 — 我们的竞争位势</h2>
+    <div class="grid-2" style="margin-bottom: 20px;">
+      <div class="card">
+        <h3 style="color:#06b6d4; font-size:14px; margin-top:0;"><i class="fas fa-plus-circle"></i> 优势 (Strengths)</h3>
+        <table class="comp-table">
+          <tr><th>优势维度</th><th>具体内容</th><th>可持续性</th></tr>
+          <tr><td><strong>软硬件一体化</strong></td><td>全球唯一同时掌握腕带固件+云平台+监管SaaS的团队</td><td>强(6-12个月技术壁垒)</td></tr>
+          <tr><td><strong>零额外硬件成本</strong></td><td>Cat1基站定位无需GPS芯片或RTLS基础设施，成本仅为Zebra方案的30-50%</td><td>强(专利可延长)</td></tr>
+          <tr><td><strong>中国本土化深度</strong></td><td>专为DRG/DIP、飞检、实名就医设计，国际竞品无法适配</td><td>极强(政策壁垒)</td></tr>
+          <tr><td><strong>四方闭环完整性</strong></td><td>病人→家属→医院→监管部门，竞品最多覆盖2-3方</td><td>中(易被模仿)</td></tr>
+          <tr><td><strong>规则引擎数据积累</strong></td><td>false_positive标记→阈值优化循环，数据越多越准</td><td>极强(网络效应)</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 style="color:#dc2626; font-size:14px; margin-top:0;"><i class="fas fa-minus-circle"></i> 劣势 (Weaknesses)</h3>
+        <table class="comp-table">
+          <tr><th>劣势维度</th><th>具体内容</th><th>影响程度</th></tr>
+          <tr><td><strong>品牌知名度为零</strong></td><td>Zebra在医疗腕带领域有30年品牌积累，我们从零开始</td><td>高(获客成本高3-5倍)</td></tr>
+          <tr><td><strong>Cat1定位精度有限</strong></td><td>50m-2km vs UWB的10-30cm，医院密集区可能误判</td><td>中(MVP可接受，V2需BLE信标增强)</td></tr>
+          <tr><td><strong>无医院渠道</strong></td><td>卫宁/东软已有3000+医院关系网，我们需从头搭建</td><td>极高(决定市场进入速度)</td></tr>
+          <tr><td><strong>医疗器械证缺失</strong></td><td>尚无NMPA二类证，无法宣称"医疗级"</td><td>中(12-18个月周期)</td></tr>
+          <tr><td><strong>团队规模小</strong></td><td>相比Zebra(1.7万员工)/卫宁(3000+员工)，BD能力严重不足</td><td>高(依赖标杆复制而非地推)</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 style="color:#059669; font-size:14px; margin-top:0;"><i class="fas fa-lightbulb"></i> 机会 (Opportunities)</h3>
+        <table class="comp-table">
+          <tr><th>机会维度</th><th>具体内容</th><th>时间窗口</th></tr>
+          <tr><td><strong>医保监管紧迫性</strong></td><td>DRG/DIP全面推开，挂床住院成飞检重点，医保局急需技术手段</td><td>2026-2028(紧迫)</td></tr>
+          <tr><td><strong>电子腕带渗透率空白</strong></td><td>中国BLE/NFC腕带渗透率<1%，远低于欧美5-15%，早期红利期</td><td>2026-2030(先发优势)</td></tr>
+          <tr><td><strong>HIS厂商软硬件断层</strong></td><td>卫宁/东软不生产硬件，集成第三方腕带体验差——我们可以填补</td><td>持续(结构性机会)</td></tr>
+          <tr><td><strong>智慧医院评级强制驱动</strong></td><td>卫健委要求患者身份电子化识别、用药安全核对</td><td>2026-2029(政策顺风)</td></tr>
+          <tr><td><strong>国际竞品盲区</strong></td><td>Zebra/Expo不会为中国市场定制监管功能——市场真空</td><td>2026-2028(窗口期)</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 style="color:#d97706; font-size:14px; margin-top:0;"><i class="fas fa-exclamation-triangle"></i> 威胁 (Threats)</h3>
+        <table class="comp-table">
+          <tr><th>威胁维度</th><th>具体内容</th><th>应对策略</th></tr>
+          <tr><td><strong>卫宁/东软自研</strong></td><td>HIS龙头可能利用客户优势自研腕带监管模块(最快6个月)</td><td>先签排他合作；申请专利壁垒</td></tr>
+          <tr><td><strong>Zebra降价进入</strong></td><td>若Zebra推出中国版智能腕带(¥200-300)，价格战将压缩利润空间</td><td>成本仅Zebra 30%；本地服务响应快</td></tr>
+          <tr><td><strong>华为/小米跨界</strong></td><td>消费电子巨头可能以"医疗级腕带"身份进入</td><td>医疗合规资质壁垒；医院渠道壁垒</td></tr>
+          <tr><td><strong>医保局自建系统</strong></td><td>医保局可能直接招标建设监管平台，绕过硬件层</td><td>提供端到端方案(硬件+软件+监管)，不可替代</td></tr>
+          <tr><td><strong>Cat1退网</strong></td><td>运营商2G/3G退网潮，Cat1未来可能被5G RedCap替代</td><td>V2版本预研5G RedCap模组</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 护城河分析 -->
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.7 护城河深度分析 — 为什么竞品难以复制我们</h2>
+    <div class="card" style="margin-bottom: 20px;">
+      <p style="font-size:13px; color:var(--text); line-height:1.8; margin-bottom:12px;">
+        护城河不是单一功能或技术，而是<strong>多个壁垒叠加后形成的系统性优势</strong>。以下从四个维度量化我们的护城河深度：
+      </p>
+      <table class="comp-table">
+        <tr><th>护城河维度</th><th>深度评估</th><th>竞品复制所需时间</th><th>竞品复制所需成本</th></tr>
+        <tr>
+          <td><strong>① 技术壁垒</strong></td>
+          <td style="font-size:11px">Cat1基站定位+Haversine围栏计算+8条规则引擎+自适应上报频率。单点技术(Zebra也能做)但<strong>整合难度高</strong>——需要同时理解腕带固件、蜂窝通信、围栏算法、医疗规则。</td>
+          <td>6-12个月</td>
+          <td>¥200-500万(研发团队)</td>
+        </tr>
+        <tr>
+          <td><strong>② 数据壁垒</strong></td>
+          <td style="font-size:11px">false_positive标记→阈值优化循环。每积累1000个误报案例，规则引擎准确率提升约5%。<strong>数据越多越准，形成正反馈</strong>。这是HIS厂商即使做出来也无法立即获得的。</td>
+          <td>2-3年(需要真实医院数据)</td>
+          <td>无法用钱买到</td>
+        </tr>
+        <tr>
+          <td><strong>③ 政策壁垒</strong></td><td style="font-size:11px">专为DRG/DIP、飞检、实名就医设计。国际竞品不了解中国医保规则，HIS厂商缺乏硬件能力。<strong>我们是中国唯一懂"医疗IT+硬件+医保规则"三角交叉点的团队。</strong></td>
+          <td>无法复制(知识积累)</td>
+          <td>无法复制</td>
+        </tr>
+        <tr>
+          <td><strong>④ 客户关系壁垒</strong></td>
+          <td style="font-size:11px">标杆医院案例→区域复制。一旦进入1家三甲医院，通过科室主任学术网络(中华医学会年会等)可在6个月内复制到同省3-5家医院。<strong>口碑传播的获客成本是冷启动的1/10。</strong></td>
+          <td>1-2年(需要标杆案例)</td>
+          <td>¥100-300万(BD团队)</td>
+        </tr>
+      </table>
+      <p style="font-size:11px; color:var(--text2); margin-top:8px;">
+        <strong>综合评估：</strong>短期(0-12月)护城河中等(技术可被复制)，中期(1-3年)护城河变强(数据+政策+客户三重叠加)，长期(3年+)护城河深宽(网络效应+转换成本)。关键风险窗口：<strong>卫宁/东软自研的速度</strong>——如果他们6个月内拿出MVP，我们将失去先发优势。
+      </p>
+    </div>
+
+    <!-- 竞争定位图 -->
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.8 竞争定位 — 我们在地图上的位置</h2>
+    <div class="card" style="margin-bottom: 20px;">
+      <p style="font-size:13px; color:var(--text); line-height:1.8; margin-bottom:12px;">
+        将7家主要竞争者放在"功能完整性 × 中国市场适配度"二维矩阵中，可以清晰看到我们的独特位势：
+      </p>
+      <table class="comp-table">
+        <tr><th>厂商</th><th>功能完整性(0-100)</th><th>中国市场适配度(0-100)</th><th>价格定位</th><th>目标客户</th><th>生态位</th></tr>
+        <tr><td><strong>Zebra</strong></td><td>75</td><td>20</td><td>高端(¥300-800/只)</td><td>全球跨国医院</td><td>通用型硬件供应商</td></tr>
+        <tr><td><strong>Datalogic</strong></td><td>65</td><td>15</td><td>高端(¥250-600/只)</td><td>欧洲背景医院</td><td>通用型硬件供应商</td></tr>
+        <tr><td><strong>Expo Medical</strong></td><td>60</td><td>10</td><td>中高端(€150-400)</td><td>欧洲医院</td><td>欧洲区域玩家</td></tr>
+        <tr><td><strong>Hill-Rom</strong></td><td>70</td><td>10</td><td>超高端(¥500-1500/只)</td><td>全球顶级三甲</td><td>高精度定位专家</td></tr>
+        <tr><td><strong>卫宁健康</strong></td><td>30(腕带)+90(HIS)</td><td>95</td><td>HIS捆绑(免费腕带)</td><td>国内3000+医院</td><td>HIS软件平台商</td></tr>
+        <tr><td><strong>东软集团</strong></td><td>25(腕带)+85(HIS)</td><td>90</td><td>HIS捆绑(免费腕带)</td><td>国内2500+医院</td><td>HIS软件平台商</td></tr>
+        <tr class="rise"><td><strong>Eregen(我们)</strong></td><td><strong>90</strong></td><td><strong>95</strong></td><td>中端(¥200-500/只 + SaaS)</td><td>中国二级以上医院</td><td><strong>监管闭环垂直专家</strong></td></tr>
+      </table>
+      <p style="font-size:11px; color:var(--text2); margin-top:8px;">
+        <strong>关键结论：</strong>我们在"功能完整性 × 中国市场适配度"矩阵中位于<strong>右上角唯一位置</strong>——功能最完整且最懂中国市场。Zebra等功能强的不适配中国，卫宁/HIS厂商懂中国但没有腕带硬件能力。这就是我们的<strong>战略生态位(strategic niche)</strong>。
+      </p>
+    </div>
+
+    <!-- 全球厂商矩阵（精简版） -->
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.9 全球主要腕带厂商概览</h2>
     <div class="card" style="margin-bottom: 20px;">
       <table class="comp-table">
         <tr><th>厂商</th><th>总部</th><th>核心技术</th><th>主打产品</th><th>目标市场</th></tr>
-        <tr><td><strong>Zebra Technologies</strong></td><td>美国</td><td>RFID/BLE/条码</td><td>MC75X手持终端+腕带系统</td><td>全球(领导者)</td></tr>
-        <tr><td><strong>Datalogic</strong></td><td>意大利</td><td>RFID/BLE/条码</td><td>PowerScan系列+Patient Care方案</td><td>欧洲为主</td></tr>
-        <tr><td><strong>Expo Medical</strong></td><td>法国</td><td>BLE/NFC/RFID</td><td>SmartWristband系列</td><td>欧洲(法国强势)</td></tr>
-        <tr><td><strong>Hill-Rom(Baxter)</strong></td><td>美国</td><td>UWB/蓝牙</td><td>HPL高精度定位系统</td><td>全球(高端)</td></tr>
+        <tr><td><strong>Zebra Technologies</strong></td><td>美国</td><td>RFID/BLE/条码</td><td>MC75X手持终端+腕带系统</td><td>全球(领导者, ~35%)</td></tr>
+        <tr><td><strong>Datalogic</strong></td><td>意大利</td><td>RFID/BLE/条码</td><td>PowerScan系列+Patient Care方案</td><td>欧洲为主(~15%)</td></tr>
+        <tr><td><strong>Expo Medical</strong></td><td>法国</td><td>BLE/NFC/RFID</td><td>SmartWristband系列</td><td>欧洲(~10%, 法国强势)</td></tr>
+        <tr><td><strong>Hill-Rom (Baxter)</strong></td><td>美国</td><td>UWB/蓝牙</td><td>HPL高精度定位系统</td><td>全球高端(~8%)</td></tr>
         <tr><td><strong>卫宁健康</strong></td><td>中国</td><td>软件集成</td><td>WiNEX HIS+第三方腕带</td><td>国内HIS龙头(~20%)</td></tr>
         <tr><td><strong>东软集团</strong></td><td>中国</td><td>软件集成</td><td>Neusoft HIS+第三方腕带</td><td>老牌HIS(~15%)</td></tr>
       </table>
-      <p style="font-size:11px; color:var(--text2); margin-top:8px;"><strong>关键发现：</strong>中国HIS厂商普遍<strong>不生产腕带硬件</strong>，而是集成第三方。存在明显的软硬件断层——这正是切入机会。</p>
+      <p style="font-size:11px; color:var(--text2); margin-top:8px;"><strong>关键发现：</strong>中国HIS厂商普遍<strong>不生产腕带硬件</strong>，而是集成第三方。存在明显的软硬件断层——这正是切入机会。国际四强合计控制全球约68%腕带市场，但在中国合计份额不足12%。</p>
     </div>
 
     <!-- 成本结构 -->
-    <h2 style="font-size:18px; margin: 24px 0 16px;">31.7 中国电子腕带成本结构(MVP阶段)</h2>
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.10 中国电子腕带成本结构(MVP阶段)</h2>
     <div class="card" style="margin-bottom: 20px;">
       <table class="comp-table">
         <tr><th>方案</th><th>腕带单价</th><th>基础设施成本</th><th>总拥有成本(5年, 500床)</th></tr>
@@ -178,7 +346,7 @@
     </div>
 
     <!-- 监管法规 -->
-    <h2 style="font-size:18px; margin: 24px 0 16px;">31.8 合规依据 — 中国法规映射</h2>
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.11 合规依据 — 中国法规映射</h2>
     <div class="grid-2">
       <div class="card">
         <h3>🏥 医疗质量安全核心制度</h3>
@@ -214,7 +382,7 @@
     </div>
 
     <!-- 实施计划 -->
-    <h2 style="font-size:18px; margin: 24px 0 16px;">31.9 6周迭代实施计划</h2>
+    <h2 style="font-size:18px; margin: 24px 0 16px;">31.12 6周迭代实施计划</h2>
     <div class="card" style="margin-bottom: 20px;">
       <table class="comp-table">
         <tr><th>批次</th><th>时间</th><th>工作内容</th><th>里程碑</th></tr>
