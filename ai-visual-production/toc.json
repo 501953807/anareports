@@ -1,0 +1,147 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一篇：工具选型与基础"
+  },
+  {
+    "type": "link",
+    "href": "01-tool-overview.html",
+    "title": "01 AI影像工具全景图谱"
+  },
+  {
+    "type": "link",
+    "href": "02-prompt-engineering.html",
+    "title": "02 提示词工程核心方法论"
+  },
+  {
+    "type": "link",
+    "href": "03-env-setup.html",
+    "title": "03 环境搭建与免费工具配置"
+  },
+  {
+    "type": "link",
+    "href": "04-industry-analysis.html",
+    "title": "04 AI影像产业链分析"
+  },
+  {
+    "type": "chapter",
+    "title": "第二篇：潮玩IP角色设计实战"
+  },
+  {
+    "type": "link",
+    "href": "05-ip-design-concepts.html",
+    "title": "05 潮玩IP角色设计理念"
+  },
+  {
+    "type": "link",
+    "href": "06-character-three-view.html",
+    "title": "06 AI生成角色三视图"
+  },
+  {
+    "type": "link",
+    "href": "07-expression-prop-design.html",
+    "title": "07 表情集与道具设计"
+  },
+  {
+    "type": "link",
+    "href": "08-lora-controlnet.html",
+    "title": "08 LoRA训练与ControlNet精细控制"
+  },
+  {
+    "type": "link",
+    "href": "09-design-integration.html",
+    "title": "09 设计稿整合输出"
+  },
+  {
+    "type": "chapter",
+    "title": "第三篇：完整动画短片制作全流程"
+  },
+  {
+    "type": "link",
+    "href": "10-animation-planning.html",
+    "title": "10 动画短片策划"
+  },
+  {
+    "type": "link",
+    "href": "11-scene-character-gen.html",
+    "title": "11 场景与角色图像生成"
+  },
+  {
+    "type": "link",
+    "href": "12-image-to-video.html",
+    "title": "12 从图像到动画的视频生成"
+  },
+  {
+    "type": "link",
+    "href": "13-post-production.html",
+    "title": "13 AI辅助后期全栈"
+  },
+  {
+    "type": "link",
+    "href": "14-music-sfx.html",
+    "title": "14 AI音乐与音效创作"
+  },
+  {
+    "type": "link",
+    "href": "15-voice-subtitle.html",
+    "title": "15 AI配音与字幕生成"
+  },
+  {
+    "type": "link",
+    "href": "16-output-publishing.html",
+    "title": "16 成片输出与发布策略"
+  },
+  {
+    "type": "chapter",
+    "title": "第四篇：AI工作流自动化与进阶"
+  },
+  {
+    "type": "link",
+    "href": "17-comfyui-advanced.html",
+    "title": "17 ComfyUI高级工作流"
+  },
+  {
+    "type": "link",
+    "href": "18-automation-n8n.html",
+    "title": "18 AI工作流自动化（n8n/Make/Zapier）"
+  },
+  {
+    "type": "link",
+    "href": "19-3d-generation.html",
+    "title": "19 AI 3D生成与建模"
+  },
+  {
+    "type": "link",
+    "href": "20-short-video-matrix.html",
+    "title": "20 AI短视频矩阵运营"
+  },
+  {
+    "type": "link",
+    "href": "21-commercial-applications.html",
+    "title": "21 AI影像商业应用场景"
+  },
+  {
+    "type": "link",
+    "href": "22-advanced-painting.html",
+    "title": "22 AI绘画进阶技法"
+  },
+  {
+    "type": "chapter",
+    "title": "第五篇：变现路径与未来展望"
+  },
+  {
+    "type": "link",
+    "href": "23-merch-commodification.html",
+    "title": "23 潮玩IP周边商品化"
+  },
+  {
+    "type": "link",
+    "href": "24-monetization-evaluation.html",
+    "title": "24 内容变现综合评估"
+  },
+  {
+    "type": "link",
+    "href": "25-future-trends.html",
+    "title": "25 AI影像未来趋势"
+  }
+]

@@ -1,0 +1,357 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：概念与市场全景"
+  },
+  {
+    "type": "link",
+    "href": "01-last-mile-concept.html",
+    "title": "一、什么是\"最后五公里\""
+  },
+  {
+    "type": "link",
+    "href": "02-global-market.html",
+    "title": "二、全球市场规模演变"
+  },
+  {
+    "type": "link",
+    "href": "03-cn-us-compare.html",
+    "title": "三、中国vs美国模式对比"
+  },
+  {
+    "type": "link",
+    "href": "04-three-models-compare.html",
+    "title": "四、三模式对比：即时配送 vs 社区团购 vs 即时零售"
+  },
+  {
+    "type": "link",
+    "href": "05-user-behavior.html",
+    "title": "五、用户画像与消费行为"
+  },
+  {
+    "type": "link",
+    "href": "06-newbie-roadmap.html",
+    "title": "六、新手入门：如何理解这个产业"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：即时配送平台"
+  },
+  {
+    "type": "link",
+    "href": "07-china-delivery-market.html",
+    "title": "七、中国即时配送市场总览"
+  },
+  {
+    "type": "link",
+    "href": "08-meituan-deep.html",
+    "title": "八、美团：从千团大战到超级App"
+  },
+  {
+    "type": "link",
+    "href": "09-eleme-alibaba.html",
+    "title": "九、饿了么：阿里生态整合之路"
+  },
+  {
+    "type": "link",
+    "href": "10-douyin-disruptor.html",
+    "title": "十、Douyin本地生活：最危险的颠覆者"
+  },
+  {
+    "type": "link",
+    "href": "11-doordash-us.html",
+    "title": "十一、DoorDash：美国市场领导者"
+  },
+  {
+    "type": "link",
+    "href": "12-uber-eats-global.html",
+    "title": "十二、Uber Eats / Deliveroo：全球视角"
+  },
+  {
+    "type": "link",
+    "href": "13-merchant-onboard.html",
+    "title": "十三、商家入驻实操指南"
+  },
+  {
+    "type": "link",
+    "href": "14-merchant-commission-battle.html",
+    "title": "十四、商家佣金博弈：谁在赚钱？"
+  },
+  {
+    "type": "link",
+    "href": "15-rider-gig-economy.html",
+    "title": "十五、骑手生态与零工经济"
+  },
+  {
+    "type": "link",
+    "href": "16-delivery-multi-school.html",
+    "title": "十六、即时配送多学派研判"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：社区团购模式"
+  },
+  {
+    "type": "link",
+    "href": "17-community-group-buying-overview.html",
+    "title": "十七、社区团购市场全景"
+  },
+  {
+    "type": "link",
+    "href": "18-leader-economics.html",
+    "title": "十八、商业模式拆解：团长经济学"
+  },
+  {
+    "type": "link",
+    "href": "19-duoduo-maicai.html",
+    "title": "十九、多多买菜：PDD供应链优势"
+  },
+  {
+    "type": "link",
+    "href": "20-meituan-select.html",
+    "title": "二十、美团优选：从烧钱到聚焦"
+  },
+  {
+    "type": "link",
+    "href": "21-front-warehouse-ddmg-missfresh.html",
+    "title": "二十一、前置仓模式：叮咚买菜 vs 每日优鲜"
+  },
+  {
+    "type": "link",
+    "href": "22-hema-alibaba.html",
+    "title": "二十二、盒马鲜生：阿里巴巴新零售旗舰"
+  },
+  {
+    "type": "link",
+    "href": "23-become-leader-guide.html",
+    "title": "二十三、成为团长实操指南"
+  },
+  {
+    "type": "link",
+    "href": "24-consumer-savings-guide.html",
+    "title": "二十四、社区团购的消费者省钱攻略"
+  },
+  {
+    "type": "link",
+    "href": "25-global-community-buying.html",
+    "title": "二十五、社区团购的全球化尝试"
+  },
+  {
+    "type": "link",
+    "href": "26-community-buying-multi-school.html",
+    "title": "二十六、社区团购多学派研判"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：即时零售万物到家"
+  },
+  {
+    "type": "link",
+    "href": "27-instant-retail-overview.html",
+    "title": "二十七、即时零售市场总览"
+  },
+  {
+    "type": "link",
+    "href": "28-meituan-flash-purchase.html",
+    "title": "二十八、美团闪购深度拆解"
+  },
+  {
+    "type": "link",
+    "href": "29-gopuff-warehouse.html",
+    "title": "二十九、Gopuff：美国仓库直达模式"
+  },
+  {
+    "type": "link",
+    "href": "30-getir-quick-commerce-rise-fall.html",
+    "title": "三十、Getir：快速商业的兴衰"
+  },
+  {
+    "type": "link",
+    "href": "31-consumer-savings-instant-retail.html",
+    "title": "三十一、消费者省钱攻略"
+  },
+  {
+    "type": "link",
+    "href": "32-instant-retail-vs-traditional-ecommerce.html",
+    "title": "三十二、即时零售vs传统电商"
+  },
+  {
+    "type": "link",
+    "href": "33-instant-retail-multi-school.html",
+    "title": "三十三、即时零售多学派研判"
+  },
+  {
+    "type": "link",
+    "href": "34-instant-retail-case-strategy.html",
+    "title": "三十四、案例深挖+发散链+战略建议"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：积分经济体系"
+  },
+  {
+    "type": "link",
+    "href": "35-points-economy-overview.html",
+    "title": "三十五、全球积分经济全景"
+  },
+  {
+    "type": "link",
+    "href": "36-ant-points.html",
+    "title": "三十六、蚂蚁积分：全球最全面的积分体系"
+  },
+  {
+    "type": "link",
+    "href": "37-wechat-pay-points.html",
+    "title": "三十七、微信支付积分：社交图谱优势"
+  },
+  {
+    "type": "link",
+    "href": "38-japan-points-system.html",
+    "title": "三十八、日本积分体系：T点/d点/PayPay"
+  },
+  {
+    "type": "link",
+    "href": "39-us-points-system.html",
+    "title": "三十九、美国积分体系：Starbucks/Amazon Prime/Costco"
+  },
+  {
+    "type": "link",
+    "href": "40-meituan-membership.html",
+    "title": "四十、Meituan会员体系"
+  },
+  {
+    "type": "link",
+    "href": "41-points-maximization-guide.html",
+    "title": "四十一、积分最大化实操指南"
+  },
+  {
+    "type": "link",
+    "href": "42-points-utility-bills-logic.html",
+    "title": "四十二、积分兑换水电费/物业费的商业逻辑"
+  },
+  {
+    "type": "link",
+    "href": "43-points-behavioral-economics.html",
+    "title": "四十三、积分经济的行为学分析"
+  },
+  {
+    "type": "link",
+    "href": "44-points-multi-school.html",
+    "title": "四十四、积分经济多学派研判+案例深挖"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分：平台博弈与反垄断"
+  },
+  {
+    "type": "link",
+    "href": "45-platform-commission-landscape.html",
+    "title": "四十五、平台佣金结构全景"
+  },
+  {
+    "type": "link",
+    "href": "46-douyin-local-life-attack.html",
+    "title": "四十六、Douyin本地生活：内容流量的降维打击"
+  },
+  {
+    "type": "link",
+    "href": "47-global-anti-monopoly.html",
+    "title": "四十七、全球反垄断进展"
+  },
+  {
+    "type": "link",
+    "href": "48-merchant-pitfall-guide.html",
+    "title": "四十八、商家避坑指南"
+  },
+  {
+    "type": "link",
+    "href": "49-platform-vs-merchant-power-shift.html",
+    "title": "四十九、平台vs商家：力量对比演变"
+  },
+  {
+    "type": "link",
+    "href": "50-platform-economics-theory.html",
+    "title": "五十、平台经济学的理论框架"
+  },
+  {
+    "type": "link",
+    "href": "51-meituan-exclusivity-case.html",
+    "title": "五十一、案例深挖：美团\"二选一\"案"
+  },
+  {
+    "type": "link",
+    "href": "52-platform-battle-multi-school.html",
+    "title": "五十二、平台博弈多学派研判+战略建议"
+  },
+  {
+    "type": "chapter",
+    "title": "第七部分：技术驱动未来"
+  },
+  {
+    "type": "link",
+    "href": "53-ai-dispatch-system.html",
+    "title": "五十三、AI调度系统：订单匹配的数学之美"
+  },
+  {
+    "type": "link",
+    "href": "54-drone-delivery.html",
+    "title": "五十四、无人机配送：未来的最后一公里"
+  },
+  {
+    "type": "link",
+    "href": "55-smart-city-integration.html",
+    "title": "五十五、智慧城市融合"
+  },
+  {
+    "type": "link",
+    "href": "56-investment-opportunities.html",
+    "title": "五十六、投资机会图谱"
+  },
+  {
+    "type": "link",
+    "href": "57-tech-multi-school.html",
+    "title": "五十七、技术驱动多学派研判+发散链"
+  },
+  {
+    "type": "chapter",
+    "title": "第八部分：多学派交叉研判"
+  },
+  {
+    "type": "link",
+    "href": "58-multi-school-synthesis.html",
+    "title": "五十八、总论：最后五公里的经济学本质"
+  },
+  {
+    "type": "link",
+    "href": "59-classical-keynes-marx.html",
+    "title": "五十九、古典+凯恩斯+马克思主义综合"
+  },
+  {
+    "type": "link",
+    "href": "60-new-institutional-austrian-behavioral.html",
+    "title": "六十、新制度+奥地利+行为经济学综合"
+  },
+  {
+    "type": "link",
+    "href": "61-historical-parallels.html",
+    "title": "六十一、历史对称：类似的历史危机与启示"
+  },
+  {
+    "type": "link",
+    "href": "62-summary-future.html",
+    "title": "六十二、总结与持续学习"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "href": "../guangzhou/index.html",
+    "title": "返回广州吃喝玩乐书"
+  },
+  {
+    "type": "link",
+    "href": "../traditional-academics/index.html",
+    "title": "进入中华古典学术书"
+  }
+]

@@ -1,0 +1,177 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：行当解析"
+  },
+  {
+    "type": "link",
+    "href": "01-social-media.html",
+    "title": "1.1 自媒体博主"
+  },
+  {
+    "type": "link",
+    "href": "02-indie-games.html",
+    "title": "1.2 独立游戏开发者"
+  },
+  {
+    "type": "link",
+    "href": "03-web-novel.html",
+    "title": "1.3 网文/电子书作者"
+  },
+  {
+    "type": "link",
+    "href": "04-podcast.html",
+    "title": "1.4 播客主播"
+  },
+  {
+    "type": "link",
+    "href": "05-online-course.html",
+    "title": "1.5 在线课程讲师"
+  },
+  {
+    "type": "link",
+    "href": "06-freelancer.html",
+    "title": "1.6 自由职业者"
+  },
+  {
+    "type": "link",
+    "href": "07-photographer.html",
+    "title": "1.7 摄影师/插画师"
+  },
+  {
+    "type": "link",
+    "href": "08-musician.html",
+    "title": "1.8 音乐人/独立歌手"
+  },
+  {
+    "type": "link",
+    "href": "09-ecommerce.html",
+    "title": "1.9 电商带货/联盟营销"
+  },
+  {
+    "type": "link",
+    "href": "10-live-streaming.html",
+    "title": "1.10 直播打赏/订阅制"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：平台图谱"
+  },
+  {
+    "type": "link",
+    "href": "11-platforms-video.html",
+    "title": "2.1 视频类平台"
+  },
+  {
+    "type": "link",
+    "href": "12-platforms-text.html",
+    "title": "2.2 图文类平台"
+  },
+  {
+    "type": "link",
+    "href": "13-platforms-audio.html",
+    "title": "2.3 音频类平台"
+  },
+  {
+    "type": "link",
+    "href": "14-platforms-live.html",
+    "title": "2.4 直播类平台"
+  },
+  {
+    "type": "link",
+    "href": "15-platforms-ecommerce.html",
+    "title": "2.5 电商/技能类平台"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：变现手段"
+  },
+  {
+    "type": "link",
+    "href": "16-monetization-ads.html",
+    "title": "3.1 广告分成"
+  },
+  {
+    "type": "link",
+    "href": "17-monetization-brand.html",
+    "title": "3.2 品牌赞助"
+  },
+  {
+    "type": "link",
+    "href": "18-monetization-subscribe.html",
+    "title": "3.3 付费订阅"
+  },
+  {
+    "type": "link",
+    "href": "19-monetization-tip.html",
+    "title": "3.4 打赏礼物"
+  },
+  {
+    "type": "link",
+    "href": "20-monetization-ecommerce.html",
+    "title": "3.5 电商带货"
+  },
+  {
+    "type": "link",
+    "href": "21-monetization-affiliate.html",
+    "title": "3.6 联盟营销"
+  },
+  {
+    "type": "link",
+    "href": "22-monetization-knowledge.html",
+    "title": "3.7 知识付费"
+  },
+  {
+    "type": "link",
+    "href": "23-monetization-ip.html",
+    "title": "3.8 IP授权/周边"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：数据分析"
+  },
+  {
+    "type": "link",
+    "href": "24-income-analysis.html",
+    "title": "4.1 收入分布与金字塔"
+  },
+  {
+    "type": "link",
+    "href": "25-rpm-comparison.html",
+    "title": "4.2 各平台RPM对比"
+  },
+  {
+    "type": "link",
+    "href": "26-sector-growth.html",
+    "title": "4.3 赛道增长趋势"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：实战指南"
+  },
+  {
+    "type": "link",
+    "href": "27-roadmap.html",
+    "title": "5.1 新手起步路线图"
+  },
+  {
+    "type": "link",
+    "href": "28-multi-platform.html",
+    "title": "5.2 多平台分发策略"
+  },
+  {
+    "type": "link",
+    "href": "29-risks.html",
+    "title": "5.3 避坑指南"
+  },
+  {
+    "type": "link",
+    "href": "30-future.html",
+    "title": "5.4 未来趋势展望"
+  },
+  {
+    "type": "link",
+    "href": "31-case-studies.html",
+    "title": "5.5 典型案例研究"
+  }
+]

@@ -1,0 +1,205 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一章：市场环境"
+  },
+  {
+    "type": "link",
+    "href": "01-market-overview.html",
+    "title": "第一章：全球与中国智能穿戴市场"
+  },
+  {
+    "type": "chapter",
+    "title": "第二章：用户画像"
+  },
+  {
+    "type": "link",
+    "href": "02-user-profile.html",
+    "title": "第二章：用户画像与应用场景"
+  },
+  {
+    "type": "chapter",
+    "title": "第三章：系统架构"
+  },
+  {
+    "type": "link",
+    "href": "03-system-architecture.html",
+    "title": "第三章：四层系统架构与数据流"
+  },
+  {
+    "type": "chapter",
+    "title": "第四章：竞品分析"
+  },
+  {
+    "type": "link",
+    "href": "04-competitive-analysis.html",
+    "title": "第四章：手环+药盒竞品全景 + 医用腕带赛道"
+  },
+  {
+    "type": "chapter",
+    "title": "第五章：供应链与BOM"
+  },
+  {
+    "type": "link",
+    "href": "05-supply-chain-bom.html",
+    "title": "第五章：供应链选型与BOM成本"
+  },
+  {
+    "type": "chapter",
+    "title": "第六章：APP开发"
+  },
+  {
+    "type": "link",
+    "href": "06-app-development.html",
+    "title": "第六章：APP功能与开发团队"
+  },
+  {
+    "type": "chapter",
+    "title": "第七章：政策法规"
+  },
+  {
+    "type": "link",
+    "href": "07-regulations.html",
+    "title": "第七章：合规红线与认证要求"
+  },
+  {
+    "type": "chapter",
+    "title": "第八章：商业模式"
+  },
+  {
+    "type": "link",
+    "href": "08-business-model.html",
+    "title": "第八章：硬件获客+订阅盈利"
+  },
+  {
+    "type": "chapter",
+    "title": "第九章：实施路线"
+  },
+  {
+    "type": "link",
+    "href": "09-roadmap.html",
+    "title": "第九章：8个月上市实施路线图"
+  },
+  {
+    "type": "chapter",
+    "title": "第十章：风险评估"
+  },
+  {
+    "type": "link",
+    "href": "10-risk-assessment.html",
+    "title": "第十章：风险矩阵与四阶段战略"
+  },
+  {
+    "type": "link",
+    "href": "11-heart-monitor-depth.html",
+    "title": "第十一章：心率/ECG监测深度技术"
+  },
+  {
+    "type": "link",
+    "href": "12-sleep-tracking-depth.html",
+    "title": "第十二章：睡眠追踪深度技术"
+  },
+  {
+    "type": "link",
+    "href": "13-gps-tracker-depth.html",
+    "title": "第十三章：GPS定位深度技术"
+  },
+  {
+    "type": "link",
+    "href": "14-sensor-technology.html",
+    "title": "第十四章：传感器技术全景"
+  },
+  {
+    "type": "link",
+    "href": "15-bluetooth-wifi-nfc.html",
+    "title": "第十五章：连接技术对比"
+  },
+  {
+    "type": "link",
+    "href": "16-battery-tech.html",
+    "title": "第十六章：电池技术"
+  },
+  {
+    "type": "link",
+    "href": "17-waterproof-design.html",
+    "title": "第十七章：防水设计"
+  },
+  {
+    "type": "link",
+    "href": "18-materials-selection.html",
+    "title": "第十八章：材料选型"
+  },
+  {
+    "type": "link",
+    "href": "19-factory-quality.html",
+    "title": "第十九章：工厂品控"
+  },
+  {
+    "type": "link",
+    "href": "20-elderly-user-experience.html",
+    "title": "第二十章：老年人用户体验"
+  },
+  {
+    "type": "link",
+    "href": "21-family-app-ecosystem.html",
+    "title": "第二十一章：家庭APP生态"
+  },
+  {
+    "type": "link",
+    "href": "22-health-data-analytics.html",
+    "title": "第二十二章：健康数据分析"
+  },
+  {
+    "type": "link",
+    "href": "23-ai-algorithm.html",
+    "title": "第二十三章：AI算法"
+  },
+  {
+    "type": "link",
+    "href": "24-cloud-platform.html",
+    "title": "第二十四章：云平台"
+  },
+  {
+    "type": "link",
+    "href": "25-iot-smart-home.html",
+    "title": "第二十五章：IoT智能家居"
+  },
+  {
+    "type": "link",
+    "href": "26-manufacturing-process.html",
+    "title": "第二十六章：制造流程"
+  },
+  {
+    "type": "link",
+    "href": "27-brand-marketing.html",
+    "title": "第二十七章：品牌营销"
+  },
+  {
+    "type": "link",
+    "href": "28-after-sales-service.html",
+    "title": "第二十八章：售后服务"
+  },
+  {
+    "type": "link",
+    "href": "29-partnership-hospital.html",
+    "title": "第二十九章：医院合作"
+  },
+  {
+    "type": "link",
+    "href": "30-global-certification.html",
+    "title": "第三十章：全球认证"
+  },
+  {
+    "type": "link",
+    "href": "31-medical-wristband-regulatory.html",
+    "title": "第三十一章：医用电子腕带监管闭环"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "href": "../china-japan/index.html",
+    "title": "返回中日经济书"
+  }
+]

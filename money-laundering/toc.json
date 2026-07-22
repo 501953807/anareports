@@ -1,0 +1,176 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：全球概览"
+  },
+  {
+    "type": "link",
+    "href": "00-data-overview.html",
+    "title": "0.0 洗钱规模与执法数据总览"
+  },
+  {
+    "type": "link",
+    "href": "01-global-scale.html",
+    "title": "1.1 全球洗钱规模与趋势"
+  },
+  {
+    "type": "link",
+    "href": "02-enforcement-data.html",
+    "title": "1.2 各国执法数据对比"
+  },
+  {
+    "type": "link",
+    "href": "03-major-fines.html",
+    "title": "1.3 重大罚款案例"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：十大洗钱渠道深度解析"
+  },
+  {
+    "type": "link",
+    "href": "10-underground-banks.html",
+    "title": "2.1 地下钱庄对敲模式"
+  },
+  {
+    "type": "link",
+    "href": "11-hawala.html",
+    "title": "2.2 哈瓦拉体系"
+  },
+  {
+    "type": "link",
+    "href": "12-crypto-mixer.html",
+    "title": "2.3 虚拟币混币/跨链"
+  },
+  {
+    "type": "link",
+    "href": "13-defend-exploit.html",
+    "title": "2.4 链上犯罪/DeFi Exploit"
+  },
+  {
+    "type": "link",
+    "href": "14-tbml.html",
+    "title": "2.5 贸易洗钱TBML"
+  },
+  {
+    "type": "link",
+    "href": "15-shell-company.html",
+    "title": "2.6 离岸空壳公司嵌套"
+  },
+  {
+    "type": "link",
+    "href": "16-cash-intensive.html",
+    "title": "2.7 现金密集型洗钱"
+  },
+  {
+    "type": "link",
+    "href": "17-ai-money.html",
+    "title": "2.8 AI赋能洗钱"
+  },
+  {
+    "type": "link",
+    "href": "18-sea-fraud.html",
+    "title": "2.9 杀猪盘/电诈资金出境"
+  },
+  {
+    "type": "link",
+    "href": "19-stablecoin.html",
+    "title": "2.10 稳定币洗钱通道"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：传统洗钱手法"
+  },
+  {
+    "type": "link",
+    "href": "20-three-phases.html",
+    "title": "3.1 经典三步法"
+  },
+  {
+    "type": "link",
+    "href": "21-special-methods.html",
+    "title": "3.2 赌场/贵金属/钻石洗钱"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：加密洗钱深度专题"
+  },
+  {
+    "type": "link",
+    "href": "30-crypto-compare.html",
+    "title": "4.1 各币种洗钱特性对比"
+  },
+  {
+    "type": "link",
+    "href": "31-monero.html",
+    "title": "4.2 隐私币XMR深度解析"
+  },
+  {
+    "type": "link",
+    "href": "32-regulations.html",
+    "title": "4.3 全球加密监管新规"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：执法与合规"
+  },
+  {
+    "type": "link",
+    "href": "40-timeline.html",
+    "title": "5.1 全球执法时间线"
+  },
+  {
+    "type": "link",
+    "href": "41-risk-signals.html",
+    "title": "5.2 高风险信号识别"
+  },
+  {
+    "type": "link",
+    "href": "42-aml-system.html",
+    "title": "5.3 AML系统建设指南"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分：前沿专题"
+  },
+  {
+    "type": "link",
+    "href": "50-fatf-framework.html",
+    "title": "6.1 FATF合规框架"
+  },
+  {
+    "type": "link",
+    "href": "51-asset-recovery.html",
+    "title": "6.2 资产追缴与没收"
+  },
+  {
+    "type": "link",
+    "href": "52-professional-facilitators.html",
+    "title": "6.3 职业帮凶：律师/会计师/信托"
+  },
+  {
+    "type": "link",
+    "href": "53-real-estate.html",
+    "title": "6.4 房地产洗钱"
+  },
+  {
+    "type": "link",
+    "href": "54-crypto-regulation-country.html",
+    "title": "6.5 各国加密监管对比"
+  },
+  {
+    "type": "link",
+    "href": "55-sanctions-evasion.html",
+    "title": "6.6 制裁规避与OFAC合规"
+  },
+  {
+    "type": "link",
+    "href": "56-smart-contract-audit.html",
+    "title": "6.7 智能合约审计与DeFi安全"
+  },
+  {
+    "type": "link",
+    "href": "57-endgame-aml.html",
+    "title": "6.8 AML的未来"
+  }
+]

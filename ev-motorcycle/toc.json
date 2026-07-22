@@ -1,0 +1,183 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：市场规模"
+  },
+  {
+    "type": "link",
+    "href": "01-market-overview.html",
+    "title": "第一章：双轮驱动市场规模"
+  },
+  {
+    "type": "link",
+    "href": "11-nev-market-detail.html",
+    "title": "1.1 NEV市场规模深度"
+  },
+  {
+    "type": "link",
+    "href": "12-two-wheel-market-detail.html",
+    "title": "1.2 两轮车市场深度"
+  },
+  {
+    "type": "link",
+    "href": "13-price-analysis.html",
+    "title": "1.3 价格竞争分析"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：新能源汽车产业链"
+  },
+  {
+    "type": "link",
+    "href": "02-nev-supply-chain.html",
+    "title": "第二章：NEV全产业链拓扑"
+  },
+  {
+    "type": "link",
+    "href": "14-upstream-minerals.html",
+    "title": "2.1 上游矿产资源深度"
+  },
+  {
+    "type": "link",
+    "href": "15-battery-materials.html",
+    "title": "2.2 电池材料深度"
+  },
+  {
+    "type": "link",
+    "href": "16-semiconductor.html",
+    "title": "2.3 功率半导体深度"
+  },
+  {
+    "type": "link",
+    "href": "17-chassis-components.html",
+    "title": "2.4 底盘与车身部件深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：零部件全品类"
+  },
+  {
+    "type": "link",
+    "href": "03-parts-catalog.html",
+    "title": "第三章：零部件单品级拆解"
+  },
+  {
+    "type": "link",
+    "href": "21-battery-system-deep.html",
+    "title": "3.1 电池系统深度"
+  },
+  {
+    "type": "link",
+    "href": "22-electric-drive-deep.html",
+    "title": "3.2 电驱系统深度"
+  },
+  {
+    "type": "link",
+    "href": "23-thermal-management.html",
+    "title": "3.3 热管理系统深度"
+  },
+  {
+    "type": "link",
+    "href": "24-smart-driving.html",
+    "title": "3.4 智能驾驶系统深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：电动两轮车产业链"
+  },
+  {
+    "type": "link",
+    "href": "04-two-wheel.html",
+    "title": "第四章：两轮电动车产业链"
+  },
+  {
+    "type": "link",
+    "href": "25-yadea-deep.html",
+    "title": "4.1 雅迪深度"
+  },
+  {
+    "type": "link",
+    "href": "26-aima-deep.html",
+    "title": "4.2 爱玛深度"
+  },
+  {
+    "type": "link",
+    "href": "27-battery-tech-compare.html",
+    "title": "4.3 电池技术路线对比"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：产业集群与地图"
+  },
+  {
+    "type": "link",
+    "href": "05-clusters.html",
+    "title": "第五章：产业集群分布"
+  },
+  {
+    "type": "link",
+    "href": "31-nev-cluster-deep.html",
+    "title": "5.1 NEV产业集群深度"
+  },
+  {
+    "type": "link",
+    "href": "32-two-wheel-cluster-deep.html",
+    "title": "5.2 两轮车产业集群深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分：易损件与保养"
+  },
+  {
+    "type": "link",
+    "href": "06-maintenance.html",
+    "title": "第六章：易损件与保养周期"
+  },
+  {
+    "type": "link",
+    "href": "33-nev-maintenance-deep.html",
+    "title": "6.1 NEV保养深度"
+  },
+  {
+    "type": "link",
+    "href": "34-two-wheel-maintenance-deep.html",
+    "title": "6.2 两轮车保养深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第七部分：全球市场与研判"
+  },
+  {
+    "type": "link",
+    "href": "07-global-market.html",
+    "title": "第七章：全球市场+多学派研判"
+  },
+  {
+    "type": "link",
+    "href": "35-europe-market.html",
+    "title": "7.1 欧洲市场深度"
+  },
+  {
+    "type": "link",
+    "href": "36-southeast-asia-market.html",
+    "title": "7.2 东南亚市场深度"
+  },
+  {
+    "type": "link",
+    "href": "37-policy-analysis.html",
+    "title": "7.3 全球政策分析"
+  },
+  {
+    "type": "link",
+    "href": "38-india-market.html",
+    "title": "7.4 印度市场深度"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "href": "../money-laundering/index.html",
+    "title": "返回地下钱庄书"
+  }
+]

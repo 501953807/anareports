@@ -1,0 +1,181 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分 AI时代创作者经济全景"
+  },
+  {
+    "type": "link",
+    "href": "01-ai-creator-economy.html",
+    "title": "一、AI时代创作者经济全景"
+  },
+  {
+    "type": "link",
+    "href": "02-creator-types-ai.html",
+    "title": "二、AI赋能下的创作者类型"
+  },
+  {
+    "type": "link",
+    "href": "03-income-distribution.html",
+    "title": "三、创作者收入分布与变现能力"
+  },
+  {
+    "type": "link",
+    "href": "04-ai-impact-landscape.html",
+    "title": "四、AI对创作者经济的冲击"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分 版权保护法律框架"
+  },
+  {
+    "type": "link",
+    "href": "05-copyright-law-overview.html",
+    "title": "五、版权保护法律框架总论"
+  },
+  {
+    "type": "link",
+    "href": "06-ai-generated-copyright.html",
+    "title": "六、AI生成内容的版权归属"
+  },
+  {
+    "type": "link",
+    "href": "07-fair-use-doctrine.html",
+    "title": "七、合理使用与侵权边界"
+  },
+  {
+    "type": "link",
+    "href": "08-register-copyright.html",
+    "title": "八、版权登记实操指南"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分 版权登记与技术确权"
+  },
+  {
+    "type": "link",
+    "href": "09-register-us.html",
+    "title": "九、美国版权登记实操"
+  },
+  {
+    "type": "link",
+    "href": "10-register-cn.html",
+    "title": "十、中国版权登记实操"
+  },
+  {
+    "type": "link",
+    "href": "11-blockchain-certification.html",
+    "title": "十一、区块链确权技术"
+  },
+  {
+    "type": "link",
+    "href": "12-nft-digital-rights.html",
+    "title": "十二、NFT与数字版权管理"
+  },
+  {
+    "type": "link",
+    "href": "13-digital-watermarking.html",
+    "title": "十三、数字水印与隐形指纹"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分 侵权监测与法律救济"
+  },
+  {
+    "type": "link",
+    "href": "14-infringement-monitoring.html",
+    "title": "十四、侵权监测系统与方法"
+  },
+  {
+    "type": "link",
+    "href": "15-evidence-collection.html",
+    "title": "十五、侵权取证与证据保全"
+  },
+  {
+    "type": "link",
+    "href": "16-legal-remedies.html",
+    "title": "十六、法律救济途径"
+  },
+  {
+    "type": "link",
+    "href": "17-platform-takedowns.html",
+    "title": "十七、平台投诉与下架机制"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分 IP商业化与品牌溢价"
+  },
+  {
+    "type": "link",
+    "href": "18-training-data-compliance.html",
+    "title": "十八、AI训练数据合规"
+  },
+  {
+    "type": "link",
+    "href": "19-ai-output-risk.html",
+    "title": "十九、AI输出版权风险"
+  },
+  {
+    "type": "link",
+    "href": "20-contract-clauses.html",
+    "title": "二十、创作者合同关键条款"
+  },
+  {
+    "type": "link",
+    "href": "21-insurance-protection.html",
+    "title": "二十一、版权保险与风险对冲"
+  },
+  {
+    "type": "link",
+    "href": "22-ip-commercialization.html",
+    "title": "二十二、IP商业化路径"
+  },
+  {
+    "type": "link",
+    "href": "23-license-models.html",
+    "title": "二十三、授权模式详解"
+  },
+  {
+    "type": "link",
+    "href": "24-merchandise-derivative.html",
+    "title": "二十四、衍生品开发与商品化"
+  },
+  {
+    "type": "link",
+    "href": "25-brand-premium.html",
+    "title": "二十五、品牌溢价与个人IP"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分 行动指南与未来展望"
+  },
+  {
+    "type": "link",
+    "href": "26-newbie-roadmap.html",
+    "title": "二十六、新手创作者行动路线图"
+  },
+  {
+    "type": "link",
+    "href": "27-moat-skills.html",
+    "title": "二十七、护城河技能与不可替代性"
+  },
+  {
+    "type": "link",
+    "href": "28-future-predictions.html",
+    "title": "二十八、未来趋势预测"
+  },
+  {
+    "type": "link",
+    "href": "29-case-studies.html",
+    "title": "二十九、典型案例研究"
+  },
+  {
+    "type": "link",
+    "href": "30-multi-market-strategy.html",
+    "title": "三十、多市场出海策略"
+  },
+  {
+    "type": "link",
+    "href": "31-summary-future.html",
+    "title": "三十一、总结与持续学习"
+  }
+]

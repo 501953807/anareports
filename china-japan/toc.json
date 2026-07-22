@@ -1,0 +1,196 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：中国现状诊断"
+  },
+  {
+    "type": "link",
+    "href": "01-china-diagnosis.html",
+    "title": "第一章：中国经济现状深度诊断"
+  },
+  {
+    "type": "link",
+    "href": "09-demographics-depth.html",
+    "title": "1.1 人口结构深度"
+  },
+  {
+    "type": "link",
+    "href": "10-urbanization-depth.html",
+    "title": "1.2 城镇化深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：日本失去的三十年"
+  },
+  {
+    "type": "link",
+    "href": "02-japan-lost-decades.html",
+    "title": "第二章：日本泡沫破裂到失去的三十年"
+  },
+  {
+    "type": "link",
+    "href": "11-japan-wage-stagnation.html",
+    "title": "2.1 工资停滞深度"
+  },
+  {
+    "type": "link",
+    "href": "12-japan-balance-sheet.html",
+    "title": "2.2 资产负债表衰退深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：中日深度对标"
+  },
+  {
+    "type": "link",
+    "href": "03-china-japan-compare.html",
+    "title": "第三章：中日关键指标对标"
+  },
+  {
+    "type": "link",
+    "href": "13-debt-comparison.html",
+    "title": "3.1 债务结构对比"
+  },
+  {
+    "type": "link",
+    "href": "14-real-estate-compare.html",
+    "title": "3.2 房地产周期对比"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：中国崛起行业"
+  },
+  {
+    "type": "link",
+    "href": "04-china-winners.html",
+    "title": "第四章：对标日本的赢家赛道"
+  },
+  {
+    "type": "link",
+    "href": "15-elderly-economy.html",
+    "title": "4.1 银发经济深度"
+  },
+  {
+    "type": "link",
+    "href": "16-discount-retail.html",
+    "title": "4.2 折扣零售深度"
+  },
+  {
+    "type": "link",
+    "href": "17-pet-economy.html",
+    "title": "4.3 宠物经济深度"
+  },
+  {
+    "type": "link",
+    "href": "18-chuhai-depth.html",
+    "title": "4.4 出海战略深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：未来预测"
+  },
+  {
+    "type": "link",
+    "href": "05-future-forecast.html",
+    "title": "第五章：未来3-5年情景预测"
+  },
+  {
+    "type": "link",
+    "href": "19-semiconductor-depth.html",
+    "title": "5.1 半导体自主可控深度"
+  },
+  {
+    "type": "link",
+    "href": "20-energy-transition-depth.html",
+    "title": "5.2 能源转型深度"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分：多学派研判"
+  },
+  {
+    "type": "link",
+    "href": "06-multi-school.html",
+    "title": "第六章：多学派交叉解读"
+  },
+  {
+    "type": "link",
+    "href": "21-keynesian-china.html",
+    "title": "6.1 凯恩斯主义视角"
+  },
+  {
+    "type": "link",
+    "href": "22-marxist-china.html",
+    "title": "6.2 马克思主义视角"
+  },
+  {
+    "type": "link",
+    "href": "23-behavioral-china.html",
+    "title": "6.3 行为经济学视角"
+  },
+  {
+    "type": "chapter",
+    "title": "第七部分：个人出路"
+  },
+  {
+    "type": "link",
+    "href": "07-personal-strategy.html",
+    "title": "第七章：个人深耕行业终极推荐"
+  },
+  {
+    "type": "link",
+    "href": "24-stock-strategy.html",
+    "title": "7.1 A股投资策略深度"
+  },
+  {
+    "type": "link",
+    "href": "25-real-estate-strategy.html",
+    "title": "7.2 房地产投资策略"
+  },
+  {
+    "type": "chapter",
+    "title": "第八部分：跨时空规律"
+  },
+  {
+    "type": "link",
+    "href": "08-cross-time-patterns.html",
+    "title": "第八章：四国泡沫破裂后行业轮动铁律"
+  },
+  {
+    "type": "link",
+    "href": "26-us-after-bubble.html",
+    "title": "8.1 美国1929后行业轮动"
+  },
+  {
+    "type": "link",
+    "href": "27-korea-after-bubble.html",
+    "title": "8.2 韩国1997后行业轮动"
+  },
+  {
+    "type": "chapter",
+    "title": "附录：数据附录"
+  },
+  {
+    "type": "link",
+    "href": "28-china-data-appendix.html",
+    "title": "附录A：中国宏观经济数据表"
+  },
+  {
+    "type": "link",
+    "href": "29-japan-data-appendix.html",
+    "title": "附录B：日本失去的三十年数据表"
+  },
+  {
+    "type": "link",
+    "href": "30-policy-timeline.html",
+    "title": "附录C：重要政策时间线"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "href": "../pharma/index.html",
+    "title": "返回医药产业书"
+  }
+]

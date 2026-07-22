@@ -1,0 +1,192 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：全球定位"
+  },
+  {
+    "type": "link",
+    "href": "01-global-positioning.html",
+    "title": "第一章：中国医药全球定位"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：企业竞争力矩阵"
+  },
+  {
+    "type": "link",
+    "href": "02-competitor-matrix.html",
+    "title": "第二章：企业竞争力四梯队"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：中药政策与突破"
+  },
+  {
+    "type": "link",
+    "href": "03-tcm-policy.html",
+    "title": "第三章：中药政策与历史性突破"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：中药市场规模"
+  },
+  {
+    "type": "link",
+    "href": "04-tcm-market.html",
+    "title": "第四章：中药市场规模与未来方向"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：中药材地理分布"
+  },
+  {
+    "type": "link",
+    "href": "05-herb-geography.html",
+    "title": "第五章：道地药材地理分布"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分：细分赛道对比"
+  },
+  {
+    "type": "link",
+    "href": "06-sector-comparison.html",
+    "title": "第六章：五大细分赛道深度对比"
+  },
+  {
+    "type": "chapter",
+    "title": "第七部分：多学派研判"
+  },
+  {
+    "type": "link",
+    "href": "07-multi-school.html",
+    "title": "第七章：多学派交叉研判+风险"
+  },
+  {
+    "type": "chapter",
+    "title": "附录：前沿赛道"
+  },
+  {
+    "type": "link",
+    "href": "08-frontier-tracks.html",
+    "title": "附录：十大前沿医药赛道"
+  },
+  {
+    "type": "link",
+    "href": "11-api-dominance.html",
+    "title": "附1.1 原料药霸权深度"
+  },
+  {
+    "type": "link",
+    "href": "12-tcm-company-deep.html",
+    "title": "附1.2 中药龙头企业深度"
+  },
+  {
+    "type": "link",
+    "href": "13-tcm-subtrack-deep.html",
+    "title": "附1.3 中药子赛道深度"
+  },
+  {
+    "type": "link",
+    "href": "14-innovative-drug-deep.html",
+    "title": "附1.4 创新药赛道深度"
+  },
+  {
+    "type": "link",
+    "href": "15-generic-drug-deep.html",
+    "title": "附1.5 仿制药赛道深度"
+  },
+  {
+    "type": "link",
+    "href": "16-cxo-deep.html",
+    "title": "附1.6 CXO赛道深度"
+  },
+  {
+    "type": "link",
+    "href": "17-glpd1-weight-loss.html",
+    "title": "附1.7 GLP-1与减肥药赛道"
+  },
+  {
+    "type": "link",
+    "href": "18-adc-cell-therapy.html",
+    "title": "附1.8 ADC与细胞治疗"
+  },
+  {
+    "type": "link",
+    "href": "19-ai-drug-discovery.html",
+    "title": "附1.9 AI制药"
+  },
+  {
+    "type": "link",
+    "href": "20-herb-agriculture.html",
+    "title": "附1.10 中药材种植与农业"
+  },
+  {
+    "type": "link",
+    "href": "21-medical-procurement.html",
+    "title": "附1.11 医药流通与集采"
+  },
+  {
+    "type": "link",
+    "href": "22-global-pharma-trade.html",
+    "title": "附1.12 全球医药贸易"
+  },
+  {
+    "type": "link",
+    "href": "23-synthetic-biology.html",
+    "title": "附1.13 合成生物学"
+  },
+  {
+    "type": "link",
+    "href": "24-gene-therapy-mrna.html",
+    "title": "附1.14 基因治疗与mRNA"
+  },
+  {
+    "type": "link",
+    "href": "25-tcm-standardization.html",
+    "title": "附1.15 中药标准化"
+  },
+  {
+    "type": "link",
+    "href": "26-health-china-strategy.html",
+    "title": "附1.16 健康中国战略"
+  },
+  {
+    "type": "link",
+    "href": "27-regulatory-review.html",
+    "title": "附1.17 医药监管与审评"
+  },
+  {
+    "type": "link",
+    "href": "28-pharma-insurance.html",
+    "title": "附1.18 医保支付体系"
+  },
+  {
+    "type": "link",
+    "href": "29-rare-disease.html",
+    "title": "附1.19 罕见病与孤儿药"
+  },
+  {
+    "type": "link",
+    "href": "30-oncology-deep.html",
+    "title": "附1.20 肿瘤药全景"
+  },
+  {
+    "type": "link",
+    "href": "31-vaccine-industry.html",
+    "title": "附1.21 疫苗产业"
+  },
+  {
+    "type": "link",
+    "href": "32-tcm-internationalization.html",
+    "title": "附1.22 中医药出海与国际化"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "href": "../money-laundering/index.html",
+    "title": "返回地下钱庄书"
+  }
+]

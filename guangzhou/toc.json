@@ -1,0 +1,122 @@
+[
+  {
+    "type": "chapter",
+    "title": "第一部分：全省概览"
+  },
+  {
+    "type": "link",
+    "href": "01-city-overview.html",
+    "title": "第一章：广东全省经济全景"
+  },
+  {
+    "type": "chapter",
+    "title": "第二部分：美食文化"
+  },
+  {
+    "type": "link",
+    "href": "02-food.html",
+    "title": "第二章：广东美食全景"
+  },
+  {
+    "type": "chapter",
+    "title": "第三部分：文旅与消费"
+  },
+  {
+    "type": "link",
+    "href": "03-attractions.html",
+    "title": "第三章：广东必游景点"
+  },
+  {
+    "type": "link",
+    "href": "04-nightlife-shopping.html",
+    "title": "第四章：夜间经济与商圈"
+  },
+  {
+    "type": "chapter",
+    "title": "第四部分：广东制造业与产业链（全新）"
+  },
+  {
+    "type": "link",
+    "href": "04-industry-overview.html",
+    "title": "第五章：广东制造业全景"
+  },
+  {
+    "type": "link",
+    "href": "05-primary.html",
+    "title": "第六章：第一产业·现代农业与渔业"
+  },
+  {
+    "type": "link",
+    "href": "06-secondary.html",
+    "title": "第七章：第二产业·先进制造与产业集群"
+  },
+  {
+    "type": "link",
+    "href": "07-tertiary.html",
+    "title": "第八章：第三产业·现代服务业"
+  },
+  {
+    "type": "chapter",
+    "title": "第五部分：供应链与批发市场"
+  },
+  {
+    "type": "link",
+    "href": "05-supply-category.html",
+    "title": "第九章：广东十二大批发产业集群"
+  },
+  {
+    "type": "link",
+    "href": "06-supply-districts.html",
+    "title": "第十章：珠三角九市商贸格局"
+  },
+  {
+    "type": "chapter",
+    "title": "第六部分：跨境电商与数字贸易"
+  },
+  {
+    "type": "link",
+    "href": "07-cross-border.html",
+    "title": "第十一章：广东跨境贸易全景"
+  },
+  {
+    "type": "link",
+    "href": "28-logistics-hub.html",
+    "title": "第十二章：物流仓储体系"
+  },
+  {
+    "type": "chapter",
+    "title": "第七部分：大湾区协同与未来"
+  },
+  {
+    "type": "link",
+    "href": "31-guangzhou-internationalization.html",
+    "title": "第十三章：广深港澳珠协同"
+  },
+  {
+    "type": "link",
+    "href": "30-future-guangzhou.html",
+    "title": "第十四章：广东经济未来展望"
+  },
+  {
+    "type": "chapter",
+    "title": "第八部分：文旅融合与旅行指南"
+  },
+  {
+    "type": "link",
+    "href": "29-cultural-tourism.html",
+    "title": "第十五章：文旅融合深度"
+  },
+  {
+    "type": "link",
+    "href": "08-travel-routes.html",
+    "title": "第十六章：实用信息"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "href": "../creators/index.html",
+    "title": "返回创作者经济书"
+  }
+]
