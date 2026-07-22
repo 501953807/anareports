@@ -1304,6 +1304,177 @@ footer { text-align: center; padding: 30px 0 20px; border-top: 1px solid var(--b
   <p style="margin-top:4px; font-size: 11px;">数据来源：IDC Q4 2024 Tracker / Grand View Research 2025 / World Alzheimer Report 2024 / 中国国家统计局 2024 / IMARC Group 2024 / 智研咨询 2025</p>
   <p style="margin-top:4px; font-size: 11px;">⚠️ 免责声明：以上内容仅为商业分析参考，不构成任何投资或创业建议。所有市场预判均存在不确定性边界，决策需谨慎。</p>
 
+<!-- ==================== 第十一章：医用电子腕带监管闭环 ==================== -->
+<div class="book-part">
+<div class="section-header">
+  <div class="part-label">CHAPTER 11</div>
+  <h2 class="part-title">医用电子腕带监管闭环 — 新产品线</h2>
+  <p>全球电子腕带中国市场渗透率<1% × 医保骗保年损失300-500亿 × 首个软硬件一体化入场者</p>
+</div>
+
+<!-- TOP KPI -->
+<div class="grid-4">
+  <div class="metric purple"><div class="val">$5-15亿</div><div class="label">全球电子患者腕带市场(2024)<br>CAGR 15-22%<br><span class="source-note">Grand View Research / MarketsandMarkets</span></div></div>
+  <div class="metric red"><div class="val"><1%</div><div class="label">中国BLE/NFC腕带渗透率<br>远低于欧美5-15%<br><span class="source-note">本看板推算</span></div></div>
+  <div class="metric gold"><div class="val">300-500亿</div><div class="label">年医保欺诈损失(含挂床住院)<br>占基金支出~10-17%<br><span class="source-note">医保局内部估算</span></div></div>
+  <div class="metric cyan"><div class="val">¥350-700万</div><div class="label">500床医院5年总拥有成本<br>仅为国际竞品的30-50%<br><span class="source-note">Cat1基站定位零额外硬件</span></div></div>
+</div>
+
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.1 产品定义 — 监管闭环核心逻辑</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>维度</th><th>内容</th></tr>
+  <tr><td><strong>产品定位</strong></td><td>在现有医用电子腕带(Eregen平台)基础上，通过多角色权限+规则引擎+电子围栏，为卫健委/医保监管部门提供住院真实性实时核验能力</td></tr>
+  <tr><td><strong>解决的核心问题</strong></td><td>挂床住院(办了入院但实际不在院)、虚假入院、费用与治疗不匹配、电子围栏越界、转科/出院状态延迟</td></tr>
+  <tr><td><strong>四方闭环</strong></td><td>病人 → 家属(APP查看简化版费用/用药) → 医院(护士扫码核验+每日查房) → 监管部门(穿透审计+合规报表)</td></tr>
+  <tr><td><strong>差异化杀手级功能</strong></td><td>全球范围内<strong>唯一一个</strong>将电子围栏+规则引擎+穿透审计整合到电子腕带中的产品；Cat1基站定位替代RTLS基础设施，成本降低80%+</td></tr>
+  <tr><td><strong>零额外硬件投入</strong></td><td>利用腕带已有的Cat1蜂窝通信模组进行基站定位，无需增加GPS芯片或RTLS基础设施</td></tr>
+</table>
+</div>
+
+<!-- 业务闭环流程 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.2 业务闭环流程 — 入院→绑定→核验→治疗→出院</h3>
+<div class="card">
+<div class="timeline-step"><div class="timeline-dot green"></div><div class="timeline-content"><strong>入院登记 → 绑定腕带 → 写入患者信息</strong><br><span style="font-size:12px;color:var(--text2)">监管数据点：入院时间、绑定腕带ID、科室、床号、住院号唯一校验</span></div></div>
+<div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>在院核验 → 护士每日扫码腕带确认在院</strong><br><span style="font-size:12px;color:var(--text2)">监管数据点：核验时间戳、核验类型、护士账号；连续24h无核验触发R01告警</span></div></div>
+<div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><strong>治疗执行 → 给药/输液/抽血前扫码核对</strong><br><span style="font-size:12px;color:var(--text2)">监管数据点：操作时间、操作类型、腕带快照(过敏标签等)；位置校验(必须在院内)</span></div></div>
+<div class="timeline-step"><div class="timeline-dot blue"></div><div class="timeline-content"><strong>电子围栏联动 → Cat1基站定位实时监测</strong><br><span style="font-size:12px;color:var(--text2)">正常30min上报→接近边界5min→越界1min；停留超30min触发R02围栏告警</span></div></div>
+<div class="timeline-step"><div class="timeline-dot gold"></div><div class="timeline-content"><strong>出院注销 → 清空腕带 → 监管留痕</strong><br><span style="font-size:12px;color:var(--text2)">监管数据点：出院时间、出院原因、腕带清空记录；出院后腕带未清空触发R08</span></div></div>
+</div>
+
+<!-- 检测规则引擎 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.3 8条自动检测规则(规则引擎)</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>规则编号</th><th>规则名称</th><th>检测逻辑</th><th>告警级别</th><th>数据来源</th></tr>
+  <tr><td><strong>R01</strong></td><td>挂床住院</td><td>连续N小时无护士扫码核验记录(默认24h)</td><td class="decline">高</td><td>患者表+核验记录表</td></tr>
+  <tr><td><strong>R02</strong></td><td>电子围栏越界</td><td>定位超出医院围栏且停留>N分钟(默认30min)</td><td class="decline">高</td><td>位置日志表+围栏配置</td></tr>
+  <tr><td><strong>R03</strong></td><td>虚假入院</td><td>腕带已绑定但48h内无任何核验记录</td><td>中</td><td>绑定关系表+核验记录表</td></tr>
+  <tr><td><strong>R04</strong></td><td>费用突增</td><td>单患者日费用>科室均值3倍</td><td>中</td><td>费用表</td></tr>
+  <tr><td><strong>R05</strong></td><td>用药与核验不匹配</td><td>有用药记录但无给药核验记录</td><td>中</td><td>用药表+核验记录表</td></tr>
+  <tr><td><strong>R06</strong></td><td>频繁转科</td><td>7天内转科>3次</td><td>低</td><td>患者表(历史状态变更)</td></tr>
+  <tr><td><strong>R07</strong></td><td>腕带异常断开</td><td>腕带信号突然中断超过2h</td><td class="decline">高</td><td>腕带设备表</td></tr>
+  <tr><td><strong>R08</strong></td><td>长期不在院</td><td>出院后腕带未清空</td><td>低</td><td>患者表+绑定表</td></tr>
+</table>
+<p style="font-size: 11px; color: var(--text2); margin-top: 8px;">规则引擎每5分钟执行一轮检测，所有阈值可配置。支持false_positive标记积累数据后优化阈值。</p>
+</div>
+
+<!-- 竞品对比矩阵 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.4 竞品功能对比矩阵</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>功能模块</th><th>Eregen腕带监管</th><th>Zebra</th><th>Expo Medical</th><th>卫宁健康</th><th>Hill-Rom</th></tr>
+  <tr><td>患者身份识别</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td>❌</td></tr>
+  <tr><td>用药前扫码核对</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td class="rise">✅</td><td>❌</td></tr>
+  <tr><td>护士每日核验留痕</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+  <tr><td>电子围栏越界告警</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>⭐⭐</td></tr>
+  <tr><td>挂床住院自动检测</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+  <tr><td>医保合规报表</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+  <tr><td>穿透审计(全链路追溯)</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+  <tr><td>规则引擎(8条检测规则)</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+  <tr><td>家属端费用/用药查看</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+  <tr><td>零额外硬件投入</td><td class="rise">✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+</table>
+</div>
+
+<!-- 电子围栏技术路线 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.5 电子围栏技术路线对比</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>技术</th><th>精度</th><th>成本</th><th>部署复杂度</th><th>医疗成熟度</th><th>适用场景</th></tr>
+  <tr><td><strong>GPS</strong></td><td>3-10m</td><td>低</td><td>低</td><td>⭐⭐</td><td>室外追踪(室内无效)</td></tr>
+  <tr><td><strong>BLE信标</strong></td><td>1-3m</td><td>中</td><td>中</td><td>⭐⭐⭐⭐</td><td>楼层/房间级追踪</td></tr>
+  <tr><td><strong>UWB</strong></td><td>10-30cm</td><td>高</td><td>高</td><td>⭐⭐⭐⭐⭐</td><td>高精度追踪</td></tr>
+  <tr><td><strong>WiFi RTLS</strong></td><td>3-10m</td><td>低</td><td>低</td><td>⭐⭐⭐</td><td>通用定位</td></tr>
+  <tr class="rise"><td><strong>基站三角定位(MVP)</strong></td><td>50m-2km</td><td>极低</td><td>极低</td><td>⭐⭐</td><td>院区级围栏(200-500m半径足够)</td></tr>
+</table>
+<p style="font-size: 11px; color: var(--text2); margin-top: 8px;"><strong>MVP策略：</strong>利用腕带已有Cat1模组获取基站CID/TAC/LAC，云平台查询基站坐标数据库转换为lat/lng，Haversine公式计算与医院中心距离判断围栏状态。零新增硬件成本。</p>
+</div>
+
+<!-- 目标客户与定价 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.6 目标客户分层与定价策略</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3>🎯 客户分层</h3>
+    <table class="comp-table">
+      <tr><th>优先级</th><th>客户类型</th><th>进入策略</th></tr>
+      <tr><td class="rise">P0</td><td>二级甲等医院</td><td>标杆案例打造，强调"低成本+零额外硬件"</td></tr>
+      <tr><td class="rise">P1</td><td>三级医院试点科室</td><td>选1-2个科室试点(心内科)，验证后全院推广</td></tr>
+      <tr><td>P2</td><td>区县医保局</td><td>作为"医保飞检辅助工具"推向监管方</td></tr>
+      <tr><td>P3</td><td>大型三甲医院</td><td>通过HIS厂商合作进入</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>💰 定价参考</h3>
+    <table class="comp-table">
+      <tr><th>收费项</th><th>参考定价</th></tr>
+      <tr><td>医用腕带硬件</td><td>¥200-500/只(含Cat1模组+ESP32-S3+OLED)</td></tr>
+      <tr><td>SaaS年费(监管平台)</td><td>¥5-15万/年/医院(按床位阶梯定价)</td></tr>
+      <tr><td>实施部署费</td><td>¥3-8万/院(一次性)</td></tr>
+      <tr><td>监管方接入费</td><td>¥10-30万/局(医保局/卫健委统一接入)</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 时间窗口分析 -->
+<div class="forecast-box" style="margin-top: 24px;">
+  <h4>⏰ 时间窗口分析 — 2026-2028是关键窗口期</h4>
+  <table class="comp-table">
+    <tr><th>因素</th><th>当前状态</th><th>窗口判断</th></tr>
+    <tr><td>医保监管压力</td><td>DRG/DIP全面推开，挂床住院成重点打击对象</td><td class="rise">紧迫 — 医保局急需技术手段</td></tr>
+    <tr><td>电子腕带渗透率</td><td>中国<1%，远低于欧美5-15%</td><td class="rise">早期红利期 — 先发优势明显</td></tr>
+    <tr><td>政策驱动</td><td>卫健委智慧医院评级强制要求患者身份电子化</td><td class="rise">政策顺风期 — 2026-2028</td></tr>
+    <tr><td>竞争格局</td><td>无直接竞品(全球空白)</td><td class="rise">蓝海期 — 但HIS厂商可能跟进</td></tr>
+  </table>
+</div>
+
+<!-- 推进风险 -->
+<h3 style="font-size: 15px; margin: 24px 0 12px; color: var(--text);">11.7 推进风险与应对</h3>
+<div class="card">
+<table class="comp-table">
+  <tr><th>风险</th><th>严重程度</th><th>描述</th><th>应对策略</th></tr>
+  <tr>
+    <td><strong>Cat1基站定位精度不足</strong></td>
+    <td class="decline">🔴 高</td>
+    <td>医院建筑密集区基站定位偏差可达数百米，可能误判围栏越界</td>
+    <td>MVP阶段设置较大围栏半径(200-500m)；支持误报标记积累数据优化</td>
+  </tr>
+  <tr>
+    <td><strong>医院采购决策链长</strong></td>
+    <td class="decline">🔴 高</td>
+    <td>医院信息化采购通常需3-6个月，涉及院长/信息科/医务科多方</td>
+    <td>先做标杆医院(1-2家)，再复制推广；强调"增量"而非"替换"</td>
+  </tr>
+  <tr>
+    <td><strong>HIS厂商集成阻力</strong></td>
+    <td>🟡 中</td>
+    <td>卫宁/东软等HIS厂商可能视你们为竞争者而非互补者</td>
+    <td>定位为HIS的"监管增强插件"，主动寻求合作</td>
+  </tr>
+  <tr>
+    <td><strong>规则引擎误报</strong></td>
+    <td>🟡 中</td>
+    <td>初期阈值不准导致告警过多，监管疲劳</td>
+    <td>支持false_positive标记；积累数据后优化</td>
+  </tr>
+  <tr>
+    <td><strong>数据隐私合规</strong></td>
+    <td>🟢 低</td>
+    <td>患者位置数据属于敏感个人信息</td>
+    <td>严格遵循PIPL；数据境内存储；最小必要原则</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+  <p>智能手环与智能药盒产品开发全景看板 v2.0 — 完整版(11章)</p>
+  <p style="margin-top:4px; font-size: 11px;">数据来源：IDC Q4 2024 Tracker / Grand View Research 2025 / World Alzheimer Report 2024 / 中国国家统计局 2024 / IMARC Group 2024 / 智研咨询 2025 / Eregen市场调研报告 2026</p>
+  <p style="margin-top:4px; font-size: 11px;">⚠️ 免责声明：以上内容仅为商业分析参考，不构成任何投资或创业建议。所有市场预判均存在不确定性边界，决策需谨慎。</p>
+</footer>
+</div>
+
 <!-- ==================== 数据可视化图表 ==================== -->
 <section style="margin-top:32px;">
 <h2 class="section-title">📊 核心数据可视化</h2>
@@ -1315,10 +1486,13 @@ footer { text-align: center; padding: 30px 0 20px; border-top: 1px solid var(--b
   <div class="chart-container" id="chart-revenue-model" style="height:360px;"></div>
   <div class="chart-container" id="chart-risk-matrix" style="height:360px;"></div>
 </div>
+<div class="grid-2" style="margin-top:20px;">
+  <div class="chart-container" id="chart-wristband-market" style="height:360px;"></div>
+  <div class="chart-container" id="chart-rule-engine" style="height:360px;"></div>
+</div>
 </section>
 
   <footer>
-
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
@@ -1423,11 +1597,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }]
   });
 
+  // Chart 5: 医用电子腕带 — 全球vs中国市场对比
+  var chart5 = echarts.init(document.getElementById('chart-wristband-market'));
+  chart5.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '全球vs中国电子腕带渗透率对比(%)', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: ['传统条码', '被动RFID', 'BLE智能', 'NFC'], top: 30, textStyle: { color: '#9498a8' } },
+    grid: { left: 60, right: 20, top: 70, bottom: 30 },
+    xAxis: { type: 'category', data: ['美国', '欧洲', '日本', '中国'], axisLabel: { color: '#9498a8' } },
+    yAxis: { type: 'value', name: '渗透率(%)', nameTextStyle: { color: '#9498a8' }, axisLabel: { color: '#9498a8' } },
+    series: [
+      {
+        name: '传统条码', type: 'bar', stack: 'total',
+        data: [87.5, 82.5, 75, 90+],
+        itemStyle: { color: '#9498a8' }
+      },
+      {
+        name: '被动RFID', type: 'bar', stack: 'total',
+        data: [20, 15, 7.5, 3.5],
+        itemStyle: { color: '#5a8ec4' }
+      },
+      {
+        name: 'BLE智能', type: 'bar', stack: 'total',
+        data: [7.5, 10, 5.5, 0.5],
+        itemStyle: { color: '#c45a6c' }
+      },
+      {
+        name: 'NFC', type: 'bar', stack: 'total',
+        data: [5, 4, 3.5, 0.5],
+        itemStyle: { color: '#5cb88a' }
+      }
+    ]
+  });
+
+  // Chart 6: 规则引擎告警级别分布
+  var chart6 = echarts.init(document.getElementById('chart-rule-engine'));
+  chart6.setOption({
+    backgroundColor: 'transparent',
+    title: { text: '8条检测规则 — 告警级别分布', left: 'center', textStyle: { color: '#e4e6ed', fontSize: 14 } },
+    tooltip: { trigger: 'item' },
+    series: [{
+      type: 'pie', radius: ['40%', '70%'], center: ['50%', '55%'],
+      label: { color: '#e4e6ed', fontSize: 11 },
+      data: [
+        { value: 3, name: '高(🔴 R01/R02/R07)', itemStyle: { color: '#dc2626' } },
+        { value: 3, name: '中(🟡 R03/R04/R05)', itemStyle: { color: '#f59e0b' } },
+        { value: 2, name: '低(🟢 R06/R08)', itemStyle: { color: '#5cb88a' } }
+      ]
+    }]
+  });
+
   window.addEventListener('resize', function() {
     chart1.resize(); chart2.resize(); chart3.resize(); chart4.resize();
+    chart5.resize(); chart6.resize();
   });
 });
 </script>
-    <div style="text-align:center;padding:20px;border-top:1px solid var(--border);margin-top:20px"><a href="index.html" style="color:var(--cyan);text-decoration:none;font-size:13px"><i class="fas fa-home"></i> 返回首页</a></div>
-</body>
-</html>
