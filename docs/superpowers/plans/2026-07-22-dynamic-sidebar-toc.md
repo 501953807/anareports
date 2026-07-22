@@ -117,118 +117,134 @@ git commit -m "feat: add dynamic sidebar TOC generator module"
 
 ---
 
-### Task 2: Update `common/js/navigation.js` to call initTOCGenerator
+### Task 2: NO CHANGE — navigation.js is compatible as-is
 
-**Files:**
-- Modify: `common/js/navigation.js`
-
-**Step 1: Add init call**
-
-Read the existing `navigation.js` DOMContentLoaded handler (line 56-69). Add a call to `initTOCGenerator()` inside it:
-
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-  highlightCurrentChapter();
-  // Initialize dynamic TOC if data-toc is set
-  if (window.AnaTOC && AnaTOC.init) {
-    AnaTOC.init();
-  }
-  // ... existing mobile sidebar close logic ...
-});
-```
-
-Wait — actually, `toc-generator.js` already calls `initTOCGenerator()` on its own DOMContentLoaded. The only addition needed is to ensure `highlightCurrentChapter()` runs AFTER the dynamic sidebar is generated. So we need to move the highlight call in navigation.js to run after TOC generation, OR have toc-generator.js call it internally (which it already does on line ~42 of the code above).
-
-**Revised approach**: No change needed to navigation.js. The toc-generator.js already calls `AnaNav.highlightCurrentChapter()` after generating the sidebar. The existing `highlightCurrentChapter()` in navigation.js handles both hardcoded and dynamically-generated sidebars because it queries `.toc-list a` which exists in both cases.
-
-**Step 2: Verify no regression**
-- Confirm pages WITHOUT `data-toc` still work (hardcoded sidebar + highlighting)
-- Confirm pages WITH `data-toc` get dynamic sidebar + highlighting
-
-**Step 3: Commit**
-```bash
-git add common/js/navigation.js
-git commit -m "chore: verify navigation.js compatibility with dynamic TOC (no changes needed)"
-```
-
-Actually, skip this commit — no changes are needed to navigation.js. Move to next task.
+**No action needed.** The `toc-generator.js` module internally calls `AnaNav.highlightCurrentChapter()` after generating the sidebar. The existing `highlightCurrentChapter()` queries `.toc-list a` which exists in both hardcoded and dynamically-generated sidebars. No modifications to `navigation.js` required.
 
 ---
 
-### Task 3: Convert smart-devices TOC to JSON
+### Task 3: Convert ALL 12 books TOC to JSON
 
 **Files:**
-- Create: `books/smart-devices/toc.json`
+- Create: `books/<name>/toc.json` for all 12 books
 
 **Interfaces:**
-- Consumes: sidebar HTML from `smart-devices/index.html`
+- Consumes: sidebar HTML from each book's index.html
 - Produces: flat JSON array matching the TOC JSON format spec
 
-**Step 1: Extract sidebar from smart-devices/index.html**
+**Step 1: Identify which books need migration**
 
-The correct sidebar structure is in `smart-devices/index.html` lines 16-60. It contains:
-- 10 `toc-chapter` headers (第一章 through 第三十一章, but chapters 11-31 have NO chapter headers — they're bare links)
-- 31 chapter links (01-market-overview through 31-medical-wristband-regulatory)
-- 1 divider + 1 cross-book link ("返回中日经济书")
+| Book | Dir | Sidebar? | Action |
+|------|-----|----------|--------|
+| smart-devices | `smart-devices/` | Yes (aside) | Migrate — has worst bugs |
+| china-japan | `china-japan/` | Yes (aside) | Migrate |
+| chongqing | `chongqing/` | **NO** (inline grid) | SKIP — no sidebar to fix |
+| creators-ai | `creators-ai/` | Yes (aside + custom header) | Migrate (handle custom header) |
+| creators | `creators/` | Yes (aside) | Migrate |
+| ev-motorcycle | `ev-motorcycle/` | Yes (aside) | Migrate — has worst bugs |
+| guangzhou | `guangzhou/` | Yes (aside, uses toc-part) | Migrate |
+| last-mile-commerce | `last-mile-commerce/` | Yes (aside) | Migrate |
+| money-laundering | `money-laundering/` | Yes (aside) | Migrate |
+| pharma | `pharma/` | Yes (aside) | Migrate |
+| ai-visual-production | `ai-visual-production/` | Yes (aside) | Migrate |
+| traditional-academics | `traditional-academics/` | **NO** (inline grid) | SKIP — no sidebar to fix |
 
-Convert to JSON:
-```json
-[
-  {"type": "chapter", "title": "第一章：市场环境"},
-  {"type": "link", "href": "01-market-overview.html", "title": "第一章：全球与中国智能穿戴市场"},
-  {"type": "chapter", "title": "第二章：用户画像"},
-  {"type": "link", "href": "02-user-profile.html", "title": "第二章：用户画像与应用场景"},
-  ...
-  {"type": "link", "href": "11-heart-monitor-depth.html", "title": "第十一章：心率/ECG监测深度技术"},
-  {"type": "link", "href": "12-sleep-tracking-depth.html", "title": "第十二章：睡眠追踪深度技术"},
-  {"type": "link", "href": "13-gps-tracker-depth.html", "title": "第十三章：GPS定位深度技术"},
-  ...
-  {"type": "link", "href": "31-medical-wristband-regulatory.html", "title": "第三十一章：医用电子腕带监管闭环"},
-  {"type": "divider"},
-  {"type": "link", "href": "../china-japan/index.html", "title": "返回中日经济书"}
-]
+**Result**: 10 books need migration, 2 books (chongqing, traditional-academics) have no sidebar and are skipped.
+
+**Step 2: Extract sidebar from each book's index.html and convert to toc.json**
+
+For each book, read lines containing `<aside class="sidebar">` through `</aside>` from index.html. Parse the HTML:
+- `<li class="toc-chapter">...</li>` → `{"type": "chapter", "title": "..."}`
+- `<li><a href="...">...</a></li>` → `{"type": "link", "href": "...", "title": "..."}`
+- `<li class="toc-divider"></li>` → `{"type": "divider"}`
+
+Special handling:
+- `creators-ai`: sidebar has extra `<div class="sidebar-header">` wrapper — strip it, keep only `.toc-list` content
+- `guangzhou`: uses `<li class="toc-part">` instead of `<li class="toc-chapter">` — normalize to `"chapter"` type
+- `last-mile-commerce`: has TWO cross-book links — include both as separate link items after divider
+- `money-laundering`: some lines have multiple `<li>...</li><li>...</li>` compacted — split into separate entries
+
+**Step 3: Write each toc.json file**
+
+Create directory structure:
+```
+books/
+  smart-devices/toc.json
+  china-japan/toc.json
+  creators-ai/toc.json
+  creators/toc.json
+  ev-motorcycle/toc.json
+  guangzhou/toc.json
+  last-mile-commerce/toc.json
+  money-laundering/toc.json
+  pharma/toc.json
+  ai-visual-production/toc.json
 ```
 
-**Step 2: Write the file**
-
-Use Read tool on `smart-devices/index.html` lines 16-60 to extract exact sidebar HTML, then convert to JSON format.
-
-**Step 3: Validate JSON**
+**Step 4: Validate all JSON files**
 ```bash
-python3 -c "import json; json.load(open('books/smart-devices/toc.json'))" && echo "Valid JSON"
+for f in books/*/toc.json; do python3 -c "import json; json.load(open('$f'))" && echo "OK: $f" || echo "FAIL: $f"; done
 ```
 
-**Step 4: Commit**
+**Step 5: Commit**
 ```bash
-git add books/smart-devices/toc.json
-git commit -m "docs: add TOC config for smart-devices book"
+git add books/*/toc.json
+git commit -m "docs: add TOC configs for 10 books (chongqing & traditional-academics have no sidebar)"
 ```
 
 ---
 
-### Task 4: Migrate smart-devives to dynamic sidebar (pilot book)
+### Task 4: Migrate smart-devices to dynamic sidebar (pilot book)
 
 **Files:**
-- Modify: `smart-devices/index.html` (add data-toc, remove hardcoded sidebar)
-- Modify: All 31 content pages in `smart-devices/` (remove hardcoded sidebar, add data-toc)
+- Modify: All 32 HTML files in `smart-devices/` (index.html + 31 content pages)
 
-**Step 1: Write a conversion script**
+**Step 1: Write the migration script**
 
-Create a temporary Node.js script `scripts/migrate-sidebar.js` that:
-1. Takes a directory path as argument
-2. Reads each `.html` file
-3. Finds the `<aside class="sidebar">...</aside>` block
-4. Removes it
-5. Adds `data-toc="../books/smart-devices/toc.json"` to the `<body>` tag
-6. Writes the modified HTML back
+Create `scripts/migrate-book.js`:
+```javascript
+// migrate-book.js — Remove hardcoded sidebar from all HTML files in a directory
+// Usage: node scripts/migrate-book.js <directory> <toc-relative-path>
+var fs = require('fs');
+var path = require('path');
 
-The script should use regex or a simple HTML parser to find and remove the sidebar block. Since these are well-formed HTML files, a regex like `<aside class="sidebar">.*?</aside>` with `s` flag will work.
+var dir = path.resolve(process.argv[2] || '.');
+var tocPath = process.argv[3] || '../books/smart-devices/toc.json';
 
-**Step 2: Run the script on smart-devices/**
+var files = fs.readdirSync(dir).filter(function(f) { return f.endsWith('.html'); });
+
+files.forEach(function(file) {
+  var filePath = path.join(dir, file);
+  var html = fs.readFileSync(filePath, 'utf8');
+  
+  // Remove hardcoded sidebar block
+  var newHtml = html.replace(/<aside class="sidebar">[\s\S]*?<\/aside>/g, '');
+  
+  if (newHtml === html) {
+    console.log('SKIP (no sidebar): ' + file);
+    return;
+  }
+  
+  // Add data-toc attribute to <body> tag
+  newHtml = newHtml.replace(/<body>/, '<body data-toc="' + tocPath + '">');
+  
+  fs.writeFileSync(filePath, newHtml, 'utf8');
+  console.log('MIGRATED: ' + file);
+});
+
+console.log('Done. Migrated ' + files.filter(function(f) {
+  var h = fs.readFileSync(path.join(dir, f), 'utf8');
+  return h.indexOf('<aside class="sidebar">') !== -1;
+}).length + ' of ' + files.length + ' files.');
+```
+
+**Step 2: Run the migration script on smart-devives/**
 
 ```bash
-node scripts/migrate-sidebar.js smart-devices/
+node scripts/migrate-book.js smart-devices/ "../books/smart-devices/toc.json"
 ```
+
+Expected output: "MIGRATED: *.html" for each of the 32 files.
 
 **Step 3: Test in browser**
 - Open `smart-devices/index.html` in Chrome
@@ -236,11 +252,11 @@ node scripts/migrate-sidebar.js smart-devices/
 - Click each link to verify navigation works
 - Verify active chapter highlighting
 - Resize browser to test mobile toggle
+- Test a sub-chapter page like `smart-devices/11-heart-monitor-depth.html`
 
 **Step 4: If OK, commit**
 ```bash
-git add smart-devices/*.html
-git add common/js/toc-generator.js
+git add smart-devices/*.html common/js/toc-generator.js scripts/migrate-book.js
 git commit -m "feat: migrate smart-devices to dynamic sidebar TOC (pilot book)"
 ```
 
@@ -250,55 +266,34 @@ git commit -m "feat: migrate smart-devices to dynamic sidebar TOC (pilot book)"
 
 ---
 
-### Task 5: Survey remaining 11 books' sidebar structures
+### Task 5: Migrate remaining 9 books with sidebar
 
 **Files:**
-- Read: Each book's `index.html` sidebar section
-- Create: `books/<name>/toc.json` for each of the 11 remaining books
+- Modify: All content page HTMLs in 9 remaining books (~310 files total)
 
-**Interfaces:**
-- Consumes: sidebar HTML from each book's index.html
-- Produces: toc.json for each book
+**Books to migrate** (from survey, excluding chongqing & traditional-academics which have no sidebar):
+1. china-japan (31 pages) — cross-book link: `../pharma/index.html`
+2. creators-ai (32 pages) — custom sidebar header, needs special handling
+3. creators (32 pages)
+4. ev-motorcycle (30 pages) — cross-book link: `../money-laundering/index.html`
+5. guangzhou (36 pages) — uses `toc-part` class instead of `toc-chapter`, cross-book link: `../creators/index.html`
+6. last-mile-commerce (63 pages) — TWO cross-book links
+7. money-laundering (31 pages)
+8. pharma (31 pages) — cross-book link: `../money-laundering/index.html`
+9. ai-visual-production (26 pages)
 
-**Step 1: For each remaining book, extract sidebar from index.html and convert to toc.json**
-
-Books to process:
-1. china-japan (31 pages) — has correct sidebar in index.html
-2. chongqing (40 pages) — may use different layout, verify
-3. creators-ai (32 pages)
-4. creators (32 pages)
-5. ev-motorcycle (30 pages)
-6. guangzhou (36 pages) — may use different layout, verify
-7. last-mile-commerce (63 pages)
-8. money-laundering (31 pages)
-9. pharma (31 pages)
-10. traditional-academics (32 pages) — may use different layout, verify
-11. ai-visual-production (26 pages)
-
-**Step 2: Write each toc.json**
-- Use the same flat array format
-- Ensure cross-book links use correct relative paths
-- Validate each JSON file
-
-**Step 3: Commit all toc.json files**
-```bash
-git add books/*/toc.json
-git commit -m "docs: add TOC configs for remaining 11 books"
-```
-
----
-
-### Task 6: Migrate all remaining books
-
-**Files:**
-- Modify: All content page HTMLs in 11 remaining books (~340 files total)
-
-**Step 1: Run the migration script on each book directory**
+**Step 1: For each book, run the migration script**
 
 ```bash
-for dir in china-japan chongqing creators-ai creators ev-motorcycle guangzhou last-mile-commerce money-laundering pharma traditional-academics ai-visual-production; do
-  node scripts/migrate-sidebar.js "$dir/"
-done
+node scripts/migrate-book.js china-japan/ "../books/china-japan/toc.json"
+node scripts/migrate-book.js creators-ai/ "../books/creators-ai/toc.json"
+node scripts/migrate-book.js creators/ "../books/creators/toc.json"
+node scripts/migrate-book.js ev-motorcycle/ "../books/ev-motorcycle/toc.json"
+node scripts/migrate-book.js guangzhou/ "../books/guangzhou/toc.json"
+node scripts/migrate-book.js last-mile-commerce/ "../books/last-mile-commerce/toc.json"
+node scripts/migrate-book.js money-laundering/ "../books/money-laundering/toc.json"
+node scripts/migrate-book.js pharma/ "../books/pharma/toc.json"
+node scripts/migrate-book.js ai-visual-production/ "../books/ai-visual-production/toc.json"
 ```
 
 **Step 2: Spot-check each book in browser**
@@ -310,26 +305,25 @@ done
 **Step 3: Final commit**
 ```bash
 git add -A
-git commit -m "feat: migrate all 12 books to dynamic sidebar TOC"
+git commit -m "feat: migrate remaining 9 books to dynamic sidebar TOC"
 ```
 
 ---
 
-### Task 7: Cleanup and verification
+### Task 6: Cleanup and verification
 
 **Files:**
-- Delete: `scripts/migrate-sidebar.js` (temporary)
-- Verify: All 12 books render correctly
+- Delete: `scripts/migrate-book.js` (temporary)
 
 **Step 1: Delete temporary migration script**
 ```bash
-rm scripts/migrate-sidebar.js
+rm scripts/migrate-book.js
+rmdir scripts 2>/dev/null || true
 ```
 
 **Step 2: Final audit**
-- grep for remaining hardcoded sidebars: `grep -rl 'aside class="sidebar"' */*.html | wc -l`
-- Should be 0 (or only index.html files if we migrated those too)
-- Verify all toc.json files exist: `ls books/*/toc.json | wc -l` should be 12
+- Verify all toc.json files exist: `ls books/*/toc.json` should show 10 files
+- Verify no hardcoded sidebars remain in content pages: grep for `aside class="sidebar"` — should only appear in index.html files (which we migrated too) or not at all
 
 **Step 3: Final commit**
 ```bash
