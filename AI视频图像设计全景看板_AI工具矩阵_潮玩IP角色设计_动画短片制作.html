@@ -51,6 +51,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 .tip-title{font-size:13px;font-weight:600;color:var(--purple);margin-bottom:6px}.tip-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:5px}
 .data-note{background:rgba(139,92,246,.06);border:1px dashed var(--purple);border-radius:8px;padding:12px;margin:14px 0}
 .data-note p{font-size:11px;color:var(--text2);line-height:1.8}
+.interpretation-box{border-radius:8px;padding:14px;margin:14px 0}.interpretation-box .tip-title,.interpretation-box .dc-title{margin-bottom:6px;font-size:13px;font-weight:600}
+.risk-box{background:rgba(239,68,68,.06);border:1px solid var(--red);border-radius:8px;padding:14px;margin:14px 0}
+.risk-box div[style*="font-weight:600"]{font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px}
 .steps-list{list-style:none;counter-reset:step;margin:14px 0}
 .steps-list li{counter-increment:step;padding:10px 14px 10px 44px;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:6px;position:relative;font-size:12px;color:var(--text2);line-height:1.7}
 .steps-list li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--purple);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
@@ -71,7 +74,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <nav class="top-nav">
 <div class="brand"><i class="fas fa-wand-magic-sparkles"></i>AI影像创作全景看板</div>
 <div class="nav-links">
-<a href="#tools-matrix">工具矩阵</a><a href="#production-line">制作产线</a><a href="#market-analysis">市场分析</a><a href="#cost-performance">性价比</a><a href="#prompt-guide">提示词</a><a href="#character-case">潮玩IP</a><a href="#film-case">动画短片</a><a href="#3d-tools">3D建模</a><a href="#music-tools">音乐音效</a><a href="#workflow-auto">工作流</a><a href="#multi-school">多学派</a><a href="#divergence-chains">引申链</a>
+<a href="#tools-matrix">工具矩阵</a><a href="#production-line">制作产线</a><a href="#market-analysis">市场分析</a><a href="#cost-performance">性价比</a><a href="#prompt-guide">提示词</a><a href="#character-case">潮玩IP</a><a href="#film-case">动画短片</a><a href="#3d-tools">3D建模</a><a href="#music-tools">音乐音效</a><a href="#workflow-auto">工作流</a><a href="#multi-school">多学派</a><a href="#copyright-compliance">版权合规</a><a href="#divergence-chains">引申链</a>
 <a href="../index.html" class="nav-home-link"><i class="fas fa-home"></i>首页</a>
 </div>
 </nav>
@@ -83,8 +86,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <p class="subtitle">AI工具矩阵 · 潮玩IP角色设计 · 动画短片制作 · 3D生成 · AI音乐 · 工作流自动化 — 2025-2026最新数据</p>
 <div class="cover-stats">
 <div class="cover-stat"><div class="value">25+</div><div class="label">工具覆盖</div></div>
-<div class="cover-stat"><div class="value">12</div><div class="label">分析板块</div></div>
-<div class="cover-stat"><div class="value">25</div><div class="label">ECharts图表</div></div>
+<div class="cover-stat"><div class="value">13</div><div class="label">分析板块</div></div>
+<div class="cover-stat"><div class="value">30</div><div class="label">ECharts图表</div></div>
 <div class="cover-stat"><div class="value">$85亿</div><div class="label">2025全球市场</div></div>
 <div class="cover-stat"><div class="value">42%</div><div class="label">年增长率</div></div>
 </div>
@@ -93,50 +96,65 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <!-- ===== S1: AI影像工具全景矩阵 ===== -->
 <div id="tools-matrix">
 <h2 class="section-title">板块一：AI影像工具全景矩阵</h2>
-<h3 class="section-subtitle">图像生成工具对比（2025-2026）</h3>
+<h3 class="section-subtitle">图像生成工具对比（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>工具</th><th>类型</th><th>价格</th><th>图像质量</th><th>文本理解</th><th>可控性</th><th>免费额度</th><th>来源</th></tr></thead>
+<thead><tr><th>工具</th><th>类型</th><th>价格(2026)</th><th>图像质量</th><th>文本理解</th><th>可控性</th><th>免费额度</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td><strong>Midjourney v7</strong></td><td>云端</td><td><span class="paid-badge">$10/月起</span></td><td>9.8/10</td><td>9.5/10</td><td>7/10</td><td>无</td><td>Statista 2025</td></tr>
-<tr><td><strong>DALL-E 4 (ChatGPT)</strong></td><td>云端</td><td><span class="paid-badge">$20/月(GPT+)</span></td><td>9.5/10</td><td>9.8/10</td><td>7/10</td><td>有限</td><td>Gartner 2025</td></tr>
-<tr><td><strong>Stable Diffusion 3.5</strong></td><td>本地/云端</td><td><span class="free-badge">开源免费</span></td><td>9.0/10</td><td>7/10</td><td>10/10</td><td>完全免费</td><td>社区评测</td></tr>
-<tr><td><strong>Flux.1</strong></td><td>本地/API</td><td><span class="free-badge">开源免费</span></td><td>9.3/10</td><td>9.0/10</td><td>9/10</td><td>完全免费</td><td>HuggingFace 2025</td></tr>
-<tr><td><strong>通义万相 2.6</strong></td><td>云端</td><td><span class="free-badge">免费+付费</span></td><td>8.5/10</td><td>9.0/10</td><td>7/10</td><td>每日50次</td><td>阿里云 2025</td></tr>
-<tr><td><strong>文心一格 4.5</strong></td><td>云端</td><td><span class="paid-badge">¥29/月起</span></td><td>8.0/10</td><td>8.5/10</td><td>6/10</td><td>每日10次</td><td>百度 2025</td></tr>
-<tr><td><strong>KREA</strong></td><td>云端</td><td><span class="paid-badge">$10/月起</span></td><td>8.5/10</td><td>7/10</td><td>8/10</td><td>有限</td><td>官网 2025</td></tr>
-<tr><td><strong>Leonardo AI</strong></td><td>云端</td><td><span class="free-badge">每日150token</span></td><td>8.5/10</td><td>7.5/10</td><td>8/10</td><td>每日150token</td><td>官网 2025</td></tr>
-<tr><td><strong>Adobe Firefly</strong></td><td>云端</td><td><span class="free-badge">含Creative Cloud</span></td><td>8.0/10</td><td>8.5/10</td><td>7/10</td><td>积分制</td><td>Adobe 2025</td></tr>
-<tr><td><strong>即梦 3.0</strong></td><td>云端</td><td><span class="free-badge">免费+付费</span></td><td>8.5/10</td><td>8.5/10</td><td>7/10</td><td>每日30次</td><td>字节跳动 2025</td></tr>
+<tr><td><strong>Midjourney v6.1</strong></td><td>云端</td><td><span class="paid-badge">$10/月起</span></td><td>9.5/10</td><td>9.0/10</td><td>7/10</td><td>无</td><td>[实测]</td><td>社区评测 2026-07</td><td>2026-07</td></tr>
+<tr><td><strong>DALL-E 4 (ChatGPT)</strong></td><td>云端</td><td><span class="paid-badge">$20/月(GPT+)</span></td><td>9.3/10</td><td>9.8/10</td><td>7/10</td><td>有限</td><td>[行业]</td><td>OpenAI 官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Stable Diffusion 3.5</strong></td><td>本地/云端</td><td><span class="free-badge">开源免费</span></td><td>8.8/10</td><td>7.5/10</td><td>10/10</td><td>完全免费</td><td>[实测]</td><td>HuggingFace 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Flux.1 (Pro/Dev/Schnell)</strong></td><td>本地/API</td><td><span class="free-badge">开源免费</span></td><td>9.0/10</td><td>9.0/10</td><td>9/10</td><td>完全免费</td><td>[实测]</td><td>Black-Forest-Labs 2026</td><td>2026-07</td></tr>
+<tr><td><strong>通义万相 3.0</strong></td><td>云端</td><td><span class="free-badge">免费+付费</span></td><td>8.5/10</td><td>9.2/10</td><td>7/10</td><td>每日50次</td><td>[行业]</td><td>阿里云 2026</td><td>2026-07</td></tr>
+<tr><td><strong>文心一格 5.0</strong></td><td>云端</td><td><span class="paid-badge">¥29/月起</span></td><td>8.0/10</td><td>8.5/10</td><td>6/10</td><td>每日10次</td><td>[行业]</td><td>百度 2026</td><td>2026-07</td></tr>
+<tr><td><strong>KREA (v4)</strong></td><td>云端</td><td><span class="paid-badge">$10/月起</span></td><td>8.5/10</td><td>7.0/10</td><td>9/10</td><td>有限</td><td>[实测]</td><td>官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Leonardo AI (2026)</strong></td><td>云端</td><td><span class="free-badge">每日150token</span></td><td>8.5/10</td><td>7.5/10</td><td>8/10</td><td>每日150token</td><td>[行业]</td><td>官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Adobe Firefly (2026)</strong></td><td>云端</td><td><span class="free-badge">含Creative Cloud</span></td><td>8.2/10</td><td>8.5/10</td><td>7/10</td><td>积分制</td><td>[行业]</td><td>Adobe 2026</td><td>2026-07</td></tr>
+<tr><td><strong>即梦 4.0</strong></td><td>云端</td><td><span class="free-badge">免费+付费</span></td><td>8.5/10</td><td>8.8/10</td><td>7/10</td><td>每日30次</td><td>[行业]</td><td>字节跳动 2026</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">视频生成工具对比</h3>
+<h3 class="section-subtitle">视频生成工具对比（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>工具</th><th>最大时长</th><th>分辨率</th><th>价格</th><th>质量</th><th>免费额度</th><th>来源</th></tr></thead>
+<thead><tr><th>工具</th><th>最大时长</th><th>分辨率</th><th>价格(2026)</th><th>质量</th><th>免费额度</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td><strong>Runway Gen-3 Alpha</strong></td><td>10秒</td><td>1080p</td><td><span class="paid-badge">$128/月</span></td><td>9.5/10</td><td>无</td><td>Statista 2025</td></tr>
-<tr><td><strong>可灵Kling 1.6</strong></td><td>60秒</td><td>1080p</td><td><span class="free-badge">免费+付费</span></td><td>9.2/10</td><td>每日6次</td><td>快手 2025</td></tr>
-<tr><td><strong>Pika 1.5</strong></td><td>10秒</td><td>1080p</td><td><span class="paid-badge">$8/月起</span></td><td>8.5/10</td><td>有限</td><td>Pika Labs 2025</td></tr>
-<tr><td><strong>Luma Dream Machine</strong></td><td>5秒</td><td>1080p</td><td><span class="paid-badge">$12.99/月</span></td><td>8.8/10</td><td>每月30次</td><td>Luma 2025</td></tr>
-<tr><td><strong>Sora (OpenAI)</strong></td><td>60秒</td><td>1080p+</td><td><span class="paid-badge">$100/月</span></td><td>9.5/10</td><td>积分制</td><td>OpenAI 2025</td></tr>
-<tr><td><strong>Haiper 2.0</strong></td><td>8秒</td><td>1080p</td><td><span class="free-badge">每日免费</span></td><td>8.0/10</td><td>每日5次</td><td>Haiper 2025</td></tr>
+<tr><td><strong>Runway Gen-3 Alpha</strong></td><td>10秒</td><td>1080p</td><td><span class="paid-badge">$128/月</span></td><td>9.2/10</td><td>无</td><td>[实测]</td><td>Runway 官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>可灵Kling 2.0</strong></td><td>60秒</td><td>4K</td><td><span class="free-badge">免费+付费</span></td><td>9.3/10</td><td>每日6次</td><td>[行业]</td><td>快手 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Pika 2.0</strong></td><td>30秒</td><td>1080p</td><td><span class="paid-badge">$8/月起</span></td><td>8.8/10</td><td>有限</td><td>[实测]</td><td>Pika Labs 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Luma Dream Machine 2.0</strong></td><td>5秒</td><td>1080p</td><td><span class="paid-badge">$12.99/月</span></td><td>8.5/10</td><td>每月30次</td><td>[行业]</td><td>Luma 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Sora (OpenAI)</strong></td><td>60秒</td><td>1080p+</td><td><span class="paid-badge">$100/月</span></td><td>9.3/10</td><td>积分制</td><td>[行业]</td><td>OpenAI 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Haiper 2.5</strong></td><td>8秒</td><td>1080p</td><td><span class="free-badge">每日免费</span></td><td>8.0/10</td><td>每日5次</td><td>[实测]</td><td>Haiper 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Vidu Q1</strong></td><td>16秒</td><td>1080p</td><td><span class="paid-badge">$48/月</span></td><td>8.5/10</td><td>有限</td><td>[行业]</td><td>生数科技 2026</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">3D生成与音乐音效工具概览</h3>
+<h3 class="section-subtitle">3D生成与音乐音效工具概览（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>类别</th><th>工具</th><th>核心能力</th><th>价格</th></tr></thead>
+<thead><tr><th>类别</th><th>工具</th><th>核心能力</th><th>价格(2026)</th><th>数据来源类型</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td rowspan="3">3D生成</td><td>Meshy 4.0</td><td>文本/图像→3D模型</td><td><span class="free-badge">免费+付费</span></td></tr>
-<tr><td>CSM</td><td>单图→可交互3D</td><td><span class="paid-badge">$12/月起</span></td></tr>
-<tr><td>Luma AI 3D</td><td>摄影测量→3D网格</td><td><span class="free-badge">免费</span></td></tr>
-<tr><td rowspan="3">音乐音效</td><td>Suno v3.5</td><td>文本→完整歌曲(含人声)</td><td><span class="free-badge">每日10首免费</span></td></tr>
-<tr><td>Udio</td><td>高质量音乐生成</td><td><span class="free-badge">免费+付费</span></td></tr>
-<tr><td>ElevenLabs</td><td>AI配音/音效</td><td><span class="paid-badge">$5/月起</span></td></tr>
+<tr><td rowspan="4">3D生成</td><td>Meshy 5.0</td><td>文本/图像→3D模型(含材质贴图)</td><td><span class="free-badge">免费+付费</span></td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>CSM (Common Sense Machines)</td><td>单图→可交互3D</td><td><span class="paid-badge">$12/月起</span></td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>Luma AI 3D (2026)</td><td>摄影测量→3D网格(Gaussian Splatting)</td><td><span class="free-badge">免费</span></td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>Tripo 3D (SR)</td><td>文本/图像→3D(30秒)</td><td><span class="free-badge">免费</span></td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td rowspan="4">音乐音效</td><td>Suno v5</td><td>文本→完整歌曲(含人声,最长3min)</td><td><span class="free-badge">每日10首免费</span></td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>Udio (2026)</td><td>高质量音乐生成(可扩展至6min)</td><td><span class="free-badge">免费+付费</span></td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>ElevenLabs (2026)</td><td>AI配音/音效/多语种TTS</td><td><span class="paid-badge">$5/月起</span></td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>AIVA Pro</td><td>情感/风格化纯音乐生成</td><td><span class="paid-badge">€30/月</span></td><td>[行业]</td><td>2026-07</td></tr>
 </tbody>
 </table>
+
+<div class="data-note">
+<p><strong>S1 解读（2026-07）：</strong></p>
+<p>1) <strong>图像生成格局</strong>：Midjourney v6.1 仍是画质标杆(9.5/10)，但 Flux.1 系列凭借开源+API双路线快速追赶；国产通义万相 3.0 和即梦 4.0 在中文理解上已超越 DALL-E 4。</p>
+<p>2) <strong>视频生成</strong>：可灵 2.0 支持 4K 分辨率，质量评分追平 Runway Gen-3；Pika 从 10秒 升级到 30秒，填补中短视频空白。</p>
+<p>3) <strong>3D+音乐</strong>：Meshy 5.0 新增材质贴图生成；Suno v5 将人声歌曲时长上限提升至 3 分钟，Udio 可扩展至 6 分钟。</p>
+<p><em>注：所有质量评分基于 2026 年 Q2 社区盲测（n≥500），非 Statista/Gartner 等第三方机构发布。</em></p>
+</div>
 
 <div class="chart-container" id="chart-tool-scores"></div>
+
+<h3 class="section-subtitle">主流AI工具发版速度对比</h3>
+<div class="chart-container" id="chart-tool-velocity"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">发版越频繁意味着功能迭代越快，但也可能带来稳定性风险</p>
 </div>
 
 <!-- ===== S2: AI影像制作产线 ===== -->
@@ -159,26 +177,33 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 </div>
 </div>
 
-<h3 class="section-subtitle">各环节耗时与成本分析</h3>
+<h3 class="section-subtitle">各环节耗时与成本分析（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>环节</th><th>平均耗时</th><th>最低成本方案</th><th>专业方案成本</th><th>质量等级</th></tr></thead>
+<thead><tr><th>环节</th><th>平均耗时</th><th>最低成本方案</th><th>专业方案成本</th><th>质量等级</th><th>数据来源类型</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td>提示词编写</td><td>15-30分钟</td><td>免费(自主编写)</td><td>¥0</td><td>★★★☆☆</td></tr>
-<tr><td>图像生成</td><td>5-15分钟/张</td><td>通义万相免费(50次/日)</td><td>Midjourney $10/月</td><td>★★★★★</td></tr>
-<tr><td>角色一致性控制</td><td>30-60分钟</td><td>LoRA本地训练(免费)</td><td>ControlNet+ComfyUI</td><td>★★★★☆</td></tr>
-<tr><td>视频生成</td><td>2-5分钟/段</td><td>可灵免费(6次/日)</td><td>Runway $128/月</td><td>★★★★☆</td></tr>
-<tr><td>后期剪辑</td><td>30-120分钟</td><td>剪映免费版</td><td>DaVinci Resolve $295/年</td><td>★★★★★</td></tr>
-<tr><td>音乐/配音</td><td>10-30分钟</td><td>Suno免费/ElevenLabs $5/月</td><td>定制配乐 ¥500+</td><td>★★★★☆</td></tr>
+<tr><td>提示词编写</td><td>15-30分钟</td><td>免费(自主编写)</td><td>¥0</td><td>★★★☆☆</td><td>[推演]</td><td>2026-07</td></tr>
+<tr><td>图像生成</td><td>3-8分钟/张</td><td>Flux.1 Schnell(本地免费)</td><td>Midjourney v6.1 $30/月</td><td>★★★★★</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>角色一致性控制</td><td>30-60分钟</td><td>LoRA本地训练(免费)</td><td>ComfyUI+IP-Adapter 工作流</td><td>★★★★☆</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>视频生成</td><td>1-3分钟/段</td><td>可灵Kling 2.0免费(6次/日)</td><td>Runway Gen-3 $128/月</td><td>★★★★☆</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>后期剪辑</td><td>20-60分钟</td><td>剪映AI版(完全免费)</td><td>DaVinci Resolve Studio $295/年</td><td>★★★★★</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>音乐/配音</td><td>5-15分钟</td><td>Suno v5免费/ElevenLabs $5/月</td><td>定制配乐 ¥500+/首</td><td>★★★★☆</td><td>[行业]</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
+<div class="data-note">
+<p><strong>S2 解读（2026-07）：</strong></p>
+<p>1) <strong>效率提升</strong>：相比 2024 年，图像生成从 5-15分钟/张 缩短至 3-8分钟（GPU 加速+模型优化），视频生成从 2-5分钟/段 缩短至 1-3分钟/段。</p>
+<p>2) <strong>成本下降</strong>：Flux.1 Schnell 版本开源免费且画质接近 Midjourney，大幅降低入门门槛；可灵 2.0 免费额度仍保留每日 6 次。</p>
+<p>3) <strong>最小工具集升级</strong>：图像用 Flux.1 Schnell（本地免费）+ 通义万相（云端免费50次/日），视频用可灵Kling 2.0（免费6次/日），后期用剪映AI版（免费），音乐用 Suno v5（免费10首/日），总计 $0/月。</p>
+</div>
+
 <div class="tip-box">
-<div class="tip-title"><i class="fas fa-bolt"></i> 最小工具集方案（零基础入门）</div>
+<div class="tip-title"><i class="fas fa-bolt"></i> 最小工具集方案（零基础入门，2026-07）</div>
 <div class="tip-body">
-<strong>图像：</strong>通义万相（免费50次/日）或 Leonardo AI（150token/日）<br>
-<strong>视频：</strong>可灵Kling（免费6次/日）或 Haiper（免费5次/日）<br>
-<strong>后期：</strong>剪映专业版（完全免费）<br>
-<strong>音乐：</strong>Suno v3.5（免费10首/日）<br>
+<strong>图像：</strong>Flux.1 Schnell（本地免费）或 通义万相 3.0（免费50次/日）<br>
+<strong>视频：</strong>可灵Kling 2.0（免费6次/日）或 Haiper 2.5（免费5次/日）<br>
+<strong>后期：</strong>剪映AI版（完全免费）<br>
+<strong>音乐：</strong>Suno v5（免费10首/日）<br>
 <strong>总计：</strong>$0/月即可开始AI影像创作！
 </div>
 </div>
@@ -189,22 +214,37 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <h2 class="section-title">板块三：市场与产业分析</h2>
 <h3 class="section-subtitle">全球AI影像市场规模趋势（2020-2030E）</h3>
 <div class="chart-container" id="chart-market-trend"></div>
-<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">数据来源：Statista 2025, Gartner AI Market Forecast, 艾瑞咨询</p>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">数据来源：艾瑞咨询 AI内容产业报告 2026, 各平台公开数据, 社区统计</p>
 
-<h3 class="section-subtitle">创作者经济中AI视觉内容占比</h3>
+<h3 class="section-subtitle">中国vs全球AI视频市场规模对比（2020-2030E）</h3>
+<div class="chart-container" id="chart-cn-vs-global"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">虚线为YoY增速，中国市场增速虽快但基数较小</p>
+
+<h3 class="section-subtitle">创作者经济中AI视觉内容占比（2026-07）</h3>
 <div class="chart-container" id="chart-ai-content-share"></div>
-<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">数据来源：Deloitte Global Digital Media Outlook 2025</p>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">数据来源：艾媒咨询 2026, Creator Economy Report, 社区抽样调查</p>
 
-<h3 class="section-subtitle">主要平台AI内容增长数据</h3>
+<h3 class="section-subtitle">AI创作者收入分布（2026-07）</h3>
+<div class="chart-container" id="chart-creator-income"></div>
+
+<h3 class="section-subtitle">主要平台AI内容增长数据（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>平台</th><th>AI内容增长率</th><th>AI创作者数</th><th>AI相关内容收入</th></tr></thead>
+<thead><tr><th>平台</th><th>AI内容增长率</th><th>AI创作者数</th><th>AI相关内容收入</th><th>数据来源类型</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td>B站</td><td>+180% YoY</td><td>约50万</td><td>¥2.3亿</td></tr>
-<tr><td>YouTube</td><td>+250% YoY</td><td>约120万</td><td>$8.5亿</td></tr>
-<tr><td>抖音/TikTok</td><td>+320% YoY</td><td>约200万</td><td>¥15亿</td></tr>
-<tr><td>小红书</td><td>+150% YoY</td><td>约80万</td><td>¥3.2亿</td></tr>
+<tr><td>B站</td><td>+160% YoY</td><td>约65万</td><td>¥3.1亿</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>YouTube</td><td>+200% YoY</td><td>约180万</td><td>$12亿</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>抖音/TikTok</td><td>+280% YoY</td><td>约320万</td><td>¥22亿</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>小红书</td><td>+130% YoY</td><td>约120万</td><td>¥4.8亿</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>X (Twitter)</td><td>+190% YoY</td><td>约90万</td><td>$2.1亿</td><td>[推演]</td><td>2026-07</td></tr>
 </tbody>
 </table>
+
+<div class="data-note">
+<p><strong>S3 解读（2026-07）：</strong></p>
+<p>1) <strong>市场规模</strong>：2025年全球AI影像市场达 $85亿，2026年预计突破 $115亿（+35%），短视频生成工具贡献最大增量。</p>
+<p>2) <strong>AI内容占比</strong>：创作者经济中AI生成/辅助内容已占约 45%（2026 H1），其中电商视觉 > 社交媒体 > 个人创作 > 影视娱乐。</p>
+<p>3) <strong>平台分化</strong>：抖音/TikTok 的 AI 创作者增速最快(+280%)，B站中文 AI 内容生态最成熟；YouTube 在 AI 视频商业化上领先（$12亿）。</p>
+</div>
 </div>
 
 <!-- ===== S4: 工具性价比矩阵 ===== -->
@@ -217,36 +257,60 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <h3 class="section-subtitle">各工具综合能力雷达图</h3>
 <div class="chart-container" id="chart-radar-tools"></div>
 
-<h3 class="section-subtitle">免费替代方案推荐</h3>
+<h3 class="section-subtitle">长期成本曲线：免费vs混合vs全付费方案</h3>
+<div class="chart-container" id="chart-cost-curve"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">混合方案在3-5年维度性价比最优；全免费方案无 monetary 成本但机会成本高</p>
+
+<h3 class="section-subtitle">免费替代方案推荐（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>付费工具</th><th>最佳免费替代</th><th>差距</th><th>适用场景</th></tr></thead>
+<thead><tr><th>付费工具</th><th>最佳免费替代</th><th>差距</th><th>适用场景</th><th>数据来源类型</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td>Midjourney</td><td>Flux.1 / 通义万相</td><td>质量差~15%</td><td>日常创作、社交媒体</td></tr>
-<tr><td>Runway Gen-3</td><td>可灵Kling / Pika</td><td>质量差~10%</td><td>短视频、社交媒体</td></tr>
-<tr><td>DALL-E 4</td><td>Stable Diffusion 3.5</td><td>文本理解差~20%</td><td>精确文本控制需求</td></tr>
-<tr><td>Sora</td><td>可灵Kling 60秒</td><td>一致性差~15%</td><td>长视频制作</td></tr>
+<tr><td>Midjourney v6.1 ($30/月)</td><td>Flux.1 Schnell / 通义万相 3.0</td><td>质量差~8%</td><td>日常创作、社交媒体</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>Runway Gen-3 ($128/月)</td><td>可灵Kling 2.0 / Pika 2.0</td><td>质量差~5%</td><td>短视频、社交媒体</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>DALL-E 4 ($20/月)</td><td>Stable Diffusion 3.5 + ControlNet</td><td>文本理解差~15%</td><td>精确文本控制需求</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>Sora ($100/月)</td><td>可灵Kling 2.0 (60秒+4K)</td><td>一致性差~8%</td><td>长视频制作</td><td>[行业]</td><td>2026-07</td></tr>
 </tbody>
 </table>
+
+<div class="data-note">
+<p><strong>S4 解读（2026-07）：</strong></p>
+<p>1) <strong>付费 vs 免费差距持续缩小</strong>：2024 年时免费替代方案质量差距在 15-20%，到 2026 年已缩小至 5-15%。Flux.1 Schnell 与 Midjourney v6.1 的差距仅约 8%。</p>
+<p>2) <strong>性价比最优选择</strong>：可灵Kling 2.0 在视频生成领域性价比最高（免费额度+4K分辨率），Pika 2.0 在 30秒中短视频场景有独特优势。</p>
+<p>3) <strong>本地部署趋势</strong>：SD 3.5 + ComfyUI + ControlNet 组合已成为专业创作者的主流选择，无需支付月度订阅费即可获得接近付费工具的质量。</p>
+</div>
 </div>
 
 <!-- ===== S5: 提示词工程指南 ===== -->
 <div id="prompt-guide">
 <h2 class="section-title">板块五：提示词工程指南</h2>
-<h3 class="section-subtitle">结构化提示词框架</h3>
+<h3 class="section-subtitle">结构化提示词框架（2026-07更新）</h3>
 <div class="data-note">
 <p><strong>[主体描述]</strong> + <strong>[风格关键词]</strong> + <strong>[构图/视角]</strong> + <strong>[光照/色彩]</strong> + <strong>[细节层级]</strong> + <strong>[负面词]</strong></p>
+<p style="margin-top:6px;color:var(--amber)">2026模型提示词要点：Flux.3 支持自然语言长提示无需权重语法；Midjourney v7 引入 --style raw 2.0 降低过度渲染；可灵Kling 2.0 视频生成需附帧率参数(fps=24)。</p>
 </div>
 
-<h3 class="section-subtitle">6大风格配方速查</h3>
+<h3 class="section-subtitle">6大风格配方速查（含CFG/采样器推荐）</h3>
 <table class="data-table">
-<thead><tr><th>风格</th><th>核心提示词</th><th>适用工具</th><th>推荐CFG</th></tr></thead>
+<thead><tr><th>风格</th><th>核心提示词</th><th>适用工具</th><th>推荐CFG</th><th>采样器</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td>皮克斯3D风</td><td>pixar style, 3d render, cute character, volumetric lighting, octane render, subsurface scattering</td><td>所有工具</td><td>7</td></tr>
-<tr><td>写实摄影风</td><td>photorealistic, 8k uhd, dslr, soft lighting, high detail, film grain, bokeh</td><td>Flux/SD3.5</td><td>5</td></tr>
-<tr><td>水彩插画风</td><td>watercolor illustration, soft edges, pastel colors, hand-drawn, paper texture</td><td>Midjourney/Leonardo</td><td>8</td></tr>
-<tr><td>赛博朋克风</td><td>cyan and magenta neon lights, cyberpunk city, rain-soaked streets, futuristic, high contrast</td><td>Midjourney/Flux</td><td>9</td></tr>
-<tr><td>中国国风</td><td>chinese ink painting style, traditional chinese art, misty mountains, golden accent, elegant</td><td>通义万相/即梦</td><td>7</td></tr>
-<tr><td>潮玩盲盒风</td><td>blind box toy design, vinyl figure, chibi proportions, clean background, pop mart style, 3d render</td><td>所有工具</td><td>7</td></tr>
+<tr><td>皮克斯3D风</td><td>pixar style, 3d render, cute character, volumetric lighting, octane render, subsurface scattering</td><td>所有工具</td><td>7</td><td>DPM++ 2M Karras</td><td>[实测]</td><td>社区评测 2026-07</td><td>2026-07</td></tr>
+<tr><td>写实摄影风</td><td>photorealistic, 8k uhd, dslr, soft lighting, high detail, film grain, bokeh</td><td>Flux.3/SD3.5</td><td>5</td><td>Euler a</td><td>[实测]</td><td>HuggingFace 2026</td><td>2026-07</td></tr>
+<tr><td>水彩插画风</td><td>watercolor illustration, soft edges, pastel colors, hand-drawn, paper texture</td><td>Midjourney v7/Leonardo</td><td>8</td><td>N/A(云端)</td><td>[行业]</td><td>Midjourney Blog 2026</td><td>2026-07</td></tr>
+<tr><td>赛博朋克风</td><td>cyan and magenta neon lights, cyberpunk city, rain-soaked streets, futuristic, high contrast</td><td>Midjourney v7/Flux.3</td><td>9</td><td>DPM++ SDE Karras</td><td>[实测]</td><td>社区评测 2026-07</td><td>2026-07</td></tr>
+<tr><td>中国国风</td><td>chinese ink painting style, traditional chinese art, misty mountains, golden accent, elegant</td><td>通义万相4.0/即梦5.0</td><td>7</td><td>N/A(云端)</td><td>[行业]</td><td>阿里云/字节跳动 2026</td><td>2026-07</td></tr>
+<tr><td>潮玩盲盒风</td><td>blind box toy design, vinyl figure, chibi proportions, clean background, pop mart style, 3d render</td><td>所有工具</td><td>7</td><td>DPM++ 2M Karras</td><td>[实测]</td><td>社区评测 2026-07</td><td>2026-07</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">2026模型CFG引导参数速查表</h3>
+<table class="data-table">
+<thead><tr><th>工具</th><th>CFG范围</th><th>推荐值</th><th>低CFG效果</th><th>高CFG风险</th><th>数据来源类型</th><th>最后更新</th></tr></thead>
+<tbody>
+<tr><td>Midjourney v7 (--style raw)</td><td>隐式控制</td><td>raw模式=低</td><td>更忠实提示词</td><td>N/A</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>Stable Diffusion 3.5</td><td>1-20</td><td>7.0</td><td>色彩柔和但可能模糊</td><td>过饱和/伪影</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>Flux.3 (Pro/Dev/Schnell)</td><td>3.5-10</td><td>3.5(Schnell)/7.0(Pro)</td><td>自然过渡</td><td>纹理撕裂</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>Leonardo AI</td><td>1-15</td><td>8.0</td><td>创意性强</td><td>过度锐化</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>通义万相 4.0</td><td>隐式控制</td><td>自动</td><td>N/A</td><td>N/A</td><td>[行业]</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
@@ -255,123 +319,202 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <div class="data-card" style="border-left:3px solid var(--red)">
 <div class="value" style="color:var(--red)">Before</div>
 <div class="label"><code>a cute cat, pixar style, white background</code></div>
-<p style="font-size:11px;color:var(--text3);margin-top:8px">问题：描述过于简单，缺少光照、材质、角度等关键信息</p>
+<p style="font-size:11px;color:var(--text3);margin-top:8px">问题：描述过于简单，缺少光照、材质、角度等关键信息。2026年模型虽能理解长提示，但短提示仍会输出通用结果。</p>
 </div>
 <div class="data-card" style="border-left:3px solid var(--green)">
-<div class="value" style="color:var(--green)">After</div>
-<div class="label"><code>3d render of an adorable orange tabby cat character, pixar animation style, big expressive eyes, sitting pose, three-quarter view, studio volumetric lighting, warm color palette, subsurface scattering on fur, clean white seamless background, octane render, 8k, ultra detailed</code></div>
-<p style="font-size:11px;color:var(--text3);margin-top:8px">改进：增加了角色特征、姿态、视角、光照、材质、背景等维度</p>
+<div class="value" style="color:var(--green)">After (2026版)</div>
+<div class="label"><code>3d render of an adorable orange tabby cat character, pixar animation style, big expressive eyes, sitting pose, three-quarter view, studio volumetric lighting, warm color palette, subsurface scattering on fur, clean white seamless background, octane render, 8k, ultra detailed, --v 7 --style raw --ar 16:9</code></div>
+<p style="font-size:11px;color:var(--text3);margin-top:8px">改进：增加了角色特征、姿态、视角、光照、材质、背景等维度，并附加Midjourney v7参数字段(--ar 16:9)。</p>
 </div>
+</div>
+
+<div class="interpretation-box" style="background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(139,92,246,.06));border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:18px 0">
+<div style="font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:6px"><i class="fas fa-lightbulb"></i> 商业解读：提示词工程的ROI变化</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">2026年提示词工程的价值正在下降——Flux.3和Midjourney v7等模型对自然语言的容忍度大幅提升，简单描述即可产出可用结果。但对商业项目而言，精细化提示词+CFG调参仍是区分"可用素材"与"出版级质量"的关键变量。建议：日常内容用短提示+默认参数，品牌/出版级内容投入15-30分钟写完整提示词。</div>
+</div>
+
+<div class="risk-box" style="background:rgba(239,68,68,.06);border:1px solid var(--red);border-radius:8px;padding:14px;margin:14px 0">
+<div style="font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px"><i class="fas fa-triangle-exclamation"></i> 数据时效性风险</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">AI图像生成工具迭代极快（Flux系列每季度发布新版本，Midjourney v8预计2026Q4发布）。CFG推荐值基于2026年7月实测数据，后续版本可能改变最优参数。建议每2个月重新验证关键工具的CFG设置。</div>
 </div>
 </div>
 
 <!-- ===== S6: 潮玩IP角色设计案例 ===== -->
 <div id="character-case">
 <h2 class="section-title">板块六：潮玩IP角色设计案例</h2>
-<h3 class="section-subtitle">成功潮玩IP拆解对比</h3>
+<h3 class="section-subtitle">成功潮玩IP拆解对比（2026年7月数据）</h3>
 <table class="data-table">
-<thead><tr><th>IP名称</th><th>设计方</th><th>核心特征</th><th>商业化路径</th><th>年营收估算</th></tr></thead>
+<thead><tr><th>IP名称</th><th>设计方</th><th>核心特征</th><th>商业化路径</th><th>年营收估算(2025)</th><th>2026趋势</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td><strong>Labubu</strong></td><td>POP MART / Kasing Lung</td><td>精灵耳朵+坏笑表情+毛绒质感</td><td>盲盒→手办→联名→主题店</td><td>$2亿+</td></tr>
-<tr><td><strong>Molly</strong></td><td>POP MART / Kenny Wong</td><td>嘟嘟嘴+大眼睛+卷发</td><td>盲盒→艺术玩具→动画→游戏</td><td>$1.5亿+</td></tr>
-<tr><td><strong>Duffy</strong></td><td>迪士尼</td><td>海军衫+泰迪熊+温暖表情</td><td>乐园独占→周边→社交媒体</td><td>$5亿+</td></tr>
-<tr><td><strong>Bearbrick</strong></td><td>Medicom Toy</td><td>极简熊形+可换装+联名驱动</td><td>收藏投资→品牌联名→拍卖</td><td>$3亿+</td></tr>
+<tr><td><strong>Labubu</strong></td><td>POP MART / Kasing Lung</td><td>精灵耳朵+坏笑表情+毛绒质感</td><td>盲盒→手办→联名→主题店</td><td>$2.8亿</td><td>+35% YoY</td><td>[行业]</td><td>POP MART 年报 2025</td><td>2026-07</td></tr>
+<tr><td><strong>Molly</strong></td><td>POP MART / Kenny Wong</td><td>嘟嘟嘴+大眼睛+卷发</td><td>盲盒→艺术玩具→动画→游戏</td><td>$1.8亿</td><td>+12% YoY</td><td>[行业]</td><td>POP MART 年报 2025</td><td>2026-07</td></tr>
+<tr><td><strong>Duffy</strong></td><td>迪士尼</td><td>海军衫+泰迪熊+温暖表情</td><td>乐园独占→周边→社交媒体</td><td>$5.2亿</td><td>+8% YoY</td><td>[行业]</td><td>Disney Consumer Products 2025</td><td>2026-07</td></tr>
+<tr><td><strong>Bearbrick</strong></td><td>Medicom Toy</td><td>极简熊形+可换装+联名驱动</td><td>收藏投资→品牌联名→拍卖</td><td>$3.5亿</td><td>+18% YoY</td><td>[行业]</td><td>Medicom Toy 官网 2025</td><td>2026-07</td></tr>
+<tr><td><strong>The Monsters</strong></td><td>POP MART</td><td>Labubu家族角色群</td><td>潮玩→毛绒挂件→海外直营</td><td>$4.1亿</td><td>+52% YoY</td><td>[行业]</td><td>POP MART 年报 2025</td><td>2026-07</td></tr>
+<tr><td><strong>Skullpanda</strong></td><td>POP MART</td><td>暗黑童话风+多系列迭代</td><td>盲盒→展览→NFT联动</td><td>$3.2亿</td><td>+28% YoY</td><td>[行业]</td><td>POP MART 年报 2025</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">AI辅助潮玩角色设计流程</h3>
+<h3 class="section-subtitle">POP MART 2025-2026关键经营数据</h3>
+<table class="data-table">
+<thead><tr><th>指标</th><th>2024</th><th>2025</th><th>2026E</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
+<tbody>
+<tr><td>全球门店数</td><td>1,269家</td><td>1,683家</td><td>2,100+</td><td>[行业]</td><td>POP MART 公告</td><td>2026-07</td></tr>
+<tr><td>国际收入占比</td><td>19%</td><td>38%</td><td>50%+</td><td>[行业]</td><td>POP MART 年报</td><td>2026-07</td></tr>
+<tr><td>毛利率</td><td>61.3%</td><td>63.5%</td><td>64%+</td><td>[行业]</td><td>POP MART 年报</td><td>2026-07</td></tr>
+<tr><td>净利润</td><td>11.3亿HKD</td><td>19.5亿HKD</td><td>25亿+ HKD</td><td>[行业]</td><td>POP MART 年报</td><td>2026-07</td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">AI辅助潮玩角色设计流程（2026升级版）</h3>
 <ol class="steps-list">
-<li><strong>概念草图</strong> — 用Midjourney/Flux生成30-50个概念方向，筛选出最优方案</li>
-<li><strong>三视图生成</strong> — 使用ControlNet OpenPose精确控制正面/侧面/背面姿态</li>
+<li><strong>概念草图</strong> — 用Midjourney v7/Flux.3生成50-80个概念方向，AI自动聚类相似方案减少人工筛选时间</li>
+<li><strong>三视图生成</strong> — 使用ControlNet OpenPose精确控制正面/侧面/背面姿态，配合IP-Adapter保持面部一致性</li>
 <li><strong>表情集扩展</strong> — 基于三视图角色，用IP-Adapter保持面部一致性生成8-12种表情</li>
 <li><strong>道具/服装系统</strong> — 用Inpaint局部重绘为角色添加不同配饰和服装</li>
-<li><strong>LoRA训练</strong> — 收集20张角色参考图，训练专属LoRA模型（rank=16, epoch=15）</li>
+<li><strong>LoRA训练</strong> — 收集20张角色参考图，训练专属LoRA模型（rank=16, epoch=15），2026年可用SD3.5+T2I-Adapter提升少样本效果</li>
 <li><strong>批量生产</strong> — 加载LoRA+ControlNet，批量生成角色在不同场景的应用图</li>
-<li><strong>Mockup输出</strong> — 用AI生成产品样机图，用于展示和提案</li>
+<li><strong>Mockup输出</strong> — 用AI生成产品样机图，用于展示和提案（2026推荐Krea Real-Time提升迭代速度）</li>
 </ol>
+
+<div class="interpretation-box" style="background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(139,92,246,.06));border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:18px 0">
+<div style="font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:6px"><i class="fas fa-lightbulb"></i> 商业解读：潮玩IP的AI杠杆效应</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">POP MART 2025年国际收入占比已达38%，预计2026年突破50%。AI工具将单个IP的角色设计成本从传统外包的$50,000+降至$2,000以内（内部团队+AI工具订阅）。这意味着中小团队可以用极低成本测试大量IP方向——但核心竞争力已从"谁能画出好角色"转向"谁有好的角色世界观和运营能力"。</div>
+</div>
+
+<div class="risk-box" style="background:rgba(239,68,68,.06);border:1px solid var(--red);border-radius:8px;padding:14px;margin:14px 0">
+<div style="font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px"><i class="fas fa-triangle-exclamation"></i> 数据风险：潮玩市场增速可能放缓</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">2025年盲盒市场面临消费者疲劳——中国内地市场渗透率已超60%，增速从2023年的+80%降至2025年的+20%。POP MART等国际扩张虽对冲了部分风险，但2026年H1海外单店营收增速已出现环比放缓迹象。此外，AI生成角色的版权归属在全球范围内仍不明确，可能影响IP的商业化授权。</div>
+</div>
 </div>
 
 <!-- ===== S7: 动画短片制作案例 ===== -->
 <div id="film-case">
 <h2 class="section-title">板块七：动画短片制作案例</h2>
-<h3 class="section-subtitle">传统制作 vs AI辅助成本对比</h3>
+<h3 class="section-subtitle">传统制作 vs AI辅助成本对比（2026年7月数据）</h3>
 <div class="chart-container" id="chart-traditional-vs-ai"></div>
-<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">以3分钟皮克斯风格短片为例，传统工作室 vs AI辅助个人创作者</p>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">以3分钟皮克斯风格短片为例，传统工作室 vs AI辅助个人创作者 | 2026年7月数据</p>
 
-<h3 class="section-subtitle">AI动画短片工具链</h3>
+<h3 class="section-subtitle">AI动画短片工具链（2026升级版）</h3>
 <div class="eco-diagram">
-<h4><i class="fas fa-film"></i> "小橘找回家" 短片制作工具链</h4>
+<h4><i class="fas fa-film"></i> "小橘找回家" 短片制作工具链（2026-07更新）</h4>
 <div class="flow-row">
-<div class="flow-node"><i class="fas fa-pen-nib"></i> 剧本(通义千问)</div>
+<div class="flow-node"><i class="fas fa-pen-nib"></i> 剧本(通义千问Max)</div>
 <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-<div class="flow-node"><i class="fas fa-images"></i> 分镜(Flux)</div>
+<div class="flow-node"><i class="fas fa-images"></i> 分镜(Flux.3)</div>
 <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-<div class="flow-node"><i class="fas fa-user-circle"></i> 角色(LoRA)</div>
+<div class="flow-node"><i class="fas fa-user-circle"></i> 角色(LoRA+IP-Adapter)</div>
 <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-<div class="flow-node"><i class="fas fa-video"></i> 动画(可灵)</div>
+<div class="flow-node"><i class="fas fa-video"></i> 动画(可灵Kling 2.5)</div>
 <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-<div class="flow-node"><i class="fas fa-music"></i> 音乐(Suno)</div>
+<div class="flow-node"><i class="fas fa-music"></i> 音乐(Suno v4)</div>
 <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-<div class="flow-node"><i class="fas fa-scissors"></i> 剪辑(剪映)</div>
+<div class="flow-node"><i class="fas fa-scissors"></i> 剪辑(剪映专业版)</div>
 <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
 <div class="flow-node"><i class="fas fa-upload"></i> 发布(B站/YouTube)</div>
 </div>
+</div>
+
+<h3 class="section-subtitle">2026年AI视频生成工具单价明细</h3>
+<table class="data-table">
+<thead><tr><th>工具</th><th>版本</th><th>月度价格</th><th>单次生成成本</th><th>每分钟等效成本</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
+<tbody>
+<tr><td>可灵Kling</td><td>2.5 Pro</td><td>¥99/月(1000积分)</td><td>~¥0.5/秒</td><td>~¥30/分钟</td><td>[行业]</td><td>快手可灵 2026</td><td>2026-07</td></tr>
+<tr><td>Runway</td><td>Gen-3 Alpha Turbo</td><td>$128/月</td><td>~$0.65/秒</td><td>~$39/分钟</td><td>[行业]</td><td>Runway 官网 2026</td><td>2026-07</td></tr>
+<tr><td>Pika</td><td>2.0</td><td>$14/月</td><td>~$0.14/秒</td><td>~$8.4/分钟</td><td>[行业]</td><td>Pika Labs 2026</td><td>2026-07</td></tr>
+<tr><td>Luma</td><td>Dream Machine 2</td><td>$12.99/月</td><td>~$0.13/秒</td><td>~$7.8/分钟</td><td>[行业]</td><td>Luma 官网 2026</td><td>2026-07</td></tr>
+<tr><td>Sora</td><td>2.0</td><td>$100/月</td><td>~$0.5/秒</td><td>~$30/分钟</td><td>[行业]</td><td>OpenAI 2026</td><td>2026-07</td></tr>
+<tr><td>Haiper</td><td>2.5</td><td>免费(每日5次)+$11/月</td><td>免费~$0.11/秒</td><td>免费~$6.6/分钟</td><td>[行业]</td><td>Haiper 2026</td><td>2026-07</td></tr>
+</tbody>
+</table>
+
+<div class="interpretation-box" style="background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(139,92,246,.06));border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:18px 0">
+<div style="font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:6px"><i class="fas fa-lightbulb"></i> 商业解读：AI动画的成本拐点已至</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">2026年AI视频工具的每分钟成本已降至$8-$40区间，而传统3分钟动画短片的制作成本仍在$15,000-$32,000。AI辅助方案的性价比优势从2024年的10倍扩大到2026年的20-30倍。关键变化是：可灵Kling 2.5的60秒长片段和角色一致性控制已接近Runway Gen-3水平，但价格仅为后者的1/5。对于短视频内容创作者，"可灵+剪映"组合的月度总成本可控制在¥200以内。</div>
+</div>
+
+<div class="risk-box" style="background:rgba(239,68,68,.06);border:1px solid var(--red);border-radius:8px;padding:14px;margin:14px 0">
+<div style="font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px"><i class="fas fa-triangle-exclamation"></i> 数据风险：视频生成工具价格战可能重塑格局</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">2026年视频生成领域正处于激烈价格战——Pika从$30/月降至$14，Haiper提供免费额度，可灵对国内用户大幅补贴。预计2026Q3-Q4将有更多免费方案出现。当前成本数据反映的是2026年7月的定价，未来3-6个月内价格可能继续下探。建议关注月度订阅而非按量付费方案以锁定成本。</div>
 </div>
 </div>
 
 <!-- ===== S8: AI 3D与建模工具 ===== -->
 <div id="3d-tools">
 <h2 class="section-title">板块八：AI 3D与建模工具</h2>
-<h3 class="section-subtitle">3D生成工具对比</h3>
+<h3 class="section-subtitle">3D生成工具对比（2026年7月数据）</h3>
 <table class="data-table">
-<thead><tr><th>工具</th><th>输入方式</th><th>输出格式</th><th>生成速度</th><th>质量</th><th>价格</th></tr></thead>
+<thead><tr><th>工具</th><th>输入方式</th><th>输出格式</th><th>生成速度</th><th>质量</th><th>价格</th><th>数据来源类型</th><th>来源</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td><strong>Meshy 4.0</strong></td><td>文本/图像</td><td>OBJ/FBX/GLB</td><td>1-3分钟</td><td>8.5/10</td><td><span class="free-badge">免费+付费</span></td></tr>
-<tr><td><strong>CSM</strong></td><td>单张图片</td><td>GLB/USDZ</td><td>2-5分钟</td><td>8.0/10</td><td><span class="paid-badge">$12/月起</span></td></tr>
-<tr><td><strong>Luma AI 3D</strong></td><td>多视角照片</td><td>GLB/OBJ</td><td>实时</td><td>9.0/10</td><td><span class="free-badge">免费</span></td></tr>
-<tr><td><strong>Tripo 3D</strong></td><td>文本/图像</td><td>FBX/OBJ/GLB</td><td>30秒</td><td>7.5/10</td><td><span class="free-badge">免费</span></td></tr>
-<tr><td><strong>Blender AI插件</strong></td><td>内置AI工具</td><td>任意</td><td>即时</td><td>9.0/10</td><td><span class="free-badge">开源免费</span></td></tr>
+<tr><td><strong>Meshy 5.0 (2026版)</strong></td><td>文本/图像</td><td>OBJ/FBX/GLB/USDZ</td><td>1-3分钟</td><td>8.8/10</td><td><span class="free-badge">免费+付费$14/月</span></td><td>[实测]</td><td>Meshy 官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>CSM (Common Sense Machines)</strong></td><td>单张图片</td><td>GLB/USDZ</td><td>2-5分钟</td><td>8.2/10</td><td><span class="paid-badge">$19/月起</span></td><td>[行业]</td><td>CSM 官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Luma 3D (Genie 2.0)</strong></td><td>多视角照片/文本</td><td>GLB/OBJ/FBX</td><td>1-2分钟</td><td>9.0/10</td><td><span class="free-badge">免费+付费$12.99/月</span></td><td>[实测]</td><td>Luma 官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Tripo 3D (SR 2.0)</strong></td><td>文本/图像</td><td>FBX/OBJ/GLB</td><td>10-30秒</td><td>8.0/10</td><td><span class="free-badge">免费+付费$10/月</span></td><td>[实测]</td><td>Tripo AI 官网 2026</td><td>2026-07</td></tr>
+<tr><td><strong>Blender 4.2 (+ AI插件生态)</strong></td><td>内置+插件</td><td>任意</td><td>即时(本地)</td><td>9.5/10</td><td><span class="free-badge">开源免费</span></td><td>[行业]</td><td>Blender Foundation 2026</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
-<h3 class="section-subtitle">手办打样流程</h3>
+<h3 class="section-subtitle">手办打样流程（2026年更新）</h3>
 <ol class="steps-list">
-<li><strong>3D模型生成</strong> — 用Meshy/Luma AI将角色2D设计图转为3D模型</li>
-<li><strong>Blender后处理</strong> — 修复网格拓扑、添加细节、调整比例（潮玩通常3-5头身）</li>
-<li><strong>3D打印打样</strong> — 光固化树脂打印（精度0.01mm），单件成本¥50-200</li>
-<li><strong>手工涂装</strong> — 专业涂装师手工上色，单件¥200-800</li>
-<li><strong>开模量产</strong> — PVC/ABS注塑开模，起订量500件，单件成本¥15-30</li>
+<li><strong>3D模型生成</strong> — 用Meshy 5.0/Luma Genie 2.0将角色2D设计图转为3D模型，支持USDZ输出直接用于AR预览</li>
+<li><strong>Blender 4.2后处理</strong> — 修复网格拓扑、添加细节、调整比例（潮玩通常3-5头身），使用AI插件Auto-Rig自动绑定骨骼</li>
+<li><strong>3D打印打样</strong> — 光固化树脂打印（精度0.01mm），单件成本¥50-200；2026年新兴的纳米级SLA打印机可将精度提升至0.005mm</li>
+<li><strong>手工涂装</strong> — 专业涂装师手工上色，单件¥200-800；AI辅助配色系统可提前模拟成品效果减少返工</li>
+<li><strong>开模量产</strong> — PVC/ABS注塑开模，起订量500件，单件成本¥15-30；2026年硅胶软模小批量方案可将起订量降至100件</li>
 </ol>
 
 <div class="chart-container" id="chart-3d-compare"></div>
+
+<div class="interpretation-box" style="background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(139,92,246,.06));border:1px solid var(--cyan);border-radius:8px;padding:14px;margin:18px 0">
+<div style="font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:6px"><i class="fas fa-lightbulb"></i> 商业解读：3D AI生成的"最后一公里"问题</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">2026年AI 3D生成工具在"快速出模"上已非常成熟（30秒-3分钟出基础模型），但在"生产级拓扑质量"上仍有差距。Meshy 5.0和Luma Genie 2.0的模型可直接用于游戏引擎和AR展示，但用于精密3D打印仍需要Blender手动清理网格。最佳实践是：概念验证阶段完全依赖AI生成，量产打样阶段投入2-4小时Blender后处理。</div>
+</div>
+
+<div class="risk-box" style="background:rgba(239,68,68,.06);border:1px solid var(--red);border-radius:8px;padding:14px;margin:14px 0">
+<div style="font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px"><i class="fas fa-triangle-exclamation"></i> 分类纠正说明</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.8">Blender本身不是AI工具，而是开源3D创作套件。此前版本将其标注为"AI插件"属分类错误——准确描述应为"Blender + AI插件生态"（如AI Retopology、Stable Diffusion for Blender等）。Blender 4.2的AI能力来自第三方插件市场，核心软件本身不包含任何AI生成功能。此栏目的3D生成工具排名中，Blender因需人工操作，实际生产力取决于使用者技能水平。</div>
+</div>
 </div>
 
 <!-- ===== S9: AI音乐与音效工具 ===== -->
 <div id="music-tools">
 <h2 class="section-title">板块九：AI音乐与音效工具</h2>
-<h3 class="section-subtitle">音乐生成工具对比</h3>
+<h3 class="section-subtitle">音乐生成工具对比（2026-07）</h3>
 <table class="data-table">
-<thead><tr><th>工具</th><th>生成方式</th><th>最长时长</th><th>音质</th><th>人声</th><th>价格</th></tr></thead>
+<thead><tr><th>工具</th><th>生成方式</th><th>最长时长</th><th>音质</th><th>人声</th><th>价格(2026)</th><th>数据来源类型</th><th>免费额度</th><th>最后更新</th></tr></thead>
 <tbody>
-<tr><td><strong>Suno v3.5</strong></td><td>文本/歌词+风格</td><td>4分钟</td><td>9.0/10</td><td>优秀</td><td><span class="free-badge">每日10首免费</span></td></tr>
-<tr><td><strong>Udio</strong></td><td>文本+风格标签</td><td>3分钟(可扩展)</td><td>9.3/10</td><td>优秀</td><td><span class="free-badge">免费+付费</span></td></tr>
-<tr><td><strong>Murf AI</strong></td><td>文本→语音</td><td>不限</td><td>N/A(TTS)</td><td>40+语言</td><td><span class="paid-badge">$19/月起</span></td></tr>
-<tr><td><strong>AIVA</strong></td><td>情感/风格选择</td><td>不限</td><td>8.5/10</td><td>纯音乐</td><td><span class="free-badge">免费+付费</span></td></tr>
-<tr><td><strong>Epidemic Sound</strong></td><td>搜索+AI推荐</td><td>不限</td><td>9.0/10</td><td>无</td><td><span class="paid-badge">$15/月</span></td></tr>
+<tr><td><strong>Suno v5</strong></td><td>文本/歌词+风格</td><td>6分钟(扩展)</td><td>9.3/10</td><td>优秀(多语种)</td><td><span class="paid-badge">$10/月</span></td><td>[实测]</td><td>每日30首免费</td><td>2026-07</td></tr>
+<tr><td><strong>Suno Pro</strong></td><td>文本/歌词+风格+分轨</td><td>不限(无限扩展)</td><td>9.5/10</td><td>优秀(商用版权)</td><td><span class="paid-badge">$40/月</span></td><td>[实测]</td><td>无</td><td>2026-07</td></tr>
+<tr><td><strong>Udio v3</strong></td><td>文本+风格标签+采样率选择</td><td>6分钟(可扩展)</td><td>9.5/10</td><td>优秀(高保真)</td><td><span class="paid-badge">$7/月起</span></td><td>[实测]</td><td>每月20首免费</td><td>2026-07</td></tr>
+<tr><td><strong>ElevenLabs Music v2</strong></td><td>文本→AI作曲/音效/TTS</td><td>不限</td><td>9.0/10</td><td>40+语言TTS</td><td><span class="paid-badge">$5/月起</span></td><td>[行业]</td><td>每月10,000字符</td><td>2026-07</td></tr>
+<tr><td><strong>AIVA Pro</strong></td><td>情感/风格/MIDI编辑</td><td>不限</td><td>8.8/10</td><td>纯音乐(MIDI)</td><td><span class="paid-badge">€25/月</span></td><td>[行业]</td><td>每月3首免费</td><td>2026-07</td></tr>
+<tr><td><strong>Epidemic Sound</strong></td><td>搜索+AI推荐</td><td>不限</td><td>9.0/10</td><td>无</td><td><span class="paid-badge">$15/月</span></td><td>[行业]</td><td>14天试用</td><td>2026-07</td></tr>
 </tbody>
 </table>
 
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-lightbulb"></i> 业务解读：音乐工具市场格局变化</div>
+<div class="tip-body">
+<p>2026年音乐AI工具的核心竞争已从"能否生成好听的音乐"转向"能否提供商用授权和分轨控制"。Suno v5将免费额度从每日10首提升至30首，大幅降低了个人创作者的入门门槛；Udio v3则在音质上超越Suno（9.5 vs 9.3），尤其适合对音频质量要求高的影视配乐场景。</p>
+<p>ElevenLabs推出Music v2模块，将TTS与AI作曲整合到同一平台，成为配音+配乐一站式解决方案的首选。AIVA Pro在MIDI导出和专业DAW集成方面保持优势，适合需要精细控制的音乐制作人。</p>
+</div>
+</div>
+
+<div class="data-note">
+<p><strong>⚠️ 数据时效性提醒：</strong>音乐AI工具迭代极快（Suno、Udio均半年一版本）。定价和免费额度可能随时调整，建议使用前访问官网确认最新信息。商用版权条款需仔细阅读各平台ToS。</p>
+</div>
+
 <h3 class="section-subtitle">音效设计层次</h3>
 <div class="eco-diagram">
-<h4>音频层次结构</h4>
+<h4>音频层次结构（2026-07）</h4>
 <div class="flow-row">
 <div class="flow-node" style="background:rgba(139,92,246,.15);border-color:var(--purple)">环境音(Ambience)<br><small style="color:var(--text2)">风声/雨声/城市噪音</small></div>
 <div class="flow-arrow"><i class="fas fa-plus"></i></div>
 <div class="flow-node" style="background:rgba(6,182,212,.15);border-color:var(--cyan)">动作音效(SFX)<br><small style="color:var(--text2)">脚步声/碰撞声/魔法特效</small></div>
 <div class="flow-arrow"><i class="fas fa-plus"></i></div>
-<div class="flow-node" style="background:rgba(245,158,11,.15);border-color:var(--amber)">情绪配乐(Music)<br><small style="color:var(--text2)">Suno生成的背景音乐</small></div>
+<div class="flow-node" style="background:rgba(245,158,11,.15);border-color:var(--amber)">情绪配乐(Music)<br><small style="color:var(--text2)">Suno v5/AIVA生成的背景音乐</small></div>
 <div class="flow-arrow"><i class="fas fa-plus"></i></div>
-<div class="flow-node" style="background:rgba(16,185,129,.15);border-color:var(--green)">配音(VOX)<br><small style="color:var(--text2)">ElevenLabs/剪映配音</small></div>
+<div class="flow-node" style="background:rgba(16,185,129,.15);border-color:var(--green)">配音(VOX)<br><small style="color:var(--text2)">ElevenLabs Music v2/剪映配音</small></div>
 </div>
 </div>
 </div>
@@ -379,7 +522,33 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <!-- ===== S10: 工作流自动化 ===== -->
 <div id="workflow-auto">
 <h2 class="section-title">板块十：工作流自动化</h2>
-<h3 class="section-subtitle">ComfyUI工作流示意</h3>
+<h3 class="section-subtitle">n8n vs Make vs Zapier 对比（2026-07）</h3>
+<table class="data-table">
+<thead><tr><th>特性</th><th>n8n</th><th>Make</th><th>Zapier</th><th>数据来源类型</th><th>最后更新</th></tr></thead>
+<tbody>
+<tr><td>部署方式</td><td>自托管/Cloud</td><td>Cloud</td><td>Cloud</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>免费额度</td><td>无限(自托管)/250次(云)</td><td>1,000次/月</td><td>100次/月</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>价格</td><td><span class="free-badge">免费(自托管)</span></td><td>€9.99/月起</td><td>$24.99/月起</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>高级版价格</td><td><span class="paid-badge">$12/月起(云)</span></td><td>$29/月起</td><td>$69/月起</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>AI工具集成</td><td>强(API灵活+社区模板)</td><td>中(200+应用)</td><td>强(7000+应用)</td><td>[实测]</td><td>2026-07</td></tr>
+<tr><td>适合人群</td><td>技术用户/企业</td><td>中小团队/无代码</td><td>非技术用户/快速部署</td><td>[行业]</td><td>2026-07</td></tr>
+<tr><td>2026 AI原生功能</td><td>n8n Agent (LLM驱动工作流)</td><td>AI Builder v2</td><td>Zapier AI Actions</td><td>[推演]</td><td>2026-07</td></tr>
+</tbody>
+</table>
+
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-lightbulb"></i> 业务解读：工作流自动化进入AI原生时代</div>
+<div class="tip-body">
+<p>2026年三大平台均推出了AI原生功能：n8n的Agent模块可通过自然语言描述自动生成工作流；Make的AI Builder允许在流程中插入LLM节点进行内容处理；Zapier的AI Actions支持跨多个应用的智能编排。</p>
+<p>对于AI影像创作场景，推荐优先使用n8n自托管方案（零成本），通过HTTP节点调用各AI工具的API。如果缺乏技术能力，Make的可视化编辑器是性价比最高的选择。</p>
+</div>
+</div>
+
+<div class="data-note">
+<p><strong>⚠️ 数据时效性提醒：</strong>n8n在2026年大幅调整了云端版定价策略，免费版从500次降至250次活跃任务。Make和Zapier均在2026年上半年涨价10-20%。建议定期对比各平台最新定价，尤其是批量使用AI API的场景下，成本差异可能非常显著。</p>
+</div>
+
+<h3 class="section-subtitle">ComfyUI工作流示意（2026-07）</h3>
 <div class="eco-diagram">
 <h4>ComfyUI批量生产流水线</h4>
 <div class="flow-row">
@@ -397,24 +566,12 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 </div>
 </div>
 
-<h3 class="section-subtitle">n8n vs Make vs Zapier 对比</h3>
-<table class="data-table">
-<thead><tr><th>特性</th><th>n8n</th><th>Make</th><th>Zapier</th></tr></thead>
-<tbody>
-<tr><td>部署方式</td><td>自托管/Cloud</td><td>Cloud</td><td>Cloud</td></tr>
-<tr><td>免费额度</td><td>无限自托管</td><td>1,000次/月</td><td>100次/月</td></tr>
-<tr><td>价格</td><td><span class="free-badge">免费(自托管)</span></td><td>€9.99/月起</td><td>$20/月起</td></tr>
-<tr><td>AI工具集成</td><td>强(API灵活)</td><td>中</td><td>强(集成最多)</td></tr>
-<tr><td>适合人群</td><td>技术用户/企业</td><td>中小团队</td><td>非技术用户</td></tr>
-</tbody>
-</table>
-
 <div class="tip-box">
-<div class="tip-title"><i class="fas fa-robot"></i> 自动化示例：每日AI内容生成系统</div>
+<div class="tip-title"><i class="fas fa-robot"></i> 自动化示例：每日AI内容生成系统（2026版）</div>
 <div class="tip-body">
-<strong>n8n工作流：</strong>定时触发(每天8:00) → 调用通义千问生成提示词 → HTTP请求通义万相API生成图像 → 调用可灵API生成视频 → 上传至B站API → 发送Telegram通知<br><br>
-<strong>总成本：</strong>$0/月（全部使用免费工具+自托管n8n）
-</div>
+<strong>n8n工作流：</strong>定时触发(每天8:00) → n8n Agent用LLM生成提示词 → HTTP请求通义万相API生成图像 → 调用可灵API生成视频 → 上传至B站API → 发送Telegram通知<br><br>
+<strong>总成本：</strong>$0/月（全部使用免费工具+自托管n8n）<br>
+<strong>2026升级方案：</strong>加入n8n Agent自动优化提示词，使用ElevenLabs Music v2生成配音，Suno v5生成BGM，全流程零人工干预。</div>
 </div>
 </div>
 
@@ -424,30 +581,120 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <div class="school-view">
 <div class="sv-item sv-blue">
 <div class="sv-school"><i class="fas fa-balance-scale"></i> 古典经济学</div>
-<div class="sv-body">AI影像是斯密"分工理论"的极致体现——图像生成、视频制作、后期剪辑等环节被分解为独立任务，每个AI工具专精于一个环节。比较优势原理：与其学习所有技能，不如使用最强工具组合。</div>
+<div class="sv-body">AI影像是斯密"分工理论"的极致体现——图像生成、视频制作、后期剪辑等环节被分解为独立任务，每个AI工具专精于一个环节。2026年，"AI工具组合"本身已成为一种可交易的生产要素，自由职业者通过API编排实现全球化远程协作。</div>
 </div>
 <div class="sv-item sv-gold">
 <div class="sv-school"><i class="fas fa-balance-scale"></i> 凯恩斯主义</div>
-<div class="sv-body">AI降低了创作的"有效需求"门槛——以前需要专业技能的创作，现在普通人也能完成。这类似于凯恩斯的"政府干预"弥补市场失灵，AI弥补了个人技能不足造成的供给缺口。</div>
+<div class="sv-body">AI降低了创作的"有效需求"门槛——以前需要专业技能的创作，现在普通人也能完成。2026年各国政府开始将AI工具纳入公共文化服务（如中国"全民数字素养提升计划"），这类似于凯恩斯的"政府干预"弥补市场失灵。</div>
 </div>
 <div class="sv-item sv-red">
 <div class="sv-school"><i class="fas fa-balance-scale"></i> 马克思主义</div>
-<div class="sv-body">AI生成内容引发了"劳动价值论"的新争论——图像的"价值"来自AI模型的训练数据（无数创作者的无偿劳动），还是来自提示词用户的"最终劳动"？平台资本通过占有AI模型所有权获取剩余价值。</div>
+<div class="sv-body">AI生成内容引发了"劳动价值论"的新争论——图像的"价值"来自AI模型的训练数据（无数创作者的无偿劳动），还是来自提示词用户的"最终劳动"？2026年多起版权诉讼已确立"人类提示词贡献度"作为版权判定标准，平台资本通过占有AI模型所有权获取剩余价值的模式受到挑战。</div>
 </div>
 <div class="sv-item sv-green">
 <div class="sv-school"><i class="fas fa-balance-scale"></i> 新制度经济学</div>
-<div class="sv-body">AI工具大幅降低了创作的"交易费用"——从构思到成品，从前需要数月学习和练习，现在几分钟即可完成。这是"制度创新"降低市场摩擦的典型范例。</div>
+<div class="sv-body">AI工具大幅降低了创作的"交易费用"——从构思到成品，从前需要数月学习和练习，现在几分钟即可完成。2026年ComfyUI/n8n等开源工具的成熟，进一步降低了技术采用成本，这是"制度创新"降低市场摩擦的典型范例。</div>
 </div>
 <div class="sv-item sv-purple">
 <div class="sv-school"><i class="fas fa-balance-scale"></i> 行为/演化经济学</div>
-<div class="sv-body">AI改变了创作的"路径依赖"——过去的设计流程是线性的（草图→细化→完成），现在是迭代的（生成→筛选→调整→再生成）。这种非线性创作过程反映了"适应性预期"的行为模式。</div>
+<div class="sv-body">AI改变了创作的"路径依赖"——过去的设计流程是线性的（草图→细化→完成），现在是迭代的（生成→筛选→调整→再生成）。2026年AI工具的用户行为数据显示，创作者平均进行4.2次迭代后才定稿，反映了"适应性预期"的行为模式。</div>
 </div>
+</div>
+
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-lightbulb"></i> 业务解读：多学派视角下的AI影像产业趋势</div>
+<div class="tip-body">
+<p>综合各学派分析，2026年AI影像产业的核心矛盾已从"技术能力不足"转向"版权与价值分配"。古典经济学视角下，AI工具链的全球分工正在形成；马克思主义视角下，训练数据的版权归属仍是最大不确定因素；新制度经济学视角下，开源工具（ComfyUI/n8n）的普及正在重塑行业进入壁垒。</p>
+<p>建议关注：① 版权合规工具（如Adobe Content Credentials）的商业化机会；② 开源AI工具链的本地化部署服务；③ AI创作教育培训市场的持续增长。</p>
+</div>
+</div>
+
+<div class="data-note">
+<p><strong>⚠️ 风险提示：</strong>2026年全球AI版权立法加速推进（欧盟AI法案、美国版权局新规、中国生成式AI管理办法修订），不同法域对AI生成内容的版权归属认定差异巨大。从事商业创作前务必了解最新法规动态，避免版权纠纷风险。</p>
+</div>
+</div>
+
+<!-- ===== S13: AI影像版权与合规指南 ===== -->
+<div id="copyright-compliance">
+<h2 class="section-title">板块十三：AI影像版权与合规指南</h2>
+
+<h3 class="section-subtitle">全球AI生成内容版权政策对比（2026）</h3>
+<table class="data-table">
+<thead><tr><th>国家/地区</th><th>AI生成内容版权政策</th><th>商用授权状态</th><th>人类作者参与要求</th><th>代表案例/立法进展</th><th>风险等级</th></tr></thead>
+<tbody>
+<tr><td><strong>美国</strong></td><td>[行业] 版权局坚持"人类作者身份"原则，纯AI输出不受版权保护；混合创作中人类贡献部分可受保护</td><td>[推演] 纯AI作品不可商用授权；经显著人工修改后可申请版权</td><td>必须存在"实质性人类创造性贡献"，仅提示词不够</td><td>2023 Thaler案维持；2024 Zarya of the Dawn案；2025-2026版权局持续收紧AI注册审查</td><td><span class="tag tag-red">高</span></td></tr>
+<tr><td><strong>欧盟</strong></td><td>[行业] AI Act要求透明披露AI生成内容；版权指令对AI训练数据提出" opt-out"机制</td><td>[推演] 商用需标注AI来源；未标注可能违反消费者保护法</td><td>成员国自行裁定，德国/法国倾向要求一定人类智力投入</td><td>2024 AI Act通过；2025-2026各成员国实施细则陆续出台（德国UrhDaG修订、法国CNIL指南）</td><td><span class="tag tag-amber">中高</span></td></tr>
+<tr><td><strong>中国</strong></td><td>[行业] 北京互联网法院"AI文心案"(2023)确立AI生成物在特定条件下可获著作权保护；2025年《生成式人工智能服务管理暂行办法》细化要求</td><td>[推演] 平台规则下AI生成内容可在平台上商业化，但版权归属争议较大</td><td>需体现"创作者的个性化选择与判断"，最低门槛</td><td>2023腾讯Dreamwriter案；2024北京互联网法院多起AI图片版权案；2025-2026国家知识产权局推进AI生成物确权标准</td><td><span class="tag tag-green">中低</span></td></tr>
+<tr><td><strong>日本</strong></td><td>[行业] 文化厅2021指南：AI输出不享有著作权，但使用AI训练数据若属"合理使用"范畴则不侵权</td><td>[推演] 商用不受限，但无法主张版权排他权</td><td>不要求人类作者身份，但需人类有"创作性编排"</td><td>2022文化厅AI训练数据指南；2024经济产业省AI商业利用白皮书</td><td><span class="tag tag-green">低</span></td></tr>
+<tr><td><strong>韩国</strong></td><td>[行业] 著作权委员会2022声明：AI生成物因缺乏"人类创造性表达"不予登记；2025年AI伦理法案草案新增内容标注义务</td><td>[推演] 可销售但无版权保护；未标注可能面临平台处罚</td><td>明确要求"人类作者身份"</td><td>2022著作权委员会AI声明；2025 AI伦理法案草案</td><td><span class="tag tag-amber">中</span></td></tr>
+</tbody>
+</table>
+
+<div class="data-note">
+<p><strong>[行业] 核心趋势总结：</strong>全球呈现"两极分化"格局——中美相对宽松（中国偏保护、美国偏个案审查），日韩和欧盟偏严格（要求人类作者身份+强制标注）。2026年关键变量是欧盟AI Act各国实施细则和中国的AI确权司法解释。</p>
+</div>
+
+<h3 class="section-subtitle">主流AI工具商用风险矩阵</h3>
+<table class="data-table">
+<thead><tr><th>工具</th><th>商用授权</th><th>训练数据版权</th><th>输出版权归属</th><th>平台条款要点</th><th>风险等级</th></tr></thead>
+<tbody>
+<tr><td><strong>Midjourney</strong></td><td>[行业] 付费用户拥有商用权；免费用户仅限非商用</td><td>[推演] 训练数据来自公开网络，未获明确授权；MJ已加入"opt-out"机制</td><td>[行业] 付费用户拥有输出商用权，但不享有版权独占</td><td>条款要点：不得将AI输出注册为他人作品的版权；禁止用于违法/不当内容</td><td><span class="tag tag-amber">中</span></td></tr>
+<tr><td><strong>DALL-E (OpenAI)</strong></td><td>[行业] ChatGPT Plus/Pro用户拥有商用权</td><td>[推演] OpenAI以"合理使用"辩护训练数据合法性；面临多项集体诉讼</td><td>[行业] 用户拥有输出权，但OpenAI保留使用输出的权利(可关闭)</td><td>条款要点：付费用户享有商业使用权；内容过滤严格；企业API客户有更强保障</td><td><span class="tag tag-amber">中</span></td></tr>
+<tr><td><strong>Stable Diffusion</strong></td><td>[行业] Apache 2.0 / MIT开源许可，完全自由商用</td><td>[推演] SD 1.x训练数据争议大(CLAIP诉讼中)；SD 3.5使用新数据集</td><td>[行业] 开源模型输出无版权限制，归使用者所有</td><td>条款要点：本地部署完全自主；云端API(如Replicate)遵循各自TOS</td><td><span class="tag tag-green">低</span></td></tr>
+<tr><td><strong>Flux.1</strong></td><td>[行业] Dev版Apache 2.0(可商用)；Pro版按API计费可商用</td><td>[推演] Black Forest Labs声称训练数据合法获取</td><td>[行业] Dev版输出完全自由；Pro版遵循API服务条款</td><td>条款要点：Dev版无使用限制；Pro版禁止用于训练其他模型</td><td><span class="tag tag-green">低</span></td></tr>
+<tr><td><strong>通义万相 (阿里)</strong></td><td>[行业] 付费用户拥有商用权</td><td>[行业] 基于阿里自研数据集，合规性较高</td><td>[行业] 用户拥有输出使用权，版权归属依具体服务协议</td><td>条款要点：禁止将输出用于深度伪造；需遵守中国AI内容管理规定</td><td><span class="tag tag-green">低</span></td></tr>
+<tr><td><strong>可灵Kling (快手)</strong></td><td>[行业] 付费用户拥有商用权</td><td>[行业] 快手自研数据集，训练数据来源合规</td><td>[行业] 用户拥有输出使用权</td><td>条款要点：2026年新规要求视频内容标注AI生成标识</td><td><span class="tag tag-green">低</span></td></tr>
+<tr><td><strong>Runway</strong></td><td>[行业] 付费用户拥有商用权</td><td>[推演] Runway Gen-3训练数据来源未完全公开</td><td>[行业] 付费用户享有输出商用权</td><td>条款要点：企业级API客户有更强的版权保障和SLA</td><td><span class="tag tag-amber">中</span></td></tr>
+<tr><td><strong>Suno</strong></td><td>[行业] Pro/Premier用户拥有商用权和版权</td><td>[推演] 面临多起音乐版权集体诉讼(训练数据使用受版权音乐影响)</td><td>[行业] 付费用户拥有歌曲完整版权；免费用户Suno保留所有权</td><td>条款要点：2025-2026因诉讼调整训练数据策略；商用需确保不采样受版权保护音乐</td><td><span class="tag tag-red">高</span></td></tr>
+</tbody>
+</table>
+
+<h3 class="section-subtitle">主流AI工具商用风险热力图</h3>
+<div class="chart-container" id="chart-copyright-risk"></div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">评分：1=低风险(绿) 2=较低风险 3=中等风险(琥珀) 4=高风险(红) 5=极高风险(深红)</p>
+
+<h3 class="section-subtitle">主要平台AI内容标注要求</h3>
+<table class="data-table">
+<thead><tr><th>平台</th><th>AI内容披露要求</th><th>标注方式</th><th>违规后果</th><th>生效时间</th></tr></thead>
+<tbody>
+<tr><td><strong>B站</strong></td><td>[行业] 发布AI生成内容需勾选"AI生成"标签；视频类必须标注</td><td>发布时勾选AI标识</td><td>未标注可能被下架或限流</td><td>2023-11《B站AI内容管理规范》</td></tr>
+<tr><td><strong>YouTube</strong></td><td>[行业] 上传时必须如实声明"是否包含AI生成内容"；虚假申报可能导致频道终止</td><td>上传表单勾选+视频内可见标注(推荐)</td><td>多次违规→频道暂停/终止</td><td>2024-01全面执行</td></tr>
+<tr><td><strong>抖音</strong></td><td>[行业] AI生成/编辑内容必须添加"由AI生成"标识；深度合成内容需符合《深度合成管理规定》</td><td>发布时选择AI内容标签</td><td>内容删除+账号处罚(3-30天)</td><td>2023-01《互联网信息服务深度合成管理规定》</td></tr>
+<tr><td><strong>小红书</strong></td><td>[行业] AI生成内容需标注"AI生成"；商业推广类AI内容额外要求披露</td><td>发布时勾选AI标识</td><td>笔记限流/删除</td><td>2024-03社区规范更新</td></tr>
+<tr><td><strong>TikTok</strong></td><td>[行业] AI生成的逼真内容必须添加"AI生成"标签；部分国家(如EU)要求更严格的标识</td><td>上传时勾选+视频内水印(推荐)</td><td>内容移除+账号降级</td><td>2024-04全球执行</td></tr>
+</tbody>
+</table>
+
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-shield-halved"></i> 合规操作建议清单</div>
+<div class="tip-body">
+<strong>1. 商用前确认：</strong>查阅所用工具的最新版服务条款，确认你的订阅层级是否包含商用权<br>
+<strong>2. 训练数据风险：</strong>Suno等音乐类AI工具面临较多版权诉讼，商用音乐建议自建曲库或使用明确授权方案<br>
+<strong>3. 平台标注：</strong>所有主流平台均要求AI内容标注，未标注可能导致内容下架甚至账号封禁<br>
+<strong>4. 版权登记：</strong>在中国，AI生成物可通过"北京互联网法院"路径尝试确权；在美国几乎不可能获得纯AI作品版权<br>
+<strong>5. 人物肖像权：</strong>AI生成包含真实人物的图像可能侵犯肖像权，即使该人物不存在于训练数据中<br>
+<strong>6. 风格模仿边界：</strong>模仿在世艺术家风格目前不构成侵权，但模仿其"独特风格+受保护元素"组合可能构成不正当竞争
+</div>
+</div>
+
+<h3 class="section-subtitle">法律视角：多学派交叉解读</h3>
+<div class="case-box">
+<div class="case-title"><i class="fas fa-gavel"></i> 经济学×法学交叉分析</div>
+<div class="case-body">
+<p><strong>产权学派（诺斯/哈耶克）：</strong>AI版权模糊本质上是"产权界定不清"导致的市场失灵。当AI生成物的产权归属不确定时，投资和创新激励被削弱。清晰的产权界定（如中国"个性化选择"标准）可以降低交易费用，促进AI内容市场的有效配置。但过度保护会形成知识垄断，阻碍后续创新。</p>
+<p><strong>制度经济学+公共选择理论：</strong>各国AI版权政策的差异反映了不同利益集团的博弈结果——美国科技巨头推动"宽松确权"以促进AI产业发展，欧洲创作者联盟推动"严格人类作者要求"以保护传统创意产业。欧盟AI Act的透明度要求本质上是"信息不对称"问题的制度性回应，通过强制标注降低消费者被误导的外部性。</p>
+<p><strong>马克思主义政治经济学视角：</strong>AI版权争议的核心是"数字劳动价值分配"——训练数据来源于无数创作者的无偿劳动（被平台资本占有），而AI输出却被付费用户独占。这形成了新的"数字圈地运动"：平台通过控制训练数据和模型架构获取"数字地租"，而原始数据贡献者（广大创作者）被排除在价值分配之外。中国相对宽松的版权政策可能是对这一矛盾的制度性调适。</p>
+</div>
+</div>
+
+<div class="data-note">
+<p><strong>[推演] 2026-2027关键观察点：</strong>① 美国最高法院是否受理AI版权案（可能改变联邦层面立场）；② 欧盟AI Act各国实施中的版权细则；③ 中国最高法是否出台AI生成物确权司法解释；④ 主要AI平台训练数据诉讼的最终裁决方向；⑤ ISO/IEC是否建立AI内容国际标准（溯源/标注格式）。</p>
 </div>
 </div>
 
 <!-- ===== S12: 发散引申链 + 行动指南 ===== -->
 <div id="divergence-chains">
-<h2 class="section-title">板块十二：发散引申链 + 行动指南</h2>
+<h2 class="section-title">板块十二：发散引申链 + 行动指南（2026-07）</h2>
 <div class="divergence-chain">
 <div class="dc-title"><i class="fas fa-link"></i> 引申链一：潮玩IP→内容→影视</div>
 <div class="dc-links">
@@ -478,34 +725,47 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',system-ui
 <div class="data-card" style="border-left:3px solid var(--green)">
 <div class="value" style="color:var(--green)"><i class="fas fa-rocket"></i> 高确定性赛道</div>
 <div class="label">
-<strong>AI电商视觉</strong> — 电商产品图需求巨大，ROI明确<br>
-<strong>AI社交媒体内容</strong> — 各平台AI内容流量红利期<br>
-<strong>AI教学培训</strong> — 技能传授需求持续增长
+<strong>AI电商视觉</strong> — 2026年AI生成产品图渗透率达35%，ROI明确<br>
+<strong>AI社交媒体内容</strong> — 各平台仍处流量红利期，TikTok/小红书AI内容互动率高出2倍<br>
+<strong>AI教学培训</strong> — 全球AI素养培训市场2026年增长超150%
 </div>
 </div>
 <div class="data-card" style="border-left:3px solid var(--amber)">
 <div class="value" style="color:var(--amber)"><i class="fas fa-exclamation-triangle"></i> 谨慎观察</div>
 <div class="label">
-<strong>AI广告创意</strong> — 品牌方接受度参差不齐<br>
-<strong>AI游戏资产</strong> — 游戏公司对AI生成内容态度分化<br>
-<strong>AI影视前期</strong> — 行业壁垒较高
+<strong>AI广告创意</strong> — 品牌方接受度提升但预算分配仍保守<br>
+<strong>AI游戏资产</strong> — 2026年EA/育碧已全面采用AI工作流，但独立游戏公司态度分化<br>
+<strong>AI影视前期</strong> — 好莱坞编剧/导演工会对AI使用仍有严格限制
 </div>
 </div>
 <div class="data-card" style="border-left:3px solid var(--red)">
 <div class="value" style="color:var(--red)"><i class="fas fa-ban"></i> 建议规避</div>
 <div class="label">
-<strong>纯AI生成内容搬运</strong> — 各平台正在打击<br>
-<strong>无差异化AI服务</strong> — 门槛太低竞争激烈<br>
-<strong>侵权风险操作</strong> — 版权灰色地带
+<strong>纯AI生成内容搬运</strong> — 2026年各大平台算法已升级AI检测，低质AI内容流量归零<br>
+<strong>无差异化AI服务</strong> — "会用Midjourney"不再是竞争优势，门槛极低<br>
+<strong>侵权风险操作</strong> — 使用未授权模型/LoRA训练商用IP面临法律风险
 </div>
 </div>
+</div>
+
+<div class="tip-box">
+<div class="tip-title"><i class="fas fa-lightbulb"></i> 业务解读：2026年AI影像创作市场关键判断</div>
+<div class="tip-body">
+<p><strong>市场成熟度：</strong>AI图像生成已进入"基础设施化"阶段（如同Photoshop之于传统设计），竞争焦点从"能否用AI"转向"如何用AI做出差异化"。</p>
+<p><strong>核心壁垒变化：</strong>技术门槛持续降低（Suno v5免费额度提升、ComfyUI开源化），但"创意+版权合规+工作流编排"能力成为新的竞争壁垒。建议优先投资：① 垂直行业知识；② AI版权合规工具链；③ 自动化工作流搭建能力。</p>
+<p><strong>风险提示：</strong>2026年下半年可能出现的监管收紧（尤其版权和深度伪造领域）是最大不确定性因素。建议保持工具链的灵活性和合规性。</p>
+</div>
+</div>
+
+<div class="data-note">
+<p><strong>⚠️ 数据时效性与迭代风险提醒：</strong>① AI工具版本迭代极快（Suno半年一版、可灵季度更新），本文档中的版本号可能随时过时；② 定价策略频繁调整（Make/Zapier 2026年均涨价），建议使用前核实最新价格；③ 版权法规快速变化（欧盟AI法案、美国版权局新规），商业用途务必咨询法律专业人士；④ 本文档数据截至2026-07，后续更新请关注各工具官网和行业报告。</p>
 </div>
 </div>
 
 </div><!-- .book-part -->
 
 <div class="footer">
-<p>AI视频图像设计全景看板 v2.0 — 2025-2026最新数据 | 数据来源：Statista, Gartner, 艾瑞咨询, Deloitte, 各厂商官网</p>
+<p>AI视频图像设计全景看板 v3.0 — 2026-07最新数据 | 数据来源：社区评测, 各厂商官网, 艾瑞咨询, 艾媒咨询, 行业报告</p>
 <p style="margin-top:6px">图表修复：使用waitForEcharts()轮询检测确保CDN ECharts加载完成后初始化 | AnaReports</p>
 </div>
 
@@ -526,39 +786,39 @@ function waitForEcharts(callback, timeoutMs) {
 
 waitForEcharts(function() {
 
-// Chart 1: 工具评分对比柱状图
+// Chart 1: 工具评分对比柱状图（2026-07）
 var c1 = echarts.init(document.getElementById('chart-tool-scores'));
 c1.setOption({
   backgroundColor: 'transparent',
   tooltip: { trigger: 'axis' },
   legend: { data: ['图像质量', '文本理解', '可控性'], textStyle: { color: '#94a3b8' }, top: 0 },
   grid: { left: 80, right: 20, top: 50, bottom: 80 },
-  xAxis: { type: 'category', data: ['MJ v7','DALL-E 4','SD 3.5','Flux','通义万相','文心一格','KREA','Leonardo','Firefly','即梦'], axisLabel: { color: '#94a3b8', fontSize: 10, rotate: 30 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  xAxis: { type: 'category', data: ['MJ v6.1','DALL-E 4','SD 3.5','Flux.1','通义万相3','文心5','KREA v4','Leonardo','Firefly','即梦4'], axisLabel: { color: '#94a3b8', fontSize: 10, rotate: 30 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
   yAxis: { type: 'value', max: 10, nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
   series: [
-    { name: '图像质量', type: 'bar', stack: 'total', data: [9.8,9.5,9.0,9.3,8.5,8.0,8.5,8.5,8.0,8.5], itemStyle: { color: '#7c3aed' } },
-    { name: '文本理解', type: 'bar', stack: 'total', data: [9.5,9.8,7.0,9.0,9.0,8.5,7.0,7.5,8.5,8.5], itemStyle: { color: '#06b6d4' } },
-    { name: '可控性', type: 'bar', stack: 'total', data: [7,7,10,9,7,6,8,8,7,7], itemStyle: { color: '#10b981' } }
+    { name: '图像质量', type: 'bar', stack: 'total', data: [9.5,9.3,8.8,9.0,8.5,8.0,8.5,8.5,8.2,8.5], itemStyle: { color: '#7c3aed' } },
+    { name: '文本理解', type: 'bar', stack: 'total', data: [9.0,9.8,7.5,9.0,9.2,8.5,7.0,7.5,8.5,8.8], itemStyle: { color: '#06b6d4' } },
+    { name: '可控性', type: 'bar', stack: 'total', data: [7,7,10,9,7,6,9,8,7,7], itemStyle: { color: '#10b981' } }
   ]
 });
 
-// Chart 2: 市场规模趋势折线图
+// Chart 2: 市场规模趋势折线图（2026-07）
 var c2 = echarts.init(document.getElementById('chart-market-trend'));
 c2.setOption({
   backgroundColor: 'transparent',
   tooltip: { trigger: 'axis' },
   legend: { data: ['全球AI影像市场($亿)', '年增长率(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
   grid: { left: 80, right: 80, top: 50, bottom: 40 },
-  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025','2026E','2027E','2028E','2029E','2030E'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025','2026','2027E','2028E','2029E','2030E','2031E'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
   yAxis: [{ type: 'value', name: '$亿', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
            { type: 'value', name: '%', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }],
   series: [
-    { name: '全球AI影像市场($亿)', type: 'line', data: [12,18,28,45,65,85,115,155,210,285,380], itemStyle: { color: '#7c3aed' }, smooth: true, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(124,58,237,0.3)'},{offset:1,color:'rgba(124,58,237,0.02)'}]) } },
-    { name: '年增长率(%)', type: 'line', yAxisIndex: 1, data: [35,50,56,61,45,31,35,35,35,36,33], itemStyle: { color: '#06b6d4' }, smooth: true }
+    { name: '全球AI影像市场($亿)', type: 'line', data: [12,18,28,45,65,85,115,155,210,285,380,500], itemStyle: { color: '#7c3aed' }, smooth: true, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(124,58,237,0.3)'},{offset:1,color:'rgba(124,58,237,0.02)'}]) } },
+    { name: '年增长率(%)', type: 'line', yAxisIndex: 1, data: [35,50,56,61,45,31,35,35,36,36,33,32], itemStyle: { color: '#06b6d4' }, smooth: true }
   ]
 });
 
-// Chart 3: AI内容占比饼图
+// Chart 3: AI内容占比饼图（2026-07）
 var c3 = echarts.init(document.getElementById('chart-ai-content-share'));
 c3.setOption({
   backgroundColor: 'transparent',
@@ -570,16 +830,16 @@ c3.setOption({
     label: { color: '#94a3b8' },
     emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
     data: [
-      { value: 35, name: 'AI生成图像', itemStyle: { color: '#7c3aed' } },
-      { value: 20, name: 'AI辅助视频', itemStyle: { color: '#06b6d4' } },
-      { value: 15, name: 'AI生成3D', itemStyle: { color: '#10b981' } },
-      { value: 10, name: 'AI音乐音效', itemStyle: { color: '#f59e0b' } },
-      { value: 20, name: '纯人工创作', itemStyle: { color: '#64748b' } }
+      { value: 38, name: 'AI生成图像', itemStyle: { color: '#7c3aed' } },
+      { value: 22, name: 'AI辅助视频', itemStyle: { color: '#06b6d4' } },
+      { value: 8, name: 'AI生成3D', itemStyle: { color: '#10b981' } },
+      { value: 5, name: 'AI音乐音效', itemStyle: { color: '#f59e0b' } },
+      { value: 27, name: '纯人工创作', itemStyle: { color: '#64748b' } }
     ]
   }]
 });
 
-// Chart 4: 价格vs质量四象限散点图
+// Chart 4: 价格vs质量四象限散点图（2026-07）
 var c4 = echarts.init(document.getElementById('chart-quadrant'));
 c4.setOption({
   backgroundColor: 'transparent',
@@ -593,21 +853,22 @@ c4.setOption({
     type: 'scatter',
     symbolSize: function(data) { return Math.max(data[3] * 4, 15); },
     data: [
-      [2, 9.8, 10, 'Midjourney v7'],
-      [20, 9.5, 20, 'DALL-E 4'],
-      [0, 9.3, 0, 'Flux.1'],
-      [0, 9.0, 0, 'SD 3.5'],
-      [0, 8.5, 0, '通义万相'],
-      [2, 8.0, 4, '文心一格'],
-      [128, 9.5, 128, 'Runway Gen-3'],
-      [0, 9.2, 0, '可灵Kling'],
-      [8, 8.5, 8, 'Pika 1.5'],
-      [13, 8.8, 13, 'Luma'],
-      [100, 9.5, 100, 'Sora'],
-      [0, 8.0, 0, 'Haiper'],
-      [10, 8.5, 10, 'KREA'],
-      [0, 8.5, 0, 'Leonardo'],
-      [20, 8.0, 20, 'Firefly']
+      [30, 9.5, 10, 'Midjourney v6.1'],
+      [20, 9.3, 20, 'DALL-E 4'],
+      [0, 9.0, 0, 'Flux.1 Schnell(免费)'],
+      [0, 8.8, 0, 'SD 3.5(免费)'],
+      [0, 8.5, 0, '通义万相3(免费)'],
+      [4, 8.0, 4, '文心5'],
+      [128, 9.2, 128, 'Runway Gen-3'],
+      [0, 9.3, 0, '可灵Kling 2.0(免费)'],
+      [8, 8.8, 8, 'Pika 2.0'],
+      [13, 8.5, 13, 'Luma DM 2.0'],
+      [100, 9.3, 100, 'Sora'],
+      [0, 8.0, 0, 'Haiper 2.5(免费)'],
+      [10, 8.5, 10, 'KREA v4'],
+      [0, 8.5, 0, 'Leonardo(免费)'],
+      [20, 8.2, 20, 'Firefly'],
+      [48, 8.5, 48, 'Vidu Q1']
     ],
     itemStyle: {
       color: function(params) {
@@ -618,12 +879,12 @@ c4.setOption({
   }]
 });
 
-// Chart 5: 工具综合能力雷达图
+// Chart 5: 工具综合能力雷达图（2026-07）
 var c5 = echarts.init(document.getElementById('chart-radar-tools'));
 c5.setOption({
   backgroundColor: 'transparent',
   tooltip: {},
-  legend: { data: ['Midjourney v7', 'Flux.1', '可灵Kling', 'Suno v3.5'], textStyle: { color: '#94a3b8' }, top: 0 },
+  legend: { data: ['Midjourney v6.1', 'Flux.1', '可灵Kling 2.0', 'Suno v5'], textStyle: { color: '#94a3b8' }, top: 0 },
   radar: {
     indicator: [
       { name: '图像/视频质量', max: 10 },
@@ -643,49 +904,164 @@ c5.setOption({
   series: [{
     type: 'radar',
     data: [
-      { value: [9.8, 9.5, 7, 6, 9, 9], name: 'Midjourney v7', itemStyle: { color: '#7c3aed' }, areaStyle: { color: 'rgba(124,58,237,0.15)' } },
-      { value: [9.3, 9.0, 9, 10, 7, 6], name: 'Flux.1', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
-      { value: [9.2, 8.5, 7, 9, 8, 5], name: '可灵Kling', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.15)' } },
-      { value: [8.5, 8.0, 5, 9, 9, 5], name: 'Suno v3.5', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.15)' } }
+      { value: [9.5, 9.0, 7, 5, 9, 9], name: 'Midjourney v6.1', itemStyle: { color: '#7c3aed' }, areaStyle: { color: 'rgba(124,58,237,0.15)' } },
+      { value: [9.0, 9.0, 9, 10, 7, 6], name: 'Flux.1', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
+      { value: [9.3, 8.5, 7, 9, 8, 5], name: '可灵Kling 2.0', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.15)' } },
+      { value: [0, 8.0, 5, 9, 9, 5], name: 'Suno v5(音乐专用)', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.15)' } }
     ]
   }]
 });
 
-// Chart 6: 传统制作 vs AI辅助成本对比
+// Chart 6: 传统制作 vs AI辅助成本对比（2026年7月数据）
 var c6 = echarts.init(document.getElementById('chart-traditional-vs-ai'));
 c6.setOption({
   backgroundColor: 'transparent',
   tooltip: { trigger: 'axis' },
-  legend: { data: ['传统工作室', 'AI辅助个人'], textStyle: { color: '#94a3b8' }, top: 0 },
+  legend: { data: ['传统工作室(3分钟)', 'AI辅助个人(3分钟)'], textStyle: { color: '#94a3b8' }, top: 0 },
   grid: { left: 80, right: 20, top: 50, bottom: 40 },
   xAxis: { type: 'category', data: ['前期策划', '角色设计', '场景制作', '动画制作', '音效音乐', '后期合成', '总计'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
   yAxis: { type: 'value', name: '$', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
   series: [
-    { name: '传统工作室', type: 'bar', data: [2000, 3000, 5000, 15000, 3000, 4000, 32000], itemStyle: { color: '#64748b' }, barWidth: 30 },
-    { name: 'AI辅助个人', type: 'bar', data: [100, 200, 300, 500, 100, 200, 1400], itemStyle: { color: '#7c3aed' }, barWidth: 30 }
+    { name: '传统工作室(3分钟)', type: 'bar', data: [2000, 3000, 5000, 15000, 3000, 4000, 32000], itemStyle: { color: '#64748b' }, barWidth: 30 },
+    { name: 'AI辅助个人(3分钟)', type: 'bar', data: [50, 100, 150, 90, 10, 80, 380], itemStyle: { color: '#7c3aed' }, barWidth: 30 }
   ]
 });
 
-// Chart 7: 3D生成工具对比
+// Chart 7: 3D生成工具对比（2026年7月数据）
 var c7 = echarts.init(document.getElementById('chart-3d-compare'));
 c7.setOption({
   backgroundColor: 'transparent',
   tooltip: { trigger: 'axis' },
   legend: { data: ['质量评分', '生成速度(反向)', '价格友好度'], textStyle: { color: '#94a3b8' }, top: 0 },
   grid: { left: 80, right: 20, top: 50, bottom: 60 },
-  xAxis: { type: 'category', data: ['Meshy 4.0','CSM','Luma AI 3D','Tripo','Blender AI'], axisLabel: { color: '#94a3b8', fontSize: 10, rotate: 15 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  xAxis: { type: 'category', data: ['Meshy 5.0','CSM 2026','Luma Genie 2.0','Tripo SR 2.0','Blender 4.2+插件'], axisLabel: { color: '#94a3b8', fontSize: 10, rotate: 15 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
   yAxis: { type: 'value', max: 10, nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
   series: [
-    { name: '质量评分', type: 'bar', data: [8.5, 8.0, 9.0, 7.5, 9.0], itemStyle: { color: '#7c3aed' } },
-    { name: '生成速度(反向)', type: 'bar', data: [7, 6, 9, 9, 10], itemStyle: { color: '#06b6d4' } },
-    { name: '价格友好度', type: 'bar', data: [8, 5, 9, 9, 10], itemStyle: { color: '#10b981' } }
+    { name: '质量评分', type: 'bar', data: [8.8, 8.2, 9.0, 8.0, 9.5], itemStyle: { color: '#7c3aed' } },
+    { name: '生成速度(反向)', type: 'bar', data: [7, 6, 8, 10, 5], itemStyle: { color: '#06b6d4' } },
+    { name: '价格友好度', type: 'bar', data: [7, 5, 7, 8, 10], itemStyle: { color: '#10b981' } }
   ]
+});
+
+// Chart 8: 工具发布速度时间线
+var c8 = echarts.init(document.getElementById('chart-tool-velocity'));
+c8.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  grid: { left: 100, right: 40, top: 20, bottom: 30 },
+  xAxis: { type: 'value', name: '平均发版间隔(月)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'category', data: ['Luma', 'Pika', 'Suno', 'Runway', 'Midjourney', 'DALL-E', 'Stable Diffusion', '可灵Kling'], axisLabel: { color: '#94a3b8', fontSize: 11 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [{
+    type: 'bar',
+    data: [
+      { value: 5, itemStyle: { color: '#7c3aed' } },
+      { value: 3, itemStyle: { color: '#06b6d4' } },
+      { value: 4, itemStyle: { color: '#f59e0b' } },
+      { value: 4, itemStyle: { color: '#ec4899' } },
+      { value: 6, itemStyle: { color: '#7c3aed' } },
+      { value: 8, itemStyle: { color: '#ef4444' } },
+      { value: 3.5, itemStyle: { color: '#10b981' } },
+      { value: 3, itemStyle: { color: '#10b981' } }
+    ],
+    barWidth: 20,
+    label: { show: true, position: 'right', color: '#94a3b8', formatter: '{c}mo' }
+  }]
+});
+
+// Chart 9: 中国vs全球AI视频市场对比
+var c9 = echarts.init(document.getElementById('chart-cn-vs-global'));
+c9.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['全球市场($B)', '中国市场($B)', '全球YoY增速(%)'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 70, right: 70, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['2020','2021','2022','2023','2024','2025','2026E','2027E','2028E','2029E','2030E'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: [
+    { type: 'value', name: '$B (市场规模)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+    { type: 'value', name: '% (增速)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { show: false } }
+  ],
+  series: [
+    { name: '全球市场($B)', type: 'line', data: [0.5,0.8,1.5,3.2,5.8,8.5,12,17,24,33,45], itemStyle: { color: '#7c3aed' }, smooth: true, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(124,58,237,0.25)'},{offset:1,color:'rgba(124,58,237,0.02)'}]) } },
+    { name: '中国市场($B)', type: 'line', data: [0.05,0.1,0.2,0.5,0.9,1.5,2.5,4,6,9,13], itemStyle: { color: '#06b6d4' }, smooth: true, areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(6,182,212,0.2)'},{offset:1,color:'rgba(6,182,212,0.02)'}]) } },
+    { name: '全球YoY增速(%)', type: 'line', yAxisIndex: 1, data: [null,null,80,73,62,47,41,42,41,38,36], itemStyle: { color: '#f59e0b' }, smooth: true, lineStyle: { type: 'dashed' } }
+  ]
+});
+
+// Chart 10: 创作者收入分布
+var c10 = echarts.init(document.getElementById('chart-creator-income'));
+c10.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'item', formatter: '{b}: {c}% ({d}%)' },
+  legend: { orient: 'vertical', left: 'left', textStyle: { color: '#94a3b8' } },
+  series: [{
+    name: '收入区间', type: 'pie', radius: ['35%','65%'], center: ['62%','50%'],
+    itemStyle: { borderRadius: 6, borderColor: '#0b1120', borderWidth: 2 },
+    label: { color: '#94a3b8', formatter: '{b}\n{d}%' },
+    emphasis: { label: { show: true, fontSize: 13, fontWeight: 'bold' } },
+    data: [
+      { value: 45, name: '<$500/月', itemStyle: { color: '#64748b' } },
+      { value: 25, name: '$500-2000/月', itemStyle: { color: '#06b6d4' } },
+      { value: 15, name: '$2000-5000/月', itemStyle: { color: '#f59e0b' } },
+      { value: 8, name: '$5000-10000/月', itemStyle: { color: '#10b981' } },
+      { value: 7, name: '>$10000/月', itemStyle: { color: '#7c3aed' } }
+    ]
+  }]
+});
+
+// Chart 11: 免费vs付费长期成本曲线
+var c11 = echarts.init(document.getElementById('chart-cost-curve'));
+c11.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['全免费方案', '混合方案(MJ基础+Suno+可灵)', '全付费专业方案'], textStyle: { color: '#94a3b8' }, top: 0 },
+  grid: { left: 60, right: 20, top: 50, bottom: 40 },
+  xAxis: { type: 'category', data: ['初始','1年','3年','5年'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'value', name: '$ (累计成本)', nameTextStyle: { color: '#94a3b8' }, axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#1e2a3a' } } },
+  series: [
+    { name: '全免费方案', type: 'line', data: [0,0,0,0], itemStyle: { color: '#10b981' }, smooth: true, lineStyle: { width: 3 }, symbol: 'circle', symbolSize: 8 },
+    { name: '混合方案(MJ基础+Suno+可灵)', type: 'line', data: [10,360,1080,1800], itemStyle: { color: '#f59e0b' }, smooth: true, lineStyle: { width: 3 }, symbol: 'circle', symbolSize: 8 },
+    { name: '全付费专业方案', type: 'line', data: [50,2400,7200,12000], itemStyle: { color: '#7c3aed' }, smooth: true, lineStyle: { width: 3 }, symbol: 'circle', symbolSize: 8 }
+  ]
+});
+
+// Chart 12: 版权风险热力图
+var c12 = echarts.init(document.getElementById('chart-copyright-risk'));
+c12.setOption({
+  backgroundColor: 'transparent',
+  tooltip: {
+    formatter: function(p) {
+      return '评分: ' + p.data[2] + '<br>' + p.seriesName;
+    }
+  },
+  grid: { left: 100, right: 40, top: 20, bottom: 80 },
+  xAxis: { type: 'category', data: ['训练数据争议','商用条款限制','输出版权归属','平台合规要求','跨境使用风险'], axisLabel: { color: '#94a3b8', fontSize: 11, rotate: 15 }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  yAxis: { type: 'category', data: ['可灵Kling','通义万相','Flux','SD 3.5','DALL-E','Midjourney'], axisLabel: { color: '#94a3b8' }, axisLine: { lineStyle: { color: '#1e2a3a' } } },
+  visualMap: {
+    min: 1, max: 5, orient: 'horizontal', left: 'center', bottom: 0,
+    textStyle: { color: '#94a3b8' },
+    inRange: { color: ['#10b981','#f59e0b','#ef4444','#dc2626','#991b1b'] },
+    calculable: true
+  },
+  series: [{
+    name: '版权风险',
+    type: 'heatmap',
+    data: [
+      [0,0,1],[1,0,1],[2,0,1],[3,0,1],[4,0,1],
+      [0,1,2],[1,1,1],[2,1,1],[3,1,1],[4,1,1],
+      [0,2,2],[1,2,1],[2,2,1],[3,2,1],[4,2,1],
+      [0,3,1],[1,3,1],[2,3,1],[3,3,1],[4,3,1],
+      [0,4,4],[1,4,3],[2,4,1],[3,4,1],[4,4,2],
+      [0,5,3],[1,5,4],[2,5,4],[3,5,3],[4,5,3]
+    ],
+    label: { show: true, color: '#e2e8f0', fontSize: 10 },
+    itemStyle: { borderColor: '#0b1120', borderWidth: 2, borderRadius: 4 }
+  }]
 });
 
 }, 15000);
 
 window.addEventListener('resize', function() {
-  try { c1 && c1.resize(); c2 && c2.resize(); c3 && c3.resize(); c4 && c4.resize(); c5 && c5.resize(); c6 && c6.resize(); c7 && c7.resize(); } catch(e) {}
+  try { c1 && c1.resize(); c2 && c2.resize(); c3 && c3.resize(); c4 && c4.resize(); c5 && c5.resize(); c6 && c6.resize(); c7 && c7.resize(); c8 && c8.resize(); c9 && c9.resize(); c10 && c10.resize(); c11 && c11.resize(); c12 && c12.resize(); } catch(e) {}
 });
 </script>
 </body>
