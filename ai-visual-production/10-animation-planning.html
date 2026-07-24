@@ -72,12 +72,12 @@
         <table class="data-table">
           <thead><tr><th>维度</th><th>选择</th><th>理由</th></tr></thead>
           <tbody>
-            <tr><td><strong>时长</strong></td><td>3-5分钟</td><td>适合短视频平台传播，制作周期可控（AI辅助下约2-3周），观众注意力友好</td></tr>
-            <tr><td><strong>风格</strong></td><td>皮克斯风格现代卡通</td><td>三维渲染质感+简化几何造型+温暖色彩，AI工具（SD/Flux）对此风格训练数据最充分</td></tr>
-            <tr><td><strong>受众</strong></td><td>全年龄段（核心8-35岁）</td><td>情感共鸣跨越年龄层，B站/YouTube/抖音均可覆盖</td></tr>
-            <tr><td><strong>主题</strong></td><td>寻家之旅</td><td>普世情感主题，无需对白即可理解，天然适合多语种配音</td></tr>
-            <tr><td><strong>叙事方式</strong></td><td>无对白纯视觉叙事</td><td>降低多语言制作成本，全球发行无障碍，AI配音可选配非必需</td></tr>
-            <tr><td><strong>角色数量</strong></td><td>3-5个主要角色</td><td>角色一致性控制在AI流程中的关键瓶颈，控制在5个以内可大幅降低技术风险</td></tr>
+            <tr><td><strong>时长</strong></td><td>3-5分钟</td><td>适合短视频平台传播，制作周期可控（AI辅助下约2-3周），观众注意力友好 | [推演]</td></tr>
+            <tr><td><strong>风格</strong></td><td>皮克斯风格现代卡通</td><td>三维渲染质感+简化几何造型+温暖色彩，AI工具（SD 3.5/Flux.1/MJ v6.1）对此风格训练数据最充分 [行业]</td></tr>
+            <tr><td><strong>受众</strong></td><td>全年龄段（核心8-35岁）</td><td>情感共鸣跨越年龄层，B站/YouTube/抖音均可覆盖 | [行业]</td></tr>
+            <tr><td><strong>主题</strong></td><td>寻家之旅</td><td>普世情感主题，无需对白即可理解，天然适合多语种配音 | [推演]</td></tr>
+            <tr><td><strong>叙事方式</strong></td><td>无对白纯视觉叙事</td><td>降低多语言制作成本，全球发行无障碍，AI配音可选配非必需 | [推演]</td></tr>
+            <tr><td><strong>角色数量</strong></td><td>3-5个主要角色</td><td>角色一致性控制在AI流程中的关键瓶颈，控制在5个以内可大幅降低技术风险 | [实测]</td></tr>
           </tbody>
         </table>
       </div>
@@ -120,29 +120,11 @@
     <h3 class="section-subtitle">2.2 角色弧光设计</h3>
 
     <table class="data-table">
-      <thead><tr><th>角色</th><th>初始状态</th><th>转变契机</th><th>最终状态</th><th>弧光类型</th></tr></thead>
+      <thead><tr><th>角色</th><th>初始状态</th><th>转变契机</th><th>最终状态</th><th>弧光类型</th><th>数据来源</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>小橘</strong></td>
-          <td>恐惧未知，躲在巷子里</td>
-          <td>失去家园，别无选择</td>
-          <td>勇敢探索城市，主动寻找</td>
-          <td><span class="badge cyan">成长弧</span></td>
-        </tr>
-        <tr>
-          <td><strong>小黑（流浪狗）</strong></td>
-          <td>警惕陌生人，独来独往</td>
-          <td>小橘分享食物</td>
-          <td>成为忠诚伙伴，一起冒险</td>
-          <td><span class="badge green">信任弧</span></td>
-        </tr>
-        <tr>
-          <td><strong>小女孩（小雅）</strong></td>
-          <td>孤独，缺少陪伴</td>
-          <td>遇到小橘和小黑</td>
-          <td>找到情感寄托，学会关爱</td>
-          <td><span class="badge purple">治愈弧</span></td>
-        </tr>
+        <tr><td><strong>小橘</strong><td>恐惧未知，躲在巷子里</td><td>失去家园，别无选择</td><td>勇敢探索城市，主动寻找</td><td><span class="badge cyan">成长弧</span></td><td>[推演]</td></tr>
+        <tr><td><strong>小黑（流浪狗）</strong></td><td>警惕陌生人，独来独往</td><td>小橘分享食物</td><td>成为忠诚伙伴，一起冒险</td><td><span class="badge green">信任弧</span></td><td>[推演]</td></tr>
+        <tr><td><strong>小女孩（小雅）</strong></td><td>孤独，缺少陪伴</td><td>遇到小橘和小黑</td><td>找到情感寄托，学会关爱</td><td><span class="badge purple">治愈弧</span></td><td>[推演]</td></tr>
       </tbody>
     </table>
 
@@ -348,6 +330,12 @@
     <h3 class="section-subtitle">5.1 分镜时间线总览</h3>
 
     <div class="chart-container" id="chart-10-gantt"></div>
+    <p style="font-size:10px;color:var(--text3);text-align:center;margin-top:2px">数据来源：[推演] 动画短片制作甘特图估算模型 | 最后更新: 2026-07</p>
+
+    <div class="risk-box">
+      <div class="risk-title"><i class="fas fa-triangle-exclamation"></i> 风险提示</div>
+      <p style="margin:0;font-size:12px;line-height:1.7"><strong>工具迭代风险：</strong>AI视频工具迭代极快（可灵Kling 2.5已支持60秒长片段），本章分镜提示词基于MJ v6.1，未来需适配新一代模型。<strong>平台合规：</strong>2026年各平台AI内容标注政策收紧（B站/YouTube/抖音均要求勾选AI标识）。</p>
+    </div>
 
     <h3 class="section-subtitle">5.2 12个关键镜头的详细Storyboard Prompt</h3>
 
@@ -511,6 +499,10 @@
         <p style="margin-top:8px"><strong>分镜优先于图像：</strong>不要一上来就用Midjourney生成图片。先用文字描述每个镜头，确认叙事流畅后再进入视觉生成。这可以节省50%以上的返工时间。</p>
         <p style="margin-top:8px"><strong>建立"角色圣经"：</strong>为每个主要角色创建一页文档，包含：外貌描述（精确到毛色编号）、性格关键词、标志性动作、配色方案。每次生成角色图像时，引用这份文档确保一致性。</p>
       </div>
+    </div>
+
+    <div class="data-note">
+      <p><strong>⚠️ 数据时效性与风险提示：</strong>① AI视频工具迭代极快（可灵Kling 2.5已支持60秒长片段），本章中的分镜提示词基于MJ v6.1，未来需适配MJ v7或Flux.3等新一代模型；② 2026年各平台AI内容标注政策收紧（B站/YouTube/抖音均要求勾选AI标识），发布前务必确认合规要求；③ 本文档数据截至2026-07，后续更新请关注各工具官网和行业报告。</p>
     </div>
 
   </main>

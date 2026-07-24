@@ -74,7 +74,7 @@
       </thead>
       <tbody>
         <tr><td><strong>创意概念</strong></td><td>创意团队头脑风暴3-5天</td><td>LLM生成100+概念，人工精选</td><td style="color:var(--green)">90%</td></tr>
-        <tr><td><strong>视觉稿</strong></td><td>设计师绘制3-5版视觉方案</td><td>SDXL一次生成50+变体</td><td style="color:var(--green)">95%</td></tr>
+        <tr><td><strong>视觉稿</strong></td><td>设计师绘制3-5版视觉方案</td><td>AI一次生成50+变体</td><td style="color:var(--green)">95%</td></tr>
         <tr><td><strong>产品图</strong></td><td>摄影棚拍摄+后期修图（1-2周）</td><td>AI生成产品场景图（30分钟）</td><td style="color:var(--green)">99%</td></tr>
         <tr><td><strong>广告视频</strong></td><td>拍摄+剪辑（2-4周）</td><td>AI生成片段+剪辑（1-2天）</td><td style="color:var(--green)">85%</td></tr>
         <tr><td><strong>A/B测试素材</strong></td><td>制作2-3版不同素材</td><td>一键生成20+版本</td><td style="color:var(--green)">90%</td></tr>
@@ -85,10 +85,10 @@
 
     <ol class="steps-list">
       <li><strong>获取产品素材：</strong>拍摄或获取产品的白底图（PNG透明背景最佳）</li>
-      <li><strong>生成场景背景：</strong>用SDXL的Inpaint功能，将白底图放入不同场景中（海边度假/办公室/厨房等）</li>
+      <li><strong>生成场景背景：</strong>用AI Inpaint功能，将白底图放入不同场景中（海边度假/办公室/厨房等）</li>
       <li><strong>批量变体：</strong>对每个场景生成3-5个不同配色的变体（A/B测试用）</li>
       <li><strong>添加文案：</strong>用Canva/Figma在图片上叠加品牌文案（AI辅助排版）</li>
-      <li><strong>生成视频版：</strong>将静态广告图用可灵/Pika转为3秒动态广告视频</li>
+      <li><strong>生成视频版：</strong>将静态广告图用可灵/Pika/Luma转为3秒动态广告视频</li>
       <li><strong>多平台适配：</strong>自动resize为各平台规格（朋友圈广告/抖音信息流/B站开屏）</li>
     </ol>
 
@@ -137,9 +137,9 @@
         <tr><th>设计阶段</th><th>AI工具</th><th>产出物</th><th>时间对比</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>世界观设定</strong></td><td>SDXL/Flux生成场景概念图</td><td>地图/建筑/环境氛围图</td><td>2周 → 2天</td></tr>
-        <tr><td><strong>角色设计</strong></td><td>Midjourney/ComfyUI + IP-Adapter</td><td>角色立绘/三视图/装备设计</td><td>1周 → 1天</td></tr>
-        <tr><td><strong>UI/图标</strong></td><td>SDXL生成图标集</td><td>技能图标/道具图标/UI元素</td><td>3天 → 3小时</td></tr>
+        <tr><td><strong>世界观设定</strong></td><td>Flux/Midjourney v6.1生成场景概念图</td><td>地图/建筑/环境氛围图</td><td>2周 → 2天</td></tr>
+        <tr><td><strong>角色设计</strong></td><td>Midjourney v6.1/ComfyUI + IP-Adapter</td><td>角色立绘/三视图/装备设计</td><td>1周 → 1天</td></tr>
+        <tr><td><strong>UI/图标</strong></td><td>Flux/SD 3.5生成图标集</td><td>技能图标/道具图标/UI元素</td><td>3天 → 3小时</td></tr>
         <tr><td><strong>宣传素材</strong></td><td>AI生成海报/封面/预告片帧</td><td>商店封面/宣传海报/社交媒体素材</td><td>1周 → 半天</td></tr>
         <tr><td><strong>原型演示</strong></td><td>AI生成+简单引擎拼接</td><td>可演示的概念Demo</td><td>1月 → 1周</td></tr>
       </tbody>
@@ -150,7 +150,7 @@
     <p>好莱坞和国内影视公司已经开始广泛使用AI进行预制作：</p>
 
     <ul style="list-style:none;padding:0;font-size:13px;color:var(--text2)">
-      <li style="padding:4px 0;border-bottom:1px solid var(--border)"><strong>故事板生成：</strong>用SDXL将剧本场景描述直接转化为故事板画面，取代手绘故事板</li>
+      <li style="padding:4px 0;border-bottom:1px solid var(--border)"><strong>故事板生成：</strong>用Flux将剧本场景描述直接转化为故事板画面，取代手绘故事板</li>
       <li style="padding:4px 0;border-bottom:1px solid var(--border)"><strong>概念艺术：</strong>导演和美术指导用Midjourney快速探索视觉风格方向</li>
       <li style="padding:4px 0;border-bottom:1px solid var(--border)"><strong>预可视化(Previs)：</strong>用AI生成的图像序列制作简易的动态预演</li>
       <li style="padding:4px 0"><strong>分镜脚本：</strong>AI根据剧本自动生成多版本分镜，供导演选择</li>
@@ -167,8 +167,8 @@
         <tr><th>内容类型</th><th>AI工具组合</th><th>单课时成本对比</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>图文教程</strong></td><td>SDXL生成插图 + LLM生成文字</td><td>¥500/课 → ¥5/课</td></tr>
-        <tr><td><strong>动画科普</strong></td><td>SDXL+可灵生成动画 + ElevenLabs配音</td><td>¥5000/课 → ¥200/课</td></tr>
+        <tr><td><strong>图文教程</strong></td><td>Flux生成插图 + LLM生成文字</td><td>¥500/课 → ¥5/课</td></tr>
+        <tr><td><strong>动画科普</strong></td><td>Flux+可灵生成动画 + ElevenLabs配音</td><td>¥5000/课 → ¥200/课</td></tr>
         <tr><td><strong>互动课件</strong></td><td>Spline AI生成3D + LLM生成交互逻辑</td><td>¥3000/课 → ¥100/课</td></tr>
         <tr><td><strong>实验模拟</strong></td><td>AI生成实验场景 + 物理引擎模拟</td><td>¥10000/课 → ¥500/课</td></tr>
       </tbody>
@@ -184,7 +184,7 @@
       <div class="card">
         <h3 class="section-subtitle">视觉识别系统</h3>
         <ul style="list-style:none;padding:0;font-size:13px;color:var(--text2)">
-          <li>• Logo设计：SDXL生成50+变体，挑选最优</li>
+          <li>• Logo设计：AI生成50+变体，挑选最优</li>
           <li>• 配色方案：AI分析竞品+生成互补色</li>
           <li>• 字体选择：AI推荐匹配风格的字体组合</li>
           <li>• 模板库：一套模板适配所有平台</li>
@@ -294,6 +294,12 @@
     </div>
 
     <div class="chart-container" id="chart-21-commercial"></div>
+    <p style="font-size:10px;color:var(--text3);text-align:center;margin-top:2px">数据来源：[行业] Gartner AI采用预测 + [推演] 各应用领域市场规模估算 | 最后更新: 2026-07</p>
+
+    <div class="risk-box">
+      <div class="risk-title"><i class="fas fa-triangle-exclamation"></i> 风险提示</div>
+      <p style="margin:0;font-size:12px;line-height:1.7"><strong>版权合规风险：</strong>AI生成图像的版权归属在全球范围内仍有争议，商业用途前务必确认所用工具的授权条款。<strong>市场饱和风险：</strong>电商产品图和个人IP领域已进入红海竞争，进入门槛持续抬高。<strong>平台政策变动：</strong>各内容平台的AI标注要求持续收紧（如抖音/TikTok强制AI标识），需密切关注合规变化。</p>
+    </div>
 
   </main>
 

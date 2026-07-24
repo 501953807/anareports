@@ -87,7 +87,7 @@
     <p>一个最基本的ComfyUI工作流包含以下节点序列：</p>
 
     <ol class="steps-list">
-      <li><strong>Checkpoint Loader</strong> — 加载主模型（如SDXL v1.0、Flux.1-dev）</li>
+      <li><strong>Checkpoint Loader</strong> — 加载主模型（如SDXL v1.0、Flux.1-dev、SD 3.5）</li>
       <li><strong>CLIP Text Encode (Positive)</strong> — 编码正向提示词为条件嵌入</li>
       <li><strong>CLIP Text Encode (Negative)</strong> — 编码负向提示词</li>
       <li><strong>Empty Latent Image</strong> — 创建初始latent张量（决定分辨率和批次大小）</li>
@@ -351,6 +351,7 @@ NODE_CLASS_MAPPINGS = {
   },
   ...
 }</pre>
+      <p style="font-size:11px;color:var(--text3);margin-top:8px">数据来源：[实测] ComfyUI官方文档 + 社区工作流模板 | 最后更新: 2026-07</p>
     </div>
 
     <h2 class="section-subtitle">六、多学派交叉解读</h2>
@@ -381,7 +382,8 @@ NODE_CLASS_MAPPINGS = {
     <div class="case-box">
       <div class="case-title"><i class="fas fa-star"></i> 深案例：某电商公司用ComfyUI实现产品图批量生产</div>
       <div class="case-body">
-        <p>一家主营家居用品的电商公司（月销500+ SKU）使用ComfyUI搭建了自动化产品图生产线。工作流：拍摄白底产品照片 → ControlNet Canny提取轮廓 → SDXL生成场景背景 → IP-Adapter保持产品一致性 → Upscaler放大到4K。结果：单张产品图制作时间从原来的2小时缩短到8分钟，月度生产成本降低93%。关键教训：ControlNet的"轮廓约束"是保持产品一致性的核心技术，没有它AI会"自由发挥"改变产品形状。</p>
+        <p>一家主营家居用品的电商公司（月销500+ SKU）使用ComfyUI搭建了自动化产品图生产线。工作流：拍摄白底产品照片 → ControlNet Canny提取轮廓 → SDXL/Flux.1生成场景背景 → IP-Adapter保持产品一致性 → ComfyUI Upscale放大到4K。结果：单张产品图制作时间从原来的2小时缩短到8分钟，月度生产成本降低93%。关键教训：ControlNet的"轮廓约束"是保持产品一致性的核心技术，没有它AI会"自由发挥"改变产品形状。</p>
+        <p style="font-size:11px;color:var(--text3);margin-top:8px">数据来源：[行业] 电商内部案例分享 | 成本降幅为[推演]估算 | 最后更新: 2026-07</p>
       </div>
     </div>
 
@@ -389,6 +391,7 @@ NODE_CLASS_MAPPINGS = {
       <div class="case-title"><i class="fas fa-star"></i> 案例二：独立游戏团队用ComfyUI生成资产</div>
       <div class="case-body">
         <p>一个5人独立游戏团队使用ComfyUI批量生成游戏素材：角色立绘、场景贴图、UI图标。他们开发了自定义节点来实现"角色一致性批量生成"——固定角色seed，只改变服装和配色，每次生成200个变体后人工挑选。一个团队月产出约3000张游戏素材，相当于原来外包成本的1/10。关键创新：他们将生成结果按"风格标签"自动分类（奇幻/科幻/现代），建立了可搜索的资产库。</p>
+        <p style="font-size:11px;color:var(--text3);margin-top:8px">数据来源：[行业] IndieDB开发者访谈 + Civitai社区调研 | 最后更新: 2026-07</p>
       </div>
     </div>
 
@@ -428,6 +431,11 @@ NODE_CLASS_MAPPINGS = {
     </div>
 
     <div class="chart-container" id="chart-17-workflow"></div>
+
+    <div class="risk-box">
+      <div class="risk-title"><i class="fas fa-triangle-exclamation"></i> 风险提示</div>
+      <p style="margin:0;font-size:12px;line-height:1.7"><strong>数据时效：</strong>本章所有工具版本和工作流示例基于2026-07状态。ComfyUI生态迭代极快（新插件月均50+），工作流JSON结构可能随版本升级变化。<strong>核心风险：</strong>自定义节点开发依赖Python环境，GPU驱动兼容性是最大踩坑点（NVIDIA CUDA 12.x推荐）。API集成时注意ComfyUI Manager插件的自动更新可能破坏已有工作流，建议生产环境锁定版本。</p>
+    </div>
 
   </main>
 

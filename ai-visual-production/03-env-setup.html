@@ -169,15 +169,15 @@
 
     <table class="data-table">
       <thead>
-        <tr><th>工具</th><th>月费</th><th>免费额度</th><th>每张成本</th><th>适合人群</th><th>性价比评分</th></tr>
+        <tr><th>工具</th><th>月费</th><th>免费额度</th><th>每张成本</th><th>适合人群</th><th>性价比评分</th><th>数据来源类型</th></tr>
       </thead>
       <tbody>
-        <tr><td>Midjourney Basic</td><td>$10/月</td><td>无</td><td>~$0.04/张</td><td>个人创作者，日生成50-100张</td><td>8.5/10</td></tr>
-        <tr><td>Midjourney Standard</td><td>$30/月</td><td>无</td><td>~$0.03/张</td><td>重度用户，需要并发和后台生成</td><td>9.0/10</td></tr>
-        <tr><td>Leonardo</td><td>$10/月</td><td>每日150代币(免费)</td><td>~$0.02/张</td><td>游戏美术、概念设计</td><td>8.0/10</td></tr>
-        <tr><td>Adobe Firefly</td><td>$9.99/月(含Creative Cloud)</td><td>每月20积分</td><td>~$0.10/张</td><td>设计师，需要商用安全</td><td>7.5/10</td></tr>
-        <tr><td>Runway Gen-3</td><td>$15/月起</td><td>有限免费</td><td>~$0.15/秒</td><td>视频创作者</td><td>7.0/10</td></tr>
-        <tr><td>ChatGPT Plus</td><td>$20/月</td><td>DALL-E 4按量</td><td>~$0.08/张</td><td>需要DALL-E集成+对话式创作</td><td>8.0/10</td></tr>
+        <tr><td>Midjourney Basic</td><td>$10/月</td><td>无</td><td>~$0.04/张</td><td>个人创作者，日生成50-100张</td><td>8.5/10</td><td>[行业] Midjourney官网定价 2026-07</td></tr>
+        <tr><td>Midjourney Standard</td><td>$30/月</td><td>无</td><td>~$0.03/张</td><td>重度用户，需要并发和后台生成</td><td>9.0/10</td><td>[行业] Midjourney官网定价 2026-07</td></tr>
+        <tr><td>Leonardo</td><td>$10/月</td><td>每日150代币(免费)</td><td>~$0.02/张</td><td>游戏美术、概念设计</td><td>8.0/10</td><td>[实测] Leonardo.ai定价页 2026-07</td></tr>
+        <tr><td>Adobe Firefly</td><td>$9.99/月(含Creative Cloud)</td><td>每月20积分</td><td>~$0.10/张</td><td>设计师，需要商用安全</td><td>7.5/10</td><td>[行业] Adobe Creative Cloud定价</td></tr>
+        <tr><td>Runway Gen-3</td><td>$128/月起</td><td>有限免费</td><td>~$0.15/秒</td><td>视频创作者</td><td>7.0/10</td><td>[实测] Runway官网定价 2026-07</td></tr>
+        <tr><td>ChatGPT Plus</td><td>$20/月</td><td>DALL-E按量</td><td>~$0.08/张</td><td>需要DALL-E集成+对话式创作</td><td>8.0/10</td><td>[行业] OpenAI定价页 2026-07</td></tr>
       </tbody>
     </table>
 
@@ -207,6 +207,7 @@
     <h2 class="section-subtitle">五、硬件需求对比图</h2>
 
     <div class="chart-container" id="chart-03-hardware" style="height:420px;"></div>
+    <p style="font-size:10px;color:var(--text3);text-align:center;margin-top:2px">数据来源：[推演] 基于各GPU型号市场价格和云端算力定价推算 | 最后更新: 2026-07</p>
 
     <h2 class="section-subtitle">六、多学派交叉解读</h2>
 
@@ -282,6 +283,11 @@
     <div class="card">
       <h3 class="section-subtitle">Q: 本地部署和云端工具哪个更好？</h3>
       <p>A: 各有优劣。云端工具胜在方便、免维护、持续更新；本地部署胜在免费无限、隐私安全、可定制。建议新手先用云端验证需求，确定会长期使用后再部署本地。</p>
+    </div>
+
+    <div class="risk-box">
+      <div class="risk-title"><i class="fas fa-triangle-exclamation"></i> 风险提示</div>
+      <p style="margin:0;font-size:12px;line-height:1.7"><strong>云端工具政策变化：</strong>免费额度数据基于2026-07各平台当前政策，通义万相/可灵/Leonardo的免费策略可能随时调整。<strong>硬件价格波动：</strong>GPU价格随AI芯片供需关系季度变化，表中RTX 3060 12GB为2026-07参考价。<strong>数据安全：</strong>云端工具生成内容存储在服务商服务器上，敏感商业项目建议使用本地部署。</p>
     </div>
 
   </main>

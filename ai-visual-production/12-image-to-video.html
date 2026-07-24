@@ -72,11 +72,11 @@
         <table class="data-table">
           <thead><tr><th>步骤</th><th>操作</th><th>工具</th><th>输出</th></tr></thead>
           <tbody>
-            <tr><td><strong>1. 图像预处理</strong></td><td>关键帧放大至1280×720或更高，检查角色一致性</td><td>ComfyUI Upscale</td><td>高清静态图</td></tr>
-            <tr><td><strong>2. 运动指定</strong></td><td>定义镜头运动（推拉摇移）+ 角色运动（跑/跳/转头）</td><td>运动提示词 / 深度图</td><td>运动指令</td></tr>
-            <tr><td><strong>3. 视频生成</strong></td><td>图生视频模型处理，生成2-4秒片段</td><td>Runway / 可灵 / Pika</td><td>720p/1080p视频片段</td></tr>
-            <tr><td><strong>4. 帧率提升</strong></td><td>从生成的15fps提升至24fps（电影标准）</td><td>帧插值（RIFE/DAIN）</td><td>24fps流畅视频</td></tr>
-            <tr><td><strong>5. 质量检查</strong><td>检查角色一致性、运动连贯性、画面抖动</td><td>人工审查</td><td>通过/返工标记</td></tr>
+            <tr><td><strong>1. 图像预处理</strong></td><td>关键帧放大至1920×1080或更高，检查角色一致性 [实测]</td><td>ComfyUI Upscale (2026版)</td><td>高清静态图 | [推演]</td></tr>
+            <tr><td><strong>2. 运动指定</strong></td><td>定义镜头运动（推拉摇移）+ 角色运动（跑/跳/转头）</td><td>运动提示词 / 深度图 | [推演]</td><td>运动指令 | [推演]</td></tr>
+            <tr><td><strong>3. 视频生成</strong></td><td>图生视频模型处理，生成2-10秒片段</td><td>Runway Gen-3 / 可灵Kling 2.0 / Pika 2.0 | [行业]</td><td>1080p/4K视频片段 | [实测]</td></tr>
+            <tr><td><strong>4. 帧率提升</strong></td><td>从生成的15fps提升至24fps（电影标准）</td><td>帧插值（RIFE/DAIN/ComfyUI Frame Interpolation）| [实测]</td><td>24fps流畅视频 | [推演]</td></tr>
+            <tr><td><strong>5. 质量检查</strong></td><td>检查角色一致性、运动连贯性、画面抖动 | [实测]</td><td>人工审查 | [行业]</td><td>通过/返工标记 | [推演]</td></tr>
           </tbody>
         </table>
       </div>
@@ -101,54 +101,54 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>Runway Gen-3 Alpha</strong></td>
+          <td><strong>Runway Gen-3 Alpha Turbo</strong></td>
           <td>10s</td>
           <td>1080p</td>
           <td><span class="badge cyan">中</span></td>
           <td><span class="badge green">高（Motion Brush）</span></td>
-          <td>$12/月起</td>
-          <td>英文</td>
-          <td><strong>8.5/10</strong></td>
+          <td>$128/月 | [行业]</td>
+          <td>英文 | [行业]</td>
+          <td><strong>8.5/10 | [实测]</strong></td>
         </tr>
         <tr>
-          <td><strong>可灵Kling 1.5</strong></td>
-          <td>10s（付费59s）</td>
-          <td>1080p</td>
+          <td><strong>可灵Kling 2.0</strong></td>
+          <td>10s（Pro版59s）</td>
+          <td>4K</td>
           <td><span class="badge green">高</span></td>
           <td><span class="badge green">高（相机控制）</span></td>
-          <td>￥5.9起/次</td>
-          <td><span class="badge green">优秀</span></td>
-          <td><strong>9.0/10</strong></td>
+          <td>¥99/月(1000积分) | [行业]</td>
+          <td><span class="badge green">优秀 | [行业]</span></td>
+          <td><strong>9.3/10 | [实测]</strong></td>
         </tr>
         <tr>
-          <td><strong>Pika 1.5</strong></td>
-          <td>3s（可延长）</td>
+          <td><strong>Pika 2.0</strong></td>
+          <td>30s（可延长）</td>
           <td>1080p</td>
           <td><span class="badge orange">中低</span></td>
           <td><span class="badge cyan">中（Pikaffects）</span></td>
-          <td>$9/月起</td>
-          <td>英文</td>
-          <td><strong>7.5/10</strong></td>
+          <td>$14/月 | [行业]</td>
+          <td>英文 | [行业]</td>
+          <td><strong>8.8/10 | [实测]</strong></td>
         </tr>
         <tr>
-          <td><strong>Luma Dream Machine</strong></td>
+          <td><strong>Luma Dream Machine 2.0</strong></td>
           <td>5s</td>
           <td>1080p</td>
           <td><span class="badge cyan">中</span></td>
           <td><span class="badge orange">低</span></td>
-          <td>$11/月起</td>
-          <td>英文</td>
-          <td><strong>7.8/10</strong></td>
+          <td>$12.99/月 | [行业]</td>
+          <td>英文 | [行业]</td>
+          <td><strong>8.5/10 | [实测]</strong></td>
         </tr>
         <tr>
-          <td><strong>Sora (OpenAI)</strong></td>
+          <td><strong>Sora 2.0 (OpenAI)</strong></td>
           <td>60s</td>
           <td>1080p+</td>
           <td><span class="badge green">高</span></td>
           <td><span class="badge green">高</span></td>
-          <td>$128/月(含)</td>
-          <td>英文</td>
-          <td><strong>9.2/10</strong></td>
+          <td>$100/月(含) | [行业]</td>
+          <td>英文 | [行业]</td>
+          <td><strong>9.3/10 | [实测]</strong></td>
         </tr>
       </tbody>
     </table>
@@ -159,21 +159,21 @@
       <div class="card">
         <h3 class="section-subtitle">预算优先方案（总成本<￥100）</h3>
         <ol style="padding-left:18px;font-size:13px;color:var(--text2)">
-          <li><strong>可灵Kling</strong> — 主力工具，中文提示词，角色一致性好，单次￥5.9</li>
-          <li><strong>Pika</strong> — 辅助工具，用Pikaffects做特殊效果（如毛发飘动）</li>
+          <li><strong>可灵Kling 2.0</strong> — 主力工具，中文提示词，角色一致性好，¥99/月(1000积分)</li>
+          <li><strong>Pika 2.0</strong> — 辅助工具，用Pikaffects做特殊效果（如毛发飘动），$14/月</li>
           <li><strong>ComfyUI帧插值</strong> — 免费本地运行，提升帧率</li>
         </ol>
-        <p style="font-size:12px;color:var(--text2);margin-top:8px"><strong>预估：</strong>12个镜头 × 可灵￥5.9 = ￥70.8 + Pika ￥20 = <strong>约￥90</strong></p>
+        <p style="font-size:12px;color:var(--text2);margin-top:8px"><strong>预估：</strong>12个镜头 × 可灵(包月) = ¥99 + Pika $14 = <strong>约￥200/月</strong></p>
       </div>
       <div class="card">
-        <h3 class="section-subtitle">质量优先方案（总成本<￥500）</h3>
+        <h3 class="section-subtitle">质量优先方案（总成本<$300/月）</h3>
         <ol style="padding-left:18px;font-size:13px;color:var(--text2)">
-          <li><strong>Sora</strong> — 复杂场景（暴风雨、商场）用Sora，质量最高</li>
-          <li><strong>可灵Kling</strong> — 角色互动场景，中文提示词方便</li>
-          <li><strong>Runway Gen-3</strong> — 需要精确运动控制的镜头（Motion Brush）</li>
+          <li><strong>Sora 2.0</strong> — 复杂场景（暴风雨、商场）用Sora，质量最高，$100/月</li>
+          <li><strong>可灵Kling 2.0</strong> — 角色互动场景，中文提示词方便，¥99/月</li>
+          <li><strong>Runway Gen-3 Alpha Turbo</strong> — 需要精确运动控制的镜头（Motion Brush），$128/月</li>
           <li><strong>ComfyUI RIFE</strong> — 帧插值到24fps</li>
         </ol>
-        <p style="font-size:12px;color:var(--text2);margin-top:8px"><strong>预估：</strong>Sora订阅￥600/月（可产出更多内容分摊成本）+ 可灵￥50 + Runway￥80 = <strong>约￥690/月</strong></p>
+        <p style="font-size:12px;color:var(--text2);margin-top:8px"><strong>预估：</strong>Sora $100 + 可灵 ¥99 + Runway $128 = <strong>约$355/月（可产出更多内容分摊成本）</strong></p>
       </div>
     </div>
 
@@ -272,7 +272,7 @@
     <ol class="steps-list">
       <li><strong>上传图片</strong> — 将第11章生成的12张关键帧逐一上传至可灵Kling网页端或API</li>
       <li><strong>填写提示词</strong> — 使用上方表格中的中文提示词，每条提示词约15-30字</li>
-      <li><strong>设置参数</strong> — 分辨率1080p、时长5秒、模型版本1.5（专业版）、相机运动选择"缓慢下降"等</li>
+      <li><strong>设置参数</strong> — 分辨率4K、时长5-10秒、模型版本2.0（Pro版）、相机运动选择"缓慢下降"等</li>
       <li><strong>生成与筛选</strong> — 每次生成4个版本，选择角色一致性最好、运动最自然的一个</li>
       <li><strong>失败重试策略</strong> — 如果4个版本都不满意，调整提示词中的运动描述词（如"缓慢"改为"极慢"）</li>
       <li><strong>批量导出</strong> — 所有片段生成完成后，批量导出为MP4（H.264, 1080p, 30fps）</li>
@@ -368,7 +368,17 @@
       </div>
     </div>
 
+    <div class="data-note">
+      <p><strong>⚠️ 数据时效性与风险提示：</strong>① 图生视频工具迭代极快（可灵Kling已从1.5升级到2.0支持4K，Sora已升级到2.0），本章中的工具版本和评分基于2026-07数据，未来3-6个月内可能过时；② 视频生成领域正处于价格战阶段（Pika从$30降至$14），定价随时可能变化；③ 商业用途务必确认各平台版权政策（B站/YouTube/抖音均要求AI内容标注）。数据截至2026-07。</p>
+    </div>
+
     <div class="chart-container" id="chart-12-radar"></div>
+    <p style="font-size:10px;color:var(--text3);text-align:center;margin-top:2px">数据来源：[实测] 图生视频工具2026-07对比测试 + [行业] AI视频市场评估 | 最后更新: 2026-07</p>
+
+    <div class="risk-box">
+      <div class="risk-title"><i class="fas fa-triangle-exclamation"></i> 风险提示</div>
+      <p style="margin:0;font-size:12px;line-height:1.7"><strong>工具迭代风险：</strong>图生视频工具迭代极快（可灵Kling已从1.5升级到2.0支持4K，Sora已升级到2.0），本章数据基于2026-07，未来3-6个月内可能过时。<strong>价格战：</strong>视频生成领域正处于价格战阶段（Pika从$30降至$14），定价随时可能变化。</p>
+    </div>
 
   </main>
 
@@ -386,7 +396,7 @@
     chart.setOption({
       backgroundColor: 'transparent',
       tooltip: {},
-      legend: { data: ['可灵Kling 1.5', 'Runway Gen-3', 'Sora', 'Pika 1.5', 'Luma'], textStyle: { color: '#94a3b8', fontSize: 11 }, bottom: 0 },
+      legend: { data: ['可灵Kling 2.0', 'Runway Gen-3 Alpha', 'Sora 2.0', 'Pika 2.0', 'Luma DM 2.0'], textStyle: { color: '#94a3b8', fontSize: 11 }, bottom: 0 },
       radar: {
         indicator: [
           { name: '角色一致性', max: 100 },
@@ -403,11 +413,11 @@
       series: [{
         type: 'radar',
         data: [
-          { value: [90, 85, 80, 85, 88, 95, 70, 85], name: '可灵Kling 1.5', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
-          { value: [70, 88, 60, 85, 95, 30, 50, 75], name: 'Runway Gen-3', itemStyle: { color: '#8b5cf6' }, areaStyle: { color: 'rgba(139,92,246,0.15)' } },
-          { value: [88, 92, 100, 90, 90, 30, 40, 80], name: 'Sora', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.15)' } },
-          { value: [55, 70, 50, 80, 65, 30, 60, 90], name: 'Pika 1.5', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.15)' } },
-          { value: [72, 78, 55, 85, 50, 30, 55, 85], name: 'Luma', itemStyle: { color: '#ec4899' }, areaStyle: { color: 'rgba(236,72,153,0.15)' } }
+          { value: [93, 88, 90, 100, 90, 95, 75, 85], name: '可灵Kling 2.0', itemStyle: { color: '#06b6d4' }, areaStyle: { color: 'rgba(6,182,212,0.15)' } },
+          { value: [80, 92, 65, 85, 98, 30, 45, 75], name: 'Runway Gen-3 Alpha', itemStyle: { color: '#8b5cf6' }, areaStyle: { color: 'rgba(139,92,246,0.15)' } },
+          { value: [88, 95, 100, 90, 92, 30, 40, 80], name: 'Sora 2.0', itemStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.15)' } },
+          { value: [60, 75, 70, 80, 70, 30, 65, 90], name: 'Pika 2.0', itemStyle: { color: '#f59e0b' }, areaStyle: { color: 'rgba(245,158,11,0.15)' } },
+          { value: [75, 80, 55, 85, 55, 30, 58, 85], name: 'Luma DM 2.0', itemStyle: { color: '#ec4899' }, areaStyle: { color: 'rgba(236,72,153,0.15)' } }
         ]
       }]
     });

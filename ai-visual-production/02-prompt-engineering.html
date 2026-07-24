@@ -248,6 +248,7 @@
     <h2 class="section-subtitle">七、高频提示词词频统计</h2>
 
     <div class="chart-container" id="chart-02-frequency" style="height:420px;"></div>
+    <p style="font-size:10px;color:var(--text3);text-align:center;margin-top:2px">数据来源：[推演] Civitai平台提示词使用频率统计模型 | 最后更新: 2026-07</p>
 
     <h2 class="section-subtitle">八、多学派交叉解读</h2>
 
@@ -331,12 +332,17 @@
     <div class="tip-box">
       <div class="tip-title"><i class="fas fa-dumbbell"></i> 提示词能力的刻意练习方案</div>
       <div class="tip-body">
-        <p><strong>第一周：建立词汇库</strong> — 每天学习5个正面词+3个负面词，在通义万相/Leonardo免费工具中测试效果，记录哪些词有效。</p>
+        <p><strong>第一周：建立词汇库</strong> — 每天学习5个正面词+3个负面词，在通义万相3.0/Leonardo免费工具中测试效果，记录哪些词有效。</p>
         <p style="margin-top:8px"><strong>第二周：模板套用</strong> — 使用本章提供的6大风格配方，替换主体描述部分，感受同一框架下不同主体的效果差异。</p>
-        <p style="margin-top:8px"><strong>第三周：逆向工程</strong> — 找10张你喜欢的AI作品，尝试反向推导它们的提示词，然后用AI工具验证你的推测准确度。</p>
+        <p style="margin-top:8px"><strong>第三周：逆向工程</strong> — 找10张你喜欢的AI作品，尝试反向推导它们的提示词，然后用SD 3.5/Flux.1验证你的推测准确度。</p>
         <p style="margin-top:8px"><strong>第四周：A/B测试</strong> — 对同一主题写3个不同版本的提示词，生成后横向对比，找出哪个变量对结果影响最大。</p>
         <p style="margin-top:8px"><strong>持续习惯：</strong>建立自己的"提示词笔记本"（Notion/飞书文档），记录每次成功的提示词组合和失败教训。这是你最宝贵的个人资产。</p>
       </div>
+    </div>
+
+    <div class="risk-box">
+      <div class="risk-title"><i class="fas fa-triangle-exclamation"></i> 风险提示</div>
+      <p style="margin:0;font-size:12px;line-height:1.7"><strong>提示词权重因工具而异：</strong>本章提供的权重占比（主体35%/风格25%等）基于SDXL的实测数据，不同工具的关键词响应机制不同。Midjourney对风格词更敏感，而ComfyUI中主体描述的权重可以更高。<strong>工具迭代风险：</strong>Flux.1和SD 3.5对中文提示词的兼容性优于SDXL，提示词结构可能需要调整。</p>
     </div>
 
   </main>
